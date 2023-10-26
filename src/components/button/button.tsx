@@ -1,15 +1,30 @@
 import { Button as MuiButton, type ButtonProps } from "@mui/material";
-import styles from "./styles.module.scss";
+import cl from "./button.module.scss";
+import Image from "next/image";
 
 type Properties = ButtonProps & {
-  icon?: React.ReactNode;
+  icon?: string;
 };
 
 const Button: React.FC<Properties> = ({ icon, children, ...props }) => {
+  const iconUrl = `/icons/${icon}.svg`;
+  const smallPadding = !icon && cl.smallPadding;
+
   return (
-    <MuiButton className={styles.button} {...props}>
-      {children}
-    </MuiButton>
+    <div className={cl.buttonWrapper}>
+      {icon && (
+        <Image
+          src={iconUrl}
+          alt=""
+          width={14}
+          height={14}
+          className={cl.image}
+        />
+      )}
+      <MuiButton className={[cl.button, smallPadding].join(" ")} {...props}>
+        {children}
+      </MuiButton>
+    </div>
   );
 };
 
