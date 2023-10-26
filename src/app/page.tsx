@@ -1,11 +1,17 @@
-import { Button } from "@/components/components";
-import styles from "./page.module.css";
+import { Button } from "@/components";
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <h1>Home page</h1>
-      <Button >Test button</Button>
+      <Button
+        icon="box"
+        variant="outlined"
+        style={{ backgroundColor: "transparent" }}
+      >
+        Test button
+      </Button>
     </main>
   );
 }
