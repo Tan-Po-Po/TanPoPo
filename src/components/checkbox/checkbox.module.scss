@@ -10,21 +10,21 @@
   transition: background-color 150ms linear;
 
   :global(.PrivateSwitchBase-input):disabled + & {
-    background-color: $yellow-dark;
+    background-color: $color-yellow-dark;
   }
 
   :global(.PrivateSwitchBase-input):disabled:checked + & {
-    background-color: $yellow-dark;
-    border-color: $gray;
+    background-color: $color-yellow-dark;
+    border-color: $color-gray;
   }
   :global(.PrivateSwitchBase-input):hover + & {
     scale: 1.1;
-    background-color: $yellow;
+    background-color: $color-yellow;
   }
 }
 
 .checkboxIconChecked {
-  background-color: $yellow;
+  background-color: $color-yellow;
   border-color: black;
   display: flex;
   align-items: center;
