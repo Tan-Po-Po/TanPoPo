@@ -1,0 +1,49 @@
+.checkbox {
+  padding: 0;
+}
+
+.checkboxIcon {
+  width: 32px;
+  height: 32px;
+  border: 2px solid black;
+  border-radius: 10px;
+  transition: background-color 150ms linear;
+
+  :global(.PrivateSwitchBase-input):disabled + & {
+    background-color: $color-yellow-dark;
+  }
+
+  :global(.PrivateSwitchBase-input):disabled:checked + & {
+    background-color: $color-yellow-dark;
+    border-color: $color-gray;
+  }
+  :global(.PrivateSwitchBase-input):hover + & {
+    scale: 1.1;
+    background-color: $color-yellow;
+  }
+}
+
+.checkboxIconChecked {
+  background-color: $color-yellow;
+  border-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    rotate: 30;
+    width: 20px;
+    height: 16px;
+    transition: 1s;
+
+    &:global {
+      animation: checkbox 0.3s;
+    }
+  }
+}
+
+.label {
+  :global(.MuiTypography-root) {
+    font-family: inherit;
+  }
+}
