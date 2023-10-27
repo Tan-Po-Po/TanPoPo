@@ -1,0 +1,83 @@
+$transition-duration: 0.2s;
+
+.mainContainer {
+  .selectContainer {
+    min-width: fit-content;
+    max-width: 350px;
+    box-shadow: $box-shadow;
+    border: $border;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    .selectWrapper {
+      position: relative;
+      cursor: pointer;
+      transition: $transition-duration;
+
+      &:hover {
+        .arrow {
+          scale: 120%;
+        }
+      }
+
+      .select {
+        font: inherit;
+        padding: 16px 24px;
+        border-radius: $border-radius;
+        transition: $transition-duration;
+        font-size: 18px;
+        padding-right: 48px;
+        font-weight: 700;
+
+        &:hover {
+          background-color: $color-yellow;
+          font-size: 19px;
+        }
+      }
+      .arrow {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        transition: $transition-duration;
+        pointer-events: none;
+      }
+    }
+
+    .dropdown {
+      animation: showDropdown $transition-duration;
+    }
+
+    .selectOpen {
+      &:hover {
+        .arrow {
+          scale: 1;
+        }
+      }
+      .select {
+        background: linear-gradient($color-yellow, white);
+
+        &:hover {
+          font-size: 18px;
+        }
+      }
+
+      .arrow {
+        transform: rotate(180deg);
+        scale: 1;
+      }
+    }
+  }
+}
+
+@keyframes showDropdown {
+  0% {
+    opacity: 0;
+    // transform: translate(0, -50px);
+    pointer-events: none;
+  }
+  100% {
+    opacity: 1;
+    // transform: translate(0);
+    pointer-events: all;
+  }
+}
