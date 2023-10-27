@@ -1,0 +1,45 @@
+.input {
+  box-sizing: border-box;
+  width: 330px;
+  height: 60px;
+
+  &,
+  label {
+    font-size: 21px;
+  }
+  input {
+    padding: 18.5px 14px;
+  }
+  fieldset {
+    border-radius: $border-radius;
+    border: 2px solid $color-black;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.35);
+  }
+  :global(.Mui-focused) fieldset {
+    border: 2px solid $color-black !important;
+  }
+
+  :global(.Mui-focused) input,
+  :global(.MuiFormLabel-filled) input,
+  &:hover input {
+    background: linear-gradient(
+      180deg,
+      rgba(254, 254, 254, 1) 10%,
+      rgba(255, 245, 27, 1) 65%
+    );
+  }
+
+  :global(.Mui-focused),
+  :global(.MuiFormLabel-filled),
+  &:hover :global(.MuiFormLabel-root) {
+    color: $color-black;
+  }
+  :global(.Mui-focused) legend,
+  :global(.MuiFormLabel-filled) + :global(.MuiInputBase-root) legend {
+    padding: 0 5px;
+  }
+}
+
+.small {
+  width: 300px;
+}
