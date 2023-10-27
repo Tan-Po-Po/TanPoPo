@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Comfortaa } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Comfortaa({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TanPoPo",
@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={font.className}>{children}</body>
     </html>
   );
 }

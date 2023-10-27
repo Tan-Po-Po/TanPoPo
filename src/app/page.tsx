@@ -1,4 +1,4 @@
-import { Button } from "@/components";
+import { Button, Checkbox } from "@/components/";
 import styles from "./page.module.scss";
 
 export default function Home() {
