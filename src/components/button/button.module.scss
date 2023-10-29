@@ -20,6 +20,7 @@
       animation: buttonIconRotate 0.3s forwards;
     }
   }
+
   .button {
     color: $color-text;
     border-radius: $border-radius;
@@ -31,8 +32,8 @@
   }
 
   :global(.MuiButton-outlined) {
-    border: 2px solid #000 !important;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.35);
+    border: $border !important;
+    box-shadow: $box-shadow;
 
     &:hover {
       background-color: $color-yellow;

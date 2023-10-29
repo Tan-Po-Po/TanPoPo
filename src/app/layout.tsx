@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "@/theme/theme";
 import { Comfortaa } from "next/font/google";
+import "@/scss/globals.scss";
 
 const font = Comfortaa({ subsets: ["latin"] });
 
