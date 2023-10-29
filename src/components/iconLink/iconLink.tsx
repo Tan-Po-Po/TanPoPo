@@ -10,7 +10,7 @@ interface Props {
   height?: string;
 }
 
-export const IconLink: React.FC<Props> = ({ icon, href, height }) => {
+const IconLink: React.FC<Props> = ({ icon, href, height }) => {
   const iconUrl = `/icons/socials/${icon}.png`;
   const iconColorUrl = `/icons/socials/${icon}Color.png`;
 
@@ -47,3 +47,5 @@ export const IconLink: React.FC<Props> = ({ icon, href, height }) => {
     </div>
   );
 };
+
+export default IconLink;
