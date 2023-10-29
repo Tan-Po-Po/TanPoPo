@@ -1,0 +1,15 @@
+.iconLink {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    transition: 0.15s;
+    cursor: pointer;
+
+    &:hover {
+      scale: 110%;
+    }
+  }
+}
