@@ -7,9 +7,10 @@ import { socialLinks } from "@/config/config";
 interface Props {
   icon: string;
   href?: string;
+  height?: string;
 }
 
-export const IconLink: React.FC<Props> = ({ icon, href }) => {
+export const IconLink: React.FC<Props> = ({ icon, href, height }) => {
   const iconUrl = `/icons/socials/${icon}.png`;
   const iconColorUrl = `/icons/socials/${icon}Color.png`;
 
@@ -32,11 +33,11 @@ export const IconLink: React.FC<Props> = ({ icon, href }) => {
       <Image
         className={cl.icon}
         src={src}
-        width={30}
-        height={30}
+        width={50}
+        height={50}
         style={{
           width: "auto",
-          height: "22px",
+          height: `${height || "26px"}`,
         }}
         alt=""
         onMouseOver={handleMouseOver}
