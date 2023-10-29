@@ -1,3 +1,4 @@
+import Select from "@/components/select/select";
 import styles from "./page.module.scss";
 
 export default function Home() {

@@ -7,12 +7,12 @@ import SelectItem from "./selectItem/selectItem";
 import { getValidClassNames } from "@/helpers";
 
 interface SelectProps {
-  placeHolder: string;
+  placeHolder?: string;
   menuItems: string[];
 }
 
 const Select: React.FC<SelectProps> = ({ placeHolder, menuItems }) => {
-  const [value, setValue] = useState<string>(placeHolder);
+  const [value, setValue] = useState<string>(placeHolder || menuItems[0]);
   const [isOpen, setIsOpen] = useState(false);
 
   const iconUrl = "/icons/arrowDown.svg";
@@ -30,7 +30,7 @@ const Select: React.FC<SelectProps> = ({ placeHolder, menuItems }) => {
           )}
         >
           <div className={cl.select} onClick={handleSelectClick}>
-            {value}
+            <div className={cl.value}>{value}</div>
           </div>
           <Image
             src={iconUrl}

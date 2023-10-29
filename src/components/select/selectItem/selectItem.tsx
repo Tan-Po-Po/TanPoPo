@@ -17,7 +17,7 @@ const SelectItem: React.FC<Props> = ({ item, setValue, isSelected }) => {
       className={getValidClassNames(cl.selectItem, isSelected && cl.selected)}
       onClick={handleClick}
     >
-      {item}
+      <div className={cl.value}>{item}</div>
     </div>
   );
 };

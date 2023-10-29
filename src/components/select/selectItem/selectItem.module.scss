@@ -7,12 +7,19 @@ $background-hover: linear-gradient(
 .selectItem {
   padding: 20px;
   transition: 0.15s;
-
   cursor: pointer;
+
+  .value {
+    transition: 0.15s;
+  }
 
   &:hover {
     background: $background-hover;
-    font-size: 17px;
+
+    .value {
+      scale: 105%;
+      font-weight: 700;
+    }
   }
 }
 
