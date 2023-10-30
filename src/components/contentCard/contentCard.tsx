@@ -1,18 +1,21 @@
-import cl from "./descriptionCard.module.scss";
+import { getValidClassNames } from "@/helpers";
+import cl from "./contentCard.module.scss";
 
 interface Props {
   children: React.ReactNode;
   index?: string;
   label?: string;
+  labelPosition?: "top" | "bottom";
   indexBgColor?: string;
   cardBgColor?: string;
   labelBgColor?: string;
   width?: string;
 }
 
-const DescriptionCard: React.FC<Props> = ({
+const ContentCard: React.FC<Props> = ({
   index,
   label,
+  labelPosition,
   children,
   indexBgColor,
   cardBgColor,
@@ -20,7 +23,7 @@ const DescriptionCard: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className={cl.descriptionCard}
+      className={cl.contentCard}
       style={{ maxWidth: width, backgroundColor: cardBgColor }}
     >
       {index && (
@@ -28,10 +31,19 @@ const DescriptionCard: React.FC<Props> = ({
           {index}
         </div>
       )}
-      {label && <div className={cl.label}>{label}</div>}
+      {label && (
+        <div
+          className={getValidClassNames(
+            cl.label,
+            labelPosition && cl[labelPosition]
+          )}
+        >
+          {label}
+        </div>
+      )}
       {children}
     </div>
   );
 };
 
-export default DescriptionCard;
+export default ContentCard;

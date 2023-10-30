@@ -27,11 +27,19 @@
   .label {
     @include border-box;
     position: absolute;
+    background-color: $color-yellow;
+    padding: 6px 8px;
+  }
+
+  .bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  .top {
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    transform-origin: center;
-    background-color: $color-yellow;
-    padding: 6px 8px;
   }
 }
