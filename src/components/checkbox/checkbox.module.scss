@@ -47,3 +47,19 @@
     font-family: inherit;
   }
 }
+
+@keyframes checkbox {
+  0% {
+    transform: scale(0) rotate(-90deg);
+    opacity: 0.4;
+  }
+
+  55% {
+    transform: scale(0.9) rotate(10deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}

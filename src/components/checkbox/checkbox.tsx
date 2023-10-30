@@ -3,7 +3,7 @@ import {
   type CheckboxProps,
   FormControlLabel,
 } from "@mui/material";
-import sl from "./checkbox.module.scss";
+import cl from "./checkbox.module.scss";
 import { getValidClassNames } from "@/helpers";
 
 import Image from "next/image";
@@ -16,9 +16,9 @@ type Properties = CheckboxProps & {
   isRequired?: boolean;
 };
 
-const icon = <span className={sl.checkboxIcon} />;
+const icon = <span className={cl.checkboxIcon} />;
 const iconChecked = (
-  <span className={getValidClassNames(sl.checkboxIcon, sl.checkboxIconChecked)}>
+  <span className={getValidClassNames(cl.checkboxIcon, cl.checkboxIconChecked)}>
     <Image src={Check} alt="Checkbox icon" />
   </span>
 );
@@ -42,12 +42,12 @@ const Checkbox: React.FC<Properties> = ({
           checkedIcon={iconChecked}
         />
       }
-      className={sl.label}
+      className={cl.label}
       label={label}
     />
   ) : (
     <MuiCheckbox
-      className={sl.checkbox}
+      className={cl.checkbox}
       {...props}
       checked={isChecked}
       required={isRequired}
