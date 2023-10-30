@@ -25,6 +25,9 @@
     color: $color-text;
     border-radius: $border-radius;
     padding: 16px 8px;
+    display: flex;
+    align-items: center;
+    text-align: center;
   }
 
   .smallPadding {
@@ -38,5 +41,28 @@
     &:hover {
       background-color: $color-yellow;
     }
+  }
+}
+
+@keyframes buttonIconRotate {
+  0% {
+    scale: 0;
+    transform: rotate(-90deg);
+  }
+  50% {
+    scale: 1;
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes buttonIconRotateToInitial {
+  0% {
+  }
+  100% {
+    scale: 0;
+    transform: rotate(-90deg);
   }
 }
