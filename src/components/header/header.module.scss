@@ -6,6 +6,10 @@
   border-top: none;
   border-radius: 0 0 $border-radius $border-radius;
   box-shadow: $box-shadow;
+  position: fixed;
+  top: 0;
+  max-width: 1400px;
+  z-index: 9999;
 }
 
 .logo {
