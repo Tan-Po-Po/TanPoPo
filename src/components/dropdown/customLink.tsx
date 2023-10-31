@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import cl from "./dropdown.module.scss";
 import NextLink from "next/link";
+import { getIconSrc } from "@/helpers";
 
 type Properties = {
   href: string;
@@ -26,7 +27,7 @@ const CustomLink: React.FC<Properties> = ({ body, href, bgColor, icon }) => {
       style={{ backgroundColor: isHover ? bgColor : defaultColor }}
     >
       <div className={cl.linkWrapper}>
-        <Image src={`/icons/${icon}.svg`} alt={icon} width={20} height={20} />
+        <Image src={getIconSrc(icon)} alt={icon} width={20} height={20} />
         <p>{body}</p>
       </div>
     </NextLink>

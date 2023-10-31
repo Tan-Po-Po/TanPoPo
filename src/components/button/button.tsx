@@ -1,17 +1,23 @@
 import { Button as MuiButton, type ButtonProps } from "@mui/material";
 import cl from "./button.module.scss";
 import Image from "next/image";
+import { getValidClassNames } from "@/helpers";
 
 type Properties = ButtonProps & {
   icon?: string;
 };
 
-const Button: React.FC<Properties> = ({ icon, children, ...props }) => {
+const Button: React.FC<Properties> = ({
+  icon,
+  children,
+  className,
+  ...props
+}) => {
   const iconUrl = `/icons/${icon}.svg`;
   const smallPadding = !icon && cl.smallPadding;
 
   return (
-    <div className={cl.buttonWrapper}>
+    <div className={getValidClassNames(cl.buttonWrapper, className)}>
       {icon && (
         <Image
           src={iconUrl}
@@ -21,7 +27,10 @@ const Button: React.FC<Properties> = ({ icon, children, ...props }) => {
           className={cl.image}
         />
       )}
-      <MuiButton className={[cl.button, smallPadding].join(" ")} {...props}>
+      <MuiButton
+        className={getValidClassNames(cl.button, smallPadding)}
+        {...props}
+      >
         {children}
       </MuiButton>
     </div>
