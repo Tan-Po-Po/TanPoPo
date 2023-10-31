@@ -1,3 +1,3 @@
-export default function getIconSrc(icon: string) {
+export function getIconSrc(icon: string) {
   return `/icons/${icon}.svg`;
 }

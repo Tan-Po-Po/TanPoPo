@@ -1,10 +1,9 @@
 import { socialLinks } from "@/config/config";
-import IconLink from "../iconLink/iconLink";
+import { IconLink } from "@/components";
 import cl from "./footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import getIconSrc from "@/helpers/getIconSrc";
-import { getValidClassNames } from "@/helpers";
+import { getValidClassNames, getIconSrc } from "@/helpers";
 
 const Footer: React.FC = () => {
   const width = "16px";
@@ -132,12 +131,12 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export { Footer };
 
 function getSocialIconsLinks() {
   const icons = [];
   for (const key in socialLinks) {
-    icons.push(<IconLink icon={key} />);
+    icons.push(<IconLink icon={key} key={key}/>);
   }
   return icons;
 }

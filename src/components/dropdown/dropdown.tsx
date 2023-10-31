@@ -6,6 +6,7 @@ import Triangle from "../../../public/icons/triangleDown.svg";
 import cl from "./dropdown.module.scss";
 import { CustomLink } from "./customLink";
 import Link from "next/link";
+import { getValidClassNames } from "@/helpers";
 
 type Links = {
   href: string;
@@ -18,11 +19,12 @@ type Properties = {
   body: string;
   href: string;
   links: Links[];
+  className: string;
 };
 
-const Dropdown: React.FC<Properties> = ({ body, href, links }) => {
+const Dropdown: React.FC<Properties> = ({ body, href, links, className }) => {
   return (
-    <div className={cl.dropdown}>
+    <div className={getValidClassNames(cl.dropdown, className)}>
       <Link href={href} className={cl.body}>
         {body}
         <Triangle className={cl.triangle} />
