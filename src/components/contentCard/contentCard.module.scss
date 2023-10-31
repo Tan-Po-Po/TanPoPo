@@ -1,4 +1,4 @@
-.descriptionCard {
+.contentCard {
   @include border-box;
   position: relative;
   display: flex;
@@ -9,6 +9,7 @@
   width: 100%;
   padding: 26px;
   gap: 18px;
+  text-align: center;
 
   .index {
     @include border-box;
@@ -22,6 +23,7 @@
     align-items: center;
     font-weight: 700;
     background-color: $color-yellow;
+    z-index: 3;
   }
 
   .label {
@@ -29,6 +31,7 @@
     position: absolute;
     background-color: $color-yellow;
     padding: 6px 8px;
+    z-index: 3;
   }
 
   .bottom {
