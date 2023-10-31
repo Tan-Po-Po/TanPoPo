@@ -2,12 +2,12 @@
   position: relative;
   width: fit-content;
   transition: 0.12s;
+  background-color: white;
 
   .image {
     position: absolute;
     right: 6px;
-    top: 8px;
-
+    top: 6px;
     z-index: 3;
     transform-origin: bottom right;
     animation: buttonIconRotateToInitial 0.2s forwards;
@@ -24,14 +24,10 @@
   .button {
     color: $color-text;
     border-radius: $border-radius;
-    padding: 16px 8px;
+    padding: 8px;
     display: flex;
     align-items: center;
     text-align: center;
-  }
-
-  .smallPadding {
-    padding: 8px;
   }
 
   :global(.MuiButton-outlined) {
@@ -39,8 +35,19 @@
     box-shadow: $box-shadow;
 
     &:hover {
-      background-color: $color-yellow;
+      background: $color-yellow !important;
     }
+  }
+}
+
+.isParentHovered {
+  scale: 110% !important;
+  .button {
+    background: $color-yellow !important;
+  }
+  .image {
+    visibility: visible;
+    animation: buttonIconRotate 0.3s forwards;
   }
 }
 
