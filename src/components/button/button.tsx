@@ -5,19 +5,25 @@ import { getValidClassNames } from "@/helpers";
 
 type Properties = ButtonProps & {
   icon?: string;
+  isParentHovered?: boolean;
 };
 
 const Button: React.FC<Properties> = ({
   icon,
   children,
   className,
+  isParentHovered,
   ...props
 }) => {
   const iconUrl = `/icons/${icon}.svg`;
-  const smallPadding = !icon && cl.smallPadding;
 
   return (
-    <div className={getValidClassNames(cl.buttonWrapper, className)}>
+    <div
+      className={getValidClassNames(
+        cl.buttonWrapper,
+        isParentHovered && cl.isParentHovered
+      )}
+    >
       {icon && (
         <Image
           src={iconUrl}
@@ -28,7 +34,7 @@ const Button: React.FC<Properties> = ({
         />
       )}
       <MuiButton
-        className={getValidClassNames(cl.button, smallPadding)}
+        className={getValidClassNames(cl.button, className)}
         {...props}
       >
         {children}

@@ -7,6 +7,7 @@ import { getValidClassNames, getIconSrc } from "@/helpers";
 
 const Footer: React.FC = () => {
   const width = "16px";
+
   return (
     <div className={cl.footer}>
       <div className={cl.linksList}>
@@ -136,7 +137,7 @@ export { Footer };
 function getSocialIconsLinks() {
   const icons = [];
   for (const key in socialLinks) {
-    icons.push(<IconLink icon={key} key={key}/>);
+    icons.push(<IconLink icon={key} key={key} />);
   }
   return icons;
 }
