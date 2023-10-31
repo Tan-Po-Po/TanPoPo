@@ -57,4 +57,4 @@ const Select: React.FC<SelectProps> = ({ placeHolder, menuItems }) => {
   );
 };
 
-export default Select;
+export { Select };

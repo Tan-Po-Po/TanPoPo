@@ -1,9 +1,9 @@
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <h1>Home page</h1>
+      <h1>Prices page</h1>
     </main>
   );
 }
