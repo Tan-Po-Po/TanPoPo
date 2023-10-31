@@ -2,7 +2,6 @@ import { Button as MuiButton, type ButtonProps } from "@mui/material";
 import cl from "./button.module.scss";
 import Image from "next/image";
 import { getValidClassNames } from "@/helpers";
-import { MutableRefObject } from "react";
 
 type Properties = ButtonProps & {
   icon?: string;

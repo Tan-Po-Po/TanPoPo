@@ -48,4 +48,4 @@ const IconLink: React.FC<Props> = ({ icon, href, height }) => {
   );
 };
 
-export default IconLink;
+export { IconLink };
