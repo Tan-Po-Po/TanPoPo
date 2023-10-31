@@ -90,7 +90,7 @@ const TeamMemberCard: React.FC<Props> = ({
             <Button
               isParentHovered={isHovered}
               variant="outlined"
-              icon={"checkbox"}
+              icon="checkbox"
               style={{
                 background: "linear-gradient(180deg, #fff9f8 0%, #fffbd8 100%)",
               }}

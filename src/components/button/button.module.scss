@@ -6,20 +6,15 @@
   line-height: 17.84px;
   font-size: 16px;
   font-weight: 500;
-  .image {
-    position: absolute;
-    right: 6px;
-    top: 6px;
-    z-index: 3;
-    transform-origin: bottom right;
-    animation: buttonIconRotateToInitial 0.2s forwards;
-  }
+  border-radius: $border-radius;
 
   &:hover {
     scale: 110%;
-    .image {
-      visibility: visible;
-      animation: buttonIconRotate 0.3s forwards;
+    .children {
+      .image {
+        visibility: visible;
+        animation: buttonIconRotate 0.3s forwards;
+      }
     }
   }
 
@@ -29,7 +24,26 @@
     padding: 8px;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
+
+    .children {
+      position: relative;
+      .image {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        z-index: 3;
+        transform-origin: bottom right;
+        animation: buttonIconRotateToInitial 0.2s forwards;
+      }
+    }
+  }
+
+  :global(.MuiButton-root) {
+    &:hover {
+      background-color: transparent !important;
+    }
   }
 
   :global(.MuiButton-outlined) {
@@ -46,10 +60,12 @@
   scale: 110% !important;
   .button {
     background: $color-yellow !important;
-  }
-  .image {
-    visibility: visible;
-    animation: buttonIconRotate 0.3s forwards;
+    .children {
+      .image {
+        visibility: visible;
+        animation: buttonIconRotate 0.3s forwards;
+      }
+    }
   }
 }
 
