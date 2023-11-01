@@ -1,47 +1,31 @@
 "use client";
 import Image from "next/image";
-import ContentCard from "../contentCard/contentCard";
 import cl from "./teamMemberCard.module.scss";
 import getIconArtSrc from "@/helpers/getIconArtSrc";
-import { Button } from "..";
-import { useRef, useState } from "react";
+import { Button, ContentCard } from "..";
+import { useState } from "react";
+import { ITeamMember } from "@/models/TeamMember";
 
 interface Props {
-  label: { value: string; color: string };
-  name: string;
-  image: string;
-  certificates: {
-    href: string;
-    description: string[];
-  };
-  education: {
-    level: string;
-    university: string;
-    trainings: string;
-  };
-  description: {
-    lineOne: string;
-    lineTwo: string;
-    lineThree: string;
-    lineFour: string;
-  };
+  teamMember: ITeamMember;
 }
 
-const TeamMemberCard: React.FC<Props> = ({
-  label,
-  name,
-  image,
-  certificates,
-  education,
-  description,
-}) => {
+const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
+  console.log(teamMember);
+
+  const { label, name, image, certificates, education, about } = teamMember;
+
+  console.log("certificates desc", certificates.description);
+
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
+    return;
   };
   const handleMouseLeave = () => {
     setIsHovered(false);
+    return;
   };
 
   return (
@@ -80,8 +64,8 @@ const TeamMemberCard: React.FC<Props> = ({
               ></Image>
               <div className={cl.text}>Досвід сенсея:</div>
             </div>
-            {certificates.description.map((item) => (
-              <div className={cl.description} key={item}>
+            {certificates.keyPoints.map((item) => (
+              <div className={cl.keyPoint} key={item}>
                 {item}
               </div>
             ))}
@@ -155,35 +139,17 @@ const TeamMemberCard: React.FC<Props> = ({
             <div className={cl.content}>{education.trainings}</div>
           </div>
         </ContentCard>
-        <div className={cl.description}>
-          <ContentCard
-            width="100%"
-            style={{ padding: "8px" }}
-            cardBgColor="#FFF1E9"
-          >
-            {description.lineOne}
-          </ContentCard>
-          <ContentCard
-            width="100%"
-            style={{ padding: "8px" }}
-            cardBgColor="#EEFFE5"
-          >
-            {description.lineTwo}
-          </ContentCard>
-          <ContentCard
-            width="100%"
-            style={{ padding: "8px" }}
-            cardBgColor="#E3F0FF"
-          >
-            {description.lineThree}
-          </ContentCard>
-          <ContentCard
-            width="100%"
-            style={{ padding: "8px" }}
-            cardBgColor="#FFFCE2"
-          >
-            {description.lineFour}
-          </ContentCard>
+        <div className={cl.about}>
+          {about.map((paragraph, i) => (
+            <ContentCard
+              key={i}
+              width="100%"
+              style={{ padding: "8px" }}
+              cardBgColor={paragraph.color}
+            >
+              {paragraph.text}
+            </ContentCard>
+          ))}
         </div>
       </div>
     </div>
