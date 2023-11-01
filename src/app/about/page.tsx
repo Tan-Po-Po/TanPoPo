@@ -1,7 +1,7 @@
 import getIconArtSrc from "@/helpers/getIconArtSrc";
 import styles from "./page.module.scss";
 import TeamMemberCard from "@/components/teamMemberCard/teamMemberCard";
-import TeamMember, { TeamMembers } from "@/models/TeamMember";
+import TeamMember, { ITeamMember } from "@/models/TeamMember";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
 
@@ -56,11 +56,11 @@ const teamMemberTemplate = {
 //   await member.save();
 // };
 
-async function getTeamMember(): Promise<TeamMembers> {
+async function getTeamMember(): Promise<ITeamMember> {
   await dbConnect();
 
   const teamMember =
-    (await TeamMember.findOne()) as mongoose.Document<TeamMembers>;
+    (await TeamMember.findOne()) as mongoose.Document<ITeamMember>;
 
   return teamMember.toObject();
 }

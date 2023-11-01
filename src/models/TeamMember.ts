@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface TeamMembers {
+export interface ITeamMember {
   _id?: string;
   label: { value: string; color: string };
   name: string;
@@ -20,7 +20,7 @@ export interface TeamMembers {
   }[];
 }
 
-const TeamMemberSchema = new mongoose.Schema<TeamMembers>(
+const TeamMemberSchema = new mongoose.Schema<ITeamMember>(
   {
     label: {
       value: { type: String, required: true },

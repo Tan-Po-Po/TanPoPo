@@ -4,10 +4,10 @@ import cl from "./teamMemberCard.module.scss";
 import getIconArtSrc from "@/helpers/getIconArtSrc";
 import { Button, ContentCard } from "..";
 import { useState } from "react";
-import { TeamMembers } from "@/models/TeamMember";
+import { ITeamMember } from "@/models/TeamMember";
 
 interface Props {
-  teamMember: TeamMembers;
+  teamMember: ITeamMember;
 }
 
 const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
