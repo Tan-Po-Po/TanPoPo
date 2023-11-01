@@ -45,12 +45,12 @@ $memberCardGap: 56px;
         padding: 8px 16px 32px 16px;
         padding-top: 8px;
 
-        .description {
+        .keyPoint {
           font-size: 20px;
           position: relative;
         }
 
-        .description + .description::before {
+        .keyPoint + .keyPoint::before {
           content: "+";
           position: absolute;
           top: -16px;
@@ -94,7 +94,7 @@ $memberCardGap: 56px;
       }
     }
 
-    .description {
+    .about {
       display: flex;
       flex-direction: column;
       gap: 23px;
