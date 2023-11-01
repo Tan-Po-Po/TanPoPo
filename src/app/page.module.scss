@@ -147,7 +147,14 @@
     div {
       width: auto;
       height: 50px;
+
+      &:hover {
+        height: 60px;
+        width: auto;
+        padding: 11px 18px;
+      }
     }
+    
     a {
       text-decoration: none;
     }
