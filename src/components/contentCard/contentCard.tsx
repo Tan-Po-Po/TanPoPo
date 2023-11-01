@@ -5,12 +5,13 @@ import { CSSProperties } from "@mui/material/styles/createMixins";
 interface Props {
   children: React.ReactNode;
   index?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   labelPosition?: "top" | "bottom";
   indexBgColor?: string;
   cardBgColor?: string;
   labelBgColor?: string;
   width?: string;
+  height?: string;
   style?: CSSProperties;
   className?: string;
 }
@@ -19,18 +20,19 @@ const ContentCard: React.FC<Props> = ({
   index,
   label,
   labelPosition,
+  labelBgColor,
   children,
   indexBgColor,
   cardBgColor,
   width,
-  style,
+  height,
   className,
-  labelBgColor,
+  style,
 }) => {
   return (
     <div
       className={getValidClassNames(cl.contentCard, className)}
-      style={{ ...style, maxWidth: width, background: cardBgColor }}
+      style={{ ...style, maxWidth: width, maxHeight: height, background: cardBgColor }}
     >
       {index && (
         <div className={cl.index} style={{ backgroundColor: indexBgColor }}>
@@ -43,6 +45,9 @@ const ContentCard: React.FC<Props> = ({
             cl.label,
             labelPosition && cl[labelPosition]
           )}
+          style={{
+            background: labelBgColor,
+          }}
         >
           {label}
         </div>
@@ -52,4 +57,4 @@ const ContentCard: React.FC<Props> = ({
   );
 };
 
-export default ContentCard;
+export { ContentCard };

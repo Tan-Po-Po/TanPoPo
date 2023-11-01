@@ -1,3 +1,254 @@
 .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 16px;
+}
+
+.header {
+  margin-top: 55px;
+  margin-bottom: 45px;
+  display: flex;
+  align-items: center;
+  white-space: pre;
+}
+
+.about {
+  text-align: center;
+  width: 1130px;
+  line-height: 26.51px;
+  font-weight: 700;
+  margin-top: 35px;
+}
+
+.opportunities {
+  margin-top: 80px;
+}
+
+.opportunityCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 65px;
+
+  .opportunityCard {
+    gap: 0;
+    padding: 20px 12px;
+    img {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.author,
+.ahead {
+  margin-top: 110px;
+  display: flex;
+  flex-direction: row;
+  max-width: 1100px;
+  height: 280px;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about {
+    width: 675px;
+  }
+  .photo {
+    margin-left: 70px;
+  }
+}
+
+.links {
+  width: 100%;
+  margin-top: 110px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 105px;
+
+  .link {
+    gap: 20px;
+    width: 345px;
+    height: 315px;
+    padding: 20px;
+  }
+  button {
+    width: 270px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    background: linear-gradient(#ffede81a, #fffbd8);
+  }
+}
+
+.ahead {
+  height: auto;
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    p {
+      margin-top: 85px;
+    }
+  }
+
+  .photo {
+    margin: 0;
+    margin-right: 85px;
+  }
+}
+
+.formats {
+  margin-top: 110px;
+  p {
+    max-width: 780px;
+  }
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 65px;
+  }
+  .card {
+    padding: 15px;
+    a {
+      font-weight: 700;
+      font-size: 18px;
+    }
+    p {
+      font-weight: 600;
+    }
+  }
+}
+
+.courses {
+  margin-top: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .cards {
+    margin-top: 105px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 110px;
+    row-gap: 65px;
+  }
+
+  .card {
+    div {
+      width: auto;
+      height: 50px;
+
+      &:hover {
+        height: 60px;
+        width: auto;
+        padding: 11px 18px;
+      }
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    .label1,
+    .label2 {
+      white-space: pre;
+      margin: 0;
+      padding: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .label1 {
+      line-height: 21.19px;
+      font-size: 19px;
+    }
+
+    .label2 {
+      line-height: 15.61px;
+      font-size: 14px;
+    }
+    img {
+      margin-top: 50px;
+    }
+  }
+}
+
+.personalCabinet {
+  margin-top: 110px;
+  img {
+    margin-top: 65px;
+  }
+}
+
+.cabinetCards {
+  margin-top: 60px;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.freeCourse {
+  margin-top: 120px;
+
+  button {
+    background: linear-gradient(#ffede81a, #fffbd8);
+    &:hover {
+      background: #c6ffb1 !important;
+    }
+  }
+}
+
+.start {
+  margin-top: 60px;
+  padding: 50px 80px 50px;
+  .cards {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 50px;
+  }
+  .card {
+    padding: 16px;
+  }
+  p {
+    font-size: 17px;
+    line-height: 21px;
+    font-weight: 600;
+  }
+}
+
+.moreLinks {
+  margin: 120px 0;
+  flex-direction: row;
+  gap: 110px;
+
+  .button {
+    margin-top: auto;
+    button {
+      width: 200px;
+      height: 60px;
+      font-size: 24px;
+      font-weight: 600;
+      &:hover {
+        background: $color-yellow !important;
+      }
+    }
+  }
+  .link {
+    padding: 25px 15px;
+    p {
+      font-weight: 700;
+      font-size: 21px;
+    }
+    width: 375px;
+    height: 345px;
+  }
 }
