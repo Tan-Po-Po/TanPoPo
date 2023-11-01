@@ -1,0 +1,116 @@
+$memberCardGap: 56px;
+
+.teamMemberCard {
+  @include border-box;
+  display: flex;
+  position: relative;
+  gap: $memberCardGap;
+  max-width: 1238px;
+  padding: 56px;
+  font-weight: 700;
+  cursor: default;
+
+  .left {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: $memberCardGap;
+    position: relative;
+    width: 374px;
+
+    .label {
+      @include border-box;
+      position: absolute;
+      top: -56px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      font-size: 22px;
+      padding: 6px 8px;
+    }
+
+    .certificatesWrapper {
+      position: relative;
+      cursor: pointer;
+
+      .buttonWrapper {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        z-index: 3;
+      }
+      .certificates {
+        gap: 31px;
+        padding: 8px 16px 32px 16px;
+        padding-top: 8px;
+
+        .description {
+          font-size: 20px;
+          position: relative;
+        }
+
+        .description + .description::before {
+          content: "+";
+          position: absolute;
+          top: -16px;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  .right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $memberCardGap;
+
+    .education {
+      flex-direction: row;
+      max-width: 100%;
+
+      .educationItem {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .imageWrapper {
+          display: flex;
+          flex-direction: column;
+          height: 92px;
+          justify-content: space-between;
+          align-items: center;
+
+          img {
+            max-width: 62px;
+          }
+        }
+
+        .content {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 23px;
+      font-size: 14px;
+    }
+  }
+}
+
+.imageWrapper {
+  .text {
+    text-decoration: underline;
+  }
+}
+
+.divider {
+  @include border-box;
+  border-width: 1.5px;
+  height: 80%;
+}

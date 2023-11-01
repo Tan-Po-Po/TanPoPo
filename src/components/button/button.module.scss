@@ -2,39 +2,48 @@
   position: relative;
   width: fit-content;
   transition: 0.12s;
+  background-color: white;
   line-height: 17.84px;
   font-size: 16px;
   font-weight: 500;
-  .image {
-    position: absolute;
-    right: 6px;
-    top: 8px;
-
-    z-index: 3;
-    transform-origin: bottom right;
-    animation: buttonIconRotateToInitial 0.2s forwards;
-  }
+  border-radius: $border-radius;
 
   &:hover {
     scale: 110%;
-    .image {
-      visibility: visible;
-      animation: buttonIconRotate 0.3s forwards;
+    .children {
+      .image {
+        visibility: visible;
+        animation: buttonIconRotate 0.3s forwards;
+      }
     }
   }
 
   .button {
     color: $color-text;
     border-radius: $border-radius;
-    padding: 16px 8px;
+    padding: 8px;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    font-family: inherit;
+
+    .children {
+      position: relative;
+      .image {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        z-index: 3;
+        transform-origin: bottom right;
+        animation: buttonIconRotateToInitial 0.2s forwards;
+      }
+    }
   }
 
-  .smallPadding {
-    padding: 8px;
+  :global(.MuiButton-root) {
+    &:hover {
+      background-color: transparent !important;
+    }
   }
 
   :global(.MuiButton-outlined) {
@@ -43,6 +52,19 @@
 
     &:hover {
       background: $color-yellow;
+    }
+  }
+}
+
+.isParentHovered {
+  scale: 110% !important;
+  .button {
+    background: $color-yellow !important;
+    .children {
+      .image {
+        visibility: visible;
+        animation: buttonIconRotate 0.3s forwards;
+      }
     }
   }
 }

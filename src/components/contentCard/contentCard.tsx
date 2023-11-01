@@ -1,5 +1,6 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./contentCard.module.scss";
+import { CSSProperties } from "@mui/material/styles/createMixins";
 
 interface Props {
   children: React.ReactNode;
@@ -11,6 +12,7 @@ interface Props {
   labelBgColor?: string;
   width?: string;
   height?: string;
+  style?: CSSProperties;
   className?: string;
 }
 
@@ -25,15 +27,12 @@ const ContentCard: React.FC<Props> = ({
   width,
   height,
   className,
+  style,
 }) => {
   return (
     <div
       className={getValidClassNames(cl.contentCard, className)}
-      style={{
-        maxWidth: width,
-        maxHeight: height,
-        background: cardBgColor,
-      }}
+      style={{ ...style, maxWidth: width, maxHeight: height, background: cardBgColor }}
     >
       {index && (
         <div className={cl.index} style={{ backgroundColor: indexBgColor }}>
