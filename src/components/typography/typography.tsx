@@ -1,4 +1,5 @@
 import { Typography as MuiTypography } from "@mui/material";
+import { CSSProperties } from "react";
 
 type Properties = {
   children: React.ReactNode;
@@ -16,9 +17,10 @@ type Properties = {
     | "inherit"
     | "overline"
     | "subtitle1"
-    | "subtitle2"
+    | "subtitle2";
   align?: "center" | "inherit" | "justify" | "left" | "right";
   className?: string;
+  style?: CSSProperties;
 };
 
 const Typography: React.FC<Properties> = ({
