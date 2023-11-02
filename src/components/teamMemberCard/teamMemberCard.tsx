@@ -36,7 +36,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
     setIsDialogOpen(true);
   };
 
-  const handleDialogClose = (e: {}, reason: "backdropClick") => {
+  const handleDialogClose = () => {
     setIsDialogOpen(false);
   };
 
@@ -55,9 +55,14 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
           <Image
             src={image}
             alt=""
-            width={340}
-            height={274}
-            style={{ objectFit: "cover", borderRadius: "10px", width: "340px" }}
+            width={500}
+            height={300}
+            style={{
+              objectFit: "cover",
+              borderRadius: "10px",
+              width: "340px",
+              height: "274px",
+            }}
           ></Image>
         </ContentCard>
 
@@ -66,7 +71,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <ContentCard className={cl.certificates}>
+          <ContentCard className={cl.certificates} onClick={handleDialogOpen}>
             <div className={cl.imageWrapper}>
               <Image
                 src={getIconArtSrc("suitcase2")}
@@ -90,7 +95,6 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
               style={{
                 background: "linear-gradient(180deg, #fff9f8 0%, #fffbd8 100%)",
               }}
-              onClick={handleDialogOpen}
             >
               <div style={{ fontSize: "19px", fontWeight: "700" }}>
                 Сертифікати
@@ -99,7 +103,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
             <Dialog
               className={cl.dialog}
               open={isDialogOpen}
-              onClose={(e) => handleDialogClose(e, "backdropClick")}
+              onClose={() => handleDialogClose()}
             >
               <XIcon className={cl.close} onClick={handleDialogClose} />
 
