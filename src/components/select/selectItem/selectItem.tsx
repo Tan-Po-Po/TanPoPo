@@ -22,4 +22,4 @@ const SelectItem: React.FC<Props> = ({ item, setValue, isSelected }) => {
   );
 };
 
-export default SelectItem;
+export { SelectItem };

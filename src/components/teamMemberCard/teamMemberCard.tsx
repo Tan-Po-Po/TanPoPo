@@ -1,24 +1,26 @@
 "use client";
+
 import Image from "next/image";
-import cl from "./teamMemberCard.module.scss";
-import getIconArtSrc from "@/helpers/getIconArtSrc";
-import { Button, ContentCard, Typography } from "..";
+
+import { getIconArtSrc } from "@/helpers";
+import { ContentCard } from "../contentCard/contentCard";
+import { Button, Typography } from "..";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
 import { Dialog, DialogContent, DialogTitle } from "@mui/material";
-import { getIconSrc } from "@/helpers";
 import XIcon from "./plus.svg";
 
+import cl from "./teamMemberCard.module.scss";
 interface Props {
   teamMember: ITeamMember;
 }
 
 const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
-  console.log(teamMember);
+  // console.log(teamMember);
 
   const { label, name, image, certificates, education, about } = teamMember;
 
-  console.log("certificates desc", certificates.description);
+  // console.log("certificates desc", certificates.description);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -229,4 +231,4 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
   );
 };
 
-export default TeamMemberCard;
+export { TeamMemberCard };

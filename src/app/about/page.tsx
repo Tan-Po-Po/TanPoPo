@@ -1,6 +1,6 @@
-import getIconArtSrc from "@/helpers/getIconArtSrc";
-import styles from "./page.module.scss";
-import TeamMemberCard from "@/components/teamMemberCard/teamMemberCard";
+import { getIconArtSrc } from "@/helpers";
+import cl from "./page.module.scss";
+import { TeamMemberCard } from "@/components";
 import TeamMember, { ITeamMember } from "@/models/TeamMember";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
@@ -69,10 +69,10 @@ export default async function Home() {
   // await createTeamMember(teamMemberTemplate);
 
   const teamMember = await getTeamMember();
-  console.log("teamMember", await teamMember);
+  // console.log("teamMember", await teamMember);
 
   return (
-    <main className={styles.main}>
+    <main className={cl.main}>
       <h1>About page</h1>
       <TeamMemberCard teamMember={teamMember} />
     </main>
