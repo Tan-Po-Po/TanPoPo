@@ -1,5 +1,6 @@
 export { Button } from "./button/button";
 export { ContentCard } from "./contentCard/contentCard";
+export { CourseCardMini } from "./courseCardMini/courseCardMini"
 export { Checkbox } from "./checkbox/checkbox";
 export { Dropdown } from "./dropdown/dropdown";
 export { Footer } from "./footer/footer";

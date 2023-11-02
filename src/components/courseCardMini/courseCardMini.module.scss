@@ -1,0 +1,152 @@
+.link {
+  text-decoration: none;
+  transition: all .3s;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.card {
+  padding: 15px 5px;
+  gap: 0;
+  div:first-child {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 16.73px;
+    height: 26px;
+    padding: 5px 7px;
+  }
+  .name {
+    text-transform: uppercase;
+  } 
+}
+
+.teacher {
+  width: 200px;
+  height: 275px;
+
+  .level {
+    margin-top: auto;
+    font-size: 46px;
+    font-weight: 300;
+  }
+  .name {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 27.88px;
+    margin-top: 40px;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+  }
+  .nameJapanese {
+    margin-top: 20px;
+    font-size: 19px;
+    font-weight: 400;
+  }
+  .description {
+    font-size: 13px;
+    font-weight: 300;
+    margin-top: auto;
+  }
+}
+
+.video {
+  max-width: 580px;
+  width: 580px;
+  height: 340px;
+  padding: 35px 15px;
+
+  .level {
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: 15px;
+    font-size: 30px;
+    font-weight: 300;
+  }
+  .name {
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: auto;
+    &::first-letter {
+      font-size: 60px;
+    }
+  }
+  .nameJapanese {
+    margin: 40px 0;
+    font-size: 25px;
+    font-weight: 400;
+  }
+  .description {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 17.6px;
+    margin-top: auto;
+    text-align: center;
+  }
+}
+
+.audio {
+  width: 265px;
+  height: 265px;
+  padding: 15px;
+  .level {
+    margin: 10px 5px auto auto;
+    font-size: 24px;
+    font-weight: 300;
+  }
+  .name {
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: auto;
+    line-height: 27.5px;
+    max-width: 210px;
+    &::first-letter {
+      font-size: 40px;
+    }
+  }
+  .nameJapanese {
+    margin: 30px 0;
+    font-size: 17px;
+    font-weight: 400;
+  }
+  .description {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 16.5px;
+    margin-top: auto;
+    text-align: center;
+  }
+}
+
+.book {
+  width: 360px;
+  max-width: 360px;
+  height: 210px;
+  padding: 20px;
+
+  .level {
+    margin-top: 5px;
+    font-size: 20px;
+    font-weight: 300;
+  }
+  .name {
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 10px;
+    line-height: 20.9px;
+    &::first-letter {
+      font-size: 37px;
+    }
+  }
+  .nameJapanese {
+    margin: auto 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 15.5px;
+    text-align: center;
+  }
+}
