@@ -74,7 +74,7 @@ export default async function Home() {
   return (
     <main className={cl.main}>
       <h1>About page</h1>
-      <TeamMemberCard teamMember={teamMemberTemplate} />
+      <TeamMemberCard teamMember={teamMember} />
     </main>
   );
 }

@@ -1,6 +1,5 @@
 import { CourseCardMini,} from "@/components";
 import { LibraryCard } from "@/components/libraryCard/libraryCard";
-import { TeamMemberCard}  from "@/components/teamMemberCard/teamMemberCard"
 import cl from "./page.module.scss";
 
 const courses = [
@@ -80,15 +79,6 @@ export default function Home() {
         {courses.map((course) => (
           <CourseCardMini course={course} key={course.name} />
         ))}
-      </section>
-      <section>
-        {/* <LibraryCard
-          href="/library"
-          icon="rocket"
-          body="Бонус Старт"
-          bgColor="linear-gradient(rgba(255, 184, 184, 0.6), rgba(245, 255, 183, 0.8))"
-          hoverBgColor="linear-gradient(rgba(255, 184, 184, 0.9), rgba(245, 255, 183, 1))"
-        /> */}
       </section>
 
       <section className={cl.library}>
