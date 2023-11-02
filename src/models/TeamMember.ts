@@ -1,13 +1,18 @@
 import mongoose from "mongoose";
 
 export interface ITeamMember {
-  _id?: string;
-  label: { value: string; color: string };
+  _id: string;
+  label: { _id?: string; value: string; color: string };
   name: string;
   image: string;
   certificates: {
     keyPoints: string[];
-    description: { label: string; image: string; caption: string }[];
+    description: {
+      _id: string;
+      label: string;
+      image: string;
+      caption: string;
+    }[];
   };
   education: {
     level: string;
@@ -15,6 +20,7 @@ export interface ITeamMember {
     trainings: string;
   };
   about: {
+    _id: string;
     text: string;
     color: string;
   }[];

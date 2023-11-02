@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
+
 import { getIconArtSrc } from "@/helpers";
-import { Button } from "../button/button";
 import { ContentCard } from "../contentCard/contentCard";
+import { Button, Typography } from "..";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
+import { Dialog, DialogContent, DialogTitle } from "@mui/material";
+import XIcon from "./plus.svg";
 
 import cl from "./teamMemberCard.module.scss";
 interface Props {
@@ -20,6 +23,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
   // console.log("certificates desc", certificates.description);
 
   const [isHovered, setIsHovered] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -28,6 +32,14 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
     return;
+  };
+
+  const handleDialogOpen = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setIsDialogOpen(false);
   };
 
   return (
@@ -45,9 +57,14 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
           <Image
             src={image}
             alt=""
-            width={340}
-            height={274}
-            style={{ objectFit: "cover", borderRadius: "10px", width: "340px" }}
+            width={500}
+            height={300}
+            style={{
+              objectFit: "cover",
+              borderRadius: "10px",
+              width: "340px",
+              height: "274px",
+            }}
           ></Image>
         </ContentCard>
 
@@ -56,7 +73,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <ContentCard className={cl.certificates}>
+          <ContentCard className={cl.certificates} onClick={handleDialogOpen}>
             <div className={cl.imageWrapper}>
               <Image
                 src={getIconArtSrc("suitcase2")}
@@ -85,6 +102,62 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
                 Сертифікати
               </div>
             </Button>
+            <Dialog
+              className={cl.dialog}
+              open={isDialogOpen}
+              onClose={() => handleDialogClose()}
+            >
+              <XIcon className={cl.close} onClick={handleDialogClose} />
+
+              <DialogTitle className={cl.title}>
+                <Typography
+                  variant="h3"
+                  style={{ textShadow: " 0px 4px 4px rgba(0, 0, 0, 0.17)" }}
+                >
+                  Сертифікати{" "}
+                </Typography>
+                <Image
+                  src={getIconArtSrc("certificate3")}
+                  alt=""
+                  width={500}
+                  height={300}
+                  style={{ width: "52px", height: "auto" }}
+                />
+              </DialogTitle>
+              <DialogContent className={cl.content}>
+                {certificates.description.map((certificate) => (
+                  <ContentCard
+                    key={certificate._id}
+                    label={
+                      <Typography variant="body1" style={{ fontWeight: "700" }}>
+                        {certificate.label}
+                      </Typography>
+                    }
+                    style={{ gap: "26px" }}
+                    labelPosition="top"
+                    labelBgColor="linear-gradient(180deg, #FFF 0%, #FFFBD9 100%)"
+                    cardBgColor="linear-gradient(180deg, #FFFAF9 0%, #FFFBD8 100%)"
+                  >
+                    <ContentCard
+                      style={{
+                        width: "215px",
+                        height: "215px",
+                        padding: "36px 10px",
+                      }}
+                    >
+                      <Image
+                        src={certificate.image}
+                        alt=""
+                        width={500}
+                        height={300}
+                        style={{ width: "100%", height: "auto" }}
+                      />
+                    </ContentCard>
+                    <div className={cl.caption}>{certificate.caption}</div>
+                  </ContentCard>
+                ))}
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>

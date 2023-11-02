@@ -16,6 +16,7 @@ interface Props {
   height?: string;
   style?: CSSProperties;
   className?: string;
+  onClick?: () => void;
 }
 
 const ContentCard: React.FC<Props> = ({
@@ -30,6 +31,7 @@ const ContentCard: React.FC<Props> = ({
   height,
   className,
   style,
+  onClick,
 }) => {
   return (
     <div
@@ -40,6 +42,7 @@ const ContentCard: React.FC<Props> = ({
         maxHeight: height,
         background: cardBgColor,
       }}
+      onClick={onClick && onClick}
     >
       {index && (
         <div className={cl.index} style={{ backgroundColor: indexBgColor }}>
