@@ -1,2 +1,3 @@
-export { getIconSrc } from '@/helpers/getIconSrc';
+export { getIconSrc } from "./getIconSrc";
 export { getValidClassNames } from "./getValidClassNames";
+export { getIconArtSrc } from "./getIconArtSrc";

@@ -1,5 +1,7 @@
+import { CourseCardMini,} from "@/components";
+import { LibraryCard } from "@/components/libraryCard/libraryCard";
+import { TeamMemberCard}  from "@/components/teamMemberCard/teamMemberCard"
 import cl from "./page.module.scss";
-import { CourseCardMini, LibraryCard } from "@/components";
 
 const courses = [
   {
@@ -49,12 +51,46 @@ const courses = [
   },
 ];
 
+const member = {
+  label: { value: "test", color: "red" },
+  name: "test",
+  image: "/icons/apple.svg",
+  certificates: {
+    keyPoints: [],
+    description: [
+      {
+        label: "string",
+        image: "string",
+        caption: "string",
+      },
+    ],
+  },
+  education: {
+    level: "string",
+    university: "string",
+    trainings: "string",
+  },
+  about: [{ text: "test", color: "red" }],
+};
+
 export default function Home() {
   return (
     <main className={cl.main}>
-      {courses.map((course) => (
-        <CourseCardMini course={course} key={course.name} />
-      ))}
+      <section className={cl.main}>
+        {courses.map((course) => (
+          <CourseCardMini course={course} key={course.name} />
+        ))}
+      </section>
+      <section>
+        {/* <LibraryCard
+          href="/library"
+          icon="rocket"
+          body="Бонус Старт"
+          bgColor="linear-gradient(rgba(255, 184, 184, 0.6), rgba(245, 255, 183, 0.8))"
+          hoverBgColor="linear-gradient(rgba(255, 184, 184, 0.9), rgba(245, 255, 183, 1))"
+        /> */}
+      </section>
+
       <section className={cl.library}>
         <LibraryCard
           href="/library"

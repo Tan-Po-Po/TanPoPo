@@ -3,9 +3,9 @@
 import React from "react";
 import { ContentCard } from "../contentCard/contentCard";
 import { Typography } from "../typography/typography";
+import { getIconSrc } from "@/helpers";
 import Link from "next/link";
 import Image from "next/image";
-import { getIconSrc } from "@/helpers";
 
 import cl from "./libraryCard.module.scss";
 

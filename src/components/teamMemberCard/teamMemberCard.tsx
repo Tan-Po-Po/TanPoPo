@@ -1,21 +1,23 @@
 "use client";
+
 import Image from "next/image";
-import cl from "./teamMemberCard.module.scss";
-import getIconArtSrc from "@/helpers/getIconArtSrc";
-import { Button, ContentCard } from "..";
+import { getIconArtSrc } from "@/helpers";
+import { Button } from "../button/button";
+import { ContentCard } from "../contentCard/contentCard";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
 
+import cl from "./teamMemberCard.module.scss";
 interface Props {
   teamMember: ITeamMember;
 }
 
 const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
-  console.log(teamMember);
+  // console.log(teamMember);
 
   const { label, name, image, certificates, education, about } = teamMember;
 
-  console.log("certificates desc", certificates.description);
+  // console.log("certificates desc", certificates.description);
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -156,4 +158,4 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
   );
 };
 
-export default TeamMemberCard;
+export { TeamMemberCard };

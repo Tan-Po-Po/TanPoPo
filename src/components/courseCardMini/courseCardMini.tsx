@@ -1,5 +1,6 @@
 import React from "react";
-import { ContentCard, Typography } from "@/components/index";
+import { Typography } from "../typography/typography";
+import { ContentCard } from "../contentCard/contentCard";
 import { getValidClassNames } from "@/helpers";
 import cl from "./courseCardMini.module.scss";
 import Link from "next/link";
