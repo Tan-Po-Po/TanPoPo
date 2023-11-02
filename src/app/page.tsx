@@ -7,7 +7,7 @@ import getIconArtSrc from "@/helpers/getIconArtSrc";
 export default function Home() {
   return (
     <main className={cl.main}>
-      <Typography variant="h5" className={cl.header}>
+      {/* <Typography variant="h5" className={cl.header}>
         {" "}
         <Typography variant="h4">TanPoPo</Typography> - найкращий досвід
         вивчення японської мови!
@@ -569,7 +569,7 @@ export default function Home() {
             Контакти
           </Button>
         </ContentCard>
-      </section>
+      </section> */}
     </main>
   );
 }
