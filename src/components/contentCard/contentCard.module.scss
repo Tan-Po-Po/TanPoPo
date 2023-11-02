@@ -10,6 +10,7 @@
   padding: 26px;
   gap: 18px;
   text-align: center;
+  background-color: white;
 
   .index {
     @include border-box;
@@ -32,6 +33,8 @@
     background-color: $color-yellow;
     padding: 6px 8px;
     z-index: 3;
+    word-break: normal;
+    white-space: pre;
   }
 
   .bottom {
