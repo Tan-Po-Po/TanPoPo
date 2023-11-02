@@ -27,8 +27,7 @@ const typeClassMap = {
 };
 
 const CourseCardMini: React.FC<Properties> = ({ course }) => {
-  console.log(course.type);
-  console.log(typeClassMap[course.type]);
+
   return (
     <Link className={cl.link} href="">
       <ContentCard
