@@ -40,7 +40,7 @@ export default function Home() {
             className={cl.opportunityCard}
           >
             <Image
-              src="/icons/art/temple.png"
+              src={getIconArtSrc("temple")}
               alt="Temple icon"
               width={96}
               height={95}
@@ -59,7 +59,7 @@ export default function Home() {
             className={cl.opportunityCard}
           >
             <Image
-              src="/icons/art/clock.png"
+              src={getIconArtSrc("clock")}
               alt="Temple icon"
               width={137}
               height={106}
@@ -79,7 +79,7 @@ export default function Home() {
             className={cl.opportunityCard}
           >
             <Image
-              src="/icons/art/book1.png"
+              src={getIconArtSrc("book1")}
               alt="Temple icon"
               width={107}
               height={76}
@@ -125,7 +125,7 @@ export default function Home() {
             мови:
           </Typography>
           <Image
-            src="/icons/art/diamond.png"
+            src={getIconArtSrc("diamond")}
             alt="Diamond icon"
             width={87}
             height={77}
@@ -140,7 +140,7 @@ export default function Home() {
             Наша команда з якою ми разом формуємо якісний процес навчання:
           </Typography>
           <Image
-            src="/icons/art/team.png"
+            src={getIconArtSrc("team")}
             alt="Team icon"
             width={113}
             height={91}
@@ -155,7 +155,7 @@ export default function Home() {
             Дізнайтеся, що кажуть наші учні про їхній досвід у школі TanPoPo:
           </Typography>
           <Image
-            src="/icons/art/lamp.png"
+            src={getIconArtSrc("lamp")}
             alt="Lamp icon"
             width={75}
             height={84}
@@ -197,7 +197,7 @@ export default function Home() {
         <div className={cl.cards}>
           <ContentCard className={cl.card} width="283px" height="235px">
             <Image
-              src="/icons/art/girlStudent.png"
+              src={getIconArtSrc("girlStudent")}
               alt="Girl student"
               width={91}
               height={107}
@@ -210,7 +210,7 @@ export default function Home() {
 
           <ContentCard className={cl.card} width="300px" height="290px">
             <Image
-              src="/icons/art/boyAndGirl.png"
+              src={getIconArtSrc("boyAndGirl")}
               alt="Boy and girl with laptop"
               width={129}
               height={115}
@@ -224,7 +224,7 @@ export default function Home() {
 
           <ContentCard className={cl.card} width="283px" height="235px">
             <Image
-              src="/icons/art/teacher.png"
+              src={getIconArtSrc("teacher")}
               alt="Teacher with laptop"
               width={130}
               height={105}
@@ -258,7 +258,7 @@ export default function Home() {
             labelBgColor="linear-gradient(#A6C4FF, #E8A6FF)"
           >
             <Image
-              src="/icons/art/teacher.png"
+              src={getIconArtSrc("teacher")}
               alt="Teacher with laptop"
               width={88}
               height={71}
@@ -287,7 +287,7 @@ export default function Home() {
             labelBgColor="linear-gradient(#FFFA8B, #FF6F6F)"
           >
             <Image
-              src="/icons/art/camera.png"
+              src={getIconArtSrc("camera")}
               alt="Camera"
               width={86}
               height={65}
@@ -315,7 +315,7 @@ export default function Home() {
             labelBgColor="linear-gradient(#FDFF87, #6CFAA5)"
           >
             <Image
-              src="/icons/art/headphones.png"
+              src={getIconArtSrc("headphones")}
               alt="Headphones"
               width={68}
               height={70}
@@ -343,7 +343,7 @@ export default function Home() {
             labelBgColor="linear-gradient(#FFDDA9, #E8B8FF)"
           >
             <Image
-              src="/icons/art/book1.png"
+              src={getIconArtSrc("book1")}
               alt="Books"
               width={82}
               height={60}
@@ -371,7 +371,7 @@ export default function Home() {
       <section className={cl.cabinetCards}>
         <ContentCard width="376px" height="343px">
           <Image
-            src="/icons/art/house.png"
+            src={getIconArtSrc("house")}
             alt="House"
             width={106}
             height={79}
@@ -389,7 +389,7 @@ export default function Home() {
 
         <ContentCard width="376px" height="343px">
           <Image
-            src="/icons/art/calendar2.png"
+            src={getIconArtSrc("calendar2")}
             alt="Calendar"
             width={86}
             height={81}
@@ -407,7 +407,7 @@ export default function Home() {
 
         <ContentCard width="376px" height="343px">
           <Image
-            src="/icons/art/book1.png"
+            src={getIconArtSrc("book1")}
             alt="Book"
             width={100}
             height={74}
@@ -427,7 +427,7 @@ export default function Home() {
           Безкоштовний мінікурс для початківців!
         </Typography>
         <Image
-          src="/icons/art/megaPresent.png"
+          src={getIconArtSrc("megaPresent")}
           alt="Gift"
           width={144}
           height={138}
@@ -451,7 +451,7 @@ export default function Home() {
             indexBgColor="#CCE0FF"
           >
             <Image
-              src="/icons/art/toriGate2.png"
+              src={getIconArtSrc("toriGate2")}
               alt="Tore gate"
               width={96}
               height={96}
@@ -472,7 +472,7 @@ export default function Home() {
             indexBgColor="#DFFFD8"
           >
             <Image
-              src="/icons/art/honeyJar.png"
+              src={getIconArtSrc("honeyJar")}
               alt="Tore gate"
               width={96}
               height={96}
@@ -493,7 +493,7 @@ export default function Home() {
             indexBgColor="#FFF4CC"
           >
             <Image
-              src="/icons/art/tower2.png"
+              src={getIconArtSrc("tower2")}
               alt="Tower"
               width={63}
               height={85}
@@ -513,7 +513,7 @@ export default function Home() {
             та багато іншого?
           </Typography>
           <Image
-            src="/icons/art/temple.png"
+            src={getIconArtSrc("temple")}
             alt="Temple"
             width={97}
             height={98}
@@ -534,7 +534,7 @@ export default function Home() {
             привабливі цінові пропозиції!
           </Typography>
           <Image
-            src="/icons/art/coinsStack.png"
+            src={getIconArtSrc("coinsStack")}
             alt="Stack of coins"
             width={109}
             height={84}
@@ -555,7 +555,7 @@ export default function Home() {
             стосовно нашого навчання!
           </Typography>
           <Image
-            src="/icons/art/oldPhone.png"
+            src={getIconArtSrc("oldPhone")}
             alt="Phone"
             width={116}
             height={72}
