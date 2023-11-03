@@ -1,7 +1,9 @@
 export { Button } from "./button/button";
 export { CourseCardMini } from "./courseCardMini/courseCardMini";
+export { ContentCard } from "./contentCard/contentCard";
 export { Checkbox } from "./checkbox/checkbox";
 export { Dropdown } from "./dropdown/dropdown";
+export { Divider } from "./divider/divider";
 export { Footer } from "./footer/footer";
 export { Select } from "./select/select";
 export { Header } from "./header/header";
@@ -9,4 +11,4 @@ export { Typography } from "./typography/typography";
 export { IconLink } from "./iconLink/iconLink";
 export { TeamMemberCard } from "./teamMemberCard/teamMemberCard";
 export { LibraryCard } from "./libraryCard/libraryCard";
-export { ContentCard } from "./contentCard/contentCard";
+export { Faq } from "./faq/faq";

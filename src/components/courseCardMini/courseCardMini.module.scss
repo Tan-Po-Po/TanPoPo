@@ -8,8 +8,8 @@
 }
 
 .card {
-  padding: 15px 5px !important;
-  gap: 0 !important;
+  padding: 15px 5px;
+  gap: 0;
 
   div:first-child {
     font-size: 15px;
@@ -24,8 +24,8 @@
 }
 
 .teacher {
-  width: 200px !important;
-  height: 275px !important;
+  width: 200px;
+  height: 275px;
 
   .level {
     margin-top: auto;
@@ -52,10 +52,10 @@
 }
 
 .video {
-  max-width: 580px !important;
-  width: 580px !important;
-  height: 340px !important;
-  padding: 35px 15px !important;
+  max-width: 580px;
+  width: 580px;
+  height: 340px;
+  padding: 35px 15px;
 
   .level {
     margin-bottom: auto;
@@ -87,9 +87,9 @@
 }
 
 .audio {
-  width: 265px !important;
-  height: 265px !important;
-  padding: 15px !important;
+  width: 265px;
+  height: 265px;
+  padding: 15px;
 
   .level {
     margin: 10px 5px auto auto;
@@ -124,10 +124,10 @@
 }
 
 .book {
-  width: 360px !important;
-  max-width: 360px !important;
-  height: 210px !important;
-  padding: 20px !important;
+  width: 360px;
+  max-width: 360px;
+  height: 210px;
+  padding: 20px;
 
   .level {
     margin-top: 5px;
