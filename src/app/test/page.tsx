@@ -1,8 +1,8 @@
-import styles from "./page.module.scss";
+import cl from "./page.module.scss";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className={cl.main}>
       <h1>Test page</h1>
     </main>
   );

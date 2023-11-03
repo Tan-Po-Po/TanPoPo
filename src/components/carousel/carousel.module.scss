@@ -1,0 +1,20 @@
+.sliderWrapper {
+  width: 1050px !important;
+
+  .dotsContainer {
+    // position: static;
+    // margin-top: 36px;
+    li {
+      width: fit-content;
+      height: fit-content;
+      margin: 0 15px;
+
+      .dot {
+        @include border-box;
+        width: 16px;
+        height: 16px;
+        border-radius: 5px;
+      }
+    }
+  }
+}

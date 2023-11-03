@@ -21,3 +21,26 @@ section {
   align-items: center;
   justify-content: center;
 }
+
+.slick-active {
+  #carouselDot {
+    background-color: $color-yellow;
+  }
+}
+
+.slick-slider {
+  * {
+    outline: none !important;
+  }
+}
+
+.slick-slide {
+  > div {
+    margin: 48px;
+  }
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: center;
+}
