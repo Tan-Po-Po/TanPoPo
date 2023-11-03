@@ -1,4 +1,6 @@
-import { CourseCardMini,} from "@/components";
+"use client";
+
+import { CourseCardMini, Faq, Divider } from "@/components";
 import { LibraryCard } from "@/components/libraryCard/libraryCard";
 import cl from "./page.module.scss";
 
@@ -75,6 +77,19 @@ const member = {
 export default function Home() {
   return (
     <main className={cl.main}>
+      <Divider
+        firsRow="актуальні питання"
+        bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
+      />
+      <Divider
+        firsRow="Книжкові мінікурси"
+        secondRow="для самостійного вивчення"
+        bgColor="linear-gradient(rgba(255, 221, 169, 1), rgba(232, 184, 255, 1))"
+      />
+      <Faq
+        question="Чи входять у вартість курсу додаткові матеріали або книги?"
+        answer=" Вартість стандартного курсу включає всі необхідні навчальні матеріали. Додаткові книги або матеріали можна придбати за окрему плату."
+      />
       <section className={cl.main}>
         {courses.map((course) => (
           <CourseCardMini course={course} key={course.name} />

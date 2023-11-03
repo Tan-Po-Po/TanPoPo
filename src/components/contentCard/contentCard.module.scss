@@ -1,51 +1,53 @@
-.contentCard {
-  @include border-box;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 376px;
-  width: 100%;
-  padding: 26px;
-  gap: 18px;
-  text-align: center;
-  background-color: white;
-
-  .index {
+@layer ContentCard {
+  .contentCard {
     @include border-box;
-    position: absolute;
-    top: -21px;
-    left: -21px;
-    width: 43px;
-    height: 43px;
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
-    background-color: $color-yellow;
-    z-index: 3;
-  }
+    max-width: 376px;
+    width: 100%;
+    padding: 26px;
+    gap: 18px;
+    text-align: center;
+    background-color: white;
 
-  .label {
-    @include border-box;
-    position: absolute;
-    background-color: $color-yellow;
-    padding: 6px 8px;
-    z-index: 3;
-    word-break: normal;
-    white-space: pre;
-  }
+    .index {
+      @include border-box;
+      position: absolute;
+      top: -21px;
+      left: -21px;
+      width: 43px;
+      height: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      background-color: $color-yellow;
+      z-index: 3;
+    }
 
-  .bottom {
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
+    .label {
+      @include border-box;
+      position: absolute;
+      background-color: $color-yellow;
+      padding: 6px 8px;
+      z-index: 3;
+      word-break: normal;
+      white-space: pre;
+    }
 
-  .top {
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    .bottom {
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+
+    .top {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }

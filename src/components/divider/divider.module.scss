@@ -1,0 +1,30 @@
+.firstRow,
+.secondRow {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.secondRow {
+  font-size: 15px;
+}
+.card {
+  padding: 10px 15px;
+  gap: 0;
+  width: auto;
+}
+
+.divider {
+  height: 2px;
+  background: $color-black;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+}
