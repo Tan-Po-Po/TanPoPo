@@ -1,7 +1,7 @@
 .link {
   text-decoration: none;
-  transition: all .3s;
-  
+  transition: all 0.3s;
+
   &:hover {
     transform: scale(1.05);
   }
@@ -10,6 +10,7 @@
 .card {
   padding: 15px 5px;
   gap: 0;
+
   div:first-child {
     font-size: 15px;
     font-weight: 700;
@@ -19,7 +20,7 @@
   }
   .name {
     text-transform: uppercase;
-  } 
+  }
 }
 
 .teacher {
@@ -89,11 +90,13 @@
   width: 265px;
   height: 265px;
   padding: 15px;
+
   .level {
     margin: 10px 5px auto auto;
     font-size: 24px;
     font-weight: 300;
   }
+
   .name {
     font-size: 25px;
     font-weight: 600;
@@ -104,11 +107,13 @@
       font-size: 40px;
     }
   }
+
   .nameJapanese {
     margin: 30px 0;
     font-size: 17px;
     font-weight: 400;
   }
+
   .description {
     font-size: 15px;
     font-weight: 400;

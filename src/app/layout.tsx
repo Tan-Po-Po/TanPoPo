@@ -5,7 +5,7 @@ import { theme } from "@/theme/theme";
 import { Comfortaa } from "next/font/google";
 import "@/scss/globals.scss";
 
-const font = Comfortaa({ subsets: ["latin", "cyrillic"] });
+const font = Comfortaa({ subsets: ["latin", "cyrillic"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "TanPoPo",

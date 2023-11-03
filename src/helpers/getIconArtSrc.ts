@@ -1,3 +1,5 @@
-export default function getIconArtSrc(icon: string) {
+function getIconArtSrc(icon: string) {
   return `/icons/art/${icon}.png`;
 }
+
+export { getIconArtSrc };

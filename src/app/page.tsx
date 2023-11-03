@@ -2,7 +2,7 @@ import { Typography, ContentCard, Button } from "@/components";
 import Image from "next/image";
 import Link from "next/link";
 import cl from "./page.module.scss";
-import getIconArtSrc from "@/helpers/getIconArtSrc";
+import { getIconArtSrc } from "@/helpers";
 
 export default function Home() {
   return (

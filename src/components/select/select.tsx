@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import cl from "./select.module.scss";
 import Image from "next/image";
-import SelectItem from "./selectItem/selectItem";
+import { SelectItem } from "./selectItem/selectItem";
 import { getValidClassNames } from "@/helpers";
 
 interface SelectProps {

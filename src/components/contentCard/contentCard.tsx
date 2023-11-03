@@ -1,3 +1,5 @@
+"use client";
+
 import { getValidClassNames } from "@/helpers";
 import cl from "./contentCard.module.scss";
 import { CSSProperties } from "@mui/material/styles/createMixins";
