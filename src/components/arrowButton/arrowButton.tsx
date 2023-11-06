@@ -10,20 +10,24 @@ interface Props {
   className?: string;
   style?: CSSProperties;
   onClick?: () => void;
+  handleClickToAnimate?: () => void;
 }
 
 const ArrowButton: React.FC<Props> = ({
   direction = "right",
   className,
+  handleClickToAnimate,
   ...props
 }) => {
   const imageRef = useRef<HTMLImageElement | null>(null);
   return (
-    <div
-      className={getValidClassNames(className, cl.arrow, cl[direction])}
-      {...props}
-    >
-      <TriangleIcon />
+    <div className={cl.clickHandler} onClick={handleClickToAnimate}>
+      <div
+        className={getValidClassNames(className, cl.arrow, cl[direction])}
+        {...props}
+      >
+        <TriangleIcon />
+      </div>
     </div>
   );
 };

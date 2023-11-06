@@ -1,20 +1,38 @@
 .carouselItem {
-  transition: 0.1s;
+  transition: 0.3s;
 
   img {
     width: 100%;
     height: auto;
   }
-
-  //   &:hover {
-  //     transform: scale(110%);
-  //   }
 }
 
 .hovered {
-  transform: scale(110%);
+  animation: hoverAnimation 0.3s forwards;
+}
+.clicked {
+  animation: clickAnimation 0.3s forwards;
 }
 
-.clicked {
-  transform: scale(120%) !important;
+@keyframes hoverAnimation {
+  0% {
+  }
+  50% {
+    transform: scale(112%);
+  }
+  100% {
+    transform: scale(110%);
+  }
+}
+
+@keyframes clickAnimation {
+  0% {
+    transform: scale(110%);
+  }
+  50% {
+    transform: scale(129%);
+  }
+  100% {
+    transform: scale(127%);
+  }
 }

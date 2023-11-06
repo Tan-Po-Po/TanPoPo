@@ -10,7 +10,6 @@ export const CarouselItem: React.FC<Props> = ({ children }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const handleClick = () => {
-    ref.current!.classList.remove(cl.hovered);
     ref.current!.classList.add(cl.clicked);
   };
 

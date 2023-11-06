@@ -28,6 +28,10 @@ section {
   }
 }
 
+.slick-list {
+  transition: all 0.4s;
+}
+
 .slick-slider {
   * {
     outline: none !important;
