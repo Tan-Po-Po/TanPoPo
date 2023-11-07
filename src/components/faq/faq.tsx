@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Typography } from "../../components/typography/typography";
+import { Typography } from "../typography/typography";
 import { getIconSrc, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 

@@ -35,10 +35,7 @@
     width: 20px;
     height: 16px;
     transition: 1s;
-
-    &:global {
-      animation: checkbox 0.3s;
-    }
+    animation: checkbox 0.3s;
   }
 }
 

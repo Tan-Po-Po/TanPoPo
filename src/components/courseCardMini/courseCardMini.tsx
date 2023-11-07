@@ -4,6 +4,7 @@ import { ContentCard } from "../contentCard/contentCard";
 import { getValidClassNames } from "@/helpers";
 import cl from "./courseCardMini.module.scss";
 import Link from "next/link";
+import { ICourse } from "@/models/Course";
 
 type Course = {
   type: "teacher" | "video" | "audio" | "book";
@@ -17,7 +18,7 @@ type Course = {
 };
 
 type Properties = {
-  course: Course;
+  course: ICourse;
 };
 
 const typeClassMap = {
@@ -28,15 +29,15 @@ const typeClassMap = {
 };
 
 const CourseCardMini: React.FC<Properties> = ({ course }) => {
-
+  const courseInfo = course.small
   return (
     <Link className={cl.link} href="">
       <ContentCard
         className={getValidClassNames(cl.card, typeClassMap[course.type])}
-        label={course.label}
-        labelBgColor={course.labelColor}
+        label={courseInfo.label}
+        labelBgColor={courseInfo.labelColor}
         labelPosition="top"
-        cardBgColor={course.backgroundColor}
+        cardBgColor={courseInfo.bgColor}
       >
         <Typography className={cl.level} variant="body1">
           {course.level}
@@ -48,7 +49,7 @@ const CourseCardMini: React.FC<Properties> = ({ course }) => {
           {course.nameJapanese}
         </Typography>
         <Typography className={cl.description} variant="subtitle1">
-          {course.description}
+          {courseInfo.description}
         </Typography>
       </ContentCard>
     </Link>
