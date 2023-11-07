@@ -1,5 +1,6 @@
 import React from "react";
-import { Typography, ContentCard } from "@/components";
+import { Typography } from "../typography/typography";
+import { ContentCard } from "../contentCard/contentCard";
 
 import cl from "./divider.module.scss";
 

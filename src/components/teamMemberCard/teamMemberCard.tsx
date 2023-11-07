@@ -4,7 +4,8 @@ import Image from "next/image";
 
 import { getIconArtSrc } from "@/helpers";
 import { ContentCard } from "../contentCard/contentCard";
-import { Button, Typography } from "..";
+import { Typography } from "../typography/typography";
+import { Button } from "../button/button";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
 import { Dialog, DialogContent, DialogTitle } from "@mui/material";

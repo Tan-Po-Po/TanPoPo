@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
-    fontFamily: "inherit",
+    fontFamily: "Comfortaa",
     button: {
       textTransform: "none",
     },
