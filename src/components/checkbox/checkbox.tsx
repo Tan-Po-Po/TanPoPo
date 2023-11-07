@@ -7,7 +7,6 @@ import cl from "./checkbox.module.scss";
 import { getValidClassNames } from "@/helpers";
 
 import Image from "next/image";
-import Check from "./check.svg";
 
 type Properties = CheckboxProps & {
   label?: string | React.ReactNode;
@@ -19,7 +18,7 @@ type Properties = CheckboxProps & {
 const icon = <span className={cl.checkboxIcon} />;
 const iconChecked = (
   <span className={getValidClassNames(cl.checkboxIcon, cl.checkboxIconChecked)}>
-    <Image src={Check} alt="Checkbox icon" />
+    <Image src="/icons/checkboxIcon.svg" alt="Checkbox icon" width={10} height={10}/>
   </span>
 );
 

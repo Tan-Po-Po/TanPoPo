@@ -361,7 +361,7 @@ export default function Home() {
           Усе навчання на єдиній інтерактивній платформі.
         </Typography>
         <Image
-          src="/images/homeCabinet.png"
+          src="/images/boyWithLaptop.png"
           width={966}
           height={438}
           alt="Boy with a laptop"
