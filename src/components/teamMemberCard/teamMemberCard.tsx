@@ -1,11 +1,9 @@
 "use client";
-
 import Image from "next/image";
-
 import { getIconArtSrc } from "@/helpers";
 import { ContentCard } from "../contentCard/contentCard";
-import { Typography } from "../typography/typography";
 import { Button } from "../button/button";
+import { Typography } from "../typography/typography";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
 import { Dialog, DialogContent, DialogTitle } from "@mui/material";

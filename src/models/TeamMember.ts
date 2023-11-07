@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export interface ITeamMember {
   _id: string;
-  label: { _id?: string; value: string; color: string };
+  label: { value: string; color: string };
   name: string;
   image: string;
   certificates: {
