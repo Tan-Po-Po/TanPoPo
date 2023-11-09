@@ -1,7 +1,8 @@
 .sliderWrapper {
-  width: 1050px !important;
+  width: 100% !important;
 
   .dotsContainer {
+    position: static;
     li {
       width: fit-content;
       height: fit-content;

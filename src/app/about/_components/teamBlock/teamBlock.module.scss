@@ -1,0 +1,10 @@
+.teamBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .navigation {
+    margin-top: 27px;
+    display: flex;
+  }
+}

@@ -1,10 +1,8 @@
 "use client";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import cl from "./carousel.module.scss";
 import Slider from "react-slick";
-
 import ArrowButton from "../arrowButton/arrowButton";
 import { getValidClassNames } from "@/helpers";
 import { useRef } from "react";
@@ -42,6 +40,7 @@ const Carousel: React.FC<Props> = ({
     slidesToScroll: 1,
     variableWidth: true,
     centerMode,
+    focusOnSelect: true,
     nextArrow: (
       <ArrowButton
         direction={"right"}
@@ -55,7 +54,6 @@ const Carousel: React.FC<Props> = ({
       />
     ),
     dotsClass: getValidClassNames("slick-dots", cl.dotsContainer),
-
     customPaging: () => <div className={cl.dot} id="carouselDot"></div>,
   };
 
