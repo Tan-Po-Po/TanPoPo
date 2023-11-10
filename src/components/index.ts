@@ -1,4 +1,5 @@
 export { Button } from "./button/button";
+export { CourseCard } from "./courseCard/courseCard"
 export { CourseCardMini } from "./courseCardMini/courseCardMini";
 export { ContentCard } from "./contentCard/contentCard";
 export { Checkbox } from "./checkbox/checkbox";

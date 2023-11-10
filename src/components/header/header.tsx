@@ -95,19 +95,29 @@ const Header = () => {
           body={"Курси"}
           href="/courses"
         />
-        <Button icon="shop">Крамниця</Button>
-        <Button icon="pc">Онлайн-тест</Button>
-        <Button icon="bank">Бібліотека</Button>
-        <Button icon="contact">Контакти</Button>
+        <Button icon="shop">
+          <Link href={"/shop"}>Крамниця</Link>
+        </Button>
+        <Button icon="pc">
+          <Link href={"/test"}>Онлайн-тест</Link>
+        </Button>
+        <Button icon="bank">
+          <Link href={"/library"}>Бібліотека</Link>
+        </Button>
+        <Button icon="contact">
+          <Link href={"/contacts"}>Контакти</Link>
+        </Button>
       </nav>
       <div className={cl.socials}>
         <IconLink icon="instagram" height="32px" />
-        <IconLink icon="youtube" height="32px" />
+        <IconLink icon="youTube" height="32px" />
       </div>
       <div className={cl.auth}>
-        <Button icon="hat">Вхід</Button>
+        <Button icon="hat">
+          <Link href={"/join"}>Вхід</Link>
+        </Button>
         <Button className={cl.register} variant="outlined">
-          Долучитись
+          <Link href={"/join"}>Долучитись</Link>
         </Button>
       </div>
     </header>

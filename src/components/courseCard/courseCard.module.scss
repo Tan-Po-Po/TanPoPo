@@ -1,0 +1,135 @@
+.card {
+  position: relative;
+  margin-bottom: 125px;
+  padding: 50px 22px;
+
+  .labels {
+    display: flex;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .label {
+      box-shadow: $box-shadow;
+      border: $border;
+      border-radius: $border-radius;
+      padding: 9px;
+      line-height: 15px;
+    }
+  }
+
+  .description {
+    padding-inline-start: 20px;
+    margin: 0;
+    text-align: start;
+    line-height: 22.3px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    li {
+      p {
+        -webkit-padding-start: 0px;
+        padding-inline-start: 0px;
+      }
+    }
+  }
+
+  .select {
+    width: 300px;
+    .greyText {
+      color: rgba(163, 163, 163, 1);
+      margin-left: 5px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .bottomBtn {
+    cursor: pointer;
+    position: absolute;
+    max-width: 80%;
+    height: 55px;
+    bottom: -28px;
+    transition: all 0.2s ease-in-out;
+    padding: 0px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  .checkbox {
+    :global(.MuiTypography-root) {
+      font-size: 15px;
+      font-weight: 700;
+      text-align: start;
+      margin-left: 10px;
+    }
+  }
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    .line {
+      height: 2px;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+      background: rgba(86, 86, 86, 1);
+      width: 65px;
+      border-radius: $border-radius;
+    }
+    .text {
+      text-transform: uppercase;
+      padding: 0px 8px;
+    }
+  }
+
+  .giftBtn {
+    background: linear-gradient(rgba(255, 239, 153, 1), rgba(255, 171, 231, 1));
+
+    &:hover {
+      background: linear-gradient(
+        rgba(255, 235, 125, 1),
+        rgba(255, 141, 223, 1)
+      );
+    }
+  }
+
+  .startBtn {
+    background: linear-gradient(rgba(224, 255, 216, 1), rgba(184, 255, 187, 1));
+
+    &:hover {
+      background: linear-gradient(
+        rgba(198, 255, 177, 1),
+        rgba(158, 255, 174, 1)
+      );
+    }
+  }
+
+  .continueBtn {
+    background: linear-gradient(rgba(205, 237, 255, 1), rgba(237, 200, 255, 1));
+
+    &:hover {
+      background: linear-gradient(
+        rgba(178, 214, 255, 1),
+        rgba(229, 176, 255, 1)
+      );
+    }
+  }
+}
+
+.video {
+  width: 625px;
+
+  .imageWrapper {
+    position: relative;
+    .image {
+      
+    }
+
+    .playBtn {
+      position: absolute;
+    }
+  }
+}

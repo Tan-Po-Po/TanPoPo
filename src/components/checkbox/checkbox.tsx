@@ -13,12 +13,18 @@ type Properties = CheckboxProps & {
   isChecked?: boolean;
   isDisabled?: boolean;
   isRequired?: boolean;
+  className?: string;
 };
 
 const icon = <span className={cl.checkboxIcon} />;
 const iconChecked = (
   <span className={getValidClassNames(cl.checkboxIcon, cl.checkboxIconChecked)}>
-    <Image src="/icons/checkboxIcon.svg" alt="Checkbox icon" width={10} height={10}/>
+    <Image
+      src="/icons/checkboxIcon.svg"
+      alt="Checkbox icon"
+      width={10}
+      height={10}
+    />
   </span>
 );
 
@@ -27,6 +33,7 @@ const Checkbox: React.FC<Properties> = ({
   isChecked,
   isDisabled,
   isRequired,
+  className,
   ...props
 }) => {
   return label ? (
@@ -41,12 +48,12 @@ const Checkbox: React.FC<Properties> = ({
           checkedIcon={iconChecked}
         />
       }
-      className={cl.label}
+      className={getValidClassNames(cl.label, className)}
       label={label}
     />
   ) : (
     <MuiCheckbox
-      className={cl.checkbox}
+      className={getValidClassNames(cl.checkbox, className)}
       {...props}
       checked={isChecked}
       required={isRequired}
