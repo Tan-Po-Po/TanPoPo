@@ -1,9 +1,17 @@
 .carouselItem {
   transition: 0.3s;
+  position: relative;
+
+  &:hover {
+    svg {
+      transform: scale(110%);
+    }
+  }
 
   img {
     width: 100%;
     height: auto;
+    border-radius: $border-radius;
   }
 }
 
@@ -14,14 +22,19 @@
   animation: clickAnimation 0.3s forwards;
 }
 
+.isOutlined {
+  background-color: black;
+  @include border-box;
+}
+
 @keyframes hoverAnimation {
   0% {
   }
   50% {
-    transform: scale(112%);
+    transform: scale(110%);
   }
   100% {
-    transform: scale(110%);
+    transform: scale(108%);
   }
 }
 
@@ -30,9 +43,9 @@
     transform: scale(110%);
   }
   50% {
-    transform: scale(129%);
+    transform: scale(122%);
   }
   100% {
-    transform: scale(127%);
+    transform: scale(120%);
   }
 }
