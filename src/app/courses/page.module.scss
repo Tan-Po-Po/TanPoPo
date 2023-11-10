@@ -1,0 +1,43 @@
+.main {
+  margin: auto;
+  min-height: 100vh;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.library {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 60px;
+  column-gap: 65px;
+}
+
+.questions {
+  gap: 45px;
+}
+
+.intro {
+  h3 {
+    text-transform: uppercase;
+  }
+  p { 
+    text-align: center;
+  }
+  img {
+    margin: 45px 0;
+  };
+}
+
+.courses {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 60px;
+  column-gap: 70px;
+}

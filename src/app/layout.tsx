@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Footer, Header } from "@/components";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "@/theme/theme";
 import { Comfortaa } from "next/font/google";
+import "@/scss/globals.scss";
 
-const font = Comfortaa({ subsets: ["latin"] });
+const font = Comfortaa({ subsets: ["latin", "cyrillic"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "TanPoPo",
@@ -18,7 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

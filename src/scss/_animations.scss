@@ -1,38 +1,36 @@
-@keyframes checkbox {
+@keyframes dialogShow {
   0% {
-    transform: scale(0) rotate(-90deg);
-    opacity: 0.4;
+    transform: translate(0, -500px);
   }
-
-  55% {
-    transform: scale(0.9) rotate(10deg);
-    opacity: 1;
-  }
-
   100% {
-    transform: scale(1) rotate(0);
+    transform: translate(0, 0);
   }
 }
 
-@keyframes buttonIconRotate {
+@keyframes animateCarouselRight {
   0% {
-    scale: 0;
-    transform: rotate(-90deg);
   }
-  50% {
-    scale: 1;
-    transform: rotate(30deg);
+  33% {
+    transform: translate(-30px, 0);
+  }
+  66% {
+    transform: translate(10px, 0);
   }
   100% {
-    transform: rotate(0deg);
+    transform: translate(0, 0);
   }
 }
 
-@keyframes buttonIconRotateToInitial {
+@keyframes animateCarouselLeft {
   0% {
   }
+  33% {
+    transform: translate(30px, 0);
+  }
+  66% {
+    transform: translate(-10px, 0);
+  }
   100% {
-    scale: 0;
-    transform: rotate(-90deg);
+    transform: translate(0, 0);
   }
 }

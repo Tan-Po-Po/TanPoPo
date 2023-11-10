@@ -2,40 +2,93 @@
   position: relative;
   width: fit-content;
   transition: 0.12s;
+  background-color: white;
+  line-height: 17.84px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: $border-radius;
 
-  .image {
-    position: absolute;
-    right: 6px;
-    top: 8px;
-
-    z-index: 3;
-    transform-origin: bottom right;
-    animation: buttonIconRotateToInitial 0.2s forwards;
-  }
+  .children {
+    position: relative;
+    .image {
+      position: absolute;
+      top: -7px;
+      right: -6px;
+      z-index: 3;
+      transform-origin: bottom right;
+      animation: buttonIconRotateToInitial 0.2s forwards;
+    }
+  } 
 
   &:hover {
     scale: 110%;
-    .image {
-      visibility: visible;
-      animation: buttonIconRotate 0.3s forwards;
+    .children {
+      .image {
+        visibility: visible;
+        animation: buttonIconRotate 0.3s forwards;
+      }
     }
   }
+
   .button {
     color: $color-text;
     border-radius: $border-radius;
-    padding: 16px 8px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
-  .smallPadding {
-    padding: 8px;
+  :global(.MuiButton-root) {
+    &:hover {
+      background-color: transparent;
+    }
   }
 
   :global(.MuiButton-outlined) {
-    border: 2px solid #000 !important;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.35);
+    border: $border !important;
+    box-shadow: $box-shadow;
 
     &:hover {
-      background-color: $color-yellow;
+      background: $color-yellow;
     }
+  }
+}
+
+.isParentHovered {
+  scale: 110% !important;
+  .button {
+    background: $color-yellow !important;
+    .children {
+      .image {
+        visibility: visible;
+        animation: buttonIconRotate 0.3s forwards;
+      }
+    }
+  }
+}
+
+@keyframes buttonIconRotate {
+  0% {
+    scale: 0;
+    transform: rotate(-90deg);
+  }
+  50% {
+    scale: 1;
+    transform: rotate(30deg);
+  }
+  100% {
+    scale: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes buttonIconRotateToInitial {
+  0% {
+  }
+  100% {
+    scale: 0;
+    transform: rotate(-90deg);
   }
 }

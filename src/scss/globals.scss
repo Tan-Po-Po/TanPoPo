@@ -1,0 +1,81 @@
+@import "./normalize.scss";
+
+@font-face { 
+  font-family: "Comfortaa"; 
+  src: url('./fonts/Comfortaa-Light.ttf'); 
+  font-weight: 300;  
+}
+
+@font-face { 
+  font-family: "Comfortaa"; 
+  src: url('./fonts/Comfortaa-Regular.ttf'); 
+  font-weight: 400; 
+} 
+
+@font-face { 
+  font-family: "Comfortaa"; 
+  src: url('./fonts/Comfortaa-Medium.ttf'); 
+  font-weight: 500;  
+}
+
+@font-face { 
+  font-family: "Comfortaa"; 
+  src: url('./fonts/Comfortaa-SemiBold.ttf'); 
+  font-weight: 600;  
+}
+
+@font-face { 
+  font-family: "Comfortaa"; 
+  src: url('./fonts/Comfortaa-Bold.ttf'); 
+  font-weight: 700; ; 
+} 
+
+a {
+  color: $color-text;
+}
+
+html {
+  font-weight: 500;
+}
+
+body {
+  padding-top: 70px;
+  width: 100%;
+  max-width: 1390px;
+  margin: 0 auto;
+  font-family: Comfortaa;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-active {
+  #carouselDot {
+    background-color: $color-yellow;
+  }
+}
+
+.slick-list {
+  transition: all 0.4s;
+}
+
+.slick-slider {
+  * {
+    outline: none !important;
+  }
+}
+
+.slick-slide {
+  > div {
+    margin: 48px;
+  }
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: center;
+}
