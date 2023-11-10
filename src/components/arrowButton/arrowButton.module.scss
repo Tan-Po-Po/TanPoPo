@@ -1,52 +1,41 @@
-.arrow {
-  transition: ease-out 0.125s;
-  width: fit-content;
-  height: fit-content;
-  z-index: 2;
-
-  svg {
+.wrapper {
+  .arrow {
     transition: ease-out 0.125s;
-    display: flex;
-    align-items: center;
-    transform-origin: center;
-  }
-
-  &::before {
-    color: black;
-    content: "";
     width: fit-content;
-  }
+    height: fit-content;
+    z-index: 2;
 
-  &:hover {
     svg {
-      transform: scale(120%);
-      fill: $color-yellow;
+      transition: ease-out 0.125s;
+      display: flex;
+      align-items: center;
+      transform-origin: center;
+    }
+
+    &::before {
+      color: black;
+      content: "";
+      width: fit-content;
+    }
+
+    &:hover {
+      svg {
+        transform: scale(120%);
+        fill: $color-yellow;
+      }
     }
   }
-}
 
-.right {
-  transform: rotate(0);
-  top: calc(50% - 26px);
-  right: 26px;
-  transform: translate(-50%, -50%);
-}
-
-.left {
-  top: calc(50% - 26px);
-  left: 60px;
-  transform: translate(-50%, -75%) rotate(180deg);
-}
-
-.dotsContainer {
-  li {
-    @include border-box;
-    width: 16px;
-    height: 16px;
+  .right {
+    transform: rotate(0);
+    top: 50%;
+    right: 26px;
+    transform: translate(-50%, -50%);
   }
-}
-.dot {
-  @include border-box;
-  width: 16px;
-  height: 16px;
+
+  .left {
+    top: 50%;
+    left: 60px;
+    transform: translate(-50%, -75%) rotate(180deg);
+  }
 }

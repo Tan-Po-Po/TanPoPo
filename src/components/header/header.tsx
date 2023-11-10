@@ -59,7 +59,7 @@ const coursesLinks = [
     icon: "palette",
     bgColor: "#B9C4FF",
   },
-  { href: "/test", body: "Вартість", icon: "coinStack", bgColor: "#E1C2FF" },
+  { href: "/test", body: "Вартість", icon: "coinsStack", bgColor: "#E1C2FF" },
   {
     href: "/test",
     body: "Навчання у подарунок",

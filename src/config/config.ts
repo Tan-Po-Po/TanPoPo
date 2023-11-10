@@ -5,3 +5,5 @@ export const socialLinks = {
   telegram: "https://www.instagram.com/tanpopo_nihongo/",
   viber: "https://www.instagram.com/tanpopo_nihongo/",
 };
+
+export const SERVER_URL = process.env.SERVER_URL;

@@ -15,11 +15,7 @@ interface Props {
 }
 
 const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
-  // console.log(teamMember);
-
   const { label, name, image, certificates, education, about } = teamMember;
-
-  // console.log("certificates desc", certificates.description);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);

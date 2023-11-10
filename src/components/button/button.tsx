@@ -13,7 +13,6 @@ const Button: React.FC<Properties> = ({
   children,
   className,
   isParentHovered,
-
   ...props
 }) => {
   const iconUrl = `/icons/${icon}.svg`;
