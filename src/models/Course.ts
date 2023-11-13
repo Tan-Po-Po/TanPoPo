@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export interface ICourse {
   _id: string;
-  type: "teacher" | "video" | "audio" | "book";
+  type: "teacher" | "video" | "audio" | "book" | "mega";
   name: string;
   nameJapanese: string;
   level: string;

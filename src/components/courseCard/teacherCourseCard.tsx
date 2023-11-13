@@ -7,6 +7,7 @@ import { Select } from "../select/select";
 import { getValidClassNames } from "@/helpers";
 import cl from "./courseCard.module.scss";
 import { ICourse } from "@/models/Course";
+import Link from "next/link";
 
 type Properties = {
   course: ICourse;
@@ -14,11 +15,11 @@ type Properties = {
 
 const typeClassMap = {
   teacher: cl.teacher,
+  mega: cl.teacher,
   video: cl.video,
   audio: cl.audio,
   book: cl.book,
 };
-
 
 const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
   const courseInfo = course.medium;
@@ -50,15 +51,16 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
     <ContentCard
       className={getValidClassNames(cl.card, typeClassMap[course.type])}
       label={
-        <>
+        <Link href={`course/${course._id}`}>
           <Typography variant="h5" className={cl.name}>
             {course.name}
           </Typography>
           <Typography variant="body2" className={cl.nameJpn}>
             {course.nameJapanese}
           </Typography>
-        </>
+        </Link>
       }
+      labelClassName={cl.header}
       labelBgColor={courseInfo.labelColor}
       labelPosition="top"
       cardBgColor={courseInfo.bgColor}

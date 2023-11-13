@@ -1,8 +1,26 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  text-transform: uppercase;
+  margin: 70px 0 60px;
+}
+
 .courses {
   margin-top: 100px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
+  column-gap: 100px;
+}
+
+.questions {
+  margin: 100px auto;
+  gap: 45px;
 }

@@ -21,6 +21,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  white-space: pre-wrap;
   .questionBody {
     transition: all 0.2s ease-in-out;
   }
@@ -35,6 +36,7 @@
   background-color: $color-yellow;
   border: $border;
   border-radius: $border-radius;
+  flex-shrink: 0;
 }
 
 .icon {
