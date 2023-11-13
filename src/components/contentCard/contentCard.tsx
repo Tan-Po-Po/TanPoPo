@@ -9,13 +9,14 @@ interface Props {
   index?: string;
   label?: string | React.ReactNode;
   labelPosition?: "top" | "bottom";
+  labelBgColor?: string;
   indexBgColor?: string;
   cardBgColor?: string;
-  labelBgColor?: string;
   width?: string;
   height?: string;
   style?: CSSProperties;
   className?: string;
+  labelClassName?: string;
   onClick?: () => void;
 }
 
@@ -30,6 +31,7 @@ const ContentCard: React.FC<Props> = ({
   width,
   height,
   className,
+  labelClassName,
   style,
   onClick,
 }) => {
@@ -53,7 +55,8 @@ const ContentCard: React.FC<Props> = ({
         <div
           className={getValidClassNames(
             cl.label,
-            labelPosition && cl[labelPosition]
+            labelPosition && cl[labelPosition],
+            labelClassName
           )}
           style={{
             background: labelBgColor,

@@ -1,4 +1,5 @@
 export { Button } from "./button/button";
+export { CourseCard } from "./courseCard/courseCard"
 export { Checkbox } from "./checkbox/checkbox"
 export { Typography } from "./typography/typography"
 export { CourseCardMini } from "./courseCardMini/courseCardMini";

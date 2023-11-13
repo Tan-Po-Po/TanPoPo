@@ -4,25 +4,60 @@ import React, { useState } from "react";
 import cl from "./select.module.scss";
 import Image from "next/image";
 import { SelectItem } from "./selectItem/selectItem";
+import { Checkbox } from "../checkbox/checkbox";
 import { getValidClassNames } from "@/helpers";
 
 interface SelectProps {
   placeHolder?: string;
-  menuItems: string[];
+  menuItems:
+    | string[]
+    | {
+        label: string | React.ReactElement;
+        value: string;
+      }[];
+  checkbox?: boolean;
+  checkboxLabel?: string;
+  setGift?: () => void;
+  gift?: boolean;
+  className?: string;
+  handleSelect?: (value: string) => void;
+  isDisabled?: boolean;
 }
 
-const Select: React.FC<SelectProps> = ({ placeHolder, menuItems }) => {
-  const [value, setValue] = useState<string>(placeHolder || menuItems[0]);
+const Select: React.FC<SelectProps> = ({
+  placeHolder,
+  menuItems,
+  checkbox,
+  checkboxLabel,
+  setGift,
+  gift,
+  className,
+  handleSelect,
+  isDisabled,
+}) => {
+  const [value, setValue] = useState<string>(placeHolder as string);
   const [isOpen, setIsOpen] = useState(false);
 
   const iconUrl = "/icons/arrowDown.svg";
 
   const handleSelectClick = () => {
-    setIsOpen(!isOpen);
+    !isDisabled && setIsOpen((prev) => !prev);
   };
+
+  const handleOptionClick = (value: string) => {
+    handleSelect && handleSelect(value);
+    setValue(value);
+    setIsOpen(false);
+  };
+
   return (
-    <div className={cl.mainContainer}>
-      <div className={cl.selectContainer}>
+    <div className={getValidClassNames(cl.mainContainer, className)}>
+      <div
+        className={getValidClassNames(
+          cl.selectContainer,
+          isDisabled && cl.disabled
+        )}
+      >
         <div
           className={getValidClassNames(
             cl.selectWrapper,
@@ -33,6 +68,7 @@ const Select: React.FC<SelectProps> = ({ placeHolder, menuItems }) => {
             <div className={cl.value}>{value}</div>
           </div>
           <Image
+
             src={iconUrl}
             width={15}
             height={15}
@@ -42,14 +78,26 @@ const Select: React.FC<SelectProps> = ({ placeHolder, menuItems }) => {
         </div>
         {isOpen && (
           <div className={cl.dropdown}>
-            {menuItems.map((item) => (
+            {menuItems.map((item, index) => (
               <SelectItem
-                key={item}
+                key={index}
                 item={item}
-                setValue={setValue}
-                isSelected={value === item}
+                setValue={handleOptionClick}
+                isSelected={
+                  typeof item === "string"
+                    ? value === item
+                    : value === item.value
+                }
               />
             ))}
+            {checkbox && (
+              <Checkbox
+                label={checkboxLabel}
+                onClick={setGift}
+                isChecked={gift}
+                className={cl.checkbox}
+              />
+            )}
           </div>
         )}
       </div>

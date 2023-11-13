@@ -2,14 +2,17 @@ import mongoose from "mongoose";
 
 export interface ICourse {
   _id: string;
-  type: "teacher" | "video" | "audio" | "book";
+  type: "teacher" | "video" | "audio" | "book" | "mega";
   name: string;
   nameJapanese: string;
   level: string;
+  image: string;
+  href: string;
   prices: {
     lessons: number;
     price: number;
   }[];
+  labels: string[];
   small: {
     label: string;
     labelColor: string;
@@ -17,7 +20,6 @@ export interface ICourse {
     description: string;
   };
   medium: {
-    labels: string[];
     labelColor: string;
     bgColor: string;
     description: string[];
@@ -38,10 +40,13 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
     name: { type: String, required: true },
     nameJapanese: { type: String, required: true },
     level: { type: String, required: true },
+    image: { type: String, required: false },
+    href: { type: String, required: false },
     prices: {
       lessons: { type: Number, required: true },
       price: [{ type: Number, required: true }],
     },
+    labels: [{ type: String, required: true }],
     small: {
       label: { type: String, required: true },
       labelColor: { type: String, required: true },
@@ -49,7 +54,6 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
       description: { type: String, required: true },
     },
     medium: {
-      labels: [{ type: String, required: true }],
       labelColor: { type: String, required: true },
       bgColor: { type: String, required: true },
       description: [{ type: String, required: true }],

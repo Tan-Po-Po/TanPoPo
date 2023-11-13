@@ -74,6 +74,43 @@ $transition-duration: 0.15s;
       }
     }
   }
+  .disabled {
+    color: $color-disabled;
+    border-color: $color-disabled;
+    .arrow {
+      fill: $color-disabled;
+    }
+    &:hover {
+      .arrow {
+        scale: none;
+      }
+      .select {
+        &:hover {
+          background-color: transparent;
+          .value {
+            scale: none;
+          }
+        }
+      }
+    }
+  }
+  
+  .checkbox {
+    margin: 0;
+    padding: 20px 15px;
+    width: 100%;
+    &:hover {
+      background: $color-yellow;
+    }
+    :global(.MuiTypography-root) {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    :global(.MuiCheckbox-root) {
+      // visibility: hidden;
+      display: none;
+    }
+  }
 }
 
 @keyframes showDropdown {

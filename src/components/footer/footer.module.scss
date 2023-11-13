@@ -10,6 +10,9 @@
   padding: 26px;
   font-weight: 500;
   margin-bottom: 15px;
+  a {
+    text-decoration: underline;
+  }
 
   > div {
     flex: 1;

@@ -14,4 +14,7 @@ module.exports = {
 
     return config;
   },
+  images: {
+    domains: ['theartssociety.org', 'wallpapers.com'],
+  },
 };
