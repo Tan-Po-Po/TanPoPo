@@ -39,6 +39,7 @@ export default async function Home() {
         <Typography
           variant="h4"
           style={{ fontWeight: 400, textAlign: "center" }}
+          id="history"
         >
           Найкраща {<b>онлайн-школа</b>} японської мови
           <br /> {<b>для українців</b>} по всьому світу!
@@ -206,7 +207,7 @@ export default async function Home() {
         </ContentCard>
       </div>
 
-      <div className={cl.reviewsBlock}>
+      <div className={cl.reviewsBlock} id="feedbacks">
         <Typography variant="h3" style={{ textAlign: "center" }}>
           {textContent.reviewsBlock.header}
         </Typography>
@@ -252,7 +253,7 @@ export default async function Home() {
         ))}
       </div>
       {partners && (
-        <div className={cl.partnersBlock}>
+        <div className={cl.partnersBlock} id="partners">
           <Typography variant="h3">
             {textContent.partnersBlock.header}
           </Typography>
@@ -280,7 +281,7 @@ export default async function Home() {
           </ContentCard>
         </div>
       )}
-      <div className={cl.authorContentBlock}>
+      <div className={cl.authorContentBlock} id="content">
         <Typography variant="h3">
           {textContent.authorContentBlock.header}
         </Typography>
