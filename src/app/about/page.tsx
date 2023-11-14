@@ -13,7 +13,7 @@ import Partner, { IPartner } from "@/models/Partner";
 import { Line } from "./_components/line/line";
 import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
 import Link from "next/link";
-import PlayButtonIcon from "/public/icons/playButton.svg";
+import PlayButtonIcon from "/public/icons/playYellow.svg";
 
 async function getTeamMembers() {
   await dbConnect();
@@ -28,7 +28,7 @@ async function getTeamMembers() {
   return teamMembers;
 }
 
-export default async function Home() {
+export default async function About() {
   const teamMembers = await getTeamMembers();
 
   const partners = await getPartnerImagesSrc();
@@ -330,7 +330,7 @@ export default async function Home() {
       >
         <Typography variant="h3">{textContent.reelsBlock.header}</Typography>
         <Carousel>
-          {textContent.reelsBlock.imgages.map((image, i) => (
+          {textContent.reelsBlock.images.map((image, i) => (
             <CarouselItem key={i} isOutlined={true} className={cl.carouselItem}>
               <Link href={image.href} rel="noopener noreferrer" target="_blank">
                 <Image

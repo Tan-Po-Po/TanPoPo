@@ -1,33 +1,42 @@
 import { TextField, type TextFieldProps } from "@mui/material";
-import sl from "./input.module.scss";
+import cl from "./input.module.scss";
 import { getValidClassNames } from "@/helpers";
+import { forwardRef } from "react";
 
 type Properties = TextFieldProps & {
   width?: "small" | "default";
   placeholder?: string;
   className?: string;
-  variant?: 'outlined' | 'standard' | 'filled';
+  variant?: "outlined" | "standard" | "filled";
 };
 
-const Input: React.FC<Properties> = ({
-  placeholder,
-  className,
-  width = "default",
-  variant = "outlined",
-  ...props
-}) => {
-  return (
-    <TextField
-      placeholder={placeholder}
-      {...props}
-      variant={variant}
-      className={getValidClassNames(
-        sl.input,
-        width === "small" && sl.small,
-        className
-      )}
-    />
-  );
-};
+const Input: React.FC<Properties> = forwardRef(
+  (
+    {
+      placeholder,
+      className,
+      width = "default",
+      variant = "outlined",
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <TextField
+        ref={ref}
+        placeholder={placeholder}
+        {...props}
+        variant={variant}
+        className={getValidClassNames(
+          cl.input,
+          width === "small" && cl.small,
+          className
+        )}
+      />
+    );
+  }
+);
+
+Input.displayName = "Input";
 
 export { Input };
