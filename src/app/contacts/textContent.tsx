@@ -34,7 +34,7 @@ export const textContent = {
       },
       section2: {
         tittle: "Політика Конфідеційності",
-        href: "/contacts/confidentiality-policy",
+        href: "/contacts/confidentialityPolicy",
       },
       section3: {
         tittle: "Сторінка Розробників",

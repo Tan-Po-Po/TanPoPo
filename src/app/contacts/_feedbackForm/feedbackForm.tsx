@@ -35,7 +35,6 @@ export const FeedbackForm: React.FC = () => {
     await sendFeedback(data);
     reset();
     toast("Питання успішно відправлено.");
-    console.log(data);
   };
 
   return (
@@ -151,7 +150,12 @@ export const FeedbackForm: React.FC = () => {
               render={({ message }) => toast(message)}
             />
           </div>
-          <Button icon="envelop" variant="outlined" type="submit">
+          <Button
+            icon="envelop"
+            variant="outlined"
+            type="submit"
+            className={cl.button}
+          >
             <Typography variant="h6">Надіслати</Typography>
           </Button>
         </div>

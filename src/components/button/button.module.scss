@@ -2,7 +2,7 @@
   position: relative;
   width: fit-content;
   transition: 0.12s;
-  background-color: white;
+  background-color: transparent;
   line-height: 17.84px;
   font-size: 16px;
   font-weight: 500;
@@ -18,7 +18,7 @@
       transform-origin: bottom right;
       animation: buttonIconRotateToInitial 0.2s forwards;
     }
-  } 
+  }
 
   &:hover {
     scale: 110%;
@@ -54,6 +54,10 @@
       background: $color-yellow;
     }
   }
+}
+
+.outlined {
+  background: $color-yellow;
 }
 
 .isParentHovered {

@@ -51,7 +51,12 @@ const coursesLinks = [
     icon: "camera",
     bgColor: "#FFA48F",
   },
-  { href: "/courses#audio", body: "Аудіокурси", icon: "speaker", bgColor: "#B6FFBD" },
+  {
+    href: "/courses#audio",
+    body: "Аудіокурси",
+    icon: "speaker",
+    bgColor: "#B6FFBD",
+  },
   {
     href: "/courses#book",
     body: "Книжкові мінікурси",
@@ -100,30 +105,32 @@ const Header = () => {
           body={"Курси"}
           href="/courses"
         />
-        <Button icon="shop">
-          <Link href={"/shop"}>Крамниця</Link>
-        </Button>
-        <Button icon="pc">
-          <Link href={"/test"}>Онлайн-тест</Link>
-        </Button>
-        <Button icon="bank">
-          <Link href={"/library"}>Бібліотека</Link>
-        </Button>
-        <Button icon="contact">
-          <Link href={"/contacts"}>Контакти</Link>
-        </Button>
+        <Link href={"/shop"}>
+          <Button icon="shop">Крамниця</Button>
+        </Link>
+        <Link href={"/test"}>
+          <Button icon="pc">Онлайн-тест</Button>
+        </Link>
+        <Link href={"/library"}>
+          <Button icon="bank">Бібліотека</Button>
+        </Link>
+        <Link href={"/contacts"}>
+          <Button icon="contact">Контакти</Button>
+        </Link>
       </nav>
       <div className={cl.socials}>
         <IconLink icon="instagram" height="32px" />
         <IconLink icon="youTube" height="32px" />
       </div>
       <div className={cl.auth}>
-        <Button icon="hat">
-          <Link href={"/join"}>Вхід</Link>
-        </Button>
-        <Button className={cl.register} variant="outlined">
-          <Link href={"/join"}>Долучитись</Link>
-        </Button>
+        <Link href={"/join"}>
+          <Button icon="hat">Вхід</Button>
+        </Link>
+        <Link href={"/join"}>
+          <Button className={cl.register} variant="outlined">
+            Долучитись
+          </Button>
+        </Link>
       </div>
     </header>
   );

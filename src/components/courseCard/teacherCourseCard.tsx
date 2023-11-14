@@ -35,7 +35,6 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
   });
 
   const toggleGift = () => {
-    console.log(isGift);
     setIsGift((prev) => !prev);
   };
   const handleNewStudentCheckbox = () => {

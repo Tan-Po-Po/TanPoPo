@@ -1,8 +1,8 @@
 import React from "react";
 import { CustomLayout } from "../_customLayout/customLayout";
 
-export const Oferta = () => {
+export const ConfidentialityPolicy = () => {
   return <CustomLayout />;
 };
 
-export default Oferta;
+export default ConfidentialityPolicy;

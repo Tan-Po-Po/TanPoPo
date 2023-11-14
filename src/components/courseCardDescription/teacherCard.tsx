@@ -32,7 +32,6 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
   });
 
   const toggleGift = () => {
-    console.log(isGift);
     setIsGift((prev) => !prev);
   };
   const handleNewStudentCheckbox = () => {
@@ -69,16 +68,13 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
       <Typography variant="h3"> Твої скіли після засвоєння курсу:</Typography>
       <div className={cl.description}>
         {courseInfo.description.map((item, index) => {
-          const { icon, text } = item as {icon: string, text: string}
-          return <div key={index} className={cl.descItem}>
-            <Image
-              src={getIconSrc(icon)}
-              alt={icon}
-              width={26}
-              height={26}
-            />
-            <Typography variant="body2">{text}</Typography>
-          </div>;
+          const { icon, text } = item as { icon: string; text: string };
+          return (
+            <div key={index} className={cl.descItem}>
+              <Image src={getIconSrc(icon)} alt={icon} width={26} height={26} />
+              <Typography variant="body2">{text}</Typography>
+            </div>
+          );
         })}
       </div>
 

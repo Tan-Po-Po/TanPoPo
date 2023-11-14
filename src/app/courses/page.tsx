@@ -64,7 +64,6 @@ async function getCourses(): Promise<ICourse[]> {
 
 export default async function Courses() {
   const coursesDB = await getCourses();
-  console.log(coursesDB);
 
   const teacherCourses = coursesDB.filter(
     (course) => course.type === "teacher"
