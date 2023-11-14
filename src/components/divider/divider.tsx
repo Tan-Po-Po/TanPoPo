@@ -8,11 +8,12 @@ type Properties = {
   firsRow: string;
   secondRow?: string;
   bgColor: string;
+  id?: string
 };
 
-const Divider: React.FC<Properties> = ({ firsRow, secondRow, bgColor }) => {
+const Divider: React.FC<Properties> = ({ firsRow, secondRow, bgColor, id }) => {
   return (
-    <div className={cl.wrapper}>
+    <div className={cl.wrapper} id={id}>
       <div className={cl.divider}></div>
       <ContentCard className={cl.card} cardBgColor={bgColor}>
         <Typography className={cl.firstRow} variant="body1">

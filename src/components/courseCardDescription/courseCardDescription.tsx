@@ -1,38 +1,39 @@
 "use client";
+
 import React from "react";
 import { Typography } from "../typography/typography";
-import { Checkbox } from "../checkbox/checkbox";
 import { ContentCard } from "../contentCard/contentCard";
+import { Checkbox } from "../checkbox/checkbox";
 import { Select } from "../select/select";
+import Carousel from "../carousel/carousel";
 import { getValidClassNames } from "@/helpers";
-import cl from "./courseCard.module.scss";
+import { TeacherCard } from "./teacherCard";
+import cl from "./courseCardDescription.module.scss";
+import Link from "next/link";
+import Image from "next/image";
 import { ICourse } from "@/models/Course";
-import { TeacherCourseCard } from "./teacherCourseCard";
 import PlayBtn from "../../../public/icons/playWhite.svg";
 import TriangleBtn from "../../../public/icons/playButtonTest.svg";
-import Image from "next/image";
-import Link from "next/link";
+import { CarouselItem } from "../carousel/carouselItem/carouselItem";
 
 type Properties = {
   course: ICourse;
 };
 
 const typeClassMap = {
-  teacher: cl.teacher,
   video: cl.video,
   audio: cl.audio,
   book: cl.book,
 };
 
 const placeholders = {
-  teacher: "К-сть Уроків & Ціна",
   video: "Відеокурс🎬 & Ціна",
   audio: "Аудіокурс🎧 & Ціна",
   book: "Посібники📖 & Ціна",
 };
 
-const CourseCard: React.FC<Properties> = ({ course }) => {
-  const courseInfo = course.medium;
+const CourseCardDescription: React.FC<Properties> = ({ course }) => {
+  const courseInfo = course.large;
   const [isGift, setIsGift] = React.useState(false);
   const [lessons, setLessons] = React.useState<null | string>(null);
   const [isAccepted, setIsAccepted] = React.useState(false);
@@ -44,9 +45,9 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
   const toggleAcceptation = () => {
     setIsAccepted((prev) => !prev);
   };
-  
+
   return course.type === "teacher" || course.type === "mega" ? (
-    <TeacherCourseCard course={course} />
+    <TeacherCard course={course} />
   ) : (
     <ContentCard
       className={getValidClassNames(cl.card, typeClassMap[course.type])}
@@ -64,12 +65,11 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       labelBgColor={courseInfo.labelColor}
       labelPosition="top"
       cardBgColor={courseInfo.bgColor}
-      width={course.type === "book" ? "385px" : "625px"}
-      // style={{ minHeight: 700 }}
+      width={"625px"}
     >
       {courseInfo.description.map((desc, index) => (
         <Typography key={index} className={cl.description} variant="body1">
-          {desc}
+          {desc.text}
         </Typography>
       ))}
 
@@ -107,17 +107,49 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       )}
 
       {course.type === "book" && (
-        <Image
-          className={cl.image}
-          src={course.image[0]}
-          alt="Audio"
-          width={215}
-          height={215}
-        />
+        <Carousel
+          dots={false}
+          slidesToShow={2}
+          centerMode={false}
+          className={cl.carousel}
+        >
+          {course.image.map((img, index) => (
+            <CarouselItem isOutlined={false} key={index}>
+              <Image
+                className={cl.image}
+                src={img}
+                alt="Book course image"
+                width={215}
+                height={215}
+                style={{ width: "215px", height: "215px" }}
+              />
+            </CarouselItem>
+          ))}
+          {/* <CarouselItem isOutlined={false}>
+            <Image
+              className={cl.image}
+              src={`/courses/tales1.png`}
+              alt="Book course image"
+              width={215}
+              height={215}
+              style={{ width: "215px", height: "215px" }}
+            />
+          </CarouselItem>
+          <CarouselItem isOutlined={false}>
+            <Image
+              className={cl.image}
+              src={`/courses/tales2.png`}
+              alt="Audio"
+              width={215}
+              height={215}
+              style={{ width: "215px", height: "215px" }}
+            />
+          </CarouselItem> */}
+        </Carousel>
       )}
 
       <section className={cl.labels}>
-        {course.labels.map((label, index) => (
+        {course.labels.concat(courseInfo.labels).map((label, index) => (
           <Typography
             variant="body2"
             key={index}
@@ -196,4 +228,4 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
   );
 };
 
-export { CourseCard };
+export { CourseCardDescription };

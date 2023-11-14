@@ -21,16 +21,23 @@ type Properties = {
   align?: "center" | "inherit" | "justify" | "left" | "right";
   className?: string;
   style?: CSSProperties;
+  id?: string;
 };
 
 const Typography: React.FC<Properties> = ({
   children,
   variant,
   className,
+  id,
   ...restProperties
 }) => {
   return (
-    <MuiTypography variant={variant} className={className} {...restProperties}>
+    <MuiTypography
+      variant={variant}
+      className={className}
+      id={id}
+      {...restProperties}
+    >
       {children}
     </MuiTypography>
   );

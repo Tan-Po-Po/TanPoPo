@@ -23,6 +23,7 @@ type Properties = {
 
 const typeClassMap = {
   teacher: cl.teacher,
+  mega: cl.teacher,
   video: cl.video,
   audio: cl.audio,
   book: cl.book,

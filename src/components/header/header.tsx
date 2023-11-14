@@ -6,27 +6,32 @@ import Image from "next/image";
 import { Dropdown, Button, IconLink } from "@/components";
 
 const aboutLinks = [
-  { href: "/", body: "Історія розвитку", icon: "cup", bgColor: "#FFCCF4" },
   {
-    href: "/prices",
+    href: "/about#history",
+    body: "Історія розвитку",
+    icon: "cup",
+    bgColor: "#FFCCF4",
+  },
+  {
+    href: "/about#feedbacks",
     body: "Відгуки за школу",
     icon: "personSpeak",
     bgColor: "#B9C4FF",
   },
   {
-    href: "/store",
+    href: "/about#team",
     body: "Команда TanPoPo",
     icon: "person",
     bgColor: "#B6FFBD",
   },
   {
-    href: "/about",
+    href: "/about#partners",
     body: "Наші партнери",
     icon: "groupThree",
     bgColor: "#E1C2FF",
   },
   {
-    href: "/test",
+    href: "/about#content",
     body: "Авторський контент",
     icon: "diamond",
     bgColor: "#FFFDEE",
@@ -35,20 +40,20 @@ const aboutLinks = [
 
 const coursesLinks = [
   {
-    href: "/",
+    href: "/courses#teacher",
     body: "Онлайн-курси з сенсеєм",
     icon: "groupTwo",
     bgColor: "#FFCCF4",
   },
   {
-    href: "/prices",
+    href: "/courses#video",
     body: "Відеокурси",
     icon: "camera",
     bgColor: "#FFA48F",
   },
-  { href: "/store", body: "Аудіокурси", icon: "speaker", bgColor: "#B6FFBD" },
+  { href: "/courses#audio", body: "Аудіокурси", icon: "speaker", bgColor: "#B6FFBD" },
   {
-    href: "/about",
+    href: "/courses#book",
     body: "Книжкові мінікурси",
     icon: "list",
     bgColor: "#AFF1FF",
@@ -59,7 +64,7 @@ const coursesLinks = [
     icon: "palette",
     bgColor: "#B9C4FF",
   },
-  { href: "/test", body: "Вартість", icon: "coinsStack", bgColor: "#E1C2FF" },
+  { href: "/prices", body: "Вартість", icon: "coinsStack", bgColor: "#E1C2FF" },
   {
     href: "/test",
     body: "Навчання у подарунок",

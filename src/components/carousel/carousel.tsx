@@ -12,6 +12,7 @@ type Props = {
   dots?: boolean;
   slidesToShow?: number;
   centerMode?: boolean;
+  className?: string;
 };
 
 const Carousel: React.FC<Props> = ({
@@ -19,6 +20,7 @@ const Carousel: React.FC<Props> = ({
   dots = true,
   slidesToShow = 3,
   centerMode = true,
+  className,
 }) => {
   const ref = useRef<Slider | null>(null);
   const speed = 300;
@@ -58,7 +60,7 @@ const Carousel: React.FC<Props> = ({
   };
 
   return (
-    <div className={cl.sliderWrapper} style={{ width: "600px" }}>
+    <div className={getValidClassNames(cl.sliderWrapper, className)}>
       <Slider {...settings} ref={ref}>
         {children}
       </Slider>

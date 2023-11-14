@@ -19,6 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/logo/logo.svg" />
       <body className={font.className}>
         <ThemeProvider theme={theme}>
           <Header />
