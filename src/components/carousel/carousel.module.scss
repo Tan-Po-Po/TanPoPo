@@ -1,6 +1,33 @@
 .sliderWrapper {
   width: 100% !important;
 
+  :global(.slick-slide) {
+    > div {
+      margin: 48px;
+    }
+  }
+
+  :global(.slick-active) {
+    :global(#carouselDot) {
+      background-color: $color-yellow;
+    }
+  }
+
+  :global(.slick-list) {
+    transition: all 0.4s;
+  }
+
+  :global(.slick-slider) {
+    * {
+      outline: none !important;
+    }
+  }
+
+  :global(.slick-track) {
+    display: flex !important;
+    align-items: center;
+  }
+
   .dotsContainer {
     position: static;
     li {

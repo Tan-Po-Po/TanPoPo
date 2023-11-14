@@ -94,6 +94,7 @@ export default async function Home() {
       </section>
 
       <Divider
+        id="teacher"
         firsRow="онлайн-курси"
         secondRow="з сенсеєм"
         bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
@@ -108,6 +109,7 @@ export default async function Home() {
       </section>
 
       <Divider
+        id="video"
         firsRow="Відеокурси"
         secondRow="для самостійного вивчення"
         bgColor="linear-gradient(rgba(255, 250, 139, 1), rgba(255, 111, 111, 1))"
@@ -122,6 +124,7 @@ export default async function Home() {
       </section>
 
       <Divider
+        id="audio"
         firsRow="Аудіокурси"
         secondRow="для самостійного вивчення"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(108, 250, 165, 1))"
@@ -136,6 +139,7 @@ export default async function Home() {
       </section>
 
       <Divider
+        id="book"
         firsRow="Книжкові мінікурси"
         secondRow="для самостійного вивчення"
         bgColor="linear-gradient(rgba(255, 221, 169, 1), rgba(232, 184, 255, 1))"
@@ -148,7 +152,6 @@ export default async function Home() {
           <Typography variant="h4">В розробці</Typography>
         )}
       </section>
-
 
       <Divider
         firsRow="бібліотека tanpopo"

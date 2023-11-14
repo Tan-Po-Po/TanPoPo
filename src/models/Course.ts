@@ -6,7 +6,7 @@ export interface ICourse {
   name: string;
   nameJapanese: string;
   level: string;
-  image: string;
+  image: string[];
   href: string;
   prices: {
     lessons: number;
@@ -40,7 +40,7 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
     name: { type: String, required: true },
     nameJapanese: { type: String, required: true },
     level: { type: String, required: true },
-    image: { type: String, required: false },
+    image: [{ type: String, required: false }],
     href: { type: String, required: false },
     prices: {
       lessons: { type: Number, required: true },

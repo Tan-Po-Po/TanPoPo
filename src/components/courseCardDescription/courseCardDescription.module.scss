@@ -1,20 +1,12 @@
 .card {
   position: relative;
-  margin-bottom: 125px;
-  padding: 50px 22px;
-  
+  margin: 60px auto 90px;
+
   .name {
     text-transform: uppercase;
   }
-  
-  .header {
-    transform: none;
-    top: -5%;
-    left: auto;
-    transition: all 0.2s ease-in-out;
-    &:hover {
-      scale: 1.1;
-    }
+  .description {
+    margin-top: 30px;
   }
 
   .labels {
@@ -26,43 +18,20 @@
     flex-wrap: wrap;
 
     .label {
-      box-shadow: $box-shadow;
       border: $border;
       border-radius: $border-radius;
-      padding: 9px;
+      box-shadow: $box-shadow;
+      padding: 8px 7px;
       line-height: 15px;
-    }
-  }
-
-  .description {
-    padding-inline-start: 20px;
-    margin: 0;
-    text-align: center;
-    line-height: 22.3px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 5px;
-    li {
-      p {
-        -webkit-padding-start: 0px;
-        padding-inline-start: 0px;
-      }
-    }
-  }
-
-  .select {
-    width: 300px;
-    .greyText {
-      color: rgba(163, 163, 163, 1);
-      margin-left: 5px;
-      font-size: 0.9rem;
+      white-space: pre;
+      text-wrap: wrap;
     }
   }
 
   .bottomBtn {
     cursor: pointer;
     position: absolute;
-    max-width: 80%;
+    max-width: 305px;
     height: 55px;
     bottom: -28px;
     transition: transform 0.2s ease-in-out;
@@ -72,32 +41,6 @@
       transform: scale(1.05);
     }
   }
-  .checkbox {
-    :global(.MuiTypography-root) {
-      font-size: 15px;
-      font-weight: 700;
-      text-align: start;
-      margin-left: 10px;
-    }
-  }
-  .divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .line {
-      height: 2px;
-      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-      background: rgba(86, 86, 86, 1);
-      width: 65px;
-      border-radius: $border-radius;
-    }
-    .text {
-      text-transform: uppercase;
-      padding: 0px 8px;
-    }
-  }
-
   .giftBtn {
     background: linear-gradient(rgba(255, 239, 153, 1), rgba(255, 171, 231, 1));
 
@@ -144,20 +87,44 @@
       background: inherit;
     }
   }
+  .checkbox {
+    text-align: start;
+    line-height: 16.73px;
+    a {
+      text-decoration: underline;
+    }
+    p {
+      font-size: 15px;
+      font-weight: 700;
+      max-width: 300px;
+    }
+    margin-bottom: 16px;
+  }
 }
 
 .teacher {
+  padding: 60px 35px;
   .description {
-    text-align: start;
-  }
-}
+    margin-top: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 5px;
+    grid-auto-rows: auto;
 
-.checkbox {
-  :global(.MuiTypography-root) {
-    max-width: 300px;
+    .descItem {
+      display: flex;
+      align-items: center;
+      text-align: start;
+      gap: 10px;
+    }
   }
-  a {
-    text-decoration: underline;
+  .selects {
+    display: flex;
+    gap: 40px;
+    .select {
+      width: 300px;
+    }
   }
 }
 
@@ -237,14 +204,37 @@
 }
 
 .book {
-  max-width: 400px;
-
-  .image {
-    border: $border;
-    border-radius: $border-radius;
+  padding-bottom: 50px;
+  
+  .description {
+    font-size: 16px;
   }
-
   .labels {
     column-gap: 14px;
+  }
+  .select {
+    margin-top: 15px;
+  }
+  
+  .carousel {
+    .image {
+      border: $border;
+      border-radius: $border-radius;
+    }
+
+    :global(.slick-slide) {
+      > div {
+        overflow: display;
+        margin: 10px 35px;
+      }
+    }
+
+    :global(.slick-prev) {
+      left: 2%;
+    }
+
+    :global(.slick-next) {
+      right: -5%;
+    }
   }
 }

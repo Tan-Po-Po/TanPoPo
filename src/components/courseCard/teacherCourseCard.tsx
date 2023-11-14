@@ -51,7 +51,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
     <ContentCard
       className={getValidClassNames(cl.card, typeClassMap[course.type])}
       label={
-        <Link href={`course/${course._id}`}>
+        <Link href={`courses/${course._id}`}>
           <Typography variant="h5" className={cl.name}>
             {course.name}
           </Typography>

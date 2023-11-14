@@ -43,7 +43,15 @@ export default async function Home() {
           Найкраща {<b>онлайн-школа</b>} японської мови
           <br /> {<b>для українців</b>} по всьому світу!
         </Typography>
-        <div className={cl.logo}>LOGO</div>
+
+        <Image
+          src="/logo/logo.svg"
+          alt="Logo"
+          width={533}
+          height={533}
+          style={{ margin: "80px auto", display: "block" }}
+        />
+
         <Typography
           variant="body1"
           style={{ fontWeight: 700, textAlign: "center" }}
