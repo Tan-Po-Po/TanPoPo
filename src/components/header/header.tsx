@@ -64,7 +64,7 @@ const coursesLinks = [
     bgColor: "#AFF1FF",
   },
   {
-    href: "/test",
+    href: "/education",
     body: "Освітня програма",
     icon: "palette",
     bgColor: "#B9C4FF",

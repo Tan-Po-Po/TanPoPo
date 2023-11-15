@@ -50,6 +50,16 @@ const theme = createTheme({
       fontWeight: 400,
     },
   },
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          subtitle2: "span",
+          subtitle1: "span",
+        },
+      },
+    },
+  },
 });
 
 export { theme };
