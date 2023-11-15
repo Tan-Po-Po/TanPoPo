@@ -7,6 +7,7 @@ import cl from "./checkbox.module.scss";
 import { getValidClassNames } from "@/helpers";
 
 import Image from "next/image";
+import { forwardRef } from "react";
 
 type Properties = CheckboxProps & {
   label?: string | React.ReactNode;
@@ -28,41 +29,38 @@ const iconChecked = (
   </span>
 );
 
-const Checkbox: React.FC<Properties> = ({
-  label,
-  isChecked,
-  isDisabled,
-  isRequired,
-  className,
-  ...props
-}) => {
-  return label ? (
-    <FormControlLabel
-      control={
-        <MuiCheckbox
-          {...props}
-          checked={isChecked}
-          required={isRequired}
-          disabled={isDisabled}
-          icon={icon}
-          checkedIcon={iconChecked}
-        />
-      }
-      className={getValidClassNames(cl.label, className)}
-      label={label}
-    />
-  ) : (
-    <MuiCheckbox
-      className={getValidClassNames(cl.label, className)}
-      {...props}
-      checked={isChecked}
-      required={isRequired}
-      disabled={isDisabled}
-      icon={icon}
-      checkedIcon={iconChecked}
-    />
-  );
-};
+const Checkbox: React.FC<Properties> = forwardRef(
+  ({ label, isChecked, isDisabled, isRequired, className, ...props }, ref) => {
+    return label ? (
+      <FormControlLabel
+        control={
+          <MuiCheckbox
+            {...props}
+            checked={isChecked}
+            required={isRequired}
+            disabled={isDisabled}
+            icon={icon}
+            checkedIcon={iconChecked}
+          />
+        }
+        className={getValidClassNames(cl.label, className)}
+        label={label}
+        ref={ref}
+      />
+    ) : (
+      <MuiCheckbox
+        className={getValidClassNames(cl.label, className)}
+        {...props}
+        checked={isChecked}
+        required={isRequired}
+        disabled={isDisabled}
+        icon={icon}
+        checkedIcon={iconChecked}
+        ref={ref}
+      />
+    );
+  }
+);
 
 Checkbox.displayName = "Checkbox";
 export { Checkbox };
