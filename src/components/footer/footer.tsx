@@ -4,6 +4,7 @@ import cl from "./footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { getValidClassNames, getIconSrc } from "@/helpers";
+import { getSocialIconsLinks } from "@/helpers/getSocialIconsLinks";
 
 const Footer: React.FC = () => {
   const width = "16px";
@@ -134,10 +135,10 @@ const Footer: React.FC = () => {
 
 export { Footer };
 
-function getSocialIconsLinks() {
-  const icons = [];
-  for (const key in socialLinks) {
-    icons.push(<IconLink icon={key} key={key} />);
-  }
-  return icons;
-}
+// function getSocialIconsLinks() {
+//   const icons = [];
+//   for (const key in socialLinks) {
+//     icons.push(<IconLink icon={key} key={key} />);
+//   }
+//   return icons;
+// }

@@ -6,4 +6,5 @@ export const socialLinks = {
   viber: "https://www.instagram.com/tanpopo_nihongo/",
 };
 
-export const SERVER_URL = process.env.SERVER_URL;
+export const NODEMAILER_EMAIL = process.env.NODEMAILER_EMAIL;
+export const NODEMAILER_PASSWORD = process.env.NODEMAILER_PASSWORD;

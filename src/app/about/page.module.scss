@@ -11,14 +11,11 @@ $gap-block-vertical: 112px;
 
 .main {
   padding: $padding-page;
-  padding-top: 66px;
+
   display: flex;
   flex-direction: column;
   gap: 130px;
   align-items: center;
-
-  .ideaBlock {
-  }
 
   .bioBlock {
     .imageContent {

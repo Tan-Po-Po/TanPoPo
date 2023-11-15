@@ -19,13 +19,9 @@ const Button: React.FC<Properties> = ({
 
   return (
     <div
-      style={{
-        backgroundColor: ` ${
-          props.variant === "outlined" ? "#fde543" : "transparent"
-        }`,
-      }}
       className={getValidClassNames(
         cl.buttonWrapper,
+        props.variant === "outlined" && cl.outlined,
         isParentHovered && cl.isParentHovered
       )}
     >

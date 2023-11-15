@@ -29,6 +29,17 @@
     );
   }
 
+  :global(.MuiInputBase-multiline) {
+    border-radius: $border-radius;
+    &:hover {
+      background: linear-gradient(
+        180deg,
+        rgba(254, 254, 254, 1) 10%,
+        rgba(255, 245, 27, 1) 65%
+      );
+    }
+  }
+
   :global(.Mui-focused),
   :global(.MuiFormLabel-filled),
   &:hover :global(.MuiFormLabel-root) {

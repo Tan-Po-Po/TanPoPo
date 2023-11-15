@@ -62,9 +62,8 @@ async function getCourses(): Promise<ICourse[]> {
   return courses.map((course) => course.toObject());
 }
 
-export default async function Home() {
+export default async function Courses() {
   const coursesDB = await getCourses();
-  console.log(coursesDB);
 
   const teacherCourses = coursesDB.filter(
     (course) => course.type === "teacher"

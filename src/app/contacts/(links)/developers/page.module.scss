@@ -1,0 +1,43 @@
+.developers {
+  @include flex-column;
+  padding: $padding-page;
+  gap: 71px;
+
+  .imageWrapper {
+    position: relative;
+    width: 442px;
+    height: 358px;
+
+    img {
+      border-radius: 7px;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+  .anton {
+    img {
+      filter: brightness(150%);
+    }
+  }
+  .contentCard {
+    padding-top: 70px;
+    padding-bottom: 47px;
+    gap: 47px;
+
+    .socials {
+      @include flex-column;
+      gap: 28px;
+
+      .links {
+        display: flex;
+        gap: 28px;
+      }
+    }
+  }
+
+  .others {
+    display: flex;
+
+    gap: 158px;
+  }
+}

@@ -16,7 +16,9 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <main className={cl.main}>
-      <Typography variant="h3" className={cl.header}>Детальний опис курсу:</Typography>
+      <Typography variant="h3" className={cl.header}>
+        Детальний опис курсу:
+      </Typography>
       <CourseCardDescription course={course} />
     </main>
   );

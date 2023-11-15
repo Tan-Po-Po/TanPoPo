@@ -1,0 +1,63 @@
+.main {
+  @include flex-column;
+  padding: $padding-page;
+  gap: 110px;
+
+  .contactsBlock {
+    @include flex-column;
+    gap: 30px;
+
+    .cards {
+      display: flex;
+      gap: 112px;
+      margin-top: 44px;
+
+      .card {
+        width: 376px;
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      .socials {
+        display: flex;
+        gap: 15px;
+      }
+    }
+  }
+
+  .videoGuidesBlock {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 100px;
+
+    b {
+      text-decoration: underline !important;
+    }
+
+    .videoCard {
+      justify-content: space-evenly;
+      transition: 0.15s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(110%);
+
+        svg {
+          transition: 0.15s;
+          transform: scale(110%);
+        }
+
+        p {
+          transition: 0.15s;
+          transform: scale(110%);
+        }
+      }
+    }
+  }
+  .faqBlock {
+    @include flex-column;
+    gap: 45px;
+  }
+}
