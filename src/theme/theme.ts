@@ -48,7 +48,17 @@ const theme = createTheme({
     subtitle2: {
       fontSize: 14,
       fontWeight: 400,
-    }
+    },
+  },
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          subtitle2: "span",
+          subtitle1: "span",
+        },
+      },
+    },
   },
 });
 

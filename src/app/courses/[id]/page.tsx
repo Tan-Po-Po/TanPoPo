@@ -13,8 +13,6 @@ async function getCourse(id: string): Promise<ICourse> {
 
 export default async function Page({ params }: { params: { id: string } }) {
   const course = await getCourse(params.id);
-  console.log(course);
-  console.log(course.image);
 
   return (
     <main className={cl.main}>
