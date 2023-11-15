@@ -7,11 +7,13 @@ import { getIconArtSrc } from "@/helpers";
 export default function Home() {
   return (
     <main className={cl.main}>
-      <Typography variant="h5" className={cl.header}>
-        {" "}
-        <Typography variant="h4">TanPoPo</Typography> - найкращий досвід
-        вивчення японської мови!
-      </Typography>
+      <div className={cl.header}>
+        <Typography variant="h4">TanPoPo</Typography>{" "}
+        <Typography variant="h5">
+          {" "}
+          - найкращий досвід вивчення японської мови!
+        </Typography>
+      </div>
       <Image
         src="/images/homePage.png"
         alt="Home page"
@@ -24,7 +26,6 @@ export default function Home() {
         середовище для вивчення мови у спосіб, який найкраще підходить для
         кожної людини.
       </Typography>
-
       <ContentCard width="1132px" className={cl.opportunities}>
         <Typography variant="h5">
           Безмежні можливості разом з TanPoPo!
@@ -93,7 +94,6 @@ export default function Home() {
           </ContentCard>
         </div>
       </ContentCard>
-
       <section className={cl.author}>
         <div className={cl.text}>
           <Typography variant="h5">Авторська школа</Typography>
@@ -117,7 +117,6 @@ export default function Home() {
           height={280}
         />
       </section>
-
       <section className={cl.links}>
         <ContentCard className={cl.link}>
           <Typography variant="body2">
@@ -165,7 +164,6 @@ export default function Home() {
           </Button>
         </ContentCard>
       </section>
-
       <section className={cl.ahead}>
         <Image
           className={cl.photo}
@@ -186,7 +184,6 @@ export default function Home() {
           </Typography>
         </div>
       </section>
-
       <ContentCard width="1122px" className={cl.formats}>
         <Typography variant="h5">Формати Навчання:</Typography>
         <Typography variant="body1">
@@ -204,7 +201,9 @@ export default function Home() {
             />
             <Typography variant="body2">
               Відеокурси та Аудіокурси для всіх прихильників{" "}
-              <Link href="/">самостійного навчання.</Link>
+              <b>
+                <u>самостійного навчання.</u>
+              </b>
             </Typography>
           </ContentCard>
 
@@ -216,7 +215,9 @@ export default function Home() {
               height={115}
             />
             <Typography variant="body2">
-              <Link href="">Заняття у Міні-групах </Link>
+              <b>
+                <u>Заняття у Міні-групах </u>
+              </b>
               <br />в живому онлайн-форматі з сенсеєм. З інтерактивним та
               індивідуальним підходом до кожного учня!
             </Typography>
@@ -230,13 +231,14 @@ export default function Home() {
               height={105}
             />
             <Typography variant="body2">
-              <Link href="">Індивідуальні заняття</Link>
+              <b>
+                <u>Індивідуальні заняття </u>
+              </b>
               <br />в живому онлайн-форматі разом з сенсеєм.
             </Typography>
           </ContentCard>
         </div>
       </ContentCard>
-
       <section className={cl.courses}>
         <Typography variant="h4">Усі можливі види курсів:</Typography>
         <div className={cl.cards}>
@@ -245,7 +247,7 @@ export default function Home() {
             width="511px"
             height="210px"
             label={
-              <Link href="">
+              <Link href="/courses#teacher">
                 <Typography variant="h6" className={cl.label1}>
                   Олайн курси
                 </Typography>
@@ -274,7 +276,7 @@ export default function Home() {
             width="511px"
             height="210px"
             label={
-              <Link href="">
+              <Link href="/courses#video">
                 <Typography variant="h6" className={cl.label1}>
                   Відеокурси
                 </Typography>
@@ -302,7 +304,7 @@ export default function Home() {
             width="511px"
             height="210px"
             label={
-              <Link href="">
+              <Link href="/courses#audio">
                 <Typography variant="h6" className={cl.label1}>
                   Аудіокурси
                 </Typography>
@@ -330,7 +332,7 @@ export default function Home() {
             width="511px"
             height="210px"
             label={
-              <Link href="">
+              <Link href="/courses#book">
                 <Typography variant="h6" className={cl.label1}>
                   Книжкові мінікурси
                 </Typography>
@@ -354,7 +356,6 @@ export default function Home() {
           </ContentCard>
         </div>
       </section>
-
       <section className={cl.personalCabinet}>
         <Typography variant="h4">Заходь у свій Особистий Кабінет!</Typography>
         <Typography variant="h6">
@@ -367,7 +368,6 @@ export default function Home() {
           alt="Boy with a laptop"
         />
       </section>
-
       <section className={cl.cabinetCards}>
         <ContentCard width="376px" height="343px">
           <Image
@@ -421,7 +421,6 @@ export default function Home() {
           </ul>
         </ContentCard>
       </section>
-
       <ContentCard className={cl.freeCourse} width="840px" height="475px">
         <Typography variant="h4">
           Безкоштовний мінікурс для початківців!
@@ -439,7 +438,6 @@ export default function Home() {
         </Typography>
         <Button variant="outlined">Дізнатись більше!</Button>
       </ContentCard>
-
       <ContentCard className={cl.start} width="1166px">
         <Typography variant="h4">Розпочати навчання - дуже просто!</Typography>
         <div className={cl.cards}>
@@ -505,7 +503,6 @@ export default function Home() {
           </ContentCard>
         </div>
       </ContentCard>
-
       <section className={cl.moreLinks}>
         <ContentCard className={cl.link} width="375px" height="345px">
           <Typography variant="body1">

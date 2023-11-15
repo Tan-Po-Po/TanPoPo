@@ -1,5 +1,3 @@
-import { Typography } from "@/components";
-
 export const textContent = {
   contactsBlock: {
     header: "НАШІ КОНТАКТИ",
@@ -62,7 +60,7 @@ export const textContent = {
             {<b>ОНЛАЙН-КУРСИ З СЕНСЕЯМИ?</b>}
           </>
         ),
-        href: "",
+        href: "/",
         background:
           " linear-gradient(180deg, #FFEDAD 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -73,7 +71,7 @@ export const textContent = {
             ПОЧАТОК НАВЧАННЯ.
           </>
         ),
-        href: "",
+        href: "/",
         background:
           "linear-gradient(180deg, #FFADB7 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -84,7 +82,7 @@ export const textContent = {
             НАВЧАННЯ.
           </>
         ),
-        href: "",
+        href: "/",
         background:
           "linear-gradient(180deg, #E5ADFF 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -95,7 +93,7 @@ export const textContent = {
             ОСОБИСТОМУ КАБІНЕТІ
           </>
         ),
-        href: "",
+        href: "/",
         background:
           "linear-gradient(180deg, #DBFFAD 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -106,7 +104,7 @@ export const textContent = {
             <b>TANPOPO ALL-IN-ONE?</b>
           </>
         ),
-        href: "",
+        href: "/",
         background:
           "linear-gradient(180deg, #F4ADFF 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -117,7 +115,7 @@ export const textContent = {
             ЗАВДАНЬ НА НАШІЙ ПЛАТФОРМІ
           </>
         ),
-        href: "",
+        href: "/",
         background:
           "linear-gradient(180deg, #ADBFFF 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -128,7 +126,7 @@ export const textContent = {
             ПАРТНЕРІВ?
           </>
         ),
-        href: "",
+        href: "/",
         background:
           "linear-gradient(180deg, #ADF5FF 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -139,7 +137,7 @@ export const textContent = {
             ДЛЯ ПРОДУКЦІЇ TANPOPO?
           </>
         ),
-        href: "",
+        href: "/",
         background:
           "linear-gradient(180deg, #ADFFCE 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -153,7 +151,7 @@ export const textContent = {
             НА ОБРАНИЙ КУРС?
           </>
         ),
-        href: "",
+        href: "/",
         background:
           "linear-gradient(180deg, #FDFFAD 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -181,7 +179,7 @@ export const textContent = {
       },
       {
         question:
-          "Чи є у вас соціальні мережі, де я можу слідкувати за оновленнями?",
+          "Чи є у вас соціальні мережі, де я можу слідкувати за \nоновленнями?",
         answer:
           "Так, ми активні в соціальних мережах. Ви можете слідкувати за нами на Instagram або YouTube, щоб бути в курсі наших останніх новин та акцій.",
       },

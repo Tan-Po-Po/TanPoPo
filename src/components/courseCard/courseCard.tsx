@@ -8,7 +8,7 @@ import { getValidClassNames } from "@/helpers";
 import cl from "./courseCard.module.scss";
 import { ICourse } from "@/models/Course";
 import { TeacherCourseCard } from "./teacherCourseCard";
-import PlayBtn from "../../../public/icons/playWhite.svg";
+import PlayBtn from "../../../public/icons/playButton.svg";
 import TriangleBtn from "../../../public/icons/playButtonTest.svg";
 import Image from "next/image";
 import Link from "next/link";

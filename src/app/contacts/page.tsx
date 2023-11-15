@@ -1,12 +1,4 @@
-import {
-  Button,
-  Checkbox,
-  ContentCard,
-  Divider,
-  Dropdown,
-  Faq,
-  Input,
-} from "@/components";
+import { ContentCard, Divider, Faq } from "@/components";
 import cl from "./page.module.scss";
 import styles from "./page.module.scss";
 import { textContent } from "./textContent";
@@ -14,7 +6,7 @@ import { Typography } from "@mui/material";
 import Image from "next/image";
 import { getSocialIconsLinks } from "@/helpers/getSocialIconsLinks";
 import Link from "next/link";
-import PlayButtonIcon from "/public/icons/playBlack.svg";
+import PlayButtonIcon from "/public/icons/playButton.svg";
 import { FeedbackForm } from "./_feedbackForm/feedbackForm";
 
 const dividerBgColor = "linear-gradient(180deg, #FFF, #FAD26C 100%)";

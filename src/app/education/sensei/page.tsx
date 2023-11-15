@@ -2,7 +2,7 @@ import { ContentCard, Typography } from "@/components";
 import { getIconArtSrc, getIconSrc } from "@/helpers";
 import Link from "next/link";
 import Image from "next/image";
-import PlayButton from "public/icons/playWhite.svg";
+import PlayButton from "public/icons/playButton.svg";
 import TriangleButton from "public/icons/triangleButton.svg";
 import cl from "./page.module.scss";
 
@@ -11,7 +11,7 @@ export default async function Page() {
     <main className={cl.main}>
       <div className={cl.header}>
         <Typography variant="h3">Освітня програма</Typography>
-        <Typography variant="h6">Освітня програма для самостійного навчання</Typography>
+        <Typography variant="h6">для онлайн-курсів з сенсеєм</Typography>
       </div>
 
       <div className={cl.video}>

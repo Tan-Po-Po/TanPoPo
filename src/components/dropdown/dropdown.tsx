@@ -1,7 +1,6 @@
 "use client";
 
-import React, { MouseEvent } from "react";
-import Image from "next/image";
+import React from "react";
 import Triangle from "../../../public/icons/triangleDown.svg";
 import cl from "./dropdown.module.scss";
 import { CustomLink } from "./customLink";
