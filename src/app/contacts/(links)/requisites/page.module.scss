@@ -1,0 +1,40 @@
+.requisites {
+  @include flex-column;
+  padding: $padding-page;
+  gap: 70px;
+
+  .requisitesCard {
+    padding: 44px;
+    padding-bottom: 35px;
+    gap: 35px;
+
+    .wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      .tile {
+        background: transparent;
+      }
+    }
+  }
+
+  .text {
+    @include flex-column;
+    gap: 56px;
+
+    p,
+    h6 {
+      font-weight: 700 !important;
+    }
+  }
+
+  .qrCodesBlock {
+    display: flex;
+    gap: 80px;
+  }
+}

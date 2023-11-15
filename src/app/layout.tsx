@@ -4,6 +4,8 @@ import { ThemeProvider } from "@mui/material";
 import { theme } from "@/theme/theme";
 import { Comfortaa } from "next/font/google";
 import "@/scss/globals.scss";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const font = Comfortaa({ subsets: ["latin", "cyrillic"], display: "swap" });
 
@@ -26,6 +28,12 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar={true}
+          theme="dark"
+        />
       </body>
     </html>
   );

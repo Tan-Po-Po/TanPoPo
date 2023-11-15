@@ -131,7 +131,7 @@ export const textContent = {
   },
   reelsBlock: {
     header: "НАВЧАЛЬНІ REELS",
-    imgages: [
+    images: [
       {
         href: "https://www.instagram.com/reel/Csc5T2jMx0Z/",
         image: "/reels/buildings.png",

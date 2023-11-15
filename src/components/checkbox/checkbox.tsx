@@ -7,6 +7,7 @@ import cl from "./checkbox.module.scss";
 import { getValidClassNames } from "@/helpers";
 
 import Image from "next/image";
+import { forwardRef } from "react";
 
 type Properties = CheckboxProps & {
   label?: string | React.ReactNode;
@@ -53,7 +54,7 @@ const Checkbox: React.FC<Properties> = ({
     />
   ) : (
     <MuiCheckbox
-      className={getValidClassNames(cl.checkbox, className)}
+      className={getValidClassNames(cl.label, className)}
       {...props}
       checked={isChecked}
       required={isRequired}
@@ -64,4 +65,5 @@ const Checkbox: React.FC<Properties> = ({
   );
 };
 
+Checkbox.displayName = "Checkbox";
 export { Checkbox };

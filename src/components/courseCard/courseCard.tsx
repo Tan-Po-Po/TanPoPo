@@ -38,13 +38,12 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
   const [isAccepted, setIsAccepted] = React.useState(false);
 
   const toggleGift = () => {
-    console.log(isGift);
     setIsGift((prev) => !prev);
   };
   const toggleAcceptation = () => {
     setIsAccepted((prev) => !prev);
   };
-  
+
   return course.type === "teacher" || course.type === "mega" ? (
     <TeacherCourseCard course={course} />
   ) : (

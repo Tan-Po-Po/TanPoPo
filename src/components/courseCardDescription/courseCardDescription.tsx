@@ -39,7 +39,6 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
   const [isAccepted, setIsAccepted] = React.useState(false);
 
   const toggleGift = () => {
-    console.log(isGift);
     setIsGift((prev) => !prev);
   };
   const toggleAcceptation = () => {
