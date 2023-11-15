@@ -43,7 +43,7 @@ const IconLink: React.FC<Props> = ({ icon, href, height }) => {
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
         onClick={handleClick}
-      ></Image>
+      />
     </div>
   );
 };

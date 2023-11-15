@@ -7,7 +7,6 @@ import cl from "./checkbox.module.scss";
 import { getValidClassNames } from "@/helpers";
 
 import Image from "next/image";
-import { forwardRef } from "react";
 
 type Properties = CheckboxProps & {
   label?: string | React.ReactNode;

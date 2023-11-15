@@ -12,7 +12,7 @@ import cl from "./courseCardDescription.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { ICourse } from "@/models/Course";
-import PlayBtn from "../../../public/icons/playWhite.svg";
+import PlayBtn from "../../../public/icons/playButton.svg";
 import TriangleBtn from "../../../public/icons/playButtonTest.svg";
 import { CarouselItem } from "../carousel/carouselItem/carouselItem";
 

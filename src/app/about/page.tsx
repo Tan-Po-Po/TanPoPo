@@ -13,7 +13,7 @@ import Partner, { IPartner } from "@/models/Partner";
 import { Line } from "./_components/line/line";
 import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
 import Link from "next/link";
-import PlayButtonIcon from "/public/icons/playYellow.svg";
+import PlayButtonIcon from "/public/icons/playButton.svg";
 
 async function getTeamMembers() {
   await dbConnect();
@@ -22,7 +22,7 @@ async function getTeamMembers() {
     (await TeamMember.find()) as mongoose.Document<ITeamMember>[];
 
   const teamMembers: ITeamMember[] = teamMembersDb.map((member) =>
-    member.toObject()
+    JSON.parse(JSON.stringify(member))
   );
 
   return teamMembers;

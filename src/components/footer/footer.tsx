@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
         <div className={getValidClassNames(cl.navigation, cl.navigationRight)}>
           <div className={cl.linkWrapper}>
             <Image
-              src={getIconSrc("coinStack")}
+              src={getIconSrc("coinsStack")}
               width={0}
               height={0}
               style={{ width, height: "auto" }}
@@ -116,12 +116,12 @@ const Footer: React.FC = () => {
             <Link href={"/bonusBenefits"}>Додаткові переваги</Link>
           </div>
           <div className={cl.linkWrapper}>
-            <Link href={""}>Політика Конфідеційності</Link>
+            <Link href={"/"}>Політика Конфідеційності</Link>
           </div>
           <div className={cl.linkWrapper}>
-            <Link href={""}>Публічна Оферта</Link>
+            <Link href={"/"}>Публічна Оферта</Link>
             <span> & </span>
-            <Link href={""}>Cookies</Link>
+            <Link href={"/"}>Cookies</Link>
           </div>
           <div className={cl.text}>
             <div className={cl.line}>Онлайн-школа японської мови.</div>
