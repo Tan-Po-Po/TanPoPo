@@ -58,3 +58,28 @@ section {
   align-items: center;
   justify-content: center;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Toastify__toast-container {
+  width: auto;
+  max-width: 600px;
+}
+
+.Toastify__toast {
+  white-space: pre-line;
+  color: #fff;
+  text-align: center;
+  font-family: Comfortaa !important;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.Toastify__close-button {
+  display: none;
+}
