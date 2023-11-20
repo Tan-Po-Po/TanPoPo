@@ -8,7 +8,15 @@ $color-disabled: #696969;
 // Black
 $color-black: #0d0d0d;
 
+//Gradient
 $gradient-yellow-light: linear-gradient(180deg, #fff, #fffbd8 100%);
+$gradient-rainbow: linear-gradient(
+  91deg,
+  #ff9c9c 0%,
+  #ffef9c 28.13%,
+  #9cdbff 71.35%,
+  #ff9ce9 100%
+);
 
 $border-radius: 10px;
 $border: 2px solid #000;
@@ -33,4 +41,11 @@ $padding-page: 65px 22px;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+@mixin center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,4 +1,4 @@
-.test {
+.testIntro {
   @include flex-column;
   gap: 125px;
   padding: $padding-page;
@@ -100,6 +100,7 @@
   }
 
   .beginTestBlock {
+    position: relative;
     .card {
       padding-top: 34px;
       padding-bottom: 49px;
@@ -109,15 +110,14 @@
       }
     }
   }
+  .icon {
+    position: absolute;
+    bottom: 80px;
+    right: 170px;
+  }
 }
 
 .button {
   position: relative;
   background: $gradient-yellow-light;
-
-  .icon {
-    position: absolute;
-    top: -40px;
-    right: -100px;
-  }
 }

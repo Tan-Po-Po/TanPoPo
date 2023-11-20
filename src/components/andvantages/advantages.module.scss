@@ -1,0 +1,43 @@
+.advantagesMain {
+  @include flex-column;
+  align-items: center;
+  gap: 65px;
+
+  .header {
+    @include flex-row;
+    align-items: center;
+    gap: 16px;
+
+    .number {
+      font-size: 106px;
+      font-weight: 700;
+      display: flex;
+      align-items: flex-end;
+      text-align: end;
+      align-self: flex-end;
+      padding-top: 17px;
+    }
+
+    .text {
+      .line1 {
+        font-size: 43.6px;
+        font-weight: 400;
+      }
+
+      .line2 {
+        font-size: 50px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 108px;
+
+    .card {
+      width: 362px;
+    }
+  }
+}

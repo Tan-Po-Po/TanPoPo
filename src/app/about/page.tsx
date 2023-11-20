@@ -1,4 +1,4 @@
-import { getIconArtSrc, getValidClassNames } from "@/helpers";
+import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
 import { Button, ContentCard, IconLink, Typography } from "@/components";
 import TeamMember, { ITeamMember } from "@/models/TeamMember";
@@ -92,8 +92,8 @@ export default async function About() {
             <Image
               alt=""
               src={"/photos/crossroads.png"}
-              sizes="100vw"
               fill
+              sizes="100vw"
               style={{ objectFit: "cover" }}
             />
           </ContentCard>

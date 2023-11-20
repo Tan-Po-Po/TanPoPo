@@ -1,0 +1,13 @@
+.resultMain {
+  @include flex-column;
+  align-items: center;
+  gap: 65px;
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.result {
+  background: linear-gradient(180deg, #ffe352 0%, #ffed72 70%);
+  gap: 0;
+}

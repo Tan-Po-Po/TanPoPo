@@ -89,6 +89,7 @@ export const textContent = {
     button: {
       text: "Розпочати Тест",
       icon: "pc",
+      href: "/test-intro/test",
     },
   },
 };

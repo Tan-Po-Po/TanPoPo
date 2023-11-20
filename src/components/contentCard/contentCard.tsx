@@ -6,7 +6,7 @@ import { CSSProperties } from "@mui/material/styles/createMixins";
 
 interface Props {
   children: React.ReactNode;
-  index?: string;
+  index?: string | number;
   label?: string | React.ReactNode;
   labelPosition?: "top" | "bottom";
   labelBgColor?: string;

@@ -6,6 +6,8 @@ import { Comfortaa } from "next/font/google";
 import "@/scss/globals.scss";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { store } from "@/redux/store";
+import { Providers } from "@/redux/providers";
 
 const font = Comfortaa({ subsets: ["latin", "cyrillic"], display: "swap" });
 
@@ -23,17 +25,19 @@ export default function RootLayout({
     <html lang="en">
       <link rel="icon" href="/logo/logo.svg" />
       <body className={font.className}>
-        <ThemeProvider theme={theme}>
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
-        <ToastContainer
-          position="bottom-center"
-          autoClose={3000}
-          hideProgressBar={true}
-          theme="dark"
-        />
+        <Providers>
+          <ThemeProvider theme={theme}>
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProvider>
+          <ToastContainer
+            position="bottom-center"
+            autoClose={3000}
+            hideProgressBar={true}
+            theme="dark"
+          />
+        </Providers>
       </body>
     </html>
   );

@@ -4,9 +4,9 @@ import Image from "next/image";
 import { Button, ContentCard, Typography } from "@/components";
 import ArrowLongIcon from "/public/icons/arrowLong.svg";
 
-export default function Test() {
+export default function TestIntro() {
   return (
-    <main className={cl.test}>
+    <main className={cl.testIntro}>
       <section className={cl.bigImageBlock}>
         <Typography variant="h3">{textContent.bigImageBlock.header}</Typography>
         <Typography variant="h6">{textContent.bigImageBlock.title}</Typography>
@@ -126,15 +126,16 @@ export default function Test() {
             variant="outlined"
             className={cl.button}
             icon={textContent.beginTestBlock.button.icon}
+            href={textContent.beginTestBlock.button.href}
           >
             <Typography variant="h6">
               {textContent.beginTestBlock.button.text}
             </Typography>
-            <div className={cl.icon}>
-              <ArrowLongIcon />
-            </div>
           </Button>
         </ContentCard>
+        <div className={cl.icon}>
+          <ArrowLongIcon />
+        </div>
       </section>
     </main>
   );

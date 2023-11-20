@@ -1,10 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import testResultReducer from "./features/testResult/testResultSlice";
 
 export const store = configureStore({
-  reducer: {
-    testResult: testResultReducer,
-  },
+  reducer: {},
 });
 
 export type RootState = ReturnType<typeof store.getState>;
