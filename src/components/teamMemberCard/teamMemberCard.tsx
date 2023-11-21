@@ -1,13 +1,12 @@
 "use client";
 import Image from "next/image";
 import { getIconArtSrc } from "@/helpers";
-import { ContentCard } from "../contentCard/contentCard";
-import { Button } from "../button/button";
-import { Typography } from "../typography/typography";
+import { Button } from "@/components/button/button";
+import { ContentCard } from "@/components/contentCard/contentCard";
+import { Dialog } from "@/components/dialog/dialog";
+import { Typography } from "@/components/typography/typography";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
-import { Dialog, DialogContent, DialogTitle } from "@mui/material";
-import XIcon from "./plus.svg";
 
 import cl from "./teamMemberCard.module.scss";
 interface Props {
@@ -100,58 +99,58 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
             <Dialog
               className={cl.dialog}
               open={isDialogOpen}
-              onClose={() => handleDialogClose()}
-            >
-              <XIcon className={cl.close} onClick={handleDialogClose} />
-
-              <DialogTitle className={cl.title}>
-                <Typography
-                  variant="h3"
-                  style={{ textShadow: " 0px 4px 4px rgba(0, 0, 0, 0.17)" }}
-                >
-                  Сертифікати{" "}
-                </Typography>
-                <Image
-                  src={getIconArtSrc("certificate3")}
-                  alt=""
-                  width={500}
-                  height={300}
-                  style={{ width: "52px", height: "auto" }}
-                />
-              </DialogTitle>
-              <DialogContent className={cl.content}>
-                {certificates.description.map((certificate) => (
-                  <ContentCard
-                    key={certificate._id}
-                    label={
-                      <Typography variant="body1" style={{ fontWeight: "700" }}>
-                        {certificate.label}
-                      </Typography>
-                    }
-                    style={{ gap: "26px" }}
-                    labelPosition="top"
-                    labelBgColor="linear-gradient(180deg, #FFF 0%, #FFFBD9 100%)"
-                    cardBgColor="linear-gradient(180deg, #FFFAF9 0%, #FFFBD8 100%)"
-                  >
-                    <ContentCard
-                      style={{
-                        width: "215px",
-                        height: "215px",
-                        padding: "36px 10px",
-                      }}
+              onClose={handleDialogClose}
+              title={
+                (
+                  <>
+                    <Typography
+                      variant="h3"
+                      style={{ textShadow: " 0px 4px 4px rgba(0, 0, 0, 0.17)" }}
                     >
-                      <Image
-                        src={certificate.image}
-                        alt=""
-                        width={500}
-                        height={300}
-                        style={{ width: "100%", height: "auto" }}
-                      />
-                    </ContentCard>
-                    <div className={cl.caption}>{certificate.caption}</div>
+                      Сертифікати{" "}
+                    </Typography>
+                    <Image
+                      src={getIconArtSrc("certificate3")}
+                      alt=""
+                      width={500}
+                      height={300}
+                      style={{ width: "52px", height: "auto" }}
+                    />
+                  </>
+                ) as any
+              }
+            >
+              {certificates.description.map((certificate) => (
+                <ContentCard
+                  key={certificate._id}
+                  label={
+                    <Typography variant="body1" style={{ fontWeight: "700" }}>
+                      {certificate.label}
+                    </Typography>
+                  }
+                  style={{ gap: "26px" }}
+                  labelPosition="top"
+                  labelBgColor="linear-gradient(180deg, #FFF 0%, #FFFBD9 100%)"
+                  cardBgColor="linear-gradient(180deg, #FFFAF9 0%, #FFFBD8 100%)"
+                >
+                  <ContentCard
+                    style={{
+                      width: "215px",
+                      height: "215px",
+                      padding: "36px 10px",
+                    }}
+                  >
+                    <Image
+                      src={certificate.image}
+                      alt=""
+                      width={500}
+                      height={300}
+                      style={{ width: "100%", height: "auto" }}
+                    />
                   </ContentCard>
-                ))}
-              </DialogContent>
+                  <div className={cl.caption}>{certificate.caption}</div>
+                </ContentCard>
+              ))}
             </Dialog>
           </div>
         </div>

@@ -1,0 +1,37 @@
+.dialog {
+  .close {
+    position: absolute;
+    transform: rotate(45deg);
+    top: -36px;
+    right: -36px;
+    cursor: pointer;
+
+    path {
+      fill: #d5d5d5;
+    }
+  }
+  :global(.MuiDialog-paper) {
+    @include border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+    padding: 36px 77px 77px;
+    overflow: visible;
+    max-width: fit-content;
+    gap: 77px;
+    animation: dialogShow 0.3s;
+  }
+
+  .title {
+    display: flex;
+    gap: 7px;
+  }
+
+  .content {
+    overflow: visible;
+    display: flex;
+    gap: 77px;
+  }
+}

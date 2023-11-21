@@ -4,118 +4,77 @@ import {
   ContentCard,
   Divider,
   Typography,
-  Checkbox,
   Button,
+  Select,
+  Input,
 } from "@/components";
+import { Form } from "./_form/form";
+import { Schedule } from "./_schedule/schedule";
 import { getIconArtSrc, getValidClassNames } from "@/helpers";
-import Link from "next/link";
 import Image from "next/image";
-import TriangleButton from "public/icons/triangleButton.svg";
 import { toast } from "react-toastify";
 import cl from "./page.module.scss";
+import { useRouter } from 'next/navigation'
 
 export default function Page() {
-  const [isAccepted, setIsAccepted] = React.useState(false);
+  const router = useRouter();
+
+  const scheduleArray: any = Array.from({ length: 7 }, () =>
+    Array.from({ length: 5 }, () => "inappropriate")
+  );
+  const [counter, setCounter] = React.useState(0);
+  const [schedule, setSchedule] = React.useState(scheduleArray);
+  const [comment, setComment] = React.useState("");
+
+  const submitForm = (formData: any) => {
+    console.log(counter);
+    if (counter < 12) {
+      toast(
+        "Просимо Вас обрати хоча б 12 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑"
+      );
+      return null;
+    }
+    const data = {
+      ...formData,
+      comment,
+      schedule,
+    };
+
+    fetch("/api/education", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }).then(async (res) => {
+      if (!res.ok) {
+        return toast(
+          "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
+        );
+      }
+      const response = await res.json();
+      console.log("res.body is - ");
+      console.log(response);
+      router.push("/education/start/payment");
+    });
+  };
 
   return (
-    <main>
+    <main className={cl.main}>
       <Divider
         className={cl.divider}
         firsRow="2. Заповніть контактні дані та ваш розклад."
         bgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
         width="555px"
       />
-      <div className={cl.pageHeader}>
-        <Typography variant="h6">Розпочати навчання з сенсеєм</Typography>
-        <Typography variant="h1">
-          <span>3</span> прості кроки:
-        </Typography>
-      </div>
 
-      <div className={cl.steps}>
-        <ContentCard
-          className={cl.card}
-          height="355px"
-          width="330px"
-          index="1"
-          indexBgColor="#FFCEC8"
-          cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #FFBEBE 100%)"
-        >
-          <Typography variant="body1">
-            {" "}
-            Ознайомтесь із необхідною інормацією
-          </Typography>
-          <Image
-            src={getIconArtSrc("temple")}
-            alt="Temple art"
-            width={87}
-            height={89}
-          />
-          <Typography variant="body2">
-            {
-              "Дізнайтесь про всі особли-вості обраного формату навчання в нашій онлайн-школі TanPoPo та натискайте ”Продовжити”, щоб перейти до наступного кроку!"
-            }
-          </Typography>
-        </ContentCard>
-
-        <TriangleButton className={cl.triangleBtn} />
-
-        <ContentCard
-          className={cl.card}
-          height="355px"
-          width="330px"
-          index="2"
-          indexBgColor="rgba(200, 242, 255, 1)"
-          cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #C8F2FF 100%)"
-        >
-          <Typography variant="body1">
-            Заповніть контактні дані та ваш розклад.
-          </Typography>
-          <Image
-            src={getIconArtSrc("calendar3")}
-            alt="Calendar art"
-            width={88}
-            height={93}
-          />
-          <Typography variant="body2">
-            Вкажіть ваші контактні дані та оберіть, коли Ви можете приділяти час
-            вивченню японської мови з сенсеєм онлайн, щоб ми змогли сформувати
-            графік.
-          </Typography>
-        </ContentCard>
-
-        <TriangleButton className={cl.triangleBtn} />
-
-        <ContentCard
-          className={cl.card}
-          height="355px"
-          width="330px"
-          index="3"
-          indexBgColor="rgba(201, 255, 200, 1)"
-          cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #C9FFC8 100%)"
-        >
-          <Typography variant="body1">
-            Оплатіть курс та розпочніть навчання!
-          </Typography>
-          <Image
-            src={getIconArtSrc("school")}
-            alt="School icon"
-            width={102}
-            height={87}
-          />
-          <Typography variant="body2">
-            Оплачуйте обраний курс, в той час, як ми почнемо фо-рмувати ваш
-            розклад і після його успішного погодження Ви відразу розпочинаєте
-            вивчення японської мови!
-          </Typography>
-        </ContentCard>
-      </div>
+      <Form onSubmit={submitForm} className={cl.form} id="contact" />
 
       {true ? (
-        <ContentCard width="850px" className={cl.reminder}>
-          <Typography variant="h6">
-            Важливі пам’ятки про Заняття у Міні-групах:
-          </Typography>
+        <ContentCard width="650px" className={cl.lessonsCount}>
+          <Typography variant="body1">К-сть занять:</Typography>
+          <Typography variant="h4">2 уроки / тиждень</Typography>
 
           <Image
             src={getIconArtSrc("boyAndGirl")}
@@ -124,48 +83,16 @@ export default function Page() {
             height={115}
           />
 
-          <ul className={cl.list}>
-            <li>
-              Заняття онлайн з сенсеєм у міні-групі проходять двічі на тиждень.
-              Після узгодження графіку навчання, він стає фіксованим.
-            </li>
-            <li>
-              Усі матеріали з уроку, домашні завдання та кожне онлайн-заняття
-              записується(з платформи Zoom) та зберігається в архіві на нашій
-              інтерактивній навчальній платформі і є доступними для повторення
-              матеріалу!
-            </li>
-            <li>
-              В міні-групах одночасно може навчатись від 2 до 5 осіб. Усі наші
-              курси ідеально збалансовані та ретельно розроблені таким чином,
-              щоб кожному учневі в групі приділялася достатня кількість часу на
-              будь-які його запитання по матеріалу та на всі аспекти вивчення
-              японської мови!
-            </li>
-            <li>
-              Не хвилюйтеся про вашу відсутність! Навіть якщо Вам не вдалось
-              відвідати заняття, Вам буде наданий повний відеозапис онлайн-уроку
-              з сенсеєм за вашою програмою, усі навчальні матеріали та домашні
-              завдання!
-            </li>
-            <li>
-              Усі заняття в будь-якому випадку відбуваються за розкладом та
-              автоматично сплачуються з вашого придбаного курсу, оскільки Ви
-              завжди(навіть за вашої відсутності на занятті) матимете доступ до
-              запису уроку та всіх навчальних матеріалів!
-            </li>
-            <li>
-              Повний доступ до можливостей навчальної платформи та Бібліотеки
-              TanPoPo, а також знижки на всі наші авторські продукти та товари
-              від наших партнерів надаються на весь період вашого навчання по
-              обраному онлайн-курсу з сенсеєм.
-            </li>
-          </ul>
+          <Typography variant="body1">
+            Ми врахуємо ваші побажання стосовно днів та часу навчання і зможемо
+            швидше сформувати вашу міні-групу для обраного курсу!
+          </Typography>
         </ContentCard>
       ) : (
-        <ContentCard width="850px" className={cl.reminder}>
-          <Typography variant="h6">
-            Важливі пам’ятки про Індивідуальні Заняття:
+        <ContentCard width="650px" className={cl.lessonsCount}>
+          <Typography variant="body1">
+            Будь ласка, вкажіть скільки разів на тиждень Ви бажаєте займатись
+            індивідульно з сенсеєм:
           </Typography>
 
           <Image
@@ -175,93 +102,104 @@ export default function Page() {
             height={105}
           />
 
-          <ul className={cl.list}>
-            <li>
-              Індивідуальні заняття онлайн з сенсеєм у проходять від 1 до 3
-              разів на тиждень. На наступній сторінці Ви зможете обрати бажану
-              к-сть занять на тиждень.
-            </li>
-            <li>
-              Заняття відбуваються при умові вашої присутності на уроці. У
-              випадку вашої відсутності на заздалегіть заплановане заняття -
-              воно вважається “пропущеним” і оплата за нього не повертається.
-              Щоб не допускати таких ситуацій, просимо Вас заздалегіть
-              повідомляти(мінімум за 1 день до запланового заняття) про вашу
-              неможливість його відвідати, щоб ми змогли перенести це заняття!
-            </li>
-            <li>
-              Кожного календарного місяця Ви маєте змогу зробити не більше 2
-              перенесень занять!
-            </li>
-            <li>
-              У випадку неспроможності вашого сенсея провести заплановане
-              заняття, відбудеться тимчасова заміна сенсея.
-            </li>
-            <li>
-              Усі матеріали з уроку, домашні завдання та кожне онлайн-заняття
-              записується(з платформи Zoom) та зберігається в архіві на нашій
-              інтерактивній навчальній платформі і є доступними для повторення
-              матеріалу!
-            </li>
-            <li>
-              Повний доступ до можливостей навчальної платформи та Бібліотеки
-              TanPoPo, а також знижки на всі наші авторські продукти та товари
-              від наших партнерів надаються на весь період вашого навчання по
-              обраному онлайн-курсу з сенсеєм.
-            </li>
-          </ul>
+          <Select
+            menuItems={["1 урок", "2 уроки", "3 уроки", "4 уроки", "5 уроків"]}
+            className={cl.select}
+          />
         </ContentCard>
       )}
-      <Checkbox
-        label={
-          <>
-            Продовжуючи, Я приймаю умови{" "}
-            <Link target="_blank" href="/">
-              <u>Публічної Оферти</u>
-            </Link>{" "}
-            та{" "}
-            <Link target="_blank" href="/">
-              <u>Політики Конфідеційності</u>
-            </Link>
-            .
-          </>
-        }
-        className={cl.checkbox}
-        isChecked={isAccepted}
-        onClick={() => {
-          setIsAccepted((prev) => !prev);
-        }}
-      />
+      <Typography variant="h3" style={{ marginTop: "100px" }}>
+        Зручне формування розкладу навчання:
+      </Typography>
+      <Schedule setSchedule={setSchedule} setCounter={setCounter} />
+
+      <div className={cl.comment}>
+        <Typography variant="h6">
+          {
+            "Якщо Ви бажаєте надати додаткові коментарі\n стосовно розкладу, Ви можете написати їх сюди:"
+          }
+        </Typography>
+
+        <Input
+          label="Ваш коментар"
+          multiline
+          rows={9}
+          style={{ width: "100%", maxWidth: "750px" }}
+          className={cl.commentTextarea}
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        />
+      </div>
+
+      <ContentCard className={cl.important} width="850px">
+        <Typography variant="h6">
+          Важливо знати! Формування Розкладу:
+        </Typography>
+        <Image
+          src={getIconArtSrc("calendar3")}
+          alt="Calendar icon"
+          width={106}
+          height={115}
+        />
+        <ul className={cl.list}>
+          <li>
+            {true ? (
+              <>
+                З моменту оплати обраного вами курсу нам потрібно до 14 днів,
+                щоб сформувати міні-групу за зручним для всіх розкладом!{" "}
+                <u>Зазвичай, це займає меншу кількість часу!</u> Ми вказуємо
+                саме такий проміжок, щоб в нас була можливість погодити та
+                сформувати єдиний для всіх графік занять! Протягом цього терміну
+                ми обов’язково сконтактуємо з Вами, щоб фінально погодити
+                розклад!
+              </>
+            ) : (
+              <>
+                З моменту оплати обраного вами курсу нам потрібно до 7 днів, щоб
+                сформувати Ваш особистий розклад!{" "}
+                <u>Зазвичай, це займає меншу кількість часу!</u> Ми вказуємо
+                саме такий проміжок, щоб в нас була можливість погодити та
+                сформувати зручний для всіх графік занять! Протягом цього
+                терміну ми обов’язково сконтактуємо з Вами, щоб фінально
+                погодити розклад!
+              </>
+            )}
+          </li>
+          <li>
+            {true ? (
+              <>
+                Якщо протягом 14 днів ми так і не зможемо сформувати міні-групу
+                зі зручним розкладом за обраним курсом, Ми гарантуємо Вам повне
+                повернення коштів!
+              </>
+            ) : (
+              <>
+                Після узгодження з вами графіку навчання, він стає фіксованим.
+                Якщо Ви бажаєте змінити к-сть занять на тиждень, нам потрібно
+                буде заздалегідь узгодити новий графік занять!
+              </>
+            )}
+          </li>
+          <li>
+            Після успішного формування та погодження розкладу Ви відразу
+            розпочинаєте вивчення японської мови!
+          </li>
+        </ul>
+      </ContentCard>
+
       <div className={cl.continue}>
         <div className={cl.line}></div>
-        {isAccepted ? (
-          <Link href="/">
-            <Button
-              className={getValidClassNames(cl.btn)}
-              icon="triangleButton"
-              variant="outlined"
-            >
-              Продовжити
-            </Button>
-          </Link>
-        ) : (
-          <Button
-            className={getValidClassNames(cl.btn, cl.disabled)}
-            icon="triangleButton"
-            variant="outlined"
-            disabled
-            onClick={() =>
-              toast(
-                "Щоб продовжити, прийміть \nумови Публічної Оферти та \nПолітику Конфідеційності!☑",
-                {
-                  autoClose: 500000,
-                }
-              )
-            }
-          >
-            Продовжити
-          </Button>
-        )}
+
+        <Button
+          className={getValidClassNames(cl.btn)}
+          icon="triangleButton"
+          variant="outlined"
+          disabled
+          type="submit"
+          form="contact"
+        >
+          Продовжити
+        </Button>
       </div>
     </main>
   );
