@@ -1,0 +1,123 @@
+.testIntro {
+  @include flex-column;
+  gap: 125px;
+  padding: $padding-page;
+
+  .bigImageBlock {
+    @include flex-column;
+    gap: 58px;
+  }
+
+  .cardsBlock {
+    @include flex-row;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .levelsBlock {
+    gap: 60px;
+
+    .ruler {
+      @include flex-row;
+      position: relative;
+      // width: 1010px;
+      height: 161px;
+      justify-content: space-between;
+
+      &::before {
+        box-shadow: $box-shadow;
+        position: absolute;
+        content: "";
+        // width: 880px;
+        width: 87%;
+        height: 2px;
+        background-color: black;
+        top: 50%;
+        // left: 505px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        box-shadow: $box-shadow;
+        bottom: -62px;
+        left: 50%;
+        width: 2px;
+        height: 60px;
+        background-color: black;
+      }
+
+      .mark {
+        @include flex-column;
+        justify-content: center;
+        align-self: flex-start;
+        gap: 3px;
+
+        .line {
+          box-shadow: $box-shadow;
+          height: 16px;
+          background-color: black;
+          width: 2px;
+        }
+      }
+
+      > div:nth-last-child(2) {
+        visibility: hidden;
+      }
+    }
+
+    .titleCard {
+      padding: 18px 10px;
+      white-space: pre;
+      word-break: normal;
+      position: relative;
+      background: white;
+
+      &::before {
+        @include border-box;
+        content: "";
+        position: absolute;
+        width: calc(100% + 218px);
+        height: 150px;
+        border-bottom: 0;
+        box-shadow: none;
+        top: 50%;
+        z-index: -1;
+      }
+    }
+
+    .cardsWrapper {
+      @include flex-row;
+      gap: 104px;
+
+      .card {
+        height: 364px;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .beginTestBlock {
+    position: relative;
+    .card {
+      padding-top: 34px;
+      padding-bottom: 49px;
+
+      div:last-child {
+        margin-top: 31px;
+      }
+    }
+  }
+  .icon {
+    position: absolute;
+    bottom: 80px;
+    right: 170px;
+  }
+}
+
+.button {
+  position: relative;
+  background: $gradient-yellow-light;
+}

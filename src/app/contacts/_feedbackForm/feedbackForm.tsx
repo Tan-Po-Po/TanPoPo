@@ -135,7 +135,11 @@ export const FeedbackForm: React.FC = () => {
                 label={
                   <>
                     Даю згоду на{" "}
-                    <Link href={"/contacts/legal-terms"}>
+                    <Link
+                      href={"/contacts/confidentialityPolicy"}
+                      style={{ textDecoration: "underline" }}
+                      target="_blank"
+                    >
                       обробку персональних даних.
                     </Link>
                   </>

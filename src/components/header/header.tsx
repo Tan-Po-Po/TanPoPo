@@ -108,7 +108,7 @@ const Header = () => {
         <Link href={"/shop"}>
           <Button icon="shop">Крамниця</Button>
         </Link>
-        <Link href={"/test"}>
+        <Link href={"/test-intro"}>
           <Button icon="pc">Онлайн-тест</Button>
         </Link>
         <Link href={"/library"}>
