@@ -1,0 +1,112 @@
+.test {
+  @include flex-column;
+  align-items: center;
+  padding: $padding-page;
+  gap: 70px;
+  width: 100%;
+
+  .progressBar {
+    @include flex-row;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+
+    .line {
+      @include center-absolute;
+      width: 100%;
+      background-color: black;
+      height: 2px;
+      box-shadow: $box-shadow;
+      width: 80%;
+    }
+    .barWrapper {
+      position: relative;
+      width: fit-content;
+      overflow: hidden;
+      border-radius: $border-radius;
+      background-color: white;
+
+      .progress {
+        transition: 1s;
+        background: $color-yellow;
+        position: absolute;
+        height: 100%;
+        border-radius: $border-radius;
+        top: 0;
+        left: 0;
+        // background: #ffed72;
+        box-shadow: $box-shadow;
+        filter: blur(3px);
+        z-index: 0;
+        animation: progressAnimation 2s ease 2s infinite;
+      }
+    }
+    .bar {
+      background: transparent;
+      padding: 17px;
+      gap: 0;
+      width: 336px;
+      height: 75px;
+    }
+  }
+
+  form {
+    .testForm {
+      width: 1210px;
+      gap: 34px;
+    }
+    .subContainer {
+      @include flex-row;
+      width: 100%;
+      justify-content: space-around;
+    }
+    .subQuestion {
+      align-items: flex-start;
+    }
+
+    fieldset,
+    ol {
+      all: unset;
+    }
+
+    ol {
+      @include flex-column;
+      text-align: start;
+      counter-reset: list;
+      align-items: flex-start;
+      gap: 21px;
+    }
+    ol li {
+      list-style: none;
+    }
+    ol li:before {
+      content: counter(list, lower-alpha) ") ";
+      counter-increment: list;
+    }
+
+    .variant {
+      @include border-box;
+      width: fit-content;
+      padding: 14px 21px;
+      transition: 0.15s;
+      cursor: pointer;
+
+      &:has(input:checked) {
+        background-color: $color-yellow;
+
+        &:hover {
+          transform: scale(1);
+        }
+      }
+
+      &:hover {
+        transform: scale(110%);
+        background-color: $color-yellow;
+      }
+    }
+  }
+}
+
+.button {
+  background-color: white;
+}

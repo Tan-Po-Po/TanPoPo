@@ -30,7 +30,7 @@ const typeClassMap = {
 };
 
 const CourseCardMini: React.FC<Properties> = ({ course }) => {
-  const courseInfo = course.small
+  const courseInfo = course.small;
   return (
     <Link className={cl.link} href="">
       <ContentCard
@@ -41,7 +41,9 @@ const CourseCardMini: React.FC<Properties> = ({ course }) => {
         cardBgColor={courseInfo.bgColor}
       >
         <Typography className={cl.level} variant="body1">
-          {course.level}
+          {course.level.length > 1
+            ? `${course.level[0]}/${course.level[course.level.length - 1]}`
+            : course.level[0]}
         </Typography>
         <Typography className={cl.name} variant="h4">
           {course.name}

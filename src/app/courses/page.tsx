@@ -6,6 +6,8 @@ import Course, { ICourse } from "@/models/Course";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
 
+import CourseList from "@/components/courseList/courseList";
+
 // const courses = [
 //   {
 //     type: "teacher" as "teacher",
@@ -65,13 +67,6 @@ async function getCourses(): Promise<ICourse[]> {
 export default async function Courses() {
   const coursesDB = await getCourses();
 
-  const teacherCourses = coursesDB.filter(
-    (course) => course.type === "teacher"
-  );
-  const videoCourses = coursesDB.filter((course) => course.type === "video");
-  const bookCourses = coursesDB.filter((course) => course.type === "book");
-  const audioCourses = coursesDB.filter((course) => course.type === "audio");
-
   return (
     <main className={cl.main}>
       <section className={cl.intro}>
@@ -92,65 +87,7 @@ export default async function Courses() {
         </Typography>
       </section>
 
-      <Divider
-        id="teacher"
-        firsRow="онлайн-курси"
-        secondRow="з сенсеєм"
-        bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
-      />
-      <section className={cl.courses}>
-        {teacherCourses.map((course) => (
-          <CourseCardMini course={course} key={course._id} />
-        ))}
-        {teacherCourses.length === 0 && (
-          <Typography variant="h4">В розробці</Typography>
-        )}
-      </section>
-
-      <Divider
-        id="video"
-        firsRow="Відеокурси"
-        secondRow="для самостійного вивчення"
-        bgColor="linear-gradient(rgba(255, 250, 139, 1), rgba(255, 111, 111, 1))"
-      />
-      <section className={cl.courses}>
-        {videoCourses.map((course) => (
-          <CourseCardMini course={course} key={course._id} />
-        ))}
-        {videoCourses.length === 0 && (
-          <Typography variant="h4">В розробці</Typography>
-        )}
-      </section>
-
-      <Divider
-        id="audio"
-        firsRow="Аудіокурси"
-        secondRow="для самостійного вивчення"
-        bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(108, 250, 165, 1))"
-      />
-      <section className={cl.courses}>
-        {audioCourses.map((course) => (
-          <CourseCardMini course={course} key={course._id} />
-        ))}
-        {audioCourses.length === 0 && (
-          <Typography variant="h4">В розробці</Typography>
-        )}
-      </section>
-
-      <Divider
-        id="book"
-        firsRow="Книжкові мінікурси"
-        secondRow="для самостійного вивчення"
-        bgColor="linear-gradient(rgba(255, 221, 169, 1), rgba(232, 184, 255, 1))"
-      />
-      <section className={cl.courses}>
-        {bookCourses.map((course) => (
-          <CourseCardMini course={course} key={course._id} />
-        ))}
-        {bookCourses.length === 0 && (
-          <Typography variant="h4">В розробці</Typography>
-        )}
-      </section>
+      <CourseList courses={coursesDB} />
 
       <Divider
         firsRow="бібліотека tanpopo"
