@@ -42,6 +42,7 @@ $transition-duration: 0.15s;
         }
       }
       .arrow {
+        stroke: black;
         position: absolute;
         top: 18px;
         right: 18px;
@@ -79,11 +80,11 @@ $transition-duration: 0.15s;
     color: $color-disabled;
     border-color: $color-disabled;
     .arrow {
-      fill: $color-disabled;
+      stroke: $color-disabled !important;
     }
     &:hover {
       .arrow {
-        scale: none;
+        scale: none !important;
       }
       .select {
         &:hover {

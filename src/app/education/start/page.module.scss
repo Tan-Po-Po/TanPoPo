@@ -1,0 +1,103 @@
+.pageHeader {
+  margin-top: 70px;
+  h6 {
+    font-size: 23px;
+  }
+  h1 {
+    font-size: 47px;
+  }
+}
+
+.steps {
+  margin: 70px 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .triangleBtn {
+    width: 36px;
+    height: 37px;
+    margin: 0 40px;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      fill: $color-yellow;
+    }
+  }
+}
+
+.divider {
+  p {
+    text-transform: none;
+  }
+}
+
+.reminder {
+  margin-top: 100px;
+
+  img {
+    margin: 25px 0;
+  }
+
+  .list {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 18px;
+  }
+}
+.checkboxWrapper {
+  @include flex-row;
+  column-gap: 10px;
+}
+.checkbox {
+  margin: 50px 0;
+
+  :global(.MuiTypography-root) {
+    font-size: 16px;
+    max-width: 395px;
+    text-align: start;
+    margin-left: 20px;
+    color: #3d3d3d;
+  }
+}
+
+.continue {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+
+  .line {
+    position: absolute;
+    height: 2px;
+    background-color: black;
+    width: 80%;
+    box-shadow: $box-shadow;
+  }
+
+  .btn {
+    background: #fff !important;
+    font-size: 24px;
+    padding: 10px 19px !important;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+    &:hover {
+      background: $color-yellow !important;
+    }
+  }
+
+  .disabled {
+    &:hover {
+      transform: none !important;
+      background: #fff !important;
+    }
+  }
+}

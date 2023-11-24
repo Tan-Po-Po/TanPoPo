@@ -1,0 +1,92 @@
+.main {
+  padding-top: 50px;
+}
+
+.divider {
+  p {
+    text-transform: none;
+  }
+}
+
+.form {
+  margin-top: 50px;
+}
+
+.lessonsCount {
+  margin-top: 100px;
+
+  >img {
+    margin: 25px 0;
+  }
+}
+
+.select {
+  width: 300px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h6 {
+    margin-top: 80px;
+    white-space: pre-line;
+  }
+
+  .commentTextarea {
+    margin-top: 30px;
+    height: 300px;
+  }
+}
+
+.important {
+  margin: 90px 0px;
+  .list {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.continue {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+
+  .line {
+    position: absolute;
+    height: 2px;
+    background-color: black;
+    width: 80%;
+    box-shadow: $box-shadow;
+  }
+
+  .btn {
+    background: #fff !important;
+    font-size: 24px;
+    padding: 10px 19px !important;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+    &:hover {
+      background: $color-yellow !important;
+    }
+  }
+
+  .disabled {
+    &:hover {
+      transform: none !important;
+      background: #fff !important;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { socialLinks } from "@/config/config";
-import { IconLink } from "@/components";
+import { IconLink } from "@/components/iconLink/iconLink";
 
 export function getSocialIconsLinks(height?: string) {
   const icons = [];
