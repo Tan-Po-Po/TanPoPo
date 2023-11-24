@@ -15,9 +15,13 @@
 .lessonsCount {
   margin-top: 100px;
 
-  img {
+  >img {
     margin: 25px 0;
   }
+}
+
+.select {
+  width: 300px;
 }
 
 .comment {

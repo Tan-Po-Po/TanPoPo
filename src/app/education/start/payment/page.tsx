@@ -5,9 +5,12 @@ import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import cl from "./page.module.scss";
+import { selectCourse } from "@/redux/slices/course/courseSlice";
+import { useAppSelector } from "@/redux/hooks";
 
 export default function Page() {
   const [open, setOpen] = React.useState(false);
+  const course = useAppSelector((state) => selectCourse(state));
 
   return (
     <main className={cl.main}>
@@ -28,8 +31,8 @@ export default function Page() {
           labelPosition="top"
           label={
             <>
-              <Typography variant="h5">МОВНИЙ НІНДЗЯ</Typography>
-              <Typography variant="body2">言語の忍者</Typography>
+              <Typography variant="h5">{course.name}</Typography>
+              <Typography variant="body2">{course.japanName}</Typography>
             </>
           }
           labelBgColor="rgba(255, 192, 215, 1)"
@@ -41,7 +44,9 @@ export default function Page() {
           >
             <Typography variant="body1">Формат навчання:</Typography>
             <Typography variant="body1">
-              Онлайн-курс з Сенсеєм (Міні-група 2-5 чол.)
+              {course.format === "Міні-група"
+                ? "Онлайн-курс з Сенсеєм (Міні-група 2-5 чол.)"
+                : "Індивідуально"}
             </Typography>
           </ContentCard>
 
@@ -51,7 +56,10 @@ export default function Page() {
             cardBgColor="rgba(255, 192, 215, 1)"
           >
             <Typography variant="body1">Занять в тиждень:</Typography>
-            <Typography variant="body1">2 заняття в тиждень</Typography>
+            <Typography variant="body1">
+              {course.format === "Міні-група" ? 2 : course.lessonsPerWeek}{" "}
+              заняття в тиждень
+            </Typography>
           </ContentCard>
 
           <ContentCard
@@ -61,7 +69,7 @@ export default function Page() {
           >
             <Typography variant="body1">Тривалість онлайн-уроку:</Typography>
             <Typography variant="body1">
-              70 хвилин / заняття (рівень: JLPT N4+)
+              70 хвилин / заняття (рівень: JLPT {course.level})
             </Typography>
           </ContentCard>
 
@@ -72,7 +80,8 @@ export default function Page() {
           >
             <Typography variant="body1">Обрана к-сть уроків:</Typography>
             <Typography variant="body1">
-              15 онлайн-уроків (7.5 тижнів навчання)
+              {course.lessons} онлайн-уроків (
+              {course.lessons! / (course.lessonsPerWeek || 2)} тижнів навчання)
             </Typography>
           </ContentCard>
         </ContentCard>
@@ -84,7 +93,7 @@ export default function Page() {
             width="175px"
             cardBgColor="linear-gradient(91deg, rgba(255, 156, 156, 0.75) 0%, rgba(255, 239, 156, 0.75) 28.13%, rgba(156, 219, 255, 0.75) 71.35%, rgba(255, 156, 233, 0.75) 100%)"
           >
-            <Typography variant="h5">4150 грн</Typography>
+            <Typography variant="h5">{course.price}</Typography>
           </ContentCard>
           <Typography variant="subtitle1">
             Просимо в призначені платежу вказати прізвище та ініціали учня.
@@ -171,7 +180,9 @@ export default function Page() {
         contentClassName={cl.content}
       >
         <Typography variant="body2" className={cl.info}>
-          {"Всю інформацію стосовно навчального \nкурсу було щойно надіслано на вашу \nелектронну скриньку!"}
+          {
+            "Всю інформацію стосовно навчального \nкурсу було щойно надіслано на вашу \nелектронну скриньку!"
+          }
         </Typography>
 
         <ContentCard

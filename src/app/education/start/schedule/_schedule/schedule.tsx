@@ -10,9 +10,10 @@ import { time, days } from "../common";
 type Properties = {
   setCounter: React.Dispatch<React.SetStateAction<number>>;
   setSchedule: React.Dispatch<any>;
+  format?: "Міні-група" | "Індивідуально" | null;
 };
 
-const Schedule: React.FC<Properties> = ({ setCounter, setSchedule }) => {
+const Schedule: React.FC<Properties> = ({ setCounter, setSchedule, format }) => {
   return (
     <div className={cl.schedule}>
       <ContentCard width="775px">
@@ -71,7 +72,9 @@ const Schedule: React.FC<Properties> = ({ setCounter, setSchedule }) => {
           })}
         </div>
         <Typography variant="body2">
-          Просимо Вас обрати хоча б <u>12 часових проміжків </u>категорій: “
+          Просимо Вас обрати хоча б <u>{
+          format === "Міні-група" ? 12 : 10
+        } часових проміжків </u>категорій: “
           <u>Може бути</u>” або “<u>Ідеально</u>”, щоб ми мали можливість швидше
           сформувати зручний для всіх графік занять!
         </Typography>

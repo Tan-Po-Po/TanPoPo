@@ -48,7 +48,10 @@
     font-size: 18px;
   }
 }
-
+.checkboxWrapper {
+  @include flex-row;
+  column-gap: 10px;
+}
 .checkbox {
   margin: 50px 0;
 

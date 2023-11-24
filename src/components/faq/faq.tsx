@@ -3,6 +3,7 @@
 import React from "react";
 import { Typography } from "../typography/typography";
 import { getIconSrc, getValidClassNames } from "@/helpers";
+import ArrowIcon from "public/icons/arrowDown.svg";
 import Image from "next/image";
 
 import cl from "./faq.module.scss";
@@ -30,9 +31,9 @@ const Faq: React.FC<Properties> = ({ question, answer }) => {
         </Typography>
         <div className={cl.iconWrapper}>
           {" "}
-          <Image
+          <ArrowIcon
+            style={{ stroke: "black" }}
             className={cl.icon}
-            src={getIconSrc("arrowDown")}
             alt="arrow"
             width={22}
             height={11}

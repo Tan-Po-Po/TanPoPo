@@ -12,6 +12,7 @@ type Properties = {
   id?: string;
   width?: string;
   className?: string;
+  style?: React.CSSProperties;
 };
 
 const Divider: React.FC<Properties> = ({
@@ -21,9 +22,10 @@ const Divider: React.FC<Properties> = ({
   id,
   width,
   className,
+  style,
 }) => {
   return (
-    <div className={cl.wrapper} id={id}>
+    <div className={cl.wrapper} id={id} style={style}>
       <div className={cl.divider}></div>
       <ContentCard
         className={getValidClassNames(cl.card, className)}

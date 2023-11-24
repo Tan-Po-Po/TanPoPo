@@ -32,7 +32,7 @@ const typeClassMap = {
 const CourseCardMini: React.FC<Properties> = ({ course }) => {
   const courseInfo = course.small;
   return (
-    <Link className={cl.link} href="">
+    <Link className={cl.link} href={`/courses/${course._id}`}>
       <ContentCard
         className={getValidClassNames(cl.card, typeClassMap[course.type])}
         label={courseInfo.label}

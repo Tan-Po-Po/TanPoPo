@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import {
   ContentCard,
@@ -13,10 +14,13 @@ import Image from "next/image";
 import TriangleButton from "public/icons/triangleButton.svg";
 import { toast } from "react-toastify";
 import cl from "./page.module.scss";
+import { useAppSelector } from "@/redux/hooks";
 
 export default function Page() {
   const [isAccepted, setIsAccepted] = React.useState(false);
+  const course = useAppSelector((state) => state.course);
 
+  console.log(course);
   return (
     <main>
       <div className={cl.pageHeader}>
@@ -112,7 +116,7 @@ export default function Page() {
         width="555px"
       />
 
-      {true ? (
+      {course.format === "Міні-група" ? (
         <ContentCard width="850px" className={cl.reminder}>
           <Typography variant="h6">
             Важливі пам’ятки про Заняття у Міні-групах:
@@ -213,26 +217,25 @@ export default function Page() {
           </ul>
         </ContentCard>
       )}
-      <Checkbox
-        label={
-          <>
-            Продовжуючи, Я приймаю умови{" "}
-            <Link target="_blank" href="/">
-              <u>Публічної Оферти</u>
-            </Link>{" "}
-            та{" "}
-            <Link target="_blank" href="/">
-              <u>Політики Конфідеційності</u>
-            </Link>
-            .
-          </>
-        }
-        className={cl.checkbox}
-        isChecked={isAccepted}
-        onClick={() => {
-          setIsAccepted((prev) => !prev);
-        }}
-      />
+      <div className={cl.checkboxWrapper}>
+        <Checkbox
+          className={cl.checkbox}
+          isChecked={isAccepted}
+          onClick={() => {
+            setIsAccepted((prev) => !prev);
+          }}
+        />
+        <Typography variant="body2" style={{ whiteSpace: "pre-line" }}>
+          Продовжуючи, Я приймаю умови
+          <Link target="_blank" href="/">
+            <u>Публічної {'\n'}Оферти</u>
+          </Link>{" "}
+          та{" "}
+          <Link target="_blank" href="/">
+            <u>Політики Конфідеційності</u>.
+          </Link>
+        </Typography>
+      </div>
       <div className={cl.continue}>
         <div className={cl.line}></div>
         {isAccepted ? (
@@ -247,15 +250,12 @@ export default function Page() {
           </Link>
         ) : (
           <Button
-            className={getValidClassNames(cl.btn, cl.disabled)}
+            className={getValidClassNames(cl.btn)}
             icon="triangleButton"
             variant="outlined"
-            disabled
             onClick={() =>
               toast(
-                "Щоб продовжити, прийміть \nумови Публічної Оферти та \nПолітику Конфідеційності!☑", {
-                  autoClose: 500000,
-                }
+                "Щоб продовжити, прийміть \nумови Публічної Оферти та \nПолітику Конфідеційності!☑"
               )
             }
           >

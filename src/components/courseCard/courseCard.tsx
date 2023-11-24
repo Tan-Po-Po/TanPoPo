@@ -12,6 +12,8 @@ import PlayBtn from "../../../public/icons/playButton.svg";
 import TriangleBtn from "../../../public/icons/playButtonTest.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 type Properties = {
   course: ICourse;
@@ -32,6 +34,7 @@ const placeholders = {
 };
 
 const CourseCard: React.FC<Properties> = ({ course }) => {
+  const router = useRouter();
   const courseInfo = course.medium;
   const [isGift, setIsGift] = React.useState(false);
   const [lessons, setLessons] = React.useState<null | string>(null);
@@ -42,6 +45,16 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
   };
   const toggleAcceptation = () => {
     setIsAccepted((prev) => !prev);
+  };
+  const handleClick = () => {
+    if (!lessons) {
+      return toast("Спочатку оберіть К-сть уроків!📚");
+    }
+    if (!isAccepted) {
+      return toast("Спочатку ознайомтесь з навчальним періодом!📚");
+    }
+
+    isGift ? router.push("/education/gift") : router.push("/education/start");
   };
 
   return course.type === "teacher" || course.type === "mega" ? (
@@ -163,25 +176,25 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       )}
 
       {course.type !== "book" && (
-        <Checkbox
-          className={cl.checkbox}
-          label={
-            <Typography variant="body2">
-              Я ознайомлений з <Link href="/">Навчальним Періодом</Link> для
-              самостійних курсів!
-            </Typography>
-          }
-          onClick={toggleAcceptation}
-          isChecked={isAccepted}
-        />
+        <div className={cl.checkboxWrapper}>
+          <Checkbox
+            className={cl.checkbox}
+            onClick={toggleAcceptation}
+            isChecked={isAccepted}
+          />
+          <Typography variant="body2">
+            Я ознайомлений з <Link href="/">Навчальним Періодом</Link> для
+            самостійних курсів!
+          </Typography>
+        </div>
       )}
 
       <ContentCard
+        onClick={handleClick}
         className={getValidClassNames(
           cl.bottomBtn,
           isGift && cl.giftBtn,
-          !isGift && cl.startBtn,
-          course.type !== "book" && !isAccepted && cl.disabledBtn
+          !isGift && cl.startBtn
         )}
       >
         {isGift && (

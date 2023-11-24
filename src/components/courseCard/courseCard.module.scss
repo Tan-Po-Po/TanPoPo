@@ -2,11 +2,11 @@
   position: relative;
   margin-bottom: 125px;
   padding: 50px 22px;
-  
+
   .name {
     text-transform: uppercase;
   }
-  
+
   .header {
     transform: none;
     top: -5%;
@@ -130,20 +130,6 @@
       );
     }
   }
-
-  .disabledBtn {
-    background: inherit;
-    cursor: default;
-    color: #b1b1b1;
-    color: $color-disabled;
-    border-color: $color-disabled;
-
-    &:hover {
-      transform: none;
-      background: $color-disabled;
-      background: inherit;
-    }
-  }
 }
 
 .teacher {
@@ -152,12 +138,19 @@
   }
 }
 
+.checkboxWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  max-width: 400px;
+  a {
+    text-decoration: underline;
+  }
+}
 .checkbox {
   :global(.MuiTypography-root) {
     max-width: 300px;
-  }
-  a {
-    text-decoration: underline;
   }
 }
 

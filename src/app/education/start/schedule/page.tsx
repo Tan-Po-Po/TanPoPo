@@ -14,10 +14,14 @@ import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import cl from "./page.module.scss";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
+import { useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
+import { setCourse, selectCourse } from "@/redux/slices/course/courseSlice";
 
 export default function Page() {
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   const scheduleArray: any = Array.from({ length: 7 }, () =>
     Array.from({ length: 5 }, () => "inappropriate")
@@ -25,15 +29,27 @@ export default function Page() {
   const [counter, setCounter] = React.useState(0);
   const [schedule, setSchedule] = React.useState(scheduleArray);
   const [comment, setComment] = React.useState("");
+  const [lessonsPerWeek, setLessonsPerWeek] = React.useState(0);
+  const course = useAppSelector((state) => selectCourse(state));
 
   const submitForm = (formData: any) => {
-    console.log(counter);
-    if (counter < 12) {
-      toast(
-        "Просимо Вас обрати хоча б 12 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑"
-      );
-      return null;
+    if (course.format === "Міні-група") {
+      if (counter < 12) {
+        return toast(
+          `Просимо Вас обрати хоча б 12 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑`
+        );
+      }
+    } else {
+      if (counter < 10) {
+        return toast(
+          `Просимо Вас обрати хоча б 10 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑`
+        );
+      }
+      if (!lessonsPerWeek) {
+        return toast("Оберіть бажану к-сть занять на тиждень!☑");
+      }
     }
+
     const data = {
       ...formData,
       comment,
@@ -71,7 +87,7 @@ export default function Page() {
 
       <Form onSubmit={submitForm} className={cl.form} id="contact" />
 
-      {true ? (
+      {course.format === "Міні-група" ? (
         <ContentCard width="650px" className={cl.lessonsCount}>
           <Typography variant="body1">К-сть занять:</Typography>
           <Typography variant="h4">2 уроки / тиждень</Typography>
@@ -103,7 +119,18 @@ export default function Page() {
           />
 
           <Select
-            menuItems={["1 урок", "2 уроки", "3 уроки", "4 уроки", "5 уроків"]}
+            menuItems={[
+              "1 заняття",
+              "2 заняття",
+              "3 заняття",
+              "4 занять",
+              "5 занять",
+            ]}
+            handleSelect={(value) => {
+              setLessonsPerWeek(parseInt(value[0]));
+              dispatch(setCourse({ lessonsPerWeek: parseInt(value[0]) }));
+            }}
+            placeHolder="К-сть занять"
             className={cl.select}
           />
         </ContentCard>
@@ -111,7 +138,11 @@ export default function Page() {
       <Typography variant="h3" style={{ marginTop: "100px" }}>
         Зручне формування розкладу навчання:
       </Typography>
-      <Schedule setSchedule={setSchedule} setCounter={setCounter} />
+      <Schedule
+        setSchedule={setSchedule}
+        setCounter={setCounter}
+        format={course.format}
+      />
 
       <div className={cl.comment}>
         <Typography variant="h6">
@@ -143,7 +174,7 @@ export default function Page() {
         />
         <ul className={cl.list}>
           <li>
-            {true ? (
+            {course.format === "Міні-група" ? (
               <>
                 З моменту оплати обраного вами курсу нам потрібно до 14 днів,
                 щоб сформувати міні-групу за зручним для всіх розкладом!{" "}
@@ -166,7 +197,7 @@ export default function Page() {
             )}
           </li>
           <li>
-            {true ? (
+            {course.format === "Міні-група" ? (
               <>
                 Якщо протягом 14 днів ми так і не зможемо сформувати міні-групу
                 зі зручним розкладом за обраним курсом, Ми гарантуємо Вам повне

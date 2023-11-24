@@ -1,14 +1,15 @@
 import React from "react";
 import { Checkbox, Input, ContentCard, Typography } from "@/components";
 import Image from "next/image";
-import cl from "./form.module.scss";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import ArrowIcon from "public/icons/arrowDown.svg";
+import cl from "./form.module.scss";
 
 type Properties = {
   onSubmit: (data: any) => void;
   className?: string;
-  id?:string;
+  id?: string;
 };
 
 const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
@@ -136,8 +137,8 @@ const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
           />
 
           <div className={cl.textContainer}>
-            <Image
-              src="/icons/arrowDown.svg"
+            <ArrowIcon
+              style={{ stroke: "black" }}
               alt="Arrow icon"
               className={cl.arrow}
               width={13}

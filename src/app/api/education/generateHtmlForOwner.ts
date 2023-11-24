@@ -4,7 +4,7 @@ import {
   type ScheduleForm,
 } from "@/app/education/start/schedule/common";
 
-export const generateHtml = (formData: ScheduleForm) => {
+export const generateHtmlForOwner = (formData: ScheduleForm) => {
   return `<html lang="en">
   <head>
     <style>
@@ -38,9 +38,8 @@ export const generateHtml = (formData: ScheduleForm) => {
         font-size: 22px;
         text-align: center;
       }
-      .ii a[href],
       a {
-        color: #000 !important;
+        color: #000;
       }
       .img {
         display: flex;
@@ -109,25 +108,18 @@ export const generateHtml = (formData: ScheduleForm) => {
         color: black;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         cursor: pointer;
+        transition: all 0.3s ease-in-out;
       }
       .btn:hover {
         background: #affa9c;
-      }
-      .socials {
-        margin: 10px;
+        transform: translateY(5px);
       }
     </style>
   </head>
   <body>
-    <h1 style="white-space: pre-line">
-      Вітаємо! Ваше навчання японської мови \nрозпочнеться зовсім скоро!
-    </h1>
-    <img class="img" src="cid:school" width="160px" height="137px" />
-    <p style="font-size: 16px">
-      В цьому листі ми зберегли інформацію по обраному курсу навчанню!
-    </p>
+    <h1 style="white-space: pre-line">Новий учень бажає долучитись до школи TanPoPo🎉</h1>
     <div class="card contact">
-      <h1><b>${ formData.contact ? "Контактні дані учня:" : "Ваші контактні дані:"}</b></h1>
+      <h1><b>Контактні дані учня:</b></h1>
       <div style="display: flex; margin-top: 20px">
         <div style="width: 50%">
           <p><u>Ім'я:</u> ${formData.name}</p>
@@ -140,18 +132,18 @@ export const generateHtml = (formData: ScheduleForm) => {
         </div>
       </div>
       ${ formData.contact ? `
-        <h1>Контактна особа</h1>
-        <div style="display: flex; margin-top: 20px">
-          <div style="width: 50%">
-            <p><u>Ім'я:</u> ${formData.contactName}</p>
-            <p><u>Прізвище:</u> ${formData.contactSurname}</p>
-            <p><u>Ким є для студента:</u> ${formData.contactRole}</p>
+          <h3>Контактна особа</h3>
+          <div style="display: flex; margin-top: 20px">
+            <div style="width: 50%">
+              <p><u>Ім'я:</u> ${formData.contactName}</p>
+              <p><u>Прізвище:</u> ${formData.contactSurname}</p>
+              <p><u>Ким є для студента:</u> ${formData.contactRole}</p>
+            </div>
+            <div style="width: 50%">
+              <p><u>Телефон:</u> ${formData.contactPhone}</p>
+              <p><u>Email:</u> ${formData.contactEmail}</p>
+            </div>
           </div>
-          <div style="width: 50%">
-            <p><u>Телефон:</u> ${formData.contactPhone}</p>
-            <p><u>Email:</u> ${formData.contactEmail}</p>
-          </div>
-        </div>
       ` : "" }
       ${ formData.comment ? `
         <p style="margin-top: 20px;"><u>Коментар:</u> ${formData.comment}</p>
@@ -188,34 +180,11 @@ export const generateHtml = (formData: ScheduleForm) => {
     <div class="card course">
       <h1 style="color: #454545; font-size: 27px">Обраний курс:</h1>
       <h1 style="font-size: 27px">Мовний ніндзя</h1>
-      <h1 style="font-size: 27px">(言語の忍者)</h1>
+      <h1 style="font-size: 27px">(рівень JLPT N4+)</h1>
       <p style="margin-top: 50px"><u>Формат Навчання</u>: Онлайн курс з сенсеєм(міні-група 2-5 чол.)</p>
       <p><u>Занять в тиждень</u>: 2 заняття в тиждень</p>
-      <p><u>Тривалість онлайн-уроку</u>: 70 хвилин/заняття(рівень JLPT N4+)</p>
       <p><u>Обрана к-сть уроків</u>: 15 онлайн-уроків</p>
-    </div>
-
-    <div class="card" style="max-width: 650px;">
-      <h1 style="font-size: 27px; color: #454545">Вартість навчання:</h1>
-      <h1 style="font-size: 27px">4150 грн</h1>
-      <p style="white-space: pre-line;">Якщо Ви ще не оплачували ваше навчання,\nце можна зробити за нашими реквізитами або за \nдопомогою швидкої оплати по QR-коду нашої школи!</p>
-      <div style="margin: 30px 0; position: relative;"><a href="google.com" class="btn" style="margin-left: 80px;">Наші реквізити</a>
-      <img src="cid:arrow" width="60px" style="margin-left: 20px;"/></div>
-      <p>Після того, як ми побачимо вашу оплату за обраним курсом,\nми якнайшвидше розпочнемо формувати Ваш графік\nзанять і сконтактуємось разом з вами для його підтвердження!</p>
-    </div>
-
-    <div class="card" style="max-width: 450px;">
-      <h1>Дякуємо, що обрали \nTanPoPo💛</h1>
-      <img class="img" src="cid:girl" width="170px" height="177px" />
-      <div>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"><img src="cid:instagram" width="43px" height="43px" /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"><img src="cid:tikTok" width="43px" height="43px" /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"><img src="cid:youtube" width="50px" /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"><img src="cid:telegram" width="45px" /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"><img src="cid:viber" width="42px" /></a>
-      </div>
-      <p>Онлайн-школа японської мови.</p>
-      <p style="font-size: 15px">© 2024 TanPoPo. Всі права захищено.</p>
+      <p><u>Вартість навчання</u>: 4150 грн</p>
     </div>
   </body>
 </html>
