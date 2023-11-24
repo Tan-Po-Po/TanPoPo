@@ -38,6 +38,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    word-wrap: break-word;
   }
 
   :global(.MuiButton-root) {
@@ -57,7 +58,7 @@
 }
 
 .outlined {
-  background: $color-yellow;
+  background: white;
 }
 
 .isParentHovered {

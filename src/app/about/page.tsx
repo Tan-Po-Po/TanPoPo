@@ -340,10 +340,11 @@ export default async function About() {
                   height={300}
                   style={{ width: "100%", height: "auto" }}
                 />
+
+                <div className={cl.playButtonIcon}>
+                  <PlayButtonIcon />
+                </div>
               </Link>
-              <div className={cl.playButtonIcon}>
-                <PlayButtonIcon />
-              </div>
             </CarouselItem>
           ))}
         </Carousel>

@@ -23,7 +23,7 @@ interface Props {
 const ContentCard: React.FC<Props> = ({
   index,
   label,
-  labelPosition,
+  labelPosition = "top",
   labelBgColor,
   children,
   indexBgColor,

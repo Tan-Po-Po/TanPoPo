@@ -84,8 +84,10 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
               </div>
             ))}
           </ContentCard>
+
           <div className={cl.buttonWrapper}>
             <Button
+              onClick={handleDialogOpen}
               isParentHovered={isHovered}
               variant="outlined"
               icon="checkbox"
