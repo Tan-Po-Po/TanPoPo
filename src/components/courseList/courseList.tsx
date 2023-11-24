@@ -16,6 +16,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
   return (
     <main className={cl.courseListMain}>
       <Divider
+        style={{ scrollMarginTop: "100px" }}
         id="teacher"
         firsRow="онлайн-курси"
         secondRow="з сенсеєм"
@@ -31,6 +32,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       </section>
 
       <Divider
+        style={{ scrollMarginTop: "100px" }}
         id="video"
         firsRow="Відеокурси"
         secondRow="для самостійного вивчення"
@@ -46,6 +48,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       </section>
 
       <Divider
+        style={{ scrollMarginTop: "100px" }}
         id="audio"
         firsRow="Аудіокурси"
         secondRow="для самостійного вивчення"
@@ -61,6 +64,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       </section>
 
       <Divider
+        style={{ scrollMarginTop: "100px" }}
         id="book"
         firsRow="Книжкові мінікурси"
         secondRow="для самостійного вивчення"

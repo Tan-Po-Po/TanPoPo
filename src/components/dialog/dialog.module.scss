@@ -10,7 +10,6 @@
       fill: #d5d5d5;
     }
   }
-
   :global(.MuiDialog-paper) {
     @include border-box;
     display: flex;
@@ -23,5 +22,16 @@
     max-width: fit-content;
     gap: 77px;
     animation: dialogShow 0.3s;
+  }
+
+  .title {
+    display: flex;
+    gap: 7px;
+  }
+
+  .content {
+    overflow: visible;
+    display: flex;
+    gap: 77px;
   }
 }

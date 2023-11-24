@@ -6,6 +6,7 @@ export { CourseCardDescription } from "./courseCardDescription/courseCardDescrip
 export { CourseCardMini } from "./courseCardMini/courseCardMini";
 export { Dropdown } from "./dropdown/dropdown";
 export { Divider } from "./divider/divider";
+export { Dialog } from "./dialog/dialog"
 export { Faq } from "./faq/faq";
 export { Footer } from "./footer/footer";
 export { Select } from "./select/select";

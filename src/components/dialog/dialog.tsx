@@ -1,23 +1,55 @@
-import { DialogProps, Dialog as MUIDialog } from "@mui/material";
-import cl from "./dialog.module.scss";
-import XIcon from "./plus.svg";
+import React from "react";
+import {
+  Dialog as MuiDialog,
+  DialogContent,
+  DialogTitle,
+  DialogProps,
+} from "@mui/material";
 import { getValidClassNames } from "@/helpers";
+import XIcon from "./plus.svg";
 
-export const Dialog: React.FC<DialogProps> = ({
+import cl from "./dialog.module.scss";
+
+type Properties = {
+  children?: React.ReactNode;
+  title?: React.ReactNode;
+  content?: React.ReactNode;
+  open?: boolean;
+  titleClassName?: string;
+  contentClassName?: string;
+  onClose: () => void;
+} & DialogProps;
+
+const Dialog: React.FC<Properties> = ({
   children,
+  title,
+  open,
   onClose,
   className,
-  ...resProps
+  titleClassName,
+  contentClassName,
+  ...props
 }) => {
   return (
-    <MUIDialog
+    <MuiDialog
+      open={open}
       onClose={onClose}
-      {...resProps}
+      {...props}
       className={getValidClassNames(cl.dialog, className)}
     >
       <XIcon className={cl.close} onClick={onClose} />
-
-      {children}
-    </MUIDialog>
+      {title && (
+        <DialogTitle className={getValidClassNames(cl.title, titleClassName)}>
+          {title}
+        </DialogTitle>
+      )}
+      <DialogContent
+        className={getValidClassNames(cl.content, contentClassName)}
+      >
+        {children}
+      </DialogContent>
+    </MuiDialog>
   );
 };
+
+export { Dialog };

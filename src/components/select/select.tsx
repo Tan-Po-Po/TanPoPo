@@ -6,6 +6,7 @@ import Image from "next/image";
 import { SelectItem } from "./selectItem/selectItem";
 import { Checkbox } from "../checkbox/checkbox";
 import { getValidClassNames } from "@/helpers";
+import ArrowIcon from "public/icons/arrowDown.svg";
 
 interface SelectProps {
   placeHolder?: string;
@@ -67,14 +68,14 @@ const Select: React.FC<SelectProps> = ({
           <div className={cl.select} onClick={handleSelectClick}>
             <div className={cl.value}>{value}</div>
           </div>
-          <Image
-
+          {/* <Image
             src={iconUrl}
             width={15}
             height={15}
             alt=""
             className={cl.arrow}
-          />
+          /> */}
+          <ArrowIcon width={15} height={15} alt="" className={cl.arrow} />
         </div>
         {isOpen && (
           <div className={cl.dropdown}>

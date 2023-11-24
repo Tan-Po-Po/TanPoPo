@@ -8,7 +8,7 @@ import cl from "./page.module.scss";
 
 export default async function Page() {
   return (
-    <main className={cl.main}>
+    <main>
       <div className={cl.header}>
         <Typography variant="h3">Освітня програма</Typography>
         <Typography variant="h6">для онлайн-курсів з сенсеєм</Typography>

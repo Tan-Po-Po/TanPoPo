@@ -74,6 +74,24 @@
   }
 }
 
+.disabled {
+  .image {
+    visibility: hidden;
+    animation: none;
+  }
+
+  &:hover {
+    scale: none;
+
+    .children {
+      .image {
+        visibility: hidden;
+        animation: none;
+      }
+    }
+  }
+}
+
 @keyframes buttonIconRotate {
   0% {
     scale: 0;
