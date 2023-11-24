@@ -6,10 +6,10 @@ import { Button } from "../button/button";
 import { Typography } from "../typography/typography";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
-import { Dialog, DialogContent, DialogTitle } from "@mui/material";
-import XIcon from "./plus.svg";
-
+import { DialogContent, DialogTitle } from "@mui/material";
 import cl from "./teamMemberCard.module.scss";
+import { Dialog } from "../dialog/dialog";
+
 interface Props {
   teamMember: ITeamMember;
 }
@@ -104,8 +104,6 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
               open={isDialogOpen}
               onClose={() => handleDialogClose()}
             >
-              <XIcon className={cl.close} onClick={handleDialogClose} />
-
               <DialogTitle className={cl.title}>
                 <Typography
                   variant="h3"

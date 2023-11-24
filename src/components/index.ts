@@ -15,3 +15,4 @@ export { IconLink } from "./iconLink/iconLink";
 export { Typography } from "./typography/typography";
 export { TeamMemberCard } from "./teamMemberCard/teamMemberCard";
 export { LibraryCard } from "./libraryCard/libraryCard";
+export { Dialog } from "./dialog/dialog";
