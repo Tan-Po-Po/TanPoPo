@@ -15,6 +15,7 @@ interface SelectProps {
     | {
         label: string | React.ReactElement;
         value: string;
+        labelWhenSelected?: string;
       }[];
   checkbox?: boolean;
   checkboxLabel?: string;
@@ -36,18 +37,34 @@ const Select: React.FC<SelectProps> = ({
   handleSelect,
   isDisabled,
 }) => {
-  const [value, setValue] = useState<string>(placeHolder as string);
+  const [option, setOption] = useState<{ value: string; label: string }>(
+    (placeHolder && {
+      value: "",
+      label: placeHolder,
+    }) ||
+      (typeof menuItems[0] === "string"
+        ? { value: menuItems[0], label: menuItems[0] }
+        : {
+            value: menuItems[0].value,
+            label:
+              menuItems[0].labelWhenSelected || (menuItems[0].label as string),
+          })
+  );
   const [isOpen, setIsOpen] = useState(false);
-
-  const iconUrl = "/icons/arrowDown.svg";
 
   const handleSelectClick = () => {
     !isDisabled && setIsOpen((prev) => !prev);
   };
 
-  const handleOptionClick = (value: string) => {
+  const handleOptionClick = ({
+    value,
+    label,
+  }: {
+    value: string;
+    label: string;
+  }) => {
     handleSelect && handleSelect(value);
-    setValue(value);
+    setOption({ value, label });
     setIsOpen(false);
   };
 
@@ -66,15 +83,8 @@ const Select: React.FC<SelectProps> = ({
           )}
         >
           <div className={cl.select} onClick={handleSelectClick}>
-            <div className={cl.value}>{value}</div>
+            <div className={cl.value}>{option.label}</div>
           </div>
-          {/* <Image
-            src={iconUrl}
-            width={15}
-            height={15}
-            alt=""
-            className={cl.arrow}
-          /> */}
           <ArrowIcon width={15} height={15} alt="" className={cl.arrow} />
         </div>
         {isOpen && (
@@ -83,11 +93,11 @@ const Select: React.FC<SelectProps> = ({
               <SelectItem
                 key={index}
                 item={item}
-                setValue={handleOptionClick}
+                setOption={handleOptionClick}
                 isSelected={
                   typeof item === "string"
-                    ? value === item
-                    : value === item.value
+                    ? option.value === item
+                    : option.value === item.value
                 }
               />
             ))}

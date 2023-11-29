@@ -7,14 +7,20 @@ interface Props {
     | {
         label: string | React.ReactElement;
         value: string;
+        labelWhenSelected?: string;
       };
   isSelected: boolean;
-  setValue: (value: string) => void;
+  setOption: ({ value, label }: { value: string; label: string }) => void;
 }
 
-const SelectItem: React.FC<Props> = ({ item, setValue, isSelected }) => {
+const SelectItem: React.FC<Props> = ({ item, setOption, isSelected }) => {
   const handleClick = () => {
-    typeof item === "string" ? setValue(item) : setValue(item.value);
+    typeof item === "string"
+      ? setOption({ value: item, label: item })
+      : setOption({
+          value: item.value,
+          label: item.labelWhenSelected || (item.label as string),
+        });
   };
   return (
     <div
