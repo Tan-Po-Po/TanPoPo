@@ -13,6 +13,7 @@ type Props = {
   slidesToShow?: number;
   centerMode?: boolean;
   className?: string;
+  focusOnSelect?: boolean;
 };
 
 const Carousel: React.FC<Props> = ({
@@ -21,6 +22,7 @@ const Carousel: React.FC<Props> = ({
   slidesToShow = 3,
   centerMode = true,
   className,
+  focusOnSelect = true,
 }) => {
   const ref = useRef<Slider | null>(null);
   const speed = 300;
@@ -42,7 +44,7 @@ const Carousel: React.FC<Props> = ({
     slidesToScroll: 1,
     variableWidth: true,
     centerMode,
-    focusOnSelect: true,
+    focusOnSelect,
     nextArrow: (
       <ArrowButton
         direction={"right"}

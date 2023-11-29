@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export interface IShopItem {
-  _id: string;
+  _id?: string;
   name: string;
   small: {
     label?: {
@@ -11,26 +11,27 @@ export interface IShopItem {
     image: string;
     caption: string;
   };
-  large?: {
+  large: {
     available: boolean;
-    images: {
-      type: string;
-      href: string;
+    gallery: {
+      _id?: string;
+      value?: string;
+      type: "image" | "video";
+      image: string;
+      video?: string;
     }[];
-    price: number;
-    sale?:
-      | {
-          price: number;
-          until: string;
-        }
-      | undefined;
-    caption: string;
+    caption: string[];
     hashtags: string[];
-    select: {
-      placeholder: string;
-      values: string[];
-    };
-    likes: number;
+    likes?: number;
+    variants: {
+      value: string;
+      label: string;
+      price: number;
+      sale?: {
+        price: number;
+        until: string;
+      };
+    }[];
   };
 }
 
@@ -46,25 +47,30 @@ const ShopItemSchema = new mongoose.Schema<IShopItem>(
       caption: { type: String, required: true },
     },
     large: {
-      available: { type: Boolean },
-      images: [
+      available: { type: Boolean, required: true },
+      gallery: [
         {
-          type: { type: String },
-          href: { type: String },
+          type: { type: String, required: true },
+          value: { type: String },
+          image: { type: String, required: true },
+          video: { type: String },
         },
       ],
-      price: { type: Number },
-      sale: {
-        price: { type: Number },
-        until: { type: String },
-      },
-      caption: { type: String },
-      hashtags: { type: [String] },
-      select: {
-        placeholder: { type: String },
-        values: { type: [String] },
-      },
-      likes: { type: Number },
+
+      caption: { type: [String], required: true },
+      hashtags: { type: [String], required: true },
+      likes: { type: Number, default: 0, required: true },
+      variants: [
+        {
+          value: { type: String, required: true },
+          label: { type: String, required: true },
+          price: { type: Number, required: true },
+          sale: {
+            price: { type: Number },
+            until: { type: String },
+          },
+        },
+      ],
     },
   },
   { collection: "shop items" }

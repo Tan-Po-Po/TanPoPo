@@ -7,9 +7,7 @@ import { Dialog } from "@/components/dialog/dialog";
 import { Typography } from "@/components/typography/typography";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
-
 import cl from "./teamMemberCard.module.scss";
-import { Dialog } from "../dialog/dialog";
 
 interface Props {
   teamMember: ITeamMember;
