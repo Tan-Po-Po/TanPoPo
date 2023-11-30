@@ -1,0 +1,36 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.logo {
+  animation-name: loading;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(180deg);
+    scale: (1.05);
+  }
+  40% {
+    transform: rotateY(180deg);
+  }
+  65% {
+    transform: rotateX(-180deg);
+    scale: (.9);
+  }
+  80% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    scale: (1);
+  }
+}

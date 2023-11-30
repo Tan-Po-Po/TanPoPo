@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import cl from "./select.module.scss";
-import Image from "next/image";
 import { SelectItem } from "./selectItem/selectItem";
 import { Checkbox } from "../checkbox/checkbox";
 import { getValidClassNames } from "@/helpers";
 import ArrowIcon from "public/icons/arrowDown.svg";
+import { UseFormSetValue } from "react-hook-form";
 
-interface SelectProps {
+type SelectProps = {
   placeHolder?: string;
   menuItems:
     | string[]
@@ -23,7 +23,9 @@ interface SelectProps {
   className?: string;
   handleSelect?: (value: string) => void;
   isDisabled?: boolean;
-}
+  setValue?: UseFormSetValue<any>;
+  name?: string;
+};
 
 const Select: React.FC<SelectProps> = ({
   placeHolder,
@@ -35,11 +37,11 @@ const Select: React.FC<SelectProps> = ({
   className,
   handleSelect,
   isDisabled,
+  setValue,
+  name,
 }) => {
-  const [value, setValue] = useState<string>(placeHolder as string);
+  const [value, setSelectValue] = useState<string>(placeHolder as string);
   const [isOpen, setIsOpen] = useState(false);
-
-  const iconUrl = "/icons/arrowDown.svg";
 
   const handleSelectClick = () => {
     !isDisabled && setIsOpen((prev) => !prev);
@@ -47,7 +49,8 @@ const Select: React.FC<SelectProps> = ({
 
   const handleOptionClick = (value: string) => {
     handleSelect && handleSelect(value);
-    setValue(value);
+    name && setValue && setValue(name, value);
+    setSelectValue(value);
     setIsOpen(false);
   };
 
@@ -68,13 +71,6 @@ const Select: React.FC<SelectProps> = ({
           <div className={cl.select} onClick={handleSelectClick}>
             <div className={cl.value}>{value}</div>
           </div>
-          {/* <Image
-            src={iconUrl}
-            width={15}
-            height={15}
-            alt=""
-            className={cl.arrow}
-          /> */}
           <ArrowIcon width={15} height={15} alt="" className={cl.arrow} />
         </div>
         {isOpen && (

@@ -69,9 +69,9 @@ export default function Page() {
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
         );
       }
-      const response = await res.json();
-      console.log("res.body is - ");
-      console.log(response);
+      // const response = await res.json();
+      // console.log("res.body is - ");
+      // console.log(response);
       router.push("/education/start/payment");
     });
   };
@@ -80,7 +80,7 @@ export default function Page() {
     <main className={cl.main}>
       <Divider
         className={cl.divider}
-        firsRow="2. Заповніть контактні дані та ваш розклад."
+        firstRow="2. Заповніть контактні дані та ваш розклад."
         bgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
         width="555px"
       />

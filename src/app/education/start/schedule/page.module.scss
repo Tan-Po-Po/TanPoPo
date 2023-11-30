@@ -82,11 +82,4 @@
       background: $color-yellow !important;
     }
   }
-
-  .disabled {
-    &:hover {
-      transform: none !important;
-      background: #fff !important;
-    }
-  }
 }

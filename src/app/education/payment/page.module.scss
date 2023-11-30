@@ -29,6 +29,12 @@
     grid-template-columns: 1fr 1fr;
     padding: 85px 55px 60px;
     align-items: stretch;
+    .card {
+      padding: 16px;
+    }
+    p {
+      white-space: pre-line;
+    }
   }
 
   .line {
@@ -60,13 +66,22 @@
 
 .thanks {
   margin: 100px 0;
+  transition: all .3s ease-in-out;
 
+  &:hover {
+    scale: 1.05;
+
+    .thanksBtn {
+      scale: 1.1;
+    }
+  }
   .thanksBtn {
     background: linear-gradient(180deg, #fffaf9 0%, #fffbd8 100%);
     white-space: pre-line;
     font-size: 24px;
     font-weight: 700;
     width: 310px;
+    transition: all .3s ease-in-out;
     &:hover {
       background: linear-gradient(180deg, #fffaf9 0%, #fffbd8 100%);
     }
