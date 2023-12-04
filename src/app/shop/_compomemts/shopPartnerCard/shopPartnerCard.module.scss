@@ -31,12 +31,14 @@
   }
 
   .items {
-    @include flex-row;
-    flex-wrap: wrap;
+    display: grid;
     gap: 30px;
+    grid-template-columns: 1fr 1fr;
 
     .itemImage {
       transition: 0.15s;
+      width: 147px;
+      height: 147px;
 
       &:hover {
         transform: scale(110%);

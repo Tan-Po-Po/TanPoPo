@@ -13,7 +13,7 @@ const Button: React.FC<Properties> = ({
   children,
   className,
   isParentHovered,
-  disabled, 
+  disabled,
   ...props
 }) => {
   const iconUrl = `/icons/${icon}.svg`;
@@ -23,7 +23,7 @@ const Button: React.FC<Properties> = ({
       className={getValidClassNames(
         cl.buttonWrapper,
         props.variant === "outlined" && cl.outlined,
-        isParentHovered && cl.isParentHovered, 
+        isParentHovered && cl.isParentHovered,
         disabled && cl.disabled
       )}
     >

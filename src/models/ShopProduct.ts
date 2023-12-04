@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface IShopItem {
+export interface IShopProduct {
   _id?: string;
   name: string;
   small: {
@@ -22,8 +22,9 @@ export interface IShopItem {
     }[];
     caption: string[];
     hashtags: string[];
-    likes?: number;
+    likes: number;
     variants: {
+      _id?: string;
       value: string;
       label: string;
       price: number;
@@ -35,7 +36,7 @@ export interface IShopItem {
   };
 }
 
-const ShopItemSchema = new mongoose.Schema<IShopItem>(
+const ShopProductSchema = new mongoose.Schema<IShopProduct>(
   {
     name: { type: String, required: true },
     small: {
@@ -76,5 +77,5 @@ const ShopItemSchema = new mongoose.Schema<IShopItem>(
   { collection: "shop items" }
 );
 
-export default mongoose.models.ShopItem ||
-  mongoose.model("ShopItem", ShopItemSchema);
+export default mongoose.models.ShopProduct ||
+  mongoose.model("ShopProduct", ShopProductSchema);

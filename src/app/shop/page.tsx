@@ -1,7 +1,7 @@
 import dbConnect from "@/config/dbConnect";
 import cl from "./page.module.scss";
 import { getIconArtSrc } from "@/helpers";
-import ShopItem, { IShopItem } from "@/models/ShopItem";
+import ShopItem, { IShopProduct } from "@/models/ShopProduct";
 import { ContentCard, Divider, Typography } from "@/components";
 import mongoose from "mongoose";
 import Image from "next/image";
@@ -9,11 +9,12 @@ import { textContent } from "./textContent";
 import ShopPartner, { IShopPartner } from "@/models/ShopPartner";
 import { socialLinks } from "@/config/config";
 import ShopPartnerCard from "./_compomemts/shopPartnerCard/shopPartnerCard";
-import ShopItemCardLarge from "./_compomemts/shopItemCardLarge/shopItemCardLarge";
-import { ShopItemCardMini } from "./_compomemts/shopItemCardMini/shopItemCardMini";
+import ShopProductCardLarge from "./_compomemts/shopProductCardLarge/shopProductCardLarge";
+import { ShopProductCardMini } from "./_compomemts/shopProductCardMini/shopProductCardMini";
 import { DialogGallery } from "@/components/dialogGallery/dialogGallery";
+import { CartButton } from "./_compomemts/cartButton/cartButton";
 
-const items: IShopItem[] = [
+const items: IShopProduct[] = [
   {
     name: "Мнемонічні\nкартки",
     small: {
@@ -130,7 +131,7 @@ const items: IShopItem[] = [
         "Унікальний дизайн\nвсіх 100 карток🎨",
         "Made by\nTanPoPo💛",
       ],
-
+      likes: 0,
       variants: [
         {
           price: 500,
@@ -184,7 +185,7 @@ const items: IShopItem[] = [
         "Унікальний дизайн\nвсіх 100 карток🎨",
         "Made by\nTanPoPo💛",
       ],
-
+      likes: 0,
       variants: [
         {
           price: 715,
@@ -436,9 +437,9 @@ const addShopPartnersToDb = async () => {
   });
 };
 
-const getShopItems = async (): Promise<IShopItem[]> => {
+const getShopItems = async (): Promise<IShopProduct[]> => {
   await dbConnect();
-  const items = (await ShopItem.find()) as mongoose.Document<IShopItem>[];
+  const items = (await ShopItem.find()) as mongoose.Document<IShopProduct>[];
   return items.map((item) => JSON.parse(JSON.stringify(item)));
 };
 
@@ -460,10 +461,11 @@ export default async function Shop() {
 
   return (
     <main className={cl.storeMain}>
+      <CartButton />
       <Typography variant="h3">КРАМНИЦЯ</Typography>
       <section className={cl.introBlock}>
         {shopItems.map((item, i) => (
-          <ShopItemCardMini key={i} {...item} />
+          <ShopProductCardMini key={i} {...item} />
         ))}
         <Image
           alt=""
@@ -514,9 +516,10 @@ export default async function Shop() {
         bgColor="linear-gradient(180deg, #F0FF93 0%, #FFC683 100%)"
       />
 
-      <section className={cl.shopItemsBlock}>
+      <section className={cl.shopProductsBlock}>
+        <ShopProductCardLarge {...textContent.shopProductBlock.certificates} />
         {shopItems.map((item) => (
-          <ShopItemCardLarge key={item._id} {...item}></ShopItemCardLarge>
+          <ShopProductCardLarge key={item._id} {...item}></ShopProductCardLarge>
         ))}
       </section>
 

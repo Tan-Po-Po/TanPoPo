@@ -1,14 +1,14 @@
 "use client";
 
-import { IShopItem } from "@/models/ShopItem";
-import cl from "./shopItemCardMini.module.scss";
+import { IShopProduct } from "@/models/ShopProduct";
+import cl from "./shopProductCardMini.module.scss";
 import { Button, ContentCard, Typography } from "@/components";
 import Image from "next/image";
 import { useState } from "react";
 
-type Props = Exclude<IShopItem, "large">;
+type Props = Exclude<IShopProduct, "large">;
 
-export const ShopItemCardMini: React.FC<Props> = ({ _id, name, small }) => {
+export const ShopProductCardMini: React.FC<Props> = ({ _id, name, small }) => {
   const { label, caption, image } = small;
   const [isHovered, setIsHovered] = useState(false);
 
@@ -20,7 +20,7 @@ export const ShopItemCardMini: React.FC<Props> = ({ _id, name, small }) => {
   };
 
   const handleClick = () => {
-    const item = document.getElementById(_id);
+    const item = document.getElementById(_id!);
     item?.scrollIntoView({ behavior: "smooth" });
   };
   return (
@@ -47,7 +47,6 @@ export const ShopItemCardMini: React.FC<Props> = ({ _id, name, small }) => {
           variant="outlined"
           type="button"
           isParentHovered={isHovered}
-          href="#image"
           style={{ scrollBehavior: "smooth" }}
         >
           <Typography variant="body1">{name}</Typography>

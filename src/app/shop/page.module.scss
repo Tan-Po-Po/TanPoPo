@@ -2,6 +2,7 @@
   @include flex-column;
   padding: $padding-page;
   gap: 60px;
+  position: relative;
 
   .introBlock {
     display: grid;
@@ -51,6 +52,13 @@
   .shopPartnersBlock {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 100px;
+  }
+
+  .shopProductsBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
     gap: 100px;
   }
 }

@@ -56,17 +56,17 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
 
       <div className={cl.items}>
         {items.map((item) => (
-          <ContentCard key={item._id} className={cl.itemImage}>
-            <Link href={item.href}>
+          <Link key={item._id} href={item.href}>
+            <ContentCard className={cl.itemImage}>
               <Image
                 alt=""
                 src={item.image}
                 fill
-                sizes="100vw"
+                sizes="(max-width: 2400px) 147px"
                 style={{ borderRadius: "7px" }}
               />
-            </Link>
-          </ContentCard>
+            </ContentCard>
+          </Link>
         ))}
       </div>
       <div className={cl.hashtags}>
