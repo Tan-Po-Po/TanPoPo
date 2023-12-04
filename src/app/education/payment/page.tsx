@@ -50,7 +50,11 @@ export default function Page() {
         bgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
         width="555px"
       />
-      <Typography className={cl.infoHeader} variant="h5">
+      <Typography
+        className={cl.infoHeader}
+        variant="h5"
+        style={{ textAlign: "center" }}
+      >
         Основна інформація про обраний курс:
       </Typography>
 
@@ -175,7 +179,10 @@ export default function Page() {
         </ContentCard>
       </div>
 
-      <Typography variant="h6" style={{ marginTop: "100px" }}>
+      <Typography
+        variant="h6"
+        style={{ marginTop: "100px", textAlign: "center" }}
+      >
         Швидка оплата за QR-кодом нашої школи:
       </Typography>
 

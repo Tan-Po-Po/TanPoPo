@@ -69,10 +69,7 @@ export default function Page() {
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
         );
       }
-      // const response = await res.json();
-      // console.log("res.body is - ");
-      // console.log(response);
-      router.push("/education/start/payment");
+      router.push("/education/payment");
     });
   };
 

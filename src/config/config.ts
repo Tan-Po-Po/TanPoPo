@@ -8,4 +8,4 @@ export const socialLinks = {
 
 export const NODEMAILER_EMAIL = process.env.NODEMAILER_EMAIL;
 export const NODEMAILER_PASSWORD = process.env.NODEMAILER_PASSWORD;
-export const NEW_POST = process.env.NEW_POST;
+export const NOVA_POSHTA = process.env.NOVA_POSHTA;

@@ -13,7 +13,8 @@ const Button: React.FC<Properties> = ({
   children,
   className,
   isParentHovered,
-  disabled, 
+  disabled,
+  ref, 
   ...props
 }) => {
   const iconUrl = `/icons/${icon}.svg`;
@@ -22,13 +23,14 @@ const Button: React.FC<Properties> = ({
     <div
       className={getValidClassNames(
         cl.buttonWrapper,
-        props.variant === "outlined" && cl.outlined,
+        // props.variant === "outlined" && cl.outlined,
         isParentHovered && cl.isParentHovered, 
         disabled && cl.disabled
       )}
     >
       <MuiButton
         className={getValidClassNames(cl.button, className)}
+        ref={ref}
         {...props}
       >
         <div className={cl.children}>

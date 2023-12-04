@@ -29,3 +29,9 @@
   width: 100%;
   margin: 20px 0;
 }
+
+@media (max-width: 850px) {
+  .divider {
+    width: 95%;
+  }
+}

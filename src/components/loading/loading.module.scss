@@ -15,22 +15,26 @@
   0% {
     transform: rotate(0deg);
   }
-  20% {
-    transform: rotate(180deg);
+  16% {
+    transform: rotate(65deg);
     scale: (1.05);
   }
-  40% {
-    transform: rotateY(180deg);
+  32% {
+    transform: rotate(65deg) rotateY(180deg);
   }
-  65% {
-    transform: rotateX(-180deg);
-    scale: (.9);
+  48% {
+    transform: rotateZ(-40deg) rotateY(180deg);;
+    scale: (0.9);
   }
-  80% {
-    transform: rotate(180deg);
+  66% {
+    transform: rotate(40deg);
+    scale: (1.1);
+  }
+  85% {
+    transform: rotate(0deg);
+    scale: (1.15);
   }
   100% {
-    transform: rotate(0deg);
-    scale: (1);
+    scale: 1;
   }
 }
