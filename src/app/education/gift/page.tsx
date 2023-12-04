@@ -82,7 +82,6 @@ export default function Page() {
         certificateType: formData.certificateType,
       })
     );
-    console.log(formData);
 
     const data = { ...course, ...formData, courseName: course.name };
 
@@ -97,8 +96,7 @@ export default function Page() {
       if (!res.ok) {
         return toast("Сталася помилка, спробуйте ще раз пізніше");
       }
-      console.log("OK");
-      // router.push("/education/checkout");
+      router.push("/education/checkout");
     });
   };
 
