@@ -90,7 +90,7 @@ export default async function Courses() {
       <CourseList courses={coursesDB} />
 
       <Divider
-        firsRow="бібліотека tanpopo"
+        firstRow="бібліотека tanpopo"
         bgColor="linear-gradient(rgba(196, 169, 255, 1), rgba(255, 165, 165, 1))"
       />
       <section className={cl.library}>
@@ -188,7 +188,7 @@ export default async function Courses() {
       </section>
 
       <Divider
-        firsRow="актуальні питання"
+        firstRow="актуальні питання"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
       />
       <section className={cl.questions}>

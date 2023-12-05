@@ -1,6 +1,5 @@
 import React from "react";
 import { Checkbox, Input, ContentCard, Typography } from "@/components";
-import Image from "next/image";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import ArrowIcon from "public/icons/arrowDown.svg";
@@ -47,7 +46,6 @@ const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
     }
   }
 
-  console.log(errors);
   return (
     <ContentCard width="820px" className={className}>
       <Typography variant="h6">Контактні дані майбутнього учня:</Typography>

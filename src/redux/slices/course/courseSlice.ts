@@ -1,4 +1,3 @@
-"use client";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
@@ -11,6 +10,8 @@ export interface CourseState {
   lessonsPerWeek: number | null;
   price: string | number | null;
   level: string | null;
+  isGift: boolean;
+  certificateType: "Електронний сертифікат" | "Друкований сертифікат" | null;
 }
 
 const courseLS =
@@ -26,6 +27,8 @@ const initialState: CourseState = courseLS
       lessonsPerWeek: null,
       price: null,
       level: null,
+      isGift: false,
+      certificateType: null,
     };
 
 export const courseSlice = createSlice({

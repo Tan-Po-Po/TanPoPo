@@ -1,0 +1,39 @@
+.main {
+  flex-grow: 1;
+}
+
+.content {
+  width: 80vw;
+  max-width: 1150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  margin-top: 90px;
+  white-space: pre-line;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card {
+  margin: 100px 0;
+  row-gap: 50px;
+  margin: 50px 0;
+  h6 {
+    line-height: 24px;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+
+.thanksBlock {
+  margin-bottom: 125px;
+  h6 {
+    font-size: 24px;
+  }
+}

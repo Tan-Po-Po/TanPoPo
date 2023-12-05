@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import cl from "./select.module.scss";
-import Image from "next/image";
 import { SelectItem } from "./selectItem/selectItem";
 import { Checkbox } from "../checkbox/checkbox";
 import { getValidClassNames } from "@/helpers";
 import ArrowIcon from "public/icons/arrowDown.svg";
+import { UseFormSetValue } from "react-hook-form";
 
-interface SelectProps {
+type SelectProps = {
   placeHolder?: string;
   menuItems:
     | string[]
@@ -24,7 +24,9 @@ interface SelectProps {
   className?: string;
   handleSelect?: (value: string) => void;
   isDisabled?: boolean;
-}
+  setValue?: UseFormSetValue<any>;
+  name?: string;
+};
 
 const Select: React.FC<SelectProps> = ({
   placeHolder,
@@ -36,6 +38,8 @@ const Select: React.FC<SelectProps> = ({
   className,
   handleSelect,
   isDisabled,
+  setValue,
+  name,
 }) => {
   const [option, setOption] = useState<{ value: string; label: string }>(
     (placeHolder && {

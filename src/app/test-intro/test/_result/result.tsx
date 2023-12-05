@@ -68,7 +68,7 @@ export const Result: React.FC<Props> = ({ result }) => {
       {isInDevelopment ? (
         <>
           <Divider
-            firsRow="онлайн-курси"
+            firstRow="онлайн-курси"
             secondRow="з сенсеєм"
             bgColor="linear-gradient(180deg, #A6C4FF 0%, #E8A6FF 100%)"
           />
@@ -98,7 +98,7 @@ export const Result: React.FC<Props> = ({ result }) => {
           <CourseList courses={courses!} />
 
           <Divider
-            firsRow="ДОДАТКОВІ ПЕРЕВАГИ НАВЧАННЯ"
+            firstRow="ДОДАТКОВІ ПЕРЕВАГИ НАВЧАННЯ"
             bgColor="linear-gradient(91deg, #FF9C9C 0%, #FFEF9C 28.13%, #9CDBFF 71.35%, #FF9CE9 100%)"
           />
 

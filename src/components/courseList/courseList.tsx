@@ -18,7 +18,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       <Divider
         style={{ scrollMarginTop: "100px" }}
         id="teacher"
-        firsRow="онлайн-курси"
+        firstRow="онлайн-курси"
         secondRow="з сенсеєм"
         bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
       />
@@ -34,7 +34,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       <Divider
         style={{ scrollMarginTop: "100px" }}
         id="video"
-        firsRow="Відеокурси"
+        firstRow="Відеокурси"
         secondRow="для самостійного вивчення"
         bgColor="linear-gradient(rgba(255, 250, 139, 1), rgba(255, 111, 111, 1))"
       />
@@ -50,7 +50,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       <Divider
         style={{ scrollMarginTop: "100px" }}
         id="audio"
-        firsRow="Аудіокурси"
+        firstRow="Аудіокурси"
         secondRow="для самостійного вивчення"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(108, 250, 165, 1))"
       />
@@ -66,7 +66,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       <Divider
         style={{ scrollMarginTop: "100px" }}
         id="book"
-        firsRow="Книжкові мінікурси"
+        firstRow="Книжкові мінікурси"
         secondRow="для самостійного вивчення"
         bgColor="linear-gradient(rgba(255, 221, 169, 1), rgba(232, 184, 255, 1))"
       />

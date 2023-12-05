@@ -6,9 +6,9 @@ import cl from "./divider.module.scss";
 import { getValidClassNames } from "@/helpers";
 
 type Properties = {
-  firsRow: string;
+  firstRow: string;
   secondRow?: string;
-  bgColor: string;
+  bgColor?: string;
   id?: string;
   width?: string;
   className?: string;
@@ -16,7 +16,7 @@ type Properties = {
 };
 
 const Divider: React.FC<Properties> = ({
-  firsRow,
+  firstRow,
   secondRow,
   bgColor,
   id,
@@ -29,11 +29,11 @@ const Divider: React.FC<Properties> = ({
       <div className={cl.divider}></div>
       <ContentCard
         className={getValidClassNames(cl.card, className)}
-        cardBgColor={bgColor}
+        cardBgColor={bgColor || "#FDE543"}
         width={width}
       >
         <Typography className={cl.firstRow} variant="body1">
-          {firsRow}
+          {firstRow}
         </Typography>
         {secondRow && (
           <Typography className={cl.secondRow} variant="body2">

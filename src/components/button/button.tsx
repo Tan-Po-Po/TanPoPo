@@ -13,6 +13,7 @@ const Button: React.FC<Properties> = ({
   children,
   className,
   isParentHovered,
+
   disabled,
   style,
   ...props
