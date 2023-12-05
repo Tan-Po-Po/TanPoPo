@@ -45,11 +45,14 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   padding-top: 70px;
   width: 100%;
   max-width: 1390px;
   margin: 0 auto;
   font-family: Comfortaa;
+  min-height: 100vh;
 }
 
 section {
@@ -82,4 +85,51 @@ main {
 
 .Toastify__close-button {
   display: none;
+}
+
+.MuiAutocomplete-option {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  white-space: pre-line;
+  &:not(:first-child) {
+    border-top: 1px solid #555;
+  }
+}
+
+.MuiAutocomplete-root,
+.MuiInputBase-root {
+  &:hover input,
+  input {
+    background: inherit !important;
+    &:hover,
+    &:focus {
+      background: inherit !important;
+    }
+  }
+}
+
+.MuiAutocomplete-root:hover {
+  background: linear-gradient(180deg, #fff 0%, #ffe600 100%);
+}
+
+.MuiAutocomplete-popper {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    height: 10%;
+    min-height: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 }

@@ -105,7 +105,7 @@ export default async function Contacts() {
       </div>
 
       <Divider
-        firsRow={textContent.videoGuidesBlock.divider.line1}
+        firstRow={textContent.videoGuidesBlock.divider.line1}
         secondRow={textContent.videoGuidesBlock.divider.line2}
         bgColor={dividerBgColor}
       />
@@ -134,7 +134,7 @@ export default async function Contacts() {
       </div>
 
       <Divider
-        firsRow={textContent.faqBlock.divider.line1}
+        firstRow={textContent.faqBlock.divider.line1}
         bgColor={dividerBgColor}
       />
 
@@ -144,7 +144,7 @@ export default async function Contacts() {
         ))}
       </div>
 
-      <Divider firsRow="ЗВОРОТНІЙ ЗВ’ЯЗОК" bgColor={dividerBgColor} />
+      <Divider firstRow="ЗВОРОТНІЙ ЗВ’ЯЗОК" bgColor={dividerBgColor} />
 
       <ContentCard className={cl.formBlock} width="966px">
         <Typography variant="h4">Залишились питання?</Typography>

@@ -111,7 +111,7 @@ export default function Page() {
 
       <Divider
         className={cl.divider}
-        firsRow="1. Ознайомтесь із необхідною інормацією"
+        firstRow="1. Ознайомтесь із необхідною інормацією"
         bgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
         width="555px"
       />

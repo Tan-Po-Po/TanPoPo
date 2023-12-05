@@ -1,0 +1,235 @@
+.header {
+  margin-top: 70px;
+  text-transform: uppercase;
+  h6 {
+    font-size: 22px;
+  }
+}
+
+.steps {
+  margin: 90px 0px 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 115px;
+
+  .step {
+    h6 {
+      font-size: 23px;
+      line-height: 23px;
+      white-space: pre-line;
+    }
+
+    width: 100%;
+    height: 365px;
+    padding: 25px 20px;
+  }
+}
+
+.certificateType {
+  margin-top: 95px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .certificateHeader {
+    gap: 0;
+    position: relative;
+
+    .line {
+      position: absolute;
+      border: $border;
+      border-bottom: none;
+      border-radius: $border-radius;
+      width: 550px;
+      height: 110px;
+      top: 50%;
+      z-index: -1;
+    }
+  }
+
+  .container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .or {
+      margin: 0 50px;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .selectType {
+    margin-top: 70px;
+  }
+
+  .agreement {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      white-space: pre-line;
+      font-weight: 500;
+      line-height: 16px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.important {
+  max-width: 790px;
+  gap: 0;
+  margin-top: 90px;
+  padding: 30px;
+
+  .list {
+    padding: 0;
+    text-align: start;
+    span {
+      line-height: 22px;
+    }
+  }
+
+  .image {
+    margin: 10px 0 20px;
+  }
+}
+
+.continue {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+
+  .line {
+    position: absolute;
+    height: 2px;
+    background-color: black;
+    width: 100%;
+    box-shadow: $box-shadow;
+  }
+
+  .btn {
+    background: #fff !important;
+    font-size: 24px;
+    padding: 10px 19px !important;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+    &:hover {
+      background: $color-yellow !important;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .header {
+    h4,
+    h1 {
+      text-align: center;
+    }
+  }
+
+  .steps {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contactForm {
+    max-width: 90vw;
+    max-height: auto;
+
+    .inputs {
+      justify-content: center;
+      max-width: 80%;
+    }
+
+    .checkboxes {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 0;
+      width: 100%;
+      margin-left: 20px;
+    }
+  }
+
+  .certificateType {
+    .line {
+      display: none;
+    }
+    .container {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .or {
+        margin: 50px 0;
+      }
+    }
+  }
+
+  .form {
+    .nameCertificate {
+      max-width: 90vw;
+
+      .personal {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .selects {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .shipment {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .comment {
+      min-width: 300px;
+      width: 90%;
+    }
+
+    .agreement {
+      span {
+        white-space: initial;
+      }
+    }
+  }
+
+  .important {
+    max-width: 90vw;
+
+    .image {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .continue {
+    .line {
+      width: 90vw;
+    }
+  }
+}

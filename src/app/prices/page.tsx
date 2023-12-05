@@ -26,7 +26,7 @@ export default async function Home() {
     <main className={cl.main}>
       <Typography variant="h3" className={cl.header}>Вартість навчання</Typography>
       <Divider
-        firsRow="онлайн-курси"
+        firstRow="онлайн-курси"
         secondRow="з сенсеєм"
         bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
       />
@@ -37,7 +37,7 @@ export default async function Home() {
       </div>
 
       <Divider
-        firsRow="ВІДЕОКУРСИ"
+        firstRow="ВІДЕОКУРСИ"
         bgColor="linear-gradient(rgba(255, 250, 139, 1), rgba(255, 111, 111, 1))"
       />
       <div className={cl.courses}>
@@ -47,7 +47,7 @@ export default async function Home() {
       </div>
 
       <Divider
-        firsRow="АудіоКУРСИ"
+        firstRow="АудіоКУРСИ"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(108, 250, 165, 1))"
       />
       <div className={cl.courses}>
@@ -57,7 +57,7 @@ export default async function Home() {
       </div>
 
       <Divider
-        firsRow="Книжкові мінікурси"
+        firstRow="Книжкові мінікурси"
         bgColor="rgba(255, 221, 169, 1), rgba(239, 204, 255, 1))"
       />
       <div className={cl.courses}>
@@ -67,7 +67,7 @@ export default async function Home() {
       </div>
 
       <Divider
-        firsRow="Мегакурси"
+        firstRow="Мегакурси"
         bgColor="linear-gradient(rgba(152, 236, 255, 1), rgba(179, 143, 255, 1))"
       />
       <div className={cl.courses}>
@@ -77,7 +77,7 @@ export default async function Home() {
       </div>
 
       <Divider
-        firsRow="Актуальні питання"
+        firstRow="Актуальні питання"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
       />
       <section className={cl.questions}>
