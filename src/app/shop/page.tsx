@@ -460,7 +460,7 @@ export default async function Shop() {
   const shopPartners = await getShopPartners();
 
   return (
-    <main className={cl.storeMain}>
+    <main className={cl.storeMain} id="storeMain">
       <CartButton />
       <Typography variant="h3">КРАМНИЦЯ</Typography>
       <section className={cl.introBlock}>

@@ -45,11 +45,11 @@ export const textContent = {
         gallery: [
           {
             type: "image" as "image",
-            image: "/certificates/certificateE.png",
+            image: "/certificates/electronic.png",
           },
           {
             type: "image" as "image",
-            image: "/certificates/certificateP.jpg",
+            image: "/certificates/name.png",
           },
         ],
         caption: [

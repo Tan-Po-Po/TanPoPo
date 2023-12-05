@@ -2,7 +2,11 @@
   @include flex-column;
   padding: $padding-page;
   gap: 60px;
-  position: relative;
+  position: relative !important;
+
+  .cartButton {
+    position: fixed;
+  }
 
   .introBlock {
     display: grid;

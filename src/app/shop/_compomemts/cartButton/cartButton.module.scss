@@ -1,4 +1,78 @@
-.cartButton {
-  position: sticky;
+.background {
   background: linear-gradient(180deg, #ffea29 0%, #fffdea 100%);
+  border-radius: $border-radius;
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  z-index: 5;
+
+  .cartButton {
+    @include flex-row;
+    width: fit-content;
+    padding: 15px 21px;
+    gap: 17px;
+    transition: 0.12s;
+    background: transparent;
+    cursor: pointer;
+    border: 0;
+    outline: black solid 2px;
+
+    &:hover {
+      background: $color-yellow;
+      outline: black solid 3px;
+
+      .amount {
+        transform: scale(110%);
+      }
+
+      .text {
+        animation: textAnimation 0.9s ease-out forwards;
+      }
+      .cartIcon {
+        animation: cartAnimation 0.9s ease-out forwards;
+      }
+    }
+
+    .amount {
+      @include flex-row;
+      align-items: center;
+      justify-content: center;
+      font-style: normal;
+      font-weight: 700;
+      padding: 0;
+      min-width: 30px;
+      height: 30px;
+      line-height: normal;
+      background-color: $color-yellow;
+      transition: 0.12s;
+    }
+  }
+}
+
+@keyframes textAnimation {
+  0% {
+  }
+  33% {
+    transform: translate(-76px);
+  }
+  66% {
+    transform: translate(-64px);
+  }
+  100% {
+    transform: translate(-67px);
+  }
+}
+
+@keyframes cartAnimation {
+  0% {
+  }
+  33% {
+    transform: translate(88px);
+  }
+  66% {
+    transform: translate(77px);
+  }
+  100% {
+    transform: translate(81px);
+  }
 }
