@@ -1,7 +1,4 @@
-import { Data } from "./type";
-
-export const generateHtml = (formData: Data) => {
-  return `<html lang="en">
+<html lang="en">
   <head>
     <style>
       body {
@@ -18,7 +15,6 @@ export const generateHtml = (formData: Data) => {
       h4,
       h5,
       h6 {
-        white-space: pre-line;
         width: 100%;
         text-align: center;
       }
@@ -77,11 +73,15 @@ export const generateHtml = (formData: Data) => {
         text-align: center;
         border-radius: 10px;
         border: 2px solid #000;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.35);
         justify-content: center;
         align-items: center;
         padding: 33px;
         gap: 29px;
+      }
+      .container {
+        text-align: center;
+        border-radius: 10px;
+        border: 2px solid #000;
       }
       .contact p,
       .course p {
@@ -115,16 +115,36 @@ export const generateHtml = (formData: Data) => {
   </head>
   <body>
     <h1 style="white-space: pre-line">
-      Навчання у Подарунок разом з TanPoPo🎉
+      Вітаємо! Ваше замовлення успішно створено!
     </h1>
-    <img class="img" src="cid:present" width="160px" height="137px" />
-    <div>
-      <p style="font-size: 16px">
-        Ваше замовлення на подарунковий сертифікат успішно прийнято!
-      </p>
-      <p style="font-size: 16px">
-        В цьому листі ми зберегли інформацію по обраному курсу навчанню!
-      </p>
+    <img class="img" src="cid:store" width="137px" height="142px" />
+    <div class="card" style="width: 390px">
+      <p>Номер замовлення: <b>${formData.id}</b></p>
+    </div>
+
+    <div class="card" style="display: flex">
+      <div>
+        <p>Обрані товари</p>
+        <div class="card" style="display: flex; padding: 0; overflow: hidden; margin: 0;">
+          <div
+            style="width: 70px; height: 70px; background-color: #affa9c"
+          ></div>
+          <div>
+            <p style="width: 190px; font-size: 18px;">
+              <b>Мнемонічні Картки Рівень 1(JLPT N5)</b>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p>Кількість</p>
+        <div class="card" style="margin: 0; padding: 0; height: 75px;">1шт.</div>
+      </div>
+      <div>
+        <p>Ціна</p>
+        <div class="card" style="margin: 0">1шт.</div>
+        >
+      </div>
     </div>
 
     <div class="card contact">
@@ -141,63 +161,27 @@ export const generateHtml = (formData: Data) => {
       </div>
     </div>
 
-    <div class="card" style="width: 100%">
-      <div>
-        <h3>Обраний подарунковий курс:</h3>
-        <h3>${formData.courseName}</h3>
-        <h3>(${formData.japanName})</h3>
-      </div>
-      <div style="text-align: start; margin-top: 50px;" class="course">
-        <p><u>Формат Навчання</u>:  ${
-          formData.format === "Міні-група"
-            ? "Онлайн курс з сенсеєм(міні-група 2-5 чол.)"
-            : "Індивідуально"
-        }</p>
-        ${
-          formData.format == "Міні-група"
-            ? `<p><u>Занять в тиждень</u>: 2 заняття в тиждень</p>`
-            : ""
-        }
-        <p><u>Тривалість онлайн-уроку</u>: 70 хвилин/заняття(рівень JLPT ${
-          formData.level
-        })</p>
-        <p><u>Обрана к-сть уроків</u>: ${formData.lessons} онлайн-уроків</p>
-        <p><u>Вид сертифікату</u>: ${
-          formData.certificateType === "Друкований сертифікат"
-            ? "Іменний"
-            : "Електронний"
-        } подарунковий сертифікат</p>
-      </div>
+    <div class="card course">
+      <h1 style="font-size: 27px">Місце доставки сертифікату Новою Поштою:</h1>
+      <p>
+        <u>Область/місто</u>: ${formData.region} обл., м.
+        ${formData.city.label}.
+      </p>
+      ${ formData.isDepartmentDelivery ? `
+      <p><u>№ Відділення/поштомату</u>: ${formData.department}</p>
+      ` : `
+      <p><u>Адреса</u>: ${formData.address}</p>
+      ` }
+      <p><u>Коментар</u>: ${formData.comment}</p>
     </div>
-
-    ${
-      formData.certificateType === "Друкований сертифікат"
-        ? `<div class="card course">
-    <h1 style="color: #454545; font-size: 27px">Дані для іменного сертифікату:</h1>
-    <p style="margin-top: 50px"><u>Ім’я</u>: ${formData.studentName}</p>
-    <p><u>Прізвище</u>: ${formData.studentSurname}</p>
-
-    <h1 style="font-size: 27px; margin-top: 50px;">Місце доставки сертифікату Новою Поштою:</h1>
-    <p><u>Область/місто</u>: ${formData.region} обл., м. ${
-            formData.city.label
-          }.</p>
-    ${
-      formData.isDepartmentDelivery
-        ? `<p><u>№ Відділення/поштомату</u>: ${formData.department}</p>`
-        : `<p><u>Адреса</u>: ${formData.address}</p>`
-    }
-    <p>
-      ${formData.comment && `<u>Коментар</u>: ${formData.comment}`}
-    </p>
-  </div>`
-        : ""
-    }
 
     <div class="card" style="max-width: 650px">
       <h1 style="font-size: 27px; color: #454545">Вартість навчання:</h1>
       <h1 style="font-size: 27px">${formData.price}</h1>
       <p style="white-space: pre-line">
-        Якщо Ви ще не оплачували подарунковий сертифікат,<br>це можна зробити за нашими реквізитами або за<br>допомогою швидкої оплати по QR-коду нашої школи!
+        Якщо Ви ще не оплачували подарунковий сертифікат,<br />це можна зробити
+        за нашими реквізитами або за<br />допомогою швидкої оплати по QR-коду
+        нашої школи!
       </p>
       <div style="margin: 30px 0; position: relative">
         <a href="google.com" class="btn" style="margin-left: 80px"
@@ -206,7 +190,9 @@ export const generateHtml = (formData: Data) => {
         <img src="cid:arrow" width="60px" style="margin-left: 20px" />
       </div>
       <p style="white-space: pre-line">
-        Протягом дня з моменту успішної оплати <br>ми надішлимо ваш електронний подарунковий <br>сертифікат та промокод для активації курсу!
+        Після того, як ми побачимо вашу оплату ми якнайшвидше <br />розпочнемо
+        пакувати ваше замовлення і надішлимо Вам <br />повідомлення, коли
+        пакуночок почне прямувати до Вас!
       </p>
     </div>
 
@@ -234,5 +220,4 @@ export const generateHtml = (formData: Data) => {
       <p style="font-size: 15px">© 2024 TanPoPo. Всі права захищено.</p>
     </div>
   </body>
-</html>`;
-};
+</html>

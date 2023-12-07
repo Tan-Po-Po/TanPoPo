@@ -4,10 +4,7 @@ import React from "react";
 import { ContentCard } from "../contentCard/contentCard";
 import { Typography } from "../typography/typography";
 import { Input } from "../input/input";
-import {
-  Controller,
-  UseFormReturn,
-} from "react-hook-form";
+import { Controller, UseFormReturn } from "react-hook-form";
 import { type FormData } from "./formData";
 import cl from "./orderFrom.module.scss";
 import { Checkbox } from "../checkbox/checkbox";
@@ -18,11 +15,12 @@ type Properties = {
   isCertificate?: boolean;
 };
 
-const ContactForm: React.FC<Properties> = ({
-  formReturn,
-  isCertificate,
-}) => {
-  const { control, getValues, setValue } = formReturn;
+const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
+  const { control, getValues, setValue, watch } = formReturn;
+  const onlyEmail = watch("onlyEmail");
+  const viber = watch("viber");
+  const telegram = watch("telegram");
+
   return (
     <ContentCard className={cl.contactForm}>
       <Typography variant="h6">Ваші контактні дані:</Typography>
@@ -106,13 +104,16 @@ const ContactForm: React.FC<Properties> = ({
         <Controller
           name="telegram"
           control={control}
-          rules={
-            !getValues("onlyEmail")
-              ? {
-                  required: "Оберіть, куди ви бажаєте отримати сертифікат",
-                }
-              : {}
-          }
+          rules={{
+            validate: (value) => {
+              if (!onlyEmail && !viber && !value) {
+                return isCertificate
+                  ? "Оберіть, куди ви бажаєте отримати сертифікат"
+                  : "Оберіть, куди ви бажаєте отримати інформацію про замовлення";
+              }
+              return true;
+            },
+          }}
           render={({ field }) => (
             <Checkbox
               {...field}
@@ -130,15 +131,16 @@ const ContactForm: React.FC<Properties> = ({
         <Controller
           name="viber"
           control={control}
-          rules={
-            !getValues("onlyEmail")
-              ? {
-                  required: isCertificate
-                    ? "Оберіть, куди ви бажаєте отримати сертифікат"
-                    : "Оберіть, куди ви бажаєте отримати інформацію про замовлення",
-                }
-              : {}
-          }
+          rules={{
+            validate: (value) => {
+              if (!onlyEmail && !telegram && !value) {
+                return isCertificate
+                  ? "Оберіть, куди ви бажаєте отримати сертифікат"
+                  : "Оберіть, куди ви бажаєте отримати інформацію про замовлення";
+              }
+              return true;
+            },
+          }}
           render={({ field }) => (
             <Checkbox
               {...field}
@@ -157,15 +159,16 @@ const ContactForm: React.FC<Properties> = ({
           <Controller
             name="sms"
             control={control}
-            rules={
-              !getValues("onlyEmail")
-                ? {
-                    required: isCertificate
-                      ? "Оберіть, куди ви бажаєте отримати сертифікат"
-                      : "Оберіть, куди ви бажаєте отримати інформацію про замовлення",
-                  }
-                : {}
-            }
+            rules={{
+              validate: (value) => {
+                if (!viber && !telegram && !onlyEmail &&!value) {
+                  return isCertificate
+                    ? "Оберіть, куди ви бажаєте отримати сертифікат"
+                    : "Оберіть, куди ви бажаєте отримати інформацію про замовлення";
+                }
+                return true;
+              },
+            }}
             render={({ field }) => (
               <Checkbox
                 {...field}
@@ -184,15 +187,16 @@ const ContactForm: React.FC<Properties> = ({
         <Controller
           name="onlyEmail"
           control={control}
-          rules={
-            !getValues("viber") && !getValues("telegram")
-              ? {
-                  required: isCertificate
-                    ? "Оберіть, куди ви бажаєте отримати сертифікат"
-                    : "Оберіть, куди ви бажаєте отримати інформацію про замовлення",
-                }
-              : {}
-          }
+          rules={{
+            validate: (value) => {
+              if (!viber && !telegram && !value) {
+                return isCertificate
+                  ? "Оберіть, куди ви бажаєте отримати сертифікат"
+                  : "Оберіть, куди ви бажаєте отримати інформацію про замовлення";
+              }
+              return true;
+            },
+          }}
           render={({ field }) => (
             <Checkbox
               {...field}

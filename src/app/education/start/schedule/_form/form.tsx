@@ -3,6 +3,7 @@ import { Checkbox, Input, ContentCard, Typography } from "@/components";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import ArrowIcon from "public/icons/arrowDown.svg";
+import { FormData } from "./type";
 import cl from "./form.module.scss";
 
 type Properties = {
@@ -18,7 +19,7 @@ const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
     handleSubmit,
     getValues,
     watch,
-  } = useForm({
+  } = useForm<FormData>({
     defaultValues: {
       name: "",
       surname: "",

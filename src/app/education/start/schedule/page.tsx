@@ -18,16 +18,17 @@ import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/redux/hooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { setCourse, selectCourse } from "@/redux/slices/course/courseSlice";
+import { type ISchedule } from "./_schedule/type";
 
 export default function Page() {
   const router = useRouter();
   const dispatch = useAppDispatch();
 
-  const scheduleArray: any = Array.from({ length: 7 }, () =>
+  const scheduleArray: ISchedule = Array.from({ length: 7 }, () =>
     Array.from({ length: 5 }, () => "inappropriate")
   );
   const [counter, setCounter] = React.useState(0);
-  const [schedule, setSchedule] = React.useState(scheduleArray);
+  const [schedule, setSchedule] = React.useState<ISchedule>(scheduleArray);
   const [comment, setComment] = React.useState("");
   const [lessonsPerWeek, setLessonsPerWeek] = React.useState(0);
   const course = useAppSelector((state) => selectCourse(state));
@@ -51,10 +52,13 @@ export default function Page() {
     }
 
     const data = {
+      ...course,
+      courseName: course.name,
       ...formData,
       comment,
       schedule,
     };
+    console.log(data);
 
     fetch("/api/education", {
       method: "POST",
@@ -69,7 +73,7 @@ export default function Page() {
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
         );
       }
-      router.push("/education/payment");
+      // router.push("/education/payment");
     });
   };
 

@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import { transporter, mailOptions } from "@/config/nodemailer";
-import { generateHtml } from "./generateHtml";
+import { Data } from "./type";
+import { generateHtml} from "./generateHtml";
 import { generateHtmlForOwner } from "./generateHtmlForOwner";
 import { parseData } from "./parseData";
 import { GOOGLE_SCRIPT_URL } from "@/config/config";
-import { Data } from "./type";
 import path from "path";
+
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
@@ -26,7 +27,7 @@ export async function POST(req: Request) {
   });
   const orderId = await google.text();
   console.log(orderId);
-
+  
   const htmlContent = generateHtml(formData);
   const htmlContentOwner = generateHtmlForOwner(formData);
   try {
@@ -36,15 +37,15 @@ export async function POST(req: Request) {
       html: htmlContent,
       attachments: [
         {
-          filename: "presentBox1.png",
+          filename: "store.png",
           path: path.join(
             process.cwd(),
             "public",
             "icons",
             "art",
-            "presentBox1.png"
+            "store.png"
           ),
-          cid: "present",
+          cid: "store",
         },
         {
           filename: "girl.png",
@@ -114,23 +115,9 @@ export async function POST(req: Request) {
       ],
     });
 
-    await transporter.sendMail({
-      ...mailOptions,
+    await transporter.sendMail({...mailOptions,
       subject: `Навчання у Подарунок!  (№ Замовлення: ${orderId})`,
       html: htmlContentOwner,
-      attachments: [
-        {
-          filename: "presentBox1.png",
-          path: path.join(
-            process.cwd(),
-            "public",
-            "icons",
-            "art",
-            "presentBox1.png"
-          ),
-          cid: "present",
-        },
-      ],
     });
 
     return NextResponse.json({ success: true });

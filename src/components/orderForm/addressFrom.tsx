@@ -384,7 +384,7 @@ const AddressForm: React.FC<Properties> = ({
                   {...field}
                   options={[
                     ...departments.map(
-                      (dep) => "№" + dep.Number + " " + dep.Description
+                      (dep) => dep.Description
                     ),
                   ]}
                   onChange={(_, data) => {

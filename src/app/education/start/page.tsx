@@ -227,11 +227,11 @@ export default function Page() {
         />
         <Typography variant="body2" style={{ whiteSpace: "pre-line" }}>
           Продовжуючи, Я приймаю умови
-          <Link target="_blank" href="/">
+          <Link target="_blank" href="/contacts/oferta">
             <u>Публічної {'\n'}Оферти</u>
           </Link>{" "}
           та{" "}
-          <Link target="_blank" href="/">
+          <Link target="_blank" href="/contacts/confidentialityPolicy">
             <u>Політики Конфідеційності</u>.
           </Link>
         </Typography>

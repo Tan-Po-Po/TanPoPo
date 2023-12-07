@@ -94,8 +94,15 @@ export default function Join() {
         <div className={cl.check}>
           <Checkbox onClick={handleCheckboxClick} />
           <Typography variant="body2" className={cl.checkText}>
-            Я ознайомився та приймаю умови <Link href="">Публічної Оферти</Link>{" "}
-            та <Link href="">Політики Конфідеційності</Link>.
+            Я ознайомився та приймаю умови{" "}
+            <Link href="/contacts/oferta">
+              <u>Публічної Оферти</u>
+            </Link>{" "}
+            та{" "}
+            <Link href="/contacts/confidentialityPolicy">
+              <u>Політики Конфідеційності</u>
+            </Link>
+            .
           </Typography>
         </div>
       </section>

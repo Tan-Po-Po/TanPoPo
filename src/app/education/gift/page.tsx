@@ -60,7 +60,6 @@ export default function Page() {
 
   const [showErrors, setShowErrors] = useState(true);
   const certificateType = watch("certificateType");
-  
 
   useEffect(() => {
     if (showErrors) {
@@ -96,7 +95,7 @@ export default function Page() {
       if (!res.ok) {
         return toast("Сталася помилка, спробуйте ще раз пізніше");
       }
-      router.push("/education/checkout");
+      // router.push("/education/checkout");
     });
   };
 
@@ -247,7 +246,12 @@ export default function Page() {
               />
 
               <Typography variant="body2">
-              Ми друкуємо іменні сертифікати з вискоякісного щільного паперу, використовуючи цифрове фольгування та лакування преміум-якості! Таким чином сертифікат виглядає максимально святково та презентабельно! Послуга коштує: 120грн(друк + доставка). Ви зможете отримати іменний сертифікат за 2-4 дні з моменту замовлення!
+                Ми друкуємо іменні сертифікати з вискоякісного щільного паперу,
+                використовуючи цифрове фольгування та лакування преміум-якості!
+                Таким чином сертифікат виглядає максимально святково та
+                презентабельно! Послуга коштує: 120грн(друк + доставка). Ви
+                зможете отримати іменний сертифікат за 2-4 дні з моменту
+                замовлення!
               </Typography>
             </ContentCard>
           </div>
@@ -272,10 +276,7 @@ export default function Page() {
         />
 
         {certificateType === "Друкований сертифікат" && (
-          <AddressForm
-            formReturn={formReturn}
-            isCertificate
-          />
+          <AddressForm formReturn={formReturn} isCertificate />
         )}
 
         <ContentCard className={cl.important}>
@@ -340,11 +341,11 @@ export default function Page() {
 
           <Typography variant="subtitle1">
             Продовжуючи, Я приймаю умови  
-            <Link target="_blank" href="/">
+            <Link target="_blank" href="/contacts/oferta">
               <u>Публічної {"\n"}Оферти</u>
             </Link>{" "}
             та{" "}
-            <Link target="_blank" href="/">
+            <Link target="_blank" href="/contacts/confidentialityPolicy">
               <u>Політики Конфідеційності</u>.
             </Link>
           </Typography>
