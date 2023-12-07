@@ -44,7 +44,7 @@ export async function GET(req: Request) {
       images,
       price: {
         original: variant!.price!,
-        sale: variant!.sale?.price,
+        sale: variant!.sale?.price || 0,
       },
     };
 

@@ -8,7 +8,7 @@ import { CarouselItem } from "@/components/carousel/carouselItem/carouselItem";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
-import { checkIfItemOnSale } from "@/helpers/checkIfItemOnSale";
+import { validateDate } from "@/helpers/validateDate";
 import { getTextForSaleLabel } from "@/helpers/getTextForSaleLabel";
 import { useEffect, useState } from "react";
 import HeartIcon from "/public/icons/heart.svg";
@@ -43,7 +43,7 @@ const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
 
   const productIsLiked = likedProducts.has(_id!);
 
-  const isOnSale = checkIfItemOnSale(sale?.until);
+  const isOnSale = validateDate(sale?.until);
 
   useEffect(() => {
     setCartItem(shopCart.items.find((item) => item._id == itemId));

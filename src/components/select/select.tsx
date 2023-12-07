@@ -68,6 +68,7 @@ const Select: React.FC<SelectProps> = ({
     label: string;
   }) => {
     handleSelect && handleSelect(value);
+    name && setValue && setValue(name, value);
     setOption({ value, label });
     setIsOpen(false);
   };

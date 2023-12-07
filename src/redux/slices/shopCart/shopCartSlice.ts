@@ -1,19 +1,22 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
+import { IPromoCode } from "@/models/PromoCode";
+import { actionAsyncStorage } from "next/dist/client/components/action-async-storage.external";
 
 export type ICartItem = {
   _id: string;
   name: string;
   label: string;
   amount: number;
-  price: { original: number; sale: number | undefined };
+  price: { original: number; sale: number };
   images: string[];
 };
 
 export interface IShopCart {
   items: ICartItem[] | [];
   loading: boolean;
+  promoCode: IPromoCode | null;
 }
 
 const shopCartLS =
@@ -28,6 +31,7 @@ const initialState: IShopCart = shopCartLS
   : {
       items: [],
       loading: false,
+      promoCode: null,
     };
 
 export const getShopItemFromDbAndAddToCart = createAsyncThunk(
@@ -55,6 +59,18 @@ export const shopCartSlice = createSlice({
       localStorage.setItem("shopCart", JSON.stringify(state));
       return state;
     },
+    deleteCartItem: (state, action: PayloadAction<Partial<ICartItem>>) => {
+      const items = state.items.filter(
+        (item) => item._id !== action.payload._id
+      );
+      localStorage.setItem("shopCart", JSON.stringify(state));
+      return { ...state, items };
+    },
+    addPromoCode: (state, action: PayloadAction<IPromoCode>) => {
+      state.promoCode = action.payload;
+      localStorage.setItem("shopCart", JSON.stringify(state));
+      return state;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -72,7 +88,12 @@ export const shopCartSlice = createSlice({
   },
 });
 
-export const { increaseItemAmount, decreaseItemAmount } = shopCartSlice.actions;
+export const {
+  increaseItemAmount,
+  decreaseItemAmount,
+  deleteCartItem,
+  addPromoCode,
+} = shopCartSlice.actions;
 
 export const selectShopCart = (sate: RootState): IShopCart => {
   return sate.shopCart;

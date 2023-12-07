@@ -20,5 +20,9 @@ export const getCartItemImages = ({ gallery, itemValue }: Params) => {
 
   console.log("images function", images);
 
+  if (!images.length) {
+    images.push(gallery[0].image, gallery[1].image);
+  }
+
   return images;
 };

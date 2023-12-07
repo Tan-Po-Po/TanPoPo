@@ -1,4 +1,4 @@
-import { convertToDate } from "./converToDate";
+import { convertToDate } from "./convertToDate";
 
 const months = [
   "січня",

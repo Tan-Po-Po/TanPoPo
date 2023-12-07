@@ -8,11 +8,12 @@ import Image from "next/image";
 import { textContent } from "./textContent";
 import ShopPartner, { IShopPartner } from "@/models/ShopPartner";
 import { socialLinks } from "@/config/config";
-import ShopPartnerCard from "./_compomemts/shopPartnerCard/shopPartnerCard";
-import ShopProductCardLarge from "./_compomemts/shopProductCardLarge/shopProductCardLarge";
-import { ShopProductCardMini } from "./_compomemts/shopProductCardMini/shopProductCardMini";
+import ShopPartnerCard from "./_components/shopPartnerCard/shopPartnerCard";
+import ShopProductCardLarge from "./_components/shopProductCardLarge/shopProductCardLarge";
+import { ShopProductCardMini } from "./_components/shopProductCardMini/shopProductCardMini";
 import { DialogGallery } from "@/components/dialogGallery/dialogGallery";
-import { CartButton } from "./_compomemts/cartButton/cartButton";
+import { CartButton } from "./_components/cartButton/cartButton";
+import { DialogCart } from "./_components/dialogCart/dialogCart";
 
 const items: IShopProduct[] = [
   {
@@ -501,7 +502,7 @@ export default async function Shop() {
       </section>
 
       <Divider
-        firsRow="МАГАЗИНИ ПАРТНЕРІВ"
+        firstRow="МАГАЗИНИ ПАРТНЕРІВ"
         bgColor="linear-gradient(180deg, #FFE39A 0%, #C1A4FF 100%)"
       />
 
@@ -512,7 +513,7 @@ export default async function Shop() {
       </section>
 
       <Divider
-        firsRow="ПРОДУКЦІЯ TANPOPO"
+        firstRow="ПРОДУКЦІЯ TANPOPO"
         bgColor="linear-gradient(180deg, #F0FF93 0%, #FFC683 100%)"
       />
 
@@ -548,6 +549,7 @@ export default async function Shop() {
       </section>
 
       <DialogGallery />
+      <DialogCart />
     </main>
   );
 }

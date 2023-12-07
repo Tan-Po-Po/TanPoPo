@@ -1,0 +1,91 @@
+.cartMain {
+  @include flex-column;
+  height: fit-content;
+  gap: 50px;
+
+  .headers {
+    @include flex-row;
+    width: 100%;
+    justify-content: space-around;
+
+    span {
+      color: $color-gray-46;
+      font-weight: 700;
+    }
+  }
+
+  .items {
+    @include flex-column;
+    gap: 59px;
+  }
+
+  .promoAndTotal {
+    @include flex-row;
+    width: 100%;
+    justify-content: space-between;
+
+    .promoCodeContainer {
+      @include flex-column;
+      gap: 20px;
+
+      .promoCodeForm {
+        position: relative;
+
+        input {
+          padding-right: 56px;
+        }
+        .buttonWrapper {
+          position: absolute;
+          top: 54%;
+          right: 0;
+          transform: translate(-50%, -50%);
+          button {
+            padding: 0;
+            min-width: fit-content;
+            min-height: fit-content;
+            width: 28px;
+            height: 28px;
+            font-size: 26px;
+            font-weight: 600;
+
+            &:hover {
+              transform: scale(100%) !important;
+            }
+
+            // &:disabled {
+            //   pointer-events: none;
+            //   border-color: $color-disabled !important;
+            // }
+          }
+        }
+
+        .buttonDisabled {
+          pointer-events: none;
+
+          button {
+            border-color: rgba(0, 0, 0, 0.38) !important;
+            color: rgba(0, 0, 0, 0.38);
+          }
+        }
+      }
+    }
+
+    .totalContainer {
+      @include flex-column;
+      gap: 20px;
+
+      .total {
+        background: $color-yellow;
+        gap: 0;
+        padding: 0;
+        height: 56px;
+        width: 136px;
+
+        span,
+        h6 {
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
