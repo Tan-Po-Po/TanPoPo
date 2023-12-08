@@ -11,15 +11,16 @@ import {
   selectCartDialog,
 } from "@/redux/slices/cartDialog/cartDialogSlice";
 import { Cart } from "../cart/cart";
+import { selectShopCart } from "@/redux/slices/shopCart/shopCartSlice";
 
 export const DialogCart = () => {
   const isOpen = useAppSelector(selectCartDialog).isOpen;
 
+  const cart = useAppSelector(selectShopCart);
+
   const dispatch = useAppDispatch();
 
   const handleDialogClose = () => {
-    console.log("closing");
-
     dispatch(closeCartDialog());
   };
 
@@ -29,7 +30,6 @@ export const DialogCart = () => {
       onClose={handleDialogClose}
       className={cl.dialog}
       contentClassName={cl.content}
-      // scroll="paper"
       title={
         (
           <>
@@ -47,14 +47,16 @@ export const DialogCart = () => {
     >
       <Cart />
 
-      <Button
-        variant="outlined"
-        href="/shop/checkout"
-        wrapperClass={cl.buttonWrapper}
-        className={cl.button}
-      >
-        <Typography variant="h6">Оформити Замовлення</Typography>
-      </Button>
+      {!!cart.items.length && (
+        <Button
+          variant="outlined"
+          href="/shop/checkout"
+          wrapperClass={cl.buttonWrapper}
+          className={cl.button}
+        >
+          <Typography variant="h6">Оформити Замовлення</Typography>
+        </Button>
+      )}
     </Dialog>
   );
 };

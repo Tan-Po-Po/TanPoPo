@@ -39,8 +39,6 @@ export const getShopItemFromDbAndAddToCart = createAsyncThunk(
 
   async ({ id, value }: { id: string; value: string }, thunkAPI) => {
     const response = await fetch(`/api/shopItem?id=${id}&value=${value}`);
-    console.log("add to cart res", response);
-
     return response.json();
   }
 );
@@ -71,6 +69,9 @@ export const shopCartSlice = createSlice({
       localStorage.setItem("shopCart", JSON.stringify(state));
       return state;
     },
+    clearShopCart: () => {
+      return initialState;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -93,6 +94,7 @@ export const {
   decreaseItemAmount,
   deleteCartItem,
   addPromoCode,
+  clearShopCart,
 } = shopCartSlice.actions;
 
 export const selectShopCart = (sate: RootState): IShopCart => {

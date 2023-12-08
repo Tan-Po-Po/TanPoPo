@@ -7,7 +7,7 @@ export interface ICartDialog {
 }
 
 const initialState = {
-  isOpen: true,
+  isOpen: false,
 };
 
 export const cartDialogSlice = createSlice({

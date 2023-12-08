@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { getPromoCode } from "./actions";
 import { toast } from "react-toastify";
 import { getValidClassNames } from "@/helpers";
+import { getTotalPrice } from "@/helpers/getTotalPrice";
 
 interface IPromoCodeInput {
   code: string;
@@ -34,21 +35,7 @@ export const Cart = () => {
   });
 
   useEffect(() => {
-    const original = cart.items.reduce(
-      (sum, item) => sum + item.price.original * item.amount,
-      0
-    );
-
-    let final = cart.items.reduce(
-      (sum, item) => sum + item.price.sale * item.amount,
-      0
-    );
-
-    if (cart.promoCode) {
-      final -= final * (cart.promoCode?.perCent / 100);
-    }
-
-    setTotal({ original, final });
+    setTotal(getTotalPrice(cart));
   }, [cart]);
 
   const onSubmit: SubmitHandler<IPromoCodeInput> = async (data) => {

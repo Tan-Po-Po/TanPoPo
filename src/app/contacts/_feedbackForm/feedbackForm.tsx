@@ -6,6 +6,7 @@ import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { toast } from "react-toastify";
 import { sendFeedback } from "./action";
+import { useEffect, useState } from "react";
 
 export type IFeedbackFormInput = {
   name: string;
@@ -19,6 +20,7 @@ export const FeedbackForm: React.FC = () => {
   const {
     control,
     handleSubmit,
+    trigger,
     formState: { errors },
     reset,
   } = useForm<IFeedbackFormInput>({
@@ -29,7 +31,29 @@ export const FeedbackForm: React.FC = () => {
       question: "",
       checkbox: undefined,
     },
+    reValidateMode: "onSubmit",
   });
+
+  const [showErrors, setShowErrors] = useState(true);
+
+  useEffect(() => {
+    if (showErrors) {
+      if (errors) {
+        for (const error of Object.values(errors)) {
+          if (error.message) {
+            toast(error.message);
+            break;
+          }
+        }
+      }
+      setShowErrors(false);
+    }
+  }, [errors, showErrors]);
+
+  const handleClick = async () => {
+    await trigger();
+    setShowErrors(true);
+  };
 
   const onSubmit: SubmitHandler<IFeedbackFormInput> = async (data) => {
     await sendFeedback(data);
@@ -52,13 +76,7 @@ export const FeedbackForm: React.FC = () => {
             }}
             render={({ field }) => <Input label="Ім'я" {...field} />}
           />
-          <div style={{ display: "none" }}>
-            <ErrorMessage
-              name="name"
-              errors={errors}
-              render={({ message }) => toast(message)}
-            />
-          </div>
+
           <Controller
             name="phone"
             control={control}
@@ -69,13 +87,7 @@ export const FeedbackForm: React.FC = () => {
               <Input type="phone" label="Телефон" {...field} />
             )}
           />
-          <div style={{ display: "none" }}>
-            <ErrorMessage
-              name="phone"
-              errors={errors}
-              render={({ message }) => toast(message)}
-            />
-          </div>
+
           <Controller
             name="email"
             control={control}
@@ -86,13 +98,6 @@ export const FeedbackForm: React.FC = () => {
               <Input type="email" label="Email" {...field} />
             )}
           />
-          <div style={{ display: "none" }}>
-            <ErrorMessage
-              name="email"
-              errors={errors}
-              render={({ message }) => toast(message)}
-            />
-          </div>
         </div>
         <div className={cl.right}>
           <Controller
@@ -111,13 +116,6 @@ export const FeedbackForm: React.FC = () => {
               />
             )}
           />
-          <div style={{ display: "none" }}>
-            <ErrorMessage
-              name="question"
-              errors={errors}
-              render={({ message }) => toast(message)}
-            />
-          </div>
         </div>
       </div>
       <div className={cl.footer}>
@@ -147,18 +145,13 @@ export const FeedbackForm: React.FC = () => {
               />
             )}
           />
-          <div style={{ display: "none" }}>
-            <ErrorMessage
-              name="checkbox"
-              errors={errors}
-              render={({ message }) => toast(message)}
-            />
-          </div>
+
           <Button
             icon="envelop"
             variant="outlined"
             type="submit"
             className={cl.button}
+            onClick={handleClick}
           >
             <Typography variant="h6">Надіслати</Typography>
           </Button>

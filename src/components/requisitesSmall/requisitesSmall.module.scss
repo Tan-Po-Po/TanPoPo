@@ -1,0 +1,23 @@
+.requisitesSmall {
+  @include flex-column;
+  gap: 0;
+
+  .qrCodes {
+    margin: 60px 0px;
+    display: flex;
+    column-gap: 80px;
+
+    .code {
+      width: 285px;
+    }
+  }
+
+  .requisites {
+    margin-top: 55px;
+
+    .card {
+      background: transparent;
+      padding: 15px;
+    }
+  }
+}
