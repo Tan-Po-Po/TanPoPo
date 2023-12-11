@@ -1,0 +1,28 @@
+.dialog {
+  :global(.MuiDialog-paper) {
+    // padding: 29px 55px;
+    padding: 0;
+    padding-top: 13px;
+    // gap: 30px;
+    gap: 0px;
+    // overflow-y: auto;
+    // overflow-x: hidden;
+    // overflow: hidden;
+  }
+
+  .content {
+    @include flex-column;
+    padding: 29px 55px;
+    border-radius: $border-radius;
+  }
+
+  .buttonWrapper {
+    background: $gradient-rainbow;
+
+    :global(.MuiButton-outlined) {
+      &:hover {
+        background: $gradient-rainbow !important;
+      }
+    }
+  }
+}

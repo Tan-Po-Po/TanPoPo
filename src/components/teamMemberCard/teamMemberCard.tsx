@@ -7,8 +7,8 @@ import { Dialog } from "@/components/dialog/dialog";
 import { Typography } from "@/components/typography/typography";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
-
 import cl from "./teamMemberCard.module.scss";
+
 interface Props {
   teamMember: ITeamMember;
 }
@@ -83,8 +83,10 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
               </div>
             ))}
           </ContentCard>
+
           <div className={cl.buttonWrapper}>
             <Button
+              onClick={handleDialogOpen}
               isParentHovered={isHovered}
               variant="outlined"
               icon="checkbox"

@@ -3,7 +3,6 @@ $transition-duration: 0.15s;
 .mainContainer {
   .selectContainer {
     min-width: fit-content;
-    max-width: 350px;
     box-shadow: $box-shadow;
     border: $border;
     border-radius: $border-radius;
@@ -96,7 +95,7 @@ $transition-duration: 0.15s;
       }
     }
   }
-  
+
   .checkbox {
     margin: 0;
     padding: 20px 15px;

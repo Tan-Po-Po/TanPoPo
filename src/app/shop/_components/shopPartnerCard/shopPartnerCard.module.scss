@@ -1,0 +1,68 @@
+.itemImage {
+  width: 147px;
+  height: 147px;
+}
+
+.shopPartnerCard {
+  padding-top: 52px;
+
+  .name {
+    @include flex-row;
+    width: 100%;
+    gap: 23px;
+    font-weight: 700;
+
+    .logoImage {
+      transition: 0.15s;
+
+      &:hover {
+        transform: scale(115%);
+      }
+    }
+  }
+
+  .caption {
+    ul {
+      all: unset;
+      list-style: none;
+      text-align: start;
+      font-weight: 700;
+    }
+  }
+
+  .items {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+
+    .itemImage {
+      transition: 0.15s;
+      width: 147px;
+      height: 147px;
+
+      &:hover {
+        transform: scale(110%);
+      }
+    }
+  }
+
+  .hashtags {
+    @include flex-row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+
+    .hashtag {
+      padding: 1px 4px;
+    }
+  }
+
+  .labelBottom {
+    padding: 0px 7px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    white-space: nowrap;
+  }
+}

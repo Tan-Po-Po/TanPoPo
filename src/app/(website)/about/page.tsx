@@ -331,8 +331,17 @@ export default async function About() {
         <Typography variant="h3">{textContent.reelsBlock.header}</Typography>
         <Carousel>
           {textContent.reelsBlock.images.map((image, i) => (
-            <CarouselItem key={i} isOutlined={true} className={cl.carouselItem}>
-              <Link href={image.href} rel="noopener noreferrer" target="_blank">
+            <Link
+              key={i}
+              href={image.href}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <CarouselItem
+                isOutlined={true}
+                className={cl.carouselItem}
+                type="video"
+              >
                 <Image
                   alt=""
                   src={image.image}
@@ -340,11 +349,12 @@ export default async function About() {
                   height={300}
                   style={{ width: "100%", height: "auto" }}
                 />
-              </Link>
-              <div className={cl.playButtonIcon}>
-                <PlayButtonIcon />
-              </div>
-            </CarouselItem>
+
+                {/* <div className={cl.playButtonIcon}>
+                  <PlayButtonIcon />
+                </div> */}
+              </CarouselItem>
+            </Link>
           ))}
         </Carousel>
         <Typography variant="body1">

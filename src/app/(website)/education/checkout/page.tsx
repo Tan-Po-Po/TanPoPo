@@ -1,20 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import {
-  ContentCard,
-  Divider,
-  Dialog,
-  Typography,
-  Button,
-  Loading,
-} from "@/components";
-import { getIconArtSrc, getIconSrc } from "@/helpers";
+import { ContentCard, Typography, Loading } from "@/components";
+import { getIconSrc } from "@/helpers";
 import Image from "next/image";
 import cl from "./page.module.scss";
 import { CourseState, selectCourse } from "@/redux/slices/course/courseSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function Page() {
   const router = useRouter();

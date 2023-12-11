@@ -66,12 +66,12 @@ export default function TestIntro() {
             }
           })}
         </ContentCard>
+
         <ContentCard className={cl.titleCard} width="fit-content">
           <Typography variant="body1">
             {textContent.levelsBlock.titleCard}
           </Typography>
         </ContentCard>
-
         <div className={cl.cardsWrapper}>
           <ContentCard width="473px" className={cl.card}>
             <Typography variant="h6">

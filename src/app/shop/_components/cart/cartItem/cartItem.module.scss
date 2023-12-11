@@ -1,0 +1,53 @@
+.cartItemMain {
+  @include flex-row;
+  padding: 26px 33px;
+  justify-content: space-between;
+  padding: 40px 33px 26px 33px;
+  width: 699px;
+  position: relative;
+
+  .delete {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+  }
+
+  .gallery {
+    @include flex-row;
+    gap: 29px;
+    height: 100% !important;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    // width: 229px;
+    .label {
+      top: -41px;
+      span {
+        display: block;
+        word-wrap: none;
+        white-space: nowrap;
+        line-height: normal;
+      }
+    }
+
+    .imageWrapper {
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      object-position: top;
+    }
+  }
+
+  .price {
+    background: $color-yellow;
+    gap: 0;
+    padding: 0;
+    height: 56px;
+
+    span,
+    h6 {
+      line-height: normal;
+    }
+  }
+}

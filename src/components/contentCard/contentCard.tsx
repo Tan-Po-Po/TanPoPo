@@ -18,12 +18,13 @@ interface Props {
   className?: string;
   labelClassName?: string;
   onClick?: () => void;
+  id?: string;
 }
 
 const ContentCard: React.FC<Props> = ({
   index,
   label,
-  labelPosition,
+  labelPosition = "top",
   labelBgColor,
   children,
   indexBgColor,
@@ -34,9 +35,11 @@ const ContentCard: React.FC<Props> = ({
   labelClassName,
   style,
   onClick,
+  id,
 }) => {
   return (
     <div
+      id={id}
       className={getValidClassNames(cl.contentCard, className)}
       style={{
         ...style,

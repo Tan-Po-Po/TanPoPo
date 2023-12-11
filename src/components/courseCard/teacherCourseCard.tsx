@@ -63,7 +63,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       router.push("/education");
     }
 
-    const selectedCourse:Partial<CourseState>  = {
+    const selectedCourse: Partial<CourseState> = {
       name: course.name,
       japanName: course.nameJapanese,
       format: cardState.learningFormat,
@@ -150,6 +150,9 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
                 </span>
               </Typography>
             ),
+            labelWhenSelected: `${price.lessons} ${
+              idx === 0 ? "уроки" : "уроків"
+            } (${price.price}грн)`,
             value: `${price.lessons} ${idx === 0 ? "уроки" : "уроків"} (${
               price.price
             }грн)`,
