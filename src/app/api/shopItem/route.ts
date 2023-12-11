@@ -1,5 +1,5 @@
 import dbConnect from "@/config/dbConnect";
-import { getCartItemImages } from "@/helpers/getCartItemImages";
+import { getCartItemImages } from "@/helpers";
 import ShopItem, { IShopProduct } from "@/models/ShopProduct";
 import { ICartItem } from "@/redux/slices/shopCart/shopCartSlice";
 import mongoose from "mongoose";

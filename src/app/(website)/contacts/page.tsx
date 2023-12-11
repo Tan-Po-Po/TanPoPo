@@ -4,7 +4,7 @@ import styles from "./page.module.scss";
 import { textContent } from "./textContent";
 import { Typography } from "@mui/material";
 import Image from "next/image";
-import { getSocialIconsLinks } from "@/helpers/getSocialIconsLinks";
+import { getSocialIconsLinks } from "@/helpers";
 import Link from "next/link";
 import PlayButtonIcon from "/public/icons/playButton.svg";
 import { FeedbackForm } from "./_feedbackForm/feedbackForm";

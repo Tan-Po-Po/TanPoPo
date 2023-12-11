@@ -6,7 +6,7 @@ import {
   selectGalleryDialog,
 } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import Image from "next/image";
-import { getEmbedYouTubeLink } from "@/helpers/getEmbedYouTubeLink";
+import { getEmbedYouTubeLink } from "@/helpers";
 
 export const DialogGallery = () => {
   const galleryDialog = useAppSelector(selectGalleryDialog);

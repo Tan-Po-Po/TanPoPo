@@ -11,8 +11,8 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { getPromoCode } from "./actions";
 import { toast } from "react-toastify";
-import { getValidClassNames } from "@/helpers";
-import { getTotalPrice } from "@/helpers/getTotalPrice";
+import { getValidClassNames, getTotalPrice } from "@/helpers";
+
 
 interface IPromoCodeInput {
   code: string;

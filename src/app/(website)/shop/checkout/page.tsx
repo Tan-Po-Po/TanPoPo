@@ -22,7 +22,7 @@ import { FormData } from "@/components/orderForm/formData";
 import Link from "next/link";
 import { deletePromoCode } from "./actions";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { getTotalPrice } from "@/helpers/getTotalPrice";
+import { getTotalPrice } from "@/helpers";
 import { toast } from "react-toastify";
 import PayLaterResult from "./@payLaterResult/page";
 import { PayNowResult } from "./@payNowResult/page";

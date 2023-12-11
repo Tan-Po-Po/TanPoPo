@@ -62,6 +62,7 @@ export default function Page() {
                   case "inappropriate":
                     return (
                       <div
+                        key={index}
                         className={getValidClassNames(
                           cl.time,
                           cl.inappropriate
@@ -77,7 +78,10 @@ export default function Page() {
 
                   case "maybe":
                     return (
-                      <div className={getValidClassNames(cl.time, cl.maybe)}>
+                      <div
+                        key={index}
+                        className={getValidClassNames(cl.time, cl.maybe)}
+                      >
                         <p>
                           {windowWidth > 800
                             ? time[index]
@@ -87,7 +91,10 @@ export default function Page() {
                     );
                   case "perfect":
                     return (
-                      <div className={getValidClassNames(cl.time, cl.perfect)}>
+                      <div
+                        key={index}
+                        className={getValidClassNames(cl.time, cl.perfect)}
+                      >
                         <p>
                           {windowWidth > 800
                             ? time[index]

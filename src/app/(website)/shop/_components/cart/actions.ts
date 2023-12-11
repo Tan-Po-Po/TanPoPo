@@ -1,7 +1,7 @@
 "use server";
 
 import dbConnect from "@/config/dbConnect";
-import { validateDate } from "@/helpers/validateDate";
+import { validateDate } from "@/helpers";
 import PromoCode, { IPromoCode, IPromoCodeDocument } from "@/models/PromoCode";
 
 export const getPromoCode = async (

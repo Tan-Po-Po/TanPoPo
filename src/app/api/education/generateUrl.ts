@@ -3,9 +3,7 @@ const url = "http://localhost:3000";
 
 export const generateUrl = (data: Data) => {
   let scheduleUrl = `${url}/studentInfo?`;
-  console.log(typeof data.comment)
-  console.log(data.comment)
-  console.log(data.comment.replace(/ |\n/g, "+"))
+
   for (const [key, value] of Object.entries(data)) {
     let formattedValue;
     if (key === "schedule") {

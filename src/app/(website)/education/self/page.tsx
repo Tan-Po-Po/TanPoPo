@@ -1,5 +1,5 @@
 import { ContentCard, Typography } from "@/components";
-import { getIconArtSrc, getIconSrc } from "@/helpers";
+import { getIconArtSrc } from "@/helpers";
 import Link from "next/link";
 import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";

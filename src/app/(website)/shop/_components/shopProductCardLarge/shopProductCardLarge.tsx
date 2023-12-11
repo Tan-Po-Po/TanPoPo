@@ -8,8 +8,7 @@ import { CarouselItem } from "@/components/carousel/carouselItem/carouselItem";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
-import { validateDate } from "@/helpers/validateDate";
-import { getTextForSaleLabel } from "@/helpers/getTextForSaleLabel";
+import { getTextForSaleLabel, validateDate, getValidClassNames } from "@/helpers/";
 import { useEffect, useState } from "react";
 import HeartIcon from "/public/icons/heart.svg";
 import {
@@ -19,11 +18,10 @@ import {
 } from "@/redux/slices/shopCart/shopCartSlice";
 import { Counter } from "../counter/counter";
 import { toggleLikeToShopProduct } from "./actions";
-import { getValidClassNames } from "@/helpers";
 
 type Props = Omit<IShopProduct, "small">;
 
-const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
+export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   const { available, gallery, variants, caption, hashtags, likes } = large;
 
   const [selectValue, setSelectValue] = useState(variants[0].value);
@@ -39,7 +37,7 @@ const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   const shopCart = useAppSelector(selectShopCart);
   const dispatch = useAppDispatch();
 
-  console.log("shopCart", shopCart);
+  // console.log("shopCart", shopCart);
 
   const productIsLiked = likedProducts.has(_id!);
 
@@ -123,9 +121,9 @@ const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
         focusOnSelect={false}
         className={cl.carousel}
       >
-        {gallery.map((item) => (
+        {gallery.map((item, i) => (
           <CarouselItem
-            key={item._id}
+            key={i}
             isOutlined={true}
             className={cl.carouselItem}
             type={item.type}
@@ -268,5 +266,3 @@ function getLikedProductsFromLocalStorage() {
   }
   return new Set([...(JSON.parse(storage) as string[])]);
 }
-
-export default ShopProductCardLarge;

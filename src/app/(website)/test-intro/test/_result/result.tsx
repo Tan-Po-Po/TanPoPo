@@ -4,7 +4,7 @@ import cl from "./result.module.scss";
 import { ICourse } from "@/models/Course";
 import { getCourses } from "./actions";
 import { useEffect, useState } from "react";
-import { getCoursesByType } from "@/helpers/getCoursesByType";
+import { getCoursesByType } from "@/helpers";
 import { ContentCard, CourseCardMini, Divider, Typography } from "@/components";
 import CourseList from "@/components/courseList/courseList";
 import Advantages from "@/components/andvantages/advantages";

@@ -9,7 +9,7 @@ import { textContent } from "./textContent";
 import ShopPartner, { IShopPartner } from "@/models/ShopPartner";
 import { socialLinks } from "@/config/config";
 import ShopPartnerCard from "./_components/shopPartnerCard/shopPartnerCard";
-import ShopProductCardLarge from "./_components/shopProductCardLarge/shopProductCardLarge";
+import { ShopProductCardLarge } from "./_components/shopProductCardLarge/shopProductCardLarge";
 import { ShopProductCardMini } from "./_components/shopProductCardMini/shopProductCardMini";
 import { DialogGallery } from "@/components/dialogGallery/dialogGallery";
 import { CartButton } from "./_components/cartButton/cartButton";
@@ -453,7 +453,6 @@ const getShopPartners = async (): Promise<IShopPartner[]> => {
 
 export default async function Shop() {
   // await addShopItemsToDb();
-
   // await addShopPartnersToDb();
 
   const shopItems = await getShopItems();
