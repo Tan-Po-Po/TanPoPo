@@ -19,3 +19,4 @@ export { Typography } from "./typography/typography";
 export { TeamMemberCard } from "./teamMemberCard/teamMemberCard";
 export { LibraryCard } from "./libraryCard/libraryCard";
 export { Loading } from "./loading/loading";
+export { RequisitesSmall } from "./requisitesSmall/requisitesSmall";

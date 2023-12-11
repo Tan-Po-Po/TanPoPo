@@ -2,17 +2,22 @@
 import { useRef } from "react";
 import cl from "./carouselItem.module.scss";
 import { getValidClassNames } from "@/helpers";
+import PlayButtonIcon from "/public/icons/playButton.svg";
 
 interface Props {
   isOutlined?: boolean;
   children: React.ReactNode;
   className?: string;
+  type?: "video" | "image";
+  onClick?: () => void;
 }
 
 export const CarouselItem: React.FC<Props> = ({
   children,
   isOutlined,
   className,
+  type = "image",
+  onClick,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -39,11 +44,16 @@ export const CarouselItem: React.FC<Props> = ({
         isOutlined && cl.isOutlined,
         className
       )}
-      onClick={handleClick}
+      onClick={onClick || handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {children}
+      {type === "video" && (
+        <div className={cl.playButtonIcon}>
+          <PlayButtonIcon />
+        </div>
+      )}
     </div>
   );
 };

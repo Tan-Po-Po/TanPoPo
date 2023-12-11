@@ -6,6 +6,7 @@ import { getValidClassNames } from "@/helpers";
 type Properties = ButtonProps & {
   icon?: string;
   isParentHovered?: boolean;
+  wrapperClass?: string;
 };
 
 const Button: React.FC<Properties> = ({
@@ -13,18 +14,22 @@ const Button: React.FC<Properties> = ({
   children,
   className,
   isParentHovered,
+  wrapperClass,
   disabled,
+  style,
   ...props
 }) => {
   const iconUrl = `/icons/${icon}.svg`;
 
   return (
     <div
+      style={style}
       className={getValidClassNames(
         cl.buttonWrapper,
         props.variant === "outlined" && cl.outlined,
-        isParentHovered && cl.isParentHovered, 
-        disabled && cl.disabled
+        isParentHovered && cl.isParentHovered,
+        disabled && cl.disabled,
+        wrapperClass
       )}
     >
       <MuiButton

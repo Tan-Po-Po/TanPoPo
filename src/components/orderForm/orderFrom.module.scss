@@ -35,6 +35,9 @@
     margin-top: 40px;
     display: flex;
     gap: 50px;
+    > div {
+      width: 300px;
+    }
 
     .select {
       width: 300px;
@@ -82,10 +85,11 @@
     }
   }
 }
+
 .comment {
   height: 130px;
   width: 666px;
-  margin-top: 40px;
+  margin-top: 40px !important;
 }
 
 @media (max-width: 850px) {
