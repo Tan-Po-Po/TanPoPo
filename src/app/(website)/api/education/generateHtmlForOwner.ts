@@ -1,7 +1,7 @@
 import {
   time,
   days,
-} from "@/app/education/start/schedule/common";
+} from "@/app/(website)/education/start/schedule/common";
 import { Data } from "./type";
 
 export const generateHtmlForOwner = (formData: Data, orderId: string) => {

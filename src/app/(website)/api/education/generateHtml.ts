@@ -1,4 +1,4 @@
-import { time, days } from "@/app/education/start/schedule/common";
+import { time, days } from "@/app/(website)/education/start/schedule/common";
 import { Data } from "./type";
 
 export const generateHtml = (formData: Data) => {

@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     sheetName: "courses",
     formData: parseData(formData),
   };
-  console.log(googleData.formData);
+  // console.log(googleData.formData);
   const google = await fetch(GOOGLE_SCRIPT_URL as string, {
     method: "POST",
     body: JSON.stringify(googleData),
@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     },
   });
   const orderId = await google.text();
-  console.log(orderId);
+  // console.log(orderId);
 
   const htmlContent = generateHtml(formData);
   const htmlContentOwner = generateHtmlForOwner(formData, orderId);

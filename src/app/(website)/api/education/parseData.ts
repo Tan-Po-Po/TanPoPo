@@ -1,3 +1,4 @@
+import { generateUrl } from "./generateUrl";
 import { Data } from "./type";
 
 export const parseData = (data: Data) => {
@@ -17,26 +18,42 @@ export const parseData = (data: Data) => {
     contactName,
     contactSurname,
     contactEmail,
-    contactPhone
+    contactPhone,
   } = data;
+
+  const courseName = `${data.courseName}(${data.level})`;
+  const dataForUrl = {
+    name,
+    surname,
+    age,
+    courseName,
+    format,
+    lessonsPerWeek: format === "Індивідуально" ? lessonsPerWeek : 2,
+    schedule,
+    comment,
+    phone,
+    email,
+    price,
+    lessons,
+  };
 
   const date = new Date();
   const dateFinish = new Date(date);
-  if (format === 'Індивідуально') {
+  if (format === "Індивідуально") {
     dateFinish.setDate(date.getDate() + 7);
   } else {
     dateFinish.setDate(date.getDate() + 14);
   }
-
+  
   return {
-    date:  date.toLocaleDateString(),
+    date: date.toLocaleDateString(),
     dateFinish: dateFinish.toLocaleDateString(),
-    courseName: `${data.courseName}(${data.level})`,
+    courseName,
     lessons,
     price,
     format,
     lessonsPerWeek,
-    schedule,
+    schedule: generateUrl(dataForUrl as Data),
     comment,
 
     name,
@@ -49,6 +66,6 @@ export const parseData = (data: Data) => {
     contactName,
     contactSurname,
     contactEmail,
-    contactPhone
+    contactPhone,
   };
 };

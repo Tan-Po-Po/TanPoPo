@@ -59,6 +59,7 @@ export default function Page() {
       schedule,
     };
     console.log(data);
+    console.log(schedule);
 
     fetch("/api/education", {
       method: "POST",
