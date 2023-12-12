@@ -116,6 +116,7 @@ export async function POST(req: Request) {
       subject: `Нове замовлення у крамниці! (№ Замовлення: ${orderId})`,
       html: htmlContentOwner,
       attachments: [
+        ...productImages,
         {
           filename: "store.png",
           path: path.join(process.cwd(), "public", "icons", "art", "store.png"),
