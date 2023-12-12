@@ -1,3 +1,4 @@
+"use client";
 import { Button as MuiButton, type ButtonProps } from "@mui/material";
 import cl from "./button.module.scss";
 import Image from "next/image";
