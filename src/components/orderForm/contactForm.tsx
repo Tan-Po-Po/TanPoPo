@@ -16,10 +16,7 @@ type Properties = {
 };
 
 const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
-  const { control, getValues, setValue, watch } = formReturn;
-  const onlyEmail = watch("onlyEmail");
-  const viber = watch("viber");
-  const telegram = watch("telegram");
+  const { control, setValue, getValues } = formReturn;
 
   return (
     <ContentCard className={cl.contactForm}>
@@ -106,7 +103,12 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           control={control}
           rules={{
             validate: (value) => {
-              if (!onlyEmail && !viber && !value) {
+              if (
+                !getValues("onlyEmail") &&
+                !getValues("viber") &&
+                !value &&
+                !getValues("sms")
+              ) {
                 return isCertificate
                   ? "Оберіть, куди ви бажаєте отримати сертифікат"
                   : "Оберіть, куди ви бажаєте отримати інформацію про замовлення";
@@ -133,7 +135,12 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           control={control}
           rules={{
             validate: (value) => {
-              if (!onlyEmail && !telegram && !value) {
+              if (
+                !getValues("onlyEmail") &&
+                !getValues("telegram") &&
+                !value &&
+                !getValues("sms")
+              ) {
                 return isCertificate
                   ? "Оберіть, куди ви бажаєте отримати сертифікат"
                   : "Оберіть, куди ви бажаєте отримати інформацію про замовлення";
@@ -161,7 +168,12 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
             control={control}
             rules={{
               validate: (value) => {
-                if (!viber && !telegram && !onlyEmail &&!value) {
+                if (
+                  !getValues("onlyEmail") &&
+                  !getValues("telegram") &&
+                  !value &&
+                  !getValues("viber")
+                ) {
                   return isCertificate
                     ? "Оберіть, куди ви бажаєте отримати сертифікат"
                     : "Оберіть, куди ви бажаєте отримати інформацію про замовлення";
@@ -189,7 +201,12 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           control={control}
           rules={{
             validate: (value) => {
-              if (!viber && !telegram && !value) {
+              if (
+                !getValues("sms") &&
+                !getValues("telegram") &&
+                !value &&
+                !getValues("viber")
+              ) {
                 return isCertificate
                   ? "Оберіть, куди ви бажаєте отримати сертифікат"
                   : "Оберіть, куди ви бажаєте отримати інформацію про замовлення";
@@ -208,6 +225,7 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
               onChange={(e) => {
                 setValue("viber", false);
                 setValue("telegram", false);
+                setValue("sms", false);
                 field.onChange(e.target.checked);
               }}
             />

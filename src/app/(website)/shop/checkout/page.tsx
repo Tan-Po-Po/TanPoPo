@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import cl from "./page.module.scss";
+import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   clearShopCart,
@@ -13,31 +13,25 @@ import {
   Checkbox,
   ContactForm,
   ContentCard,
-  Divider,
+  Loading,
   Typography,
 } from "@/components";
 import { Cart } from "../_components/cart/cart";
-import { Controller, UseFormReturn, useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { FormData } from "@/components/orderForm/formData";
 import Link from "next/link";
 import { deletePromoCode } from "./actions";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { getTotalPrice } from "@/helpers";
 import { toast } from "react-toastify";
-import PayLaterResult from "./@payLaterResult/page";
-import { PayNowResult } from "./@payNowResult/page";
 
-const Checkout = () => {
+export default function Page() {
   const router = useRouter();
-  const cart = useAppSelector(selectShopCart);
   const dispatch = useAppDispatch();
+  const cart = useAppSelector(selectShopCart);
 
   const [showErrors, setShowErrors] = useState(true);
-
-  const [orderInfo, setOrderInfo] = useState<{
-    orderNumber: string;
-    total?: number;
-  } | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const formReturn = useForm<FormData>({
     defaultValues: {
@@ -47,6 +41,7 @@ const Checkout = () => {
       email: "",
       telegram: false,
       viber: false,
+      sms: false,
       onlyEmail: true,
       certificateType: null,
       studentName: "",
@@ -59,6 +54,8 @@ const Checkout = () => {
       isDepartmentDelivery: true,
       isAddressDelivery: false,
       agreement: false,
+      payNow: false,
+      payAfter: false,
     },
     reValidateMode: "onSubmit",
   });
@@ -71,37 +68,56 @@ const Checkout = () => {
   } = formReturn;
 
   useEffect(() => {
-    if (showErrors) {
-      if (errors) {
-        for (const error of Object.values(errors)) {
-          if (error.message) {
-            toast(error.message);
-            break;
-          }
+    if (showErrors && errors) {
+      for (const error of Object.values(errors)) {
+        if (error.message) {
+          toast(error.message);
+          break;
         }
       }
+
       setShowErrors(false);
     }
   }, [errors, showErrors]);
 
-  const onSubmit = async (data: FormData) => {
-    //add to google sheets
+  const onSubmit = async (formData: FormData) => {
+    const dataToSend = {
+      ...formData,
+      ...cart,
+      totalPrice: getTotalPrice(cart),
+    };
 
-    //send emails
+    setLoading(true);
 
-    //if success
-    dispatch(clearShopCart());
-    localStorage.removeItem("shopCart");
+    fetch("/api/shop", {
+      method: "POST",
+      body: JSON.stringify(dataToSend),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }).then(async (res) => {
+      if (!res.ok) {
+        setLoading(false);
+        toast("Сталася помилка, спробуйте ще раз пізніше");
+      } else {
+        if (cart.promoCode?.oneTimeUse) {
+          await deletePromoCode(cart.promoCode._id!);
+        }
+        //if success
+        dispatch(clearShopCart());
 
-    if (cart.promoCode?.oneTimeUse) {
-      await deletePromoCode(cart.promoCode._id!);
-    }
+        const responseData = await res.json();
 
-    if (data.payAfter) {
-      setOrderInfo({ orderNumber: "" }); //add order number from result
-    } else if (data.payNow) {
-      setOrderInfo({ total: getTotalPrice(cart).final, orderNumber: "" }); //add order number from result
-    }
+        if (formData.payAfter) {
+          router.push(`/shop/checkout/thanks?id=${responseData.orderId}`);
+        } else if (formData.payNow) {
+          router.push(
+            `/shop/checkout/requisites?id=${responseData.orderId}&total=${dataToSend.totalPrice.final}`
+          );
+        }
+      }
+    });
   };
 
   const handleClick = async () => {
@@ -110,37 +126,11 @@ const Checkout = () => {
   };
 
   if (!cart.items.length) {
-    router.push("/shop");
-    return;
+    return router.push("/shop");
   }
 
-  if (orderInfo) {
-    return (
-      <main className={cl.checkoutMainResult}>
-        <Divider
-          firstRow="Замовлення успішно прийнято!"
-          className={cl.divider}
-        />
-
-        <Typography
-          variant="body1"
-          style={{ textAlign: "center", fontWeight: "400" }}
-        >
-          Всю інформацію стосовно вашого замовлення було <br /> щойно надіслано
-          на вашу електронну скриньку!
-        </Typography>
-
-        <section className={cl.resultBlock}>
-          {!orderInfo.total ? (
-            <PayLaterResult {...orderInfo} />
-          ) : (
-            <PayNowResult {...orderInfo} />
-          )}
-        </section>
-
-        <Typography variant="h6">Дякуємо, що обрали TanPoPo💛</Typography>
-      </main>
-    );
+  if (loading) {
+    return <Loading />;
   }
 
   return (
@@ -201,6 +191,4 @@ const Checkout = () => {
       </form>
     </main>
   );
-};
-
-export default Checkout;
+}

@@ -119,31 +119,65 @@
     </h1>
     <img class="img" src="cid:store" width="137px" height="142px" />
     <div class="card" style="width: 390px">
-      <p>Номер замовлення: <b>${formData.id}</b></p>
+      <p>Номер замовлення: <b>${orderId}</b></p>
     </div>
 
     <div class="card" style="display: flex">
       <div>
         <p>Обрані товари</p>
-        <div class="card" style="display: flex; padding: 0; overflow: hidden; margin: 0;">
+        ${orderData.items.map((item) => return `
+        <div
+          class="card"
+          style="display: flex; padding: 0; overflow: hidden; margin: 0"
+        >
           <div
             style="width: 70px; height: 70px; background-color: #affa9c"
           ></div>
           <div>
-            <p style="width: 190px; font-size: 18px;">
-              <b>Мнемонічні Картки Рівень 1(JLPT N5)</b>
+            <p style="width: 190px; font-size: 18px">
+              <b>${item.name.replace("\n", " ")}</b>
             </p>
+            ${item.label ? `
+            <p><b>${item.label}</b></p>
+            ` : ""}
           </div>
         </div>
+        `)} ${orderData.promoCode ? `
+        <p>Промокод на знижку</p>
+        <p>
+          <b>${orderData.promoCode.code} (${orderData.promoCode.perCent})</b>
+        </p>
+        ` : ''}
       </div>
       <div>
         <p>Кількість</p>
-        <div class="card" style="margin: 0; padding: 0; height: 75px;">1шт.</div>
+        ${orderData.items.map((item) => return `
+        <div class="card" style="margin: 0; padding: 0; height: 75px">
+          ${item.amount}шт.
+        </div>
+        `)}
       </div>
       <div>
         <p>Ціна</p>
-        <div class="card" style="margin: 0">1шт.</div>
-        >
+        ${orderData.items.map((item) => { if(item.price.sale) { return `
+        <div class="card" style="margin: 0">
+          <p><s>${item.price.original}</s></p>
+          <p><b>${item.price.sale}</b></p>
+        </div>
+        ` } else { return `
+        <div class="card" style="margin: 0">
+          <p><b>${item.price.original}</b></p>
+        </div>
+        ` } })}
+        <p>Разом:</p>
+        <div class="card" style="background-color: #ffec6a">
+          ${price.original === price.final ? `
+          <p><b>${price.final}</b></p>
+          ` : `
+          <p><s>${price.original}</s></p>
+          <p><b>${price.final}</b></p>
+          `}
+        </div>
       </div>
     </div>
 
@@ -151,12 +185,12 @@
       <h1><b>Ваші контактні дані:</b></h1>
       <div style="display: flex; margin-top: 20px">
         <div style="width: 50%">
-          <p><u>Ім'я</u>: ${formData.name}</p>
-          <p><u>Прізвище</u>: ${formData.surname}</p>
+          <p><u>Ім'я</u>: ${orderData.name}</p>
+          <p><u>Прізвище</u>: ${orderData.surname}</p>
         </div>
         <div style="width: 50%">
-          <p><u>Телефон</u>: ${formData.phone}</p>
-          <p><u>Email</u>: ${formData.email}</p>
+          <p><u>Телефон</u>: ${orderData.phone}</p>
+          <p><u>Email</u>: ${orderData.email}</p>
         </div>
       </div>
     </div>
@@ -164,24 +198,25 @@
     <div class="card course">
       <h1 style="font-size: 27px">Місце доставки сертифікату Новою Поштою:</h1>
       <p>
-        <u>Область/місто</u>: ${formData.region} обл., м.
-        ${formData.city.label}.
+        <u>Область/місто</u>: ${orderData.region} обл., м.
+        ${orderData.city.label}.
       </p>
-      ${ formData.isDepartmentDelivery ? `
-      <p><u>№ Відділення/поштомату</u>: ${formData.department}</p>
+      ${ orderData.isDepartmentDelivery ? `
+      <p><u>№ Відділення/поштомату</u>: ${orderData.department}</p>
       ` : `
-      <p><u>Адреса</u>: ${formData.address}</p>
+      <p><u>Адреса</u>: ${orderData.address}</p>
       ` }
-      <p><u>Коментар</u>: ${formData.comment}</p>
+      <p><u>Коментар</u>: ${orderData.comment}</p>
     </div>
 
+    ${orderData.payNow ? `
     <div class="card" style="max-width: 650px">
-      <h1 style="font-size: 27px; color: #454545">Вартість навчання:</h1>
-      <h1 style="font-size: 27px">${formData.price}</h1>
+      <h1 style="font-size: 27px; color: #454545">Сума замовлення:</h1>
+      <h1 style="font-size: 27px">${price.final}</h1>
       <p style="white-space: pre-line">
-        Якщо Ви ще не оплачували подарунковий сертифікат,<br />це можна зробити
-        за нашими реквізитами або за<br />допомогою швидкої оплати по QR-коду
-        нашої школи!
+        Якщо Ви ще не оплачували ваше замовлення,<br />це можна зробити за
+        нашими реквізитами або за<br />допомогою швидкої оплати по QR-коду нашої
+        школи!
       </p>
       <div style="margin: 30px 0; position: relative">
         <a href="google.com" class="btn" style="margin-left: 80px"
@@ -195,6 +230,7 @@
         пакуночок почне прямувати до Вас!
       </p>
     </div>
+    ` : ``}
 
     <div class="card" style="max-width: 450px">
       <h1>Дякуємо, що обрали \nTanPoPo💛</h1>

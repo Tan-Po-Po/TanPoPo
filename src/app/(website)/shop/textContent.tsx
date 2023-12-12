@@ -38,6 +38,7 @@ export const textContent = {
   },
   shopProductBlock: {
     certificates: {
+      _id: "1",
       name: "Подарунковий\nсертифікат",
 
       large: {

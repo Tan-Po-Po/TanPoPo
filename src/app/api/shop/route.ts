@@ -1,22 +1,21 @@
 import { NextResponse } from "next/server";
 import { transporter, mailOptions } from "@/config/nodemailer";
 import { Data } from "./type";
-import { generateHtml} from "./generateHtml";
+import { generateHtml } from "./generateHtml";
 import { generateHtmlForOwner } from "./generateHtmlForOwner";
 import { parseData } from "./parseData";
 import { GOOGLE_SCRIPT_URL } from "@/config/config";
 import path from "path";
-
+import { parseImages } from "./parseImages";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
 
-  // console.log(JSON.stringify(formData));
   const googleData = {
-    sheetName: "certificates",
+    sheetName: "orders",
     formData: parseData(formData),
   };
-  console.log(googleData.formData);
+
   const google = await fetch(GOOGLE_SCRIPT_URL as string, {
     method: "POST",
     body: JSON.stringify(googleData),
@@ -26,25 +25,22 @@ export async function POST(req: Request) {
     },
   });
   const orderId = await google.text();
-  console.log(orderId);
-  
-  const htmlContent = generateHtml(formData);
-  const htmlContentOwner = generateHtmlForOwner(formData);
+
+  const htmlContent = generateHtml(formData, orderId);
+  const htmlContentOwner = generateHtmlForOwner(formData, orderId);
+
+  const productImages = parseImages(formData.items);
+
   try {
     await transporter.sendMail({
       ...mailOptions,
-      subject: `Навчання у Подарунок!  (№ Замовлення: ${orderId})`,
+      subject: `Ваше замовлення: ${orderId}`,
       html: htmlContent,
       attachments: [
+        ...productImages,
         {
           filename: "store.png",
-          path: path.join(
-            process.cwd(),
-            "public",
-            "icons",
-            "art",
-            "store.png"
-          ),
+          path: path.join(process.cwd(), "public", "icons", "art", "store.png"),
           cid: "store",
         },
         {
@@ -115,12 +111,20 @@ export async function POST(req: Request) {
       ],
     });
 
-    await transporter.sendMail({...mailOptions,
-      subject: `Навчання у Подарунок!  (№ Замовлення: ${orderId})`,
+    await transporter.sendMail({
+      ...mailOptions,
+      subject: `Нове замовлення у крамниці! (№ Замовлення: ${orderId})`,
       html: htmlContentOwner,
+      attachments: [
+        {
+          filename: "store.png",
+          path: path.join(process.cwd(), "public", "icons", "art", "store.png"),
+          cid: "store",
+        },
+      ],
     });
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, orderId });
   } catch (err: any) {
     console.log(err);
     return NextResponse.json({ message: err.message }, { status: 400 });

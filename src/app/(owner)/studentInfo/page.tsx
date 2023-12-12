@@ -3,9 +3,9 @@
 import { time } from "@/app/(website)/education/start/schedule/common";
 import { useSearchParams } from "next/navigation";
 import { Typography } from "@/components";
-import cl from "./page.module.scss";
 import { getValidClassNames } from "@/helpers";
 import { useEffect, useState } from "react";
+import cl from "./page.module.scss";
 
 const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
 
@@ -23,7 +23,7 @@ export default function Page() {
       setWindowWidth(window.innerWidth);
     });
   }, []);
-  console.log(windowWidth);
+
   return (
     <main className={cl.main}>
       <Typography variant="h3" className={cl.header}>

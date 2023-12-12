@@ -1,13 +1,18 @@
-import { ContentCard, RequisitesSmall, Typography } from "@/components";
-import cl from "../page.module.scss";
-import { ResultProps } from "../resultProps";
+"use client"
 
-export const PayNowResult: React.FC<ResultProps> = ({ orderNumber, total }) => {
+import { ContentCard, RequisitesSmall, Typography } from "@/components";
+import { useSearchParams } from "next/navigation";
+import cl from "../../page.module.scss";
+
+const PayNowResult: React.FC = () => {
+  const searchParams = useSearchParams()
+  const id = searchParams.get("id");
+  const total = searchParams.get("total");
   return (
     <>
       <div className={cl.info}>
         <ContentCard width="410px" className={cl.total}>
-          <Typography variant="h6">Сума до спалти:</Typography>
+          <Typography variant="h6">Сума до сплати:</Typography>
           <Typography variant="h4" className={cl.totalValue}>
             {total} грн
           </Typography>
@@ -19,7 +24,7 @@ export const PayNowResult: React.FC<ResultProps> = ({ orderNumber, total }) => {
         <ContentCard width="336px" className={cl.orderNumber}>
           <Typography variant="h6">Номер замовлення:</Typography>
           <ContentCard width="195px" className={cl.orderValue}>
-            <Typography variant="h4">{orderNumber}</Typography>
+            <Typography variant="h4">{id}</Typography>
           </ContentCard>
         </ContentCard>
       </div>
@@ -34,3 +39,5 @@ export const PayNowResult: React.FC<ResultProps> = ({ orderNumber, total }) => {
     </>
   );
 };
+
+export default PayNowResult;
