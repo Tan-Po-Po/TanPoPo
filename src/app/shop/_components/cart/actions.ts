@@ -13,9 +13,12 @@ export const getPromoCode = async (
     code: code,
   })) as IPromoCodeDocument | undefined;
 
-  if (!codeDB || !validateDate(codeDB.date)) {
+  if (!codeDB) {
     return null;
   }
+  if (codeDB.oneTimeUse || validateDate(codeDB.date)) {
+    return JSON.parse(JSON.stringify(codeDB));
+  }
 
-  return JSON.parse(JSON.stringify(codeDB));
+  return null;
 };

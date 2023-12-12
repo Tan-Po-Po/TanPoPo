@@ -1,3 +1,4 @@
+"use client";
 import { TextField, type TextFieldProps } from "@mui/material";
 import cl from "./input.module.scss";
 import { getValidClassNames } from "@/helpers";
