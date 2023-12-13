@@ -1,7 +1,4 @@
-import { type FormData } from "@/components/orderForm/formData";
-import { CourseState } from "@/redux/slices/course/courseSlice";
-
-export type Data = { courseName: string } & FormData & CourseState;
+import { Data } from "./type";
 
 export const generateHtml = (formData: Data) => {
   return `<html lang="en">
@@ -151,10 +148,16 @@ export const generateHtml = (formData: Data) => {
         <h3>(${formData.japanName})</h3>
       </div>
       <div style="text-align: start; margin-top: 50px;" class="course">
-        <p><u>Формат Навчання</u>: ${formData.format}</p>
-        ${formData.format !== "Індивідуально" ? `<p><u>Занять в тиждень</u>: ${
-          formData.lessonsPerWeek
-        } заняття в тиждень</p>` : ''}
+        <p><u>Формат Навчання</u>:  ${
+          formData.format === "Міні-група"
+            ? "Онлайн курс з сенсеєм(міні-група 2-5 чол.)"
+            : "Індивідуально"
+        }</p>
+        ${
+          formData.format == "Міні-група"
+            ? `<p><u>Занять в тиждень</u>: 2 заняття в тиждень</p>`
+            : ""
+        }
         <p><u>Тривалість онлайн-уроку</u>: 70 хвилин/заняття(рівень JLPT ${
           formData.level
         })</p>

@@ -1,0 +1,176 @@
+.main {
+  p,
+  h6,
+  h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+  border: 2px solid black;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  width: fit-content;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+.header {
+  margin-top: 30px;
+}
+
+.firstRow {
+  h6,
+  p {
+    font-weight: 900;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: 15px 25px;
+}
+
+.flexRow {
+  display: flex;
+  column-gap: 30px;
+  margin: 15px 0;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $box-shadow;
+  box-sizing: border-box;
+  width: 111px;
+  height: 40px;
+  padding: 5px;
+  text-align: center;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.time p {
+  width: 100%;
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+.inappropriate {
+  background: #e1edff;
+}
+.maybe {
+  background: #fff48d;
+}
+.perfect {
+  background: #caffbd;
+}
+
+.schedule,
+.day {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.day {
+  flex-direction: column;
+}
+
+.comment {
+  margin: 10px 0;
+}
+
+.comment,
+.header {
+  text-align: center;
+  text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .main {
+    width: 100%;
+    padding: 0 5px;
+  }
+  .header {
+    margin-top: 10px !important;
+  }
+  .schedule {
+    gap: 5px 20px;
+    margin: 0;
+  }
+  .time {
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 18px;
+    margin: 5px 0;
+    p {
+      font-size: 15px !important;
+      white-space: pre-line;
+      text-wrap: pretty;
+    }
+  }
+  .flexRow {
+    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 10px;
+  }
+  .card {
+    padding: 5px;
+    h6 {
+      font-size: 20px;
+      letter-spacing: 0px;
+      line-height: 20px;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .schedule {
+    h6 {
+      margin-bottom: -10px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .main {
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+  }
+  .header {
+    font-size: 30px !important;
+  }
+  .schedule {
+    gap: 5px;
+  }
+  .time {
+    padding: 5px;
+  }
+  .price {
+    order: 2;
+  }
+  .email {
+    order: 1;
+  }
+}
+
+@media (max-width: 450px) {
+  .schedule {
+    gap: 3px;
+  }
+  .time {
+    padding: 3px;
+  }
+}

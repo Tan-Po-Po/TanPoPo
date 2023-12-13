@@ -1,10 +1,10 @@
 import {
   time,
   days,
-  type ScheduleForm,
-} from "@/app/education/start/schedule/common";
+} from "@/app/(website)/education/start/schedule/common";
+import { Data } from "./type";
 
-export const generateHtmlForOwner = (formData: ScheduleForm) => {
+export const generateHtmlForOwner = (formData: Data, orderId: string) => {
   return `<html lang="en">
   <head>
     <style>
@@ -38,8 +38,10 @@ export const generateHtmlForOwner = (formData: ScheduleForm) => {
         font-size: 22px;
         text-align: center;
       }
+      .ii a[href],
       a {
-        color: #000;
+        color: #000 !important;
+        text-decoration: none;
       }
       .img {
         display: flex;
@@ -53,7 +55,7 @@ export const generateHtmlForOwner = (formData: ScheduleForm) => {
       }
       .time {
         box-sizing: border-box;
-        width: 110px;
+        width: 111px;
         height: 40px;
         padding: 5px;
         text-align: center;
@@ -118,6 +120,8 @@ export const generateHtmlForOwner = (formData: ScheduleForm) => {
   </head>
   <body>
     <h1 style="white-space: pre-line">Новий учень бажає долучитись до школи TanPoPo🎉</h1>
+    <div class="card" style="max-width: 400px;"><p>Навчальний номер:<b>${orderId}</b></p></div>
+
     <div class="card contact">
       <h1><b>Контактні дані учня:</b></h1>
       <div style="display: flex; margin-top: 20px">
@@ -150,24 +154,24 @@ export const generateHtmlForOwner = (formData: ScheduleForm) => {
         ` : `` } 
     </div>
 
-    <div class="card" style="width: 100%">
+    <div class="card" style="min-width: 1020px; padding: 33px 10px">
       <h3>Обраний розклад занять:</h3>
-      <div style="display: flex; margin-top: 30px; width: auto">
+      <div style="display: flex; margin-top: 30px; width: auto; column-gap: 5px">
         ${formData.schedule.map((day: string[], dayIndex: number) => { return `
         <div class="day">
           <h6 style="text-align: center">${days[dayIndex]}</h6>
           ${day.map((variant, index) => { switch (variant) { case
           "inappropriate": return `
           <div class="time inappropriate">
-            <p>${time[index]}</p>
+            <p style="font-weight: 600;">${time[index]}</p>
           </div>
           `; case "maybe": return `
           <div class="time maybe">
-            <p>${time[index]}</p>
+            <p style="font-weight: 600;">${time[index]}</p>
           </div>
           `; case "perfect": return `
           <div class="time perfect">
-            <p>${time[index]}</p>
+            <p style="font-weight: 600;">${time[index]}</p>
           </div>
           `; } }) .join("")}
         </div>
@@ -179,12 +183,22 @@ export const generateHtmlForOwner = (formData: ScheduleForm) => {
 
     <div class="card course">
       <h1 style="color: #454545; font-size: 27px">Обраний курс:</h1>
-      <h1 style="font-size: 27px">Мовний ніндзя</h1>
-      <h1 style="font-size: 27px">(рівень JLPT N4+)</h1>
-      <p style="margin-top: 50px"><u>Формат Навчання</u>: Онлайн курс з сенсеєм(міні-група 2-5 чол.)</p>
-      <p><u>Занять в тиждень</u>: 2 заняття в тиждень</p>
-      <p><u>Обрана к-сть уроків</u>: 15 онлайн-уроків</p>
-      <p><u>Вартість навчання</u>: 4150 грн</p>
+      <h1 style="font-size: 27px">${formData.courseName}</h1>
+      <h1 style="font-size: 27px">(рівень JLPT ${
+        formData.level
+      })</h1>
+      <p style="margin-top: 50px"><u>Формат Навчання</u>: ${
+        formData.format === "Міні-група"
+          ? "Онлайн курс з сенсеєм(міні-група 2-5 чол.)"
+          : "Індивідуально"
+      }</p>
+      ${
+        formData.format == "Міні-група"
+          ? `<p><u>Занять в тиждень</u>: 2 заняття в тиждень</p>`
+          : ""
+      }
+      <p><u>Обрана к-сть уроків</u>: ${formData.lessons} онлайн-уроків</p>
+      <p><u>Вартість навчання</u>: ${formData.price} грн</p>
     </div>
   </body>
 </html>

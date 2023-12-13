@@ -18,10 +18,7 @@ type Properties = {
   isCertificate?: boolean;
 };
 
-const AddressForm: React.FC<Properties> = ({
-  formReturn,
-  isCertificate,
-}) => {
+const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
   const { control, setValue, getValues, watch } = formReturn;
   const [regions, setRegions] = useState<any[]>([]);
   const [cities, setCities] = useState<any[]>([]);
@@ -70,8 +67,6 @@ const AddressForm: React.FC<Properties> = ({
           FindByString: string,
           selectedCity: { label: string; id: string }
         ) => {
-          console.log(FindByString);
-          console.log(selectedCity);
           if (selectedCity?.label) {
             const SettlementRef = selectedCity.id;
             const response = await fetch(
@@ -91,7 +86,6 @@ const AddressForm: React.FC<Properties> = ({
               }
             );
             const departments = await response.json();
-            console.log(departments.data);
             setDepartments(departments.data);
           }
         },
@@ -197,7 +191,7 @@ const AddressForm: React.FC<Properties> = ({
           name="region"
           control={control}
           rules={
-            certificateType === "Друкований сертифікат"
+            certificateType === "Друкований сертифікат" || !isCertificate
               ? {
                   required: "Будь ласка, оберіть область для доставки",
                 }
@@ -231,9 +225,15 @@ const AddressForm: React.FC<Properties> = ({
           name="city"
           control={control}
           rules={
-            certificateType === "Друкований сертифікат"
+            certificateType === "Друкований сертифікат" || !isCertificate
               ? {
                   required: "Будь ласка, оберіть місто для доставки",
+                  validate: (field) => {
+                    if (!field.label.length) {
+                      return "Будь ласка, оберіть місто для доставки";
+                    }
+                    return true;
+                  },
                 }
               : {}
           }
@@ -296,12 +296,17 @@ const AddressForm: React.FC<Properties> = ({
             name="isDepartmentDelivery"
             control={control}
             rules={{
-              required:
-                certificateType === "Друкований сертифікат" &&
-                !isAddressDelivery &&
-                !isDepartmentDelivery
-                  ? "Оберіть тип доставки"
-                  : false,
+              validate: (value) => {
+                if (
+                  (certificateType === "Друкований сертифікат" ||
+                    !isCertificate) &&
+                  !value &&
+                  !getValues("isAddressDelivery")
+                ) {
+                  return "Оберіть тип доставки";
+                }
+                return true;
+              },
             }}
             render={({ field }) => (
               <Checkbox
@@ -320,12 +325,17 @@ const AddressForm: React.FC<Properties> = ({
             name="isAddressDelivery"
             control={control}
             rules={{
-              required:
-                certificateType === "Друкований сертифікат" &&
-                !isAddressDelivery &&
-                !isDepartmentDelivery
-                  ? "Оберіть тип доставки"
-                  : false,
+              validate: (value) => {
+                if (
+                  (certificateType === "Друкований сертифікат" ||
+                    !isCertificate) &&
+                  !value &&
+                  !getValues("isDepartmentDelivery")
+                ) {
+                  return "Оберіть тип доставки";
+                }
+                return true;
+              },
             }}
             render={({ field }) => (
               <Checkbox
@@ -347,17 +357,24 @@ const AddressForm: React.FC<Properties> = ({
             <Controller
               name="address"
               control={control}
-              rules={
-                certificateType === "Друкований сертифікат" && isAddressDelivery
-                  ? {
-                      required: "Будь-ласка, вкажіть адресу для доставки",
-                      minLength: {
-                        value: 5,
-                        message: "Вкажіть повну адресу",
-                      },
+              rules={{
+                validate: (value) => {
+                  if (
+                    (certificateType === "Друкований сертифікат" ||
+                      !isCertificate) &&
+                    getValues("isAddressDelivery")
+                  ) {
+                    if (!value.length) {
+                      return "Будь-ласка, вкажіть адресу для доставки";
                     }
-                  : {}
-              }
+                    if (value.length < 5) {
+                      return "Вкажіть повну адресу";
+                    }
+                  }
+
+                  return true;
+                },
+              }}
               render={({ field }) => (
                 <Input
                   className={cl.input}
@@ -372,8 +389,9 @@ const AddressForm: React.FC<Properties> = ({
               name="department"
               control={control}
               rules={
-                certificateType === "Друкований сертифікат" &&
-                isDepartmentDelivery
+                (certificateType === "Друкований сертифікат" ||
+                  !isCertificate) &&
+                getValues("isDepartmentDelivery")
                   ? {
                       required: "Будь-ласка, оберіть номер відділення",
                     }
@@ -382,11 +400,7 @@ const AddressForm: React.FC<Properties> = ({
               render={({ field }) => (
                 <Autocomplete
                   {...field}
-                  options={[
-                    ...departments.map(
-                      (dep) => "№" + dep.Number + " " + dep.Description
-                    ),
-                  ]}
+                  options={[...departments.map((dep) => dep.Description)]}
                   onChange={(_, data) => {
                     field.onChange(data);
                     return data;
@@ -435,12 +449,12 @@ const AddressForm: React.FC<Properties> = ({
               name="payNow"
               control={control}
               rules={{
-                required:
-                  !isCertificate &&
-                  !getValues("payAfter") &&
-                  !getValues("payNow")
-                    ? "Оберіть тип оплати"
-                    : false,
+                validate: (value) => {
+                  if (!isCertificate && !getValues("payAfter") && !value) {
+                    return "Оберіть тип оплати";
+                  }
+                  return true;
+                },
               }}
               render={({ field }) => (
                 <Checkbox
@@ -474,12 +488,12 @@ const AddressForm: React.FC<Properties> = ({
               name="payAfter"
               control={control}
               rules={{
-                required:
-                  !isCertificate &&
-                  !getValues("payAfter") &&
-                  !getValues("payNow")
-                    ? "Оберіть тип оплати"
-                    : false,
+                validate: (value) => {
+                  if (!isCertificate && !getValues("payNow") && !value) {
+                    return "Оберіть тип оплати";
+                  }
+                  return true;
+                },
               }}
               render={({ field }) => (
                 <Checkbox

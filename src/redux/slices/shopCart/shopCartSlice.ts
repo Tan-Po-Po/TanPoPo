@@ -70,6 +70,7 @@ export const shopCartSlice = createSlice({
       return state;
     },
     clearShopCart: () => {
+      localStorage.removeItem("shopCart");
       return initialState;
     },
   },

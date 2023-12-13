@@ -1,6 +1,6 @@
 import { ICourse } from "@/models/Course";
 import cl from "./courseList.module.scss";
-import { getCoursesByType } from "@/helpers/getCoursesByType";
+import { getCoursesByType } from "@/helpers";
 import { CourseCardMini, Divider, Typography } from "..";
 
 interface Props {

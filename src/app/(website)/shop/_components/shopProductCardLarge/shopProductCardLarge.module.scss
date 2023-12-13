@@ -1,0 +1,126 @@
+.shopProductCardLargeMain {
+  padding: 33px;
+  gap: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 237, 232, 0.1) 0%,
+    #fffbd8 100%
+  );
+  justify-content: space-between;
+  scroll-margin-top: 100px;
+
+  .carousel {
+    .carouselItem {
+      width: 215px;
+      height: 215px;
+      background-color: white;
+      object-position: top;
+    }
+
+    :global(.slick-slide) {
+      > div {
+        overflow: display;
+        margin: 20px 35px;
+      }
+    }
+    :global(.slick-prev) {
+      left: 2%;
+    }
+
+    :global(.slick-next) {
+      right: -7%;
+    }
+  }
+
+  .priceBlock {
+    .price {
+      @include flex-row;
+      gap: 8px;
+    }
+    .date {
+      padding: 2px 6px;
+      background: $gradient-rainbow;
+    }
+  }
+
+  .captionBlock {
+    text-align: start;
+    text-indent: 2rem;
+    align-items: flex-start;
+  }
+
+  .hashtagsBlock {
+    @include flex-row;
+    justify-content: space-between;
+    width: 100%;
+
+    .tag {
+      padding: 3px 6px;
+      gap: 0;
+      white-space: pre;
+      line-height: 10px;
+      background: #fff2c9;
+    }
+  }
+
+  .buttonWrapper {
+    @include flex-row;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+
+    .button {
+      padding-right: 27px;
+      padding-left: 27px;
+      height: 56px;
+    }
+    .likes {
+      @include flex-column;
+      cursor: pointer;
+      position: absolute;
+      top: 55%;
+      right: 0px;
+      transform: translate(0, -50%);
+
+      .heartIcon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.12s;
+        &:hover {
+          transform: scale(120%);
+          svg {
+            path:first-child {
+              fill: $color-yellow;
+            }
+            path:nth-child(2) {
+              fill: black;
+            }
+          }
+        }
+      }
+
+      .liked {
+        transform: scale(120%) !important;
+        svg {
+          path:first-child {
+            fill: $color-yellow !important;
+          }
+          path:nth-child(2) {
+            fill: black !important;
+          }
+        }
+      }
+    }
+  }
+
+  .labelBottom {
+    position: absolute;
+    padding: 2px 6px;
+    background: linear-gradient(180deg, #fff 0%, #fffbd9 100%);
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    white-space: nowrap;
+  }
+}

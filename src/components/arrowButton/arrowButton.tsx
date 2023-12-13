@@ -10,12 +10,16 @@ interface Props {
   style?: CSSProperties;
   onClick?: () => void;
   handleClickToAnimate?: () => void;
+  slideCount?: number;
+  currentSlide?: number;
 }
 
 const ArrowButton: React.FC<Props> = ({
   direction = "right",
   className,
   handleClickToAnimate,
+  slideCount,
+  currentSlide,
   ...props
 }) => {
   return (

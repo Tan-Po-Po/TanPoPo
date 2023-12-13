@@ -1,10 +1,7 @@
-import {
-  time,
-  days,
-  type ScheduleForm,
-} from "@/app/education/start/schedule/common";
+import { time, days } from "@/app/(website)/education/start/schedule/common";
+import { Data } from "./type";
 
-export const generateHtml = (formData: ScheduleForm) => {
+export const generateHtml = (formData: Data) => {
   return `<html lang="en">
   <head>
     <style>
@@ -41,6 +38,7 @@ export const generateHtml = (formData: ScheduleForm) => {
       .ii a[href],
       a {
         color: #000 !important;
+        text-decoration: none;
       }
       .img {
         display: flex;
@@ -54,7 +52,7 @@ export const generateHtml = (formData: ScheduleForm) => {
       }
       .time {
         box-sizing: border-box;
-        width: 110px;
+        width: 111px;
         height: 40px;
         padding: 5px;
         text-align: center;
@@ -127,7 +125,9 @@ export const generateHtml = (formData: ScheduleForm) => {
       В цьому листі ми зберегли інформацію по обраному курсу навчанню!
     </p>
     <div class="card contact">
-      <h1><b>${ formData.contact ? "Контактні дані учня:" : "Ваші контактні дані:"}</b></h1>
+      <h1><b>${
+        formData.contact ? "Контактні дані учня:" : "Ваші контактні дані:"
+      }</b></h1>
       <div style="display: flex; margin-top: 20px">
         <div style="width: 50%">
           <p><u>Ім'я:</u> ${formData.name}</p>
@@ -139,7 +139,9 @@ export const generateHtml = (formData: ScheduleForm) => {
           <p><u>Email:</u> ${formData.email}</p>
         </div>
       </div>
-      ${ formData.contact ? `
+      ${
+        formData.contact
+          ? `
         <h1>Контактна особа</h1>
         <div style="display: flex; margin-top: 20px">
           <div style="width: 50%">
@@ -152,34 +154,54 @@ export const generateHtml = (formData: ScheduleForm) => {
             <p><u>Email:</u> ${formData.contactEmail}</p>
           </div>
         </div>
-      ` : "" }
-      ${ formData.comment ? `
+      `
+          : ""
+      }
+      ${
+        formData.comment
+          ? `
         <p style="margin-top: 20px;"><u>Коментар:</u> ${formData.comment}</p>
-        ` : `` } 
+        `
+          : ``
+      } 
     </div>
 
-    <div class="card" style="width: 100%">
+    <div class="card" style="min-width: 1020px; padding: 33px 10px">
       <h3>Обраний розклад занять:</h3>
-      <div style="display: flex; margin-top: 30px; width: auto">
-        ${formData.schedule.map((day: string[], dayIndex: number) => { return `
+      <div style="display: flex; margin-top: 30px; width: auto; column-gap: 5px">
+        ${formData.schedule
+          .map((day: string[], dayIndex: number) => {
+            return `
         <div class="day">
           <h6 style="text-align: center">${days[dayIndex]}</h6>
-          ${day.map((variant, index) => { switch (variant) { case
-          "inappropriate": return `
+          ${day
+            .map((variant, index) => {
+              switch (variant) {
+                case "inappropriate":
+                  return `
           <div class="time inappropriate">
-            <p>${time[index]}</p>
+            <p style="font-weight: 600;">${time[index]}</p>
           </div>
-          `; case "maybe": return `
+          `;
+                case "maybe":
+                  return `
           <div class="time maybe">
-            <p>${time[index]}</p>
+            <p style="font-weight: 600;">${time[index]}</p>
           </div>
-          `; case "perfect": return `
+          `;
+                case "perfect":
+                  return `
           <div class="time perfect">
-            <p>${time[index]}</p>
+            <p style="font-weight: 600;">${time[index]}</p>
           </div>
-          `; } }) .join("")}
+          `;
+              }
+            })
+            .join("")}
         </div>
-        `; }) .join("")}
+        `;
+          })
+          .join("")}
       </div>
       <p style="font-size: 18px; font-weight: 700; margin-top: 30px">
         Ми врахуємо ваші побажання стосовно днів та часу \nнавчання та зможемо швидше сформувати графік занять!</p>
@@ -187,17 +209,27 @@ export const generateHtml = (formData: ScheduleForm) => {
 
     <div class="card course">
       <h1 style="color: #454545; font-size: 27px">Обраний курс:</h1>
-      <h1 style="font-size: 27px">Мовний ніндзя</h1>
-      <h1 style="font-size: 27px">(言語の忍者)</h1>
-      <p style="margin-top: 50px"><u>Формат Навчання</u>: Онлайн курс з сенсеєм(міні-група 2-5 чол.)</p>
-      <p><u>Занять в тиждень</u>: 2 заняття в тиждень</p>
-      <p><u>Тривалість онлайн-уроку</u>: 70 хвилин/заняття(рівень JLPT N4+)</p>
-      <p><u>Обрана к-сть уроків</u>: 15 онлайн-уроків</p>
+      <h1 style="font-size: 27px">${formData.courseName}</h1>
+      <h1 style="font-size: 27px">(${formData.japanName})</h1>
+      <p style="margin-top: 50px"><u>Формат Навчання</u>: ${
+        formData.format === "Міні-група"
+          ? "Онлайн курс з сенсеєм(міні-група 2-5 чол.)"
+          : "Індивідуально"
+      }</p>
+      ${
+        formData.format == "Міні-група"
+          ? `<p><u>Занять в тиждень</u>: 2 заняття в тиждень</p>`
+          : ""
+      }
+      <p><u>Тривалість онлайн-уроку</u>: 70 хвилин/заняття(рівень JLPT ${
+        formData.level
+      })</p>
+      <p><u>Обрана к-сть уроків</u>: ${formData.lessons} онлайн-уроків</p>
     </div>
 
     <div class="card" style="max-width: 650px;">
       <h1 style="font-size: 27px; color: #454545">Вартість навчання:</h1>
-      <h1 style="font-size: 27px">4150 грн</h1>
+      <h1 style="font-size: 27px">${formData.price} грн</h1>
       <p style="white-space: pre-line;">Якщо Ви ще не оплачували ваше навчання,\nце можна зробити за нашими реквізитами або за \nдопомогою швидкої оплати по QR-коду нашої школи!</p>
       <div style="margin: 30px 0; position: relative;"><a href="google.com" class="btn" style="margin-left: 80px;">Наші реквізити</a>
       <img src="cid:arrow" width="60px" style="margin-left: 20px;"/></div>
@@ -219,5 +251,5 @@ export const generateHtml = (formData: ScheduleForm) => {
     </div>
   </body>
 </html>
-`
+`;
 };
