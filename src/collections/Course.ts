@@ -1,4 +1,4 @@
-import { Access, CollectionConfig } from "payload/types";
+import { CollectionConfig } from "payload/types";
 
 export const Course: CollectionConfig = {
   slug: "courses",

@@ -2,12 +2,14 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
-import { Course } from "./collections/Course";
 import path from "path";
+import { Course } from "./collections/Course";
+import { ShopProduct } from "./collections/ShopProduct";
+import { ShopPartner } from "./collections/ShopPartner";
 
 export default buildConfig({ 
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
-  collections: [Course],
+  collections: [Course, ShopProduct, ShopPartner],
   routes: {
     admin: "/cms",
   },
