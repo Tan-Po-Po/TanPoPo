@@ -3,7 +3,6 @@ import React from "react";
 import {
   Dialog as MuiDialog,
   DialogContent,
-  DialogTitle,
   DialogProps,
 } from "@mui/material";
 import { getValidClassNames } from "@/helpers";
@@ -40,9 +39,9 @@ const Dialog: React.FC<Properties> = ({
     >
       <XIcon className={cl.close} onClick={onClose} />
       {title && (
-        <DialogTitle className={getValidClassNames(cl.title, titleClassName)}>
+        <div className={getValidClassNames(cl.title, titleClassName)}>
           {title}
-        </DialogTitle>
+        </div>
       )}
       <DialogContent
         className={getValidClassNames(cl.content, contentClassName)}

@@ -74,7 +74,7 @@ const ShopProductSchema = new mongoose.Schema<IShopProduct>(
       ],
     },
   },
-  { collection: "shop items" }
+  { collection: "shop products" }
 );
 
 export default mongoose.models.ShopProduct ||

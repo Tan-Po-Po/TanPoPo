@@ -6,17 +6,6 @@ import cl from "./courseCardMini.module.scss";
 import Link from "next/link";
 import { ICourse } from "@/models/Course";
 
-type Course = {
-  type: "teacher" | "video" | "audio" | "book";
-  name: string; // Цвіт сакури
-  nameJapanese?: string; // 桜の花
-  level: string; // N1, N5-N3...
-  description: string; // "Середній рівень" || "Це не просто мовний курс..."
-  backgroundColor: string; // linear-gradient(#ffede81a, #fffbd8) || "red"
-  label?: string; // BESTseller! || незабаром
-  labelColor?: string; // linear-gradient(#FFFCAE, #FF83F3) || "red" || #FFFCAE
-};
-
 type Properties = {
   course: ICourse;
 };
@@ -41,7 +30,7 @@ const CourseCardMini: React.FC<Properties> = ({ course }) => {
         cardBgColor={courseInfo.bgColor}
       >
         <Typography className={cl.level} variant="body1">
-          {course.level.length > 1
+          {course.level?.length > 1
             ? `${course.level[0]}/${course.level[course.level.length - 1]}`
             : course.level[0]}
         </Typography>
