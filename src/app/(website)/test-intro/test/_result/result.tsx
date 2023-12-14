@@ -18,17 +18,17 @@ export const Result: React.FC<Props> = ({ result }) => {
   const [courses, setCourses] = useState<ICourse[] | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const getCoursesFromDb = async () => {
-  //     const courses = await getCourses(result);
-  //     console.log("courses", courses);
+  useEffect(() => {
+    const getCoursesFromDb = async () => {
+      const courses = await getCourses(result);
+      console.log("courses", courses);
 
-  //     setLoading(false);
-  //     setCourses(courses);
-  //   };
+      setLoading(false);
+      setCourses(courses);
+    };
 
-  //   getCoursesFromDb();
-  // }, [result]);
+    getCoursesFromDb();
+  }, [result]);
 
   if (loading) {
     return <div>Loading</div>;

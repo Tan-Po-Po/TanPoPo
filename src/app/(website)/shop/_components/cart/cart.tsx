@@ -9,10 +9,11 @@ import { Button, ContentCard, Input, Typography } from "@/components";
 import { CartItem } from "./cartItem/cartItem";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { getPromoCode } from "./actions";
+
 import { toast } from "react-toastify";
 import { getValidClassNames, getTotalPrice } from "@/helpers";
-
+import { getPromoCode } from "@/helpers/actions/getPromoCode";
+import { FormCode } from "@/components/formCode/formCode";
 
 interface IPromoCodeInput {
   code: string;
@@ -28,7 +29,12 @@ export const Cart = () => {
     final: 0,
   });
 
-  const { control, handleSubmit, reset } = useForm({
+  // const { control, handleSubmit, reset } = useForm({
+  //   defaultValues: {
+  //     code: cart.promoCode?.code || "",
+  //   },
+  // });
+  const formReturn = useForm({
     defaultValues: {
       code: cart.promoCode?.code || "",
     },
@@ -39,6 +45,8 @@ export const Cart = () => {
   }, [cart]);
 
   const onSubmit: SubmitHandler<IPromoCodeInput> = async (data) => {
+    console.log("data", data);
+
     if (cart.promoCode) {
       return;
     }
@@ -50,7 +58,7 @@ export const Cart = () => {
       dispatch(addPromoCode(code));
     } else {
       toast("Такого промокоду не існує.🥲");
-      reset();
+      formReturn.reset();
     }
   };
 
@@ -84,7 +92,13 @@ export const Cart = () => {
           >
             Промокод на знижку:
           </Typography>
-          <form className={cl.promoCodeForm} onSubmit={handleSubmit(onSubmit)}>
+          <FormCode
+            label={cart.promoCode ? "Ваш промокод" : "Введіть промокод..."}
+            disabled={!!cart.promoCode}
+            formReturn={formReturn}
+            onSubmit={onSubmit}
+          />
+          {/* <form className={cl.promoCodeForm} onSubmit={handleSubmit(onSubmit)}>
             <Controller
               name="code"
               control={control}
@@ -110,7 +124,7 @@ export const Cart = () => {
             >
               +
             </Button>
-          </form>
+          </form> */}
         </div>
 
         <div className={cl.totalContainer}>
@@ -122,7 +136,7 @@ export const Cart = () => {
           </Typography>
 
           <ContentCard width="136px" className={cl.total}>
-            {total.final ? (
+            {total.final != total.original ? (
               <>
                 <Typography
                   variant="subtitle1"

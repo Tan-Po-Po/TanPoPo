@@ -8,13 +8,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 import cl from "./libraryCard.module.scss";
+import { useRouter } from "next/navigation";
+import { setCookieForPrivateLibraryItem } from "@/helpers/actions/setCookieForPrivateLibraryItem";
 
 type Properties = {
   icon: string;
   body: string;
   bgColor: string;
   hoverBgColor: string;
-  href:string;
+  href: string;
   isPrivate?: boolean;
 };
 
@@ -22,16 +24,21 @@ const LibraryCard: React.FC<Properties> = ({
   icon,
   body,
   href,
-  isPrivate,
+  isPrivate = false,
   bgColor,
   hoverBgColor,
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
+  const handleClick = async () => {
+    await setCookieForPrivateLibraryItem(isPrivate);
+  };
+
   return (
     <Link
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleClick}
       className={cl.link}
       href={href}
     >
