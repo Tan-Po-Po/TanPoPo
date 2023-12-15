@@ -1,0 +1,39 @@
+.header {
+  margin-top: 70px;
+}
+
+.container {
+  @include flex-column;
+  margin-top: 70px;
+  margin-bottom: 115px;
+  
+  .card {
+    padding: 20px;
+  }
+  
+  ul  {
+    margin: 0;
+    padding: 0;
+    margin-left: 25px;
+    li {
+      margin: 10px 0;
+    }
+    p {
+      text-align: start;
+    }
+  }
+
+  .line {
+    height: 80px;
+    width: 2px;
+    box-shadow: $box-shadow;
+    background: $color-black;
+  }
+
+  .gold {
+    color: rgba(132, 103, 0, 1);
+  }
+  .explanation {
+    max-width: 355px;
+  }
+}
