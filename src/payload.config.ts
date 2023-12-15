@@ -6,10 +6,12 @@ import path from "path";
 import { Course } from "./collections/Course";
 import { ShopProduct } from "./collections/ShopProduct";
 import { ShopPartner } from "./collections/ShopPartner";
+import { PromoCode } from "./collections/PromoCode";
+import { TeamMember } from "./collections/TeamMember";
 
 export default buildConfig({ 
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
-  collections: [Course, ShopProduct, ShopPartner],
+  collections: [Course, ShopProduct, ShopPartner, PromoCode, TeamMember],
   routes: {
     admin: "/cms",
   },

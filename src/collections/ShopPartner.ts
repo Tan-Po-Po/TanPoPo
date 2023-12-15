@@ -12,7 +12,6 @@ export const ShopPartner: CollectionConfig = {
     delete: () => true,
   },
   fields: [
-    { name: "name", label: "Name", type: "textarea", required: true },
     {
       name: "bgColor",
       label: "Background color",
@@ -68,7 +67,7 @@ export const ShopPartner: CollectionConfig = {
     {
       name: "name",
       label: "Partner Name",
-      type: "text",
+      type: "textarea",
       required: true,
     },
     {
