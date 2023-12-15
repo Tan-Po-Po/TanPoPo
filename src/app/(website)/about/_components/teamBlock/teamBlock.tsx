@@ -1,7 +1,7 @@
 "use client";
 import { ITeamMember } from "@/models/TeamMember";
 import cl from "./teamBlock.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Typography } from "@mui/material";
 import { TeamMemberCard } from "@/components";
 import ArrowButton from "@/components/arrowButton/arrowButton";

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
 import { ContentCard, RequisitesSmall, Typography } from "@/components";
 import { useSearchParams } from "next/navigation";
 import cl from "../../page.module.scss";
 
 const PayNowResult: React.FC = () => {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const total = searchParams.get("total");
   return (
@@ -39,5 +39,4 @@ const PayNowResult: React.FC = () => {
     </>
   );
 };
-
 export default PayNowResult;

@@ -1,0 +1,9 @@
+.nav {
+  @include flex-row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1266px;
+  width: 100%;
+  gap: 25px;
+}

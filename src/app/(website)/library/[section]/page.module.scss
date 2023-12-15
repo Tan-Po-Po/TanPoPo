@@ -1,0 +1,5 @@
+.layout {
+  @include flex-column;
+  padding: $padding-page;
+  gap: 60px;
+}
