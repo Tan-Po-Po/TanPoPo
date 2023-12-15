@@ -1,6 +1,6 @@
 export const librarySections = [
   {
-    href: "/library/bonus-start?",
+    href: "/library/bonus-start",
     icon: "rocket",
     body: "Бонус Старт",
     bgColor:
@@ -70,7 +70,7 @@ export const librarySections = [
     isPrivate: true,
   },
   {
-    href: "/library/articles",
+    href: "/library/article-reviews",
     icon: "document",
     body: "Статті Огляди",
     bgColor:
@@ -90,7 +90,7 @@ export const librarySections = [
     isPrivate: true,
   },
   {
-    href: "/library/quiz",
+    href: "/library/quiz-and-vocabulary",
     icon: "clopboard",
     body: "Quiz & Лексика",
     bgColor:
@@ -100,7 +100,7 @@ export const librarySections = [
     isPrivate: true,
   },
   {
-    href: "/library/youtube",
+    href: "/library/youtube-japan",
     icon: "video",
     body: "Ютюб Японії",
     bgColor:
