@@ -1,42 +1,68 @@
 import mongoose, { Schema } from "mongoose";
 
+export interface ILibraryItemContent {
+  type: "paragraph" | "header" | "image";
+  value: string;
+  links?: [
+    {
+      location: string;
+      href: string;
+    }
+  ];
+}
+
 export interface ILibraryItem {
   label: string;
-  type: "topic" | "podcast/topic" | "music" | "reels";
-  size?: "small" | "medium" | "large";
+  type: "article" | "articleSmall" | "reels" | "music" | "podcast";
+  labelColor: string;
+  audioColor?: string;
   gallery?: {
-    _id?: string;
+    _id: string;
     value?: string;
     type: "image" | "video";
     image: string;
     video?: string;
   }[];
-  text?: string;
-  hashtags: string[];
+  content?: ILibraryItemContent[];
+  hashtags: { _id: string; value: string; color?: string }[];
 }
 
 export type ILibraryItemDocument = ILibraryItem & Document;
 
-const LibraryItemsSchema = new mongoose.Schema<ILibraryItemDocument>({
-  label: { type: String, required: true },
-  type: {
-    type: String,
-    enum: ["topic", "podcast/topic", "music", "reels"],
-    required: true,
-  },
-  size: { type: String, enum: ["small", "medium", "large"] },
-  gallery: [
+const ContentSchema = new Schema<ILibraryItemContent>({
+  type: { type: String, enum: ["text", "image", "link"], required: true },
+  value: { type: String, required: true },
+  links: [
     {
-      _id: { type: String },
-      value: { type: String },
-      type: { type: String, enum: ["image", "video"], required: true },
-      image: { type: String, required: true },
-      video: { type: String },
+      location: { type: String, required: true },
+      href: { type: String, required: true },
     },
   ],
-  text: { type: String },
-  hashtags: { type: [String], required: true },
 });
 
+const LibraryItemSchema = new Schema<ILibraryItemDocument>(
+  {
+    label: { type: String, required: true },
+    type: {
+      type: String,
+      enum: ["article", "articleSmall", "reels", "music", "podcast"],
+      required: true,
+    },
+    labelColor: { type: String, required: true },
+    audioColor: { type: String },
+    gallery: [
+      {
+        value: { type: String },
+        type: { type: String, enum: ["image", "video"], required: true },
+        image: { type: String, required: true },
+        video: { type: String },
+      },
+    ],
+    content: [ContentSchema],
+    hashtags: [{ value: { type: String, required: true }, color: String }],
+  },
+  { collection: "library-items" }
+);
+
 export default mongoose.models.LibraryItem ||
-  mongoose.model<ILibraryItemDocument>("LibraryItem", LibraryItemsSchema);
+  mongoose.model<ILibraryItemDocument>("LibraryItem", LibraryItemSchema);
