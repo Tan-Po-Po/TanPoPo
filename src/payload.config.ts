@@ -8,10 +8,20 @@ import { ShopProduct } from "./collections/ShopProduct";
 import { ShopPartner } from "./collections/ShopPartner";
 import { PromoCode } from "./collections/PromoCode";
 import { TeamMember } from "./collections/TeamMember";
+import { LibraryItem } from "./collections/LibraryItem";
+import { Partner } from "./collections/Partner";
 
-export default buildConfig({ 
+export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
-  collections: [Course, ShopProduct, ShopPartner, PromoCode, TeamMember],
+  collections: [
+    Course,
+    ShopProduct,
+    ShopPartner,
+    PromoCode,
+    TeamMember,
+    LibraryItem,
+    Partner
+  ],
   routes: {
     admin: "/cms",
   },

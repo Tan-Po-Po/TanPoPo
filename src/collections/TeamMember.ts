@@ -19,13 +19,13 @@ export const TeamMember: CollectionConfig = {
       fields: [
         {
           name: "value",
-          label: "Value",
+          label: "Текст",
           type: "text",
           required: true,
         },
         {
           name: "color",
-          label: "Color",
+          label: "Колір",
           type: "text",
           required: true,
         },
@@ -33,19 +33,19 @@ export const TeamMember: CollectionConfig = {
     },
     {
       name: "name",
-      label: "Name",
+      label: "Ім'я",
       type: "text",
       required: true,
     },
     {
       name: "image",
-      label: "Image",
+      label: "Зображення",
       type: "text",
       required: true,
     },
     {
-      name: "name",
-      label: "Name",
+      name: "certificates",
+      label: "Сертифікати",
       type: "group",
       fields: [
         {
@@ -56,72 +56,72 @@ export const TeamMember: CollectionConfig = {
         },
         {
           name: "description",
-          label: "Опис",
+          label: "Деталі сертифікатів",
           type: "array",
           fields: [
             {
               name: "label",
-              label: "Label",
+              label: "Назва сертифікату",
               type: "text",
               required: true,
             },
             {
               name: "image",
-              label: "Image",
+              label: "Зображення",
               type: "text",
               required: true,
             },
             {
               name: "caption",
-              label: "Caption",
+              label: "Опис сертифікату",
               type: "text",
               required: true,
             },
           ],
         },
+      ],
+    },
+    {
+      name: "education",
+      label: "Освіта",
+      type: "group",
+      fields: [
         {
-          name: "education",
-          label: "Освіта",
-          type: "group",
-          fields: [
-            {
-              name: "level",
-              label: "Level",
-              type: "text",
-              required: true,
-            },
-            {
-              name: "university",
-              label: "University",
-              type: "text",
-              required: true,
-            },
-            {
-              name: "trainings",
-              label: "Trainings",
-              type: "text",
-              required: true,
-            },
-          ],
+          name: "level",
+          label: "Рівень мови",
+          type: "text",
+          required: true,
         },
         {
-          name: "about",
-          label: "Про викладача",
-          type: "array",
-          fields: [
-            {
-              name: "text",
-              label: "Текст",
-              type: "text",
-              required: true,
-            },
-            {
-              name: "color",
-              label: "Фоновий колір",
-              type: "text",
-              required: true,
-            },
-          ],
+          name: "university",
+          label: "Університет",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "trainings",
+          label: "Тренінги",
+          type: "text",
+          required: true,
+        },
+      ],
+    },
+    {
+      name: "about",
+      label: "Про викладача",
+      type: "array",
+      fields: [
+        {
+          name: "text",
+          label: "Текст",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "color",
+          label: "Фоновий колір",
+          type: "text",
+          required: true,
         },
       ],
     },

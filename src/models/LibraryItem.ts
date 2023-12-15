@@ -1,14 +1,9 @@
 import mongoose, { Schema } from "mongoose";
 
 export interface ILibraryItemContent {
-  type: "paragraph" | "header" | "image";
+  type: "paragraph" | "header" | "image" | "text" | "link";
   value: string;
-  links?: [
-    {
-      location: string;
-      href: string;
-    }
-  ];
+  href?: string;
 }
 
 export interface ILibraryItem {
@@ -30,14 +25,9 @@ export interface ILibraryItem {
 export type ILibraryItemDocument = ILibraryItem & Document;
 
 const ContentSchema = new Schema<ILibraryItemContent>({
-  type: { type: String, enum: ["text", "image", "link"], required: true },
+  type: { type: String, enum: ["paragraph", "header", "image", "link", "text"], required: true },
   value: { type: String, required: true },
-  links: [
-    {
-      location: { type: String, required: true },
-      href: { type: String, required: true },
-    },
-  ],
+  href: String,
 });
 
 const LibraryItemSchema = new Schema<ILibraryItemDocument>(
