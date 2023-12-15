@@ -1,0 +1,80 @@
+.header {
+  margin-top: 80px;
+  display: flex;
+  .subHeader {
+    @include flex-column;
+    margin-left: 15px;
+  }
+}
+
+.card {
+  padding: 20px;
+  line-height: 25px;
+  background: linear-gradient(
+    91deg,
+    rgba(255, 156, 156, 0.75) 0%,
+    rgba(255, 239, 156, 0.75) 28.13%,
+    rgba(156, 219, 255, 0.75) 71.35%,
+    rgba(255, 156, 233, 0.75) 100%
+  );
+  b {
+    font-weight: 900;
+  }
+}
+.advantages {
+  margin-top: 75px;
+}
+
+.formats {
+  display: flex;
+  width: 100%;
+  gap: 120px;
+  justify-content: center;
+  margin: 120px 0px;
+
+  .formatWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .formatCard {
+    height: 250px;
+    width: 450px;
+
+    p {
+      white-space: pre;
+    }
+
+    &,
+    p,
+    img {
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+
+      img {
+        transform: scale(1.2);
+      }
+
+      p {
+        letter-spacing: 0.1rem;
+      }
+    }
+  }
+
+  .bottomCard {
+    p {
+      font-weight: 700;
+    }
+  }
+
+  .line {
+    height: 65px;
+    width: 3px;
+    background: $color-black;
+  }
+}
