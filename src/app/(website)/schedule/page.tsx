@@ -16,15 +16,14 @@ import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import { toast } from "react-toastify";
 import Image from "next/image";
 import cl from "./page.module.scss";
-import { useRouter } from "next/navigation";
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import { setCourse, selectCourse } from "@/redux/slices/course/courseSlice";
+import { useRouter, useSearchParams } from "next/navigation";
 import { type ISchedule } from "@/components/schedule/_schedule/type";
 import { useForm } from "react-hook-form";
 
 export default function Page() {
   const router = useRouter();
-  const dispatch = useAppDispatch();
+  const searchParams = useSearchParams();
+
   const formReturn = useForm<FormData>({
     defaultValues: {
       name: "",
@@ -57,15 +56,21 @@ export default function Page() {
   const [schedule, setSchedule] = React.useState<ISchedule>(scheduleArray);
   const [comment, setComment] = React.useState("");
   const [lessonsPerWeek, setLessonsPerWeek] = React.useState(0);
-  const course = useAppSelector((state) => selectCourse(state));
+  const educationFormat = searchParams.get("format") as
+    | "Міні-група"
+    | "Індивідуально"
+    | undefined;
 
   const submitForm = (formData: any) => {
-    if (course.format === "Міні-група" && counter < 12) {
+    if (
+      (educationFormat === "Міні-група" || !educationFormat) &&
+      counter < 12
+    ) {
       return toast(
         `Просимо Вас обрати хоча б 12 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑`
       );
     } else {
-      if (!lessonsPerWeek) {
+      if (!lessonsPerWeek && educationFormat === "Індивідуально") {
         return toast("Оберіть бажану к-сть занять на тиждень!☑");
       }
       if (counter < 10) {
@@ -76,8 +81,13 @@ export default function Page() {
     }
 
     const data = {
-      ...course,
-      courseName: course.name,
+      ...{
+        courseName: "",
+        lessons: "",
+        price: "",
+        format: educationFormat,
+        lessonsPerWeek,
+      },
       ...formData,
       comment,
       schedule,
@@ -126,7 +136,9 @@ export default function Page() {
 
         <NewStudentForm formReturn={formReturn} className={cl.form} />
 
-        {course.format === "Міні-група" ? (
+        {!educationFormat ? (
+          <></>
+        ) : educationFormat === "Міні-група" ? (
           <ContentCard width="650px" className={cl.lessonsCount}>
             <Typography variant="body1">К-сть занять:</Typography>
             <Typography variant="h4">2 уроки / тиждень</Typography>
@@ -167,7 +179,6 @@ export default function Page() {
               ]}
               handleSelect={(value) => {
                 setLessonsPerWeek(parseInt(value[0]));
-                dispatch(setCourse({ lessonsPerWeek: parseInt(value[0]) }));
               }}
               placeHolder="К-сть занять"
               className={cl.select}
@@ -180,7 +191,7 @@ export default function Page() {
         <Schedule
           setSchedule={setSchedule}
           setCounter={setCounter}
-          format={course.format}
+          format={educationFormat}
         />
 
         <div className={cl.comment}>
@@ -201,7 +212,7 @@ export default function Page() {
           />
         </div>
 
-        <AboutSchedule format={course.format} />
+        {!educationFormat ? null : <AboutSchedule format={educationFormat} />}
 
         <div className={cl.continue}>
           <div className={cl.line}></div>

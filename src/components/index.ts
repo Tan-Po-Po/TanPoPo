@@ -22,3 +22,4 @@ export { TeamMemberCard } from "./teamMemberCard/teamMemberCard";
 export { LibraryCard } from "./libraryCard/libraryCard";
 export { Loading } from "./loading/loading";
 export { RequisitesSmall } from "./requisitesSmall/requisitesSmall";
+export { NewStudentForm, Schedule, AboutSchedule } from "./schedule/schedule";

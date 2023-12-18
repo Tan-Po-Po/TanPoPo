@@ -73,7 +73,7 @@ const Schedule: React.FC<Properties> = ({ setCounter, setSchedule, format }) => 
         </div>
         <Typography variant="body2">
           Просимо Вас обрати хоча б <u>{
-          format === "Міні-група" ? 12 : 10
+          format === "Міні-група" || !format ? 12 : 10
         } часових проміжків </u>категорій: “
           <u>Може бути</u>” або “<u>Ідеально</u>”, щоб ми мали можливість швидше
           сформувати зручний для всіх графік занять!

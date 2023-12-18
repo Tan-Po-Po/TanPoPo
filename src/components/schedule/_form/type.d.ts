@@ -10,4 +10,5 @@ export type FormData = {
   contactPhone: string;
   contactEmail: string;
   contactRole: string;
+  lessonsPerWeek: number;
 }
