@@ -10,6 +10,7 @@ import {
   NewStudentForm,
   Schedule,
   AboutSchedule,
+  Loading,
 } from "@/components";
 import type { FormData } from "@/components/schedule/_form/type";
 import { getIconArtSrc, getValidClassNames } from "@/helpers";
@@ -51,6 +52,7 @@ export default function Page() {
   const scheduleArray: ISchedule = Array.from({ length: 7 }, () =>
     Array.from({ length: 5 }, () => "inappropriate")
   );
+  const [loading, setLoading] = React.useState(false);
   const [counter, setCounter] = React.useState(0);
   const [showErrors, setShowErrors] = React.useState(false);
   const [schedule, setSchedule] = React.useState<ISchedule>(scheduleArray);
@@ -95,6 +97,7 @@ export default function Page() {
     console.log(data);
     console.log(schedule);
 
+    setLoading(true);
     fetch("/api/education", {
       method: "POST",
       body: JSON.stringify(data),
@@ -104,11 +107,12 @@ export default function Page() {
       },
     }).then(async (res) => {
       if (!res.ok) {
+        setLoading(false);
         return toast(
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
         );
       }
-      // router.push("/education/payment");
+      // router.push("/?redirected=true");
     });
   };
 
@@ -123,6 +127,10 @@ export default function Page() {
       }
     }
   }, [showErrors, errors, setShowErrors]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <main className={cl.main}>

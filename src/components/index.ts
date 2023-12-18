@@ -9,6 +9,7 @@ export { ContactForm } from "./orderForm/contactForm";
 export { Dropdown } from "./dropdown/dropdown";
 export { Divider } from "./divider/divider";
 export { Dialog } from "./dialog/dialog";
+export { DialogGallery } from "./dialogGallery/dialogGallery";
 export { Faq } from "./faq/faq";
 export { Footer } from "./footer/footer";
 export { Select } from "./select/select";

@@ -2,18 +2,19 @@ import dbConnect from "@/config/dbConnect";
 import cl from "./page.module.scss";
 import { getIconArtSrc } from "@/helpers";
 import ShopItem, { IShopProduct } from "@/models/ShopProduct";
-import { ContentCard, Divider, Typography } from "@/components";
+import { ContentCard, Divider, Typography, DialogGallery } from "@/components";
 import mongoose from "mongoose";
 import Image from "next/image";
 import { textContent } from "./textContent";
 import ShopPartner, { IShopPartner } from "@/models/ShopPartner";
 import { socialLinks } from "@/config/config";
-import ShopPartnerCard from "./_components/shopPartnerCard/shopPartnerCard";
-import { ShopProductCardLarge } from "./_components/shopProductCardLarge/shopProductCardLarge";
-import { ShopProductCardMini } from "./_components/shopProductCardMini/shopProductCardMini";
-import { DialogGallery } from "@/components/dialogGallery/dialogGallery";
-import { CartButton } from "./_components/cartButton/cartButton";
-import { DialogCart } from "./_components/dialogCart/dialogCart";
+import {
+  ShopPartnerCard,
+  ShopProductCardLarge,
+  ShopProductCardMini,
+  DialogCart,
+  CartButton,
+} from "./_components/components";
 
 const items: IShopProduct[] = [
   {
@@ -517,7 +518,7 @@ export default async function Shop() {
       />
 
       <section className={cl.shopProductsBlock}>
-        <ShopProductCardLarge {...textContent.shopProductBlock.certificates} />
+        {/* <ShopProductCardLarge {...textContent.shopProductBlock.certificates} /> */}
         {shopItems.map((item) => (
           <ShopProductCardLarge key={item._id} {...item}></ShopProductCardLarge>
         ))}

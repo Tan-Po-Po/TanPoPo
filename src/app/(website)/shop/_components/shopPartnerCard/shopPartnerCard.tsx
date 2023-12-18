@@ -91,5 +91,3 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
     </ContentCard>
   );
 };
-
-export default ShopPartnerCard;

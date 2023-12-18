@@ -184,7 +184,11 @@ export default function Page() {
 
       {course?.isGift ? (
         <Link href="/education/checkout">
-          <ContentCard width="585px" className={cl.thanks}>
+          <ContentCard
+            width="585px"
+            className={cl.thanks}
+            onClick={() => setOpen(true)}
+          >
             <div>
               <Typography variant="h5">З моменту здійснення оплати</Typography>
               <Typography variant="body1">
@@ -211,7 +215,11 @@ export default function Page() {
           </ContentCard>
         </Link>
       ) : (
-        <ContentCard width="475px" className={cl.thanks}>
+        <ContentCard
+          width="475px"
+          className={cl.thanks}
+          onClick={() => setOpen(true)}
+        >
           <Typography variant="body1">
             Після оплати та успішного формування/погодження розкладу, Ви відразу
             розпочинаєте вивчення японської мови!
