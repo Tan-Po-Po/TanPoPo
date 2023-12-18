@@ -1,0 +1,107 @@
+.header {
+  margin-top: 70px;
+  text-transform: uppercase;
+  h6 {
+    font-size: 22px;
+  }
+}
+.start {
+  .startHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-top: 110px;
+    padding: 0;
+
+    h2 {
+      font-size: 38px;
+    }
+  }
+
+  .startCards {
+    display: flex;
+    align-items: center;
+    margin-top: 70px;
+
+    .triangleBtn {
+      width: 36px;
+      height: 37px;
+      margin: 0 40px;
+    }
+
+    .card {
+      width: 330px;
+      height: 360px;
+      h6 {
+        font-size: 22px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.senseiHeader {
+  display: flex;
+  margin-top: 115px;
+  text-transform: uppercase;
+  h1 {
+    font-size: 86px;
+    margin-right: 15px;
+  }
+  h2 {
+    margin-top: 7px;
+    font-size: 45px;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
+
+.courses {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin: 100px 0;
+}
+.course {
+  position: relative;
+  .label {
+    transform: none;
+    top: -15%;
+    left: auto;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .link {
+    text-transform: uppercase;
+    width: 100%;
+    p {
+      font-size: 19px;
+    }
+    p,
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .icon {
+    margin-top: 20px;
+  }
+
+  .arrow {
+    position: absolute;
+    right: -30%;
+    top: -25%;
+    transform: rotate(5deg);
+  }
+}

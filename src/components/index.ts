@@ -12,6 +12,8 @@ export { Dialog } from "./dialog/dialog";
 export { Faq } from "./faq/faq";
 export { Footer } from "./footer/footer";
 export { Select } from "./select/select";
+export { StartSelfEducation } from "./startSelfEducation/startSelfEducation";
+export { StartEducationSensei } from "./startEducationSensei/startEducationSensei";
 export { Header } from "./header/header";
 export { Input } from "./input/input";
 export { IconLink } from "./iconLink/iconLink";
