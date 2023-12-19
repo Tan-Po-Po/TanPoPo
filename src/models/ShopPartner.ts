@@ -49,7 +49,7 @@ const ShopPartnerSchema = new mongoose.Schema(
     },
     hashtags: { type: [String], required: true },
   },
-  { collection: "shop partners" }
+  { collection: "shop-partners" }
 );
 
 export default mongoose.models.ShopPartner ||

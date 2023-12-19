@@ -16,5 +16,11 @@ module.exports = {
   },
   images: {
     domains: ["theartssociety.org", "wallpapers.com", "i.pinimg.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
 };

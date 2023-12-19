@@ -46,7 +46,6 @@ const ShopProductSchema = new mongoose.Schema<IShopProduct>(
       },
       image: { type: String },
       caption: { type: String },
-      
     },
     large: {
       available: { type: Boolean, required: true },
@@ -75,7 +74,7 @@ const ShopProductSchema = new mongoose.Schema<IShopProduct>(
       ],
     },
   },
-  { collection: "shop items" }
+  { collection: "shop-products" }
 );
 
 export default mongoose.models.ShopProduct ||

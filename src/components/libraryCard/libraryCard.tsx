@@ -6,10 +6,7 @@ import { Typography } from "../typography/typography";
 import { getIconSrc } from "@/helpers";
 import Link from "next/link";
 import Image from "next/image";
-
 import cl from "./libraryCard.module.scss";
-import { useRouter } from "next/navigation";
-import { setCookieForPrivateLibraryItem } from "@/helpers/actions/setCookieForPrivateLibraryItem";
 
 type Properties = {
   icon: string;
@@ -30,15 +27,10 @@ const LibraryCard: React.FC<Properties> = ({
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
-  const handleClick = async () => {
-    await setCookieForPrivateLibraryItem(isPrivate);
-  };
-
   return (
     <Link
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={handleClick}
       className={cl.link}
       href={href}
     >

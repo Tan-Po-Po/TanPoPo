@@ -15,6 +15,7 @@ import { ICourse } from "@/models/Course";
 import PlayBtn from "../../../public/icons/playButton.svg";
 import TriangleBtn from "../../../public/icons/playButtonTest.svg";
 import { CarouselItem } from "../carousel/carouselItem/carouselItem";
+import { AudioButton } from "../audioButton/audioButton";
 
 type Properties = {
   course: ICourse;
@@ -87,22 +88,27 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       )}
 
       {course.type === "audio" && (
-        <ContentCard className={cl.podcast} cardBgColor={courseInfo.labelColor}>
-          <Link href={course.href || ""} className={cl.link}>
-            <TriangleBtn
-              className={cl.triangleBtn}
-              src="/icons/triangleButton.svg"
-              alt="Play button"
-            />
-          </Link>
-          <Image
-            className={cl.audioImg}
-            src="/icons/audioLong.svg"
-            alt="Audio"
-            width={430}
-            height={40}
-          />
-        </ContentCard>
+        // <ContentCard className={cl.podcast} cardBgColor={courseInfo.labelColor}>
+        //   <Link href={course.href || ""} className={cl.link}>
+        //     <TriangleBtn
+        //       className={cl.triangleBtn}
+        //       src="/icons/triangleButton.svg"
+        //       alt="Play button"
+        //     />
+        //   </Link>
+        //   <Image
+        //     className={cl.audioImg}
+        //     src="/icons/audioLong.svg"
+        //     alt="Audio"
+        //     width={430}
+        //     height={40}
+        //   />
+        // </ContentCard>
+        <AudioButton
+          isPodcast={true}
+          color={courseInfo.labelColor}
+          href={course.href || ""}
+        />
       )}
 
       {course.type === "book" && (
@@ -124,26 +130,6 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
               />
             </CarouselItem>
           ))}
-          {/* <CarouselItem isOutlined={false}>
-            <Image
-              className={cl.image}
-              src={`/courses/tales1.png`}
-              alt="Book course image"
-              width={215}
-              height={215}
-              style={{ width: "215px", height: "215px" }}
-            />
-          </CarouselItem>
-          <CarouselItem isOutlined={false}>
-            <Image
-              className={cl.image}
-              src={`/courses/tales2.png`}
-              alt="Audio"
-              width={215}
-              height={215}
-              style={{ width: "215px", height: "215px" }}
-            />
-          </CarouselItem> */}
         </Carousel>
       )}
 
@@ -177,6 +163,9 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
             value: `${price.lessons} ${idx === 0 ? "уроки" : "уроків"} (${
               price.price
             })`,
+            labelWhenSelected: `${price.lessons} ${
+              idx === 0 ? "уроки" : "уроків"
+            } (${price.price})`,
           };
         })}
         handleSelect={(value: string) => setLessons(value)}

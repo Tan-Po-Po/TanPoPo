@@ -1,58 +1,62 @@
 import mongoose, { Schema } from "mongoose";
 
 export interface ILibraryItemContent {
-  type: "paragraph" | "header" | "image";
-  value: string;
-  links?: [
-    {
-      location: string;
-      href: string;
-    }
-  ];
+  id?: string;
+  _id?: string;
+  type: "paragraph" | "header" | "image" | "text" | "link" | "audio";
+  value?: string;
+  href?: string;
 }
 
 export interface ILibraryItem {
+  _id?: string;
   label: string;
+  section: string;
   type: "article" | "articleSmall" | "reels" | "music" | "podcast";
   labelColor: string;
-  audioColor?: string;
+  hashtags: { _id?: string; id?: string; value: string; color?: string }[];
+  // audio?: {
+  //   color?: string;
+  //   href: string;
+  // };
   gallery?: {
-    _id: string;
-    value?: string;
+    id?: string;
+    _id?: string;
     type: "image" | "video";
     image: string;
     video?: string;
   }[];
   content?: ILibraryItemContent[];
-  hashtags: { _id: string; value: string; color?: string }[];
 }
 
 export type ILibraryItemDocument = ILibraryItem & Document;
 
 const ContentSchema = new Schema<ILibraryItemContent>({
-  type: { type: String, enum: ["text", "image", "link"], required: true },
-  value: { type: String, required: true },
-  links: [
-    {
-      location: { type: String, required: true },
-      href: { type: String, required: true },
-    },
-  ],
+  type: {
+    type: String,
+    enum: ["text", "image", "link", "header", "paragraph"],
+    required: true,
+  },
+  value: String,
+  href: String,
 });
 
 const LibraryItemSchema = new Schema<ILibraryItemDocument>(
   {
     label: { type: String, required: true },
+    section: { type: String, required: true },
     type: {
       type: String,
       enum: ["article", "articleSmall", "reels", "music", "podcast"],
       required: true,
     },
     labelColor: { type: String, required: true },
-    audioColor: { type: String },
+    // audio: {
+    //   color: String,
+    //   href: { type: String, required: true },
+    // },
     gallery: [
       {
-        value: { type: String },
         type: { type: String, enum: ["image", "video"], required: true },
         image: { type: String, required: true },
         video: { type: String },
