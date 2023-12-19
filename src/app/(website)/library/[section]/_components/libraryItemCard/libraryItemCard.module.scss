@@ -1,0 +1,207 @@
+$transition: all ease 0.2s;
+$padding-card: 55px 30px 18px 30px;
+
+.article,
+.articleSmall,
+.reels,
+.music,
+.podcast {
+  cursor: pointer;
+  padding: $padding-card;
+  position: relative;
+}
+
+.article,
+.podcast {
+  height: 566px;
+  width: 626px;
+}
+
+.articleSmall {
+  width: 384px;
+}
+
+.articleSmall,
+.reels {
+  height: 603px;
+}
+
+.article,
+.articleSmall {
+  .carousel {
+    .carouselItem {
+      width: 215px;
+      height: 215px;
+      background-color: white;
+      object-position: top;
+
+      img {
+        border-radius: 7px;
+      }
+
+      &:hover {
+        img {
+          transform: unset;
+        }
+      }
+    }
+
+    :global(.slick-slide) {
+      > div {
+        overflow: display;
+        margin: 20px 35px;
+      }
+    }
+    :global(.slick-prev) {
+      left: 2%;
+    }
+
+    :global(.slick-next) {
+      right: -7%;
+    }
+  }
+
+  .text {
+    @include flex-column;
+    gap: 1rem;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    text-align: start;
+    text-indent: 1rem;
+
+    :global(.MuiTypography-root) {
+      line-height: normal;
+    }
+
+    p {
+      text-align: center;
+      text-indent: 0;
+    }
+
+    .gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0), white);
+    }
+
+    .buttonOuterWrapper {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, -20%);
+
+      .buttonWrapper {
+        transition: $transition;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 244, 186, 0.75) 0%,
+          rgba(255, 197, 197, 0.75) 100%
+        );
+
+        button {
+          padding: 6px 13px;
+          white-space: nowrap;
+          transform-origin: center;
+
+          &:hover {
+            background: linear-gradient(
+              180deg,
+              rgba(255, 244, 186, 0.75) 0%,
+              rgba(255, 197, 197, 0.75) 100%
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  @include flex-row;
+  width: 100%;
+  justify-content: space-between;
+
+  .hashtags {
+    @include flex-row;
+    gap: 12px;
+
+    .hashtag {
+      padding: 2px 4px;
+    }
+  }
+
+  .copyIcon {
+    &:hover {
+      transform: scale(115%);
+      transition: $transition;
+
+      path:nth-child(3) {
+        fill: $color-yellow;
+      }
+    }
+  }
+}
+
+.imageContainer {
+  position: relative;
+  padding: 0;
+
+  img {
+    border-radius: 7px;
+  }
+}
+
+.video {
+  transition: $transition;
+  svg {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transition: $transition;
+  }
+
+  &:hover {
+    transform: scale(105%);
+    svg {
+      transform: scale(110%);
+      fill: $color-yellow;
+    }
+  }
+}
+
+.podcast {
+  padding: $padding-card;
+
+  gap: 0;
+  justify-content: space-between;
+
+  .content {
+    text-indent: 1rem;
+    span {
+      text-align: start;
+      display: block;
+    }
+    > * {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.reels {
+  .imageContainer {
+    width: 272px;
+    height: 470px;
+  }
+}
+
+.contentImagePodcast {
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin-right: 28px;
+  margin-bottom: 24px;
+}

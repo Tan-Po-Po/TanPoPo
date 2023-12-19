@@ -21,7 +21,7 @@ const PromoCodeSchema = new mongoose.Schema<IPromoCodeDocument>(
     oneTimeUse: { type: Boolean, required: true },
     location: { type: String, required: true, default: "shop" },
   },
-  { collection: "promo codes" }
+  { collection: "promo-codes" }
 );
 
 export default mongoose.models.PromoCode ||

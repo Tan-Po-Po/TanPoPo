@@ -20,8 +20,8 @@
 
     &:hover {
       svg {
-        transform: scale(120%);
         fill: $color-yellow;
+        transform: scale(120%) rotate(90deg);
       }
     }
   }
