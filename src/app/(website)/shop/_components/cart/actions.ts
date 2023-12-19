@@ -7,7 +7,7 @@ import PromoCode, { IPromoCode, IPromoCodeDocument } from "@/models/PromoCode";
 export const getPromoCode = async (
   code: string
 ): Promise<IPromoCode | null> => {
-  await dbConnect;
+  await dbConnect();
 
   const codeDB = (await PromoCode.findOne({
     code: code,

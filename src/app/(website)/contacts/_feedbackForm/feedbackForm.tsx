@@ -3,9 +3,7 @@ import { Button, Checkbox, Input, Typography } from "@/components";
 import cl from "./feedBackForm.module.scss";
 import Link from "next/link";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
 import { toast } from "react-toastify";
-import { sendFeedback } from "./action";
 import { useEffect, useState } from "react";
 
 export type IFeedbackFormInput = {
@@ -13,7 +11,7 @@ export type IFeedbackFormInput = {
   phone: string;
   email: string;
   question: string;
-  checkbox: boolean | undefined;
+  checkbox: boolean;
 };
 
 export const FeedbackForm: React.FC = () => {
@@ -29,7 +27,7 @@ export const FeedbackForm: React.FC = () => {
       phone: "",
       email: "",
       question: "",
-      checkbox: undefined,
+      checkbox: false,
     },
     reValidateMode: "onSubmit",
   });
@@ -37,15 +35,14 @@ export const FeedbackForm: React.FC = () => {
   const [showErrors, setShowErrors] = useState(true);
 
   useEffect(() => {
-    if (showErrors) {
-      if (errors) {
-        for (const error of Object.values(errors)) {
-          if (error.message) {
-            toast(error.message);
-            break;
-          }
+    if (showErrors && errors) {
+      for (const error of Object.values(errors)) {
+        if (error.message) {
+          toast(error.message);
+          break;
         }
       }
+
       setShowErrors(false);
     }
   }, [errors, showErrors]);
@@ -56,9 +53,20 @@ export const FeedbackForm: React.FC = () => {
   };
 
   const onSubmit: SubmitHandler<IFeedbackFormInput> = async (data) => {
-    await sendFeedback(data);
-    reset();
-    toast("Питання успішно відправлено.");
+    fetch("/api/question", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }).then(async (res) => {
+      if (!res.ok) {
+        return toast("Сталася помилка, спробуйте ще раз пізніше");
+      }
+      reset();
+      toast("Питання успішно відправлено.");
+    });
   };
 
   return (
@@ -70,6 +78,10 @@ export const FeedbackForm: React.FC = () => {
             control={control}
             rules={{
               required: "Будь ласка, вкажіть Ім'я",
+              minLength: {
+                value: 3,
+                message: "Будь-ласка, вкажіть коректне ім'я",
+              },
               validate: {
                 notEmpty: (val) => !!val.trim() || "Будь ласка, вкажіть Ім'я",
               },
@@ -81,7 +93,15 @@ export const FeedbackForm: React.FC = () => {
             name="phone"
             control={control}
             rules={{
-              required: "Будь ласка, вкажіть Телефон",
+              required: "Будь ласка, вкажіть номер телефону",
+              minLength: {
+                value: 10,
+                message: "Телефон має бути мінімум 10 символів завдовшки",
+              },
+              pattern: {
+                value: /^\+?(\d{12}|\d{10})$/,
+                message: "Введіть номер телефону у форматі +380 або 0..",
+              },
             }}
             render={({ field }) => (
               <Input type="phone" label="Телефон" {...field} />
@@ -93,9 +113,17 @@ export const FeedbackForm: React.FC = () => {
             control={control}
             rules={{
               required: "Будь ласка, вкажіть Email",
+              minLength: {
+                value: 5,
+                message: "Email має бути мінімум 5 символів завдовшки",
+              },
+              pattern: {
+                value: /^[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/,
+                message: "Введіть коректний email",
+              },
             }}
             render={({ field }) => (
-              <Input type="email" label="Email" {...field} />
+              <Input label="Email" {...field} />
             )}
           />
         </div>
@@ -105,6 +133,10 @@ export const FeedbackForm: React.FC = () => {
             control={control}
             rules={{
               required: "Будь ласка, напишіть Питання",
+              minLength: {
+                value: 5,
+                message: "Будь ласка, опишіть Питання коректно",
+              },
             }}
             render={({ field }) => (
               <Input

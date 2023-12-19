@@ -27,7 +27,7 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           control={control}
           rules={{
             required: "Будь-ласка, вкажіть Ім'я",
-            min: {
+            minLength: {
               value: 3,
               message: "Будь-ласка, вкажіть коректне ім'я",
             },
