@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
-export interface IQuestion {
+export interface IQuestionId {
   _id: string;
   value: string;
   count: number;
 }
 
-const QuestionSchema = new mongoose.Schema<IQuestion>(
+const QuestionSchema = new mongoose.Schema<IQuestionId>(
   {
     value: { type: String, required: true },
     count: { type: Number, required: true },
@@ -14,5 +14,5 @@ const QuestionSchema = new mongoose.Schema<IQuestion>(
   { collection: "question-id" }
 );
 
-export default mongoose.models.Question ||
-  mongoose.model("Question", QuestionSchema);
+export default mongoose.models.QuestionId ||
+  mongoose.model("QuestionId", QuestionSchema);

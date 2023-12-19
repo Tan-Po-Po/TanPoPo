@@ -1,4 +1,10 @@
-import { CourseCardMini, Faq, Divider, Typography } from "@/components";
+import {
+  CourseCardMini,
+  Faq,
+  Divider,
+  Typography,
+  FaqBlock,
+} from "@/components";
 import { LibraryCard } from "@/components/libraryCard/libraryCard";
 import Image from "next/image";
 import cl from "./page.module.scss";
@@ -7,6 +13,7 @@ import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
 
 import CourseList from "@/components/courseList/courseList";
+import { Suspense } from "react";
 
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
@@ -144,30 +151,23 @@ export default async function Courses() {
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
       />
       <section className={cl.questions}>
-        <Faq
-          question="Чи входять у вартість курсу додаткові матеріали або книги?"
-          answer="Вартість стандартного курсу включає всі необхідні навчальні матеріали. Додаткові книги або матеріали можна придбати за окрему плату."
-        />
-        <Faq
-          question="Ваші курси мають вікові обмеження?"
-          answer="Наші курси створені та розроблені для УСІХ, хто бажає вивчати цю чудову мову!"
-        />
-        <Faq
-          question="Чи проводяться екзамени після завершення курсу?"
-          answer="Так, після кожного курсу проводиться завершальний екзамен для оцінки ваших знань."
-        />
-        <Faq
-          question="Чи отримую я сертифікат після завершення курсу?"
-          answer="Так, всі наші учні отримують сертифікат після успішного завершення курсу."
-        />
-        <Faq
-          question="Чи є у вас курси із зануренням у культуру Японії?"
-          answer="Так, деякі з наших курсів акцентують увагу на культурі, звичаях та історії Японії."
-        />
-        <Faq
-          question="Який розклад занять для курсів?"
-          answer="Розклад може варіюватися, але зазвичай ми пропонуємо заняття двічі на тиждень по 70 хвилин."
-        />
+        <Suspense
+          fallback={
+            // Замінити на скелетони
+            <>
+              <Faq
+                question="Loading"
+                answer="Loading"
+                style={{ width: "900px", maxWidth: "100%" }}
+              />
+              <Faq question="Loading" answer="Loading" />
+              <Faq question="Loading" answer="Loading" />
+              <Faq question="Loading" answer="Loading" />
+            </>
+          }
+        >
+          <FaqBlock location="courses" />
+        </Suspense>
       </section>
     </main>
   );

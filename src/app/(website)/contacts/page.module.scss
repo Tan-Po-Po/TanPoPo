@@ -64,6 +64,7 @@
   }
   .faqBlock {
     @include flex-column;
+    width: 100%;
     gap: 45px;
   }
 }

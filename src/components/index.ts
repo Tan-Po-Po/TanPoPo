@@ -11,6 +11,7 @@ export { Divider } from "./divider/divider";
 export { Dialog } from "./dialog/dialog";
 export { DialogGallery } from "./dialogGallery/dialogGallery";
 export { Faq } from "./faq/faq";
+export { FaqBlock } from "./faq/faqBlock";
 export { Footer } from "./footer/footer";
 export { Select } from "./select/select";
 export { StartSelfEducation } from "./startSelfEducation/startSelfEducation";
