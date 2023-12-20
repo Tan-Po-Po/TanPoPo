@@ -39,7 +39,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
   return (
     <div className={cl.teamMemberCard}>
       <div className={cl.left}>
-        <div className={cl.label} style={{ backgroundColor: label.color }}>
+        <div className={cl.label} style={{ background: label.color }}>
           {label.value.toUpperCase()}
         </div>
         <ContentCard
@@ -102,6 +102,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
               className={cl.dialog}
               open={isDialogOpen}
               onClose={handleDialogClose}
+              contentClassName={cl.dialogContent}
               title={
                 (
                   <>
@@ -134,6 +135,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
                   labelPosition="top"
                   labelBgColor="linear-gradient(180deg, #FFF 0%, #FFFBD9 100%)"
                   cardBgColor="linear-gradient(180deg, #FFFAF9 0%, #FFFBD8 100%)"
+                  labelClassName={cl.certificateLabel}
                 >
                   <ContentCard
                     style={{

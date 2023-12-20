@@ -19,7 +19,7 @@ const PromoCodeSchema = new mongoose.Schema<IPromoCodeDocument>(
     perCent: { type: Number, required: true },
     oneTimeUse: { type: Boolean, required: true },
   },
-  { collection: "promo codes" }
+  { collection: "promo-codes" }
 );
 
 export default mongoose.models.PromoCode ||

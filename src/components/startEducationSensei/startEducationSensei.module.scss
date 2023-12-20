@@ -1,0 +1,81 @@
+.start {
+  .startHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-top: 110px;
+    padding: 0;
+
+    h2 {
+      font-size: 38px;
+    }
+  }
+
+  .startCards {
+    display: flex;
+    align-items: center;
+
+    .triangleBtn {
+      width: 36px;
+      height: 37px;
+      margin: 0 40px;
+    }
+
+    .card {
+      margin-top: 85px;
+      width: 330px;
+      height: 360px;
+      h6 {
+        font-size: 22px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.senseiHeader {
+  margin-top: 115px;
+  h3 {
+    font-size: 35px;
+  }
+  h5 {
+    font-size: 27px;
+  }
+}
+
+.sensei {
+  margin: 100px 0;
+  position: relative;
+  .label {
+    transform: none;
+    top: -15%;
+    left: auto;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .link {
+    text-transform: uppercase;
+    width: 100%;
+    p,
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .icon {
+    margin-top: 20px;
+  }
+
+  .arrow {
+    position: absolute;
+    right: -30%;
+    top: -25%;
+    transform: rotate(5deg);
+  }
+}

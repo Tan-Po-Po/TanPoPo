@@ -1,19 +1,18 @@
-import { ContentCard, Divider, Faq } from "@/components";
+import { ContentCard, Divider, Faq, Typography, FaqBlock } from "@/components";
 import cl from "./page.module.scss";
-import styles from "./page.module.scss";
 import { textContent } from "./textContent";
-import { Typography } from "@mui/material";
-import Image from "next/image";
-import { getSocialIconsLinks } from "@/helpers";
-import Link from "next/link";
-import PlayButtonIcon from "/public/icons/playButton.svg";
 import { FeedbackForm } from "./_feedbackForm/feedbackForm";
+import { getSocialIconsLinks } from "@/helpers";
+import PlayButtonIcon from "/public/icons/playButton.svg";
+import Image from "next/image";
+import Link from "next/link";
+import { Suspense } from "react";
 
 const dividerBgColor = "linear-gradient(180deg, #FFF, #FAD26C 100%)";
 
-export default async function Contacts() {
+export default function Contacts() {
   return (
-    <main className={styles.main}>
+    <main className={cl.main}>
       <div className={cl.contactsBlock}>
         <Typography variant="h3">{textContent.contactsBlock.header}</Typography>
         <Image
@@ -139,9 +138,23 @@ export default async function Contacts() {
       />
 
       <div className={cl.faqBlock}>
-        {textContent.faqBlock.questions.map((question, i) => (
-          <Faq question={question.question} answer={question.answer} key={i} />
-        ))}
+        <Suspense
+          fallback={
+            // Замінити на скелетони
+            <div className={cl.faqBlock}>
+              <Faq
+                question="Loading"
+                answer="Loading"
+                style={{ width: "900px", maxWidth: "100%" }}
+              />
+              <Faq question="Loading" answer="Loading" />
+              <Faq question="Loading" answer="Loading" />
+              <Faq question="Loading" answer="Loading" />
+            </div>
+          }
+        >
+          <FaqBlock location="contacts" />
+        </Suspense>
       </div>
 
       <Divider firstRow="ЗВОРОТНІЙ ЗВ’ЯЗОК" bgColor={dividerBgColor} />

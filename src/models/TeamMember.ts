@@ -56,7 +56,7 @@ const TeamMemberSchema = new mongoose.Schema<ITeamMember>(
       },
     ],
   },
-  { collection: "team members" }
+  { collection: "team-members" }
 );
 
 export default mongoose.models.TeamMember ||
