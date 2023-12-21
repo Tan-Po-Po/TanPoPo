@@ -1,0 +1,11 @@
+.important {
+  margin-bottom: 90px;
+  .list {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

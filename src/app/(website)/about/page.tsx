@@ -30,7 +30,6 @@ async function getTeamMembers() {
 
 export default async function About() {
   const teamMembers = await getTeamMembers();
-
   const partners = await getPartnerImagesSrc();
 
   return (
@@ -232,7 +231,7 @@ export default async function About() {
           </Typography>
         </ContentCard>
       </div>
-      <TeamBlock teamMembers={teamMembers} />
+      {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
       <div className={cl.infoCardsBlock}>
         {textContent.infoCards.map((card, i) => (
           <ContentCard key={i} width={"376px"} className={cl.infoCard}>

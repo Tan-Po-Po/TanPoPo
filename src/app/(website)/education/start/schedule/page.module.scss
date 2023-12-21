@@ -8,6 +8,10 @@
   }
 }
 
+.formWrapper {
+  @include flex-column;
+}
+
 .form {
   margin-top: 50px;
 }
@@ -15,7 +19,7 @@
 .lessonsCount {
   margin-top: 100px;
 
-  >img {
+  > img {
     margin: 25px 0;
   }
 }
@@ -37,19 +41,8 @@
 
   .commentTextarea {
     margin-top: 30px;
+    margin-bottom: 100px;
     height: 300px;
-  }
-}
-
-.important {
-  margin: 90px 0px;
-  .list {
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 18px;
-    font-weight: 500;
   }
 }
 

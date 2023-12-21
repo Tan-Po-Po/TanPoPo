@@ -16,7 +16,7 @@ import {
   Loading,
   Typography,
 } from "@/components";
-import { Cart } from "../_components/cart/cart";
+import { Cart } from "../_components/components";
 import { Controller, useForm } from "react-hook-form";
 import { FormData } from "@/components/orderForm/formData";
 import Link from "next/link";

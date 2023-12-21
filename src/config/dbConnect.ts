@@ -42,13 +42,4 @@ async function dbConnect() {
   return cached.conn;
 }
 
-// const dbConnect = async () => {
-//   try {
-//     await mongoose.connect(MONGODB_URI);
-//     console.log("dbConnected");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
 export default dbConnect;

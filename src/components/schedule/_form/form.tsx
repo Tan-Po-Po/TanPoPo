@@ -1,56 +1,24 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { Checkbox, Input, ContentCard, Typography } from "@/components";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, UseFormReturn } from "react-hook-form";
 import { toast } from "react-toastify";
 import ArrowIcon from "public/icons/arrowDown.svg";
 import { FormData } from "./type";
 import cl from "./form.module.scss";
 
 type Properties = {
-  onSubmit: (data: any) => void;
-  className?: string;
-  id?: string;
+  formReturn: UseFormReturn<FormData>;
+  className: string;
 };
 
-const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
-  const {
-    control,
-    formState: { errors },
-    handleSubmit,
-    getValues,
-    watch,
-  } = useForm<FormData>({
-    defaultValues: {
-      name: "",
-      surname: "",
-      phone: "",
-      email: "",
-      age: "",
-      contact: false,
-      contactName: "",
-      contactSurname: "",
-      contactPhone: "",
-      contactEmail: "",
-      contactRole: "",
-    },
-    reValidateMode: "onSubmit",
-  });
-
+const Form: React.FC<Properties> = ({ formReturn, className }) => {
+  const { control, setValue, getValues, watch } = formReturn;
   const isContactChecked = watch("contact");
-
-  if (errors) {
-    for (const error of Object.values(errors)) {
-      if (error.message) {
-        toast(error.message);
-        break;
-      }
-    }
-  }
 
   return (
     <ContentCard width="820px" className={className}>
       <Typography variant="h6">Контактні дані майбутнього учня:</Typography>
-      <form id={id} onSubmit={handleSubmit(onSubmit)}>
         <div className={cl.container}>
           <Controller
             name="name"
@@ -176,7 +144,7 @@ const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
                 rules={
                   getValues("contact")
                     ? {
-                        required: "Будь-ласка, вкажіть Ім'я",
+                        required: "Будь-ласка, вкажіть\nІм'я контактної особи",
                         min: {
                           value: 3,
                           message: "Будь-ласка, вкажіть коректне ім'я",
@@ -193,7 +161,7 @@ const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
                 rules={
                   getValues("contact")
                     ? {
-                        required: "Будь ласка, вкажіть Прізвище",
+                        required: "Будь-ласка, вкажіть\nПрізвище контактної особи",
                         minLength: {
                           value: 3,
                           message: "Будь-ласка, вкажіть коректне прізвище",
@@ -210,7 +178,7 @@ const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
                 rules={
                   getValues("contact")
                     ? {
-                        required: "Будь ласка, вкажіть номер телефону",
+                        required: "Будь ласка, вкажіть номер\nтелефону контактної особи",
                         minLength: {
                           value: 10,
                           message:
@@ -233,7 +201,7 @@ const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
                 rules={
                   getValues("contact")
                     ? {
-                        required: "Будь ласка, вкажіть Email",
+                        required: "Будь ласка, вкажіть\nEmail контактної особи",
                         minLength: {
                           value: 5,
                           message:
@@ -274,7 +242,6 @@ const Form: React.FC<Properties> = ({ onSubmit, className, id }) => {
             />
           </>
         )}
-      </form>
     </ContentCard>
   );
 };

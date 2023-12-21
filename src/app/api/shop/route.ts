@@ -32,98 +32,117 @@ export async function POST(req: Request) {
   const productImages = parseImages(formData.items);
 
   try {
-    await transporter.sendMail({
-      ...mailOptions,
-      subject: `Ваше замовлення: ${orderId}`,
-      html: htmlContent,
-      attachments: [
-        ...productImages,
-        {
-          filename: "store.png",
-          path: path.join(process.cwd(), "public", "icons", "art", "store.png"),
-          cid: "store",
-        },
-        {
-          filename: "girl.png",
-          path: path.join(process.cwd(), "public", "icons", "art", "girl.png"),
-          cid: "girl",
-        },
-        {
-          filename: "arrowLong.png",
-          path: path.join(process.cwd(), "public", "icons", "arrowLong.png"),
-          cid: "arrow",
-        },
-        {
-          filename: "instagram.png",
-          path: path.join(
-            process.cwd(),
-            "public",
-            "icons",
-            "socials",
-            "instagram.png"
-          ),
-          cid: "instagram",
-        },
-        {
-          filename: "tikTok.png",
-          path: path.join(
-            process.cwd(),
-            "public",
-            "icons",
-            "socials",
-            "tikTok.png"
-          ),
-          cid: "tikTok",
-        },
-        {
-          filename: "youTube.png",
-          path: path.join(
-            process.cwd(),
-            "public",
-            "icons",
-            "socials",
-            "youTube.png"
-          ),
-          cid: "youtube",
-        },
-        {
-          filename: "telegram.png",
-          path: path.join(
-            process.cwd(),
-            "public",
-            "icons",
-            "socials",
-            "telegram.png"
-          ),
-          cid: "telegram",
-        },
-        {
-          filename: "viber.png",
-          path: path.join(
-            process.cwd(),
-            "public",
-            "icons",
-            "socials",
-            "viber.png"
-          ),
-          cid: "viber",
-        },
-      ],
-    });
-
-    await transporter.sendMail({
-      ...mailOptions,
-      subject: `Нове замовлення у крамниці! (№ Замовлення: ${orderId})`,
-      html: htmlContentOwner,
-      attachments: [
-        ...productImages,
-        {
-          filename: "store.png",
-          path: path.join(process.cwd(), "public", "icons", "art", "store.png"),
-          cid: "store",
-        },
-      ],
-    });
+    await Promise.all([
+      transporter.sendMail({
+        ...mailOptions,
+        subject: `Ваше замовлення: ${orderId}`,
+        html: htmlContent,
+        attachments: [
+          ...productImages,
+          {
+            filename: "store.png",
+            path: path.join(
+              process.cwd(),
+              "public",
+              "icons",
+              "art",
+              "store.png"
+            ),
+            cid: "store",
+          },
+          {
+            filename: "girl.png",
+            path: path.join(
+              process.cwd(),
+              "public",
+              "icons",
+              "art",
+              "girl.png"
+            ),
+            cid: "girl",
+          },
+          {
+            filename: "arrowLong.png",
+            path: path.join(process.cwd(), "public", "icons", "arrowLong.png"),
+            cid: "arrow",
+          },
+          {
+            filename: "instagram.png",
+            path: path.join(
+              process.cwd(),
+              "public",
+              "icons",
+              "socials",
+              "instagram.png"
+            ),
+            cid: "instagram",
+          },
+          {
+            filename: "tikTok.png",
+            path: path.join(
+              process.cwd(),
+              "public",
+              "icons",
+              "socials",
+              "tikTok.png"
+            ),
+            cid: "tikTok",
+          },
+          {
+            filename: "youTube.png",
+            path: path.join(
+              process.cwd(),
+              "public",
+              "icons",
+              "socials",
+              "youTube.png"
+            ),
+            cid: "youtube",
+          },
+          {
+            filename: "telegram.png",
+            path: path.join(
+              process.cwd(),
+              "public",
+              "icons",
+              "socials",
+              "telegram.png"
+            ),
+            cid: "telegram",
+          },
+          {
+            filename: "viber.png",
+            path: path.join(
+              process.cwd(),
+              "public",
+              "icons",
+              "socials",
+              "viber.png"
+            ),
+            cid: "viber",
+          },
+        ],
+      }),
+      transporter.sendMail({
+        ...mailOptions,
+        subject: `Нове замовлення у крамниці! (№ Замовлення: ${orderId})`,
+        html: htmlContentOwner,
+        attachments: [
+          ...productImages,
+          {
+            filename: "store.png",
+            path: path.join(
+              process.cwd(),
+              "public",
+              "icons",
+              "art",
+              "store.png"
+            ),
+            cid: "store",
+          },
+        ],
+      }),
+    ]);
 
     return NextResponse.json({ success: true, orderId });
   } catch (err: any) {
