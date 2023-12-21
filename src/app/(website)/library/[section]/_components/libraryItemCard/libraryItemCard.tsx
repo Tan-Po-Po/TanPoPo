@@ -28,5 +28,5 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
     card = <MusicCard {...props} />;
   }
 
-  return <div>{card}</div>;
+  return <div onClick={handelClick}>{card}</div>;
 };
