@@ -6,16 +6,30 @@ import { Props } from "./props";
 import { PodcastCard } from "./cards/podcastCard";
 import { ReelsCard } from "./cards/reelsCard";
 import { MusicCard } from "./cards/musicCard";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export const LibraryItemCard: React.FC<Props> = (props) => {
   let card: React.ReactNode;
 
   const router = useRouter();
   const path = usePathname();
+  const searchParams = useSearchParams();
+
+  console.log("card path", path);
 
   const handelClick = () => {
-    router.push(`${path}/${props._id}`);
+    if (
+      props.type === "reels" ||
+      (props.type === "music" && !props.content![0].href?.includes("youtube"))
+    ) {
+      return window.open(
+        props!.gallery![0].video! || props!.content![0].href!,
+        "_ blank"
+      );
+    }
+    router.push(`${path}?page=${searchParams.get("page")}&id=${props._id}`, {
+      scroll: false,
+    });
   };
 
   if (props.type === "article" || props.type === "articleSmall") {
@@ -28,5 +42,9 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
     card = <MusicCard {...props} />;
   }
 
-  return <div>{card}</div>;
+  return (
+    <div onClick={handelClick} id={props._id}>
+      {card}
+    </div>
+  );
 };

@@ -6,18 +6,27 @@ import AudioLongIcon from "/public/icons/audioLong.svg";
 
 import Link from "next/link";
 import Image from "next/image";
+import { getValidClassNames } from "@/helpers";
 
 interface Props {
   isPodcast: boolean;
   href: string;
   color: string;
+  className?: string;
 }
 
-export const AudioButton: React.FC<Props> = ({ isPodcast, href, color }) => {
-  console.log("color", color);
-
+export const AudioButton: React.FC<Props> = ({
+  isPodcast,
+  href,
+  color,
+  className,
+}) => {
   return (
-    <ContentCard width="100%" cardBgColor={color} className={cl.audioButton}>
+    <ContentCard
+      width="100%"
+      cardBgColor={color}
+      className={getValidClassNames(cl.audioButton, className && className)}
+    >
       <Link href={href} className={cl.link}>
         <div className={cl.triangleBtn}>
           <TriangleIcon />

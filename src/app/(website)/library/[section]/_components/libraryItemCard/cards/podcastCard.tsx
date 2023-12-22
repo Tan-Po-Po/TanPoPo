@@ -1,7 +1,7 @@
-import { ContentCard } from "@/components";
+import { ContentCard, Typography } from "@/components";
 import cl from "../libraryItemCard.module.scss";
 import { Props } from "../props";
-import { getLibraryItemContent } from "@/helpers/getLibraryItemContent";
+import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
 import { getColor } from "@/helpers/getLibraryItemColors";
 import { Footer } from "../footer/footer";
 
@@ -16,12 +16,16 @@ export const PodcastCard: React.FC<Props> = ({
   return (
     <ContentCard
       width="626px"
-      label={label}
+      label={<Typography variant="body1">{label}</Typography>}
       labelBgColor={labelColor}
       className={cl.podcast}
     >
       <div className={cl.content}>
-        {getLibraryItemContent(content!, type, labelColor)}
+        <LibraryItemContent
+          content={content!}
+          cardType={type}
+          color={labelColor}
+        />
       </div>
       <Footer hashtags={hashtags} cardId={_id!} />
     </ContentCard>

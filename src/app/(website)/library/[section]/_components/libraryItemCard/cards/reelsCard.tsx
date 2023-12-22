@@ -16,7 +16,12 @@ export const ReelsCard: React.FC<Props> = ({
   console.log("rells color", labelColor);
 
   return (
-    <ContentCard className={cl.reels} label={label} labelBgColor={labelColor}>
+    <ContentCard
+      className={cl.reels}
+      label={label}
+      labelBgColor={labelColor}
+      width="384px"
+    >
       <ContentCard className={getValidClassNames(cl.imageContainer, cl.video)}>
         <Image
           alt=""

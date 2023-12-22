@@ -15,6 +15,7 @@ import { Props } from "../props";
 import { NewLabel } from "../newLabel/newLabel";
 import { getColor } from "@/helpers/getLibraryItemColors";
 import { Footer } from "../footer/footer";
+import Link from "next/link";
 
 export const ArticleCard: React.FC<Props> = ({
   _id,
@@ -122,17 +123,32 @@ function getPreview(content: ILibraryItemContent[]) {
   let preview: React.ReactNode[] = [];
 
   for (let i = 0; preview.length < 3; i++) {
-    if (content[i].type === "link" || content[i].type === "image") {
+    if (content[i].type === "image") {
       continue;
     }
-    preview.push(
-      <Typography
-        key={content[i]._id || content[i].id}
-        variant={content[i].type === "header" ? "body1" : "subtitle1"}
-      >
-        {content[i].value}
-      </Typography>
-    );
+
+    if (content[i].type === "paragraph") {
+      preview.push(
+        <div>
+          {content[i].paragraph!.map((item) => {
+            return (
+              <Typography key={item.id} variant="subtitle1">
+                {item.text}
+              </Typography>
+            );
+          })}
+        </div>
+      );
+    } else {
+      preview.push(
+        <Typography
+          key={content[i]._id || content[i].id}
+          variant={content[i].type === "header" ? "body1" : "subtitle1"}
+        >
+          {content[i].value}
+        </Typography>
+      );
+    }
   }
   return preview;
 }

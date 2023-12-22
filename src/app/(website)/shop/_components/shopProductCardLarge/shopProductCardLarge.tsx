@@ -41,8 +41,6 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   const shopCart = useAppSelector(selectShopCart);
   const dispatch = useAppDispatch();
 
-  // console.log("shopCart", shopCart);
-
   const productIsLiked = likedProducts.has(_id!);
 
   const isOnSale = validateDate(sale?.until);

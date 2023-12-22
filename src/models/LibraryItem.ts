@@ -6,6 +6,7 @@ export interface ILibraryItemContent {
   type: "paragraph" | "header" | "image" | "text" | "link" | "audio";
   value?: string;
   href?: string;
+  paragraph?: { id: string; text: string; href?: string }[];
 }
 
 export interface ILibraryItem {
@@ -14,7 +15,7 @@ export interface ILibraryItem {
   section: string;
   type: "article" | "articleSmall" | "reels" | "music" | "podcast";
   labelColor: string;
-  hashtags: { _id?: string; id?: string; value: string; color?: string }[];
+  hashtags?: { _id?: string; id?: string; value: string; color?: string }[];
   // audio?: {
   //   color?: string;
   //   href: string;
@@ -39,6 +40,7 @@ const ContentSchema = new Schema<ILibraryItemContent>({
   },
   value: String,
   href: String,
+  paragraph: [{ text: { type: String, required: true }, href: String }],
 });
 
 const LibraryItemSchema = new Schema<ILibraryItemDocument>(

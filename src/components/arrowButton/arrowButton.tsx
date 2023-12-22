@@ -23,7 +23,13 @@ const ArrowButton: React.FC<Props> = ({
   ...props
 }) => {
   return (
-    <div className={cl.wrapper} onClick={handleClickToAnimate}>
+    <div
+      className={cl.wrapper}
+      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
+        return handleClickToAnimate;
+      }}
+    >
       <div
         className={getValidClassNames(className, cl.arrow, cl[direction])}
         {...props}

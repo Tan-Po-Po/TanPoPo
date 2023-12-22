@@ -180,28 +180,21 @@ $padding-card: 55px 30px 18px 30px;
   justify-content: space-between;
 
   .content {
-    text-indent: 1rem;
+    // text-indent: 1rem;
+    text-align: start !important;
     span {
-      text-align: start;
-      display: block;
+      // display: block;
     }
     > * {
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
     }
   }
 }
 
 .reels {
+  width: 384px;
   .imageContainer {
     width: 272px;
     height: 470px;
   }
-}
-
-.contentImagePodcast {
-  float: left;
-  width: 150px;
-  height: 150px;
-  margin-right: 28px;
-  margin-bottom: 24px;
 }

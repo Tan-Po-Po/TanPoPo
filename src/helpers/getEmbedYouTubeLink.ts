@@ -1,4 +1,7 @@
 export const getEmbedYouTubeLink = (defaultLink: string) => {
-  const id = defaultLink.split("=")[1];
+  const split = defaultLink.split("=")[1].split("&");
+
+  const id = split[0];
+
   return `https://www.youtube.com/embed/${id}`;
 };
