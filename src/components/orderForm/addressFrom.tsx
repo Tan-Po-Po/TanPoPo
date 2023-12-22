@@ -209,7 +209,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
               }}
               renderOption={(props, option) => {
                 return (
-                  <li {...props} key={option}>
+                  <li {...props} key={option} style={{ padding: "15px 0px" }}>
                     {option}
                   </li>
                 );

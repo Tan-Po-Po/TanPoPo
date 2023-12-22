@@ -2,10 +2,11 @@ import { getLibraryAccess } from "@/helpers/getLibraryAccess";
 import React from "react";
 import Content from "./_content/content";
 import Password from "./_password/password";
+import { Section } from "../section";
 
 interface Props {
   params: {
-    section: string;
+    section: Section;
   };
 }
 

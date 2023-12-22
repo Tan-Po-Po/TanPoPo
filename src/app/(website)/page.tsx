@@ -1,11 +1,17 @@
 "use client";
 
-import { Typography, ContentCard, Button, Dialog } from "@/components";
+import {
+  Typography,
+  ContentCard,
+  Button,
+  Dialog,
+  Pagination,
+} from "@/components";
 import Image from "next/image";
 import Link from "next/link";
 import cl from "./page.module.scss";
 import { getIconArtSrc } from "@/helpers";
-import { redirect, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
@@ -15,6 +21,7 @@ export default function Home() {
   const [open, setOpen] = useState(true);
   return (
     <main className={cl.main}>
+      <Pagination pages={22} />
       {isRedirected && (
         <Dialog
           open={open}

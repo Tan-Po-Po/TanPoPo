@@ -7,6 +7,7 @@ import dbConnect from "@/config/dbConnect";
 import { LibraryCard } from "@/components";
 import { LibraryItemCard } from "../_components/libraryItemCard/libraryItemCard";
 import { getColor } from "@/helpers/getLibraryItemColors";
+import { Section } from "../../section";
 
 const libraryItems: ILibraryItem[] = [
   {
@@ -82,7 +83,7 @@ const getLibraryItems = async (
 };
 
 interface Props {
-  params: { section: string };
+  params: { section: Section };
 }
 
 const Content: React.FC<Props> = async ({ params }) => {
