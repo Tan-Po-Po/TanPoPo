@@ -1,18 +1,23 @@
 $transition-duration: 0.15s;
 
 .mainContainer {
+  overflow: visible;
   .selectContainer {
+    @include flex-column;
     min-width: fit-content;
     box-shadow: $box-shadow;
     border: $border;
     border-radius: $border-radius;
     overflow: hidden;
     background-color: white;
+    position: relative;
+    overflow: visible;
 
     .selectWrapper {
       position: relative;
       cursor: pointer;
       transition: $transition-duration;
+      width: 100%;
 
       &:hover {
         .arrow {
@@ -53,6 +58,15 @@ $transition-duration: 0.15s;
 
     .dropdown {
       animation: showDropdown $transition-duration ease-out;
+      border: $border;
+      border-radius: 0px 0px $border-radius $border-radius;
+      border-top: none;
+      background-color: white;
+      position: absolute;
+      width: calc(100% + 4px);
+      margin: 0 auto;
+      z-index: 10;
+      top: 100%;
     }
 
     .selectOpen {
@@ -74,6 +88,16 @@ $transition-duration: 0.15s;
         scale: 1;
       }
     }
+  }
+
+  .selected {
+    background: $color-yellow;
+    border-radius: $border-radius;
+  }
+  .containerOpen {
+    background: white;
+    border-radius: $border-radius $border-radius 0px 0px;
+    border-bottom: 1px solid inherit;
   }
   .disabled {
     color: $color-disabled;
