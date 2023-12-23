@@ -20,12 +20,12 @@ import Link from "next/link";
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 
 export const ArticleCard: React.FC<Props> = (props) => {
-  const { type, label, labelColor, gallery, hashtags, content, isNew } = props;
+  const { type, label, labelColor, media, hashtags, content, isNew } = props;
 
   const [isHovered, setIsHovered] = useState(false);
 
   const cardWidth = type === "articleSmall" ? "384px" : "626px";
-  const galleryWidth = type === "articleSmall" ? "274px" : "506px";
+  const mediaWidth = type === "articleSmall" ? "274px" : "506px";
 
   const { openLibraryItem } = useOpenLibraryItem({
     item: props,
@@ -54,27 +54,26 @@ export const ArticleCard: React.FC<Props> = (props) => {
         labelBgColor={labelColor}
         width={cardWidth}
       >
-        {isNew && <NewLabel />}
-        {gallery!.length === 1 ? (
+        {media!.length === 1 ? (
           <ContentCard
             width="fit-content"
             className={getValidClassNames(
               cl.imageContainer,
-              gallery![0].type === "video" && cl.video
+              media![0].type === "video" && cl.video
             )}
           >
             <Image
               alt=""
-              src={gallery![0].image}
+              src={media![0].image!}
               width={1920}
               height={1080}
               style={{
-                maxWidth: `${galleryWidth}`,
+                maxWidth: `${mediaWidth}`,
                 width: "100%",
                 height: "auto",
               }}
             />
-            {gallery![0].type === "video" && (
+            {media![0].type === "video" && (
               <div className={cl.playButton} onClick={handleVideoClick}>
                 <PlayButtonIcon />
               </div>
@@ -88,7 +87,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
             focusOnSelect={false}
             className={cl.carousel}
           >
-            {gallery!.map((image) => (
+            {media!.map((image) => (
               <CarouselItem
                 key={image.id || image._id}
                 className={cl.carouselItem}
@@ -96,7 +95,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
               >
                 <Image
                   alt=""
-                  src={image.image}
+                  src={image.image!}
                   fill
                   style={{ objectFit: "cover" }}
                 />
@@ -128,15 +127,19 @@ export const ArticleCard: React.FC<Props> = (props) => {
 function getPreview(content: ILibraryItemContent[]) {
   let preview: React.ReactNode[] = [];
 
-  for (let i = 0; preview.length < 3; i++) {
-    if (content[i].type === "image") {
-      continue;
+  content.some((item, i) => {
+    if (i === 3) {
+      return true;
     }
 
-    if (content[i].type === "paragraph") {
+    if (item.type === "image") {
+      return false;
+    }
+
+    if (item.type === "paragraph") {
       preview.push(
         <div>
-          {content[i].paragraph!.map((item) => {
+          {item.paragraph!.map((item) => {
             return (
               <Typography key={item.id} variant="subtitle1">
                 {item.text}
@@ -148,13 +151,14 @@ function getPreview(content: ILibraryItemContent[]) {
     } else {
       preview.push(
         <Typography
-          key={content[i]._id || content[i].id}
-          variant={content[i].type === "header" ? "body1" : "subtitle1"}
+          key={item._id || item.id}
+          variant={item.type === "header" ? "body1" : "subtitle1"}
         >
-          {content[i].value}
+          {item.value}
         </Typography>
       );
     }
-  }
+  });
+
   return preview;
 }

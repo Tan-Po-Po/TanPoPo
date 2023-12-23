@@ -10,6 +10,10 @@ $transition: all ease 0.2s;
     margin-top: 50px;
   }
 
+  :global(.MuiDialog-paper) {
+    animation: articleShow 0.6s;
+  }
+
   .content {
     @include flex-column;
     flex-direction: column !important;
@@ -110,5 +114,21 @@ $transition: all ease 0.2s;
 
   :global(.slick-next) {
     right: -7%;
+  }
+}
+
+@keyframes articleShow {
+  0% {
+    transform: translate(0, 500px);
+  }
+  33% {
+    transform: translate(0, -60px);
+  }
+  66% {
+    transform: translate(0, 30px);
+  }
+
+  100% {
+    transform: translate(0);
   }
 }

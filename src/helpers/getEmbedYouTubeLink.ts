@@ -1,6 +1,6 @@
 export const getEmbedYouTubeLink = (
   defaultLink: string,
-  autoplay: "0" | "1" | null
+  autoplay?: "0" | "1" | null
 ) => {
   const split = defaultLink.split("=")[1].split("&");
 

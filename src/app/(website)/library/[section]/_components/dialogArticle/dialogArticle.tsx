@@ -1,18 +1,17 @@
 "use client";
 import { ContentCard, Dialog, Typography } from "@/components";
 import cl from "./dialogArticle.module.scss";
-import { useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import {
+  useParams,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 import { ILibraryItem } from "@/models/LibraryItem";
 import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
-import { getEmbedYouTubeLink, getValidClassNames } from "@/helpers";
-import Image from "next/image";
-import PlayButtonIcon from "/public/icons/playButton.svg";
-import Carousel from "@/components/carousel/carousel";
-import { CarouselItem } from "@/components/carousel/carouselItem/carouselItem";
 import { Footer } from "../libraryItemCard/footer/footer";
-import { useAppDispatch } from "@/redux/hooks";
-import { Gallery } from "./gallery/gallery";
+import { Media } from "./media/media";
+import { NewLabel } from "../libraryItemCard/newLabel/newLabel";
 
 interface Props {
   page: string;
@@ -21,11 +20,12 @@ interface Props {
 const DialogArticle: React.FC<Props> = ({ page, items }) => {
   const router = useRouter();
   const path = usePathname();
-  const id = useSearchParams().get("id");
+  const searchParams = useSearchParams();
+
+  const id = searchParams.get("id");
+  const isNew = searchParams.get("new");
 
   const item = items.find((item) => item._id === id) as ILibraryItem;
-
-  console.log("dialog item", item);
 
   const handleClose = () => {
     router.push(`${path}?page=${page}`, { scroll: false });
@@ -39,6 +39,7 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
       contentClassName={cl.content}
       scroll="paper"
     >
+      {isNew && <NewLabel />}
       <ContentCard
         cardBgColor={item?.labelColor}
         className={cl.label}
@@ -48,7 +49,7 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
       </ContentCard>
 
       <div className={cl.gallery}>
-        <Gallery item={item} />
+        <Media item={item} />
       </div>
 
       <LibraryItemContent

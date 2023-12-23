@@ -9,15 +9,15 @@ import { MusicCard } from "./cards/musicCard";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
+import { NewLabel } from "./newLabel/newLabel";
 
 export const LibraryItemCard: React.FC<Props> = (props) => {
   let card: React.ReactNode;
 
-  const router = useRouter();
-  const path = usePathname();
-  const searchParams = useSearchParams();
-
-  const { openLibraryItem } = useOpenLibraryItem({ item: props });
+  const { openLibraryItem } = useOpenLibraryItem({
+    item: props,
+    isNew: props.isNew,
+  });
 
   const handelClick = () => {
     openLibraryItem();
@@ -34,7 +34,8 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
   }
 
   return (
-    <div onClick={handelClick} id={props._id}>
+    <div onClick={handelClick} id={props._id} className={cl.libraryItemCard}>
+      {props.isNew && <NewLabel />}
       {card}
     </div>
   );

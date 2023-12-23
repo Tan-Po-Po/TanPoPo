@@ -1,4 +1,5 @@
 "use client";
+import cl from "./dialogGallery.module.scss";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { Dialog } from "..";
 import {
@@ -15,16 +16,18 @@ export const DialogGallery = () => {
     <Dialog
       onClose={() => dispatch(closeGalleryDialog())}
       open={galleryDialog.isOpen}
+      className={cl.dialog}
+      contentClassName={cl.content}
     >
       {galleryDialog.type === "image" ? (
         <Image
           alt=""
           src={galleryDialog.src}
           sizes="100vw"
-          width={500}
-          height={500}
+          width={1920}
+          height={1080}
           style={{
-            maxWidth: "500px",
+            width: "100%",
             height: "auto",
           }}
         />

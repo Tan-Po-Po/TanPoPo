@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const Footer: React.FC<Props> = ({ item }) => {
-  const { _id, hashtags, type, content, gallery } = item;
+  const { _id, hashtags, type, content, media } = item;
 
   console.log("item", item);
 
@@ -23,15 +23,14 @@ export const Footer: React.FC<Props> = ({ item }) => {
     e.stopPropagation();
     if (
       type === "reels" ||
-      (type === "music" && !content![0].href?.includes("youtube"))
+      (type === "music" && !media![0].video?.includes("youtube"))
     ) {
+      navigator.clipboard.writeText(media[0].video!);
+    } else {
       navigator.clipboard.writeText(
-        (gallery.length && gallery[0].video) || content![0].href!
+        `${SERVER_URL}${path}?page=${searchParams.get("page")}&id=${_id}`
       );
     }
-    navigator.clipboard.writeText(
-      `${SERVER_URL}${path}?page=${searchParams.get("page")}&id=${_id}`
-    );
     toast("Посилання скопійовано💾");
   };
   return (

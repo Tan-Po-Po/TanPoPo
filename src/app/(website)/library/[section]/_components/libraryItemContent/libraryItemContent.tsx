@@ -48,27 +48,6 @@ export const LibraryItemContent: React.FC<Props> = ({
     ));
   };
 
-  // const getImage = (item: ILibraryItemContent) => {
-  //   if (!isPodcast) {
-  //     return (
-  //       <Image
-  //         alt=""
-  //         src={item.href!}
-  //         width={1920}
-  //         height={1080}
-  //         style={{ width: "100%", height: "auto" }}
-  //       />
-  //     );
-  //   }
-
-  //   if (isPodcast && !isDialog) {
-  //     return (
-  //       <Image alt="" src={item.href!} fill style={{ objectFit: "cover" }} />
-  //     );
-  //   }
-
-  //   return;
-  // };
   const getImage = (item: ILibraryItemContent) => {
     if (isPodcast && isDialog) {
       return;

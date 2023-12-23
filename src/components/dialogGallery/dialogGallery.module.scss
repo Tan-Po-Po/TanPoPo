@@ -1,0 +1,11 @@
+.dialog {
+  :global(.MuiPaper-root) {
+    padding: 0;
+  }
+}
+
+.content {
+  max-width: fit-content;
+  padding: 0;
+  border-radius: 7px;
+}

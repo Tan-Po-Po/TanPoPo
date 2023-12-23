@@ -7,7 +7,7 @@ import PlayButtonIcon from "/public/icons/playButton.svg";
 import { Footer } from "../footer/footer";
 
 export const ReelsCard: React.FC<Props> = (props) => {
-  const { label, labelColor, gallery, hashtags, _id } = props;
+  const { label, labelColor, media, hashtags, _id } = props;
 
   return (
     <ContentCard
@@ -19,11 +19,13 @@ export const ReelsCard: React.FC<Props> = (props) => {
       <ContentCard className={getValidClassNames(cl.imageContainer, cl.video)}>
         <Image
           alt=""
-          src={gallery![0].image}
+          src={media![0].image!}
           fill
           style={{ objectFit: "cover" }}
         />
-        <PlayButtonIcon />
+        <div className={cl.playButton}>
+          <PlayButtonIcon />
+        </div>
       </ContentCard>
       <Footer item={props} />
     </ContentCard>

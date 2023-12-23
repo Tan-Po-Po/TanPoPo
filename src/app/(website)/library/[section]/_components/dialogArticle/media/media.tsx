@@ -13,21 +13,13 @@ interface Props {
   item: ILibraryItem;
 }
 
-export const Gallery: React.FC<Props> = ({ item }) => {
+export const Media: React.FC<Props> = ({ item }) => {
   const dispatch = useAppDispatch();
 
   const searchParams = useSearchParams();
 
-  const getVideoLink = () => {
-    if (!item.gallery?.length) {
-      return item.content!.find((item) => item.type === "audio")!.href!;
-    }
-
-    return item.gallery[0].video!;
-  };
-
-  if (!item.gallery?.length || item.gallery[0].type === "video") {
-    return (
+  if (item.media.length === 1) {
+    return item.media[0].type === "video" ? (
       <ContentCard
         width="fit-content"
         style={{ padding: 0, overflow: "hidden" }}
@@ -36,7 +28,7 @@ export const Gallery: React.FC<Props> = ({ item }) => {
           width="666"
           height="376"
           src={getEmbedYouTubeLink(
-            getVideoLink(),
+            item.media[0].video!,
             searchParams.get("autoplay") as "0" | "1" | null
           )}
           title="YouTube video player"
@@ -45,25 +37,22 @@ export const Gallery: React.FC<Props> = ({ item }) => {
           allowFullScreen
         ></iframe>
       </ContentCard>
-    );
-  }
-  if (item.gallery.length === 1) {
-    return (
+    ) : (
       <ContentCard
         width="666px"
         className={getValidClassNames(cl.imageContainer)}
         onClick={() =>
           dispatch(
             openGalleryDialog({
-              type: item.gallery![0].type,
-              src: item.gallery![0].image!,
+              type: item.media![0].type,
+              src: item.media![0].image!,
             })
           )
         }
       >
         <Image
           alt=""
-          src={item.gallery[0].image}
+          src={item.media[0].image!}
           width={1920}
           height={1080}
           style={{
@@ -82,7 +71,7 @@ export const Gallery: React.FC<Props> = ({ item }) => {
         focusOnSelect={false}
         className={cl.carousel}
       >
-        {item.gallery.map((image) => (
+        {item.media.map((image) => (
           <CarouselItem
             key={image.id || image._id}
             className={cl.carouselItem}
@@ -91,14 +80,14 @@ export const Gallery: React.FC<Props> = ({ item }) => {
               dispatch(
                 openGalleryDialog({
                   type: image.type,
-                  src: image.image,
+                  src: image.image!,
                 })
               )
             }
           >
             <Image
               alt=""
-              src={image.image}
+              src={image.image!}
               fill
               style={{ objectFit: "cover" }}
             />

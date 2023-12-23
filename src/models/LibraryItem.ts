@@ -17,11 +17,11 @@ export interface ILibraryItem {
   labelColor: string;
   hashtags: { _id?: string; id?: string; value: string; color?: string }[];
 
-  gallery: {
+  media: {
     id?: string;
     _id?: string;
     type: "image" | "video";
-    image: string;
+    image?: string;
     video?: string;
   }[];
   content?: ILibraryItemContent[];
@@ -51,10 +51,10 @@ const LibraryItemSchema = new Schema<ILibraryItemDocument>(
     },
     labelColor: { type: String, required: true },
 
-    gallery: [
+    media: [
       {
         type: { type: String, enum: ["image", "video"], required: true },
-        image: { type: String, required: true },
+        image: { type: String },
         video: { type: String },
       },
     ],
