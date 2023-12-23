@@ -7,18 +7,30 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { SERVER_URL } from "@/config/config";
 
-interface Props extends Pick<ILibraryItem, "hashtags"> {
-  cardId: string;
+interface Props {
+  item: ILibraryItem;
 }
 
-export const Footer: React.FC<Props> = ({ hashtags, cardId }) => {
+export const Footer: React.FC<Props> = ({ item }) => {
+  const { _id, hashtags, type, content, gallery } = item;
+
+  console.log("item", item);
+
   const path = usePathname();
   const searchParams = useSearchParams();
 
   const handleCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
+    if (
+      type === "reels" ||
+      (type === "music" && !content![0].href?.includes("youtube"))
+    ) {
+      navigator.clipboard.writeText(
+        (gallery.length && gallery[0].video) || content![0].href!
+      );
+    }
     navigator.clipboard.writeText(
-      `${SERVER_URL}${path}?page=${searchParams.get("page")}&id=${cardId}`
+      `${SERVER_URL}${path}?page=${searchParams.get("page")}&id=${_id}`
     );
     toast("Посилання скопійовано💾");
   };

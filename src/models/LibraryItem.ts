@@ -3,10 +3,10 @@ import mongoose, { Schema } from "mongoose";
 export interface ILibraryItemContent {
   id?: string;
   _id?: string;
-  type: "paragraph" | "header" | "image" | "text" | "link" | "audio";
+  type: "paragraph" | "header" | "image" | "audio";
   value?: string;
   href?: string;
-  paragraph?: { id: string; text: string; href?: string }[];
+  paragraph: { id: string; text: string; href?: string }[];
 }
 
 export interface ILibraryItem {
@@ -15,12 +15,9 @@ export interface ILibraryItem {
   section: string;
   type: "article" | "articleSmall" | "reels" | "music" | "podcast";
   labelColor: string;
-  hashtags?: { _id?: string; id?: string; value: string; color?: string }[];
-  // audio?: {
-  //   color?: string;
-  //   href: string;
-  // };
-  gallery?: {
+  hashtags: { _id?: string; id?: string; value: string; color?: string }[];
+
+  gallery: {
     id?: string;
     _id?: string;
     type: "image" | "video";
@@ -53,10 +50,7 @@ const LibraryItemSchema = new Schema<ILibraryItemDocument>(
       required: true,
     },
     labelColor: { type: String, required: true },
-    // audio: {
-    //   color: String,
-    //   href: { type: String, required: true },
-    // },
+
     gallery: [
       {
         type: { type: String, enum: ["image", "video"], required: true },

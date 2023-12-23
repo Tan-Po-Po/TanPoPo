@@ -4,14 +4,8 @@ import { Props } from "../props";
 import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
 import { Footer } from "../footer/footer";
 
-export const MusicCard: React.FC<Props> = ({
-  label,
-  labelColor,
-  hashtags,
-  content,
-  type,
-  _id,
-}) => {
+export const MusicCard: React.FC<Props> = (props) => {
+  const { label, labelColor, content, type } = props;
   return (
     <ContentCard className={cl.music} label={label} labelBgColor={labelColor}>
       <LibraryItemContent
@@ -19,7 +13,7 @@ export const MusicCard: React.FC<Props> = ({
         cardType={type}
         color={labelColor}
       />
-      <Footer hashtags={hashtags} cardId={_id!} />
+      <Footer item={props} />
     </ContentCard>
   );
 };

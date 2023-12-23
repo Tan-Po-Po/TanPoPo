@@ -5,14 +5,8 @@ import { LibraryItemContent } from "@/app/(website)/library/[section]/_component
 import { getColor } from "@/helpers/getLibraryItemColors";
 import { Footer } from "../footer/footer";
 
-export const PodcastCard: React.FC<Props> = ({
-  _id,
-  content,
-  type,
-  labelColor,
-  label,
-  hashtags,
-}) => {
+export const PodcastCard: React.FC<Props> = (props) => {
+  const { _id, content, type, labelColor, label, hashtags } = props;
   return (
     <ContentCard
       width="626px"
@@ -27,7 +21,7 @@ export const PodcastCard: React.FC<Props> = ({
           color={labelColor}
         />
       </div>
-      <Footer hashtags={hashtags} cardId={_id!} />
+      <Footer item={props} />
     </ContentCard>
   );
 };

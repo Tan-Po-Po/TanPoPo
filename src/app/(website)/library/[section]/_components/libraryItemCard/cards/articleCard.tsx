@@ -9,7 +9,7 @@ import PlayButtonIcon from "/public/icons/playButton.svg";
 import { CarouselItem } from "@/components/carousel/carouselItem/carouselItem";
 
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { Props } from "../props";
 import { NewLabel } from "../newLabel/newLabel";
@@ -17,23 +17,20 @@ import { getColor } from "@/helpers/getLibraryItemColors";
 import { Footer } from "../footer/footer";
 import Link from "next/link";
 
-export const ArticleCard: React.FC<Props> = ({
-  _id,
-  type,
-  label,
-  labelColor,
-  gallery,
-  hashtags,
-  content,
-  isNew,
-}) => {
+import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
+
+export const ArticleCard: React.FC<Props> = (props) => {
+  const { type, label, labelColor, gallery, hashtags, content, isNew } = props;
+
   const [isHovered, setIsHovered] = useState(false);
 
   const cardWidth = type === "articleSmall" ? "384px" : "626px";
   const galleryWidth = type === "articleSmall" ? "274px" : "506px";
-  // const color = getColor(labelColor);
 
-  // const path = usePathname();
+  const { openLibraryItem } = useOpenLibraryItem({
+    item: props,
+    autoplay: "1",
+  });
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -42,6 +39,11 @@ export const ArticleCard: React.FC<Props> = ({
   const handleMouseLeave = () => {
     setIsHovered(false);
     return;
+  };
+
+  const handleVideoClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    openLibraryItem();
   };
 
   return (
@@ -72,7 +74,11 @@ export const ArticleCard: React.FC<Props> = ({
                 height: "auto",
               }}
             />
-            {gallery![0].type === "video" && <PlayButtonIcon />}
+            {gallery![0].type === "video" && (
+              <div className={cl.playButton} onClick={handleVideoClick}>
+                <PlayButtonIcon />
+              </div>
+            )}
           </ContentCard>
         ) : (
           <Carousel
@@ -113,7 +119,7 @@ export const ArticleCard: React.FC<Props> = ({
           </div>
         </div>
 
-        <Footer hashtags={hashtags} cardId={_id!} />
+        <Footer item={props} />
       </ContentCard>
     </div>
   );

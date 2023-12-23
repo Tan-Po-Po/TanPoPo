@@ -71,6 +71,9 @@ $transition: all ease 0.2s;
   justify-content: center;
   max-width: 942px;
   width: 100%;
+  img {
+    cursor: pointer;
+  }
 }
 .carousel {
   width: 555px !important;

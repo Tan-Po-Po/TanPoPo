@@ -157,18 +157,21 @@ $padding-card: 55px 30px 18px 30px;
 
 .video {
   transition: $transition;
-  svg {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    transition: $transition;
-  }
 
-  &:hover {
-    transform: scale(105%);
+  .playButton {
+    position: absolute;
     svg {
-      transform: scale(110%);
-      fill: $color-yellow;
+      width: 50px;
+      height: 50px;
+      transition: $transition;
+    }
+
+    &:hover {
+      transform: scale(105%);
+      svg {
+        transform: scale(110%);
+        fill: $color-yellow;
+      }
     }
   }
 }
@@ -180,14 +183,7 @@ $padding-card: 55px 30px 18px 30px;
   justify-content: space-between;
 
   .content {
-    // text-indent: 1rem;
     text-align: start !important;
-    span {
-      // display: block;
-    }
-    > * {
-      // margin-bottom: 10px;
-    }
   }
 }
 

@@ -4,7 +4,7 @@ import LibraryItem, {
 } from "@/models/LibraryItem";
 import cl from "./page.module.scss";
 import dbConnect from "@/config/dbConnect";
-import { Dialog, LibraryCard } from "@/components";
+import { Dialog, DialogGallery, LibraryCard } from "@/components";
 import { LibraryItemCard } from "../_components/libraryItemCard/libraryItemCard";
 import { getColor } from "@/helpers/getLibraryItemColors";
 import DialogArticle from "../_components/dialogArticle/dialogArticle";
@@ -121,6 +121,7 @@ const Content: React.FC<Props> = async ({ params, searchParams }) => {
       {data && searchParams.id && (
         <DialogArticle page={page} items={data!.items} />
       )}
+      <DialogGallery />
     </main>
   );
 };

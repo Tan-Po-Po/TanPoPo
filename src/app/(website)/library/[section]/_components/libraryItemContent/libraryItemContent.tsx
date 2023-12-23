@@ -5,6 +5,8 @@ import Image from "next/image";
 import { getValidClassNames } from "../../../../../../helpers";
 import Link from "next/link";
 import { AudioButton } from "@/components/audioButton/audioButton";
+import { useAppDispatch } from "@/redux/hooks";
+import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 
 interface Props {
   content: ILibraryItemContent[];
@@ -19,6 +21,7 @@ export const LibraryItemContent: React.FC<Props> = ({
   color,
   isDialog,
 }) => {
+  const dispatch = useAppDispatch();
   const isPodcast = cardType === "podcast";
 
   const getPara = (item: ILibraryItemContent) => {
@@ -45,26 +48,66 @@ export const LibraryItemContent: React.FC<Props> = ({
     ));
   };
 
+  // const getImage = (item: ILibraryItemContent) => {
+  //   if (!isPodcast) {
+  //     return (
+  //       <Image
+  //         alt=""
+  //         src={item.href!}
+  //         width={1920}
+  //         height={1080}
+  //         style={{ width: "100%", height: "auto" }}
+  //       />
+  //     );
+  //   }
+
+  //   if (isPodcast && !isDialog) {
+  //     return (
+  //       <Image alt="" src={item.href!} fill style={{ objectFit: "cover" }} />
+  //     );
+  //   }
+
+  //   return;
+  // };
   const getImage = (item: ILibraryItemContent) => {
-    if (!isPodcast) {
-      return (
-        <Image
-          alt=""
-          src={item.href!}
-          width={1920}
-          height={1080}
-          style={{ width: "100%", height: "auto" }}
-        />
-      );
+    if (isPodcast && isDialog) {
+      return;
     }
 
-    if (isPodcast && !isDialog) {
-      return (
-        <Image alt="" src={item.href!} fill style={{ objectFit: "cover" }} />
-      );
-    }
-
-    return;
+    return (
+      <ContentCard
+        key={item.id || item._id}
+        style={{ padding: "0" }}
+        className={getValidClassNames(
+          cl.image,
+          isPodcast && cl.contentImagePodcast
+        )}
+        width="666px"
+        onClick={() => {
+          if (isPodcast) {
+            return;
+          }
+          dispatch(
+            openGalleryDialog({
+              type: "image",
+              src: item.href!,
+            })
+          );
+        }}
+      >
+        {isPodcast ? (
+          <Image alt="" src={item.href!} fill style={{ objectFit: "cover" }} />
+        ) : (
+          <Image
+            alt=""
+            src={item.href!}
+            width={1920}
+            height={1080}
+            style={{ width: "100%", height: "auto" }}
+          />
+        )}
+      </ContentCard>
+    );
   };
 
   return content.map((item) => {
@@ -86,55 +129,8 @@ export const LibraryItemContent: React.FC<Props> = ({
           </Typography>
         );
       case "image":
-        return (
-          !isDialog && (
-            <ContentCard
-              key={item.id || item._id}
-              style={{ padding: "0" }}
-              className={getValidClassNames(
-                isPodcast && cl.contentImagePodcast
-              )}
-              width="666px"
-            >
-              {
-                getImage(item)
-                /* {isPodcast ? (
-                <Image
-                  alt=""
-                  src={item.href!}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              ) : (
-                <Image
-                  alt=""
-                  src={item.href!}
-                  width={1920}
-                  height={1080}
-                  style={{ width: "100%", height: "auto" }}
-                />
-              )} */
-              }
-            </ContentCard>
-          )
-        );
-      // case "text":
-      //   return (
-      //     <Typography
-      //       key={item.id || item._id}
-      //       variant={isPodcast ? "subtitle2" : "subtitle1"}
-      //     >
-      //       {item.value}
-      //     </Typography>
-      //   );
-      // case "link":
-      //   return (
-      //     <Link key={item.id || item._id} href={item.href!}>
-      //       <Typography variant={isPodcast ? "subtitle2" : "subtitle1"}>
-      //         {item.value}
-      //       </Typography>
-      //     </Link>
-      //   );
+        return getImage(item);
+
       case "audio":
         return (
           !isDialog && (

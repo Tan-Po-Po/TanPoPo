@@ -6,14 +6,8 @@ import { getValidClassNames } from "@/helpers";
 import PlayButtonIcon from "/public/icons/playButton.svg";
 import { Footer } from "../footer/footer";
 
-export const ReelsCard: React.FC<Props> = ({
-  label,
-  labelColor,
-  gallery,
-  hashtags,
-  _id,
-}) => {
-  console.log("rells color", labelColor);
+export const ReelsCard: React.FC<Props> = (props) => {
+  const { label, labelColor, gallery, hashtags, _id } = props;
 
   return (
     <ContentCard
@@ -31,7 +25,7 @@ export const ReelsCard: React.FC<Props> = ({
         />
         <PlayButtonIcon />
       </ContentCard>
-      <Footer hashtags={hashtags} cardId={_id!} />
+      <Footer item={props} />
     </ContentCard>
   );
 };

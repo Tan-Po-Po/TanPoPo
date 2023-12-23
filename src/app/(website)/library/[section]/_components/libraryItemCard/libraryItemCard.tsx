@@ -8,6 +8,8 @@ import { ReelsCard } from "./cards/reelsCard";
 import { MusicCard } from "./cards/musicCard";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
+import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
+
 export const LibraryItemCard: React.FC<Props> = (props) => {
   let card: React.ReactNode;
 
@@ -15,21 +17,10 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
   const path = usePathname();
   const searchParams = useSearchParams();
 
-  console.log("card path", path);
+  const { openLibraryItem } = useOpenLibraryItem({ item: props });
 
   const handelClick = () => {
-    if (
-      props.type === "reels" ||
-      (props.type === "music" && !props.content![0].href?.includes("youtube"))
-    ) {
-      return window.open(
-        props!.gallery![0].video! || props!.content![0].href!,
-        "_ blank"
-      );
-    }
-    router.push(`${path}?page=${searchParams.get("page")}&id=${props._id}`, {
-      scroll: false,
-    });
+    openLibraryItem();
   };
 
   if (props.type === "article" || props.type === "articleSmall") {
