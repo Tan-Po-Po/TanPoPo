@@ -1,0 +1,81 @@
+.pagination {
+  @include flex-row;
+  column-gap: 20px;
+  justify-content: center;
+}
+
+.wrapper {
+  @include flex-row;
+  max-width: 580px;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 4px 0;
+}
+.pages {
+  @include flex-row;
+  column-gap: 20px;
+}
+
+.button {
+  @include flex-row;
+  justify-content: center;
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  font-size: 21px;
+  font-weight: 700;
+  border: $border;
+  border-radius: $border-radius;
+  cursor: pointer;
+  background-color: white;
+
+  &:hover {
+    background-color: $color-yellow;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.triangleButton {
+  background: none;
+  border: none;
+  svg {
+    width: 25px;
+    height: 25px;
+  }
+  cursor: pointer;
+
+  &:hover {
+    fill: $color-yellow;
+  }
+
+  &:active {
+    translate: 2px;
+  }
+}
+
+.active {
+  background-color: $color-yellow;
+}
+
+@media (max-width: 450px) {
+  .triangleButton {
+    padding: 0;
+    margin: 0;
+  }
+  .pages {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    column-gap: 14px;
+  }
+  .pagination {
+    justify-content: space-between;
+    gap: 0;
+    margin: 0 5px;
+  }
+}

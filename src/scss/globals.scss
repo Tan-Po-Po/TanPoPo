@@ -92,9 +92,13 @@ main {
   justify-content: center;
   text-align: center;
   white-space: pre-line;
-  &:not(:first-child) {
-    border-top: 1px solid #555;
+  
+  &:hover {
+    background: $color-yellow !important;
   }
+  // &:not(:first-child) {
+  //   border-top: 1px solid #555;
+  // }
 }
 
 .MuiAutocomplete-root,
@@ -114,6 +118,10 @@ main {
 }
 
 .MuiAutocomplete-popper {
+  border: 2px solid black;
+  border-radius: $border-radius;
+  overflow: hidden;
+  
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -123,12 +131,12 @@ main {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: $color-yellow;
     height: 10%;
     min-height: 20px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: $color-yellow;
   }
 }
