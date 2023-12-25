@@ -11,4 +11,4 @@ export const NODEMAILER_PASSWORD = process.env.NODEMAILER_PASSWORD;
 export const NOVA_POSHTA = process.env.NOVA_POSHTA;
 export const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL;
 
-export const SERVER_URL = "http://localhost:3000/";
+export const SERVER_URL = process.env.SERVER_URL;

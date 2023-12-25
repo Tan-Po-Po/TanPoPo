@@ -4,6 +4,7 @@
     width: fit-content;
     height: fit-content;
     z-index: 2;
+    transform-origin: center;
 
     svg {
       transition: ease-out 0.125s;
@@ -35,6 +36,23 @@
   .left {
     top: 50%;
     left: 60px;
+    transform: rotate(180deg);
+  }
+
+  // .right {
+  //   transform: rotate(0);
+  //   top: 50%;
+  //   right: 26px;
+  //   transform: translate(-50%, -50%);
+  // }
+
+  // .left {
+  //   top: 50%;
+  //   left: 60px;
+  //   transform: translate(-50%, -75%) rotate(180deg);
+  // }
+
+  .left {
     transform: rotate(180deg);
   }
 }

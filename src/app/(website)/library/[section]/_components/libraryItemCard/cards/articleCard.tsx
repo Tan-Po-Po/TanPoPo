@@ -92,6 +92,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
                 key={image.id || image._id}
                 className={cl.carouselItem}
                 isOutlined={true}
+                isHoverEventActive={false}
               >
                 <Image
                   alt=""
@@ -138,7 +139,7 @@ function getPreview(content: ILibraryItemContent[]) {
 
     if (item.type === "paragraph") {
       preview.push(
-        <div>
+        <div key={item.id}>
           {item.paragraph!.map((item) => {
             return (
               <Typography key={item.id} variant="subtitle1">

@@ -8,11 +8,7 @@ export const MusicCard: React.FC<Props> = (props) => {
   const { label, labelColor, content, type } = props;
   return (
     <ContentCard className={cl.music} label={label} labelBgColor={labelColor}>
-      <LibraryItemContent
-        content={content!}
-        cardType={type}
-        color={labelColor}
-      />
+      <LibraryItemContent item={props} />
       <Footer item={props} />
     </ContentCard>
   );

@@ -14,8 +14,6 @@ interface Props {
 export const Footer: React.FC<Props> = ({ item }) => {
   const { _id, hashtags, type, content, media } = item;
 
-  console.log("item", item);
-
   const path = usePathname();
   const searchParams = useSearchParams();
 

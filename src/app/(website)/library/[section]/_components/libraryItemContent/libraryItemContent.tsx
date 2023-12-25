@@ -1,5 +1,5 @@
 import { ContentCard, Typography } from "@/components";
-import { ILibraryItemContent } from "@/models/LibraryItem";
+import { ILibraryItem, ILibraryItemContent } from "@/models/LibraryItem";
 import cl from "./libraryItemContent.module.scss";
 import Image from "next/image";
 import { getValidClassNames } from "../../../../../../helpers";
@@ -7,26 +7,26 @@ import Link from "next/link";
 import { AudioButton } from "@/components/audioButton/audioButton";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
+import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 
 interface Props {
-  content: ILibraryItemContent[];
-  cardType: string;
-  color: string;
+  item: ILibraryItem;
   isDialog?: boolean;
 }
 
-export const LibraryItemContent: React.FC<Props> = ({
-  content,
-  cardType,
-  color,
-  isDialog,
-}) => {
+export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
+  const { content, labelColor } = item;
   const dispatch = useAppDispatch();
-  const isPodcast = cardType === "podcast";
+  const isPodcast = item.type === "podcast";
+
+  const { openLibraryItem } = useOpenLibraryItem({ item, autoplay: "1" });
+
+  const handlePodcastClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    openLibraryItem();
+  };
 
   const getPara = (item: ILibraryItemContent) => {
-    console.log("para item", item);
-
     return item.paragraph!.map((item, i) => (
       <Typography
         key={item.id}
@@ -89,12 +89,14 @@ export const LibraryItemContent: React.FC<Props> = ({
     );
   };
 
-  return content.map((item) => {
-    console.log("content type", item.type);
-
+  return content!.map((item) => {
     switch (item.type) {
       case "paragraph":
-        return <div className={cl.para}>{getPara(item)}</div>;
+        return (
+          <div key={item.id} className={cl.para}>
+            {getPara(item)}
+          </div>
+        );
       case "header":
         return (
           <Typography
@@ -117,8 +119,9 @@ export const LibraryItemContent: React.FC<Props> = ({
               key={item.id || item._id}
               isPodcast={isPodcast}
               href={item.href!}
-              color={color}
+              color={labelColor}
               className={cl.audioButton}
+              onClick={handlePodcastClick}
             />
           )
         );

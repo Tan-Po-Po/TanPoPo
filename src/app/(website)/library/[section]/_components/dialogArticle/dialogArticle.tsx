@@ -52,12 +52,7 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
         <Media item={item} />
       </div>
 
-      <LibraryItemContent
-        content={item.content!}
-        cardType={item.type}
-        color={item.labelColor}
-        isDialog={true}
-      />
+      <LibraryItemContent item={item} isDialog={true} />
       <Footer item={item} />
     </Dialog>
   );

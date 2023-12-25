@@ -4,7 +4,7 @@ import LibraryItem, {
 } from "@/models/LibraryItem";
 import cl from "./page.module.scss";
 import dbConnect from "@/config/dbConnect";
-import { Dialog, DialogGallery, LibraryCard } from "@/components";
+import { Dialog, DialogGallery, LibraryCard, Pagination } from "@/components";
 import { LibraryItemCard } from "../_components/libraryItemCard/libraryItemCard";
 import { getColor } from "@/helpers/getLibraryItemColors";
 import DialogArticle from "../_components/dialogArticle/dialogArticle";
@@ -89,9 +89,9 @@ const getLibraryItems = async (
   items.forEach((item) => (item.labelColor = getColor(item.labelColor)));
 
   let lastPage = Math.ceil(
-    (await LibraryItem.countDocuments({ section: section })) / pageSize - 1
+    (await LibraryItem.countDocuments({ section: section })) / pageSize
   );
-  lastPage = lastPage < 0 ? 0 : lastPage;
+  lastPage = lastPage;
 
   return { items: items, lastPage };
 };
@@ -103,25 +103,24 @@ interface Props {
 
 const Content: React.FC<Props> = async ({ params, searchParams }) => {
   const page = (searchParams.page as string) ?? "1";
-  // console.log("page", searchParams.page);
-
-  // await addLibraryItemsToDb();
 
   const data = await getLibraryItems(params.section, page);
-  // console.log("data", data);
 
   return (
     <main className={cl.contentMain}>
-      {!data?.items
-        ? "Наразі ми працюємо над контентом для цього розділу"
-        : data.items.map((item, i) => (
-            <LibraryItemCard key={item._id!} {...item} isNew={i < 2} />
-          ))}
+      <div className={cl.cards}>
+        {!data?.items
+          ? "Наразі ми працюємо над контентом для цього розділу"
+          : data.items.map((item, i) => (
+              <LibraryItemCard key={item._id!} {...item} isNew={i < 2} />
+            ))}
 
-      {data && searchParams.id && (
-        <DialogArticle page={page} items={data!.items} />
-      )}
-      <DialogGallery />
+        {data && searchParams.id && (
+          <DialogArticle page={page} items={data!.items} />
+        )}
+        <DialogGallery />
+      </div>
+      {data && data.lastPage > 1 && <Pagination pages={data.lastPage} />}
     </main>
   );
 };

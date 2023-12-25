@@ -19,7 +19,7 @@ export const CarouselItem: React.FC<Props> = ({
   className,
   type = "image",
   onClick,
-  isHoverEventActive,
+  isHoverEventActive = true,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 

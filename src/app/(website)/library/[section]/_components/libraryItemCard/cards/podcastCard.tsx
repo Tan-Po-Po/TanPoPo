@@ -15,11 +15,7 @@ export const PodcastCard: React.FC<Props> = (props) => {
       className={cl.podcast}
     >
       <div className={cl.content}>
-        <LibraryItemContent
-          content={content!}
-          cardType={type}
-          color={labelColor}
-        />
+        <LibraryItemContent item={props} />
       </div>
       <Footer item={props} />
     </ContentCard>

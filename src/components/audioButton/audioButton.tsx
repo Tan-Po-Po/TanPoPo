@@ -13,6 +13,7 @@ interface Props {
   href: string;
   color: string;
   className?: string;
+  onClick?: (event: React.MouseEvent) => void;
 }
 
 export const AudioButton: React.FC<Props> = ({
@@ -20,12 +21,14 @@ export const AudioButton: React.FC<Props> = ({
   href,
   color,
   className,
+  onClick,
 }) => {
   return (
     <ContentCard
       width="100%"
       cardBgColor={color}
       className={getValidClassNames(cl.audioButton, className && className)}
+      onClick={onClick}
     >
       <Link href={href} className={cl.link}>
         <div className={cl.triangleBtn}>
@@ -40,7 +43,6 @@ export const AudioButton: React.FC<Props> = ({
         width={430}
         height={40}
       />
-      {/* {isPodcast ? <AudioLongIcon /> : <AudioShortIcon />} */}
     </ContentCard>
   );
 };

@@ -43,4 +43,21 @@
       }
     }
   }
+
+  .slider {
+    // overflow: hidden;
+  }
+
+  :global(.slick-prev) {
+    top: 50%;
+    left: 60px;
+    transform: translate(-50%, -75%) rotate(180deg);
+  }
+
+  :global(.slick-next) {
+    transform: rotate(0);
+    top: 50%;
+    right: 26px;
+    transform: translate(-50%, -80%);
+  }
 }

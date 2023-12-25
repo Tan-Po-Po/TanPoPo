@@ -63,7 +63,7 @@ const Carousel: React.FC<Props> = ({
 
   return (
     <div className={getValidClassNames(cl.sliderWrapper, className)}>
-      <Slider {...settings} ref={ref}>
+      <Slider {...settings} ref={ref} className={cl.slider}>
         {children}
       </Slider>
     </div>

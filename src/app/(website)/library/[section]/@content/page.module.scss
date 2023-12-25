@@ -1,9 +1,14 @@
 .contentMain {
+  @include flex-column;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(384px, 1fr));
-  // grid-column-gap: 100px;
   gap: 100px;
-  justify-items: center;
-  align-items: center;
+
+  .cards {
+    @include flex-row;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+  }
 }

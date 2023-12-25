@@ -63,12 +63,12 @@ export const CartItem: React.FC<ICartItem> = ({
               variant="subtitle1"
               style={{ fontWeight: "700", textDecoration: "line-through" }}
             >
-              {price.original}
+              {price.original * amount}
             </Typography>
-            <Typography variant="h6">{price.sale}</Typography>
+            <Typography variant="h6">{price.sale * amount}</Typography>
           </>
         ) : (
-          <Typography variant="h6">{price.original}</Typography>
+          <Typography variant="h6">{price.original * amount}</Typography>
         )}
       </ContentCard>
     </ContentCard>
