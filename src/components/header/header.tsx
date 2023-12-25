@@ -3,6 +3,7 @@ import cl from "./header.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { Dropdown, Button, IconLink } from "@/components";
+import { getValidClassNames } from "@/helpers";
 
 const Header = () => {
   return (

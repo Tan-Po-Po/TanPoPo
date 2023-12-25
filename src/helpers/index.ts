@@ -10,3 +10,5 @@ export { getTextForSaleLabel } from "./getTextForSaleLabel";
 export { validateDate } from "./validateDate";
 export { getTotalPrice } from "./getTotalPrice";
 export { getQuestions } from "./getQuestions";
+export { getShopItems } from "./getShopItems";
+export { getShopPartners } from "./getShopPartners";

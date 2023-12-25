@@ -5,3 +5,6 @@ export { Cart } from "./cart/cart";
 export { CartButton } from "./cartButton/cartButton";
 export { Counter } from "./counter/counter";
 export { DialogCart } from "./dialogCart/dialogCart";
+export { MiniProductCards } from "./shopProductCardMini/miniProductCards";
+export { LargeProductCards } from "./shopProductCardLarge/largeProductCards";
+export { ShopPartnersBlock } from "./shopPartnerCard/shopPartnersBlock";

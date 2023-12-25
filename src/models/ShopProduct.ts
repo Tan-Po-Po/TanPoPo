@@ -13,6 +13,7 @@ export interface IShopProduct {
   };
   large: {
     available: boolean;
+    inDevelopment: boolean;
     gallery: {
       _id?: string;
       value?: string;
