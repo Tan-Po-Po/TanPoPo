@@ -4,7 +4,7 @@ import { Typography } from "../typography/typography";
 import { Checkbox } from "../checkbox/checkbox";
 import { ContentCard } from "../contentCard/contentCard";
 import { Select } from "../select/select";
-import { getValidClassNames } from "@/helpers";
+import { getValidClassNames, parseCoursePrices } from "@/helpers";
 import { ICourse } from "@/models/Course";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -70,9 +70,9 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       lessons: +cardState.lessons.slice(0, 2).trim(),
       price: cardState.lessons.match(/\(([^)]+)\)/)![1],
       level: course.level[0],
-      isGift
+      isGift,
     };
-    console.log(selectedCourse);
+ 
     dispatch(setCourse(selectedCourse));
     isGift ? router.push("/education/gift") : router.push("/education/start");
   };
@@ -139,25 +139,15 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       <Select
         className={cl.select}
         placeHolder="К-сть Уроків & Ціна"
-        menuItems={course.prices.map((price, idx) => {
-          return {
-            label: (
-              <Typography variant="body2">
-                {price.lessons} {idx === 0 ? "уроки" : "уроків"} ({price.price}
-                грн){" "}
-                <span className={cl.greyText}>
-                  ({Math.round(price.price / price.lessons)}грн)
-                </span>
-              </Typography>
-            ),
-            labelWhenSelected: `${price.lessons} ${
-              idx === 0 ? "уроки" : "уроків"
-            } (${price.price}грн)`,
-            value: `${price.lessons} ${idx === 0 ? "уроки" : "уроків"} (${
-              price.price
-            }грн)`,
-          };
-        })}
+        menuItems={
+          cardState.learningFormat === "Індивідуально"
+            ? course.prices.individual.map((price, idx) => {
+                return parseCoursePrices(price, idx);
+              })
+            : course.prices.group.map((price, idx) => {
+                return parseCoursePrices(price, idx);
+              })
+        }
         handleSelect={(value: string) =>
           setCardState((prev) => {
             return { ...prev, lessons: value };

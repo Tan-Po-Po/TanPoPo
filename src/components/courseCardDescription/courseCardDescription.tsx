@@ -6,7 +6,7 @@ import { ContentCard } from "../contentCard/contentCard";
 import { Checkbox } from "../checkbox/checkbox";
 import { Select } from "../select/select";
 import Carousel from "../carousel/carousel";
-import { getValidClassNames } from "@/helpers";
+import { getValidClassNames, parseCoursePrices } from "@/helpers";
 import { TeacherCard } from "./teacherCard";
 import cl from "./courseCardDescription.module.scss";
 import Link from "next/link";
@@ -15,6 +15,7 @@ import { ICourse } from "@/models/Course";
 import PlayBtn from "../../../public/icons/playButton.svg";
 import TriangleBtn from "../../../public/icons/playButtonTest.svg";
 import { CarouselItem } from "../carousel/carouselItem/carouselItem";
+
 
 type Properties = {
   course: ICourse;
@@ -163,21 +164,8 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       <Select
         className={cl.select}
         placeHolder={placeholders[course.type]}
-        menuItems={course.prices.map((price, idx) => {
-          return {
-            label: (
-              <Typography variant="body2">
-                {price.lessons} {idx === 0 ? "уроки" : "уроків"} ({price.price}
-                грн){" "}
-                <span className={cl.greyText}>
-                  ({Math.round(price.price / price.lessons)}грн)
-                </span>
-              </Typography>
-            ),
-            value: `${price.lessons} ${idx === 0 ? "уроки" : "уроків"} (${
-              price.price
-            })`,
-          };
+        menuItems={course.prices.individual.map((price, idx) => {
+          return parseCoursePrices(price, idx);
         })}
         handleSelect={(value: string) => setLessons(value)}
         checkbox

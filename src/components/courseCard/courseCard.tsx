@@ -4,7 +4,7 @@ import { Typography } from "../typography/typography";
 import { Checkbox } from "../checkbox/checkbox";
 import { ContentCard } from "../contentCard/contentCard";
 import { Select } from "../select/select";
-import { getValidClassNames } from "@/helpers";
+import { getValidClassNames, parseCoursePrices } from "@/helpers";
 import cl from "./courseCard.module.scss";
 import { ICourse } from "@/models/Course";
 import { TeacherCourseCard } from "./teacherCourseCard";
@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+
 
 type Properties = {
   course: ICourse;
@@ -144,21 +145,8 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       <Select
         className={cl.select}
         placeHolder={placeholders[course.type]}
-        menuItems={course.prices.map((price, idx) => {
-          return {
-            label: (
-              <Typography variant="body2">
-                {price.lessons} {idx === 0 ? "уроки" : "уроків"} ({price.price}
-                грн){" "}
-                <span className={cl.greyText}>
-                  ({Math.round(price.price / price.lessons)}грн)
-                </span>
-              </Typography>
-            ),
-            value: `${price.lessons} ${idx === 0 ? "уроки" : "уроків"} (${
-              price.price
-            })`,
-          };
+        menuItems={course.prices.individual.map((price, idx) => {
+          return parseCoursePrices(price, idx);
         })}
         handleSelect={(value: string) => setLessons(value)}
         checkbox
