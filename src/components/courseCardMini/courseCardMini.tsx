@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Typography } from "../typography/typography";
 import { ContentCard } from "../contentCard/contentCard";
@@ -5,17 +6,7 @@ import { getValidClassNames } from "@/helpers";
 import cl from "./courseCardMini.module.scss";
 import Link from "next/link";
 import { ICourse } from "@/models/Course";
-
-type Course = {
-  type: "teacher" | "video" | "audio" | "book";
-  name: string; // Цвіт сакури
-  nameJapanese?: string; // 桜の花
-  level: string; // N1, N5-N3...
-  description: string; // "Середній рівень" || "Це не просто мовний курс..."
-  backgroundColor: string; // linear-gradient(#ffede81a, #fffbd8) || "red"
-  label?: string; // BESTseller! || незабаром
-  labelColor?: string; // linear-gradient(#FFFCAE, #FF83F3) || "red" || #FFFCAE
-};
+import { toast } from "react-toastify";
 
 type Properties = {
   course: ICourse;
@@ -31,8 +22,20 @@ const typeClassMap = {
 
 const CourseCardMini: React.FC<Properties> = ({ course }) => {
   const courseInfo = course.small;
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (course.inDevelopment) {
+      event.preventDefault()
+      return toast("Цей курс ще в розробці");
+    }
+  };
+
   return (
-    <Link className={cl.link} href={`/courses/${course._id}`}>
+    <Link
+      className={cl.link}
+      href={`/courses/${course._id}`}
+      onClick={handleClick}
+    >
       <ContentCard
         className={getValidClassNames(cl.card, typeClassMap[course.type])}
         label={courseInfo.label}

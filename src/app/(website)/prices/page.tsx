@@ -16,11 +16,17 @@ export default async function Home() {
   const coursesDB = await getCourses();
 
   const teacherCourses = coursesDB.filter(
-    (course) => course.type === "teacher"
+    (course) => course.type === "teacher" && !course.inDevelopment
   );
-  const videoCourses = coursesDB.filter((course) => course.type === "video");
-  const bookCourses = coursesDB.filter((course) => course.type === "book");
-  const audioCourses = coursesDB.filter((course) => course.type === "audio");
+  const videoCourses = coursesDB.filter(
+    (course) => course.type === "video" && !course.inDevelopment
+  );
+  const bookCourses = coursesDB.filter(
+    (course) => course.type === "book" && !course.inDevelopment
+  );
+  const audioCourses = coursesDB.filter(
+    (course) => course.type === "audio" && !course.inDevelopment
+  );
 
   return (
     <main className={cl.main}>
@@ -33,11 +39,9 @@ export default async function Home() {
         bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
       />
       <div className={cl.courses}>
-        {coursesDB
-          .filter((course) => course.type === "teacher")
-          .map((course) => (
-            <CourseCard course={course} key={course._id} />
-          ))}
+        {teacherCourses.map((course) => (
+          <CourseCard course={course} key={course._id} />
+        ))}
       </div>
 
       <Divider

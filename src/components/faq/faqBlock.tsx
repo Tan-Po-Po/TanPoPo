@@ -1,6 +1,5 @@
 import React from "react";
 import { getQuestions, getValidClassNames } from "@/helpers";
-import { IQuestion } from "@/models/Question";
 import { Faq } from "./faq";
 import cl from "./faq.module.scss";
 
@@ -9,9 +8,7 @@ type Properties = {
 };
 
 const FaqBlock: React.FC<Properties> = async ({ location }) => {
-  const { questions } = (await getQuestions(location)) as {
-    questions: IQuestion;
-  };
+  const questions = await getQuestions(location);
 
   return (
     <div className={getValidClassNames(cl.faqBlock)}>

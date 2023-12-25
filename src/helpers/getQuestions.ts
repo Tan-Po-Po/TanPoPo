@@ -1,6 +1,8 @@
+import { IQuestion } from "@/models/Question";
+
 export async function getQuestions(
   location: "courses" | "prices" | "contacts"
-) {
+):Promise<IQuestion> {
   await new Promise(resolve => setTimeout(resolve, 2000));
 
   const response = await fetch("http://localhost:3000/api/questions", {
@@ -9,9 +11,6 @@ export async function getQuestions(
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-    },
-    next: {
-      revalidate: 1,
     },
   });
 

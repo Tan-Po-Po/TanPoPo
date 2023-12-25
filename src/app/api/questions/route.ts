@@ -10,7 +10,7 @@ export async function POST(req: Request) {
   await dbConnect();
   try {
     const questions = await Question.findOne({ location });
-    return NextResponse.json({ questions });
+    return NextResponse.json(questions);
   } catch (err: any) {
     return NextResponse.json({ message: err.message }, { status: 400 });
   }
