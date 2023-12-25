@@ -78,7 +78,9 @@ const Select: React.FC<SelectProps> = ({
       <div
         className={getValidClassNames(
           cl.selectContainer,
-          isDisabled && cl.disabled
+          isDisabled && cl.disabled,
+          isOpen && cl.containerOpen,
+          option.value && cl.selected
         )}
       >
         <div
