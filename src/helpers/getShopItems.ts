@@ -8,6 +8,6 @@ export const getShopItems = async (): Promise<IShopProduct[]> => {
       Accept: "application/json",
     },
   });
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   return response.json();
 };
