@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 export interface ICourse {
   _id: string;
   type: "teacher" | "video" | "audio" | "book" | "mega";
+  inDevelopment: boolean;
   name: string;
   nameJapanese: string;
   level: string[];
@@ -38,6 +39,7 @@ export interface ICourse {
 const CoursesSchema = new mongoose.Schema<ICourse>(
   {
     name: { type: String, required: true },
+    inDevelopment: { type: Boolean, required: true },
     nameJapanese: { type: String, required: true },
     level: [{ type: String, required: true }],
     image: [{ type: String, required: false }],

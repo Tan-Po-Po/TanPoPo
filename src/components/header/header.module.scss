@@ -1,15 +1,24 @@
 .header {
+  @include flex-row;
+  justify-content: center;
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.wrapper {
   width: 100%;
+  max-width: 1400px;
   height: 70px;
   background-color: $color-yellow;
   border: $border;
   border-top: none;
   border-radius: 0 0 $border-radius $border-radius;
   box-shadow: $box-shadow;
-  position: fixed;
-  top: 0;
-  max-width: 1400px;
-  z-index: 20;
+  display: flex;
 }
 
 .logo {
