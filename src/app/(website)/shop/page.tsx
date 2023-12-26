@@ -7,6 +7,10 @@ import {
   DialogGallery,
   Loading,
 } from "@/components";
+import {
+  MiniShopProductSkeleton,
+  ShopPartnerSkeleton,
+} from "@/components/skeletons";
 import Image from "next/image";
 import { textContent } from "./textContent";
 import {
@@ -24,7 +28,11 @@ export default function Shop() {
       <CartButton />
       <Typography variant="h3">КРАМНИЦЯ</Typography>
       <section className={cl.introBlock}>
-        <Suspense fallback={<Loading />}>
+        <Suspense
+          fallback={new Array(8).fill(null).map((_, index) => (
+            <MiniShopProductSkeleton key={index} />
+          ))}
+        >
           <MiniProductCards />
         </Suspense>
 
@@ -67,7 +75,11 @@ export default function Shop() {
       />
 
       <section className={cl.shopPartnersBlock}>
-        <Suspense fallback={<Loading />}>
+        <Suspense
+          fallback={new Array(3).fill(null).map((_, index) => (
+            <ShopPartnerSkeleton key={index} />
+          ))}
+        >
           <ShopPartnersBlock />
         </Suspense>
       </section>
@@ -77,11 +89,11 @@ export default function Shop() {
         bgColor="linear-gradient(180deg, #F0FF93 0%, #FFC683 100%)"
       />
 
-      <section className={cl.shopProductsBlock}>
-        <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
+        <section className={cl.shopProductsBlock}>
           <LargeProductCards />
-        </Suspense>
-      </section>
+        </section>
+      </Suspense>
 
       <section className={cl.message}>
         <ContentCard width="898px">
