@@ -10,10 +10,15 @@ export interface ICourse {
   image: string[];
   href: string;
   prices: {
-    individual: { lessons: number; price: number }[];
+    individual: {
+      lessons: number;
+      price: number;
+      link: string;
+    }[];
     group: {
       lessons: number;
       price: number;
+      link: string;
     }[];
   };
   labels: string[];
@@ -52,12 +57,14 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
         {
           lessons: { type: Number, required: true },
           price: { type: Number, required: true },
+          link: { type: String, required: true },
         },
       ],
       group: [
         {
           lessons: { type: Number, required: true },
           price: { type: Number, required: true },
+          link: { type: String, required: true },
         },
       ],
     },

@@ -35,9 +35,11 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
   const [cardState, setCardState] = React.useState<{
     learningFormat: "Міні-група" | "Індивідуально" | null;
     lessons: null | string;
+    link: null | string;
   }>({
     learningFormat: null,
     lessons: null,
+    link: null,
   });
 
   const toggleGift = () => {
@@ -58,9 +60,9 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
     if (!cardState.learningFormat || !cardState.lessons) {
       return toast("Спочатку оберіть Формат \nНавчання та К-сть уроків!📚");
     }
-    if (isActiveStudent) {
-      // Change link to LMS store
-      router.push("/education");
+
+    if (isActiveStudent && cardState.link) {
+      return router.push(cardState.link);
     }
 
     const selectedCourse: Partial<CourseState> = {
@@ -72,7 +74,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       level: course.level[0],
       isGift,
     };
- 
+
     dispatch(setCourse(selectedCourse));
     isGift ? router.push("/education/gift") : router.push("/education/start");
   };
@@ -148,9 +150,9 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
                 return parseCoursePrices(price, idx);
               })
         }
-        handleSelect={(value: string) =>
+        handleSelect={(value: string, link?: string) =>
           setCardState((prev) => {
-            return { ...prev, lessons: value };
+            return { ...prev, lessons: value, link: link as string };
           })
         }
         checkbox

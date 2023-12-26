@@ -16,13 +16,14 @@ type SelectProps = {
         label: string | React.ReactElement;
         value: string;
         labelWhenSelected?: string;
+        link?: string;
       }[];
   checkbox?: boolean;
   checkboxLabel?: string;
   setGift?: () => void;
   gift?: boolean;
   className?: string;
-  handleSelect?: (value: string) => void;
+  handleSelect?: (value: string, link?: string) => void;
   isDisabled?: boolean;
   setValue?: UseFormSetValue<any>;
   name?: string;
@@ -63,11 +64,13 @@ const Select: React.FC<SelectProps> = ({
   const handleOptionClick = ({
     value,
     label,
+    link,
   }: {
     value: string;
     label: string;
+    link?: string;
   }) => {
-    handleSelect && handleSelect(value);
+    handleSelect && (link ? handleSelect(value, link) : handleSelect(value));
     name && setValue && setValue(name, value);
     setOption({ value, label });
     setIsOpen(false);

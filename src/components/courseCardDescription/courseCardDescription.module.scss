@@ -90,15 +90,40 @@
   .checkbox {
     text-align: start;
     line-height: 16.73px;
+    margin-right: 0;
+    margin-bottom: 10px;
     a {
       text-decoration: underline;
     }
-    p {
+    span {
       font-size: 15px;
       font-weight: 700;
       max-width: 300px;
     }
-    margin-bottom: 16px;
+    :global(.MuiTypography-root) {
+      font-size: 15px;
+      font-weight: 700;
+      text-align: start;
+      margin-left: 10px;
+    }
+  }
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    
+    .line {
+      height: 2px;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+      background: rgba(86, 86, 86, 1);
+      width: 65px;
+      border-radius: $border-radius;
+    }
+    .text {
+      text-transform: uppercase;
+      padding: 0px 8px;
+    }
   }
 }
 
@@ -205,7 +230,7 @@
 
 .book {
   padding-bottom: 50px;
-  
+
   .description {
     font-size: 16px;
   }
@@ -215,7 +240,7 @@
   .select {
     margin-top: 15px;
   }
-  
+
   .carousel {
     .image {
       border: $border;

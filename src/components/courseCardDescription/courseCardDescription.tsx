@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Typography } from "../typography/typography";
 import { ContentCard } from "../contentCard/contentCard";
 import { Checkbox } from "../checkbox/checkbox";
@@ -15,7 +15,8 @@ import { ICourse } from "@/models/Course";
 import PlayBtn from "../../../public/icons/playButton.svg";
 import TriangleBtn from "../../../public/icons/playButtonTest.svg";
 import { CarouselItem } from "../carousel/carouselItem/carouselItem";
-
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 type Properties = {
   course: ICourse;
@@ -34,16 +35,29 @@ const placeholders = {
 };
 
 const CourseCardDescription: React.FC<Properties> = ({ course }) => {
+  const router = useRouter();
   const courseInfo = course.large;
-  const [isGift, setIsGift] = React.useState(false);
-  const [lessons, setLessons] = React.useState<null | string>(null);
-  const [isAccepted, setIsAccepted] = React.useState(false);
+  const [isGift, setIsGift] = useState(false);
+  const [lessons, setLessons] = useState<null | string>(null);
+  const [isAccepted, setIsAccepted] = useState(false);
+  const [link, setLink] = useState<null | string>(null);
 
   const toggleGift = () => {
     setIsGift((prev) => !prev);
   };
   const toggleAcceptation = () => {
     setIsAccepted((prev) => !prev);
+  };
+
+  const handleClick = () => {
+    if (!lessons) {
+      return toast("Спочатку оберіть К-сть уроків!📚");
+    }
+    if (!isAccepted) {
+      return toast("Спочатку ознайомтесь з навчальним періодом!📚");
+    }
+
+    isGift ? router.push("/education/gift") : link && router.push(link);
   };
 
   return course.type === "teacher" || course.type === "mega" ? (
@@ -125,26 +139,6 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
               />
             </CarouselItem>
           ))}
-          {/* <CarouselItem isOutlined={false}>
-            <Image
-              className={cl.image}
-              src={`/courses/tales1.png`}
-              alt="Book course image"
-              width={215}
-              height={215}
-              style={{ width: "215px", height: "215px" }}
-            />
-          </CarouselItem>
-          <CarouselItem isOutlined={false}>
-            <Image
-              className={cl.image}
-              src={`/courses/tales2.png`}
-              alt="Audio"
-              width={215}
-              height={215}
-              style={{ width: "215px", height: "215px" }}
-            />
-          </CarouselItem> */}
         </Carousel>
       )}
 
@@ -167,7 +161,10 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
         menuItems={course.prices.individual.map((price, idx) => {
           return parseCoursePrices(price, idx);
         })}
-        handleSelect={(value: string) => setLessons(value)}
+        handleSelect={(value: string, link?: string) => {
+          setLessons(value);
+          link && setLink(link);
+        }}
         checkbox
         checkboxLabel="Подарунковий Сертифікат🎁"
         setGift={toggleGift}
@@ -197,6 +194,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       )}
 
       <ContentCard
+        onClick={handleClick}
         className={getValidClassNames(
           cl.bottomBtn,
           isGift && cl.giftBtn,
