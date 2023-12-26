@@ -1,8 +1,8 @@
+import { SERVER_URL } from "@/config/config";
 import { Data } from "./type";
-const url = "http://localhost:3000";
 
 export const generateUrl = (data: Data) => {
-  let scheduleUrl = `${url}/studentInfo?`;
+  let scheduleUrl = `${SERVER_URL}/studentInfo?`;
 
   for (const [key, value] of Object.entries(data)) {
     let formattedValue;
@@ -11,10 +11,10 @@ export const generateUrl = (data: Data) => {
     } else if (typeof value === "string") {
       formattedValue = value.replace(/ |\n/g, "+");
     } else {
-      formattedValue = value
+      formattedValue = value;
     }
     scheduleUrl += key + "=" + formattedValue + "&";
   }
 
-  return scheduleUrl
+  return scheduleUrl;
 };

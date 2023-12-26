@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Typography } from "../typography/typography";
 import { ContentCard } from "../contentCard/contentCard";
 import { Checkbox } from "../checkbox/checkbox";
 import { Select } from "../select/select";
 import { Carousel } from "../carousel/carousel";
-import { getValidClassNames } from "@/helpers";
+import { getValidClassNames, parseCoursePrices } from "@/helpers";
 import { TeacherCard } from "./teacherCard";
 import cl from "./courseCardDescription.module.scss";
 import Link from "next/link";
@@ -15,6 +15,8 @@ import { ICourse } from "@/models/Course";
 import PlayBtn from "../../../public/icons/playButton.svg";
 import { CarouselItem } from "../carousel/carouselItem/carouselItem";
 import { AudioButton } from "../audioButton/audioButton";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 type Properties = {
   course: ICourse;
@@ -33,16 +35,29 @@ const placeholders = {
 };
 
 const CourseCardDescription: React.FC<Properties> = ({ course }) => {
+  const router = useRouter();
   const courseInfo = course.large;
-  const [isGift, setIsGift] = React.useState(false);
-  const [lessons, setLessons] = React.useState<null | string>(null);
-  const [isAccepted, setIsAccepted] = React.useState(false);
+  const [isGift, setIsGift] = useState(false);
+  const [lessons, setLessons] = useState<null | string>(null);
+  const [isAccepted, setIsAccepted] = useState(false);
+  const [link, setLink] = useState<null | string>(null);
 
   const toggleGift = () => {
     setIsGift((prev) => !prev);
   };
   const toggleAcceptation = () => {
     setIsAccepted((prev) => !prev);
+  };
+
+  const handleClick = () => {
+    if (!lessons) {
+      return toast("Спочатку оберіть К-сть уроків!📚");
+    }
+    if (!isAccepted) {
+      return toast("Спочатку ознайомтесь з навчальним періодом!📚");
+    }
+
+    isGift ? router.push("/education/gift") : link && router.push(link);
   };
 
   return course.type === "teacher" || course.type === "mega" ? (
@@ -148,26 +163,13 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       <Select
         className={cl.select}
         placeHolder={placeholders[course.type]}
-        menuItems={course.prices.map((price, idx) => {
-          return {
-            label: (
-              <Typography variant="body2">
-                {price.lessons} {idx === 0 ? "уроки" : "уроків"} ({price.price}
-                грн){" "}
-                <span className={cl.greyText}>
-                  ({Math.round(price.price / price.lessons)}грн)
-                </span>
-              </Typography>
-            ),
-            value: `${price.lessons} ${idx === 0 ? "уроки" : "уроків"} (${
-              price.price
-            })`,
-            labelWhenSelected: `${price.lessons} ${
-              idx === 0 ? "уроки" : "уроків"
-            } (${price.price})`,
-          };
+        menuItems={course.prices.individual.map((price, idx) => {
+          return parseCoursePrices(price, idx);
         })}
-        handleSelect={(value: string) => setLessons(value)}
+        handleSelect={(value: string, link?: string) => {
+          setLessons(value);
+          link && setLink(link);
+        }}
         checkbox
         checkboxLabel="Подарунковий Сертифікат🎁"
         setGift={toggleGift}
@@ -197,6 +199,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       )}
 
       <ContentCard
+        onClick={handleClick}
         className={getValidClassNames(
           cl.bottomBtn,
           isGift && cl.giftBtn,

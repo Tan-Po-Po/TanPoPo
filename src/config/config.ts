@@ -9,6 +9,5 @@ export const socialLinks = {
 export const NODEMAILER_EMAIL = process.env.NODEMAILER_EMAIL;
 export const NODEMAILER_PASSWORD = process.env.NODEMAILER_PASSWORD;
 export const NOVA_POSHTA = process.env.NOVA_POSHTA;
-export const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL;
-
-export const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
+export const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL
+export const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL
