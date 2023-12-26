@@ -20,7 +20,7 @@ async function getCourses(): Promise<ICourse[]> {
 
   const courses = (await Course.find()) as mongoose.Document<ICourse>[];
 
-  return courses.map((course) => course.toObject());
+  return courses.map((course) => JSON.parse(JSON.stringify(course)));
 }
 
 export default async function Courses() {
@@ -152,19 +152,9 @@ export default async function Courses() {
       />
       <section className={cl.questions}>
         <Suspense
-          fallback={
-            // Замінити на скелетони
-            <>
-              <Faq
-                question="Loading"
-                answer="Loading"
-                style={{ width: "900px", maxWidth: "100%" }}
-              />
-              <Faq question="Loading" answer="Loading" />
-              <Faq question="Loading" answer="Loading" />
-              <Faq question="Loading" answer="Loading" />
-            </>
-          }
+          fallback={new Array(4).fill(null).map((_, index) => (
+            <Faq question="Loading" answer="Loading" key={index} />
+          ))}
         >
           <FaqBlock location="courses" />
         </Suspense>

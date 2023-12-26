@@ -4,10 +4,14 @@ import { Typography } from "../typography/typography";
 import { Checkbox } from "../checkbox/checkbox";
 import { ContentCard } from "../contentCard/contentCard";
 import { Select } from "../select/select";
-import { getIconSrc, getValidClassNames } from "@/helpers";
+import { getIconSrc, getValidClassNames, parseCoursePrices } from "@/helpers";
 import cl from "./courseCardDescription.module.scss";
 import Image from "next/image";
 import { ICourse } from "@/models/Course";
+import { CourseState, setCourse } from "@/redux/slices/course/courseSlice";
+import { useAppDispatch } from "@/redux/hooks";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 type Properties = {
   course: ICourse;
@@ -19,16 +23,20 @@ const typeClassMap = {
 };
 
 const TeacherCard: React.FC<Properties> = ({ course }) => {
+  const router = useRouter();
+  const dispatch = useAppDispatch();
   const courseInfo = course.large;
   const [isGift, setIsGift] = React.useState(false);
-  const [isNewStudent, setIsNewStudent] = React.useState(false);
+  const [isNewStudent, setIsNewStudent] = React.useState(true);
   const [isActiveStudent, setIsActiveStudent] = React.useState(false);
   const [cardState, setCardState] = React.useState<{
-    learningFormat: null | string;
+    learningFormat: "Міні-група" | "Індивідуально" | null;
     lessons: null | string;
+    link: null | string;
   }>({
     learningFormat: null,
     lessons: null,
+    link: null,
   });
 
   const toggleGift = () => {
@@ -41,6 +49,29 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
   const handleActiveStudentCheckbox = () => {
     if (isNewStudent) setIsNewStudent(false);
     setIsActiveStudent((prev) => !prev);
+  };
+
+  const handleClick = () => {
+    if (!cardState.learningFormat || !cardState.lessons) {
+      return toast("Спочатку оберіть Формат \nНавчання та К-сть уроків!📚");
+    }
+
+    if (isActiveStudent && cardState.link) {
+      return router.push(cardState.link);
+    }
+
+    const selectedCourse: Partial<CourseState> = {
+      name: course.name,
+      japanName: course.nameJapanese,
+      format: cardState.learningFormat,
+      lessons: +cardState.lessons.slice(0, 2).trim(),
+      price: cardState.lessons.match(/\(([^)]+)\)/)![1],
+      level: course.level[0],
+      isGift,
+    };
+
+    dispatch(setCourse(selectedCourse));
+    isGift ? router.push("/education/gift") : router.push("/education/start");
   };
 
   return (
@@ -100,7 +131,10 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
           ]}
           handleSelect={(value: string) =>
             setCardState((prev) => {
-              return { ...prev, learningFormat: value };
+              return {
+                ...prev,
+                learningFormat: value as "Міні-група" | "Індивідуально",
+              };
             })
           }
         />
@@ -108,26 +142,18 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
         <Select
           className={cl.select}
           placeHolder="К-сть Уроків & Ціна"
-          menuItems={course.prices.map((price, idx) => {
-            return {
-              label: (
-                <Typography variant="body2">
-                  {price.lessons} {idx === 0 ? "уроки" : "уроків"} (
-                  {price.price}
-                  грн){" "}
-                  <span className={cl.greyText}>
-                    ({Math.round(price.price / price.lessons)}грн)
-                  </span>
-                </Typography>
-              ),
-              value: `${price.lessons} ${idx === 0 ? "уроки" : "уроків"} (${
-                price.price
-              })`,
-            };
-          })}
-          handleSelect={(value: string) =>
+          menuItems={
+            cardState.learningFormat === "Індивідуально"
+              ? course.prices.individual.map((price, idx) => {
+                  return parseCoursePrices(price, idx);
+                })
+              : course.prices.group.map((price, idx) => {
+                  return parseCoursePrices(price, idx);
+                })
+          }
+          handleSelect={(value: string, link?: string) =>
             setCardState((prev) => {
-              return { ...prev, lessons: value };
+              return { ...prev, lessons: value, link: link as string };
             })
           }
           checkbox
@@ -185,6 +211,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
           isNewStudent && cl.startBtn,
           !isGift && !isNewStudent && cl.continueBtn
         )}
+        onClick={handleClick}
       >
         {isGift && (
           <Typography variant="body1">Навчання у Подарунок!</Typography>
