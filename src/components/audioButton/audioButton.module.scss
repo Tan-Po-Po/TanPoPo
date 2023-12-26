@@ -1,0 +1,51 @@
+.audioButton {
+  @include flex-row;
+  align-items: center;
+  padding: 19px 19px;
+  width: fit-content;
+  margin: auto;
+  // gap: 19px;
+  justify-content: space-evenly;
+  transition: all 0.3s ease-in-out;
+  height: 78px;
+
+  &:hover {
+    transform: scale(1.05);
+
+    .audioImg {
+      transform: scale(1.02);
+    }
+  }
+
+  .audioImg {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .link {
+    width: fit-content;
+  }
+
+  .triangleBtn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease-in-out;
+
+    svg {
+      fill: white;
+      transition: all 0.15s ease-in-out;
+
+      // transform: rotate(90deg);
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      svg {
+        fill: $color-yellow;
+      }
+    }
+  }
+}

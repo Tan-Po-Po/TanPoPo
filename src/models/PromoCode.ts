@@ -7,6 +7,7 @@ export interface IPromoCode {
   code: string;
   perCent: number;
   oneTimeUse: boolean;
+  location: "shop" | "library";
 }
 
 export type IPromoCodeDocument = IPromoCode & Document;
@@ -18,6 +19,7 @@ const PromoCodeSchema = new mongoose.Schema<IPromoCodeDocument>(
     code: { type: String, required: true },
     perCent: { type: Number, required: true },
     oneTimeUse: { type: Boolean, required: true },
+    location: { type: String, required: true, default: "shop" },
   },
   { collection: "promo-codes" }
 );

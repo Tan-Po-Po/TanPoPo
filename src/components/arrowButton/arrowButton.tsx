@@ -22,10 +22,18 @@ const ArrowButton: React.FC<Props> = ({
   currentSlide,
   ...props
 }) => {
+  console.log("arrow button classname", className);
+
   return (
-    <div className={cl.wrapper} onClick={handleClickToAnimate}>
+    <div
+      className={cl.wrapper}
+      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
+        handleClickToAnimate && handleClickToAnimate();
+      }}
+    >
       <div
-        className={getValidClassNames(className, cl.arrow, cl[direction])}
+        className={getValidClassNames(cl.arrow, cl[direction], className)}
         {...props}
       >
         <TriangleIcon />

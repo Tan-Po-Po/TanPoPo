@@ -1,7 +1,7 @@
 "use client";
 import { ITeamMember } from "@/models/TeamMember";
 import cl from "./teamBlock.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Typography } from "@mui/material";
 import { TeamMemberCard } from "@/components";
 import ArrowButton from "@/components/arrowButton/arrowButton";
@@ -43,7 +43,11 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
         <ArrowButton
           direction="left"
           onClick={handleLeftArrowClick}
-          style={{ transform: "translate(-85%, -15%) rotate(180deg)" }}
+          style={{
+            transform: "rotate(180deg)",
+            marginRight: "10px",
+            cursor: "pointer",
+          }}
         />
         <Typography variant="h4" style={{ color: "#595959" }}>
           {index + 1} / {teamSize}
@@ -52,7 +56,7 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
         <ArrowButton
           direction="right"
           onClick={handleRightArrowClick}
-          style={{ transform: "translate(90%, 8%)" }}
+          style={{ marginLeft: "10px", cursor: "pointer" }}
         />
       </div>
     </div>

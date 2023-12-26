@@ -1,19 +1,17 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
-import { Button, ContentCard, IconLink, Typography } from "@/components";
+import { Button, ContentCard, IconLink, Typography, Carousel, CarouselItem } from "@/components";
 import TeamMember, { ITeamMember } from "@/models/TeamMember";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
 import { textContent } from "./textContent";
 import Image from "next/image";
-import Carousel from "@/components/carousel/carousel";
-import { CarouselItem } from "@/components/carousel/carouselItem/carouselItem";
 import { TeamBlock } from "./_components/teamBlock/teamBlock";
 import Partner, { IPartner } from "@/models/Partner";
 import { Line } from "./_components/line/line";
 import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
 import Link from "next/link";
-import PlayButtonIcon from "/public/icons/playButton.svg";
+
 
 async function getTeamMembers() {
   await dbConnect();

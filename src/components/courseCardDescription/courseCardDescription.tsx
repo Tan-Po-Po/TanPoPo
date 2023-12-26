@@ -5,7 +5,7 @@ import { Typography } from "../typography/typography";
 import { ContentCard } from "../contentCard/contentCard";
 import { Checkbox } from "../checkbox/checkbox";
 import { Select } from "../select/select";
-import Carousel from "../carousel/carousel";
+import { Carousel } from "../carousel/carousel";
 import { getValidClassNames, parseCoursePrices } from "@/helpers";
 import { TeacherCard } from "./teacherCard";
 import cl from "./courseCardDescription.module.scss";
@@ -13,8 +13,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ICourse } from "@/models/Course";
 import PlayBtn from "../../../public/icons/playButton.svg";
-import TriangleBtn from "../../../public/icons/playButtonTest.svg";
 import { CarouselItem } from "../carousel/carouselItem/carouselItem";
+import { AudioButton } from "../audioButton/audioButton";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
@@ -102,22 +102,27 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       )}
 
       {course.type === "audio" && (
-        <ContentCard className={cl.podcast} cardBgColor={courseInfo.labelColor}>
-          <Link href={course.href || ""} className={cl.link}>
-            <TriangleBtn
-              className={cl.triangleBtn}
-              src="/icons/triangleButton.svg"
-              alt="Play button"
-            />
-          </Link>
-          <Image
-            className={cl.audioImg}
-            src="/icons/audioLong.svg"
-            alt="Audio"
-            width={430}
-            height={40}
-          />
-        </ContentCard>
+        // <ContentCard className={cl.podcast} cardBgColor={courseInfo.labelColor}>
+        //   <Link href={course.href || ""} className={cl.link}>
+        //     <TriangleBtn
+        //       className={cl.triangleBtn}
+        //       src="/icons/triangleButton.svg"
+        //       alt="Play button"
+        //     />
+        //   </Link>
+        //   <Image
+        //     className={cl.audioImg}
+        //     src="/icons/audioLong.svg"
+        //     alt="Audio"
+        //     width={430}
+        //     height={40}
+        //   />
+        // </ContentCard>
+        <AudioButton
+          isPodcast={true}
+          color={courseInfo.labelColor}
+          href={course.href || ""}
+        />
       )}
 
       {course.type === "book" && (

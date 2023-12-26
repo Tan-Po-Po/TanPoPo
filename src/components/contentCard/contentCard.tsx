@@ -17,7 +17,7 @@ interface Props {
   style?: CSSProperties;
   className?: string;
   labelClassName?: string;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent) => void;
   id?: string;
 }
 
@@ -47,7 +47,7 @@ const ContentCard: React.FC<Props> = ({
         maxHeight: height,
         background: cardBgColor,
       }}
-      onClick={onClick && onClick}
+      onClick={onClick}
     >
       {index && (
         <div className={cl.index} style={{ backgroundColor: indexBgColor }}>

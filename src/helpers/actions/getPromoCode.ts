@@ -1,5 +1,4 @@
 "use server";
-
 import dbConnect from "@/config/dbConnect";
 import { validateDate } from "@/helpers";
 import PromoCode, { IPromoCode, IPromoCodeDocument } from "@/models/PromoCode";

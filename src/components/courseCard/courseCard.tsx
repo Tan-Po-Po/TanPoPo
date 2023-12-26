@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { AudioButton } from "../audioButton/audioButton";
 
 type Properties = {
   course: ICourse;
@@ -101,22 +102,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       )}
 
       {course.type === "audio" && (
-        <ContentCard className={cl.podcast} cardBgColor={courseInfo.labelColor}>
-          <Link href={course.href || ""} className={cl.link}>
-            <TriangleBtn
-              className={cl.triangleBtn}
-              src="/icons/triangleButton.svg"
-              alt="Play button"
-            />
-          </Link>
-          <Image
-            className={cl.audioImg}
-            src="/icons/audioLong.svg"
-            alt="Audio"
-            width={430}
-            height={40}
-          />
-        </ContentCard>
+        <AudioButton href={course.href || ""} color="red" isPodcast={true} />
       )}
 
       {course.type === "book" && (

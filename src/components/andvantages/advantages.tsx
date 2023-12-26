@@ -5,7 +5,7 @@ import { textContent } from "./textContent";
 import { getValidClassNames } from "@/helpers";
 
 type Properties = {
-  className: string;
+  className?: string;
 };
 
 const Advantages: React.FC<Properties> = ({ className }) => {

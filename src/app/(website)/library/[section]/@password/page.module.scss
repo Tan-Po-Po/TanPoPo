@@ -1,0 +1,41 @@
+.password {
+  @include flex-column;
+  gap: 60px;
+  .formBlock {
+    @include flex-row;
+    gap: 81px;
+
+    .left {
+      @include flex-column;
+      gap: 60px;
+
+      .caption {
+        text-align: center;
+      }
+
+      .input {
+        label {
+          margin-left: 40px;
+        }
+
+        &:focus-within {
+          label {
+            margin-left: auto;
+          }
+        }
+
+        :global(.MuiInputBase-root) {
+          background: linear-gradient(180deg, #fffaf9 0%, #fffbd8 100%);
+
+          &:focus-within {
+            background: linear-gradient(
+              180deg,
+              #fff 0%,
+              #ffe600 100%
+            ) !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
 export { AddressForm } from "./orderForm/addressFrom";
 export { Button } from "./button/button";
+export { Carousel } from "./carousel/carousel";
+export { CarouselItem } from "./carousel/carouselItem/carouselItem";
 export { Checkbox } from "./checkbox/checkbox";
 export { ContentCard } from "./contentCard/contentCard";
 export { CourseCard } from "./courseCard/courseCard";
@@ -25,3 +27,4 @@ export { LibraryCard } from "./libraryCard/libraryCard";
 export { Loading } from "./loading/loading";
 export { RequisitesSmall } from "./requisitesSmall/requisitesSmall";
 export { NewStudentForm, Schedule, AboutSchedule } from "./schedule/schedule";
+export { Pagination } from "./pagination/pagination";

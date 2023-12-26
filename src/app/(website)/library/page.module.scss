@@ -1,0 +1,12 @@
+.libraryMain {
+  @include flex-column;
+  padding: $padding-page;
+  gap: 63px;
+
+  .caption {
+    max-width: 1046px;
+    width: 100%;
+
+    text-align: center;
+  }
+}

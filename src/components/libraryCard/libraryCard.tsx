@@ -6,7 +6,6 @@ import { Typography } from "../typography/typography";
 import { getIconSrc } from "@/helpers";
 import Link from "next/link";
 import Image from "next/image";
-
 import cl from "./libraryCard.module.scss";
 
 type Properties = {
@@ -14,7 +13,7 @@ type Properties = {
   body: string;
   bgColor: string;
   hoverBgColor: string;
-  href:string;
+  href: string;
   isPrivate?: boolean;
 };
 
@@ -22,7 +21,7 @@ const LibraryCard: React.FC<Properties> = ({
   icon,
   body,
   href,
-  isPrivate,
+  isPrivate = false,
   bgColor,
   hoverBgColor,
 }) => {

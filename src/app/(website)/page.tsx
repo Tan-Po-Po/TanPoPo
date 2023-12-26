@@ -1,11 +1,16 @@
 "use client";
 
-import { Typography, ContentCard, Button, Dialog } from "@/components";
+import {
+  Typography,
+  ContentCard,
+  Button,
+  Dialog,
+} from "@/components";
 import Image from "next/image";
 import Link from "next/link";
 import cl from "./page.module.scss";
 import { getIconArtSrc } from "@/helpers";
-import { redirect, useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {

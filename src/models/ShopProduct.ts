@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export interface IShopProduct {
   _id?: string;
   name: string;
-  small: {
+  small?: {
     label?: {
       text: string;
       bgColor: string;
@@ -45,8 +45,8 @@ const ShopProductSchema = new mongoose.Schema<IShopProduct>(
         text: { type: String },
         bgColor: { type: String },
       },
-      image: { type: String, required: true },
-      caption: { type: String, required: true },
+      image: { type: String },
+      caption: { type: String },
     },
     large: {
       available: { type: Boolean, required: true },
