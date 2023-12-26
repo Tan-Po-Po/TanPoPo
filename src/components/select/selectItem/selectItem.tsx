@@ -8,9 +8,18 @@ interface Props {
         label: string | React.ReactElement;
         value: string;
         labelWhenSelected?: string;
+        link?: string;
       };
   isSelected: boolean;
-  setOption: ({ value, label }: { value: string; label: string }) => void;
+  setOption: ({
+    value,
+    label,
+    link,
+  }: {
+    value: string;
+    label: string;
+    link?: string;
+  }) => void;
 }
 
 const SelectItem: React.FC<Props> = ({ item, setOption, isSelected }) => {
@@ -20,6 +29,7 @@ const SelectItem: React.FC<Props> = ({ item, setOption, isSelected }) => {
       : setOption({
           value: item.value,
           label: item.labelWhenSelected || (item.label as string),
+          link: item.link,
         });
   };
   return (

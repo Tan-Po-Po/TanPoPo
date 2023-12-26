@@ -12,3 +12,4 @@ export { getTotalPrice } from "./getTotalPrice";
 export { getQuestions } from "./getQuestions";
 export { getShopItems } from "./getShopItems";
 export { getShopPartners } from "./getShopPartners";
+export {parseCoursePrices} from "./parseCoursePrices"
