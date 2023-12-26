@@ -1,5 +1,5 @@
 "use client";
-import { ContentCard, Input, Typography } from "@/components";
+import { ContentCard, Typography } from "@/components";
 import cl from "./page.module.scss";
 import Image from "next/image";
 import { getIconArtSrc } from "@/helpers";

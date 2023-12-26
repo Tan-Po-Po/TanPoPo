@@ -6,7 +6,7 @@ import PromoCode, { IPromoCodeDocument } from "@/models/PromoCode";
 import { cookies } from "next/headers";
 
 export const validateKey = async (key: string) => {
-  await dbConnect;
+  await dbConnect();
 
   const codeDb = (await PromoCode.findOne({
     code: key,

@@ -5,11 +5,11 @@ import Link from "next/link";
 import { ContentCard, Typography } from "@/components";
 import Image from "next/image";
 import { getIconSrc, getValidClassNames } from "@/helpers";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 type Props = (typeof librarySections)[0];
 
-export const NavButton: React.FC<Props> = ({ href, icon, body, isPrivate }) => {
+export const NavButton: React.FC<Props> = ({ href, icon, body }) => {
   const pathName = usePathname();
 
   const isActive = href.includes(pathName);

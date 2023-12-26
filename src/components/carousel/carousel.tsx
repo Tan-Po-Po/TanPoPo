@@ -70,4 +70,4 @@ const Carousel: React.FC<Props> = ({
   );
 };
 
-export default Carousel;
+export { Carousel };

@@ -1,10 +1,8 @@
-import Carousel from "@/components/carousel/carousel";
 import cl from "../dialogArticle.module.scss";
-import { ContentCard } from "@/components";
+import { ContentCard, Carousel, CarouselItem } from "@/components";
 import { getEmbedYouTubeLink, getValidClassNames } from "@/helpers";
 import { ILibraryItem } from "@/models/LibraryItem";
 import Image from "next/image";
-import { CarouselItem } from "@/components/carousel/carouselItem/carouselItem";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import { useSearchParams } from "next/navigation";

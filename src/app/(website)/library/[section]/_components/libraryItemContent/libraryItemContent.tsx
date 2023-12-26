@@ -2,7 +2,7 @@ import { ContentCard, Typography } from "@/components";
 import { ILibraryItem, ILibraryItemContent } from "@/models/LibraryItem";
 import cl from "./libraryItemContent.module.scss";
 import Image from "next/image";
-import { getValidClassNames } from "../../../../../../helpers";
+import { getValidClassNames } from "@/helpers";
 import Link from "next/link";
 import { AudioButton } from "@/components/audioButton/audioButton";
 import { useAppDispatch } from "@/redux/hooks";

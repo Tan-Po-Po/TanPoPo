@@ -7,7 +7,7 @@ import PlayButtonIcon from "/public/icons/playButton.svg";
 import { Footer } from "../footer/footer";
 
 export const ReelsCard: React.FC<Props> = (props) => {
-  const { label, labelColor, media, hashtags, _id } = props;
+  const { label, labelColor, media } = props;
 
   return (
     <ContentCard

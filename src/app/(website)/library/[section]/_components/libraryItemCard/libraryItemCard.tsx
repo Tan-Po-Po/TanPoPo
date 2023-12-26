@@ -1,12 +1,10 @@
 "use client";
-import { ILibraryItem } from "@/models/LibraryItem";
 import cl from "./libraryItemCard.module.scss";
 import { ArticleCard } from "./cards/articleCard";
 import { Props } from "./props";
 import { PodcastCard } from "./cards/podcastCard";
 import { ReelsCard } from "./cards/reelsCard";
 import { MusicCard } from "./cards/musicCard";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { NewLabel } from "./newLabel/newLabel";

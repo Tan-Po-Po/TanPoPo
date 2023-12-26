@@ -2,9 +2,7 @@
 
 import cl from "./shopProductCardLarge.module.scss";
 import { IShopProduct } from "@/models/ShopProduct";
-import { Button, ContentCard, Select, Typography } from "@/components";
-import Carousel from "@/components/carousel/carousel";
-import { CarouselItem } from "@/components/carousel/carouselItem/carouselItem";
+import { Button, ContentCard, Select, Typography, Carousel,CarouselItem } from "@/components";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";

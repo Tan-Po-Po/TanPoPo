@@ -1,10 +1,9 @@
 import LibraryItem, {
   ILibraryItem,
-  ILibraryItemDocument,
 } from "@/models/LibraryItem";
 import cl from "./page.module.scss";
 import dbConnect from "@/config/dbConnect";
-import { Dialog, DialogGallery, LibraryCard, Pagination } from "@/components";
+import { Dialog, DialogGallery, Pagination } from "@/components";
 import { LibraryItemCard } from "../_components/libraryItemCard/libraryItemCard";
 import { getColor } from "@/helpers/getLibraryItemColors";
 import DialogArticle from "../_components/dialogArticle/dialogArticle";

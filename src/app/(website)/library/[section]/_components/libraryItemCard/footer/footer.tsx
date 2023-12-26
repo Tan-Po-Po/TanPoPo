@@ -3,7 +3,7 @@ import { ContentCard, Typography } from "@/components";
 import cl from "../libraryItemCard.module.scss";
 import { ILibraryItem } from "@/models/LibraryItem";
 import CopyIcon from "/public/icons/copy.svg";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { toast } from "react-toastify";
 import { SERVER_URL } from "@/config/config";
 
@@ -12,11 +12,9 @@ interface Props {
 }
 
 export const Footer: React.FC<Props> = ({ item }) => {
-  const { _id, hashtags, type, content, media } = item;
+  const { _id, hashtags, type, media } = item;
 
   const path = usePathname();
-  const searchParams = useSearchParams();
-  console.log("server url", SERVER_URL);
 
   const handleCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -26,7 +24,6 @@ export const Footer: React.FC<Props> = ({ item }) => {
     ) {
       navigator.clipboard.writeText(media[0].video!);
     } else {
-      console.log("server url", SERVER_URL);
 
       navigator.clipboard.writeText(`${SERVER_URL}${path}?id=${_id}`);
     }

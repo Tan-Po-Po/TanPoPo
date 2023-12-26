@@ -1,21 +1,19 @@
 "use client";
-import { Button, ContentCard, Typography } from "@/components";
+import {
+  Button,
+  ContentCard,
+  Typography,
+  Carousel,
+  CarouselItem,
+} from "@/components";
 import cl from "../libraryItemCard.module.scss";
-import { ILibraryItem, ILibraryItemContent } from "@/models/LibraryItem";
+import { ILibraryItemContent } from "@/models/LibraryItem";
 import { getValidClassNames } from "@/helpers";
 import Image from "next/image";
-import Carousel from "@/components/carousel/carousel";
 import PlayButtonIcon from "/public/icons/playButton.svg";
-import { CarouselItem } from "@/components/carousel/carouselItem/carouselItem";
-
 import { useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { toast } from "react-toastify";
 import { Props } from "../props";
-import { NewLabel } from "../newLabel/newLabel";
-import { getColor } from "@/helpers/getLibraryItemColors";
 import { Footer } from "../footer/footer";
-import Link from "next/link";
 
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 

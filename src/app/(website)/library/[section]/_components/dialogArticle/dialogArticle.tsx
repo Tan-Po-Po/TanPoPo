@@ -1,13 +1,12 @@
 "use client";
-import { ContentCard, Dialog, Loading, Typography } from "@/components";
+import { ContentCard, Dialog, Typography } from "@/components";
 import cl from "./dialogArticle.module.scss";
 import {
-  useParams,
   usePathname,
   useRouter,
   useSearchParams,
 } from "next/navigation";
-import LibraryItem, { ILibraryItem } from "@/models/LibraryItem";
+import { ILibraryItem } from "@/models/LibraryItem";
 import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
 import { Footer } from "../libraryItemCard/footer/footer";
 import { Media } from "./media/media";
