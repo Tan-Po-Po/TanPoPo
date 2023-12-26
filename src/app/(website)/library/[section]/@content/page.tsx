@@ -112,7 +112,11 @@ const Content: React.FC<Props> = async ({ params, searchParams }) => {
         {!data?.items
           ? "Наразі ми працюємо над контентом для цього розділу"
           : data.items.map((item, i) => (
-              <LibraryItemCard key={item._id!} {...item} isNew={i < 2} />
+              <LibraryItemCard
+                key={item._id!}
+                {...item}
+                isNew={page === "1" && i < 2}
+              />
             ))}
 
         {data && searchParams.id && (

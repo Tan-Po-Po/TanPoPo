@@ -16,6 +16,7 @@ export const Footer: React.FC<Props> = ({ item }) => {
 
   const path = usePathname();
   const searchParams = useSearchParams();
+  console.log("server url", SERVER_URL);
 
   const handleCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -25,9 +26,9 @@ export const Footer: React.FC<Props> = ({ item }) => {
     ) {
       navigator.clipboard.writeText(media[0].video!);
     } else {
-      navigator.clipboard.writeText(
-        `${SERVER_URL}${path}?page=${searchParams.get("page")}&id=${_id}`
-      );
+      console.log("server url", SERVER_URL);
+
+      navigator.clipboard.writeText(`${SERVER_URL}${path}?id=${_id}`);
     }
     toast("Посилання скопійовано💾");
   };
