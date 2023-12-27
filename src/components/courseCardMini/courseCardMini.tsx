@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Typography } from "../typography/typography";
 import { ContentCard } from "../contentCard/contentCard";
@@ -5,6 +6,7 @@ import { getValidClassNames } from "@/helpers";
 import cl from "./courseCardMini.module.scss";
 import Link from "next/link";
 import { ICourse } from "@/models/Course";
+import { toast } from "react-toastify";
 
 type Properties = {
   course: ICourse;
@@ -20,8 +22,20 @@ const typeClassMap = {
 
 const CourseCardMini: React.FC<Properties> = ({ course }) => {
   const courseInfo = course.small;
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (course.inDevelopment) {
+      event.preventDefault()
+      return toast("Цей курс ще в розробці");
+    }
+  };
+
   return (
-    <Link className={cl.link} href={`/courses/${course._id}`}>
+    <Link
+      className={cl.link}
+      href={`/courses/${course._id}`}
+      onClick={handleClick}
+    >
       <ContentCard
         className={getValidClassNames(cl.card, typeClassMap[course.type])}
         label={courseInfo.label}

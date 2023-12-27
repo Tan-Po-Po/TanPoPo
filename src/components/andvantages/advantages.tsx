@@ -2,12 +2,17 @@ import Image from "next/image";
 import { ContentCard, Typography } from "..";
 import cl from "./advantages.module.scss";
 import { textContent } from "./textContent";
+import { getValidClassNames } from "@/helpers";
 
-const Advantages = () => {
+type Properties = {
+  className?: string;
+};
+
+const Advantages: React.FC<Properties> = ({ className }) => {
   const gradient =
     "linear-gradient(91deg, rgba(255, 156, 156, 0.75) 0%, rgba(255, 239, 156, 0.75) 28.13%, rgba(156, 219, 255, 0.75) 71.35%, rgba(255, 156, 233, 0.75) 100%)";
   return (
-    <main className={cl.advantagesMain}>
+    <main className={getValidClassNames(cl.advantagesMain, className)}>
       <div className={cl.header}>
         <div className={cl.number}>6</div>
         <div className={cl.text}>

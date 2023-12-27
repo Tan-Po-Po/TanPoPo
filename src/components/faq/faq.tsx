@@ -2,18 +2,18 @@
 
 import React from "react";
 import { Typography } from "../typography/typography";
-import { getIconSrc, getValidClassNames } from "@/helpers";
+import { getValidClassNames } from "@/helpers";
 import ArrowIcon from "public/icons/arrowDown.svg";
-import Image from "next/image";
 
 import cl from "./faq.module.scss";
 
 type Properties = {
   question: string;
   answer: string;
+  style?: any;
 };
 
-const Faq: React.FC<Properties> = ({ question, answer }) => {
+const Faq: React.FC<Properties> = ({ question, answer, style }) => {
   const [isOpened, setIsOpened] = React.useState(false);
 
   const toggleAnswer = (event: any) => {
@@ -24,6 +24,7 @@ const Faq: React.FC<Properties> = ({ question, answer }) => {
     <div
       className={getValidClassNames(cl.faq, isOpened && cl.opened)}
       onClick={toggleAnswer}
+      style={style}
     >
       <div className={cl.question}>
         <Typography className={cl.questionBody} variant="body1">

@@ -6,6 +6,10 @@
   padding: 16px;
 }
 
+.dialog {
+  @include flex-column;
+}
+
 .header {
   margin-top: 55px;
   margin-bottom: 45px;
@@ -154,7 +158,7 @@
         padding: 11px 18px;
       }
     }
-    
+
     .label1,
     .label2 {
       white-space: pre;

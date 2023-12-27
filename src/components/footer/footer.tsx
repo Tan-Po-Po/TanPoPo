@@ -1,12 +1,32 @@
-import { socialLinks } from "@/config/config";
-import { IconLink } from "@/components";
+"use client";
 import cl from "./footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { getValidClassNames, getIconSrc, getSocialIconsLinks } from "@/helpers";
+import { useEffect, useState } from "react";
+import { NarrowFooter } from "./narrowFooter/narrowFooter";
 
 const Footer: React.FC = () => {
   const width = "16px";
+
+  const [isWindowNarrow, setIsWindowNarrow] = useState(false);
+
+  useEffect(() => {
+    const screenWidth = window.matchMedia("(max-width: 1023px)");
+
+    screenWidth.matches && setIsWindowNarrow(true);
+    screenWidth.onchange = (e) => {
+      if (e.matches) {
+        setIsWindowNarrow(true);
+      } else {
+        setIsWindowNarrow(false);
+      }
+    };
+  }, []);
+
+  if (isWindowNarrow) {
+    return <NarrowFooter />;
+  }
 
   return (
     <div className={cl.footer}>
@@ -18,7 +38,7 @@ const Footer: React.FC = () => {
               src={getIconSrc("person")}
               width={0}
               height={0}
-              style={{ width: width, height: "auto" }}
+              style={{ width, height: "auto" }}
               alt=""
             />
             <Link href="/about#team">Наша команда</Link>
@@ -115,10 +135,12 @@ const Footer: React.FC = () => {
             <Link href={"/bonusBenefits"}>Додаткові переваги</Link>
           </div>
           <div className={cl.linkWrapper}>
-            <Link href={"/"}>Політика Конфідеційності</Link>
+            <Link href={"/contacts/confidentialityPolicy"}>
+              Політика Конфідеційності
+            </Link>
           </div>
           <div className={cl.linkWrapper}>
-            <Link href={"/"}>Публічна Оферта</Link>
+            <Link href={"/contacts/oferta"}>Публічна Оферта</Link>
             <span> & </span>
             <Link href={"/"}>Cookies</Link>
           </div>
@@ -133,11 +155,3 @@ const Footer: React.FC = () => {
 };
 
 export { Footer };
-
-// function getSocialIconsLinks() {
-//   const icons = [];
-//   for (const key in socialLinks) {
-//     icons.push(<IconLink icon={key} key={key} />);
-//   }
-//   return icons;
-// }

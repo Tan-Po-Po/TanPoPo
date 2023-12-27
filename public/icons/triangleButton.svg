@@ -1,4 +1,4 @@
-<svg width="34" height="34" viewBox="1 1 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- <svg width="34" height="34" viewBox="1 1 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_3098_9622)">
 <mask id="path-1-inside-1_3098_9622" fill="white">
 <path d="M8 7.39498C8 3.30809 12.4403 0.70944 16.0859 2.66276L46.1439 18.7679C49.952 20.8082 49.952 26.1917 46.1439 28.2322L16.0859 44.3373C12.4402 46.2905 7.99999 43.6918 7.99999 39.6051L8 7.39498Z"/>
@@ -17,4 +17,6 @@
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3098_9622" result="shape"/>
 </filter>
 </defs>
-</svg>
+</svg> -->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-triangle" transform="rotate(90)"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>

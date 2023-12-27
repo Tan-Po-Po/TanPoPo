@@ -2,13 +2,15 @@
 
 import cl from "./shopProductCardLarge.module.scss";
 import { IShopProduct } from "@/models/ShopProduct";
-import { Button, ContentCard, Select, Typography } from "@/components";
-import Carousel from "@/components/carousel/carousel";
-import { CarouselItem } from "@/components/carousel/carouselItem/carouselItem";
+import { Button, ContentCard, Select, Typography, Carousel,CarouselItem } from "@/components";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
-import { getTextForSaleLabel, validateDate, getValidClassNames } from "@/helpers/";
+import {
+  getTextForSaleLabel,
+  validateDate,
+  getValidClassNames,
+} from "@/helpers/";
 import { useEffect, useState } from "react";
 import HeartIcon from "/public/icons/heart.svg";
 import {
@@ -36,8 +38,6 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   const [likesAmount, setLikesAmount] = useState(likes);
   const shopCart = useAppSelector(selectShopCart);
   const dispatch = useAppDispatch();
-
-  // console.log("shopCart", shopCart);
 
   const productIsLiked = likedProducts.has(_id!);
 
@@ -201,27 +201,6 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
       />
 
       <div className={cl.buttonWrapper}>
-        {/* {available ? (
-          !cartItem ? (
-            <Button
-              variant="outlined"
-              icon="cart"
-              onClick={handleAddToCartClick}
-              className={cl.button}
-            >
-              <Typography variant="body1">До Кошика</Typography>
-            </Button>
-          ) : (
-            <Counter _id={itemId!} amount={cartItem.amount} />
-          )
-        ) : (
-          <ContentCard width="fit-content">
-            <Typography variant="subtitle1" style={{ fontWeight: "700" }}>
-              Скоро у <br />
-              продажу ☑️
-            </Typography>
-          </ContentCard>
-        )} */}
         {button}
         <div className={cl.likes} onClick={handleLikeClick}>
           <div

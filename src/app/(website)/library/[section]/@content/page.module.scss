@@ -1,0 +1,14 @@
+.contentMain {
+  @include flex-column;
+  width: 100%;
+  gap: 100px;
+
+  .cards {
+    @include flex-row;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+}

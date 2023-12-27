@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   max-width: 1390px;
+  width: 100%;
   height: 252px;
   border-radius: $border-radius;
   border: $border;
@@ -9,6 +10,7 @@
   box-shadow: $box-shadow;
   padding: 26px;
   font-weight: 500;
+  margin: 0 auto;
   margin-bottom: 15px;
   a {
     text-decoration: underline;
@@ -29,6 +31,7 @@
       display: flex;
       gap: 12px;
     }
+
     .navigation {
       display: flex;
       flex-direction: column;

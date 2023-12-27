@@ -1,4 +1,12 @@
+.faqBlock {
+  @include flex-column;
+  gap: 45px;
+}
+
 .faq {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   max-width: 900px;
   width: 100%;
   padding: 20px 25px;

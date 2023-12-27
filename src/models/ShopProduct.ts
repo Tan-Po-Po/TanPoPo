@@ -13,6 +13,7 @@ export interface IShopProduct {
   };
   large: {
     available: boolean;
+    inDevelopment: boolean;
     gallery: {
       _id?: string;
       value?: string;
@@ -46,7 +47,6 @@ const ShopProductSchema = new mongoose.Schema<IShopProduct>(
       },
       image: { type: String },
       caption: { type: String },
-      
     },
     large: {
       available: { type: Boolean, required: true },

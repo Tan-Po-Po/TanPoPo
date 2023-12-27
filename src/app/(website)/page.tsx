@@ -1,12 +1,60 @@
-import { Typography, ContentCard, Button } from "@/components";
+"use client";
+
+import {
+  Typography,
+  ContentCard,
+  Button,
+  Dialog,
+} from "@/components";
 import Image from "next/image";
 import Link from "next/link";
 import cl from "./page.module.scss";
 import { getIconArtSrc } from "@/helpers";
+import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const isRedirected = searchParams.get("redirected");
+  const renderedTime = Date.now();
+  const [open, setOpen] = useState(true);
   return (
     <main className={cl.main}>
+      {isRedirected && (
+        <Dialog
+          open={open}
+          onClose={() => {
+            console.log(Date.now() - renderedTime);
+            const currentTime = Date.now();
+            if (currentTime - renderedTime > 5000) {
+              setOpen(false);
+            }
+          }}
+          contentClassName={cl.dialog}
+        >
+          <>
+            <Typography variant="h6" style={{ fontSize: "23px" }}>
+              Ваш заповнений розклад занять вже у нас!🎉
+            </Typography>
+            <ContentCard
+              width="590px"
+              cardBgColor="linear-gradient(91deg, rgba(255, 156, 156, 0.75) 0%, rgba(255, 239, 156, 0.75) 28.13%, rgba(156, 219, 255, 0.75) 71.35%, rgba(255, 156, 233, 0.75) 100%)"
+            >
+              <Typography variant="h6" style={{ fontSize: "24px" }}>
+                Ми бачимо і цінуємо ваше бажання навчатись разом з нами!
+              </Typography>
+              <Typography variant="body1" style={{ fontSize: "18px" }}>
+                І якнайшвидше почнемо формувати розклад занять для вашого курсу
+                і обов’язково сконтактуємось разом з Вами, щоб фінально узгодити
+                всі деталі!
+              </Typography>
+            </ContentCard>
+            <Typography variant="body1" style={{ fontSize: "20px" }}>
+              Дякуємо, що обрали TanPoPo💛
+            </Typography>
+          </>
+        </Dialog>
+      )}
       <div className={cl.header}>
         <Typography variant="h4">TanPoPo</Typography>{" "}
         <Typography variant="h5">

@@ -1,6 +1,6 @@
 export const librarySections = [
   {
-    href: "/library/bonus-start?",
+    href: "/library/bonus-start?page=1",
     icon: "rocket",
     body: "Бонус Старт",
     bgColor:
@@ -10,7 +10,7 @@ export const librarySections = [
     isPrivate: false,
   },
   {
-    href: "/library/reels",
+    href: "/library/reels?page=1",
     icon: "starShine",
     body: "Навчальні Reels",
     bgColor:
@@ -20,7 +20,7 @@ export const librarySections = [
     isPrivate: false,
   },
   {
-    href: "/library/podcasts",
+    href: "/library/podcasts?page=1",
     icon: "headphones",
     body: "Світ Подкастів",
     bgColor:
@@ -30,7 +30,7 @@ export const librarySections = [
     isPrivate: false,
   },
   {
-    href: "/library/jlpt-resources",
+    href: "/library/jlpt-resources?page=1",
     icon: "bookTriangle",
     body: "JLPT Ресурси",
     bgColor:
@@ -40,7 +40,7 @@ export const librarySections = [
     isPrivate: true,
   },
   {
-    href: "/library/games-and-apps",
+    href: "/library/games-and-apps?page=1",
     icon: "boxesClose",
     body: "Ігри та Додатки",
     bgColor:
@@ -50,7 +50,7 @@ export const librarySections = [
     isPrivate: true,
   },
   {
-    href: "/library/books-and-manga",
+    href: "/library/books-and-manga?page=1",
     icon: "bookStar",
     body: "Книги & Манга",
     bgColor:
@@ -60,7 +60,7 @@ export const librarySections = [
     isPrivate: true,
   },
   {
-    href: "/library/anime-and-dorama",
+    href: "/library/anime-and-dorama?page=1",
     icon: "stikerSmile",
     body: "Аніме & дорама List",
     bgColor:
@@ -70,7 +70,7 @@ export const librarySections = [
     isPrivate: true,
   },
   {
-    href: "/library/articles",
+    href: "/library/article-reviews?page=1",
     icon: "document",
     body: "Статті Огляди",
     bgColor:
@@ -80,7 +80,7 @@ export const librarySections = [
     isPrivate: false,
   },
   {
-    href: "/library/music",
+    href: "/library/music?page=1",
     icon: "note",
     body: "Музична Хроніка",
     bgColor:
@@ -90,7 +90,7 @@ export const librarySections = [
     isPrivate: true,
   },
   {
-    href: "/library/quiz",
+    href: "/library/quiz-and-vocabulary?page=1",
     icon: "clopboard",
     body: "Quiz & Лексика",
     bgColor:
@@ -100,7 +100,7 @@ export const librarySections = [
     isPrivate: true,
   },
   {
-    href: "/library/youtube",
+    href: "/library/youtube-japan?page=1",
     icon: "video",
     body: "Ютюб Японії",
     bgColor:
@@ -110,7 +110,7 @@ export const librarySections = [
     isPrivate: false,
   },
   {
-    href: "/library/language-in-tables",
+    href: "/library/language-in-tables?page=1",
     icon: "boxesSeparate",
     body: "Мова в Таблицях",
     bgColor:

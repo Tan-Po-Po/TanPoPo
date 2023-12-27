@@ -1,0 +1,134 @@
+$transition: all ease 0.2s;
+
+.dialog {
+  :global(.MuiPaper-root) {
+    padding: 0;
+    width: 100%;
+    max-width: 942px;
+    position: relative;
+
+    margin-top: 50px;
+  }
+
+  :global(.MuiDialog-paper) {
+    animation: articleShow 0.6s;
+  }
+
+  .content {
+    @include flex-column;
+    flex-direction: column !important;
+    padding-top: 60px;
+    gap: 1rem;
+
+    span {
+      // display: block !important;
+      margin-right: 6px;
+    }
+
+    a {
+      text-decoration: underline;
+      font-weight: 700;
+    }
+  }
+
+  .label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 12px;
+    word-break: normal;
+    white-space: pre;
+    z-index: 3;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  padding: 0;
+
+  img {
+    border-radius: 7px;
+  }
+}
+
+.video {
+  transition: $transition;
+  svg {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transition: $transition;
+  }
+
+  &:hover {
+    transform: scale(105%);
+    svg {
+      transform: scale(110%);
+      fill: $color-yellow;
+    }
+  }
+}
+
+.gallery {
+  @include flex-row;
+  justify-content: center;
+  max-width: 942px;
+  width: 100%;
+  img {
+    cursor: pointer;
+  }
+}
+.carousel {
+  width: 555px !important;
+  .carouselItem {
+    width: 215px;
+    height: 215px;
+    background-color: white;
+    object-position: top;
+
+    img {
+      border-radius: 7px;
+    }
+
+    // &:hover {
+    //   img {
+    //     transform: unset;
+    //   }
+    // }
+  }
+
+  :global(.slick-list) {
+    // width: 200px;
+  }
+
+  :global(.slick-slide) {
+    > div {
+      overflow: display;
+      margin: 20px 35px;
+    }
+  }
+  :global(.slick-prev) {
+    left: 2%;
+  }
+
+  :global(.slick-next) {
+    right: -7%;
+  }
+}
+
+@keyframes articleShow {
+  0% {
+    transform: translate(0, 500px);
+  }
+  33% {
+    transform: translate(0, -60px);
+  }
+  66% {
+    transform: translate(0, 30px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}

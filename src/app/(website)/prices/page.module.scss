@@ -21,6 +21,8 @@
 }
 
 .questions {
-  margin: 100px auto;
+  @include flex-column;
+  width: 100%;
   gap: 45px;
+  margin: 100px auto;
 }

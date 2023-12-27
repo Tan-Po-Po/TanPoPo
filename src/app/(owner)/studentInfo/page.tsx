@@ -1,6 +1,6 @@
 "use client";
 
-import { time } from "@/app/(website)/education/start/schedule/common";
+import { time } from "@/components/schedule/common";
 import { useSearchParams } from "next/navigation";
 import { Typography } from "@/components";
 import { getValidClassNames } from "@/helpers";

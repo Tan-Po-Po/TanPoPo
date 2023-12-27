@@ -10,6 +10,7 @@ interface Props {
   className?: string;
   type?: "video" | "image";
   onClick?: () => void;
+  isHoverEventActive?: boolean;
 }
 
 export const CarouselItem: React.FC<Props> = ({
@@ -18,20 +19,29 @@ export const CarouselItem: React.FC<Props> = ({
   className,
   type = "image",
   onClick,
+  isHoverEventActive = true,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const handleClick = () => {
+    if (!isHoverEventActive) {
+      return;
+    }
     ref.current!.classList.remove(cl.hovered);
-
     ref.current!.classList.add(cl.clicked);
   };
 
   const handleMouseEnter = () => {
+    if (!isHoverEventActive) {
+      return;
+    }
     ref.current!.classList.add(cl.hovered);
   };
 
   const handleMouseLeave = () => {
+    if (!isHoverEventActive) {
+      return;
+    }
     ref.current!.classList.remove(cl.clicked);
     ref.current!.classList.remove(cl.hovered);
   };
