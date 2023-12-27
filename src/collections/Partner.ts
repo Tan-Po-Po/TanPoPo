@@ -13,9 +13,10 @@ export const Partner: CollectionConfig = {
   },
   fields: [
     {
-      name: "src",
-      label: "Посилання на зображення",
-      type: "text",
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
     },
   ],
 };

@@ -52,6 +52,11 @@ export const ShopProduct: CollectionConfig = {
           type: "checkbox",
         },
         {
+          name: "inDevelopment",
+          label: "В розробці?",
+          type: "checkbox",
+        },
+        {
           name: "gallery",
           label: "Галерея",
           type: "array",

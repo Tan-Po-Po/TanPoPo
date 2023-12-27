@@ -21,7 +21,6 @@ export const Result: React.FC<Props> = ({ result }) => {
   useEffect(() => {
     const getCoursesFromDb = async () => {
       const courses = await getCourses(result);
-      console.log("courses", courses);
 
       setLoading(false);
       setCourses(courses);
@@ -33,8 +32,6 @@ export const Result: React.FC<Props> = ({ result }) => {
   if (loading) {
     return <div>Loading</div>;
   }
-
-  console.log("courses", courses);
 
   const teacherCourses = getCoursesByType("teacher", courses!);
   const isInDevelopment = courses?.length == 1;

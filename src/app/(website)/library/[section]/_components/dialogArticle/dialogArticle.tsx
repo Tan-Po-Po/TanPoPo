@@ -42,8 +42,6 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
         }
 
         const itemDb = await response.json();
-        console.log("library item db", itemDb);
-
         setItem(JSON.parse(JSON.stringify(itemDb)));
       } catch (err: any) {
         console.log(err);

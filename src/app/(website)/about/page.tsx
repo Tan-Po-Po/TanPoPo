@@ -1,6 +1,13 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
-import { Button, ContentCard, IconLink, Typography, Carousel, CarouselItem } from "@/components";
+import {
+  Button,
+  ContentCard,
+  IconLink,
+  Typography,
+  Carousel,
+  CarouselItem,
+} from "@/components";
 import TeamMember, { ITeamMember } from "@/models/TeamMember";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
@@ -11,7 +18,6 @@ import Partner, { IPartner } from "@/models/Partner";
 import { Line } from "./_components/line/line";
 import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
 import Link from "next/link";
-
 
 async function getTeamMembers() {
   await dbConnect();
@@ -259,17 +265,19 @@ export default async function About() {
           </Typography>
           <ContentCard width="1238px" className={cl.carouselCard}>
             <Carousel>
-              {partners.map((parnter) => (
-                <CarouselItem key={parnter._id}>
-                  <Image
-                    alt=""
-                    src={parnter.src}
-                    width={500}
-                    height={300}
-                    style={{ width: "100%", height: "auto" }}
-                  />
-                </CarouselItem>
-              ))}
+              {partners.map((partner) => {
+                return (
+                  <CarouselItem key={partner._id}>
+                    <Image
+                      alt=""
+                      src={`/media/${partner.image.filename}`}
+                      width={500}
+                      height={300}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                  </CarouselItem>
+                );
+              })}
             </Carousel>
 
             <Typography variant="body1">
@@ -390,18 +398,20 @@ export default async function About() {
 }
 
 function getReviewImagesSrc() {
-  const revievs = [];
+  const reviews = [];
 
   for (let i = 1; i < 11; i++) {
-    revievs.push(`/reviews/${i}.png`);
+    reviews.push(`/reviews/${i}.png`);
   }
-  return revievs;
+  return reviews;
 }
 
 async function getPartnerImagesSrc() {
   await dbConnect();
 
-  const partners = (await Partner.find().lean()) as IPartner[];
+  const partners = (await Partner.find()
+    .lean()
+    .populate("image")) as IPartner[];
 
   return partners;
 }

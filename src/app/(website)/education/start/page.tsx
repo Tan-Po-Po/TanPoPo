@@ -20,7 +20,6 @@ export default function Page() {
   const [isAccepted, setIsAccepted] = React.useState(false);
   const course = useAppSelector((state) => state.course);
 
-  console.log(course);
   return (
     <main>
       <div className={cl.pageHeader}>

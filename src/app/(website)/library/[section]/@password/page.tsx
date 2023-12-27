@@ -13,8 +13,6 @@ const Password = () => {
   const formReturn = useForm({ defaultValues: { code: "" } });
 
   const onSubmit: SubmitHandler<IPromoCodeInput> = async (data) => {
-    console.log("library key data", data);
-
     const isKeyValid = await validateKey(data.code);
     if (!isKeyValid) {
       toast("Ключ не підходить");

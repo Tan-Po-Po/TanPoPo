@@ -15,7 +15,6 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ["theartssociety.org", "wallpapers.com", "i.pinimg.com"],
     remotePatterns: [
       {
         protocol: "https",

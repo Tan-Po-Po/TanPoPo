@@ -10,6 +10,7 @@ import { PromoCode } from "./collections/PromoCode";
 import { TeamMember } from "./collections/TeamMember";
 import { LibraryItem } from "./collections/LibraryItem";
 import { Partner } from "./collections/Partner";
+import { Media } from "./collections/Media";
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
@@ -20,7 +21,8 @@ export default buildConfig({
     PromoCode,
     TeamMember,
     LibraryItem,
-    Partner
+    Partner,
+    Media
   ],
   routes: {
     admin: "/cms",

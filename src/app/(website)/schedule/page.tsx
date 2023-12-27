@@ -94,8 +94,6 @@ export default function Page() {
       comment,
       schedule,
     };
-    console.log(data);
-    console.log(schedule);
 
     setLoading(true);
     fetch("/api/education", {

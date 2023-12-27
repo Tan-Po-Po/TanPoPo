@@ -14,6 +14,12 @@ export const Course: CollectionConfig = {
   fields: [
     { name: "name", label: "Name", type: "text", required: true },
     {
+      name: "inDevelopment",
+      label: "В розробці?",
+      type: "checkbox",
+      required: true,
+    },
+    {
       name: "nameJapanese",
       label: "Japanese Name",
       type: "text",
@@ -35,25 +41,65 @@ export const Course: CollectionConfig = {
         { value: "video", label: "Відеокурс" },
         { value: "audio", label: "Аудіокурс" },
         { value: "book", label: "Книжковий курс" },
+        { value: "mega", label: "Мега курс" },
       ],
     },
     {
       name: "prices",
       label: "Prices",
-      type: "array",
+      type: "group",
       fields: [
         {
-          name: "lessons",
-          label: "Number of Lessons",
-          type: "number",
-          required: true,
+          name: "individual",
+          label: "Індивідуальні заняття",
+          type: "array",
+          fields: [
+            {
+              name: "lessons",
+              label: "К-ть уроків",
+              type: "number",
+              required: true,
+            },
+            {
+              name: "price",
+              label: "Ціна",
+              type: "number",
+              min: 1,
+              required: true,
+            },
+            {
+              name: "link",
+              label: "Посилання на товар",
+              type: "text",
+              required: true,
+            },
+          ],
         },
         {
-          name: "price",
-          label: "Price",
-          type: "number",
-          min: 1,
-          required: true,
+          name: "group",
+          label: "Заняття в групі",
+          type: "array",
+          fields: [
+            {
+              name: "lessons",
+              label: "К-ть уроків",
+              type: "number",
+              required: true,
+            },
+            {
+              name: "price",
+              label: "Ціна",
+              type: "number",
+              min: 1,
+              required: true,
+            },
+            {
+              name: "link",
+              label: "Посилання на товар",
+              type: "text",
+              required: true,
+            },
+          ],
         },
       ],
     },
@@ -68,12 +114,11 @@ export const Course: CollectionConfig = {
       label: "Карта курсу на сторінці 'курси' ",
       type: "group",
       fields: [
-        { name: "label", label: "Label", type: "text", required: true },
+        { name: "label", label: "Label", type: "text" },
         {
           name: "labelColor",
           label: "Label Color",
           type: "text",
-          required: true,
         },
         {
           name: "bgColor",

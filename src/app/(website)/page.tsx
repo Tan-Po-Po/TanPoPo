@@ -24,7 +24,6 @@ export default function Home() {
         <Dialog
           open={open}
           onClose={() => {
-            console.log(Date.now() - renderedTime);
             const currentTime = Date.now();
             if (currentTime - renderedTime > 5000) {
               setOpen(false);

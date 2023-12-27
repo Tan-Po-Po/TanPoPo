@@ -96,8 +96,6 @@ export default function Test() {
     setTestIndex((prevIndex) => prevIndex + 1);
   };
 
-  console.log("testRes", testResult);
-
   if (testResult) {
     return (
       <div className={cl.test}>

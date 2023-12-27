@@ -15,7 +15,6 @@ export async function GET(req: Request) {
 
     return NextResponse.json(itemDb);
   } catch (err: any) {
-    console.log();
     return NextResponse.json({ message: err.message }, { status: 400 });
   }
 }
