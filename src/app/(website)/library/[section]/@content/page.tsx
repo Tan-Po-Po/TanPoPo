@@ -1,6 +1,4 @@
-import LibraryItem, {
-  ILibraryItem,
-} from "@/models/LibraryItem";
+import LibraryItem, { ILibraryItem } from "@/models/LibraryItem";
 import cl from "./page.module.scss";
 import dbConnect from "@/config/dbConnect";
 import { Dialog, DialogGallery, Pagination } from "@/components";
@@ -73,6 +71,9 @@ const getLibraryItems = async (
   const itemsDb = (await LibraryItem.find({
     section: section,
   })
+    .sort({
+      createdAt: -1,
+    })
     .skip(pageSize * cursor)
     .limit(pageSize)
     .lean()) as ILibraryItem[];
