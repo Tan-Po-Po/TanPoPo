@@ -22,8 +22,6 @@ const ArrowButton: React.FC<Props> = ({
   currentSlide,
   ...props
 }) => {
-  console.log("arrow button classname", className);
-
   return (
     <div
       className={cl.wrapper}

@@ -4,8 +4,6 @@ import Media from "./Media";
 export interface IPartner {
   _id: string;
   image: {
-    type: typeof mongoose.Schema.Types.ObjectId;
-    ref: string;
     filename: string;
     mimeType: string;
     filesize: number;
@@ -14,7 +12,6 @@ export interface IPartner {
   };
 }
 
-// console.log(Media);
 
 const PartnerSchema = new mongoose.Schema<IPartner>({
   image: {

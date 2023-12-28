@@ -49,7 +49,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
           style={{ padding: 0, width: "fit-content", fontSize: "22px" }}
         >
           <Image
-            src={image}
+            src={`/media/${image.filename}`}
             alt=""
             width={500}
             height={300}
@@ -145,7 +145,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
                     }}
                   >
                     <Image
-                      src={certificate.image}
+                      src={`/media/${certificate.image.filename}`}
                       alt=""
                       width={500}
                       height={300}

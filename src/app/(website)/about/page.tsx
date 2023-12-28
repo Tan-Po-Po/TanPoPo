@@ -22,19 +22,25 @@ import Link from "next/link";
 async function getTeamMembers() {
   await dbConnect();
 
-  const teamMembersDb =
-    (await TeamMember.find()) as mongoose.Document<ITeamMember>[];
+  const teamMembersDb = (await TeamMember.find()
+    .populate("image")
+    .populate({
+      path: "certificates.description.image",
+      // populate: { path: "description.image" },
+    })) as mongoose.Document<ITeamMember>[];
 
-  const teamMembers: ITeamMember[] = teamMembersDb.map((member) =>
-    JSON.parse(JSON.stringify(member))
-  );
+  const teamMembers: ITeamMember[] = teamMembersDb.map((member) => {
+    return JSON.parse(JSON.stringify(member));
+  });
 
   return teamMembers;
 }
 
 export default async function About() {
-  const teamMembers = await getTeamMembers();
-  const partners = await getPartnerImagesSrc();
+  const [teamMembers, partners] = await Promise.all([
+    getTeamMembers(),
+    getPartnerImagesSrc(),
+  ]);
 
   return (
     <main className={cl.main}>

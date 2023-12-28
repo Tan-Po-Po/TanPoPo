@@ -1,16 +1,20 @@
 import mongoose from "mongoose";
-
+import Media from "./Media";
 export interface ITeamMember {
   _id: string;
   label: { value: string; color: string };
   name: string;
-  image: string;
+  image: {
+    filename: string;
+  };
   certificates: {
     keyPoints: string[];
     description: {
       _id: string;
       label: string;
-      image: string;
+      image: {
+        filename: string;
+      };
       caption: string;
     }[];
   };
@@ -33,13 +37,21 @@ const TeamMemberSchema = new mongoose.Schema<ITeamMember>(
       color: { type: String, required: true },
     },
     name: { type: String, required: true },
-    image: { type: String, required: true },
+    image: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: Media && "Media",
+      required: true,
+    },
     certificates: {
       keyPoints: { type: [String], required: true },
       description: [
         {
           label: { type: String, required: true },
-          image: { type: String, required: true },
+          image: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: Media && "Media",
+            required: true,
+          },
           caption: { type: String, required: true },
         },
       ],

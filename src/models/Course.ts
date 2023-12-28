@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import CourseMedia from "./CourseMedia";
 export interface ICourse {
   _id: string;
   type: "teacher" | "video" | "audio" | "book" | "mega";
@@ -7,7 +7,7 @@ export interface ICourse {
   name: string;
   nameJapanese: string;
   level: string[];
-  image: string[];
+  image: [{ filename: string }];
   href: string;
   prices: {
     individual: {
@@ -50,7 +50,13 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
     inDevelopment: { type: Boolean, required: true },
     nameJapanese: { type: String, required: true },
     level: [{ type: String, required: true }],
-    image: [{ type: String, required: false }],
+    image: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: CourseMedia && "CourseMedia",
+        required: true,
+      },
+    ],
     href: { type: String, required: false },
     prices: {
       individual: [

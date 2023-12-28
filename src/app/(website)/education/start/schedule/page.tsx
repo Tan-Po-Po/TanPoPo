@@ -82,8 +82,6 @@ export default function Page() {
       comment,
       schedule,
     };
-    console.log(data);
-    console.log(schedule);
 
     fetch("/api/education", {
       method: "POST",

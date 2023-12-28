@@ -40,7 +40,8 @@ export const TeamMember: CollectionConfig = {
     {
       name: "image",
       label: "Зображення",
-      type: "text",
+      type: "upload",
+      relationTo: "media",
       required: true,
     },
     {
@@ -67,8 +68,9 @@ export const TeamMember: CollectionConfig = {
             },
             {
               name: "image",
-              label: "Зображення",
-              type: "text",
+              label: "Фото сертифікату",
+              type: "upload",
+              relationTo: "media",
               required: true,
             },
             {

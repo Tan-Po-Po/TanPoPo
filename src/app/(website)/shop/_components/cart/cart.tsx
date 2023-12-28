@@ -45,7 +45,6 @@ export const Cart = () => {
   }, [cart]);
 
   const onSubmit: SubmitHandler<IPromoCodeInput> = async (data) => {
-    console.log("data", data);
 
     if (cart.promoCode) {
       return;
