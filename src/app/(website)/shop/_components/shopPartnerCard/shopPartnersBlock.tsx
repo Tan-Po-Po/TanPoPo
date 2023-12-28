@@ -2,11 +2,11 @@ import { ShopPartnerCard } from "./shopPartnerCard";
 import { getShopPartners } from "@/helpers";
 
 const ShopPartnersBlock = async () => {
-  const shopItems = await getShopPartners();
+  const shopPartners = await getShopPartners();
 
   return (
     <>
-      {shopItems.map((partner) => (
+      {shopPartners.map((partner) => (
         <ShopPartnerCard key={partner._id} partner={partner} />
       ))}
     </>

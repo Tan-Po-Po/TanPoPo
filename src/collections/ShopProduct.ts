@@ -77,9 +77,10 @@ export const ShopProduct: CollectionConfig = {
               ],
             },
             {
-              label: "Фото",
               name: "image",
-              type: "text",
+              label: "Зображення",
+              type: "upload",
+              relationTo: "shop-media",
             },
             {
               label: "Відео",

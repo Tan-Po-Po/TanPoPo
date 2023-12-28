@@ -12,6 +12,7 @@ import { LibraryItem } from "./collections/LibraryItem";
 import { Partner } from "./collections/Partner";
 import { Media } from "./collections/Media";
 import { CourseMedia } from "./collections/CourseMedia";
+import { ShopMedia } from "./collections/ShopMedia";
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
@@ -24,7 +25,8 @@ export default buildConfig({
     LibraryItem,
     Partner,
     Media,
-    CourseMedia
+    CourseMedia,
+    ShopMedia,
   ],
   routes: {
     admin: "/cms",

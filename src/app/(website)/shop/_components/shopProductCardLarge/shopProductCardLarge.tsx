@@ -2,7 +2,14 @@
 
 import cl from "./shopProductCardLarge.module.scss";
 import { IShopProduct } from "@/models/ShopProduct";
-import { Button, ContentCard, Select, Typography, Carousel,CarouselItem } from "@/components";
+import {
+  Button,
+  ContentCard,
+  Select,
+  Typography,
+  Carousel,
+  CarouselItem,
+} from "@/components";
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
@@ -131,14 +138,17 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
               dispatch(
                 openGalleryDialog({
                   type: item.type,
-                  src: item.type === "image" ? item.image : item.video!,
+                  src:
+                    item.type === "image"
+                      ? `/shop-media/${item.image.filename}`
+                      : item.video!,
                 })
               )
             }
           >
             <Image
               alt=""
-              src={item.image}
+              src={`/shop-media/${item.image.filename}`}
               fill
               sizes="(max-width: 2400px) 215xp"
               style={{ objectFit: "contain" }}

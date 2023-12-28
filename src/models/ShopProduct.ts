@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import ShopMedia from "./ShopMedia";
 export interface IShopProduct {
   _id?: string;
   name: string;
@@ -18,7 +18,7 @@ export interface IShopProduct {
       _id?: string;
       value?: string;
       type: "image" | "video";
-      image: string;
+      image: { filename: string };
       video?: string;
     }[];
     caption: string[];
@@ -54,7 +54,11 @@ const ShopProductSchema = new mongoose.Schema<IShopProduct>(
         {
           type: { type: String, required: true },
           value: { type: String },
-          image: { type: String, required: true },
+          image:  {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: ShopMedia && "ShopMedia",
+            required: true,
+          },
           video: { type: String },
         },
       ],

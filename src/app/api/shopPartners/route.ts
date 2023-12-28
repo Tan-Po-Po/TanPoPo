@@ -5,7 +5,11 @@ import dbConnect from "@/config/dbConnect";
 export async function GET() {
   await dbConnect();
   try {
-    const ShopPartners = await ShopPartner.find();
+    const ShopPartners = await ShopPartner.find()
+      .populate("items.image")
+      .populate("logo");
+
+
     return NextResponse.json(
       ShopPartners.map((item) => JSON.parse(JSON.stringify(item)))
     );

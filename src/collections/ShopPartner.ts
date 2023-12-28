@@ -61,8 +61,8 @@ export const ShopPartner: CollectionConfig = {
     {
       name: "logo",
       label: "Logo",
-      type: "text",
-      required: true,
+      type: "upload",
+      relationTo: "shop-media",
     },
     {
       name: "name",
@@ -82,9 +82,10 @@ export const ShopPartner: CollectionConfig = {
       type: "array",
       fields: [
         {
-          label: "Зображення",
           name: "image",
-          type: "text",
+          label: "Зображення",
+          type: "upload",
+          relationTo: "shop-media",
           required: true,
         },
         {

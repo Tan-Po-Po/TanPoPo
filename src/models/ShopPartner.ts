@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import ShopMedia from "./ShopMedia";
 export interface IShopPartner {
   _id?: string;
   bgColor: string;
@@ -12,12 +12,12 @@ export interface IShopPartner {
     text: string;
     bgColor: string;
   };
-  logo: string;
+  logo: { filename: string };
   name: string;
   caption: string[];
   items: {
     _id?: string;
-    image: string;
+    image: { filename: string };
     href: string;
   }[];
   hashtags: string[];
@@ -35,13 +35,21 @@ const ShopPartnerSchema = new mongoose.Schema(
       text: { type: String, required: true },
       bgColor: { type: String, required: true },
     },
-    logo: { type: String, required: true },
+    logo: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: ShopMedia && "ShopMedia",
+      required: true,
+    },
     name: { type: String, required: true },
     caption: { type: [String], required: true },
     items: {
       type: [
         {
-          image: { type: String, required: true },
+          image: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: ShopMedia && "ShopMedia",
+            required: true,
+          },
           href: { type: String, required: true },
         },
       ],

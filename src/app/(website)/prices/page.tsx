@@ -13,13 +13,6 @@ async function getCourses(): Promise<ICourse[]> {
       path: "image",
     },
   })) as mongoose.Document<ICourse>[];
-  const parsedCourses = courses.map((course) =>
-    JSON.parse(JSON.stringify(course))
-  );
-  parsedCourses.forEach((course) => {
-    console.log(course.name);
-    console.log(course.images);
-  });
 
   return courses.map((course) => JSON.parse(JSON.stringify(course)));
 }
