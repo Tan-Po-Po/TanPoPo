@@ -7,7 +7,7 @@ export interface ICourse {
   name: string;
   nameJapanese: string;
   level: string[];
-  image: [{ filename: string }];
+  images: [{ image: { filename: string } }];
   href: string;
   prices: {
     individual: {
@@ -50,11 +50,13 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
     inDevelopment: { type: Boolean, required: true },
     nameJapanese: { type: String, required: true },
     level: [{ type: String, required: true }],
-    image: [
+    images: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: CourseMedia && "CourseMedia",
-        required: true,
+        image: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: CourseMedia && "CourseMedia",
+          required: true,
+        },
       },
     ],
     href: { type: String, required: false },

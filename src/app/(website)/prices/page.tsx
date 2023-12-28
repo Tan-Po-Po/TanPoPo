@@ -7,7 +7,19 @@ import { Suspense } from "react";
 
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
-  const courses = (await Course.find()) as mongoose.Document<ICourse>[];
+  const courses = (await Course.find().populate({
+    path: "images",
+    populate: {
+      path: "image",
+    },
+  })) as mongoose.Document<ICourse>[];
+  const parsedCourses = courses.map((course) =>
+    JSON.parse(JSON.stringify(course))
+  );
+  parsedCourses.forEach((course) => {
+    console.log(course.name);
+    console.log(course.images);
+  });
 
   return courses.map((course) => JSON.parse(JSON.stringify(course)));
 }

@@ -26,7 +26,6 @@ async function getTeamMembers() {
     .populate("image")
     .populate({
       path: "certificates.description.image",
-      // populate: { path: "description.image" },
     })) as mongoose.Document<ITeamMember>[];
 
   const teamMembers: ITeamMember[] = teamMembersDb.map((member) => {

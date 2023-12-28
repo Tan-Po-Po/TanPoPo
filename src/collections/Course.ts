@@ -45,6 +45,18 @@ export const Course: CollectionConfig = {
       ],
     },
     {
+      name: "images",
+      type: "array",
+      fields: [
+        {
+          name: "image",
+          label: "Зображення",
+          type: "upload",
+          relationTo: "course-media",
+        },
+      ],
+    },
+    {
       name: "prices",
       label: "Prices",
       type: "group",
