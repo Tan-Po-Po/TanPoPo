@@ -3,31 +3,44 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: $padding-page;
+  gap: 75px;
+
+  // overflow: hidden;
+
+  .button {
+    h6 {
+      line-height: normal;
+    }
+  }
 }
 
 .dialog {
   @include flex-column;
 }
 
+.intro {
+  @include flex-column;
+  gap: 28px;
+}
 .header {
-  margin-top: 55px;
-  margin-bottom: 45px;
   display: flex;
   align-items: center;
-  white-space: pre;
+  white-space: normal;
+
+  h5 {
+    white-space: normal;
+    span {
+      font-size: 33px;
+    }
+  }
 }
 
 .about {
   text-align: center;
-  width: 1130px;
+
   line-height: 26.51px;
   font-weight: 700;
-  margin-top: 35px;
-}
-
-.opportunities {
-  margin-top: 80px;
 }
 
 .opportunityCards {
@@ -47,11 +60,13 @@
 
 .author,
 .ahead {
-  margin-top: 110px;
   display: flex;
   flex-direction: row;
   max-width: 1100px;
   height: 280px;
+  width: 100%;
+  height: fit-content;
+  gap: 35px;
 
   .text {
     display: flex;
@@ -60,21 +75,19 @@
     align-items: center;
   }
   .about {
-    width: 675px;
-  }
-  .photo {
-    margin-left: 70px;
+    width: 100%;
+
+    text-align: justify;
   }
 }
 
 .links {
   width: 100%;
-  margin-top: 110px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 105px;
+  justify-content: space-between;
+  gap: 16px;
 
   .link {
     gap: 20px;
@@ -83,35 +96,35 @@
     padding: 20px;
   }
   button {
-    width: 270px;
+    min-width: 270px;
     height: 60px;
     font-size: 20px;
     font-weight: 600;
     background: linear-gradient(#ffede81a, #fffbd8);
+    white-space: nowrap;
   }
 }
 
 .ahead {
   height: auto;
+
   .text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 20px;
-    p {
-      margin-top: 85px;
-    }
+    gap: 85px;
   }
 
   .photo {
     margin: 0;
-    margin-right: 85px;
   }
 }
 
 .formats {
-  margin-top: 110px;
+  gap: 35px;
+
   p {
     max-width: 780px;
   }
@@ -134,13 +147,12 @@
 }
 
 .courses {
-  margin-top: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 103px;
 
   .cards {
-    margin-top: 105px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 110px;
@@ -148,6 +160,7 @@
   }
 
   .card {
+    padding: 46px 25px 25px 25px;
     div {
       width: auto;
       height: 50px;
@@ -176,28 +189,46 @@
       line-height: 15.61px;
       font-size: 14px;
     }
-    img {
-      margin-top: 50px;
-    }
   }
 }
 
 .personalCabinet {
-  margin-top: 110px;
-  img {
-    margin-top: 65px;
-  }
+  gap: 66px;
 }
 
 .cabinetCards {
-  margin-top: 60px;
   flex-direction: row;
   gap: 40px;
 }
 
-.freeCourse {
-  margin-top: 120px;
+.cabinetCards,
+.cabinetCardsCarousel {
+  ul li {
+    text-align: left;
+  }
+}
 
+.cabinetCardsCarousel {
+  .card {
+    position: relative;
+    &::after {
+      content: "+";
+      @include flex-row;
+      justify-content: center;
+      font-size: 36px;
+      width: 28px;
+      height: 28px;
+      background-image: url("/public/icons/plus.svg");
+      position: absolute;
+      top: 50%;
+      right: -12%;
+      transform: translate(50%, -50%);
+      z-index: 3;
+    }
+  }
+}
+
+.freeCourse {
   button {
     background: linear-gradient(#ffede81a, #fffbd8);
     &:hover {
@@ -207,14 +238,15 @@
 }
 
 .start {
-  margin-top: 60px;
   padding: 50px 80px 50px;
+
   .cards {
     display: flex;
     align-items: center;
     flex-direction: row;
     gap: 40px;
     margin-top: 50px;
+    min-height: 250px !important;
   }
   .card {
     padding: 16px;
@@ -227,29 +259,217 @@
 }
 
 .moreLinks {
-  margin: 120px 0;
   flex-direction: row;
-  gap: 110px;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+  height: fit-content;
+  align-items: center;
 
   .button {
     margin-top: auto;
+    min-width: 200px;
+    height: 60px;
+    white-space: nowrap;
+
     button {
-      width: 200px;
-      height: 60px;
       font-size: 24px;
       font-weight: 600;
+
       &:hover {
         background: $color-yellow !important;
       }
     }
   }
+
   .link {
     padding: 25px 15px;
+    align-self: stretch;
+
     p {
       font-weight: 700;
       font-size: 21px;
     }
-    width: 375px;
-    height: 345px;
+  }
+
+  .buttonWrapper {
+    background: linear-gradient(#ffede81a, #fffbd8);
+  }
+}
+
+@media (max-width: 1023px) {
+  .about {
+    font-size: 18px;
+  }
+  .opportunities {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .author {
+    @include flex-column;
+
+    .nameImageWrapper {
+      @include flex-row;
+      justify-content: center;
+      width: 100%;
+      gap: 29px;
+
+      .text {
+        gap: 24px;
+      }
+
+      .photo {
+        margin: 0;
+        max-width: 291px;
+        height: auto;
+      }
+    }
+  }
+
+  .ahead {
+    flex-direction: column;
+    .imageTablet {
+      @include flex-row;
+      gap: 60px;
+    }
+  }
+
+  .courses {
+    .cards {
+      grid-template-columns: 1fr !important;
+    }
+  }
+  .personalCabinet {
+    .boyLaptop {
+      max-height: 348px;
+    }
+  }
+
+  .start {
+    padding: 0;
+    border: unset;
+    box-shadow: unset;
+
+    .carousel {
+      max-width: 707px;
+
+      :global(.slick-next) {
+        transform: translate(100%, -80%);
+      }
+      :global(.slick-prev) {
+        transform: translate(-200%, -75%) rotate(180deg);
+      }
+
+      .arrow {
+        position: absolute;
+        top: 50%;
+        right: -50%;
+        transform: translate(-180%, -50%);
+        z-index: 2;
+      }
+    }
+
+    .card {
+      max-height: fit-content;
+      height: fit-content;
+    }
+  }
+
+  .moreLinks {
+    flex-direction: column;
+    gap: 0px;
+
+    .carousel {
+      :global(.slick-slide) {
+        > div {
+          width: fit-content;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .header {
+    h5 {
+      font-size: 28px;
+      font-size: 22px;
+    }
+  }
+  .about {
+    font-size: 16px;
+  }
+
+  .opportunities {
+    padding: 0;
+    border: unset;
+    box-shadow: unset;
+
+    .opportunityCards {
+      flex-direction: column;
+      padding: 0;
+    }
+  }
+
+  .author {
+    flex-direction: column;
+
+    .about {
+      font-size: 15px;
+    }
+  }
+
+  .ahead {
+    .text {
+      order: 1;
+      gap: 34px;
+    }
+    .photo {
+      order: 2;
+    }
+  }
+
+  .formats {
+    border: unset;
+    padding: 0;
+    box-shadow: unset;
+
+    .cards {
+      flex-direction: column;
+    }
+  }
+
+  .personalCabinet {
+    .boyLaptop {
+      max-height: 240px;
+    }
+  }
+  .cabinetCards {
+    flex-direction: column;
+  }
+
+  .start {
+    .cards {
+      flex-direction: column;
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .moreLinks {
+    flex-direction: column;
+    gap: 50px;
+    .link {
+      margin: 0 auto;
+    }
   }
 }

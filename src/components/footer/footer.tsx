@@ -5,12 +5,13 @@ import Image from "next/image";
 import { getValidClassNames, getIconSrc, getSocialIconsLinks } from "@/helpers";
 import { useEffect, useState } from "react";
 import { NarrowFooter } from "./narrowFooter/narrowFooter";
-import useWindowMathMedia from "@/hooks/useWindowMathMedia";
+import { useAppSelector } from "@/redux/hooks";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 const Footer: React.FC = () => {
   const width = "16px";
 
-  const { isPc } = useWindowMathMedia();
+  const { isPc } = useAppSelector(selectWindowMatchMedia);
 
   if (!isPc) {
     return <NarrowFooter />;

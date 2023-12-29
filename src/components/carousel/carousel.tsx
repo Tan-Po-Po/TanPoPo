@@ -14,15 +14,31 @@ type Props = {
   centerMode?: boolean;
   className?: string;
   focusOnSelect?: boolean;
+  infinite?: boolean;
+  autoplay?: boolean;
+  autoplaySpeed?: number;
+  initialSlide?: number;
+  arrows?: boolean;
+  rows?: number;
+  slidesPerRow?: number;
+  pauseOnHover?: boolean;
 };
 
 const Carousel: React.FC<Props> = ({
   children,
+  className,
   dots = true,
   slidesToShow = 3,
   centerMode = true,
-  className,
   focusOnSelect = true,
+  infinite = true,
+  autoplay = false,
+  autoplaySpeed = 3000,
+  initialSlide = 0,
+  arrows = true,
+  rows = 1,
+  slidesPerRow = 1,
+  pauseOnHover = true,
 }) => {
   const ref = useRef<Slider | null>(null);
   const speed = 300;
@@ -38,13 +54,20 @@ const Carousel: React.FC<Props> = ({
 
   const settings = {
     dots,
-    infinite: true,
+    infinite,
     speed,
     slidesToShow,
     slidesToScroll: 1,
     variableWidth: true,
     centerMode,
     focusOnSelect,
+    autoplay,
+    autoplaySpeed,
+    initialSlide,
+    arrows,
+    rows,
+    slidesPerRow,
+    pauseOnHover,
     nextArrow: (
       <ArrowButton
         direction={"right"}

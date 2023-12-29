@@ -12,6 +12,8 @@ interface Props {
   handleClickToAnimate?: () => void;
   slideCount?: number;
   currentSlide?: number;
+  wrapperClassName?: string;
+  disableHover?: boolean;
 }
 
 const ArrowButton: React.FC<Props> = ({
@@ -20,20 +22,25 @@ const ArrowButton: React.FC<Props> = ({
   handleClickToAnimate,
   slideCount,
   currentSlide,
+  wrapperClassName,
+  disableHover,
   ...props
 }) => {
-  console.log("arrow button classname", className);
-
   return (
     <div
-      className={cl.wrapper}
+      className={getValidClassNames(cl.wrapper, wrapperClassName)}
       onClick={(e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
         handleClickToAnimate && handleClickToAnimate();
       }}
     >
       <div
-        className={getValidClassNames(cl.arrow, cl[direction], className)}
+        className={getValidClassNames(
+          cl.arrow,
+          cl[direction],
+          className,
+          disableHover && cl.disableHover
+        )}
         {...props}
       >
         <TriangleIcon />

@@ -1,17 +1,12 @@
 .carouselItem {
   transition: 0.3s;
   position: relative;
+  width: fit-content;
 
-  &:hover {
-    svg {
-      transform: scale(110%);
-    }
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-  }
+  // img {
+  //   width: 100%;
+  //   height: auto;
+  // }
 
   .playButtonIcon {
     position: absolute;
