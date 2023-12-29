@@ -1,7 +1,7 @@
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
-import { webpackBundler } from "@payloadcms/bundler-webpack";
+import { viteBundler } from "@payloadcms/bundler-vite";
 import path from "path";
 import { Course } from "./collections/Course";
 import { ShopProduct } from "./collections/ShopProduct";
@@ -32,7 +32,7 @@ export default buildConfig({
     admin: "/cms",
   },
   admin: {
-    bundler: webpackBundler(),
+    bundler: viteBundler(),
     meta: {
       titleSuffix: "- TanPoPo",
       favicon: "/logo/logo.svg",

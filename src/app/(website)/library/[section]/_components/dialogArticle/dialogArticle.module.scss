@@ -90,16 +90,6 @@ $transition: all ease 0.2s;
     img {
       border-radius: 7px;
     }
-
-    // &:hover {
-    //   img {
-    //     transform: unset;
-    //   }
-    // }
-  }
-
-  :global(.slick-list) {
-    // width: 200px;
   }
 
   :global(.slick-slide) {

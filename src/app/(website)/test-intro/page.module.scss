@@ -20,7 +20,6 @@
     .ruler {
       @include flex-row;
       position: relative;
-      // width: 1010px;
       height: 161px;
       justify-content: space-between;
 
@@ -28,12 +27,10 @@
         box-shadow: $box-shadow;
         position: absolute;
         content: "";
-        // width: 880px;
         width: 87%;
         height: 2px;
         background-color: black;
         top: 50%;
-        // left: 505px;
         left: 50%;
         transform: translate(-50%, -50%);
       }

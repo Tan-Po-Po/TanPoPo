@@ -4,7 +4,6 @@
   padding: 19px 19px;
   width: fit-content;
   margin: auto;
-  // gap: 19px;
   justify-content: space-evenly;
   transition: all 0.3s ease-in-out;
   height: 78px;
@@ -36,8 +35,6 @@
     svg {
       fill: white;
       transition: all 0.15s ease-in-out;
-
-      // transform: rotate(90deg);
     }
 
     &:hover {

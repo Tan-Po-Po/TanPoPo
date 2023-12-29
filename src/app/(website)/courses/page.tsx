@@ -5,7 +5,6 @@ import {
   Typography,
   FaqBlock,
 } from "@/components";
-import { LibraryCard } from "@/components/libraryCard/libraryCard";
 import Image from "next/image";
 import cl from "./page.module.scss";
 import Course, { ICourse } from "@/models/Course";
@@ -21,7 +20,7 @@ async function getCourses(): Promise<ICourse[]> {
 
   const courses = (await Course.find()) as mongoose.Document<ICourse>[];
 
-  return courses.map((course) => course.toObject());
+  return courses.map((course) =>  JSON.parse(JSON.stringify(course)));
 }
 
 export default async function Courses() {
