@@ -1,11 +1,10 @@
 "use client";
 
-import { Button, ContentCard } from "@/components";
+import { Button, ContentCard, Typography } from "@/components";
 import cl from "./customLayout.module.scss";
 import Link from "next/link";
 import { textContent } from "./textContent";
 import { usePathname } from "next/navigation";
-import { Typography } from "@mui/material";
 import Image from "next/image";
 import { getIconArtSrc } from "@/helpers";
 

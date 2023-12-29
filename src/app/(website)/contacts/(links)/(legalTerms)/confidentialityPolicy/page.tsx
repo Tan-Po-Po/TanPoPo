@@ -1,8 +1,6 @@
 import React from "react";
 import { CustomLayout } from "../_customLayout/customLayout";
 
-export const ConfidentialityPolicy = () => {
+export default function ConfidentialityPolicy() {
   return <CustomLayout />;
-};
-
-export default ConfidentialityPolicy;
+}

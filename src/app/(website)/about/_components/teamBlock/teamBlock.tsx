@@ -2,8 +2,7 @@
 import { ITeamMember } from "@/models/TeamMember";
 import cl from "./teamBlock.module.scss";
 import { useState } from "react";
-import { Typography } from "@mui/material";
-import { TeamMemberCard } from "@/components";
+import { TeamMemberCard, Typography } from "@/components";
 import ArrowButton from "@/components/arrowButton/arrowButton";
 
 interface Props {

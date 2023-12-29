@@ -1,11 +1,10 @@
-import { Typography } from "@mui/material";
 import cl from "./page.module.scss";
-import { ContentCard, IconLink } from "@/components";
+import { ContentCard, IconLink, Typography } from "@/components";
 import Image from "next/image";
 import { textContent } from "./textContent";
 import { getValidClassNames } from "@/helpers";
 
-export const Developers = () => {
+export default function Developers() {
   const labelColor = "#FFF8BC";
   return (
     <div className={cl.developers}>
@@ -160,5 +159,3 @@ export const Developers = () => {
     </div>
   );
 };
-
-export default Developers;

@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 export interface IShopProduct {
   _id?: string;
   name: string;
-  small?: {
+  small: {
     label?: {
       text: string;
       bgColor: string;
