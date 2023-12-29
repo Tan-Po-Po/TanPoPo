@@ -57,7 +57,7 @@ $transition-duration: all 0.3s ease-in;
     }
 
     .dropdown {
-      animation: showDropdown $transition-duration ease-out;
+      animation: showDropdown 0.3s ease-out;
       border: $border;
       border-radius: 0px 0px $border-radius $border-radius;
       border-top: none;

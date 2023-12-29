@@ -1,10 +1,9 @@
-import { Typography } from "@mui/material";
 import cl from "./page.module.scss";
 import { textContent } from "./textContent";
-import { ContentCard } from "@/components";
+import { ContentCard, Typography } from "@/components";
 import Image from "next/image";
 
-export const Requisites = () => {
+export default function Requisites() {
   return (
     <div className={cl.requisites}>
       <Typography variant="h3">{textContent.header}</Typography>
@@ -63,5 +62,3 @@ export const Requisites = () => {
     </div>
   );
 };
-
-export default Requisites;

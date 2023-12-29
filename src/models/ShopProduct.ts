@@ -3,7 +3,7 @@ import ShopMedia from "./ShopMedia";
 export interface IShopProduct {
   _id?: string;
   name: string;
-  small?: {
+  small: {
     label?: {
       text: string;
       bgColor: string;
