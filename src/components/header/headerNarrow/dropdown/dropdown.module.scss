@@ -1,0 +1,74 @@
+$transition-close: all 0.3s ease;
+$transition-open: all 0.6s ease;
+
+.dropdown {
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  transition: 0.3s;
+  height: fit-content;
+  max-height: 20px;
+  transition: $transition-close;
+
+  .body {
+    @include flex-row;
+
+    .text {
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+
+    .triangle {
+      width: 15px;
+      height: 9px;
+    }
+  }
+
+  .linksWrapper {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition: $transition-close;
+
+    ul {
+      @include flex-column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    li {
+      @include flex-row;
+      gap: 12px;
+      list-style-type: none;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+  }
+}
+
+.open {
+  max-height: 1000px;
+  transition: $transition-open;
+  .triangle {
+    fill: black;
+  }
+
+  .linksWrapper {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    max-height: 400px;
+    transition: $transition-open;
+  }
+}
+
+@keyframes showLinks {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

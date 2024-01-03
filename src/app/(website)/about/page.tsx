@@ -33,8 +33,8 @@ async function getTeamMembers() {
 }
 
 export default async function About() {
-  const teamMembers = await getTeamMembers();
-  const partners = await getPartnerImagesSrc();
+  // const teamMembers = await getTeamMembers();
+  // const partners = await getPartnerImagesSrc();
 
   return (
     <main className={cl.main}>
@@ -58,26 +58,12 @@ export default async function About() {
             className={getValidClassNames(cl.confetti, cl.confettiLeft)}
           />
           <div className={cl.logo}>
-            <Image
-              alt=""
-              src={"/logo/bubble.png"}
-              className={cl.bubble}
-              width={533}
-              height={533}
-              style={{
-                margin: "80px auto",
-                display: "block",
-                maxWidth: "533px",
-                width: "100% ",
-                height: "auto",
-              }}
-            />
             <video
-              src="/logo/anim.mp4"
+              src="/logo/logoAnim.mp4"
               autoPlay={true}
               loop={true}
-              height="336px"
-              width="432px"
+              height="auto"
+              width="100%"
               muted
               className={cl.video}
             />
@@ -270,7 +256,7 @@ export default async function About() {
           </Typography>
         </ContentCard>
       </div>
-      {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
+      {/* {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
       <div className={cl.infoCardsBlock}>
         {textContent.infoCards.map((card, i) => (
           <ContentCard key={i} width={"376px"} className={cl.infoCard}>
@@ -318,7 +304,7 @@ export default async function About() {
             </Typography>
           </ContentCard>
         </div>
-      )}
+      )} */}
       <div className={cl.authorContentBlock} id="content">
         <Typography variant="h3">
           {textContent.authorContentBlock.header}
@@ -364,7 +350,7 @@ export default async function About() {
 
       <ContentCard
         className={getValidClassNames(cl.carouselCard, cl.reelsBlock)}
-        width="12382px"
+        width="1238px"
       >
         <Typography variant="h3">{textContent.reelsBlock.header}</Typography>
         <Carousel>

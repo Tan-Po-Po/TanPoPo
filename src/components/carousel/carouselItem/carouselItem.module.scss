@@ -8,6 +8,15 @@
   //   height: auto;
   // }
 
+  &:hover {
+    .playButtonIcon {
+      svg {
+        transition: 0.15s;
+        transform: scale(110%);
+      }
+    }
+  }
+
   .playButtonIcon {
     position: absolute;
     cursor: pointer;

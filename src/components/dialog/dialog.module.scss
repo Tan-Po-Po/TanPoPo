@@ -18,11 +18,11 @@
     justify-content: center;
     align-items: center;
     z-index: 30;
-    padding: 36px 77px;
+    padding: 0px;
     overflow: visible;
     max-width: fit-content;
     gap: 77px;
-    animation: dialogShow 0.3s;
+    // animation: dialogShow 0.3s;
 
     ::-webkit-scrollbar {
       width: 10px;
