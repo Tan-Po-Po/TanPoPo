@@ -11,6 +11,7 @@ export async function getQuestions(
       "Content-Type": "application/json",
       Accept: "application/json",
     },
+    next: { revalidate: 86400 },
   });
 
   return response.json();

@@ -8,6 +8,7 @@ export const getShopPartners = async (): Promise<IShopPartner[]> => {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
+    next: { revalidate: 3600 },
   });
 
   return response.json();

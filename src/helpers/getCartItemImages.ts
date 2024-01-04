@@ -11,7 +11,7 @@ export const getCartItemImages = ({ gallery, itemValue }: Params) => {
 
   for (const img of gallery) {
     if (valueSet.has(img.value!)) {
-      images.push(img.image);
+      images.push(`/shop-media/${img.image.filename}`);
       if (images.length >= 2) {
         break;
       }
@@ -21,7 +21,10 @@ export const getCartItemImages = ({ gallery, itemValue }: Params) => {
   console.log("images function", images);
 
   if (!images.length) {
-    images.push(gallery[0].image, gallery[1].image);
+    images.push(
+      `/shop-media/${gallery[0].image.filename}`,
+      `/shop-media/${gallery[1].image.filename}`
+    );
   }
 
   return images;
