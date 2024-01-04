@@ -7,7 +7,7 @@ import { CustomLink } from "./customLink";
 import Link from "next/link";
 import { getValidClassNames } from "@/helpers";
 
-type Links = {
+export type Links = {
   href: string;
   icon: string;
   body: string;
