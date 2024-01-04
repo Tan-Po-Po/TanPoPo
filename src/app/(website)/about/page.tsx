@@ -1,6 +1,13 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
-import { Button, ContentCard, IconLink, Typography, Carousel, CarouselItem } from "@/components";
+import {
+  Button,
+  ContentCard,
+  IconLink,
+  Typography,
+  Carousel,
+  CarouselItem,
+} from "@/components";
 import TeamMember, { ITeamMember } from "@/models/TeamMember";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
@@ -11,7 +18,6 @@ import Partner, { IPartner } from "@/models/Partner";
 import { Line } from "./_components/line/line";
 import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
 import Link from "next/link";
-
 
 async function getTeamMembers() {
   await dbConnect();
@@ -27,8 +33,8 @@ async function getTeamMembers() {
 }
 
 export default async function About() {
-  const teamMembers = await getTeamMembers();
-  const partners = await getPartnerImagesSrc();
+  // const teamMembers = await getTeamMembers();
+  // const partners = await getPartnerImagesSrc();
 
   return (
     <main className={cl.main}>
@@ -42,17 +48,38 @@ export default async function About() {
           <br /> {<b>для українців</b>} по всьому світу!
         </Typography>
 
-        <Image
-          src="/logo/logo.svg"
-          alt="Logo"
-          width={533}
-          height={533}
-          style={{ margin: "80px auto", display: "block" }}
-        />
-
+        <div className={cl.logoWrapper}>
+          <Image
+            alt=""
+            src="/logo/gConfettiL.png"
+            width={466}
+            height={599}
+            style={{ maxWidth: "466px", width: "100%", height: "auto" }}
+            className={getValidClassNames(cl.confetti, cl.confettiLeft)}
+          />
+          <div className={cl.logo}>
+            <video
+              src="/logo/logoAnim.mp4"
+              autoPlay={true}
+              loop={true}
+              height="auto"
+              width="100%"
+              muted
+              className={cl.video}
+            />
+          </div>
+          <Image
+            alt=""
+            src="/logo/gConfettiR.png"
+            width={466}
+            height={599}
+            style={{ maxWidth: "466px", width: "100%", height: "auto" }}
+            className={getValidClassNames(cl.confetti, cl.confettiRight)}
+          />
+        </div>
         <Typography
           variant="body1"
-          style={{ fontWeight: 700, textAlign: "center" }}
+          style={{ fontWeight: 700, textAlign: "center", whiteSpace: "normal" }}
         >
           {textContent.idea}
         </Typography>
@@ -229,7 +256,7 @@ export default async function About() {
           </Typography>
         </ContentCard>
       </div>
-      {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
+      {/* {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
       <div className={cl.infoCardsBlock}>
         {textContent.infoCards.map((card, i) => (
           <ContentCard key={i} width={"376px"} className={cl.infoCard}>
@@ -277,7 +304,7 @@ export default async function About() {
             </Typography>
           </ContentCard>
         </div>
-      )}
+      )} */}
       <div className={cl.authorContentBlock} id="content">
         <Typography variant="h3">
           {textContent.authorContentBlock.header}
@@ -323,7 +350,7 @@ export default async function About() {
 
       <ContentCard
         className={getValidClassNames(cl.carouselCard, cl.reelsBlock)}
-        width="12382px"
+        width="1238px"
       >
         <Typography variant="h3">{textContent.reelsBlock.header}</Typography>
         <Carousel>

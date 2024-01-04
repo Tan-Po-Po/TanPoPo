@@ -5,26 +5,15 @@ import Image from "next/image";
 import { getValidClassNames, getIconSrc, getSocialIconsLinks } from "@/helpers";
 import { useEffect, useState } from "react";
 import { NarrowFooter } from "./narrowFooter/narrowFooter";
+import { useAppSelector } from "@/redux/hooks";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 const Footer: React.FC = () => {
   const width = "16px";
 
-  const [isWindowNarrow, setIsWindowNarrow] = useState(false);
+  const { isPc } = useAppSelector(selectWindowMatchMedia);
 
-  useEffect(() => {
-    const screenWidth = window.matchMedia("(max-width: 1023px)");
-
-    screenWidth.matches && setIsWindowNarrow(true);
-    screenWidth.onchange = (e) => {
-      if (e.matches) {
-        setIsWindowNarrow(true);
-      } else {
-        setIsWindowNarrow(false);
-      }
-    };
-  }, []);
-
-  if (isWindowNarrow) {
+  if (!isPc) {
     return <NarrowFooter />;
   }
 

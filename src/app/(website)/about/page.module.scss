@@ -14,8 +14,38 @@ $gap-block-vertical: 112px;
 
   display: flex;
   flex-direction: column;
-  gap: 130px;
+  gap: 95px;
   align-items: center;
+
+  .ideaBlock {
+    @include flex-column;
+    gap: 86px;
+    .logoWrapper {
+      @include flex-row;
+
+      .logo {
+        position: relative;
+
+        .video {
+          // top: 50%;
+          // left: 50%;
+          // transform: translate(-50%, -50%);
+        }
+      }
+
+      .confetti {
+        z-index: -1;
+      }
+
+      .confettiLeft {
+        animation: confettiAppearLeft 5s ease, breathing 5s ease infinite;
+      }
+
+      .confettiRight {
+        animation: confettiAppearRight 5s ease, breathing 5s ease infinite;
+      }
+    }
+  }
 
   .bioBlock {
     .imageContent {
@@ -139,4 +169,39 @@ $gap-block-vertical: 112px;
 .carouselCard {
   padding: 51px 0;
   gap: 51px;
+
+  .carouselItem {
+    img {
+      border-radius: 7px;
+    }
+  }
+}
+
+@keyframes confettiAppearLeft {
+  0% {
+    transform: translate(300px, 0) scale(0) rotate(-15deg);
+  }
+  100% {
+    transform: translate(0) scale(1) rotate(0);
+  }
+}
+
+@keyframes confettiAppearRight {
+  0% {
+    transform: translate(-300px, 0) scale(0) rotate(15deg);
+  }
+  100% {
+    transform: translate(0) scale(1) rotate(0);
+  }
+}
+
+@keyframes breathing {
+  0% {
+  }
+  50% {
+    transform: scale(110%);
+  }
+  100% {
+    transform: scale(100%);
+  }
 }

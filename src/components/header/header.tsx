@@ -1,11 +1,22 @@
+"use client";
 import React from "react";
 import cl from "./header.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { Dropdown, Button, IconLink } from "@/components";
 import { getValidClassNames } from "@/helpers";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useAppSelector } from "@/redux/hooks";
+import { HeaderNarrow } from "./headerNarrow/headerNarrow";
+import { aboutLinks, coursesLinks } from "./links";
 
 const Header = () => {
+  const { isPc } = useAppSelector(selectWindowMatchMedia);
+
+  if (!isPc) {
+    return <HeaderNarrow />;
+  }
+
   return (
     <header className={cl.header}>
       <div className={getValidClassNames(cl.wrapper, "wrapper")}>
@@ -64,78 +75,5 @@ const Header = () => {
     </header>
   );
 };
-
-const aboutLinks = [
-  {
-    href: "/about#history",
-    body: "Історія розвитку",
-    icon: "cup",
-    bgColor: "#FFCCF4",
-  },
-  {
-    href: "/about#feedbacks",
-    body: "Відгуки за школу",
-    icon: "personSpeak",
-    bgColor: "#B9C4FF",
-  },
-  {
-    href: "/about#team",
-    body: "Команда TanPoPo",
-    icon: "person",
-    bgColor: "#B6FFBD",
-  },
-  {
-    href: "/about#partners",
-    body: "Наші партнери",
-    icon: "groupThree",
-    bgColor: "#E1C2FF",
-  },
-  {
-    href: "/about#content",
-    body: "Авторський контент",
-    icon: "diamond",
-    bgColor: "#FFFDEE",
-  },
-];
-
-const coursesLinks = [
-  {
-    href: "/courses#teacher",
-    body: "Онлайн-курси з сенсеєм",
-    icon: "groupTwo",
-    bgColor: "#FFCCF4",
-  },
-  {
-    href: "/courses#video",
-    body: "Відеокурси",
-    icon: "camera",
-    bgColor: "#FFA48F",
-  },
-  {
-    href: "/courses#audio",
-    body: "Аудіокурси",
-    icon: "speaker",
-    bgColor: "#B6FFBD",
-  },
-  {
-    href: "/courses#book",
-    body: "Книжкові мінікурси",
-    icon: "list",
-    bgColor: "#AFF1FF",
-  },
-  {
-    href: "/education",
-    body: "Освітня програма",
-    icon: "palette",
-    bgColor: "#B9C4FF",
-  },
-  { href: "/prices", body: "Вартість", icon: "coinsStack", bgColor: "#E1C2FF" },
-  {
-    href: "/test",
-    body: "Навчання у подарунок",
-    icon: "present",
-    bgColor: "#FFFDEE",
-  },
-];
 
 export { Header };

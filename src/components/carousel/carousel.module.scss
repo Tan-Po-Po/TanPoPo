@@ -1,5 +1,6 @@
 .sliderWrapper {
   width: 100% !important;
+  position: relative;
 
   :global(.slick-slide) {
     > div {
@@ -45,7 +46,8 @@
   }
 
   .slider {
-    // overflow: hidden;
+    overflow: hidden;
+    position: static;
   }
 
   :global(.slick-prev) {
