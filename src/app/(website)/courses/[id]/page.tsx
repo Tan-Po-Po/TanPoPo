@@ -7,7 +7,12 @@ import mongoose from "mongoose";
 async function getCourse(id: string): Promise<ICourse> {
   await dbConnect();
 
-  const course = (await Course.findById(id)) as mongoose.Document<ICourse>;
+  const course = (await Course.findById(id).populate({
+    path: "images",
+    populate: {
+      path: "image",
+    },
+  })) as mongoose.Document<ICourse>;
   return JSON.parse(JSON.stringify(course));
 }
 

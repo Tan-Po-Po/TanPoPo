@@ -9,7 +9,6 @@ import cl from "./courseCard.module.scss";
 import { ICourse } from "@/models/Course";
 import { TeacherCourseCard } from "./teacherCourseCard";
 import PlayBtn from "../../../public/icons/playButton.svg";
-import TriangleBtn from "../../../public/icons/playButtonTest.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -91,7 +90,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
         <Link href={course.href}>
           <div className={cl.imageWrapper}>
             <Image
-              src={course.image[0]}
+              src={`/course-media/${course.images[0].image.filename}`}
               alt="Course image"
               width={500}
               height={280}
@@ -108,7 +107,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       {course.type === "book" && (
         <Image
           className={cl.image}
-          src={course.image[0]}
+          src={`/course-media/${course.images[0].image.filename}`}
           alt="Audio"
           width={215}
           height={215}
