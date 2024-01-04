@@ -7,7 +7,7 @@ import "@/scss/globals.scss";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { Providers } from "@/redux/providers";
-import WindowMatchMediaProvider from "@/components/windowMatchMediaProvider/windowMatchMediaProvider";
+import { WindowMatchMediaProvider } from "@/components/";
 
 const font = Comfortaa({ subsets: ["latin", "cyrillic"], display: "swap" });
 
