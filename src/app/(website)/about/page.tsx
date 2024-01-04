@@ -22,19 +22,22 @@ import Link from "next/link";
 async function getTeamMembers() {
   await dbConnect();
 
-  const teamMembersDb =
-    (await TeamMember.find()) as mongoose.Document<ITeamMember>[];
+  const teamMembersDb = (await TeamMember.find().populate("image").populate({
+    path: "certificates.description.image",
+  })) as mongoose.Document<ITeamMember>[];
 
-  const teamMembers: ITeamMember[] = teamMembersDb.map((member) =>
-    JSON.parse(JSON.stringify(member))
-  );
+  const teamMembers: ITeamMember[] = teamMembersDb.map((member) => {
+    return JSON.parse(JSON.stringify(member));
+  });
 
   return teamMembers;
 }
 
 export default async function About() {
-  // const teamMembers = await getTeamMembers();
-  // const partners = await getPartnerImagesSrc();
+  const [teamMembers, partners] = await Promise.all([
+    getTeamMembers(),
+    getPartnerImagesSrc(),
+  ]);
 
   return (
     <main className={cl.main}>
@@ -256,7 +259,7 @@ export default async function About() {
           </Typography>
         </ContentCard>
       </div>
-      {/* {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
+      {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
       <div className={cl.infoCardsBlock}>
         {textContent.infoCards.map((card, i) => (
           <ContentCard key={i} width={"376px"} className={cl.infoCard}>
@@ -286,11 +289,11 @@ export default async function About() {
           </Typography>
           <ContentCard width="1238px" className={cl.carouselCard}>
             <Carousel>
-              {partners.map((parnter) => (
-                <CarouselItem key={parnter._id}>
+              {partners.map((partner) => (
+                <CarouselItem key={partner._id}>
                   <Image
                     alt=""
-                    src={parnter.src}
+                    src={`/media/${partner.image.filename}`}
                     width={500}
                     height={300}
                     style={{ width: "100%", height: "auto" }}
@@ -304,7 +307,7 @@ export default async function About() {
             </Typography>
           </ContentCard>
         </div>
-      )} */}
+      )}
       <div className={cl.authorContentBlock} id="content">
         <Typography variant="h3">
           {textContent.authorContentBlock.header}
@@ -417,18 +420,20 @@ export default async function About() {
 }
 
 function getReviewImagesSrc() {
-  const revievs = [];
+  const reviews = [];
 
   for (let i = 1; i < 11; i++) {
-    revievs.push(`/reviews/${i}.png`);
+    reviews.push(`/reviews/${i}.png`);
   }
-  return revievs;
+  return reviews;
 }
 
 async function getPartnerImagesSrc() {
   await dbConnect();
 
-  const partners = (await Partner.find().lean()) as IPartner[];
+  const partners = (await Partner.find()
+    .lean()
+    .populate("image")) as IPartner[];
 
   return partners;
 }

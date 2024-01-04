@@ -1,12 +1,24 @@
 import mongoose from "mongoose";
-
+import Media from "./Media";
 export interface IPartner {
   _id: string;
-  src: string;
+  image: {
+    type: typeof mongoose.Schema.Types.ObjectId;
+    ref: string;
+    filename: string;
+    mimeType: string;
+    filesize: number;
+    width: number;
+    height: number;
+  };
 }
 
 const PartnerSchema = new mongoose.Schema<IPartner>({
-  src: { type: String, required: true },
+  image: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: Media && "Media",
+    required: true,
+  },
 });
 
 export default mongoose.models.Partner ||
