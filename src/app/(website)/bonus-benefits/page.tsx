@@ -3,7 +3,7 @@ import Image from "next/image";
 import cl from "./page.module.scss";
 import { getIconArtSrc, getIconSrc } from "@/helpers";
 import Link from "next/link";
-import Advantages from "@/components/andvantages/advantages";
+import Advantages from "@/components/advantages/advantages";
 
 export default function Home() {
   return (

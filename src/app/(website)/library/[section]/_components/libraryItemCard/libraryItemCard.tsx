@@ -11,7 +11,6 @@ import { NewLabel } from "./newLabel/newLabel";
 
 export const LibraryItemCard: React.FC<Props> = (props) => {
   let card: React.ReactNode;
-
   const { openLibraryItem } = useOpenLibraryItem({
     item: props,
     isNew: props.isNew,

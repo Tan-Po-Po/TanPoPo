@@ -3,13 +3,13 @@ import { ContentCard, Typography } from "@/components";
 import cl from "./page.module.scss";
 import Image from "next/image";
 import { getIconArtSrc } from "@/helpers";
-import Advantages from "@/components/andvantages/advantages";
+import Advantages from "@/components/advantages/advantages";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FormCode, IPromoCodeInput } from "@/components/formCode/formCode";
 import { toast } from "react-toastify";
 import { setLibraryKeyToCookies, validateKey } from "../actions";
 
-const Password = () => {
+export default function Password() {
   const formReturn = useForm({ defaultValues: { code: "" } });
 
   const onSubmit: SubmitHandler<IPromoCodeInput> = async (data) => {
@@ -72,4 +72,3 @@ const Password = () => {
     </div>
   );
 };
-export default Password;

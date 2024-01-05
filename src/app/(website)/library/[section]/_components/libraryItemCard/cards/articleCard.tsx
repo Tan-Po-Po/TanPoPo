@@ -62,7 +62,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
           >
             <Image
               alt=""
-              src={media![0].image!}
+              src={`/library-media/${media![0].image!.filename}`}
               width={1920}
               height={1080}
               style={{
@@ -85,16 +85,16 @@ export const ArticleCard: React.FC<Props> = (props) => {
             focusOnSelect={false}
             className={cl.carousel}
           >
-            {media!.map((image) => (
+            {media!.map((item) => (
               <CarouselItem
-                key={image.id || image._id}
+                key={item.id || item._id}
                 className={cl.carouselItem}
                 isOutlined={true}
                 isHoverEventActive={false}
               >
                 <Image
                   alt=""
-                  src={image.image!}
+                  src={`/library-media/${item.image!.filename}`}
                   fill
                   style={{ objectFit: "cover" }}
                 />

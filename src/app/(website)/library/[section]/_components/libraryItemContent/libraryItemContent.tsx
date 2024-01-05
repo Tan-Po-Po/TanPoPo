@@ -18,6 +18,11 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
   const { content, labelColor } = item;
   const dispatch = useAppDispatch();
   const isPodcast = item.type === "podcast";
+  if (isPodcast) {
+    content?.forEach((item) =>
+      item.image ? (console.log("Image in paragraph", item.image)) : ""
+    );
+  }
 
   const { openLibraryItem } = useOpenLibraryItem({ item, autoplay: "1" });
 
@@ -48,14 +53,14 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
     ));
   };
 
-  const getImage = (item: ILibraryItemContent) => {
+  const getImage = (itemContent: ILibraryItemContent) => {
     if (isPodcast && isDialog) {
       return;
     }
 
     return (
       <ContentCard
-        key={item.id || item._id}
+        key={itemContent.id || itemContent._id}
         style={{ padding: "0" }}
         className={getValidClassNames(
           cl.image,
@@ -69,17 +74,22 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
           dispatch(
             openGalleryDialog({
               type: "image",
-              src: item.href!,
+              src: `/library-media/${itemContent.image?.filename}`,
             })
           );
         }}
       >
         {isPodcast ? (
-          <Image alt="" src={item.href!} fill style={{ objectFit: "cover" }} />
+          <Image
+            alt=""
+            src={`/library-media/${item.media[0].image?.filename}`}
+            fill
+            style={{ objectFit: "cover" }}
+          />
         ) : (
           <Image
             alt=""
-            src={item.href!}
+            src={`/library-media/${itemContent.image?.filename}`}
             width={1920}
             height={1080}
             style={{ width: "100%", height: "auto" }}
@@ -118,7 +128,7 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
             <AudioButton
               key={item.id || item._id}
               isPodcast={isPodcast}
-              href={item.href!}
+              href={item.value!}
               color={labelColor}
               className={cl.audioButton}
               onClick={handlePodcastClick}

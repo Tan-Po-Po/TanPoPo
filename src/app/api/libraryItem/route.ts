@@ -9,9 +9,10 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
 
-    const itemDb = (await LibraryItem.findById(id).lean()) as
-      | ILibraryItem
-      | undefined;
+    const itemDb = (await LibraryItem.findById(id)
+      .populate("media.image")
+      .populate("content.image")
+      .lean()) as ILibraryItem | undefined;
 
     return NextResponse.json(itemDb);
   } catch (err: any) {

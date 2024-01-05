@@ -19,7 +19,7 @@ export const ReelsCard: React.FC<Props> = (props) => {
       <ContentCard className={getValidClassNames(cl.imageContainer, cl.video)}>
         <Image
           alt=""
-          src={media![0].image!}
+          src={`/library-media/${media![0].image!.filename}`}
           fill
           style={{ objectFit: "cover" }}
         />

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { getCoursesByType } from "@/helpers";
 import { ContentCard, CourseCardMini, Divider, Typography } from "@/components";
 import CourseList from "@/components/courseList/courseList";
-import Advantages from "@/components/andvantages/advantages";
+import Advantages from "@/components/advantages/advantages";
 import Image from "next/image";
 
 interface Props {

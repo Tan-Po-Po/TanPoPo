@@ -42,15 +42,15 @@ export const Media: React.FC<Props> = ({ item }) => {
         onClick={() =>
           dispatch(
             openGalleryDialog({
-              type: item.media![0].type,
-              src: item.media![0].image!,
+              type: item.media[0].type,
+              src: `/library-media/${item.media[0].image!.filename}`,
             })
           )
         }
       >
         <Image
           alt=""
-          src={item.media[0].image!}
+          src={`/library-media/${item.media[0].image!.filename}`}
           width={1920}
           height={1080}
           style={{
@@ -69,23 +69,23 @@ export const Media: React.FC<Props> = ({ item }) => {
         focusOnSelect={false}
         className={cl.carousel}
       >
-        {item.media.map((image) => (
+        {item.media.map((item) => (
           <CarouselItem
-            key={image.id || image._id}
+            key={item.id || item._id}
             className={cl.carouselItem}
             isOutlined={true}
             onClick={() =>
               dispatch(
                 openGalleryDialog({
-                  type: image.type,
-                  src: image.image!,
+                  type: item.type,
+                  src: `/library-media/${item.image!.filename}`,
                 })
               )
             }
           >
             <Image
               alt=""
-              src={image.image!}
+              src={`/library-media/${item.image!.filename}`}
               fill
               style={{ objectFit: "cover" }}
             />

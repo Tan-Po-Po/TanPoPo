@@ -114,7 +114,7 @@ export const LibraryItem: CollectionConfig = {
       type: "text",
     },
     {
-      name: "gallery",
+      name: "media",
       label: "Галерея",
       type: "array",
       fields: [
@@ -136,9 +136,9 @@ export const LibraryItem: CollectionConfig = {
         },
         {
           name: "image",
-          label: "Посилання на зображення",
-          type: "text",
-          required: true,
+          label: "Зображення на малій карті",
+          type: "upload",
+          relationTo: "library-media",
         },
         {
           name: "video",
@@ -171,25 +171,40 @@ export const LibraryItem: CollectionConfig = {
               value: "image",
             },
             {
-              label: "Посилання",
-              value: "link",
-            },
-            {
-              label: "Текст",
-              value: "text",
+              label: "Аудіо",
+              value: "audio",
             },
           ],
         },
         {
           name: "value",
-          label: "Значення елементу",
+          label: "Заголовок (або посилання на відео)",
           type: "text",
-          required: true,
+        },
+
+        {
+          name: "image",
+          label: "Зображення",
+          type: "upload",
+          relationTo: "library-media",
         },
         {
-          name: "href",
-          label: "Посилання (якщо тип елементу = Посилання)",
-          type: "text",
+          name: "paragraph",
+          label: "Наповнення параграфу",
+          type: "array",
+          fields: [
+            {
+              name: "href",
+              label: "Посилання",
+              type: "text",
+            },
+            {
+              name: "text",
+              label: "Текст",
+              type: "text",
+              required: true,
+            },
+          ],
         },
       ],
     },

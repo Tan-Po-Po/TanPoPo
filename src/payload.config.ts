@@ -13,6 +13,7 @@ import { Partner } from "./collections/Partner";
 import { Media } from "./collections/Media";
 import { CourseMedia } from "./collections/CourseMedia";
 import { ShopMedia } from "./collections/ShopMedia";
+import { LibraryMedia } from "./collections/LibraryMedia";
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || "",
@@ -27,6 +28,7 @@ export default buildConfig({
     Media,
     CourseMedia,
     ShopMedia,
+    LibraryMedia
   ],
   routes: {
     admin: "/cms",
