@@ -7,6 +7,7 @@ import { Dialog } from "@/components/dialog/dialog";
 import { Typography } from "@/components/typography/typography";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
+import { IMAGE_BASE_URL } from "@/config/config";
 import cl from "./teamMemberCard.module.scss";
 
 interface Props {
@@ -49,7 +50,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
           style={{ padding: 0, width: "fit-content", fontSize: "22px" }}
         >
           <Image
-            src={`/media/${image.filename}`}
+            src={`${IMAGE_BASE_URL}/${image.filename}`}
             alt=""
             width={500}
             height={300}
@@ -145,7 +146,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
                     }}
                   >
                     <Image
-                      src={`/media/${certificate.image.filename}`}
+                      src={`${IMAGE_BASE_URL}//${certificate.image.filename}`}
                       alt=""
                       width={500}
                       height={300}

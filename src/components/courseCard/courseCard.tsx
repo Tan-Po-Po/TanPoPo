@@ -14,6 +14,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { AudioButton } from "../audioButton/audioButton";
+import { IMAGE_BASE_URL } from "@/config/config";
 
 type Properties = {
   course: ICourse;
@@ -78,7 +79,6 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       labelPosition="top"
       cardBgColor={courseInfo.bgColor}
       width={course.type === "book" ? "385px" : "625px"}
-      // style={{ minHeight: 700 }}
     >
       {courseInfo.description.map((desc, index) => (
         <Typography key={index} className={cl.description} variant="body1">
@@ -90,7 +90,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
         <Link href={course.href}>
           <div className={cl.imageWrapper}>
             <Image
-              src={`/course-media/${course.images[0].image.filename}`}
+              src={`${IMAGE_BASE_URL}/${course.images[0].image?.filename}`}
               alt="Course image"
               width={500}
               height={280}
@@ -107,7 +107,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       {course.type === "book" && (
         <Image
           className={cl.image}
-          src={`/course-media/${course.images[0].image.filename}`}
+          src={`${IMAGE_BASE_URL}/${course.images[0].image?.filename}`}
           alt="Audio"
           width={215}
           height={215}

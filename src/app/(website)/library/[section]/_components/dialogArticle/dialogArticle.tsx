@@ -1,11 +1,7 @@
 "use client";
-import { ContentCard, Dialog, Typography } from "@/components";
+import { ContentCard, Dialog, Typography, Loading } from "@/components";
 import cl from "./dialogArticle.module.scss";
-import {
-  usePathname,
-  useRouter,
-  useSearchParams,
-} from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ILibraryItem } from "@/models/LibraryItem";
 import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
 import { Footer } from "../libraryItemCard/footer/footer";
@@ -27,6 +23,7 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
   const isNew = searchParams.get("new");
 
   const [item, setItem] = useState<ILibraryItem | undefined | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const handleClose = () => {
     router.push(`${path}?page=${page}`, { scroll: false });
@@ -38,6 +35,7 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
         const response = await fetch(`${SERVER_URL}/api/libraryItem?id=${id}`);
 
         if (!response.ok) {
+          setLoading(false);
           throw new Error("Couldn't find the library item");
         }
 
@@ -45,21 +43,14 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
         console.log("library item db", itemDb);
 
         setItem(JSON.parse(JSON.stringify(itemDb)));
+        setLoading(false);
       } catch (err: any) {
         console.log(err);
       }
     };
 
-    let libraryItem = items.find((item) => item._id === id) as
-      | ILibraryItem
-      | undefined;
-
-    if (!libraryItem) {
-      getLibraryItem(id as string);
-    } else {
-      setItem(libraryItem);
-    }
-  }, [item, id, items]);
+    getLibraryItem(id as string);
+  }, [id]);
 
   return (
     <Dialog
@@ -69,7 +60,11 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
       contentClassName={cl.content}
       scroll="paper"
     >
-      {!item ? (
+      {loading ? (
+        <div className={cl.loader}>
+          <Loading />
+        </div>
+      ) : !item ? (
         <Typography
           variant="h5"
           style={{ marginBottom: "40px" }}

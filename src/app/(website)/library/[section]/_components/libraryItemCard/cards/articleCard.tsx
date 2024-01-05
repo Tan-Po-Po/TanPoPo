@@ -16,6 +16,7 @@ import { Props } from "../props";
 import { Footer } from "../footer/footer";
 
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
+import { IMAGE_BASE_URL } from "@/config/config";
 
 export const ArticleCard: React.FC<Props> = (props) => {
   const { type, label, labelColor, media, hashtags, content, isNew } = props;
@@ -62,7 +63,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
           >
             <Image
               alt=""
-              src={media![0].image!}
+              src={`${IMAGE_BASE_URL}/${media[0].image?.filename}`}
               width={1920}
               height={1080}
               style={{
@@ -94,7 +95,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
               >
                 <Image
                   alt=""
-                  src={image.image!}
+                  src={`${IMAGE_BASE_URL}/${image.image?.filename}`}
                   fill
                   style={{ objectFit: "cover" }}
                 />

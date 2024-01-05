@@ -5,6 +5,7 @@ import Image from "next/image";
 import { getValidClassNames } from "@/helpers";
 import PlayButtonIcon from "/public/icons/playButton.svg";
 import { Footer } from "../footer/footer";
+import { IMAGE_BASE_URL } from "@/config/config";
 
 export const ReelsCard: React.FC<Props> = (props) => {
   const { label, labelColor, media } = props;
@@ -19,7 +20,7 @@ export const ReelsCard: React.FC<Props> = (props) => {
       <ContentCard className={getValidClassNames(cl.imageContainer, cl.video)}>
         <Image
           alt=""
-          src={media![0].image!}
+          src={`${IMAGE_BASE_URL}/${media[0].image?.filename}`}
           fill
           style={{ objectFit: "cover" }}
         />

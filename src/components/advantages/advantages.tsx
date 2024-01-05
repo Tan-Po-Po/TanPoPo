@@ -50,4 +50,4 @@ const Advantages: React.FC<Properties> = ({ className }) => {
   );
 };
 
-export default Advantages;
+export { Advantages };

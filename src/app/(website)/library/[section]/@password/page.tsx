@@ -1,9 +1,8 @@
 "use client";
-import { ContentCard, Typography } from "@/components";
+import { ContentCard, Typography, Advantages } from "@/components";
 import cl from "./page.module.scss";
 import Image from "next/image";
 import { getIconArtSrc } from "@/helpers";
-import Advantages from "@/components/andvantages/advantages";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FormCode, IPromoCodeInput } from "@/components/formCode/formCode";
 import { toast } from "react-toastify";

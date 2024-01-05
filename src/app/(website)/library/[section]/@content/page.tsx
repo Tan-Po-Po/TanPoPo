@@ -76,6 +76,7 @@ const getLibraryItems = async (
     })
     .skip(pageSize * cursor)
     .limit(pageSize)
+    .populate("media.image")
     .lean()) as ILibraryItem[];
 
   if (!itemsDb.length) {

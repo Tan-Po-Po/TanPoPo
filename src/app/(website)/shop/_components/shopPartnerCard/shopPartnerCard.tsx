@@ -3,6 +3,7 @@ import cl from "./shopPartnerCard.module.scss";
 import { ContentCard, Typography } from "@/components";
 import Link from "next/link";
 import Image from "next/image";
+import { IMAGE_BASE_URL } from "@/config/config";
 
 interface Props {
   partner: IShopPartner;
@@ -35,7 +36,7 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
       <Link href={href} className={cl.name}>
         <Image
           alt=""
-          src={`/shop-media/${logo.filename}`}
+          src={`${IMAGE_BASE_URL}/${logo.filename}`}
           width={500}
           height={500}
           className={cl.logoImage}
@@ -60,7 +61,7 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
             <ContentCard className={cl.itemImage}>
               <Image
                 alt=""
-                src={`/shop-media/${item.image.filename}`}
+                src={`${IMAGE_BASE_URL}/${item.image.filename}`}
                 fill
                 sizes="(max-width: 2400px) 147px"
                 style={{ borderRadius: "7px" }}

@@ -17,6 +17,7 @@ import { TeamBlock } from "./_components/teamBlock/teamBlock";
 import Partner, { IPartner } from "@/models/Partner";
 import { Line } from "./_components/line/line";
 import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
+import { IMAGE_BASE_URL } from "@/config/config";
 import Link from "next/link";
 
 async function getTeamMembers() {
@@ -293,7 +294,7 @@ export default async function About() {
                 <CarouselItem key={partner._id}>
                   <Image
                     alt=""
-                    src={`/media/${partner.image.filename}`}
+                    src={`${IMAGE_BASE_URL}/${partner.image.filename}`}
                     width={500}
                     height={300}
                     style={{ width: "100%", height: "auto" }}
@@ -377,9 +378,6 @@ export default async function About() {
                   style={{ width: "100%", height: "auto" }}
                 />
 
-                {/* <div className={cl.playButtonIcon}>
-                  <PlayButtonIcon />
-                </div> */}
               </CarouselItem>
             </Link>
           ))}

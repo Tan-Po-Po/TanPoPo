@@ -5,9 +5,8 @@ import { ICourse } from "@/models/Course";
 import { getCourses } from "./actions";
 import { useEffect, useState } from "react";
 import { getCoursesByType } from "@/helpers";
-import { ContentCard, CourseCardMini, Divider, Typography } from "@/components";
+import { ContentCard, CourseCardMini, Divider, Typography, Advantages } from "@/components";
 import CourseList from "@/components/courseList/courseList";
-import Advantages from "@/components/andvantages/advantages";
 import Image from "next/image";
 
 interface Props {

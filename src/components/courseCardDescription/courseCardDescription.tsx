@@ -17,6 +17,7 @@ import { CarouselItem } from "../carousel/carouselItem/carouselItem";
 import { AudioButton } from "../audioButton/audioButton";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { IMAGE_BASE_URL } from "@/config/config";
 
 type Properties = {
   course: ICourse;
@@ -91,7 +92,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
         <Link href={course.href}>
           <div className={cl.imageWrapper}>
             <Image
-              src={`/course-media/${course.images[0].image.filename}`}
+              src={`${IMAGE_BASE_URL}/${course.images[0].image.filename}`}
               alt="Course image"
               width={500}
               height={280}
@@ -102,22 +103,6 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       )}
 
       {course.type === "audio" && (
-        // <ContentCard className={cl.podcast} cardBgColor={courseInfo.labelColor}>
-        //   <Link href={course.href || ""} className={cl.link}>
-        //     <TriangleBtn
-        //       className={cl.triangleBtn}
-        //       src="/icons/triangleButton.svg"
-        //       alt="Play button"
-        //     />
-        //   </Link>
-        //   <Image
-        //     className={cl.audioImg}
-        //     src="/icons/audioLong.svg"
-        //     alt="Audio"
-        //     width={430}
-        //     height={40}
-        //   />
-        // </ContentCard>
         <AudioButton
           isPodcast={true}
           color={courseInfo.labelColor}
@@ -136,7 +121,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
             <CarouselItem isOutlined={false} key={index}>
               <Image
                 className={cl.image}
-                src={`/course-media/${item.image.filename}`}
+                src={`${IMAGE_BASE_URL}/${item.image.filename}`}
                 alt="Book course image"
                 width={215}
                 height={215}

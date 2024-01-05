@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import { useSearchParams } from "next/navigation";
+import { IMAGE_BASE_URL } from "@/config/config";
 
 interface Props {
   item: ILibraryItem;
@@ -43,14 +44,14 @@ export const Media: React.FC<Props> = ({ item }) => {
           dispatch(
             openGalleryDialog({
               type: item.media![0].type,
-              src: item.media![0].image!,
+              src: `${IMAGE_BASE_URL}/${item.media[0].image?.filename}`,
             })
           )
         }
       >
         <Image
           alt=""
-          src={item.media[0].image!}
+          src={`${IMAGE_BASE_URL}/${item.media[0].image?.filename}`}
           width={1920}
           height={1080}
           style={{
@@ -69,23 +70,23 @@ export const Media: React.FC<Props> = ({ item }) => {
         focusOnSelect={false}
         className={cl.carousel}
       >
-        {item.media.map((image) => (
+        {item.media.map((media) => (
           <CarouselItem
-            key={image.id || image._id}
+            key={media.id || media._id}
             className={cl.carouselItem}
             isOutlined={true}
             onClick={() =>
               dispatch(
                 openGalleryDialog({
-                  type: image.type,
-                  src: image.image!,
+                  type: media.type,
+                  src: `${IMAGE_BASE_URL}/${media.image?.filename}`,
                 })
               )
             }
           >
             <Image
               alt=""
-              src={image.image!}
+              src={`${IMAGE_BASE_URL}/${media.image?.filename}`}
               fill
               style={{ objectFit: "cover" }}
             />

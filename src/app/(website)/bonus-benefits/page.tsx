@@ -1,9 +1,8 @@
-import { Typography, ContentCard } from "@/components";
+import { Typography, ContentCard, Advantages } from "@/components";
 import Image from "next/image";
 import cl from "./page.module.scss";
-import { getIconArtSrc, getIconSrc } from "@/helpers";
+import { getIconSrc } from "@/helpers";
 import Link from "next/link";
-import Advantages from "@/components/andvantages/advantages";
 
 export default function Home() {
   return (

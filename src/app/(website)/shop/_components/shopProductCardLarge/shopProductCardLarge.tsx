@@ -27,6 +27,7 @@ import {
 } from "@/redux/slices/shopCart/shopCartSlice";
 import { Counter } from "../counter/counter";
 import { toggleLikeToShopProduct } from "./actions";
+import { IMAGE_BASE_URL } from "@/config/config";
 
 type Props = Omit<IShopProduct, "small">;
 
@@ -140,7 +141,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
                   type: item.type,
                   src:
                     item.type === "image"
-                      ? `/shop-media/${item.image.filename}`
+                      ? `${IMAGE_BASE_URL}/${item.image.filename}`
                       : item.video!,
                 })
               )
@@ -148,7 +149,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
           >
             <Image
               alt=""
-              src={`/shop-media/${item.image.filename}`}
+              src={`${IMAGE_BASE_URL}/${item.image.filename}`}
               fill
               sizes="(max-width: 2400px) 215xp"
               style={{ objectFit: "contain" }}
