@@ -4,3 +4,29 @@
   row-gap: 60px;
   column-gap: 65px;
 }
+
+@media (max-width: 1300px) {
+  .libraryTable {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .libraryTable {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+  
+  .carousel {
+    :global(.slick-slide) {
+      display: flex;
+      flex-direction: column;
+      > div {
+        margin: 0px !important;
+        > div {
+          margin: 10px !important;
+        }
+      }
+    }
+  }
+}

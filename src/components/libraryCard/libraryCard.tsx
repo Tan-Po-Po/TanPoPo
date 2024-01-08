@@ -15,6 +15,7 @@ type Properties = {
   hoverBgColor: string;
   href: string;
   isPrivate?: boolean;
+  width?: string;
 };
 
 const LibraryCard: React.FC<Properties> = ({
@@ -24,6 +25,7 @@ const LibraryCard: React.FC<Properties> = ({
   isPrivate = false,
   bgColor,
   hoverBgColor,
+  width,
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -33,11 +35,13 @@ const LibraryCard: React.FC<Properties> = ({
       onMouseLeave={() => setIsHovered(false)}
       className={cl.link}
       href={href}
+      style={{ width }}
     >
       <ContentCard
         width="260px"
         height="160px"
         cardBgColor={isHovered ? hoverBgColor : bgColor}
+        className={cl.card}
       >
         {isPrivate && (
           <ContentCard className={cl.privateIcon} width="33px" height="33px">
