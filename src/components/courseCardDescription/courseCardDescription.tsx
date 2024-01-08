@@ -18,6 +18,7 @@ import { AudioButton } from "../audioButton/audioButton";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { IMAGE_BASE_URL } from "@/config/config";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 type Properties = {
   course: ICourse;
@@ -36,6 +37,7 @@ const placeholders = {
 };
 
 const CourseCardDescription: React.FC<Properties> = ({ course }) => {
+  const { width } = useWindowSize();
   const router = useRouter();
   const courseInfo = course.large;
   const [isGift, setIsGift] = useState(false);
@@ -96,6 +98,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
               alt="Course image"
               width={500}
               height={280}
+              style={{ maxWidth: "100%", height: "auto" }}
             />
             <PlayBtn className={cl.playBtn} />
           </div>
@@ -104,7 +107,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
 
       {course.type === "audio" && (
         <AudioButton
-          isPodcast={true}
+          isPodcast={width! > 500}
           color={courseInfo.labelColor}
           href={course.href || ""}
         />
@@ -113,7 +116,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       {course.type === "book" && (
         <Carousel
           dots={false}
-          slidesToShow={2}
+          slidesToShow={width! > 500 ? 2 : 1}
           centerMode={false}
           className={cl.carousel}
         >
@@ -125,7 +128,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
                 alt="Book course image"
                 width={215}
                 height={215}
-                style={{ width: "215px", height: "215px" }}
+                style={{ maxWidth: "100%", height: "auto", width: "auto" }}
               />
             </CarouselItem>
           ))}

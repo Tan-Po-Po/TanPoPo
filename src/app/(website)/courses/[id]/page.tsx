@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <main className={cl.main}>
-      <Typography variant="h3" className={cl.header}>
+      <Typography variant="h3" className={cl.header} style={{textAlign: "center"}}>
         Детальний опис курсу:
       </Typography>
       <CourseCardDescription course={course} />

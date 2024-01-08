@@ -12,6 +12,7 @@
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
+    transform-origin: bottom left;
     transition: all 0.2s ease-in-out;
     &:hover {
       scale: 1.1;
@@ -201,7 +202,6 @@
     align-items: center;
     max-width: 90%;
     transition: all 0.3s ease-in-out;
-
     &:hover {
       transform: scale(1.05);
 
@@ -243,12 +243,6 @@
     column-gap: 14px;
   }
 }
-
-// @media (min-width: 890px) {
-//   .card:not(:last-child) {
-//     margin-bottom: 100px;
-//   }
-// }
 
 @media (max-width: 600px) {
   .card {
