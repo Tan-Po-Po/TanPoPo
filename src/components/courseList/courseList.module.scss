@@ -13,3 +13,14 @@
     column-gap: 70px;
   }
 }
+
+@media (max-width: 800px) {
+  .courseListMain {
+    .courses {
+      column-gap: 60px;
+    }
+    .bookCourses {
+      column-gap: 15px;
+    }
+  }
+}

@@ -30,3 +30,5 @@ export { RequisitesSmall } from "./requisitesSmall/requisitesSmall";
 export { NewStudentForm, Schedule, AboutSchedule } from "./schedule/schedule";
 export { Pagination } from "./pagination/pagination";
 export { WindowMatchMediaProvider } from "./windowMatchMediaProvider/windowMatchMediaProvider";
+export { LibraryTable } from "./libraryTable/libraryTable";
+export { CourseList } from "./courseList/courseList";

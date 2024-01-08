@@ -3,16 +3,17 @@
   &:hover {
     transform: scale(1.05);
   }
+  margin: 10px;
 }
 
 .card {
-  position: relative;
+  width: 260px;
+  height: 160px;
 }
 
 .body {
   text-transform: uppercase;
   line-height: 25.3px;
-  max-width: 175px;
   font-weight: 600;
   font-size: 23px;
 }
@@ -25,4 +26,10 @@
   right: -15px;
   padding: 0;
   background: linear-gradient(rgba(243, 196, 255, 1), rgba(255, 223, 194, 1));
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 100%;
+  }
 }

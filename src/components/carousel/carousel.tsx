@@ -5,7 +5,8 @@ import cl from "./carousel.module.scss";
 import Slider from "react-slick";
 import ArrowButton from "../arrowButton/arrowButton";
 import { getValidClassNames } from "@/helpers";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Typography } from "..";
 
 type Props = {
   children: React.ReactNode;
@@ -22,6 +23,8 @@ type Props = {
   rows?: number;
   slidesPerRow?: number;
   pauseOnHover?: boolean;
+  slideAmount?: number;
+  useNumbers?: boolean;
 };
 
 const Carousel: React.FC<Props> = ({
@@ -39,11 +42,17 @@ const Carousel: React.FC<Props> = ({
   rows = 1,
   slidesPerRow = 1,
   pauseOnHover = true,
+  slideAmount,
+  useNumbers = false,
 }) => {
   const ref = useRef<Slider | null>(null);
   const speed = 300;
+  const [activeSlide, setActiveSlide] = useState(initialSlide);
 
   const handleArrowButtonClick = (direction: "Left" | "Right") => {
+    direction === "Left"
+      ? setActiveSlide((prev) => (prev !== 0 ? prev - 1 : prev))
+      : setActiveSlide((prev) => (prev !== slideAmount! - 1 ? prev + 1 : prev));
     ref.current!.innerSlider!.list!.style.animation = `animateCarousel${direction} 0.5s`;
     ref.current!.innerSlider!.list!.style.animationDelay = "0.1s";
 
@@ -82,13 +91,29 @@ const Carousel: React.FC<Props> = ({
     ),
     dotsClass: getValidClassNames("slick-dots", cl.dotsContainer),
     customPaging: () => <div className={cl.dot} id="carouselDot"></div>,
+    afterChange: function (index: number) {
+      setActiveSlide(index);
+    },
   };
 
   return (
-    <div className={getValidClassNames(cl.sliderWrapper, className)}>
+    <div
+      className={getValidClassNames(
+        cl.sliderWrapper,
+        useNumbers && cl.numberSlider,
+        className
+      )}
+    >
       <Slider {...settings} ref={ref} className={cl.slider}>
         {children}
       </Slider>
+      {useNumbers && (
+        <div className={cl.numbers}>
+          <Typography variant="h5">
+            {activeSlide + 1}/{slideAmount}
+          </Typography>
+        </div>
+      )}
     </div>
   );
 };

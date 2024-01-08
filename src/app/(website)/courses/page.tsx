@@ -1,19 +1,16 @@
 import {
-  CourseCardMini,
   Faq,
   Divider,
   Typography,
   FaqBlock,
+  LibraryTable,
+  CourseList,
 } from "@/components";
-import { LibraryCard } from "@/components/libraryCard/libraryCard";
 import Image from "next/image";
 import cl from "./page.module.scss";
 import Course, { ICourse } from "@/models/Course";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
-
-import CourseList from "@/components/courseList/courseList";
-import { LibraryTable } from "@/components/libraryTable/libraryTable";
 import { Suspense } from "react";
 
 async function getCourses(): Promise<ICourse[]> {
@@ -21,7 +18,7 @@ async function getCourses(): Promise<ICourse[]> {
 
   const courses = (await Course.find()) as mongoose.Document<ICourse>[];
 
-  return courses.map((course) => course.toObject());
+  return courses.map((course) => JSON.parse(JSON.stringify(course)));
 }
 
 export default async function Courses() {
@@ -30,7 +27,9 @@ export default async function Courses() {
   return (
     <main className={cl.main}>
       <section className={cl.intro}>
-        <Typography variant="h3">Курси японської мови</Typography>
+        <Typography variant="h3" style={{ textAlign: "center" }}>
+          Курси японської мови
+        </Typography>
         <Image
           src="/images/coursesLibrary.png"
           alt="Library image"
@@ -62,7 +61,6 @@ export default async function Courses() {
       <section className={cl.questions}>
         <Suspense
           fallback={
-            // Замінити на скелетони
             <>
               <Faq
                 question="Loading"
