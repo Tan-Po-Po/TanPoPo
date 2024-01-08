@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { AudioButton } from "../audioButton/audioButton";
 import { IMAGE_BASE_URL } from "@/config/config";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 type Properties = {
   course: ICourse;
@@ -35,6 +36,7 @@ const placeholders = {
 };
 
 const CourseCard: React.FC<Properties> = ({ course }) => {
+  const { width } = useWindowSize();
   const router = useRouter();
   const courseInfo = course.medium;
   const [isGift, setIsGift] = useState(false);
@@ -65,7 +67,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
     <ContentCard
       className={getValidClassNames(cl.card, typeClassMap[course.type])}
       label={
-        <Link href={`courses/${course._id}`}>
+        <Link href={`courses/${course._id}`} className={cl.nameLink}>
           <Typography variant="h5" className={cl.name}>
             {course.name}
           </Typography>
@@ -94,6 +96,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
               alt="Course image"
               width={500}
               height={280}
+              style={{ maxWidth: "100%", height: "auto" }}
             />
             <PlayBtn className={cl.playBtn} />
           </div>
@@ -101,7 +104,11 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       )}
 
       {course.type === "audio" && (
-        <AudioButton href={course.href || ""} color="red" isPodcast={true} />
+        <AudioButton
+          href={course.href || ""}
+          color="red"
+          isPodcast={width! > 500}
+        />
       )}
 
       {course.type === "book" && (
@@ -111,6 +118,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           alt="Audio"
           width={215}
           height={215}
+          style={{ maxWidth: "100%", height: "auto" }}
         />
       )}
 

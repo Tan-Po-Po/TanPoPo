@@ -34,7 +34,7 @@ export const HeaderNarrow = () => {
   };
 
   return (
-    <div className={cl.headerNarrow}>
+    <header className={cl.headerNarrow}>
       <div className={cl.logo}>
         <Link href="/">
           <div className={cl.background}>
@@ -126,7 +126,7 @@ export const HeaderNarrow = () => {
           <div className={cl.icons}>{getSocialIconsLinks("35px")}</div>
         </ContentCard>
       </Dialog>
-    </div>
+    </header>
   );
 };
 

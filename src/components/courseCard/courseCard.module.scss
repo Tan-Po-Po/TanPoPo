@@ -1,6 +1,5 @@
 .card {
   position: relative;
-  margin-bottom: 125px;
   padding: 50px 22px;
 
   .name {
@@ -9,8 +8,10 @@
 
   .header {
     transform: none;
-    top: -5%;
-    left: auto;
+
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: all 0.2s ease-in-out;
     &:hover {
       scale: 1.1;
@@ -35,19 +36,12 @@
   }
 
   .description {
-    padding-inline-start: 20px;
     margin: 0;
     text-align: center;
     line-height: 22.3px;
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-    li {
-      p {
-        -webkit-padding-start: 0px;
-        padding-inline-start: 0px;
-      }
-    }
   }
 
   .select {
@@ -129,7 +123,19 @@
 
 .teacher {
   .description {
+    padding-inline-start: 20px;
+    margin: 0;
     text-align: start;
+    line-height: 22.3px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    li {
+      p {
+        -webkit-padding-start: 0px;
+        padding-inline-start: 0px;
+      }
+    }
   }
 }
 
@@ -230,9 +236,46 @@
   .image {
     border: $border;
     border-radius: $border-radius;
+    max-width: 100%;;    height: auto;
   }
 
   .labels {
     column-gap: 14px;
+  }
+}
+
+// @media (min-width: 890px) {
+//   .card:not(:last-child) {
+//     margin-bottom: 100px;
+//   }
+// }
+
+@media (max-width: 600px) {
+  .card {
+    padding: 50px 12px;
+  }
+  .name {
+    text-wrap: pretty;
+    width: 100%;
+    line-height: 25px;
+  }
+  .nameLink {
+    display: block;
+    max-width: 100%;
+  }
+  .video,
+  .audio {
+    width: 400px;
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    width: 90%;
+  }
+  .video,
+  .audio {
+    width: 330px;
   }
 }
