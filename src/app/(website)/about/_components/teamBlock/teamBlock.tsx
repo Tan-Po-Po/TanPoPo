@@ -36,7 +36,7 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
 
   return (
     <div className={cl.teamBlock} id="team">
-      <Typography variant="h3" style={{ marginBottom: "62px" }}>
+      <Typography variant="h3" style={{ marginBottom: "62px" }} align="center">
         КОМАНДА TANPOPO
       </Typography>
       {isPc ? (
@@ -65,8 +65,19 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
           </div>
         </>
       ) : (
-        <Carousel infinite={false} slidesToShow={1}>
-          {teamMembers.map((member, i) => (
+        <Carousel
+          infinite={false}
+          slidesToShow={1}
+          useNumbers={true}
+          slideAmount={teamSize}
+          dots={false}
+          centerPadding="0"
+          variableWidth={true}
+          adaptiveHeight={true}
+          className={cl.carousel}
+          numbersClass={cl.numbers}
+        >
+          {teamMembers.map((member) => (
             <TeamMemberCard key={member._id} teamMember={member} />
           ))}
         </Carousel>

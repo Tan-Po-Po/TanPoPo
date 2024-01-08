@@ -1,0 +1,21 @@
+.sectionButton {
+  @include flex-column;
+  gap: 9px;
+  padding: 9px;
+
+  .title {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+.selected {
+  @include border-box;
+
+  .title {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}

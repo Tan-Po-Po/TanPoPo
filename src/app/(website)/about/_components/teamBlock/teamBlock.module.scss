@@ -8,4 +8,77 @@
     margin-top: 27px;
     display: flex;
   }
+
+  .carousel {
+    width: 100%;
+    :global(.slick-list),
+    :global(.slick-slider) {
+      overflow: visible;
+    }
+
+    :global(.slick-slide) {
+      > div {
+        margin: 0 12px;
+      }
+    }
+
+    :global(.slick-track) {
+      align-items: flex-start;
+    }
+
+    .numbers {
+      position: absolute;
+      color: #595959;
+      top: 0;
+      left: 0;
+      transform: translate(168px, 352px);
+    }
+
+    :global(.slick-prev),
+    :global(.slick-next) {
+      svg {
+        stroke: $color-gray-59;
+      }
+    }
+
+    :global(.slick-prev) {
+      top: 0;
+      left: 0;
+      transform: translate(132px, 365px) rotate(180deg);
+    }
+    :global(.slick-next) {
+      top: 0;
+      left: 0;
+      transform: translate(234px, 365px);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .teamBlock {
+    .carousel {
+      .numbers {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        transform: translate(-12px, 12px);
+
+        h5 {
+          font-size: 18px;
+        }
+      }
+
+      :global(.slick-prev) {
+        top: 0;
+        left: 0;
+        transform: translate(28px, 160px) rotate(180deg);
+      }
+      :global(.slick-next) {
+        top: 0;
+        right: 0;
+        transform: translate(81px, 160px);
+      }
+    }
+  }
 }

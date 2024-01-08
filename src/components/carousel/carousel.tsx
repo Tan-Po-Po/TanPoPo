@@ -28,6 +28,8 @@ type Props = {
   responsive?: any[];
   slideAmount?: number;
   useNumbers?: boolean;
+  centerPadding?: string;
+  numbersClass?: string;
 };
 
 const Carousel: React.FC<Props> = ({
@@ -50,6 +52,8 @@ const Carousel: React.FC<Props> = ({
   responsive = [],
   slideAmount,
   useNumbers = false,
+  centerPadding = "50px",
+  numbersClass,
 }) => {
   const ref = useRef<Slider | null>(null);
   const speed = 300;
@@ -85,6 +89,7 @@ const Carousel: React.FC<Props> = ({
     variableWidth,
     adaptiveHeight,
     responsive,
+    centerPadding,
     nextArrow: (
       <ArrowButton
         direction={"right"}
@@ -116,7 +121,7 @@ const Carousel: React.FC<Props> = ({
         {children}
       </Slider>
       {useNumbers && (
-        <div className={cl.numbers}>
+        <div className={getValidClassNames(cl.numbers, numbersClass)}>
           <Typography variant="h5">
             {activeSlide + 1}/{slideAmount}
           </Typography>

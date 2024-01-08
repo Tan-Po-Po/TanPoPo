@@ -96,7 +96,8 @@ export default async function About() {
       <ReviewsBlock />
 
       {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
-      <div className={cl.infoCardsBlock}>
+
+      {/* <div className={cl.infoCardsBlock}>
         {textContent.infoCards.map((card, i) => (
           <ContentCard key={i} width={"376px"} className={cl.infoCard}>
             <Typography variant="h6" className={cl.title}>
@@ -114,7 +115,7 @@ export default async function About() {
             </Typography>
           </ContentCard>
         ))}
-      </div>
+      </div> */}
 
       {/*
       {partners && (
