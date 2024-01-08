@@ -2,8 +2,10 @@
 import { ITeamMember } from "@/models/TeamMember";
 import cl from "./teamBlock.module.scss";
 import { useState } from "react";
-import { TeamMemberCard, Typography } from "@/components";
+import { Carousel, TeamMemberCard, Typography } from "@/components";
 import ArrowButton from "@/components/arrowButton/arrowButton";
+import { useAppSelector } from "@/redux/hooks";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 interface Props {
   teamMembers: ITeamMember[];
@@ -13,6 +15,8 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
   const teamSize = teamMembers.length;
 
   const [index, setIndex] = useState(0);
+
+  const { isPc } = useAppSelector(selectWindowMatchMedia);
 
   const handleRightArrowClick = () => {
     if (index === teamSize - 1) {
@@ -35,29 +39,38 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
       <Typography variant="h3" style={{ marginBottom: "62px" }}>
         КОМАНДА TANPOPO
       </Typography>
+      {isPc ? (
+        <>
+          <TeamMemberCard teamMember={teamMembers[index]} />
 
-      <TeamMemberCard teamMember={teamMembers[index]} />
+          <div className={cl.navigation}>
+            <ArrowButton
+              direction="left"
+              onClick={handleLeftArrowClick}
+              style={{
+                transform: "rotate(180deg)",
+                marginRight: "10px",
+                cursor: "pointer",
+              }}
+            />
+            <Typography variant="h4" style={{ color: "#595959" }}>
+              {index + 1} / {teamSize}
+            </Typography>
 
-      <div className={cl.navigation}>
-        <ArrowButton
-          direction="left"
-          onClick={handleLeftArrowClick}
-          style={{
-            transform: "rotate(180deg)",
-            marginRight: "10px",
-            cursor: "pointer",
-          }}
-        />
-        <Typography variant="h4" style={{ color: "#595959" }}>
-          {index + 1} / {teamSize}
-        </Typography>
-
-        <ArrowButton
-          direction="right"
-          onClick={handleRightArrowClick}
-          style={{ marginLeft: "10px", cursor: "pointer" }}
-        />
-      </div>
+            <ArrowButton
+              direction="right"
+              onClick={handleRightArrowClick}
+              style={{ marginLeft: "10px", cursor: "pointer" }}
+            />
+          </div>
+        </>
+      ) : (
+        <Carousel infinite={false} slidesToShow={1}>
+          {teamMembers.map((member, i) => (
+            <TeamMemberCard key={member._id} teamMember={member} />
+          ))}
+        </Carousel>
+      )}
     </div>
   );
 };

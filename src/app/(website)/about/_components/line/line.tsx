@@ -3,22 +3,27 @@ import cl from "./line.module.scss";
 import Image from "next/image";
 
 export function Line({
-  posititon = "center",
+  position = "center",
   flag,
+  height,
 }: {
-  posititon?: "left" | "center" | "right";
+  position?: "left" | "center" | "right";
   flag?: "ua" | "jp";
+  height?: string;
 }) {
   return (
-    <div className={cl.lineWrapper}>
+    <div className={cl.lineWrapper} style={{ height: height }}>
       <div
-        className={getValidClassNames(cl.line, cl[posititon])}
+        className={getValidClassNames(cl.line, cl[position])}
         data-flag={flag}
       >
-        {flag && flag === "jp" ? (
-          <Image alt="" src={getIconSrc("flagJP")} width={500} height={300} />
-        ) : (
-          <Image alt="" src={getIconSrc("flagUA")} width={500} height={300} />
+        {flag && (
+          <Image
+            alt=""
+            src={getIconSrc(`flag${flag.toUpperCase()}`)}
+            width={500}
+            height={300}
+          />
         )}
       </div>
     </div>

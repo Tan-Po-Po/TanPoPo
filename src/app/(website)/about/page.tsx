@@ -19,6 +19,8 @@ import { Line } from "./_components/line/line";
 import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
 import { IMAGE_BASE_URL } from "@/config/config";
 import Link from "next/link";
+import { BioBlock } from "./_components/bioBlock/bioBlock";
+import { ReviewsBlock } from "./_components/reviewsBlock/reviewsBlock";
 
 async function getTeamMembers() {
   await dbConnect();
@@ -47,6 +49,7 @@ export default async function About() {
           variant="h4"
           style={{ fontWeight: 400, textAlign: "center" }}
           id="history"
+          className={cl.title}
         >
           Найкраща {<b>онлайн-школа</b>} японської мови
           <br /> {<b>для українців</b>} по всьому світу!
@@ -58,7 +61,6 @@ export default async function About() {
             src="/logo/gConfettiL.png"
             width={466}
             height={599}
-            style={{ maxWidth: "466px", width: "100%", height: "auto" }}
             className={getValidClassNames(cl.confetti, cl.confettiLeft)}
           />
           <div className={cl.logo}>
@@ -77,189 +79,22 @@ export default async function About() {
             src="/logo/gConfettiR.png"
             width={466}
             height={599}
-            style={{ maxWidth: "466px", width: "100%", height: "auto" }}
             className={getValidClassNames(cl.confetti, cl.confettiRight)}
           />
         </div>
         <Typography
           variant="body1"
           style={{ fontWeight: 700, textAlign: "center", whiteSpace: "normal" }}
+          className={cl.caption}
         >
           {textContent.idea}
         </Typography>
       </div>
 
-      <div className={cl.bioBlock}>
-        <ContentCard
-          className={cl.imageContent}
-          width="100%"
-          labelPosition="bottom"
-          labelBgColor="linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)"
-          label={
-            <>
-              <Typography variant="h3">Тетяна Селіверстова</Typography>
-              <Typography variant="h6">
-                Засновниця школи <b>TanPoPo</b>
-              </Typography>
-            </>
-          }
-        >
-          <Image
-            alt=""
-            src={"/photos/kids.jpg"}
-            fill
-            sizes="100vw"
-            style={{ objectFit: "cover" }}
-          />
-        </ContentCard>
+      <BioBlock />
 
-        <Line />
+      <ReviewsBlock />
 
-        <ContentCard className={cl.bioContent} width="100%">
-          <ContentCard className={cl.imageContent} width="433px">
-            <Image
-              alt=""
-              src={"/photos/crossroads.png"}
-              fill
-              sizes="100vw"
-              style={{ objectFit: "cover" }}
-            />
-          </ContentCard>
-          <div className={cl.paragraphs}>
-            <Typography variant="body1">
-              <b>{textContent.bioCards.card1.p1.bold}</b>{" "}
-              {textContent.bioCards.card1.p1.normal}
-            </Typography>
-            <Typography variant="body1">
-              <b>{textContent.bioCards.card1.p2.bold}</b>{" "}
-              {textContent.bioCards.card1.p2.normal}
-            </Typography>
-            <Typography variant="body1">
-              <b>{textContent.bioCards.card1.p3.bold}</b>{" "}
-              {textContent.bioCards.card1.p3.normal}
-            </Typography>
-            <Typography variant="body1">
-              <b>{textContent.bioCards.card1.p4.bold}</b>{" "}
-              {textContent.bioCards.card1.p4.normal}
-            </Typography>
-            <Typography variant="body1">
-              <b>{textContent.bioCards.card1.p5.bold}</b>{" "}
-              {textContent.bioCards.card1.p5.normal}
-            </Typography>
-          </div>
-        </ContentCard>
-
-        <Line posititon="left" flag="ua" />
-
-        <ContentCard
-          className={getValidClassNames(cl.bioContent, cl.contentGrid)}
-          width="100%"
-        >
-          <ContentCard
-            className={getValidClassNames(cl.imageContent, cl.imgRight)}
-          >
-            <Image
-              alt=""
-              src={"/photos/table.jpg"}
-              sizes="100vw"
-              width={1920}
-              height={1080}
-              style={{ width: "100%", height: "auto" }}
-            />
-          </ContentCard>
-          <ContentCard
-            className={getValidClassNames(cl.imageContent, cl.imgLeft)}
-          >
-            <Image
-              alt=""
-              src={"/photos/tv.jpg"}
-              sizes="100vw"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </ContentCard>
-
-          <Typography variant="body1" className={cl.p1}>
-            <b>{textContent.bioCards.card2.p1.bold}</b>{" "}
-            {textContent.bioCards.card2.p1.normal}
-          </Typography>
-          <Typography variant="body1" className={cl.p2}>
-            <b>{textContent.bioCards.card2.p2.bold}</b>{" "}
-            {textContent.bioCards.card2.p2.normal}
-          </Typography>
-          <Typography variant="body1" className={cl.p3}>
-            <b>{textContent.bioCards.card2.p3.bold}</b>{" "}
-            {textContent.bioCards.card2.p3.normal}
-          </Typography>
-          <Typography variant="body1" className={cl.p4}>
-            <b>{textContent.bioCards.card2.p4.bold}</b>{" "}
-            {textContent.bioCards.card2.p4.normal}
-          </Typography>
-        </ContentCard>
-
-        <Line posititon="right" flag="jp" />
-
-        <ContentCard className={cl.bioContent} width="100%">
-          <div className={cl.paragraphs}>
-            <Typography variant="body1">
-              <b>{textContent.bioCards.card3.p1.bold}</b>{" "}
-              {textContent.bioCards.card3.p1.normal}
-            </Typography>
-            <Typography variant="body1">
-              <b>{textContent.bioCards.card3.p2.bold}</b>{" "}
-              {textContent.bioCards.card3.p2.normal}
-            </Typography>
-            <Typography variant="body1">
-              <b>{textContent.bioCards.card3.p3.bold}</b>{" "}
-              {textContent.bioCards.card3.p3.normal}
-            </Typography>
-            <Typography variant="body1">
-              <b>{textContent.bioCards.card3.p4.bold}</b>{" "}
-              {textContent.bioCards.card3.p4.normal}
-            </Typography>
-          </div>
-          <ContentCard
-            className={cl.imageContent}
-            width="auto"
-            style={{ height: "fit-content" }}
-          >
-            <Image
-              alt=""
-              src={"/photos/beach.png"}
-              sizes="100vw"
-              width={1920}
-              height={1080}
-              style={{ width: "100%", height: "auto" }}
-            />
-          </ContentCard>
-        </ContentCard>
-      </div>
-
-      <div className={cl.reviewsBlock} id="feedbacks">
-        <Typography variant="h3" style={{ textAlign: "center" }}>
-          {textContent.reviewsBlock.header}
-        </Typography>
-
-        <ContentCard width="1238px" className={cl.carouselCard}>
-          <Carousel>
-            {getReviewImagesSrc().map((src, i) => (
-              <CarouselItem key={i} isOutlined={true}>
-                <Image
-                  alt=""
-                  src={src}
-                  width={500}
-                  height={300}
-                  style={{ width: "100%", height: "auto" }}
-                />
-              </CarouselItem>
-            ))}
-          </Carousel>
-
-          <Typography variant="h6" style={{ textAlign: "center" }}>
-            {textContent.reviewsBlock.caption}
-          </Typography>
-        </ContentCard>
-      </div>
       {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
       <div className={cl.infoCardsBlock}>
         {textContent.infoCards.map((card, i) => (
@@ -280,6 +115,8 @@ export default async function About() {
           </ContentCard>
         ))}
       </div>
+
+      {/*
       {partners && (
         <div className={cl.partnersBlock} id="partners">
           <Typography variant="h3">
@@ -350,7 +187,7 @@ export default async function About() {
             </Typography>
           </ContentCard>
         </div>
-      </div>
+      </div> */}
 
       <ContentCard
         className={getValidClassNames(cl.carouselCard, cl.reelsBlock)}
@@ -377,7 +214,6 @@ export default async function About() {
                   height={300}
                   style={{ width: "100%", height: "auto" }}
                 />
-
               </CarouselItem>
             </Link>
           ))}
@@ -390,7 +226,7 @@ export default async function About() {
         </Button>
       </ContentCard>
 
-      <div className={cl.linkCardsBlock}>
+      {/* <div className={cl.linkCardsBlock}>
         {textContent.linkCardsBlock.map((card, i) => (
           <ContentCard width="376px" key={i}>
             <Typography variant="body1">{card.title}</Typography>
@@ -412,18 +248,9 @@ export default async function About() {
             </Button>
           </ContentCard>
         ))}
-      </div>
+      </div> */}
     </main>
   );
-}
-
-function getReviewImagesSrc() {
-  const reviews = [];
-
-  for (let i = 1; i < 11; i++) {
-    reviews.push(`/reviews/${i}.png`);
-  }
-  return reviews;
 }
 
 async function getPartnerImagesSrc() {

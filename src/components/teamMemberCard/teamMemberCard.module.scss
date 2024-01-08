@@ -6,28 +6,16 @@ $memberCardGap: 56px;
   position: relative;
   gap: $memberCardGap;
   max-width: 1238px;
-  padding: 56px;
+  padding: 56px min(56px, 2vw);
   font-weight: 700;
   cursor: default;
 
   .left {
-    width: 340px;
     display: flex;
     flex-direction: column;
     gap: $memberCardGap;
     position: relative;
     width: 374px;
-
-    .label {
-      @include border-box;
-      position: absolute;
-      top: -56px;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 3;
-      font-size: 22px;
-      padding: 6px 8px;
-    }
 
     .certificatesWrapper {
       position: relative;
@@ -44,19 +32,6 @@ $memberCardGap: 56px;
         gap: 31px;
         padding: 8px 16px 32px 16px;
         padding-top: 8px;
-
-        .keyPoint {
-          font-size: 20px;
-          position: relative;
-        }
-
-        .keyPoint + .keyPoint::before {
-          content: "+";
-          position: absolute;
-          top: -16px;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
       }
     }
   }
@@ -75,6 +50,7 @@ $memberCardGap: 56px;
         display: flex;
         flex-direction: column;
         gap: 50px;
+        align-self: stretch;
 
         .imageWrapper {
           display: flex;
@@ -103,6 +79,17 @@ $memberCardGap: 56px;
   }
 }
 
+.label {
+  @include border-box;
+  position: absolute;
+  top: -56px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-size: 22px;
+  padding: 6px 8px;
+}
+
 .imageWrapper {
   .text {
     text-decoration: underline;
@@ -120,6 +107,15 @@ $memberCardGap: 56px;
   white-space: pre-line;
 }
 
-.dialogContent {
-  overflow: visible;
+.keyPoint {
+  font-size: 20px;
+  position: relative;
+}
+
+.keyPoint + .keyPoint::before {
+  content: "+";
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

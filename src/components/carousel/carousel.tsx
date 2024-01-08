@@ -23,6 +23,9 @@ type Props = {
   rows?: number;
   slidesPerRow?: number;
   pauseOnHover?: boolean;
+  variableWidth?: boolean;
+  adaptiveHeight?: boolean;
+  responsive?: any[];
   slideAmount?: number;
   useNumbers?: boolean;
 };
@@ -42,6 +45,9 @@ const Carousel: React.FC<Props> = ({
   rows = 1,
   slidesPerRow = 1,
   pauseOnHover = true,
+  variableWidth = true,
+  adaptiveHeight = false,
+  responsive = [],
   slideAmount,
   useNumbers = false,
 }) => {
@@ -67,7 +73,6 @@ const Carousel: React.FC<Props> = ({
     speed,
     slidesToShow,
     slidesToScroll: 1,
-    variableWidth: true,
     centerMode,
     focusOnSelect,
     autoplay,
@@ -77,6 +82,9 @@ const Carousel: React.FC<Props> = ({
     rows,
     slidesPerRow,
     pauseOnHover,
+    variableWidth,
+    adaptiveHeight,
+    responsive,
     nextArrow: (
       <ArrowButton
         direction={"right"}

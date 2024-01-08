@@ -50,3 +50,14 @@ $padding-page: 65px 22px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+$gap-block-horizontal: 62px;
+$gap-block-vertical: 112px;
+
+%block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $gap-block-horizontal;
+  text-align: center;
+}
