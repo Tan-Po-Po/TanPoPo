@@ -1,10 +1,10 @@
 "use client";
 import { Button, Checkbox, Input, Typography } from "@/components";
-import cl from "./feedBackForm.module.scss";
 import Link from "next/link";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
+import cl from "./feedbackForm.module.scss";
 
 export type IFeedbackFormInput = {
   name: string;

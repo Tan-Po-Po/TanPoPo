@@ -1,4 +1,4 @@
-import { IFeedbackFormInput as Data } from "@/app/(website)/contacts/_feedbackForm/feedbackForm";
+import { IFeedbackFormInput as Data } from "@/app/(website)/contacts/_components/feedbackForm/feedbackForm";
 
 export const generateHtml = (formData: Data, questionId: number) => {
   return `<html lang="en">

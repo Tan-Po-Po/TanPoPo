@@ -25,46 +25,77 @@
       }
     }
   }
-
-  .videoGuidesBlock {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    gap: 100px;
-
-    b {
-      text-decoration: underline !important;
-    }
-
-    .videoCard {
-      justify-content: space-evenly;
-      transition: 0.15s;
-      cursor: pointer;
-      
-      .icon {
-        fill: $color-black;
-        width: 50px;
-        height: 50px;
-      }
-
-      &:hover {
-        transform: scale(110%);
-
-        svg {
-          transition: 0.15s;
-          transform: scale(110%);
-        }
-
-        p {
-          transition: 0.15s;
-          transform: scale(110%);
-        }
-      }
-    }
-  }
   .faqBlock {
     @include flex-column;
     width: 100%;
     gap: 45px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .main {
+    .contactsBlock {
+      .cards {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        column-gap: 20px;
+        row-gap: 50px;
+
+        .card:nth-child(2) {
+          order: 3;
+        }
+        .card:nth-child(1),
+        .card:nth-child(3) {
+          width: 324px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .main {
+    padding: 65px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    gap: 40px;
+    .contactsBlock {
+      .cards {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        column-gap: 20px;
+        row-gap: 50px;
+
+        .card {
+          width: 100%;
+          max-width: 100%;
+          padding: 26px 14px;
+        }
+        .card:nth-child(3) {
+          display: none;
+        }
+        .socials {
+          gap: 10px;
+        }
+      }
+    }
+
+    .formBlock {
+      padding: 20px;
+      h4 {
+        font-size: 24px;
+      }
+      h6 {
+        font-size: 17px;
+      }
+    }
+
+    .faqDivider,
+    .faqBlock {
+      display: none;
+    }
   }
 }
