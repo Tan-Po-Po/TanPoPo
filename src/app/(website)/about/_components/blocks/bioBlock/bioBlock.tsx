@@ -2,8 +2,8 @@
 import { ContentCard, Typography } from "@/components";
 import cl from "./bioBlock.module.scss";
 import Image from "next/image";
-import { Line } from "../line/line";
-import { textContent } from "../../textContent";
+import { Line } from "../../line/line";
+import { textContent } from "../../../textContent";
 import { getValidClassNames } from "@/helpers";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";

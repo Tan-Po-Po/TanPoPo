@@ -22,7 +22,10 @@ export const DialogCertificates: React.FC<Props> = ({
       className={cl.dialog}
       open={open}
       onClose={onClose}
+      scroll="paper"
       contentClassName={cl.dialogContent}
+      titleClassName={cl.title}
+      closeIconClassName={cl.closeIcon}
       title={
         (
           <>

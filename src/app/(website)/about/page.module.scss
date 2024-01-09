@@ -4,7 +4,6 @@
   flex-direction: column;
   gap: 95px;
   align-items: center;
-  // max-width: 100vw;
 
   .ideaBlock {
     @include flex-column;
@@ -42,29 +41,19 @@
     width: 200px;
   }
 
-  .infoCardsBlock {
-    display: flex;
-    gap: $gap-block-vertical;
-
-    .infoCard {
-      justify-content: space-between;
-
-      .title {
-        line-height: normal;
-      }
-    }
-  }
-
   .partnersBlock {
     @extend %block;
   }
 
   .authorContentBlock {
     @extend %block;
+    width: 100%;
 
     .wrapper {
       display: flex;
-      gap: $gap-block-vertical;
+
+      justify-content: space-around;
+      width: 100%;
 
       .socialCard {
         gap: 29px;
@@ -72,18 +61,18 @@
     }
   }
 
-  .linkCardsBlock {
-    display: flex;
-    justify-content: center;
-    gap: $gap-block-horizontal;
-    width: 100%;
-    margin-bottom: 100px;
-  }
+  // .linkCardsBlock {
+  //   display: flex;
+  //   justify-content: center;
+  //   gap: $gap-block-horizontal;
+  //   width: 100%;
+  //   margin-bottom: 100px;
+  // }
 }
 
 .carouselCard {
   padding: 51px 0;
-  gap: 51px;
+  gap: 35px;
 
   .carouselItem {
     img {
@@ -139,6 +128,10 @@
     overflow: hidden;
     gap: 70px;
 
+    h3 {
+      font-size: 32px;
+    }
+
     .ideaBlock {
       gap: 50px;
       .title {
@@ -160,11 +153,61 @@
         padding: 0 56px;
       }
     }
+
+    .partnersBlock {
+      gap: 35px;
+
+      h3,
+      h6,
+      p {
+        max-width: 90vw;
+      }
+
+      h3 {
+        font-size: 30px;
+      }
+      h6,
+      p {
+        font-size: 18px;
+      }
+    }
+
+    .authorContentBlock {
+      .wrapper {
+        justify-content: space-around;
+        gap: 0;
+      }
+
+      h3 {
+        font-size: 30px;
+      }
+
+      h6 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .wrapper {
+        width: 100%;
+        justify-content: space-around;
+        .socialCard {
+          justify-content: space-between;
+          width: 332px;
+          padding: 21px;
+        }
+      }
+    }
   }
 }
 
 @media (max-width: 767px) {
   .main {
+    h3 {
+      font-size: 25px;
+    }
     .ideaBlock {
       .logo {
         width: 251px;
@@ -177,6 +220,54 @@
         font-size: 16px;
         text-align: justify !important;
         padding: 0 15px;
+      }
+    }
+
+    .partnersBlock {
+      .carouselCard {
+        padding: 28px;
+      }
+
+      :global(.slick-slide) {
+        > div {
+          margin: 38px;
+        }
+      }
+
+      :global(.slick-list),
+      :global(.slick-track) {
+        max-height: 200px;
+        height: fit-content !important;
+      }
+    }
+
+    .authorContentBlock {
+      gap: 35px;
+      .wrapper {
+        justify-content: space-around;
+        gap: 0;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+      h6 {
+        font-size: 22px;
+      }
+      p {
+        font-size: 14px;
+      }
+
+      .wrapper {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        .socialCard {
+          justify-content: space-between;
+          width: 332px;
+          padding: 21px;
+        }
       }
     }
   }

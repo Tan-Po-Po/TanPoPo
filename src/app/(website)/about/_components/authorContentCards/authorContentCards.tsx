@@ -29,7 +29,6 @@ function Card({ image, className }: { image: string; className?: string }) {
   return (
     <ContentCard
       width="169px"
-      style={{ width: "169px", height: "334px" }}
       className={getValidClassNames(cl.card, className)}
     >
       <Image alt="" src={image} fill />

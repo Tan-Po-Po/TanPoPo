@@ -1,7 +1,7 @@
 "use client";
 import { Carousel, CarouselItem, ContentCard, Typography } from "@/components";
 import cl from "./reviewsBlock.module.scss";
-import { textContent } from "../../textContent";
+import { textContent } from "../../../textContent";
 import Image from "next/image";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
