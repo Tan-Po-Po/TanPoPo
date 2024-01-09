@@ -1,0 +1,28 @@
+.infoCardsBlock {
+  display: flex;
+  //   gap: $gap-block-vertical;
+  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
+
+  .infoCard {
+    // @include flex-column;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      margin: 0 auto;
+    }
+
+    .title {
+      line-height: normal;
+    }
+  }
+}
+
+@media (max-width: "767px") {
+  .infoCardsBlock {
+    flex-direction: column;
+    align-items: center;
+    padding: 11px;
+  }
+}

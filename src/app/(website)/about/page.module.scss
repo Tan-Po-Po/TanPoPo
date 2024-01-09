@@ -1,17 +1,5 @@
-$gap-block-horizontal: 62px;
-$gap-block-vertical: 112px;
-
-%block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $gap-block-horizontal;
-  text-align: center;
-}
-
 .main {
   padding: $padding-page;
-
   display: flex;
   flex-direction: column;
   gap: 95px;
@@ -22,19 +10,20 @@ $gap-block-vertical: 112px;
     gap: 86px;
     .logoWrapper {
       @include flex-row;
+      max-width: 100%;
+      overflow: hidden;
 
       .logo {
         position: relative;
 
         .video {
-          // top: 50%;
-          // left: 50%;
-          // transform: translate(-50%, -50%);
+          min-width: 251px;
         }
       }
 
       .confetti {
         z-index: -1;
+        width: 100%;
       }
 
       .confettiLeft {
@@ -47,97 +36,9 @@ $gap-block-vertical: 112px;
     }
   }
 
-  .bioBlock {
-    .imageContent {
-      padding: 0 !important;
-      height: 812px;
-      img {
-        border-radius: $border-radius;
-      }
-    }
-
-    .bioContent {
-      flex-direction: row;
-      text-align: start;
-      padding: 52px;
-      gap: 38px;
-
-      p {
-        text-indent: 40px;
-        text-align: justify;
-        font-weight: 400 !important;
-      }
-
-      .paragraphs {
-        flex: 1;
-        min-height: 100%;
-        align-self: stretch;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .imageContent {
-        max-height: 579px;
-      }
-    }
-
-    .contentGrid {
-      display: grid;
-      gap: 0;
-      column-gap: 36px;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-auto-rows: minmax(100px, auto);
-      grid-template-areas:
-        "p1     p1 imgRight"
-        "p2     p2 imgRight"
-        "imgLeft p3  imgRight"
-        "imgLeft p4  p4";
-
-      .imgRight {
-        grid-area: imgRight;
-        height: auto;
-      }
-
-      .imgLeft {
-        grid-area: imgLeft;
-        height: 376px;
-      }
-
-      .p1 {
-        grid-area: p1;
-      }
-      .p2 {
-        grid-area: p2;
-      }
-      .p3 {
-        grid-area: p3;
-      }
-      .p4 {
-        grid-area: p4;
-      }
-    }
-  }
   .button {
     background: linear-gradient(180deg, #ffffff, #fffbd8);
     width: 200px;
-  }
-
-  .reviewsBlock {
-    @extend %block;
-  }
-
-  .infoCardsBlock {
-    display: flex;
-    gap: $gap-block-vertical;
-
-    .infoCard {
-      justify-content: space-between;
-
-      .title {
-        line-height: normal;
-      }
-    }
   }
 
   .partnersBlock {
@@ -146,10 +47,13 @@ $gap-block-vertical: 112px;
 
   .authorContentBlock {
     @extend %block;
+    width: 100%;
 
     .wrapper {
       display: flex;
-      gap: $gap-block-vertical;
+
+      justify-content: space-around;
+      width: 100%;
 
       .socialCard {
         gap: 29px;
@@ -157,18 +61,18 @@ $gap-block-vertical: 112px;
     }
   }
 
-  .linkCardsBlock {
-    display: flex;
-    justify-content: center;
-    gap: $gap-block-horizontal;
-    width: 100%;
-    margin-bottom: 100px;
-  }
+  // .linkCardsBlock {
+  //   display: flex;
+  //   justify-content: center;
+  //   gap: $gap-block-horizontal;
+  //   width: 100%;
+  //   margin-bottom: 100px;
+  // }
 }
 
 .carouselCard {
   padding: 51px 0;
-  gap: 51px;
+  gap: 35px;
 
   .carouselItem {
     img {
@@ -203,5 +107,168 @@ $gap-block-vertical: 112px;
   }
   100% {
     transform: scale(100%);
+  }
+}
+
+@media (max-width: 1250px) {
+  .ideaBlock {
+    .logo {
+      width: 250px;
+    }
+    .confetti {
+      max-width: 344px;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .main {
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow: hidden;
+    gap: 70px;
+
+    h3 {
+      font-size: 32px;
+    }
+
+    .ideaBlock {
+      gap: 50px;
+      .title {
+        font-size: 28px !important;
+
+        b {
+          font-size: 30px;
+        }
+      }
+      .logo {
+        width: 493px;
+      }
+      .confetti {
+        display: none;
+      }
+
+      .caption {
+        font-size: 18px;
+        padding: 0 56px;
+      }
+    }
+
+    .partnersBlock {
+      gap: 35px;
+
+      h3,
+      h6,
+      p {
+        max-width: 90vw;
+      }
+
+      h3 {
+        font-size: 30px;
+      }
+      h6,
+      p {
+        font-size: 18px;
+      }
+    }
+
+    .authorContentBlock {
+      .wrapper {
+        justify-content: space-around;
+        gap: 0;
+      }
+
+      h3 {
+        font-size: 30px;
+      }
+
+      h6 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .wrapper {
+        width: 100%;
+        justify-content: space-around;
+        .socialCard {
+          justify-content: space-between;
+          width: 332px;
+          padding: 21px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    h3 {
+      font-size: 25px;
+    }
+    .ideaBlock {
+      .logo {
+        width: 251px;
+      }
+      .title,
+      b {
+        font-size: 20px !important;
+      }
+      .caption {
+        font-size: 16px;
+        text-align: justify !important;
+        padding: 0 15px;
+      }
+    }
+
+    .partnersBlock {
+      .carouselCard {
+        padding: 28px;
+      }
+
+      :global(.slick-slide) {
+        > div {
+          margin: 38px;
+        }
+      }
+
+      :global(.slick-list),
+      :global(.slick-track) {
+        max-height: 200px;
+        height: fit-content !important;
+      }
+    }
+
+    .authorContentBlock {
+      gap: 35px;
+      .wrapper {
+        justify-content: space-around;
+        gap: 0;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+      h6 {
+        font-size: 22px;
+      }
+      p {
+        font-size: 14px;
+      }
+
+      .wrapper {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        .socialCard {
+          justify-content: space-between;
+          width: 332px;
+          padding: 21px;
+        }
+      }
+    }
   }
 }

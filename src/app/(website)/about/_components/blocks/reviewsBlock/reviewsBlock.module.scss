@@ -1,0 +1,74 @@
+.reviewsBlock {
+  @extend %block;
+  width: 100%;
+
+  .carouselCard {
+    padding: 26px 0;
+
+    :global(.slick-next) {
+      right: 50px;
+    }
+
+    :global(.slick-slide) {
+      > div {
+        margin: 0 2vw;
+      }
+    }
+  }
+
+  .carouselItem {
+    img {
+      border-radius: 7px;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .reviewsBlock {
+    width: unset;
+    gap: 50px;
+
+    .header {
+      font-size: 30px;
+    }
+
+    .carouselCard {
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+
+      :global(.slick-slide) {
+        > div {
+          margin: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .reviewsBlock {
+    width: 100%;
+    gap: 35px;
+
+    .header {
+      font-size: 25px;
+    }
+
+    .carouselCard {
+      border: unset;
+      box-shadow: unset;
+      padding: 0;
+
+      :global(.slick-slide) {
+        > div {
+          margin: 0 20px;
+        }
+      }
+
+      :global(.slick-list) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}

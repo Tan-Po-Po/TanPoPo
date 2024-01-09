@@ -18,6 +18,7 @@ type Properties = {
   open?: boolean;
   titleClassName?: string;
   contentClassName?: string;
+  closeIconClassName?: string;
   closeIcon?: boolean;
   onClose: () => void;
 } & DialogProps;
@@ -30,6 +31,7 @@ const Dialog: React.FC<Properties> = ({
   className,
   titleClassName,
   contentClassName,
+  closeIconClassName,
   closeIcon = true,
   ...props
 }) => {
@@ -40,7 +42,12 @@ const Dialog: React.FC<Properties> = ({
       {...props}
       className={getValidClassNames(cl.dialog, className)}
     >
-      {closeIcon && <XIcon className={cl.close} onClick={onClose} />}
+      {closeIcon && (
+        <XIcon
+          className={getValidClassNames(cl.close, closeIconClassName)}
+          onClick={onClose}
+        />
+      )}
       {title && (
         <DialogTitle className={getValidClassNames(cl.title, titleClassName)}>
           {title}

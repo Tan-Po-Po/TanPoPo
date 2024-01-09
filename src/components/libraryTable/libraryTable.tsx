@@ -11,7 +11,7 @@ export const LibraryTable: React.FC = () => {
   return width! > 550 ? (
     <section className={cl.libraryTable}>
       {librarySections.map((section, i) => (
-        <LibraryCard key={i} {...section} width="260px"/>
+        <LibraryCard key={i} {...section} width="260px" />
       ))}
     </section>
   ) : (

@@ -5,6 +5,7 @@ $color-yellow-dark: #f7e992;
 // Gray
 $color-gray: #3a3a3a;
 $color-gray-46: #464646;
+$color-gray-59: #595959;
 $color-disabled: #555555;
 // Black
 $color-black: #0d0d0d;
@@ -49,4 +50,15 @@ $padding-page: 65px 22px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+$gap-block-horizontal: 62px;
+$gap-block-vertical: 112px;
+
+%block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $gap-block-horizontal;
+  text-align: center;
 }

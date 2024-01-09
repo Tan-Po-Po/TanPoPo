@@ -3,18 +3,6 @@
   position: relative;
   padding: 29px 0;
 
-  .card {
-    position: relative;
-    transition: ease-out 0.12s;
-
-    &:hover {
-      scale: 110%;
-    }
-    img {
-      border-radius: $border-radius;
-    }
-  }
-
   .left {
     transform: translate(25px, 0) rotate(-7.14deg);
     z-index: 1;
@@ -26,5 +14,26 @@
   .right {
     transform: translate(-20px, 15px) rotate(11deg);
     z-index: 1;
+  }
+}
+
+.card {
+  position: relative;
+  transition: ease-out 0.12s;
+  width: 169px;
+  height: 334px;
+
+  &:hover {
+    scale: 110%;
+  }
+  img {
+    border-radius: $border-radius;
+  }
+}
+
+@media (max-width: "1310px") {
+  .card {
+    width: 96px;
+    height: 200px;
   }
 }

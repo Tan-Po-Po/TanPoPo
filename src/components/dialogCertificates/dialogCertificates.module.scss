@@ -1,0 +1,37 @@
+.dialog {
+  :global(.MuiPaper-root) {
+    height: fit-content;
+    margin: 4px;
+    gap: 40px;
+  }
+
+  .dialogContent {
+    // overflow: visible;
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .dialog {
+    .closeIcon {
+      top: 0;
+      right: 6px;
+      width: 25px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .dialog {
+    .title {
+      h3 {
+        font-size: 28px;
+      }
+    }
+
+    .dialogContent {
+      flex-direction: column;
+      height: fit-content;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.linkCardsBlock {
+  display: flex;
+  justify-content: center;
+  gap: $gap-block-horizontal;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.carousel {
+  width: 1238px;
+
+  .contentCard {
+    > * {
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .linkCardsBlock {
+    flex-direction: column;
+    padding: 0 12px;
+  }
+}
