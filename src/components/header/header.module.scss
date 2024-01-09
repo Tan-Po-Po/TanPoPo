@@ -69,3 +69,31 @@
   display: flex;
   align-items: center;
 }
+
+@media (max-width: 1320px) {
+  .logo {
+    .logoIcon {
+      &:hover {
+        scale: 1.1;
+      }
+      margin-left: 5px;
+      margin-right: 20px;
+    }
+  }
+
+  .navigation {
+    gap: 15px;
+    .dropdown {
+      margin-right: 5px;
+    }
+  }
+
+  .socials {
+    gap: 10px;
+  }
+
+  .auth {
+    margin-right: 10px;
+    gap: 5px;
+  }
+}

@@ -1,4 +1,5 @@
 import { CourseCard, Typography, Divider, Faq, FaqBlock } from "@/components";
+import { CoursesBlock } from "./_coursesBlock/coursesBlock";
 import cl from "./page.module.scss";
 import Course, { ICourse } from "@/models/Course";
 import dbConnect from "@/config/dbConnect";
@@ -43,66 +44,51 @@ export default async function Home() {
         secondRow="з сенсеєм"
         bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
       />
-      <div className={cl.courses}>
-        {teacherCourses.map((course) => (
-          <CourseCard course={course} key={course._id} />
-        ))}
-      </div>
+
+      <CoursesBlock courses={teacherCourses} />
 
       <Divider
+        style={{ marginTop: "75px" }}
         firstRow="ВІДЕОКУРСИ"
         bgColor="linear-gradient(rgba(255, 250, 139, 1), rgba(255, 111, 111, 1))"
       />
-      <div className={cl.courses}>
-        {videoCourses.map((course) => (
-          <CourseCard course={course} key={course._id} />
-        ))}
-      </div>
+
+      <CoursesBlock courses={videoCourses} />
 
       <Divider
+        style={{ marginTop: "75px" }}
         firstRow="АудіоКУРСИ"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(108, 250, 165, 1))"
       />
-      <div className={cl.courses}>
-        {audioCourses.map((course) => (
-          <CourseCard course={course} key={course._id} />
-        ))}
-      </div>
+
+      <CoursesBlock courses={audioCourses} />
 
       <Divider
+        style={{ marginTop: "75px" }}
         firstRow="Книжкові мінікурси"
         bgColor="rgba(255, 221, 169, 1), rgba(239, 204, 255, 1))"
       />
-      <div className={cl.courses}>
-        {bookCourses.map((course) => (
-          <CourseCard course={course} key={course._id} />
-        ))}
-      </div>
+
+      <CoursesBlock courses={bookCourses} />
 
       <Divider
+        style={{ marginTop: "75px" }}
         firstRow="Мегакурси"
         bgColor="linear-gradient(rgba(152, 236, 255, 1), rgba(179, 143, 255, 1))"
       />
-      <div className={cl.courses}>
-        {teacherCourses.map((course) => (
-          <CourseCard course={course} key={course._id} />
-        ))}
-      </div>
+
+      <CoursesBlock courses={teacherCourses} />
 
       <Divider
+        style={{ marginTop: "75px" }}
         firstRow="Актуальні питання"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
       />
       <section className={cl.questions}>
         <Suspense
           fallback={
-            // Замінити на скелетони
             <>
-              <Faq
-                question="Loading"
-                answer="Loading"
-                style={{ width: "900px", maxWidth: "100%" }}
-              />
+              <Faq question="Loading" answer="Loading" />
               <Faq question="Loading" answer="Loading" />
               <Faq question="Loading" answer="Loading" />
               <Faq question="Loading" answer="Loading" />

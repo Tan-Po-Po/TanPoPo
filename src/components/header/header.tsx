@@ -5,15 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Dropdown, Button, IconLink } from "@/components";
 import { getValidClassNames } from "@/helpers";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
-import { useAppSelector } from "@/redux/hooks";
 import { HeaderNarrow } from "./headerNarrow/headerNarrow";
 import { aboutLinks, coursesLinks } from "./links";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const Header = () => {
-  const { isPc } = useAppSelector(selectWindowMatchMedia);
-
-  if (!isPc) {
+  const { width } = useWindowSize();
+ 
+  if (width && width < 1110) {
     return <HeaderNarrow />;
   }
 

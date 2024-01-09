@@ -96,7 +96,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
       labelPosition="top"
       width={"1065px"}
     >
-      <Typography variant="h3"> Твої скіли після засвоєння курсу:</Typography>
+      <Typography variant="h3" className={cl.h3}> Твої скіли після засвоєння курсу:</Typography>
       <div className={cl.description}>
         {courseInfo.description.map((item, index) => {
           const { icon, text } = item as { icon: string; text: string };

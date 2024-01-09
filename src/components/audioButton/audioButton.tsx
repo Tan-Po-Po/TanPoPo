@@ -1,8 +1,6 @@
 import { ContentCard } from "@/components";
 import cl from "./audioButton.module.scss";
 import TriangleIcon from "/public/icons/triangleButton.svg";
-import AudioShortIcon from "/public/icons/audioShort.svg";
-import AudioLongIcon from "/public/icons/audioLong.svg";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -42,6 +40,7 @@ export const AudioButton: React.FC<Props> = ({
         alt="Audio"
         width={430}
         height={40}
+        style={{ maxWidth: "100%", height: "auto" }}
       />
     </ContentCard>
   );

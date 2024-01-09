@@ -1,0 +1,15 @@
+.courses {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 100px;
+}
+
+@media (min-width: 890px) {
+  .courses {
+    row-gap: 100px;
+  }
+}
