@@ -5,8 +5,6 @@ import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { getIconSrc, getSocialIconsLinks, getValidClassNames } from "@/helpers";
 import TanPoPoIcon from "/public/logo/tanPoPo.svg";
-import BurgerIcon from "/public/icons/burger.svg";
-import XIcon from "/public/icons/closeHeader.svg";
 import { useEffect, useState } from "react";
 import { Slide } from "@mui/material";
 import { Dropdown } from "./dropdown/dropdown";
@@ -19,7 +17,6 @@ export const HeaderNarrow = () => {
   const { isTablet, isMobile } = useAppSelector(selectWindowMatchMedia);
   const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
-  console.log("header path", path);
 
   useEffect(() => {
     handleClose();

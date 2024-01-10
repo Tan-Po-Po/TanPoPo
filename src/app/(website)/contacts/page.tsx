@@ -1,12 +1,12 @@
 import { ContentCard, Divider, Faq, Typography, FaqBlock } from "@/components";
-import cl from "./page.module.scss";
 import { textContent } from "./textContent";
-import { FeedbackForm } from "./_feedbackForm/feedbackForm";
+import { FeedbackForm } from "./_components/feedbackForm/feedbackForm";
+import { VideoGuides } from "./_components/videoGuides/videoGuides";
 import { getSocialIconsLinks } from "@/helpers";
-import PlayButtonIcon from "/public/icons/playButton.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
+import cl from "./page.module.scss";
 
 const dividerBgColor = "linear-gradient(180deg, #FFF, #FAD26C 100%)";
 
@@ -14,7 +14,7 @@ export default function Contacts() {
   return (
     <main className={cl.main}>
       <div className={cl.contactsBlock}>
-        <Typography variant="h3">{textContent.contactsBlock.header}</Typography>
+        <Typography variant="h3" style={{textAlign: "center"}}>{textContent.contactsBlock.header}</Typography>
         <Image
           alt=""
           src={textContent.contactsBlock.image}
@@ -109,38 +109,17 @@ export default function Contacts() {
         bgColor={dividerBgColor}
       />
 
-      <div className={cl.videoGuidesBlock}>
-        {textContent.videoGuidesBlock.cards.map((card, i) => (
-          <Link
-            href={
-              card.href ||
-              "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
-            }
-            key={i}
-          >
-            <ContentCard
-              width="384px"
-              cardBgColor={card.background}
-              className={cl.videoCard}
-            >
-              <div className={cl.icon}>
-                <PlayButtonIcon />
-              </div>
-              <Typography variant="body2">{card.caption}</Typography>
-            </ContentCard>
-          </Link>
-        ))}
-      </div>
+      <VideoGuides />
 
       <Divider
         firstRow={textContent.faqBlock.divider.line1}
         bgColor={dividerBgColor}
+        wrapperClassName={cl.faqDivider}
       />
 
       <div className={cl.faqBlock}>
         <Suspense
           fallback={
-            // Замінити на скелетони
             <div className={cl.faqBlock}>
               <Faq
                 question="Loading"

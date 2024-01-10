@@ -13,3 +13,13 @@
     }
   }
 }
+
+@media (max-width: 450px) {
+  .iconLink {
+    .icon {
+      &:hover {
+        scale: none;
+      }
+    }
+  }
+}

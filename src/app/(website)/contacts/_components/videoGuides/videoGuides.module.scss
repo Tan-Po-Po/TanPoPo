@@ -1,0 +1,67 @@
+.videoGuidesBlock {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 100px;
+
+  b {
+    text-decoration: underline !important;
+  }
+
+  .videoCard {
+    justify-content: space-evenly;
+    transition: 0.15s;
+    cursor: pointer;
+    height: 215px;
+    .icon {
+      fill: $color-black;
+      width: 50px;
+      height: 50px;
+    }
+
+    &:hover {
+      transform: scale(110%);
+
+      svg {
+        transition: 0.15s;
+        transform: scale(110%);
+      }
+
+      p {
+        transition: 0.15s;
+        transform: scale(110%);
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .videoGuidesBlock {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+    column-gap: 25px;
+    justify-content: space-between;
+
+    .videoCard {
+      &:hover {
+        transform: scale(103%);
+
+        svg {
+          transition: 0.15s;
+          transform: scale(103%);
+        }
+
+        p {
+          transition: 0.15s;
+          transform: scale(103%);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .videoCard {
+    width: 280px;
+  }
+}

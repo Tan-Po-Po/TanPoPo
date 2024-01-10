@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { transporter, mailOptions } from "@/config/nodemailer";
 import { generateHtml } from "./generateHtml";
-import { IFeedbackFormInput as Data } from "@/app/(website)/contacts/_feedbackForm/feedbackForm";
+import { IFeedbackFormInput as Data } from "@/app/(website)/contacts/_components/feedbackForm/feedbackForm";
 import Question from "@/models/QuestionId";
 import dbConnect from "@/config/dbConnect";
 
