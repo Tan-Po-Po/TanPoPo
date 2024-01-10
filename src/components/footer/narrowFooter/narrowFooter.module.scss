@@ -79,3 +79,20 @@
     }
   }
 }
+
+@media (max-width: 400px) {
+  .narrowFooter {
+    .right {
+      .linkWrapper {
+        white-space: normal;
+        a {
+          width: min-content;
+        }
+        span {
+          margin: 0 15px;
+          text-decoration: none !important;
+        }
+      }
+    }
+  }
+}

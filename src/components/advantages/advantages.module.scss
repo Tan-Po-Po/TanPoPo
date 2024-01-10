@@ -2,7 +2,7 @@
   @include flex-column;
   align-items: center;
   gap: 65px;
-
+  width: 100%;
   .header {
     @include flex-row;
     align-items: center;
@@ -37,7 +37,82 @@
     gap: 108px;
 
     .card {
+      display: flex !important;
+      justify-items: center;
       width: 362px;
+    }
+  }
+}
+
+@media (max-width: 1350px) {
+  .advantagesMain {
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 108px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .textBlock {
+    max-width: 100% !important;
+  }
+  .advantagesMain {
+    .cards {
+      display: flex;
+      width: 100%;
+      .card {
+        height: 600px;
+      }
+    }
+  }
+}
+@media (max-width: 615px) {
+  .advantagesMain {
+    .header {
+      .text {
+        .line1,
+        .line2 {
+          width: min-content;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .textBlock {
+    padding: 26px 10px;
+  }
+
+  .advantagesMain {
+    margin-top: 30px;
+    gap: 42px;
+    .header {
+      .text {
+        .line1 {
+          font-size: 23px;
+        }
+
+        .line2 {
+          font-size: 30px;
+        }
+      }
+    }
+
+    .cards {
+      .card {
+        height: 620px;
+        width: 300px !important;
+        padding: 26px 10px;
+        & div:first-child {
+          left: 21px;
+        }
+        h6 {
+          line-height: 26px;
+        }
+      }
     }
   }
 }

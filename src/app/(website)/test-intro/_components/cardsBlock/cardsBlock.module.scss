@@ -1,0 +1,16 @@
+.cardsBlock {
+  @include flex-row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 300px;
+    padding: 26px 10px;
+  }
+  .carouselItem,
+  .card {
+    animation: none !important;
+  }
+}

@@ -30,6 +30,7 @@ type Props = {
   useNumbers?: boolean;
   centerPadding?: string;
   numbersClass?: string;
+  renderCarousel?: boolean;
 };
 
 const Carousel: React.FC<Props> = ({
@@ -54,6 +55,7 @@ const Carousel: React.FC<Props> = ({
   useNumbers = false,
   centerPadding = "50px",
   numbersClass,
+  renderCarousel = true,
 }) => {
   const ref = useRef<Slider | null>(null);
   const speed = 300;
@@ -108,6 +110,10 @@ const Carousel: React.FC<Props> = ({
       setActiveSlide(index);
     },
   };
+
+  if (!renderCarousel) {
+    return children;
+  }
 
   return (
     <div

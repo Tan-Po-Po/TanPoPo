@@ -5,8 +5,15 @@ import { ICourse } from "@/models/Course";
 import { getCourses } from "./actions";
 import { useEffect, useState } from "react";
 import { getCoursesByType } from "@/helpers";
-import { ContentCard, CourseCardMini, Divider, Typography, Advantages } from "@/components";
-import CourseList from "@/components/courseList/courseList";
+import {
+  ContentCard,
+  CourseCardMini,
+  Divider,
+  Typography,
+  Advantages,
+  CourseList,
+  Loading,
+} from "@/components";
 import Image from "next/image";
 
 interface Props {
@@ -20,7 +27,6 @@ export const Result: React.FC<Props> = ({ result }) => {
   useEffect(() => {
     const getCoursesFromDb = async () => {
       const courses = await getCourses(result);
-      console.log("courses", courses);
 
       setLoading(false);
       setCourses(courses);
@@ -30,10 +36,8 @@ export const Result: React.FC<Props> = ({ result }) => {
   }, [result]);
 
   if (loading) {
-    return <div>Loading</div>;
+    return <Loading />;
   }
-
-  console.log("courses", courses);
 
   const teacherCourses = getCoursesByType("teacher", courses!);
   const isInDevelopment = courses?.length == 1;

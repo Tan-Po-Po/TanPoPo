@@ -110,3 +110,70 @@
 .button {
   background-color: white;
 }
+
+@media (max-width: 1250px) {
+  .test {
+    form {
+      .testForm {
+        max-width: 90vw !important;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .test {
+    padding: 65px 10px;
+    form {
+      .subContainer {
+        flex-direction: column;
+        row-gap: 65px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .test {
+    > h3 {
+      font-size: 30px;
+    }
+    .progressBar {
+      width: 90vw;
+      max-width: 90vw;
+      .bar {
+        max-width: 100% !important;
+      }
+    }
+
+    form {
+      .testForm {
+        padding: 26px 10px;
+        
+        & > h4 {
+          margin: 10px 0;
+        }
+
+        & > div:first-child {
+          left: 21px;
+          font-size: 24px;
+        }
+      }
+
+      .label {
+        padding: 10px 7px;
+        width: 190px;
+        white-space: normal;
+      }
+      .subQuestion {
+        padding: 45px 30px 35px 30px;
+      }
+      .variant {
+        padding: 14px 7px;
+      }
+    }
+  }
+}
