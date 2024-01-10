@@ -10,6 +10,7 @@ import { Cart } from "../cart/cart";
 import { usePathname } from "next/navigation";
 import { Dialog } from "@mui/material";
 import { openCartDialog } from "@/redux/slices/cartDialog/cartDialogSlice";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 export const CartButton = () => {
   const [amount, setAmount] = useState(0);
@@ -24,6 +25,8 @@ export const CartButton = () => {
   const pathname = usePathname();
 
   const dispatch = useAppDispatch();
+
+  const { isMobile } = useAppSelector(selectWindowMatchMedia);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {

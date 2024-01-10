@@ -11,7 +11,7 @@ import { IMAGE_BASE_URL } from "@/config/config";
 import cl from "./teamMemberCard.module.scss";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
-import { DialogCertificates } from "../dialogCertificates/dialogCertificates";
+import { DialogCertificates } from "./dialogCertificates/dialogCertificates";
 import { NarrowTeamMemberCard } from "./narrowTeamMemberCard/narrowTeamMemberCard";
 
 interface Props {

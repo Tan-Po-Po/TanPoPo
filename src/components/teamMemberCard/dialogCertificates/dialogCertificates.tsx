@@ -1,11 +1,11 @@
 import cl from "./dialogCertificates.module.scss";
 
-import { Dialog } from "../dialog/dialog";
-import { Typography } from "../typography/typography";
+import { Dialog } from "../../dialog/dialog";
+import { Typography } from "../../typography/typography";
 import Image from "next/image";
 import { ITeamMember } from "@/models/TeamMember";
 import { getIconArtSrc } from "@/helpers";
-import { ContentCard } from "..";
+import { ContentCard } from "../..";
 
 interface Props extends Pick<ITeamMember, "certificates"> {
   open: boolean;

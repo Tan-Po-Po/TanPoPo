@@ -10,6 +10,7 @@ import { Typography } from "..";
 
 type Props = {
   children: React.ReactNode;
+  renderCarousel?: boolean;
   dots?: boolean;
   slidesToShow?: number;
   centerMode?: boolean;
@@ -35,6 +36,7 @@ type Props = {
 const Carousel: React.FC<Props> = ({
   children,
   className,
+  renderCarousel = true,
   dots = true,
   slidesToShow = 3,
   centerMode = true,
@@ -108,6 +110,10 @@ const Carousel: React.FC<Props> = ({
       setActiveSlide(index);
     },
   };
+
+  if (!renderCarousel) {
+    return <>{children}</>;
+  }
 
   return (
     <div
