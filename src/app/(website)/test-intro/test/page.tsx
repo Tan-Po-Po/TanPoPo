@@ -140,6 +140,7 @@ export default function Test() {
                 labelBgColor="white"
                 key={subIndex}
                 className={cl.subQuestion}
+                labelClassName={cl.label}
               >
                 <fieldset name={`subquestion${subIndex}`}>
                   <ol type="a">

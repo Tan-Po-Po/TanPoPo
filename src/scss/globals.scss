@@ -36,8 +36,11 @@
 }
 
 a {
-  color: $color-text;
+  color: #0d0d0d !important;
   text-decoration: none;
+  &:visited {
+    color: inherit !important;
+  }
 }
 
 html {

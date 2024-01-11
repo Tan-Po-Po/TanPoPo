@@ -107,45 +107,61 @@ export default function Home() {
               Унікальні матеріали для ще цікавішого та ефекти-внішого вивчення
               мови:
             </Typography>
+
             <Image
               src={getIconArtSrc("diamond")}
               alt="Diamond icon"
               width={87}
               height={77}
             />
-            <Button className={cl.button} variant="outlined" icon="video">
-              <Typography variant="h6"> Авторський Контент</Typography>
-            </Button>
+
+            <Link href="/about#content">
+              <Button className={cl.button} variant="outlined" icon="video">
+                <Typography variant="h6"> Авторський Контент</Typography>
+              </Button>
+            </Link>
           </ContentCard>
 
           <ContentCard className={cl.link}>
             <Typography variant="body2">
               Наша команда з якою ми разом формуємо якісний процес навчання:
             </Typography>
+
             <Image
               src={getIconArtSrc("team")}
               alt="Team icon"
               width={113}
               height={91}
             />
-            <Button className={cl.button} variant="outlined" icon="person">
-              <Typography variant="h6"> Команда TanPoPo</Typography>
-            </Button>
+
+            <Link href="/about#team">
+              <Button className={cl.button} variant="outlined" icon="person">
+                <Typography variant="h6"> Команда TanPoPo</Typography>
+              </Button>
+            </Link>
           </ContentCard>
 
           <ContentCard className={cl.link}>
             <Typography variant="body2">
               Дізнайтеся, що кажуть наші учні про їхній досвід у школі TanPoPo:
             </Typography>
+
             <Image
               src={getIconArtSrc("lamp")}
               alt="Lamp icon"
               width={75}
               height={84}
             />
-            <Button className={cl.button} variant="outlined" icon="personSpeak">
-              <Typography variant="h6"> Відгуки про Школу</Typography>
-            </Button>
+
+            <Link href="/about#feedbacks">
+              <Button
+                className={cl.button}
+                variant="outlined"
+                icon="personSpeak"
+              >
+                <Typography variant="h6"> Відгуки про Школу</Typography>
+              </Button>
+            </Link>
           </ContentCard>
         </section>
       )}
