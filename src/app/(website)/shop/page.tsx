@@ -16,7 +16,7 @@ import {
   LargeProductCards,
   ShopPartnersBlock,
 } from "./_components/components";
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 
 export default async function Shop() {
   const shopProducts = await getShopItems();

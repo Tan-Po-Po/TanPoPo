@@ -8,9 +8,12 @@
   .inputs {
     display: flex;
     flex-wrap: wrap;
-    max-width: 700px;
+    // max-width: 700px;
     gap: 40px;
     margin: 35px 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .checkboxes {
@@ -20,10 +23,17 @@
   }
 }
 
-.contactInfo {
+.addressForm {
   max-width: 820px;
   gap: 0;
   margin-top: 90px;
+
+  .header {
+    p,
+    span {
+      white-space: pre-wrap;
+    }
+  }
 
   .personal {
     display: flex;
@@ -35,11 +45,14 @@
     margin-top: 40px;
     display: flex;
     gap: 50px;
+    width: 100%;
     > div {
-      width: 330px;
+      max-width: 330px;
+      width: 100%;
     }
 
     .select {
+      max-width: 330px;
       width: 300px;
     }
   }
@@ -92,19 +105,20 @@
   margin-top: 40px !important;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1023px) {
   .contactForm {
-    max-width: 90vw;
-    max-height: auto;
+    max-width: 100vw;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    width: 100%;
 
     .inputs {
       justify-content: center;
-      max-width: 80%;
     }
 
     .checkboxes {
-      flex-wrap: wrap;
-      justify-content: flex-start;
+      justify-content: space-between;
       gap: 0;
       width: 100%;
       margin-left: 20px;
@@ -135,5 +149,47 @@
   .comment {
     min-width: 300px;
     width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
+  .contactForm {
+    .checkboxes,
+    .inputs {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .addressForm {
+    max-width: 100vw;
+    padding: 25px 21px;
+    .selects,
+    .shipment {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shipment {
+      .department {
+        width: 100%;
+      }
+    }
+
+    .payment {
+      .label {
+        p,
+        b {
+          font-size: 17px;
+          white-space: pre-wrap;
+          text-align: start;
+        }
+        span {
+          font-size: 15px;
+          text-align: start;
+          white-space: pre-wrap;
+        }
+      }
+    }
   }
 }

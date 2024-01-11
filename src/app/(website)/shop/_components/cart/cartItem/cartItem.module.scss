@@ -51,3 +51,11 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .cartItemMain {
+    width: 100%;
+    max-width: 342px;
+    flex-direction: column;
+  }
+}

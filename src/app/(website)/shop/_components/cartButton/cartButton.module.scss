@@ -55,6 +55,13 @@
   // }
 }
 
+@media (max-width: 1023px) {
+  .background {
+    position: fixed;
+    top: calc($header-height + 18px);
+  }
+}
+
 @keyframes textAnimation {
   0% {
   }

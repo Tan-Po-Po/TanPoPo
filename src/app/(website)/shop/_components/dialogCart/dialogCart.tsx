@@ -30,6 +30,7 @@ export const DialogCart = () => {
       onClose={handleDialogClose}
       className={cl.dialog}
       contentClassName={cl.content}
+      titleClassName={cl.title}
       title={
         (
           <>

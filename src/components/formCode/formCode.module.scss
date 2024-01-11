@@ -1,6 +1,11 @@
 .promoCodeForm {
   position: relative;
 
+  .input {
+    max-width: 330px;
+    width: 100%;
+  }
+
   input {
     padding-right: 56px;
   }
@@ -21,11 +26,6 @@
       &:hover {
         transform: scale(100%) !important;
       }
-
-      // &:disabled {
-      //   pointer-events: none;
-      //   border-color: $color-disabled !important;
-      // }
     }
   }
 
@@ -35,6 +35,14 @@
     button {
       border-color: rgba(0, 0, 0, 0.38) !important;
       color: rgba(0, 0, 0, 0.38);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .promoCodeForm {
+    :global(.MuiFormLabel-root) {
+      transform: translate(14px, 22px) scale(1);
     }
   }
 }
