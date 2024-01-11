@@ -1,12 +1,13 @@
 import { ContentCard, StartEducationSensei, Typography } from "@/components";
-import { getIconArtSrc} from "@/helpers";;
+import { Cards } from "./_cards/cards";
+import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
 
 export default async function Page() {
   return (
-    <main>
+    <main className={cl.main}>
       <div className={cl.header}>
         <Typography variant="h3">Освітня програма</Typography>
         <Typography variant="h6">для онлайн-курсів з сенсеєм</Typography>
@@ -23,69 +24,7 @@ export default async function Page() {
         <PlayButton className={cl.playBtn} />
       </div>
 
-      <div className={cl.cards}>
-        <ContentCard>
-          <Typography variant="h6">Панорамна Методика</Typography>
-          <Image
-            src={getIconArtSrc("mountain2")}
-            alt="Mountains art"
-            width={115}
-            height={70}
-          />
-          <Typography variant="body2">
-            Всеохоплююче навчання, яке включає різноманітні техніки вивчення
-            мови та фокусується на всіх аспектах сприйняття для якісного
-            засвоєння матеріалу:
-          </Typography>
-          <ul>
-            <li>розмовні практики</li>
-            <li>аудіоальні комунікації</li>
-            <li>культурні перерви</li>
-            <li>перекладацькі трансформації </li>
-            <li>лексика + граматика</li>
-            <li>писемність + ієрогліфіка</li>
-            <li>мнемоніка та багато іншого!</li>
-          </ul>
-        </ContentCard>
-
-        <ContentCard>
-          <Typography variant="h6">Взаємодія & Комунікація</Typography>
-          <Image
-            src={getIconArtSrc("laptop1")}
-            alt="Laptop art"
-            width={96}
-            height={75}
-          />
-          <Typography variant="body2">
-            Наші сенсеї завжди на зв’язку та готові допомогти, якщо у вас
-            виникають додаткові запитання навіть поза заняттями! Також після
-            кожного уроку вам пропону-ються домашні завдання, які допомагають
-            поглибити розумі-ння теми, сформувати навички самостійної роботи з
-            пройденим матеріалом та закріпити його на практиці. Наші сенсеї
-            ретельно все перевірять та допоможуть уточнити всі незрозумілі
-            моменти!
-          </Typography>
-        </ContentCard>
-
-        <ContentCard>
-          <Typography variant="h6">Культура та Традиції</Typography>
-          <Image
-            src={getIconArtSrc("toriGate2")}
-            alt="Tori gate art"
-            width={98}
-            height={98}
-          />
-          <Typography variant="body2">
-            На кожному занятті на вас чекає “Острів Відпочинку”, де Ви будете
-            дізнаватись про культуру, цінно-сті, традиції, кухню, свята, звичаї,
-            історію, роль технологій та навіть про особливості поведінки японців
-            в різних життєвих ситуаціях, адже вивчення будь-якої мови - це не
-            лише словниковий запас та граматика, а й занурення в культуру та
-            спосіб життя цієї країни! І наші курси розроблені з урахуванням
-            цього принципу!
-          </Typography>
-        </ContentCard>
-      </div>
+      <Cards />
 
       <ContentCard className={cl.description} width="970px">
         <div className={cl.header}>
@@ -101,7 +40,7 @@ export default async function Page() {
           height={120}
         />
 
-        <div className={cl.index}>
+        <div className={getValidClassNames(cl.index)}>
           <div className={cl.line}></div>
           <Typography variant="body1" className={cl.number}>
             1
@@ -114,7 +53,10 @@ export default async function Page() {
           змогу краще відслідковувати власні успіхи під час навчання.
         </Typography>
 
-        <div className={cl.index} style={{ marginLeft: "90px" }}>
+        <div
+          className={getValidClassNames(cl.index, cl.index2)}
+          style={{ marginLeft: "90px" }}
+        >
           <div className={cl.line}></div>
           <Typography
             variant="body1"
@@ -131,7 +73,10 @@ export default async function Page() {
           навчання цікавішим і динамічнішим!
         </Typography>
 
-        <div className={cl.index} style={{ marginLeft: "130px" }}>
+        <div
+          className={getValidClassNames(cl.index, cl.index3)}
+          style={{ marginLeft: "130px" }}
+        >
           <div className={cl.line}></div>
           <Typography
             variant="body1"
@@ -150,7 +95,10 @@ export default async function Page() {
           рівня японської мови.
         </Typography>
 
-        <div className={cl.index} style={{ marginLeft: "180px" }}>
+        <div
+          className={getValidClassNames(cl.index, cl.index4)}
+          style={{ marginLeft: "180px" }}
+        >
           <div className={cl.line}></div>
           <Typography
             variant="body1"
@@ -168,7 +116,10 @@ export default async function Page() {
           закріпленню матеріалу після кожного заняття.
         </Typography>
 
-        <div className={cl.index} style={{ marginLeft: "225px" }}>
+        <div
+          className={getValidClassNames(cl.index, cl.index5)}
+          style={{ marginLeft: "225px" }}
+        >
           <div className={cl.line}></div>
           <Typography
             variant="body1"
@@ -188,7 +139,7 @@ export default async function Page() {
         </Typography>
       </ContentCard>
 
-      <ContentCard className={cl.sertificate} width="670px">
+      <ContentCard className={cl.certificate} width="670px">
         <Typography variant="h6">
           Отримуйте іменний електронний сертифікат від нашої школи TanPoPo!
         </Typography>

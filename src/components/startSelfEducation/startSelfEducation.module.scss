@@ -6,6 +6,7 @@
   }
 }
 .start {
+  width: 100%;
   .startHeader {
     display: flex;
     flex-direction: column;
@@ -14,6 +15,7 @@
     margin: 0;
     margin-top: 110px;
     padding: 0;
+    text-align: center;
 
     h2 {
       font-size: 38px;
@@ -46,6 +48,8 @@
   display: flex;
   margin-top: 115px;
   text-transform: uppercase;
+  text-align: center;
+
   h1 {
     font-size: 86px;
     margin-right: 15px;
@@ -103,5 +107,57 @@
     right: -30%;
     top: -25%;
     transform: rotate(5deg);
+  }
+}
+
+@media (max-width: 1250px) {
+  .card {
+    display: flex !important;
+    .triangleBtn {
+      position: absolute;
+      top: 43%;
+      right: -33%;
+      z-index: 2;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .card > div:first-child {
+    left: 26px;
+  }
+  .startCards {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .triangleBtn {
+    rotate: 90deg;
+  }
+}
+
+@media (max-width: 450px) {
+  .start {
+    .startCards {
+      .card {
+        padding: 26px 10px;
+        max-width: 330px !important;
+        width: 100%;
+      }
+    }
+  }
+
+  .senseiHeader {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      line-height: 70px;
+    }
+    h2 {
+      font-size: 40px;
+    }
+    p {
+      font-size: 16px;
+    }
   }
 }

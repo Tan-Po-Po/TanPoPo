@@ -1,13 +1,17 @@
-import React from "react";
+"use client";
 import cl from "./startSelfEducation.module.scss";
 import { Typography } from "../typography/typography";
 import { ContentCard } from "../contentCard/contentCard";
+import { Carousel } from "../carousel/carousel";
 import { getIconArtSrc } from "@/helpers";
 import TriangleButton from "public/icons/triangleButton.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const StartSelfEducation: React.FC = () => {
+  const { width } = useWindowSize();
+  const renderCarousel = width! > 600 && width! < 1250;
   return (
     <>
       <div className={cl.start}>
@@ -19,80 +23,92 @@ const StartSelfEducation: React.FC = () => {
         </div>
 
         <div className={cl.startCards}>
-          <ContentCard
-            className={cl.card}
-            width="330px"
-            index="1"
-            indexBgColor="rgba(255, 206, 200, 1)"
-            cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #FFBEBE 100%)"
+          <Carousel
+            renderCarousel={renderCarousel}
+            dots
+            autoplay
+            autoplaySpeed={3000}
+            slidesToShow={1}
+            infinite={false}
+            arrows={false}
           >
-            <Typography variant="h6">
-              {" "}
-              Оберіть бажаний онлайн-курс з сенсеєм
-            </Typography>
-            <Image
-              src={getIconArtSrc("temple")}
-              alt="Temple art"
-              width={87}
-              height={89}
-            />
-            <Typography variant="body2">
-              Обирайте курс за вашим бажанням, форматом навчання і відповідним
-              для вас рівнем мови та натискайте “Розпочати Навчання”.
-            </Typography>
-          </ContentCard>
+            <ContentCard
+              className={cl.card}
+              width="330px"
+              index="1"
+              indexBgColor="rgba(255, 206, 200, 1)"
+              cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #FFBEBE 100%)"
+            >
+              <Typography variant="h6">
+                {" "}
+                Оберіть бажаний онлайн-курс з сенсеєм
+              </Typography>
+              <Image
+                src={getIconArtSrc("temple")}
+                alt="Temple art"
+                width={87}
+                height={89}
+              />
+              <Typography variant="body2">
+                Обирайте курс за вашим бажанням, форматом навчання і відповідним
+                для вас рівнем мови та натискайте “Розпочати Навчання”.
+              </Typography>
+              {renderCarousel && <TriangleButton className={cl.triangleBtn} />}
+            </ContentCard>
 
-          <TriangleButton className={cl.triangleBtn} />
+            {!renderCarousel && <TriangleButton className={cl.triangleBtn} />}
 
-          <ContentCard
-            className={cl.card}
-            width="330px"
-            index="2"
-            indexBgColor="rgba(200, 242, 255, 1)"
-            cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #C8F2FF 100%)"
-          >
-            <Typography variant="h6">
-              {" "}
-              Визначте зручний для Вас розклад занять!
-            </Typography>
-            <Image
-              src={getIconArtSrc("paymentCard")}
-              alt="Calendar art"
-              width={83}
-              height={71}
-            />
-            <Typography variant="body2">
-              Оберіть, коли Ви можете приділяти час вивченню японської мови з
-              сенсеєм онлайн, щоб ми змогли сформувати графік, враху-вавши ваші
-              побажання!
-            </Typography>
-          </ContentCard>
+            <ContentCard
+              className={cl.card}
+              width="330px"
+              index="2"
+              indexBgColor="rgba(200, 242, 255, 1)"
+              cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #C8F2FF 100%)"
+            >
+              <Typography variant="h6">
+                {" "}
+                Визначте зручний для Вас розклад занять!
+              </Typography>
+              <Image
+                src={getIconArtSrc("paymentCard")}
+                alt="Calendar art"
+                width={83}
+                height={71}
+              />
+              <Typography variant="body2">
+                Оберіть, коли Ви можете приділяти час вивченню японської мови з
+                сенсеєм онлайн, щоб ми змогли сформувати графік, враху-вавши
+                ваші побажання!
+              </Typography>
+              {renderCarousel && <TriangleButton className={cl.triangleBtn} />}
+            </ContentCard>
 
-          <TriangleButton className={cl.triangleBtn} />
+            {!renderCarousel && <TriangleButton className={cl.triangleBtn} />}
 
-          <ContentCard
-            className={cl.card}
-            width="330px"
-            index="3"
-            indexBgColor="rgba(201, 255, 200, 1)"
-            cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #C9FFC8 100%)"
-          >
-            <Typography variant="h6">
-              {" "}
-              Оплатіть курс та розпочніть навчання!
-            </Typography>
-            <Image
-              src={getIconArtSrc("girlStudent")}
-              alt="Boy and girl with laptop"
-              width={81}
-              height={96}
-            />
-            <Typography variant="body2">
-              Оплачуйте обраний курс, в той час, як ми почнемо фо-рмувати ваш
-              розклад і після його успішного погодження Ви відразу розпочинаєте
-              вивчення японської мови!
-            </Typography>
-          </ContentCard>
+            <ContentCard
+              className={cl.card}
+              width="330px"
+              index="3"
+              indexBgColor="rgba(201, 255, 200, 1)"
+              cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #C9FFC8 100%)"
+            >
+              <Typography variant="h6">
+                {" "}
+                Оплатіть курс та розпочніть навчання!
+              </Typography>
+              <Image
+                src={getIconArtSrc("girlStudent")}
+                alt="Boy and girl with laptop"
+                width={81}
+                height={96}
+              />
+              <Typography variant="body2">
+                Оплачуйте обраний курс, в той час, як ми почнемо фо-рмувати ваш
+                розклад і після його успішного погодження Ви відразу
+                розпочинаєте вивчення японської мови!
+              </Typography>
+            </ContentCard>
+          </Carousel>
         </div>
       </div>
 

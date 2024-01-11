@@ -168,7 +168,7 @@
   }
 }
 
-.sertificate {
+.certificate {
   height: 325px;
   padding: 35px;
   margin-top: 112px;
@@ -211,8 +211,10 @@
     padding: 0 10px;
   }
   .video {
+    display: flex;
+    justify-content: center;
     img {
-      // height: auto;
+      max-width: 95% !important;
     }
   }
   .courseTypes {
@@ -229,11 +231,112 @@
           margin: auto;
         }
       }
+      .typeList {
+        align-self: stretch;
+      }
     }
 
     .line {
       width: 100px;
       height: 2px;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .video {
+    img {
+      max-width: 95% !important;
+      max-height: 430px;
+      height: auto;
+    }
+  }
+
+  .courseTypes {
+    margin-top: 42px;
+    .type {
+      flex-direction: column;
+
+      .typeCard {
+        padding: 26px 10px;
+      }
+
+      .line {
+        width: 2px;
+        height: 50px;
+      }
+      .typeList {
+        align-items: start;
+        padding: 26px 10px 26px 26px;
+      }
+    }
+  }
+
+  .description {
+    padding: 35px 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .video {
+    img {
+      max-height: 290px;
+    }
+    .title {
+      max-width: 90%;
+      width: fit-content;
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
+
+  .description {
+    .text {
+      font-size: 16px;
+      text-align: justify;
+    }
+  }
+
+  .certificate {
+    height: auto;
+    padding: 26px 13px;
+    h6 {
+      font-size: 20px;
+      line-height: 20px;
+      letter-spacing: normal;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .video {
+    img {
+      max-height: 290px;
+      max-width: 100% !important;
+    }
+    .title {
+      max-width: 98%;
+      padding: 8px 3px;
+      font-size: 15px;
+    }
+  }
+
+  .courseTypes {
+    .type {
+      max-width: 100%;
+
+      .typeCard {
+        width: 100%;
+      }
+
+      .line {
+        width: 2px;
+        height: 50px;
+      }
+      .typeList {
+        align-items: start;
+        padding: 26px 10px 26px 26px;
+      }
     }
   }
 }
