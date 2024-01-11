@@ -1,0 +1,22 @@
+.main {
+  @include flex-column;
+  padding: 65px 10px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  @include flex-column;
+  text-align: center;
+  h3 {
+    font-size: 60px;
+  }
+  h6 {
+    font-size: 26px;
+  }
+}
+
+.headerCard {
+  width: 858px;
+  max-width: 100%;
+}
