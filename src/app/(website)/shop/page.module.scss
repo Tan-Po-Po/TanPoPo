@@ -55,9 +55,6 @@
   }
 
   .shopPartnersBlock {
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-
     @include flex-row;
     width: 100%;
     justify-content: space-between;

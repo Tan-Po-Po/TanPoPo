@@ -1,8 +1,6 @@
 .checkoutMain {
   @include flex-column;
   padding: $padding-page;
-  // width: 100vw !important;
-  // overflow: hidden;
 
   p {
     text-transform: none !important;
