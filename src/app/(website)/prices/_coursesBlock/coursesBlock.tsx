@@ -11,7 +11,7 @@ type Properties = {
 
 const CoursesBlock: React.FC<Properties> = ({ courses }) => {
   const { width } = useWindowSize();
-  console.log(width);
+
   return width! < 890 && courses.length > 1 ? (
     <Carousel
       initialSlide={0}

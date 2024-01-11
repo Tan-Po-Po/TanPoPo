@@ -3,7 +3,6 @@ import cl from "./footer.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import { getValidClassNames, getIconSrc, getSocialIconsLinks } from "@/helpers";
-import { useEffect, useState } from "react";
 import { NarrowFooter } from "./narrowFooter/narrowFooter";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";

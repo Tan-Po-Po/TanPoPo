@@ -184,7 +184,7 @@ export const textContent = {
       image: getIconArtSrc("coinsStack"),
       button: {
         text: "Вартість",
-        href: "/courses/prices",
+        href: "/prices",
         icon: "coinsStack",
       },
     },

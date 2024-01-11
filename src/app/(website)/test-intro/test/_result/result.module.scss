@@ -11,3 +11,16 @@
   background: linear-gradient(180deg, #ffe352 0%, #ffed72 70%);
   gap: 0;
 }
+
+@media (max-width: 400px) {
+  .recommendation {
+    h4 {
+      font-size: 23px;
+      text-wrap: wrap;
+    }
+    h3 {
+      font-size: 28px !important;
+      text-wrap: wrap;
+    }
+  }
+}

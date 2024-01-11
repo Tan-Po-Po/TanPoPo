@@ -8,19 +8,20 @@
     gap: 58px;
   }
 
-  .cardsBlock {
-    @include flex-row;
-    justify-content: space-around;
-    width: 100%;
-  }
-
   .levelsBlock {
     gap: 60px;
 
+    .levelsWrapper {
+      @include flex-column;
+      gap: 60px;
+    }
+    .wrapper {
+      @include flex-column;
+      gap: 60px;
+    }
     .ruler {
       @include flex-row;
       position: relative;
-      // width: 1010px;
       height: 161px;
       justify-content: space-between;
 
@@ -28,12 +29,10 @@
         box-shadow: $box-shadow;
         position: absolute;
         content: "";
-        // width: 880px;
         width: 87%;
         height: 2px;
         background-color: black;
         top: 50%;
-        // left: 505px;
         left: 50%;
         transform: translate(-50%, -50%);
       }
@@ -69,6 +68,7 @@
     }
 
     .titleCard {
+      width: fit-content;
       padding: 18px 10px;
       white-space: pre;
       word-break: normal;
@@ -120,4 +120,239 @@
 .button {
   position: relative;
   background: $gradient-yellow-light;
+}
+
+.imageContainer {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .testIntro {
+    .levelsBlock {
+      .levelsWrapper {
+        @include flex-row;
+        height: 100%;
+      }
+
+      .wrapper {
+        gap: 45px;
+      }
+
+      .ruler {
+        @include flex-column;
+        position: relative;
+        max-height: 100%;
+        height: auto;
+        align-self: stretch;
+        justify-content: space-between;
+        box-sizing: border-box;
+        width: 270px;
+        min-width: 270px;
+        padding: 40px;
+
+        &::before {
+          width: 2px;
+          height: calc(100% - 123px);
+        }
+
+        &::after {
+          display: none;
+        }
+
+        .mark {
+          @include flex-row;
+          justify-content: center;
+          width: 100%;
+          h3 {
+            margin-left: auto;
+            order: 3;
+          }
+          p {
+            order: 1;
+          }
+
+          .line {
+            order: 2;
+            height: 2px;
+            width: 22px;
+            position: absolute;
+            margin: 0 auto;
+          }
+        }
+
+        > div:nth-last-child(2) {
+          visibility: hidden;
+        }
+      }
+
+      .titleCard {
+        p {
+          font-size: 17px;
+        }
+        background: linear-gradient(180deg, #fff 0%, #fffbf1 100%);
+        width: auto;
+
+        &::before {
+          width: 2px;
+          border: none;
+          background: $color-black;
+          box-shadow: $box-shadow;
+          top: 100%;
+        }
+      }
+
+      .cardsWrapper {
+        flex-direction: column;
+        gap: 45px;
+
+        .card {
+          padding: 26px 18px 30px;
+          width: 350px;
+          h6 {
+            font-size: 20px;
+            text-wrap: nowrap;
+          }
+          p {
+            font-size: 16px;
+          }
+
+          &:first-child {
+            position: relative;
+          }
+          &:first-child::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            border: none;
+            background: $color-black;
+            box-shadow: $box-shadow;
+            height: 110px;
+            top: 100%;
+          }
+        }
+      }
+    }
+
+    .beginTestBlock {
+      position: relative;
+
+      .card {
+        padding-top: 34px;
+        padding-bottom: 49px;
+
+        div:last-child {
+          margin-top: 31px;
+        }
+      }
+    }
+
+    .icon {
+      position: absolute;
+      bottom: 80px;
+      right: 170px;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .testIntro {
+    .icon {
+      right: 0;
+      left: calc(50% + 150px);
+    }
+  }
+}
+
+@media (max-width: 710px) {
+  .testIntro {
+    .levelsBlock {
+      margin: 0;
+      width: 100%;
+      .levelsWrapper {
+        justify-content: space-between;
+        gap: 5px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 665px) {
+  .testIntro {
+    padding: 45px 10px;
+    gap: 50px;
+    .bigImageBlock {
+      img {
+        display: none;
+      }
+    }
+    .levelsBlock {
+      & > h5 {
+        white-space: inherit !important;
+        text-align: center;
+      }
+      .levelsWrapper {
+        @include flex-column;
+        justify-content: center;
+        row-gap: 45px;
+      }
+
+      .ruler {
+        align-self: auto;
+        height: 685px;
+      }
+
+      .cardsWrapper {
+        .card {
+          max-width: 350px !important;
+          width: auto;
+          height: fit-content;
+          h6 {
+            text-wrap: wrap;
+          }
+        }
+      }
+
+      .titleCard {
+        white-space: normal;
+      }
+    }
+
+    .beginTestBlock {
+      .card {
+        h4 {
+          border: $border;
+          border-radius: $border-radius;
+          box-shadow: $box-shadow;
+          text-wrap: balance;
+          word-break: break-all;
+          background: linear-gradient(
+            91deg,
+            rgba(255, 156, 156, 0.75) 0%,
+            rgba(255, 239, 156, 0.75) 28.13%,
+            rgba(156, 219, 255, 0.75) 71.35%,
+            rgba(255, 156, 233, 0.75) 100%
+          );
+          padding: 15px 10px;
+          font-size: 23px;
+        }
+      }
+    }
+    .icon {
+      left: calc(50% + 90px);
+      bottom: 110px;
+      rotate: -20deg;
+      scale: 0.9;
+    }
+  }
+
+  .imageContainer {
+    display: block;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-position-x: 40%;
+  }
 }

@@ -14,7 +14,6 @@ export default function Home() {
           <Link href="/education/sensei">
             <ContentCard
               cardBgColor="linear-gradient(rgba(173, 240, 255, 1), rgba(235, 191, 255, 1))"
-              width="450px"
               height="250px"
               className={cl.formatCard}
             >
@@ -42,7 +41,6 @@ export default function Home() {
           <Link href="/education/self">
             <ContentCard
               cardBgColor="linear-gradient(rgba(253, 255, 173, 1), rgba(255, 191, 214, 1))"
-              width="450px"
               height="250px"
               className={cl.formatCard}
             >
