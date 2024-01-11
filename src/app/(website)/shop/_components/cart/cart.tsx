@@ -5,13 +5,13 @@ import {
   addPromoCode,
   selectShopCart,
 } from "@/redux/slices/shopCart/shopCartSlice";
-import { Button, ContentCard, Input, Typography } from "@/components";
+import { ContentCard, Typography } from "@/components";
 import { CartItem } from "./cartItem/cartItem";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
-import { getValidClassNames, getTotalPrice } from "@/helpers";
+import { getTotalPrice } from "@/helpers";
 import { getPromoCode } from "@/helpers/actions/getPromoCode";
 import { FormCode } from "@/components/formCode/formCode";
 
@@ -29,11 +29,6 @@ export const Cart = () => {
     final: 0,
   });
 
-  // const { control, handleSubmit, reset } = useForm({
-  //   defaultValues: {
-  //     code: cart.promoCode?.code || "",
-  //   },
-  // });
   const formReturn = useForm({
     defaultValues: {
       code: cart.promoCode?.code || "",
@@ -45,8 +40,6 @@ export const Cart = () => {
   }, [cart]);
 
   const onSubmit: SubmitHandler<IPromoCodeInput> = async (data) => {
-    console.log("data", data);
-
     if (cart.promoCode) {
       return;
     }
@@ -69,7 +62,7 @@ export const Cart = () => {
       </div>
     );
   }
-
+  console.log(cart.items)
   return (
     <div className={cl.cartMain}>
       <div className={cl.headers}>

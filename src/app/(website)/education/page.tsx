@@ -72,7 +72,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <ContentCard className={cl.results} width="610px" height="360px">
+      <ContentCard className={cl.results} width="100%">
         <div>
           <Typography variant="h6">
             Лише відбірні навчальні матеріали

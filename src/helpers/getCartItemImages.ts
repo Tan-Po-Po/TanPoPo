@@ -1,5 +1,5 @@
 import { IShopProduct } from "@/models/ShopProduct";
-
+import { IMAGE_BASE_URL } from "@/config/config";
 interface Params {
   gallery: IShopProduct["large"]["gallery"];
   itemValue: string;
@@ -11,19 +11,17 @@ export const getCartItemImages = ({ gallery, itemValue }: Params) => {
 
   for (const img of gallery) {
     if (valueSet.has(img.value!)) {
-      images.push(`/shop-media/${img.image.filename}`);
+      images.push(`${IMAGE_BASE_URL}/${img.image.filename}`);
       if (images.length >= 2) {
         break;
       }
     }
   }
 
-  console.log("images function", images);
-
   if (!images.length) {
     images.push(
-      `/shop-media/${gallery[0].image.filename}`,
-      `/shop-media/${gallery[1].image.filename}`
+      `${IMAGE_BASE_URL}/${gallery[0].image.filename}`,
+      `${IMAGE_BASE_URL}/${gallery[1].image.filename}`
     );
   }
 

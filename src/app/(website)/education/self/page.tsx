@@ -1,14 +1,12 @@
 import { ContentCard, Typography, StartSelfEducation } from "@/components";
 import { getIconArtSrc } from "@/helpers";
-import Link from "next/link";
 import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";
-import TriangleButton from "public/icons/triangleButton.svg";
 import cl from "./page.module.scss";
 
 export default async function Page() {
   return (
-    <main>
+    <main className={cl.main}>
       <div className={cl.header}>
         <Typography variant="h3">Освітня програма</Typography>
         <Typography variant="h6">для самостійного навчання</Typography>
@@ -20,6 +18,7 @@ export default async function Page() {
           alt="Japanese courses"
           width={970}
           height={550}
+          style={{ maxWidth: "100%" }}
         />
         <div className={cl.title}>Курси для самостійного навчання.</div>
         <PlayButton className={cl.playBtn} />
