@@ -9,8 +9,15 @@
   }
 
   .video {
-    // width: 760px;
-    // height: 515px;
     max-width: 80vw !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .dialog {
+    :global(.MuiPaper-root) {
+      margin: 0;
+      width: fit-content !important;
+    }
   }
 }

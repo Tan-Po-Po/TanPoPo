@@ -13,6 +13,7 @@ export const ReelsCard: React.FC<Props> = (props) => {
   return (
     <ContentCard
       className={cl.reels}
+      labelClassName={cl.label}
       label={label}
       labelBgColor={labelColor}
       width="384px"

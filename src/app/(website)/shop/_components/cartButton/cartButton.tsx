@@ -51,7 +51,7 @@ export const CartButton = () => {
     dispatch(openCartDialog());
   };
 
-  if (!amount) {
+  if (!amount || pathname.includes("test")) {
     return;
   }
 

@@ -12,6 +12,7 @@ export const PodcastCard: React.FC<Props> = (props) => {
       label={<Typography variant="body1">{label}</Typography>}
       labelBgColor={labelColor}
       className={cl.podcast}
+      labelClassName={cl.label}
     >
       <div className={cl.content}>
         <LibraryItemContent item={props} />

@@ -1,6 +1,6 @@
 "use client";
 import { ContentCard, Typography } from "@/components";
-import cl from "../libraryItemCard.module.scss";
+import cl from "./footer.module.scss";
 import { ILibraryItem } from "@/models/LibraryItem";
 import CopyIcon from "/public/icons/copy.svg";
 import { usePathname } from "next/navigation";
@@ -24,7 +24,6 @@ export const Footer: React.FC<Props> = ({ item }) => {
     ) {
       navigator.clipboard.writeText(media[0].video!);
     } else {
-
       navigator.clipboard.writeText(`${SERVER_URL}${path}?id=${_id}`);
     }
     toast("Посилання скопійовано💾");

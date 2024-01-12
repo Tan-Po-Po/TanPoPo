@@ -5,7 +5,9 @@ import { LibraryTable } from "@/components/libraryTable/libraryTable";
 const Library = () => {
   return (
     <main className={cl.libraryMain}>
-      <Typography variant="h3">БІБЛІОТЕКА TANPOPO</Typography>
+      <Typography variant="h3" align="center">
+        БІБЛІОТЕКА TANPOPO
+      </Typography>
       <LibraryTable />
       <Typography variant="body1" className={cl.caption}>
         Тут ми зібрали найкращі та найцікавіші додаткові матеріали для вивчення
