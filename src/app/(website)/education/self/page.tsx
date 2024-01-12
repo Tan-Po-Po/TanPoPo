@@ -222,7 +222,7 @@ export default async function Page() {
         </Typography>
       </ContentCard>
 
-      <ContentCard className={cl.sertificate} width="670px">
+      <ContentCard className={cl.certificate} width="670px">
         <Typography variant="h6">
           Отримуйте іменний електронний сертифікат від нашої школи TanPoPo!
         </Typography>

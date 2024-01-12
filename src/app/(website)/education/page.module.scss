@@ -122,3 +122,14 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .results {
+    padding: 26px 3px;
+    h6 {margin-right: 8px;}
+    h6, h4 {
+      font-size: 24px;
+      display: inline;
+    }
+  }
+}
