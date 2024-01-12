@@ -8,10 +8,20 @@ import {
 } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import Image from "next/image";
 import { getEmbedYouTubeLink } from "@/helpers";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 export const DialogGallery = () => {
   const galleryDialog = useAppSelector(selectGalleryDialog);
   const dispatch = useAppDispatch();
+
+  const { isPc, isTablet, isMobile } = useAppSelector(selectWindowMatchMedia);
+
+  const iFrameWidth =
+    (isPc && "760") || (isTablet && "560") || (isMobile && "340") || "560";
+
+  const iFrameHeight =
+    (isPc && "515") || (isTablet && "315") || (isMobile && "215") || "315";
+
   return (
     <Dialog
       onClose={() => dispatch(closeGalleryDialog())}
@@ -33,8 +43,8 @@ export const DialogGallery = () => {
         />
       ) : (
         <iframe
-          width="560"
-          height="315"
+          width={iFrameWidth}
+          height={iFrameHeight}
           src={getEmbedYouTubeLink(galleryDialog.src)}
           title="YouTube video player"
           frameBorder="0"

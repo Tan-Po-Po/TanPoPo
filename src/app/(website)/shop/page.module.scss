@@ -44,7 +44,7 @@
 
     .cardsWrapper {
       @include flex-row;
-      gap: 104px;
+      gap: min(104px, 5vw);
 
       .card {
         align-self: stretch;
@@ -53,9 +53,13 @@
       }
     }
   }
+
   .shopPartnersBlock {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    @include flex-row;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 100px;
   }
 
@@ -64,5 +68,120 @@
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
     gap: 100px;
+  }
+}
+
+@media (max-width: "1420px") {
+  .storeMain {
+    .shopProductsBlock {
+      display: block;
+      overflow: hidden;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: "1150px") {
+  .storeMain {
+    .introBlock {
+      grid-template-columns: repeat(2, 1fr);
+      .image {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+    }
+  }
+}
+
+@media (max-width: "1023px") {
+  .storeMain {
+    padding-left: 14px;
+    padding-right: 14px;
+    h3 {
+      font-size: 32px;
+    }
+
+    .dealBlock {
+      .card {
+        h5 {
+          font-size: 22px;
+        }
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .shopPartnersBlock {
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: "767px") {
+  .storeMain {
+    max-width: 100vw;
+    padding-right: 9px;
+    padding-left: 9px;
+    overflow: hidden;
+
+    h3 {
+      font-size: 30px;
+    }
+
+    .introBlock {
+      display: flex;
+      flex-direction: column-reverse;
+      overflow: hidden;
+      max-width: 100%;
+    }
+
+    .dealBlock {
+      gap: 40px;
+
+      .titleCard {
+        position: relative;
+        h5 {
+          font-size: 22px;
+        }
+
+        &::before {
+          all: unset;
+        }
+
+        &::after {
+          content: "";
+          height: 40px;
+          @include border-box;
+          border-width: 1px;
+          position: absolute;
+          bottom: -42px;
+        }
+      }
+
+      .cardsWrapper {
+        flex-direction: column;
+        gap: 40px;
+
+        .card:nth-child(1) {
+          &::after {
+            content: "";
+            height: 40px;
+            @include border-box;
+            border-width: 1px;
+            position: absolute;
+            bottom: -42px;
+          }
+        }
+      }
+    }
+
+    .message {
+      p {
+        font-size: 15px;
+      }
+    }
   }
 }

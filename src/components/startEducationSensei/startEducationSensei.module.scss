@@ -1,4 +1,5 @@
 .start {
+  width: 100%;
   .startHeader {
     display: flex;
     flex-direction: column;
@@ -7,6 +8,7 @@
     margin: 0;
     margin-top: 110px;
     padding: 0;
+    text-align: center;
 
     h2 {
       font-size: 38px;
@@ -16,7 +18,7 @@
   .startCards {
     display: flex;
     align-items: center;
-
+    margin-top: 85px;
     .triangleBtn {
       width: 36px;
       height: 37px;
@@ -24,7 +26,6 @@
     }
 
     .card {
-      margin-top: 85px;
       width: 330px;
       height: 360px;
       h6 {
@@ -37,6 +38,7 @@
 
 .senseiHeader {
   margin-top: 115px;
+  text-align: center;
   h3 {
     font-size: 35px;
   }
@@ -48,6 +50,8 @@
 .sensei {
   margin: 100px 0;
   position: relative;
+  width: 100%;
+
   .label {
     transform: none;
     top: -15%;
@@ -77,5 +81,82 @@
     right: -30%;
     top: -25%;
     transform: rotate(5deg);
+  }
+}
+
+@media (max-width: 1250px) {
+  .card {
+    display: flex !important;
+    .triangleBtn {
+      position: absolute;
+      top: 43%;
+      right: -33%;
+      z-index: 2;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .sensei {
+    .arrow {
+      position: absolute;
+      right: -15%;
+      top: -60%;
+      transform: rotate(320deg);
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .sensei {
+    .arrow {
+      scale: 0.7;
+      right: -5%;
+      top: -50%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .card > div:first-child {
+    left: 26px;
+  }
+  .startCards {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .triangleBtn {
+    rotate: 90deg;
+  }
+  .senseiHeader {
+    text-wrap: balance;
+    h3 {
+      margin-right: 8px;
+    }
+    h3,
+    h5 {
+      display: inline;
+      font-size: 26px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .start {
+    .startCards {
+      .card {
+        padding: 26px 10px;
+        max-width: 330px !important;
+        width: 100%;
+      }
+    }
+    .startHeader {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h2 {
+        font-size: 26px;
+      }
+    }
   }
 }

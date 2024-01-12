@@ -20,7 +20,7 @@
     border: 0;
     box-shadow: none;
     padding: 0;
-    // width: 229px;
+
     .label {
       top: -41px;
       span {
@@ -49,5 +49,13 @@
     h6 {
       line-height: normal;
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .cartItemMain {
+    width: 100%;
+    max-width: 342px;
+    flex-direction: column;
   }
 }

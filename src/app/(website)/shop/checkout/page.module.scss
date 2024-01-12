@@ -47,7 +47,7 @@
         position: absolute;
         height: 2px;
         background-color: black;
-        width: 1102px;
+        width: 100%;
 
         box-shadow: $box-shadow;
       }
@@ -105,6 +105,38 @@
     .requisites {
       h6 {
         margin-top: 0 !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .checkoutMain {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .checkoutMain {
+    padding-left: 9px;
+    padding-right: 9px;
+
+    .cart {
+      border: unset;
+      box-shadow: unset;
+      padding: 0;
+    }
+
+    .continue {
+      .line {
+        display: none;
+      }
+
+      .button {
+        h6 {
+          font-size: 20px;
+        }
       }
     }
   }

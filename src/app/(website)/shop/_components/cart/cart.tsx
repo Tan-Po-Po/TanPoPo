@@ -11,15 +11,20 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 
 import { toast } from "react-toastify";
-import { getTotalPrice } from "@/helpers";
+import { getTotalPrice, getValidClassNames } from "@/helpers";
 import { getPromoCode } from "@/helpers/actions/getPromoCode";
 import { FormCode } from "@/components/formCode/formCode";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 interface IPromoCodeInput {
   code: string;
 }
 
-export const Cart = () => {
+interface Props {
+  className?: string;
+}
+
+export const Cart: React.FC<Props> = ({ className }) => {
   const cart = useAppSelector(selectShopCart);
 
   const dispatch = useAppDispatch();
@@ -28,6 +33,8 @@ export const Cart = () => {
     original: 0,
     final: 0,
   });
+
+  const { isMobile } = useAppSelector(selectWindowMatchMedia);
 
   const formReturn = useForm({
     defaultValues: {
@@ -62,14 +69,16 @@ export const Cart = () => {
       </div>
     );
   }
-  console.log(cart.items)
+  console.log(cart.items);
   return (
-    <div className={cl.cartMain}>
-      <div className={cl.headers}>
-        <Typography variant="subtitle1">Обрані товари</Typography>
-        <Typography variant="subtitle1">Кількість</Typography>
-        <Typography variant="subtitle1">Ціна</Typography>
-      </div>
+    <div className={getValidClassNames(cl.cartMain, className)}>
+      {!isMobile && (
+        <div className={cl.headers}>
+          <Typography variant="subtitle1">Обрані товари</Typography>
+          <Typography variant="subtitle1">Кількість</Typography>
+          <Typography variant="subtitle1">Ціна</Typography>
+        </div>
+      )}
 
       <section className={cl.items}>
         {cart.items.map((item) => (
@@ -91,33 +100,6 @@ export const Cart = () => {
             formReturn={formReturn}
             onSubmit={onSubmit}
           />
-          {/* <form className={cl.promoCodeForm} onSubmit={handleSubmit(onSubmit)}>
-            <Controller
-              name="code"
-              control={control}
-              disabled={!!cart.promoCode}
-              render={({ field }) => (
-                <Input
-                  type="text"
-                  className={cl.input}
-                  label={
-                    cart.promoCode ? "Ваш промокод" : "Введіть промокод..."
-                  }
-                  {...field}
-                />
-              )}
-            />
-            <Button
-              type="submit"
-              wrapperClass={getValidClassNames(
-                cl.buttonWrapper,
-                cart.promoCode && cl.buttonDisabled
-              )}
-              variant="outlined"
-            >
-              +
-            </Button>
-          </form> */}
         </div>
 
         <div className={cl.totalContainer}>

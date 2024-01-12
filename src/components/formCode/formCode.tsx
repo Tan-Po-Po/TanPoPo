@@ -18,7 +18,6 @@ export interface IPromoCodeInput {
 interface Props {
   disabled?: boolean;
   onSubmit: SubmitHandler<IPromoCodeInput>;
-  //   defaultValues: IPromoCodeInput;
   label: string;
   formReturn: UseFormReturn<IPromoCodeInput>;
 }
@@ -26,20 +25,10 @@ interface Props {
 export const FormCode: React.FC<Props> = ({
   disabled,
   onSubmit,
-  //   defaultValues,
   label,
   formReturn,
 }) => {
   const { control, handleSubmit, reset } = formReturn;
-
-  //   const handleFormSubmit: SubmitHandler<IPromoCodeInput> = async (data) => {
-  //     console.log("promocode input", data);
-  //     const action = await onSubmit(data);
-
-  //     if (action === "reset") {
-  //       reset();
-  //     }
-  //   };
 
   return (
     <form className={cl.promoCodeForm} onSubmit={handleSubmit(onSubmit)}>

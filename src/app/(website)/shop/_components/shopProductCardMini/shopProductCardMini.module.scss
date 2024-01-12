@@ -1,6 +1,30 @@
 .shopItemMini {
+  min-width: 271px;
   height: 266px;
   padding: 22px 16px;
   cursor: pointer;
   justify-content: space-between;
+}
+
+@media (max-width: "767px") {
+  .carousel {
+    width: 100%;
+
+    :global(.slick-slide) {
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+
+      > div {
+        margin: 10px !important;
+        width: fit-content;
+
+        > div {
+          margin: 10px !important;
+          width: fit-content;
+        }
+      }
+    }
+  }
 }

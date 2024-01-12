@@ -47,12 +47,13 @@
       transition: 0.12s;
     }
   }
+}
 
-  // .dialog {
-  //   :global(.MuiDialog-paper) {
-  //     padding: 29px 55px 29px 55px !important;
-  //   }
-  // }
+@media (max-width: 1023px) {
+  .background {
+    position: fixed;
+    top: calc($header-height + 18px);
+  }
 }
 
 @keyframes textAnimation {

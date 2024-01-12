@@ -10,6 +10,7 @@ import { Cart } from "../cart/cart";
 import { usePathname } from "next/navigation";
 import { Dialog } from "@mui/material";
 import { openCartDialog } from "@/redux/slices/cartDialog/cartDialogSlice";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 export const CartButton = () => {
   const [amount, setAmount] = useState(0);
@@ -25,14 +26,22 @@ export const CartButton = () => {
 
   const dispatch = useAppDispatch();
 
+  const { isMobile, isPc } = useAppSelector(selectWindowMatchMedia);
+  console.log("isPC", isPc);
+
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const positionCartButton = () => {
       const { scrollTop } = document.documentElement;
       if (buttonRef.current) {
         buttonRef.current.style.top = `${18 + scrollTop}px`;
       }
-    });
-  }, [pathname]);
+    };
+    if (isPc) {
+      console.log("adding listener");
+
+      window.addEventListener("scroll", positionCartButton);
+    }
+  }, [pathname, isPc]);
 
   useEffect(() => {
     setAmount(cartItemsAmount);
@@ -42,8 +51,16 @@ export const CartButton = () => {
     dispatch(openCartDialog());
   };
 
+  if (!amount) {
+    return;
+  }
+
   return (
-    <div className={cl.background} ref={buttonRef} onClick={handleDialogOpen}>
+    <div
+      className={cl.background}
+      ref={isPc ? buttonRef : undefined}
+      onClick={handleDialogOpen}
+    >
       <ContentCard width="210px" className={cl.cartButton}>
         <Image
           alt=""
@@ -54,13 +71,15 @@ export const CartButton = () => {
           className={cl.cartIcon}
         />
 
-        <Typography
-          variant="body1"
-          style={{ fontWeight: "700" }}
-          className={cl.text}
-        >
-          Кошик
-        </Typography>
+        {!isMobile && (
+          <Typography
+            variant="body1"
+            style={{ fontWeight: "700" }}
+            className={cl.text}
+          >
+            Кошик
+          </Typography>
+        )}
         <ContentCard width="30px" className={cl.amount}>
           {amount}
         </ContentCard>

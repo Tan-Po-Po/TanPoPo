@@ -127,7 +127,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
   }, [selectedCity, fetchDepartments]);
 
   return (
-    <ContentCard className={cl.contactInfo}>
+    <ContentCard className={cl.addressForm}>
       {isCertificate && (
         <>
           <Typography
@@ -175,7 +175,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
         </>
       )}
 
-      <div>
+      <div className={cl.header}>
         <Typography variant="body1" style={{ fontWeight: "700" }}>
           Місце доставки Новою Поштою:
         </Typography>
@@ -352,7 +352,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           />
         </div>
 
-        <div>
+        <div className={cl.department}>
           {isAddressDelivery ? (
             <Controller
               name="address"
@@ -467,7 +467,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                       </Typography>
                       <Typography
                         variant="subtitle1"
-                        style={{ whiteSpace: "pre-line", lineHeight: "15px" }}
+                        style={{ whiteSpace: "pre-line", lineHeight: "normal" }}
                       >
                         {
                           "(або оплата за реквізитами\nPrivatBank, MonoBank та інші)"
@@ -509,7 +509,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                         style={{ whiteSpace: "pre-line", lineHeight: "15px" }}
                       >
                         {
-                          "(додатковий тариф Нової Пошти\nза переказ коштів: 20грн + 2%)"
+                          "(додатковий тариф Н. П.\nза переказ коштів: 20грн + 2%)"
                         }
                       </Typography>
                     </div>

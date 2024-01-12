@@ -1,0 +1,24 @@
+.carousel {
+  width: 100%;
+
+  :global(.slick-prev) {
+    top: calc(100% + 3px);
+  }
+
+  :global(.slick-next) {
+    top: calc(100% + 3px);
+  }
+
+  :global(.slick-track) {
+    align-items: flex-start;
+  }
+
+  :global(.slick-list) {
+    min-height: fit-content;
+    overflow: visible;
+  }
+
+  :global(.slick-slider) {
+    overflow: visible;
+  }
+}
