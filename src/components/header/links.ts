@@ -64,7 +64,7 @@ export const coursesLinks = [
   },
   { href: "/prices", body: "Вартість", icon: "coinsStack", bgColor: "#E1C2FF" },
   {
-    href: "/test",
+    href: "/gift-education",
     body: "Навчання у подарунок",
     icon: "present",
     bgColor: "#FFFDEE",

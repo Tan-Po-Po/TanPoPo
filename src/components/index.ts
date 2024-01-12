@@ -6,6 +6,7 @@ export { CarouselItem } from "./carousel/carouselItem/carouselItem";
 export { Checkbox } from "./checkbox/checkbox";
 export { ContentCard } from "./contentCard/contentCard";
 export { CourseCard } from "./courseCard/courseCard";
+export { CourseFormats } from "./courseFormats/courseFormats";
 export { CourseCardDescription } from "./courseCardDescription/courseCardDescription";
 export { CourseCardMini } from "./courseCardMini/courseCardMini";
 export { ContactForm } from "./orderForm/contactForm";

@@ -21,7 +21,7 @@ export const NarrowFooter = () => {
             style={{ width, height: "auto" }}
             alt=""
           />
-          <Link href={"/courses/educationAsGift"}>Навчання у подарунок</Link>
+          <Link href={"/gift-education"}>Навчання у подарунок</Link>
         </div>
         <div className={cl.linkWrapper}>
           <Image
@@ -81,7 +81,7 @@ export const NarrowFooter = () => {
             style={{ width, height: "auto" }}
             alt=""
           />
-          <Link href={"/courses/educationProgram"}>Освітня програма</Link>
+          <Link href={"/education"}>Освітня програма</Link>
         </div>
         <div className={cl.linkWrapper}>
           <Image
@@ -91,7 +91,7 @@ export const NarrowFooter = () => {
             style={{ width, height: "auto" }}
             alt=""
           />
-          <Link href={"/courses/price"}>Вартість курсів</Link>
+          <Link href={"/prices"}>Вартість курсів</Link>
         </div>
       </ContentCard>
       <div className={cl.right}>

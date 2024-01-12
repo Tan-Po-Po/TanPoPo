@@ -1,5 +1,10 @@
+.main {
+  padding: 0 10px;
+}
+
 .header {
   margin-top: 75px;
+  text-align: center;
 }
 
 .card {
@@ -7,7 +12,7 @@
 }
 
 .confetti {
-margin-top: 65px;
+  margin-top: 65px;
 }
 
 .start {
@@ -22,29 +27,9 @@ margin-top: 65px;
     margin: 0;
     margin-top: 65px;
     padding: 0;
-
+    text-align: center;
     h2 {
       font-size: 38px;
-    }
-  }
-
-  .startCards {
-    width: 100%;
-    max-width: 1300px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-    .card {
-      margin-top: 95px;
-      padding: 21px;
-      width: 365px;
-      height: 360px;
-      justify-content: space-between;
-      h6 {
-        font-size: 22px;
-        line-height: 24px;
-      }
     }
   }
 }
@@ -84,57 +69,68 @@ margin-top: 65px;
   }
 }
 
-.formats {
-  display: flex;
-  width: 100%;
-  gap: 120px;
-  justify-content: center;
-  margin-top: 60px;
-  margin-bottom: 120px;
+@media (max-width: 1000px) {
+  .certificateType {
+    width: 100%;
 
-  .formatWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    .certificateHeader {
+      width: fit-content;
+      max-width: 400px !important;
+      text-wrap: balance;
+    }
+
+    .container {
+      gap: 40px;
+      justify-content: space-between;
+      width: 100%;
+      .or {
+        display: none;
+      }
+    }
   }
+}
 
-  .formatCard {
-    height: 250px;
-    width: 450px;
-
-    p {
-      white-space: pre;
-    }
-
-    &,
-    p,
-    img {
-      transition: all 0.3s ease-in-out;
-    }
-
-    &:hover {
-      transform: scale(1.05);
-
+@media (max-width: 850px) {
+  .certificateType {
+    .certificateCard {
+      padding: 26px 8px;
+      width: 350px;
+      align-self: stretch;
       img {
-        transform: scale(1.2);
+        margin: auto;
       }
+    }
+  }
+}
 
+@media (max-width: 660px) {
+  .certificateType {
+    .certificateHeader {
+      .line {
+        display: none;
+      }
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .or {
+        display: block;
+      }
+    }
+    .certificateCard {
+      width: 100%;
+      align-self: auto;
       p {
-        letter-spacing: 0.1rem;
+        font-size: 16px;
       }
     }
   }
+}
 
-  .bottomCard {
-    p {
-      font-weight: 700;
-    }
-  }
-
-  .line {
-    height: 65px;
-    width: 3px;
-    background: $color-black;
+@media (max-width: 550px) {
+  .card {
+    padding: 26px 10px;
   }
 }
