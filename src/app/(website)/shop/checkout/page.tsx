@@ -104,7 +104,7 @@ export default function Page() {
         if (cart.promoCode?.oneTimeUse) {
           await deletePromoCode(cart.promoCode._id!);
         }
-        //if success
+
         dispatch(clearShopCart());
 
         const responseData = await res.json();
@@ -135,7 +135,9 @@ export default function Page() {
 
   return (
     <main className={cl.checkoutMain}>
-      <Typography variant="h3">ОФОРМЛЕННЯ ЗАМОВЛЕННЯ</Typography>
+      <Typography variant="h3" align="center">
+        ОФОРМЛЕННЯ ЗАМОВЛЕННЯ
+      </Typography>
 
       <ContentCard width="804px" className={cl.cart}>
         <Cart />
@@ -165,11 +167,11 @@ export default function Page() {
 
           <Typography variant="subtitle1">
             Продовжуючи, Я приймаю умови  
-            <Link target="_blank" href="/">
+            <Link target="_blank" href="/contacts/oferta">
               <u>Публічної {"\n"}Оферти</u>
             </Link>{" "}
             та{" "}
-            <Link target="_blank" href="/">
+            <Link target="_blank" href="/contacts/confidentialityPolicy">
               <u>Політики Конфідеційності</u>.
             </Link>
           </Typography>
@@ -185,7 +187,7 @@ export default function Page() {
             type="submit"
             onClick={handleClick}
           >
-            <Typography variant="h6">ПІДТВЕРДИТИ ЗАМОВЛЕННЯ</Typography>
+            <Typography variant="h6">Підтвердити Замовлення</Typography>
           </Button>
         </div>
       </form>

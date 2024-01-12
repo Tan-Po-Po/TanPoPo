@@ -28,6 +28,8 @@ import {
 import { Counter } from "../counter/counter";
 import { toggleLikeToShopProduct } from "./actions";
 import { IMAGE_BASE_URL } from "@/config/config";
+import { useWindowSize } from "@uidotdev/usehooks";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 type Props = Omit<IShopProduct, "small">;
 
@@ -50,6 +52,10 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   const productIsLiked = likedProducts.has(_id!);
 
   const isOnSale = validateDate(sale?.until);
+
+  const { width } = useWindowSize();
+
+  const { isMobile } = useAppSelector(selectWindowMatchMedia);
 
   useEffect(() => {
     setCartItem(shopCart.items.find((item) => item._id == itemId));
@@ -123,11 +129,12 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
       id={_id}
     >
       <Carousel
-        slidesToShow={2}
-        centerMode={false}
+        slidesToShow={width! < 666 ? 1 : 2}
+        centerMode={width! < 666}
         dots={false}
         focusOnSelect={false}
         className={cl.carousel}
+        useNumbers={false}
       >
         {gallery.map((item, i) => (
           <CarouselItem

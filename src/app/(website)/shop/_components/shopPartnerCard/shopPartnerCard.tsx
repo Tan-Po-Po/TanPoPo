@@ -24,7 +24,7 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
   return (
     <ContentCard
       className={cl.shopPartnerCard}
-      width="384px"
+      width="fit-content"
       label={
         <Typography variant="body1" style={{ fontWeight: "700" }}>
           {labelTop.text}
@@ -33,26 +33,27 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
       cardBgColor={bgColor}
       labelBgColor={labelTop.bgColor}
     >
-      <Link href={href} className={cl.name}>
-        <Image
-          alt=""
-          src={`${IMAGE_BASE_URL}/${logo.filename}`}
-          width={500}
-          height={500}
-          className={cl.logoImage}
-          style={{ width: "97px", height: "97px" }}
-        />
-        <Typography variant="body1" style={{ fontWeight: "700" }}>
-          {name}
-        </Typography>
-      </Link>
-
-      <div className={cl.caption}>
-        <ul>
-          {caption.map((line, i) => (
-            <li key={i}>{line}</li>
-          ))}
-        </ul>
+      <div className={cl.nameCaptionWrapper}>
+        <Link href={href} className={cl.name}>
+          <Image
+            alt=""
+            src={`${IMAGE_BASE_URL}/${logo.filename}`}
+            width={500}
+            height={500}
+            className={cl.logoImage}
+            style={{ width: "97px", height: "97px" }}
+          />
+          <Typography variant="body1" style={{ fontWeight: "700" }}>
+            {name}
+          </Typography>
+        </Link>
+        <div className={cl.caption}>
+          <ul>
+            {caption.map((line, i) => (
+              <li key={i}>{line}</li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className={cl.items}>
@@ -72,7 +73,12 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
       </div>
       <div className={cl.hashtags}>
         {hashtags.map((hashtag, i) => (
-          <ContentCard width="fit-content" key={i} className={cl.hashtag}>
+          <ContentCard
+            width="fit-content"
+            key={i}
+            className={cl.hashtag}
+            cardBgColor={bgColor}
+          >
             <Typography variant="subtitle2" style={{ fontWeight: 700 }}>
               {hashtag}
             </Typography>

@@ -51,11 +51,6 @@
             &:hover {
               transform: scale(100%) !important;
             }
-
-            // &:disabled {
-            //   pointer-events: none;
-            //   border-color: $color-disabled !important;
-            // }
           }
         }
 
@@ -85,6 +80,25 @@
         h6 {
           line-height: normal;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .cartMain {
+    .promoAndTotal {
+      flex-direction: column;
+      gap: 40px;
+
+      .promoCodeContainer {
+        @include border-box;
+        padding: 25px 16px;
+      }
+
+      .totalContainer {
+        @include border-box;
+        padding: 25px 47px;
       }
     }
   }

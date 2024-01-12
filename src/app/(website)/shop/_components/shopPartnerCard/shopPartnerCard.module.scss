@@ -5,6 +5,16 @@
 
 .shopPartnerCard {
   padding-top: 52px;
+  padding-bottom: 41px;
+  width: 384px;
+
+  gap: 25px;
+
+  .nameCaptionWrapper {
+    @include flex-column;
+    width: 100%;
+    gap: 22px;
+  }
 
   .name {
     @include flex-row;
@@ -22,6 +32,7 @@
   }
 
   .caption {
+    width: 100%;
     ul {
       all: unset;
       list-style: none;
@@ -64,5 +75,52 @@
     left: 50%;
     transform: translate(-50%, 50%);
     white-space: nowrap;
+  }
+}
+
+@media (min-width: 768px) and (max-width: "1023px") {
+  .shopPartnerCard {
+    width: 100%;
+
+    padding-right: 20px;
+    padding-left: 20px;
+
+    .nameCaptionWrapper {
+      @include flex-row;
+
+      .caption {
+        @include border-box;
+        padding: 20px 15px;
+      }
+    }
+    .items {
+      display: flex;
+      width: 100%;
+      gap: 6px;
+      justify-content: space-between;
+    }
+
+    .hashtags {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .shopPartnerCard {
+    padding-left: 20px;
+    padding-right: 20px;
+    .name {
+      p {
+        font-size: 18px;
+      }
+    }
+    .items {
+      .itemImage {
+        width: 131px;
+        height: 131px;
+      }
+    }
   }
 }

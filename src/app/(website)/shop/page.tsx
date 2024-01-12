@@ -1,5 +1,5 @@
 import cl from "./page.module.scss";
-import { getIconArtSrc } from "@/helpers";
+import { getIconArtSrc, getShopItems } from "@/helpers";
 import {
   ContentCard,
   Divider,
@@ -18,15 +18,14 @@ import {
 } from "./_components/components";
 import React, { Suspense } from "react";
 
-export default function Shop() {
+export default async function Shop() {
+  const shopProducts = await getShopItems();
   return (
     <main className={cl.storeMain} id="storeMain">
       <CartButton />
       <Typography variant="h3">КРАМНИЦЯ</Typography>
       <section className={cl.introBlock}>
-        <Suspense fallback={<Loading />}>
-          <MiniProductCards />
-        </Suspense>
+        <MiniProductCards shopProducts={shopProducts} />
 
         <Image
           alt=""
@@ -35,6 +34,7 @@ export default function Shop() {
           height={688}
           className={cl.image}
           id="image"
+          style={{ minWidth: "356px", width: "100%", height: "auto" }}
         />
       </section>
 
@@ -62,6 +62,7 @@ export default function Shop() {
       </section>
 
       <Divider
+        className={cl.divider}
         firstRow="МАГАЗИНИ ПАРТНЕРІВ"
         bgColor="linear-gradient(180deg, #FFE39A 0%, #C1A4FF 100%)"
       />
@@ -78,9 +79,7 @@ export default function Shop() {
       />
 
       <section className={cl.shopProductsBlock}>
-        <Suspense fallback={<Loading />}>
-          <LargeProductCards />
-        </Suspense>
+        <LargeProductCards shopProducts={shopProducts} />
       </section>
 
       <section className={cl.message}>

@@ -7,7 +7,7 @@ export const textContent = {
       {
         title: (
           <>
-            Знижка <b>10%</b> на ВСІ наші\nавторські продукти!
+            Знижка <b>10%</b> на ВСІ наші авторські продукти!
           </>
         ),
         image: getIconArtSrc("presentBox3"),

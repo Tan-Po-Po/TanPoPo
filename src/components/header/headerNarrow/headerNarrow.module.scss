@@ -2,7 +2,7 @@
   @include flex-row;
   justify-content: space-between;
   max-width: 100vw;
-  height: 70px;
+  height: $header-height;
   position: fixed;
   background-color: $color-yellow;
   z-index: 20;
@@ -80,7 +80,7 @@
 }
 
 .dialog {
-  height: calc(100% - 70px) !important;
+  height: calc(100dvh - 70px) !important;
   top: unset !important;
   z-index: 19;
 

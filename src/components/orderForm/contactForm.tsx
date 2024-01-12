@@ -91,7 +91,7 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
         />
       </div>
 
-      <Typography variant="body2">
+      <Typography variant="body2" style={{ whiteSpace: "pre-wrap" }}>
         {isCertificate
           ? "Чи надсилати подарунковий сертифікат додатково в месенджер?"
           : "Чи надсилати інформацію по замовленню в месенджер?"}

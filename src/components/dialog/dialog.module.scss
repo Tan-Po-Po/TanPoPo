@@ -57,3 +57,13 @@
     gap: 77px;
   }
 }
+
+@media (max-width: 1023px) {
+  .dialog {
+    .close {
+      top: 0;
+      right: 6px;
+      width: 25px;
+    }
+  }
+}
