@@ -17,8 +17,8 @@ const Cards = () => {
         arrows={false}
         renderCarousel={renderCarousel}
         infinite={false}
-        // autoplay
-        // autoplaySpeed={3000}
+        autoplay
+        autoplaySpeed={3000}
       >
         <ContentCard className={cl.slide}>
           <Typography variant="h6">Панорамна Методика</Typography>
