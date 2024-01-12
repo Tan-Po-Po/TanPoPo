@@ -10,6 +10,7 @@ import {
   Divider,
   Typography,
   Select,
+  Certificates,
 } from "@/components";
 import { getIconArtSrc } from "@/helpers";
 import { Controller, useForm } from "react-hook-form";
@@ -95,7 +96,7 @@ export default function Page() {
       if (!res.ok) {
         return toast("Сталася помилка, спробуйте ще раз пізніше");
       }
-      // router.push("/education/checkout");
+      router.push("/education/checkout");
     });
   };
 
@@ -125,7 +126,7 @@ export default function Page() {
           </Typography>
           <Image
             alt="Notepad icon"
-            src={getIconArtSrc("caliography")}
+            src={getIconArtSrc("calligraphy")}
             width={109}
             height={89}
           />
@@ -168,94 +169,8 @@ export default function Page() {
 
       <form className={cl.form} onSubmit={handleSubmit(onSubmit)}>
         <ContactForm formReturn={formReturn} isCertificate />
-        <div className={cl.certificateType}>
-          <ContentCard
-            cardBgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
-            width="390px"
-            height="85px"
-            className={cl.certificateHeader}
-          >
-            <Typography
-              variant="body1"
-              style={{ fontSize: "22px", fontWeight: "700" }}
-            >
-              Оберіть вид
-            </Typography>
-            <Typography variant="body1">подарункового сертифікату</Typography>
-            <div className={cl.line}></div>
-          </ContentCard>
-
-          <div className={cl.container}>
-            <ContentCard width="400px">
-              <div>
-                <Typography
-                  variant="body1"
-                  style={{ fontSize: "19px", fontWeight: "700" }}
-                >
-                  Електронний Подарунковий
-                </Typography>
-                <Typography
-                  variant="body1"
-                  style={{ fontSize: "22px", fontWeight: "700" }}
-                >
-                  Сертифікат
-                </Typography>
-              </div>
-
-              <Image
-                alt="certificate"
-                src="/certificates/electronic.png"
-                width={274}
-                height={190}
-              />
-
-              <Typography variant="body2">
-                Протягом дня з моменту успішної оплати ми надішлимо ваш
-                подарунковий сертифікат в електронному вигляді (формат .pdf та
-                .png). Разом з сертифікатом Вам надається унікальний промокод
-                для активації обраного курсу. Приклад такого подарункового
-                сертифікату, Ви можете переглянути зверху на картинці!
-              </Typography>
-            </ContentCard>
-
-            <Typography variant="body1" className={cl.or}>
-              АБО
-            </Typography>
-
-            <ContentCard width="400px">
-              <div>
-                <Typography
-                  variant="body1"
-                  style={{ fontSize: "19px", fontWeight: "700" }}
-                >
-                  Іменний Друкований
-                </Typography>
-                <Typography
-                  variant="body1"
-                  style={{ fontSize: "22px", fontWeight: "700" }}
-                >
-                  Сертифікат
-                </Typography>
-              </div>
-
-              <Image
-                alt="certificate"
-                src="/certificates/physical.png"
-                width={274}
-                height={190}
-              />
-
-              <Typography variant="body2">
-                Ми друкуємо іменні сертифікати з вискоякісного щільного паперу,
-                використовуючи цифрове фольгування та лакування преміум-якості!
-                Таким чином сертифікат виглядає максимально святково та
-                презентабельно! Послуга коштує: 120грн(друк + доставка). Ви
-                зможете отримати іменний сертифікат за 2-4 дні з моменту
-                замовлення!
-              </Typography>
-            </ContentCard>
-          </div>
-        </div>
+        
+        <Certificates header={2} className={cl.certificate}/>
 
         <Controller
           name="certificateType"
@@ -307,8 +222,9 @@ export default function Page() {
             className={cl.image}
             src="/images/laptop.png"
             alt="Laptop"
-            width={332}
-            height={172}
+            width={996}
+            height={500}
+            style={{width: "100%", height: "auto"}}
           />
           <Typography
             variant="body2"

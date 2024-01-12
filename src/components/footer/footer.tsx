@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
               style={{ width, height: "auto" }}
               alt=""
             />
-            <Link href={"/courses/gift-education"}>Навчання у подарунок</Link>
+            <Link href={"/gift-education"}>Навчання у подарунок</Link>
           </div>
         </div>
       </div>

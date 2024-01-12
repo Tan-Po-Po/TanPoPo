@@ -4,6 +4,7 @@ export { Button } from "./button/button";
 export { Carousel } from "./carousel/carousel";
 export { CarouselItem } from "./carousel/carouselItem/carouselItem";
 export { Checkbox } from "./checkbox/checkbox";
+export { Certificates } from "./certificates/certificates";
 export { ContentCard } from "./contentCard/contentCard";
 export { CourseCard } from "./courseCard/courseCard";
 export { CourseFormats } from "./courseFormats/courseFormats";
