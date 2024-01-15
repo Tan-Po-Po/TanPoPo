@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 import { Dialog } from "@mui/material";
 import { openCartDialog } from "@/redux/slices/cartDialog/cartDialogSlice";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export const CartButton = () => {
   const [amount, setAmount] = useState(0);
@@ -26,22 +27,24 @@ export const CartButton = () => {
 
   const dispatch = useAppDispatch();
 
-  const { isMobile, isPc } = useAppSelector(selectWindowMatchMedia);
-  console.log("isPC", isPc);
+  const { isMobile } = useAppSelector(selectWindowMatchMedia);
+
+  const { width } = useWindowSize();
 
   useEffect(() => {
     const positionCartButton = () => {
       const { scrollTop } = document.documentElement;
+
       if (buttonRef.current) {
-        buttonRef.current.style.top = `${18 + scrollTop}px`;
+        buttonRef.current.style.top = `${88 + scrollTop}px`;
       }
     };
-    if (isPc) {
-      console.log("adding listener");
 
+    if (width! > 1400) {
       window.addEventListener("scroll", positionCartButton);
+      buttonRef.current!.style.right = `${(width! - 1400) / 2 + 18}px`;
     }
-  }, [pathname, isPc]);
+  }, [pathname, width]);
 
   useEffect(() => {
     setAmount(cartItemsAmount);
@@ -58,7 +61,7 @@ export const CartButton = () => {
   return (
     <div
       className={cl.background}
-      ref={isPc ? buttonRef : undefined}
+      ref={width! > 1400 ? buttonRef : undefined}
       onClick={handleDialogOpen}
     >
       <ContentCard width="210px" className={cl.cartButton}>
