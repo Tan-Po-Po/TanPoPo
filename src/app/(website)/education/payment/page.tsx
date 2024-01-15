@@ -19,7 +19,6 @@ import Link from "next/link";
 
 export default function Page() {
   const router = useRouter();
-  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [course, setCourse] = useState<CourseState>();
 
@@ -184,95 +183,76 @@ export default function Page() {
 
       {course?.isGift ? (
         <Link href="/education/checkout">
-          <ContentCard
-            width="585px"
-            className={cl.thanks}
-            onClick={() => setOpen(true)}
-          >
+          <ContentCard width="585px" className={cl.thanks}>
             <div>
               <Typography variant="h5">З моменту здійснення оплати</Typography>
               <Typography variant="body1">
                 отримуйте сертифікат протягом дня
               </Typography>
             </div>
+
             <Image
               src={getIconArtSrc("certificate4")}
               alt="Certificate"
               width={106}
               height={79}
             />
+
             <Link href="/education/checkout">
-              <Button
-                className={cl.thanksBtn}
-                variant="outlined"
-                style={{ width: "auto" }}
-              >
-                <Typography variant="body1">
-                  {"Подарунковий\nсертифікат"}
-                </Typography>
-              </Button>
+              <div className={cl.btnWrapper}>
+                <Button
+                  className={cl.thanksBtn}
+                  variant="outlined"
+                  style={{ width: "auto" }}
+                >
+                  <Typography variant="body1">
+                    {"Подарунковий\nсертифікат"}
+                  </Typography>
+                </Button>
+                <Image
+                  src="/icons/arrowLong.svg"
+                  alt="arrow"
+                  width={65}
+                  height={55}
+                  className={cl.arrow}
+                />
+              </div>
             </Link>
           </ContentCard>
         </Link>
       ) : (
-        <ContentCard
-          width="475px"
-          className={cl.thanks}
-          onClick={() => setOpen(true)}
-        >
-          <Typography variant="body1">
-            Після оплати та успішного формування/погодження розкладу, Ви відразу
-            розпочинаєте вивчення японської мови!
+        <>
+          <Typography variant="h6" style={{ width: "100%", maxWidth: "720px" }}>
+            Після того, як ми побачимо вашу оплату по обраному курсу, ми
+            якнайшвидше розпочнемо формувати графік занять і сконтактуємось з
+            вами для його підтвердження!
           </Typography>
-          <Image
-            src={getIconArtSrc("clock")}
-            alt="Clock icon"
-            width={125}
-            height={100}
-          />
 
-          <Button
-            onClick={() => setOpen(true)}
-            className={cl.thanksBtn}
-            variant="outlined"
-          >
-            {"Дякуємо, що обрали \nTanPoPo💛"}
-          </Button>
-        </ContentCard>
+          <ContentCard width="475px" className={cl.thanks}>
+            <Typography variant="body1">
+              Ми бачимо і цінуємо ваше бажання навчатись разом з нами! Після
+              оплати та успішного формування/погодження розкладу, Ви відразу
+              розпочинаєте вивчення японської мови!
+            </Typography>
+            <Image
+              src={getIconArtSrc("clock")}
+              alt="Clock icon"
+              width={125}
+              height={100}
+            />
+
+            <Typography variant="body1">
+              Всю інформацію стосовно навчального курсу було щойно надіслано на
+              вашу електронну скриньку!
+            </Typography>
+          </ContentCard>
+
+          <div className={cl.thanksBlock}>
+            <Typography variant="h6">Дякуємо, що обрали</Typography>
+            <Typography variant="h1">TanPoPo💛</Typography>
+          </div>
+        </>
       )}
-
-      <Dialog
-        open={open}
-        onClose={() => setOpen(false)}
-        className={cl.dialog}
-        contentClassName={cl.content}
-      >
-        <Typography variant="body2" className={cl.info}>
-          {
-            "Всю інформацію стосовно навчального \nкурсу було щойно надіслано на вашу \nелектронну скриньку!"
-          }
-        </Typography>
-
-        <ContentCard
-          className={cl.card}
-          width="615px"
-          cardBgColor="linear-gradient(91deg, rgba(255, 156, 156, 0.75) 0%, rgba(255, 239, 156, 0.75) 28.13%, rgba(156, 219, 255, 0.75) 71.35%, rgba(255, 156, 233, 0.75) 100%)"
-        >
-          <Typography variant="h6">
-            Ми бачимо і цінуємо ваше бажання навчатись разом з нами!{" "}
-          </Typography>
-          <Typography variant="body2">
-            Після того, як ми побачимо вашу оплату по обраному курсу, Ми
-            якнайшвидше розпочнемо формувати Ваш графік занять для обраного
-            курсу і сконтактуємось разом з вами для його підтвердження!
-          </Typography>
-        </ContentCard>
-
-        <div className={cl.thanksBlock}>
-          <Typography variant="h6">Дякуємо, що обрали</Typography>
-          <Typography variant="h1">TanPoPo💛</Typography>
-        </div>
-      </Dialog>
     </main>
   );
 }
