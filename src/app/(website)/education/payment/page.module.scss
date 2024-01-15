@@ -67,7 +67,7 @@
 
 .thanks {
   cursor: pointer;
-  margin: 100px 0;
+  margin: 90px 0;
   transition: all 0.3s ease-in-out;
 
   &:hover {
@@ -108,46 +108,17 @@
     }
   }
 }
+.thanksHeader {
+  max-width: 720px;
+  margin-top: 55px;
+  width: 100%;
+  font-size: 22px;
+}
 
-.dialog {
-  :global(.MuiPaper-root) {
-    width: 80vw;
-    max-width: 1150px;
-    margin: 0 auto;
-  }
-
-  .content {
-    width: 80vw;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .info {
-    margin-top: 70px;
-    white-space: pre-line;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-  }
-
-  .card {
-    row-gap: 50px;
-    margin: 50px 0;
-    h6 {
-      line-height: 24px;
-    }
-    p {
-      font-size: 18px;
-    }
-  }
-
-  .thanksBlock {
-    h6 {
-      font-size: 24px;
-    }
+.thanksBlock {
+  margin-bottom: 90px;
+  h1 {
+    font-size: 46px;
   }
 }
 
@@ -197,7 +168,10 @@
     }
   }
 
-
+  .thanksHeader {
+    line-height: 22px;
+    font-size: 20px;
+  }
 
   .thanks {
     width: 95%;
@@ -214,6 +188,10 @@
       bottom: calc(100%);
       left: calc(100%);
       rotate: 335deg;
+    }
+
+    p {
+      font-size: 16px;
     }
   }
 }

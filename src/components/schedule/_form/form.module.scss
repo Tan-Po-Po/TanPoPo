@@ -1,5 +1,11 @@
+.form {
+  width: 100%;
+  max-width: 820px;
+}
+
 .container {
   width: 100%;
+  max-width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 40px;
@@ -40,5 +46,11 @@
     legend {
       padding: 0;
     }
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    grid-template-columns: 1fr;
   }
 }

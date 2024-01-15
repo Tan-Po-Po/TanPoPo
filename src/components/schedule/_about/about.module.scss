@@ -1,5 +1,7 @@
 .important {
   margin-bottom: 90px;
+  width: 100%;
+
   .list {
     text-align: start;
     display: flex;
@@ -7,5 +9,13 @@
     gap: 10px;
     font-size: 18px;
     font-weight: 500;
+  }
+}
+
+@media (max-width: 625px) {
+  .list {
+    gap: 14px;
+    font-size: 16px;
+    padding-inline-start: 15px;
   }
 }

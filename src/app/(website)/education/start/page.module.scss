@@ -1,30 +1,22 @@
+.main {
+  padding: 0 10px;
+}
 .pageHeader {
   margin-top: 70px;
-  h6 {
-    font-size: 23px;
+  text-align: center;
+  h5 {
+    font-size: 27px;
   }
-  h1 {
-    font-size: 47px;
+  h3 {
+    font-size: 39px;
   }
 }
 
-.steps {
-  margin: 70px 0 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .triangleBtn {
-    width: 36px;
-    height: 37px;
-    margin: 0 40px;
-    transition: all 0.1s ease-in-out;
-
-    &:hover {
-      transform: scale(1.1);
-      fill: $color-yellow;
-    }
-  }
+.headerParagraph {
+  margin-top: 65px;
+  font-size: 24px;
+  max-width: 1000px;
+  text-wrap: balance;
 }
 
 .divider {
@@ -48,6 +40,7 @@
     font-size: 18px;
   }
 }
+
 .checkboxWrapper {
   @include flex-row;
   column-gap: 10px;
@@ -99,5 +92,37 @@
       transform: none !important;
       background: #fff !important;
     }
+  }
+}
+
+@media (max-width: 625px) {
+  .pageHeader {
+    h5,
+    h3 {
+      font-size: 26px;
+      display: contents;
+    }
+  }
+  .headerParagraph {
+    font-size: 20px;
+  }
+
+  .reminder {
+    padding: 26px 10px;
+
+    h6 {
+      text-wrap: balance;
+    }
+    .list {
+      gap: 14px;
+      font-size: 16px;
+      padding-inline-start: 25px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .checkboxWrapper p {
+    white-space: initial !important;
   }
 }

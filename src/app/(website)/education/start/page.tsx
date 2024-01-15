@@ -8,10 +8,11 @@ import {
   Checkbox,
   Button,
 } from "@/components";
+import { Steps } from "./_steps/steps";
 import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import Link from "next/link";
 import Image from "next/image";
-import TriangleButton from "public/icons/triangleButton.svg";
+
 import { toast } from "react-toastify";
 import cl from "./page.module.scss";
 import { useAppSelector } from "@/redux/hooks";
@@ -20,94 +21,24 @@ export default function Page() {
   const [isAccepted, setIsAccepted] = React.useState(false);
   const course = useAppSelector((state) => state.course);
 
-  console.log(course);
   return (
-    <main>
+    <main className={cl.main}>
       <div className={cl.pageHeader}>
-        <Typography variant="h6">Розпочати навчання з сенсеєм</Typography>
-        <Typography variant="h1">
-          <span>3</span> прості кроки:
+        <Typography variant="h5" align="center">
+          Розпочати онлайн-навчання з сенсеєм
+        </Typography>
+        <Typography variant="h3" align="center">
+          {" "}
+          в школі TanPoPo дуже легко!
         </Typography>
       </div>
 
-      <div className={cl.steps}>
-        <ContentCard
-          className={cl.card}
-          height="355px"
-          width="330px"
-          index="1"
-          indexBgColor="#FFCEC8"
-          cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #FFBEBE 100%)"
-        >
-          <Typography variant="body1">
-            {" "}
-            Ознайомтесь із необхідною інормацією
-          </Typography>
-          <Image
-            src={getIconArtSrc("temple")}
-            alt="Temple art"
-            width={87}
-            height={89}
-          />
-          <Typography variant="body2">
-            {
-              "Дізнайтесь про всі особли-вості обраного формату навчання в нашій онлайн-школі TanPoPo та натискайте ”Продовжити”, щоб перейти до наступного кроку!"
-            }
-          </Typography>
-        </ContentCard>
+      <Typography variant="body1" align="center" className={cl.headerParagraph}>
+        За допомогою нашого сайту Ви можете обрати власний розклад та записатись
+        на заняття абсолютно самостійно прямо зараз:
+      </Typography>
 
-        <TriangleButton className={cl.triangleBtn} />
-
-        <ContentCard
-          className={cl.card}
-          height="355px"
-          width="330px"
-          index="2"
-          indexBgColor="rgba(200, 242, 255, 1)"
-          cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #C8F2FF 100%)"
-        >
-          <Typography variant="body1">
-            Заповніть контактні дані та ваш розклад.
-          </Typography>
-          <Image
-            src={getIconArtSrc("calendar3")}
-            alt="Calendar art"
-            width={88}
-            height={93}
-          />
-          <Typography variant="body2">
-            Вкажіть ваші контактні дані та оберіть, коли Ви можете приділяти час
-            вивченню японської мови з сенсеєм онлайн, щоб ми змогли сформувати
-            графік.
-          </Typography>
-        </ContentCard>
-
-        <TriangleButton className={cl.triangleBtn} />
-
-        <ContentCard
-          className={cl.card}
-          height="355px"
-          width="330px"
-          index="3"
-          indexBgColor="rgba(201, 255, 200, 1)"
-          cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #C9FFC8 100%)"
-        >
-          <Typography variant="body1">
-            Оплатіть курс та розпочніть навчання!
-          </Typography>
-          <Image
-            src={getIconArtSrc("school")}
-            alt="School icon"
-            width={102}
-            height={87}
-          />
-          <Typography variant="body2">
-            Оплачуйте обраний курс, в той час, як ми почнемо фо-рмувати ваш
-            розклад і після його успішного погодження Ви відразу розпочинаєте
-            вивчення японської мови!
-          </Typography>
-        </ContentCard>
-      </div>
+      <Steps />
 
       <Divider
         className={cl.divider}
@@ -118,7 +49,7 @@ export default function Page() {
 
       {course.format === "Міні-група" ? (
         <ContentCard width="850px" className={cl.reminder}>
-          <Typography variant="h6">
+          <Typography variant="h6" align="center">
             Важливі пам’ятки про Заняття у Міні-групах:
           </Typography>
 
@@ -182,7 +113,7 @@ export default function Page() {
 
           <ul className={cl.list}>
             <li>
-              Індивідуальні заняття онлайн з сенсеєм у проходять від 1 до 3
+              Індивідуальні заняття онлайн з сенсеєм проходять від 1 до 3
               разів на тиждень. На наступній сторінці Ви зможете обрати бажану
               к-сть занять на тиждень.
             </li>
@@ -191,7 +122,7 @@ export default function Page() {
               випадку вашої відсутності на заздалегіть заплановане заняття -
               воно вважається “пропущеним” і оплата за нього не повертається.
               Щоб не допускати таких ситуацій, просимо Вас заздалегіть
-              повідомляти(мінімум за 1 день до запланового заняття) про вашу
+              повідомляти (мінімум за 1 день до запланового заняття) про вашу
               неможливість його відвідати, щоб ми змогли перенести це заняття!
             </li>
             <li>
@@ -204,7 +135,7 @@ export default function Page() {
             </li>
             <li>
               Усі матеріали з уроку, домашні завдання та кожне онлайн-заняття
-              записується(з платформи Zoom) та зберігається в архіві на нашій
+              записується (з платформи Zoom) та зберігається в архіві на нашій
               інтерактивній навчальній платформі і є доступними для повторення
               матеріалу!
             </li>
@@ -226,9 +157,9 @@ export default function Page() {
           }}
         />
         <Typography variant="body2" style={{ whiteSpace: "pre-line" }}>
-          Продовжуючи, Я приймаю умови
+          Продовжуючи, Я приймаю умови{" "}
           <Link target="_blank" href="/contacts/oferta">
-            <u>Публічної {'\n'}Оферти</u>
+            <u>Публічної {"\n"}Оферти</u>
           </Link>{" "}
           та{" "}
           <Link target="_blank" href="/contacts/confidentialityPolicy">

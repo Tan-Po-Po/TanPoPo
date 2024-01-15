@@ -1,10 +1,11 @@
 .main {
-  padding-top: 50px;
+  padding: 50px 10px 0;
 }
 
 .divider {
   p {
     text-transform: none;
+    text-wrap: balance;
   }
 }
 
@@ -73,6 +74,32 @@
     }
     &:hover {
       background: $color-yellow !important;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .comment {
+    h6 {
+      font-size: 21px;
+      text-wrap: balance;
+      white-space:initial;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .comment {
+    h6 {
+      font-size: 16px;
+    }
+  }
+  .lessonsCount {
+    padding: 26px 10px;
+  }
+  .continue {
+    .line {
+      display: none;
     }
   }
 }

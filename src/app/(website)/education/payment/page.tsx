@@ -222,7 +222,7 @@ export default function Page() {
         </Link>
       ) : (
         <>
-          <Typography variant="h6" style={{ width: "100%", maxWidth: "720px" }}>
+          <Typography variant="h6" align="center" className={cl.thanksHeader}>
             Після того, як ми побачимо вашу оплату по обраному курсу, ми
             якнайшвидше розпочнемо формувати графік занять і сконтактуємось з
             вами для його підтвердження!
