@@ -22,7 +22,7 @@ export default async function Shop() {
   const shopProducts = await getShopItems();
   return (
     <main className={cl.storeMain} id="storeMain">
-      <CartButton />
+      {/* <CartButton /> */}
       <Typography variant="h3">КРАМНИЦЯ</Typography>
       <section className={cl.introBlock}>
         <MiniProductCards shopProducts={shopProducts} />

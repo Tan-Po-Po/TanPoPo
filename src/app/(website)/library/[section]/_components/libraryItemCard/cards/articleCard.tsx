@@ -17,6 +17,9 @@ import { Footer } from "../footer/footer";
 
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { IMAGE_BASE_URL } from "@/config/config";
+import { useAppSelector } from "@/redux/hooks";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export const ArticleCard: React.FC<Props> = (props) => {
   const { type, label, labelColor, media, hashtags, content, isNew } = props;
@@ -25,6 +28,8 @@ export const ArticleCard: React.FC<Props> = (props) => {
 
   const cardWidth = type === "articleSmall" ? "384px" : "626px";
   const mediaWidth = type === "articleSmall" ? "274px" : "506px";
+
+  const { isPc, isMobile } = useAppSelector(selectWindowMatchMedia);
 
   const { openLibraryItem } = useOpenLibraryItem({
     item: props,
@@ -45,10 +50,13 @@ export const ArticleCard: React.FC<Props> = (props) => {
     openLibraryItem();
   };
 
+  const { width } = useWindowSize();
+
   return (
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <ContentCard
         className={getValidClassNames(cl[type])}
+        labelClassName={cl.label}
         label={<Typography variant="body1">{label}</Typography>}
         labelBgColor={labelColor}
         width={cardWidth}
@@ -81,10 +89,11 @@ export const ArticleCard: React.FC<Props> = (props) => {
         ) : (
           <Carousel
             dots={false}
-            slidesToShow={2}
-            centerMode={false}
+            slidesToShow={width! < 612 ? 1 : 2}
+            centerMode={width! < 612}
             focusOnSelect={false}
             className={cl.carousel}
+            infinite={false}
           >
             {media!.map((image) => (
               <CarouselItem

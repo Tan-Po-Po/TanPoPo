@@ -34,14 +34,16 @@ export const AudioButton: React.FC<Props> = ({
         </div>
       </Link>
 
-      <Image
-        className={cl.audioImg}
-        src={`/icons/${isPodcast ? "audioLong" : "audioShort"}.svg`}
-        alt="Audio"
-        width={430}
-        height={40}
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
+      <div className={cl.audioImgWrapper}>
+        <Image
+          className={cl.audioImg}
+          src={`/icons/${isPodcast ? "audioLong" : "audioShort"}.svg`}
+          alt="Audio"
+          width={430}
+          height={40}
+          style={{ maxWidth: "100%", width: "100%" }}
+        />
+      </div>
     </ContentCard>
   );
 };

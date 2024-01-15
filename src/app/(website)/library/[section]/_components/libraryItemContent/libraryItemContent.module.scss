@@ -17,3 +17,11 @@
 .image {
   cursor: pointer;
 }
+
+@media (max-width: 767px) {
+  .contentImagePodcast {
+    width: 274px;
+    height: 190px;
+    margin: 0 auto;
+  }
+}

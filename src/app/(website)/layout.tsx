@@ -1,6 +1,7 @@
 import { Footer, Header } from "@/components";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { CartButton } from "./shop/_components/components";
 
 export default function RootLayout({
   children,
@@ -12,6 +13,7 @@ export default function RootLayout({
       <link rel="icon" href="/logo/logo.svg" />
       <body style={{ paddingTop: "70px" }}>
         <Header />
+        <CartButton />
         {children}
         <Footer />
 
