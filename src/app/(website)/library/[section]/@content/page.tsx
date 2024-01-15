@@ -83,11 +83,10 @@ const getLibraryItems = async (
     return null;
   }
 
-  const items: ILibraryItem[] = itemsDb.map((item) =>
-    JSON.parse(JSON.stringify(item))
-  );
-
-  items.forEach((item) => (item.labelColor = getColor(item.labelColor)));
+  const items: ILibraryItem[] = itemsDb.map((item) => {
+    item.labelColor = getColor(item.labelColor);
+    return JSON.parse(JSON.stringify(item));
+  });
 
   let lastPage = Math.ceil(
     (await LibraryItem.countDocuments({ section: section })) / pageSize

@@ -8,9 +8,12 @@ export default function Developers() {
   const labelColor = "#FFF8BC";
   return (
     <div className={cl.developers}>
-      <Typography variant="h3">{textContent.header}</Typography>
+      <Typography variant="h3" align="center">
+        {textContent.header}
+      </Typography>
       <ContentCard
         className={cl.contentCard}
+        labelClassName={cl.label}
         width="592px"
         label={
           <Typography variant="h5">
@@ -31,7 +34,13 @@ export default function Developers() {
             </Typography>
           }
         >
-          <Image alt="" src={textContent.developers.bogdan.image} fill />
+          <Image
+            alt=""
+            src={textContent.developers.bogdan.image}
+            width={500}
+            height={300}
+            style={{ maxWidth: "442px", width: "100%", maxHeight: "358px" }}
+          />
         </ContentCard>
         <div className={cl.socials}>
           <div className={cl.links}>
@@ -57,6 +66,7 @@ export default function Developers() {
       <div className={cl.others}>
         <ContentCard
           className={cl.contentCard}
+          labelClassName={cl.label}
           width="592px"
           label={
             <Typography variant="h5">
@@ -77,7 +87,13 @@ export default function Developers() {
               </Typography>
             }
           >
-            <Image alt="" src={textContent.developers.anton.image} fill />
+            <Image
+              alt=""
+              src={textContent.developers.anton.image}
+              width={500}
+              height={300}
+              style={{ maxWidth: "442px", width: "100%", maxHeight: "358px" }}
+            />
           </ContentCard>
           <div className={cl.socials}>
             <div className={cl.links}>
@@ -107,6 +123,7 @@ export default function Developers() {
         </ContentCard>
         <ContentCard
           className={cl.contentCard}
+          labelClassName={cl.label}
           width="592px"
           label={
             <Typography variant="h5">
@@ -127,7 +144,13 @@ export default function Developers() {
               </Typography>
             }
           >
-            <Image alt="" src={textContent.developers.pasha.image} fill />
+            <Image
+              alt=""
+              src={textContent.developers.pasha.image}
+              width={500}
+              height={300}
+              style={{ maxWidth: "442px", width: "100%", maxHeight: "358px" }}
+            />
           </ContentCard>
           <div className={cl.socials}>
             <div className={cl.links}>
@@ -158,4 +181,4 @@ export default function Developers() {
       </div>
     </div>
   );
-};
+}

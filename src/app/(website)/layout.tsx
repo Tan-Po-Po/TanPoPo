@@ -1,7 +1,7 @@
 import { Footer, Header } from "@/components";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { CartButton } from "./shop/_components/components";
+import { CartButton, DialogCart } from "./shop/_components/components";
 
 export default function RootLayout({
   children,
@@ -23,6 +23,7 @@ export default function RootLayout({
           hideProgressBar={true}
           theme="dark"
         />
+        <DialogCart />
       </body>
     </html>
   );

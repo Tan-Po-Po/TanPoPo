@@ -7,6 +7,7 @@ import { ContentCard, Typography } from "@/components";
 import Image from "next/image";
 import { Counter } from "../../counter/counter";
 import XIcon from "/public/icons/x.svg";
+import TrashCanIcon from "/public/icons/trashCan.svg";
 import { useAppDispatch } from "@/redux/hooks";
 
 export const CartItem: React.FC<ICartItem> = ({
@@ -24,7 +25,7 @@ export const CartItem: React.FC<ICartItem> = ({
   };
   return (
     <ContentCard className={cl.cartItemMain} width="699px">
-      <XIcon className={cl.delete} onClick={handleDelete} />
+      <TrashCanIcon className={cl.delete} onClick={handleDelete} />
       <ContentCard
         className={cl.gallery}
         width="229px"
