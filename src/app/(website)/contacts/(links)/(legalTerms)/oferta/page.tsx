@@ -1,7 +1,6 @@
 import React from "react";
-import { CustomLayout } from "../_customLayout/customLayout";
+import { Policies } from "../_components/policies";
 
-export default function Oferta() {
-  return <CustomLayout />;
-};
-
+export default async function OfertaPage() {
+  return <Policies />;
+}
