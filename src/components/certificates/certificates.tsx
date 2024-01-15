@@ -15,15 +15,20 @@ const Certificates: React.FC<Properties> = ({ header, className }) => {
       <ContentCard
         cardBgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
         width="420px"
+        className={cl.certificateSmallHeader}
+      >
+        <Typography variant="body1" style={{ fontSize: "20px" }}>
+          2 види подарункових сертифікатів
+        </Typography>
+      </ContentCard>
+
+      <ContentCard
+        cardBgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
+        width="420px"
         height="85px"
         className={cl.certificateHeader}
       >
         {header === 1 ? (
-          <Typography variant="body1" style={{ fontSize: "22px" }}>
-            <span style={{ fontSize: "30px", fontWeight: "700" }}>2</span> види
-            сертифікату на вибір!
-          </Typography>
-        ) : (
           <>
             <Typography
               variant="body1"
@@ -33,7 +38,13 @@ const Certificates: React.FC<Properties> = ({ header, className }) => {
             </Typography>
             <Typography variant="body1">подарункового сертифікату</Typography>
           </>
+        ) : (
+          <Typography variant="body1" style={{ fontSize: "22px" }}>
+            <span style={{ fontSize: "30px", fontWeight: "700" }}>2</span> види
+            сертифікату на вибір!
+          </Typography>
         )}
+
         <div className={cl.line}></div>
       </ContentCard>
 

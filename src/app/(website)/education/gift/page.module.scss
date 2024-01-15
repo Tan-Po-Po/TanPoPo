@@ -4,9 +4,14 @@
 
 .header {
   margin-top: 70px;
-  text-transform: uppercase;
+  text-align: center;
+  h4 {
+    font-size: 35px;
+  }
   h6 {
-    font-size: 22px;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 60px;
   }
 }
 
@@ -37,7 +42,29 @@
   align-items: center;
 
   .selectType {
-    margin-top: 70px;
+    position: relative;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("/icons/arrowLong.svg");
+      width: 65px;
+      height: 55px;
+      background-size: 73px;
+      background-repeat: no-repeat;
+    }
+
+    &::after {
+      bottom: calc(100%);
+      left: calc(100% + 50px);
+    }
+
+    &::before {
+      transform: scaleX(-1);
+      bottom: calc(100%);
+      right: calc(100% + 50px);
+    }
   }
 
   .agreement {
@@ -110,10 +137,22 @@
     margin-bottom: 0px;
   }
   .steps {
-    // gap: 20px;
-    // width: 100%;
-    // justify-content: space-between;
     padding-left: 20px;
+  }
+  .form {
+    .selectType {
+      margin-top: 70px;
+
+      &::after {
+        bottom: calc(100% - 20px);
+        left: calc(100% + 50px);
+      }
+
+      &::before {
+        bottom: calc(100% - 20px);
+        right: calc(100% + 50px);
+      }
+    }
   }
 }
 
@@ -185,7 +224,9 @@
 
   .important {
     max-width: 90vw;
-
+    & p:first-child {
+      text-wrap: pretty;
+    }
     .image {
       width: 100%;
       height: auto;
@@ -196,5 +237,62 @@
     .line {
       width: 90vw;
     }
+  }
+}
+
+@media (max-width: 660px) {
+  .form {
+    .selectType {
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    h4 {
+      font-size: 21px;
+      text-transform: uppercase;
+    }
+    h6 {
+      font-size: 20px;
+      margin-top: 21px;
+    }
+  }
+
+  .steps {
+    padding-left: 0;
+    .step {
+      & > div:first-child {
+        left: 21px;
+      }
+      h6 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 16px;
+      }
+      height: fit-content;
+      max-height: fit-content !important;
+      padding: 25px 10px;
+    }
+  }
+
+  .important {
+    padding: 26px 10px;
+
+    .list {
+      padding-left: 20px;
+    }
+    .p {
+      font-size: 15px !important;
+    }
+  }
+
+  .agreement  span {
+    margin-left: 0 !important;
   }
 }

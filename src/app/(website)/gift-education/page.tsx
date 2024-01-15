@@ -54,7 +54,7 @@ export default function Home() {
         <Cards />
       </div>
 
-      <Certificates header={1}/>
+      <Certificates header={2}/>
 
       <Divider firstRow="НАШІ КУРСИ:" className={cl.divider} />
 

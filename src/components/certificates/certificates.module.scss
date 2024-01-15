@@ -5,6 +5,9 @@
   justify-content: center;
   align-items: center;
 
+  .certificateSmallHeader {
+    display: none;
+  }
   .certificateHeader {
     gap: 0;
     position: relative;
@@ -69,11 +72,34 @@
 
 @media (max-width: 660px) {
   .certificateType {
+    margin-top: 70px;
+
+    .certificateSmallHeader {
+      display: block;
+      padding: 20px 26px;
+    }
+
     .certificateHeader {
+      padding: 26px 5px;
+      width: 100%;
+      order: 10;
+      margin-top: 42px;
+      p {
+        font-size: 18px !important;
+      }
+
       .line {
-        display: none;
+        display: block;
+        background: $color-black;
+        position: absolute;
+        border: none;
+        width: 2px;
+        height: 110px;
+        top: 100%;
+        z-index: -1;
       }
     }
+
     .container {
       display: flex;
       flex-direction: column;

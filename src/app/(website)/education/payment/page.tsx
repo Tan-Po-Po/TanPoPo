@@ -47,7 +47,7 @@ export default function Page() {
             ? "2. Оплатіть обраний курс та"
             : "3. Оплатіть курс та розпочніть навчання!"
         }
-        secondRow={course?.isGift ? "отримайте ваш сертифікат!" : ""}
+        secondRow={course?.isGift ? " отримайте ваш сертифікат!" : ""}
         bgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
         width="555px"
       />

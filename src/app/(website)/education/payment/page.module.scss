@@ -1,4 +1,5 @@
 .main {
+  padding: 0 10px;
   padding-top: 40px;
 }
 
@@ -83,6 +84,7 @@
     font-weight: 700;
     width: 310px;
     transition: all 0.3s ease-in-out;
+
     &:hover {
       background: linear-gradient(180deg, #fffaf9 0%, #fffbd8 100%);
     }
@@ -135,6 +137,8 @@
   .courseWrapper {
     .courseInfo {
       display: grid;
+      align-items: center;
+      justify-content: center;
       grid-template-columns: 1fr;
     }
   }
@@ -144,6 +148,26 @@
   .qrCodes {
     flex-direction: column;
     row-gap: 50px;
+  }
+  .divider {
+    padding: 14px;
+    display: flex;
+    p {
+      display: contents;
+      text-align: center;
+      text-wrap: balance;
+      font-size: 20px;
+    }
+  }
+
+  .courseWrapper {
+    .courseInfo {
+      padding: 65px 10px 40px;
+      .card {
+        max-height: fit-content !important;
+        margin: 0 auto;
+      }
+    }
   }
 }
 
@@ -157,6 +181,17 @@
 
   .thanks {
     width: 95%;
-    margin: 50px 10px;
+    margin: 50px auto;
+    padding: 26px 10px;
+    &:hover {
+      scale: none;
+      .thanksBtn {
+        scale: none;
+      }
+    }
+    .thanksBtn {
+      max-width: 90%;
+      margin: 0 auto;
+    }
   }
 }

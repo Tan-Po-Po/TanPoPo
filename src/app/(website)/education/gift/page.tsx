@@ -96,7 +96,8 @@ export default function Page() {
       if (!res.ok) {
         return toast("Сталася помилка, спробуйте ще раз пізніше");
       }
-      router.push("/education/checkout");
+
+      router.push("/education/payment");
     });
   };
 
@@ -108,8 +109,12 @@ export default function Page() {
   return (
     <main className={cl.main}>
       <div className={cl.header}>
-        <Typography variant="h4">Навчання у подарунок</Typography>
-        <Typography variant="h1">2 прості кроки:</Typography>
+        <Typography variant="h4">Навчання у подарунок🎁</Typography>
+        <Typography variant="h6">
+          {" "}
+          Оформіть подарунковий сертифікат для обраного курсу на нашому сайті
+          прямо зараз:
+        </Typography>
       </div>
 
       <div className={cl.steps}>
@@ -169,8 +174,8 @@ export default function Page() {
 
       <form className={cl.form} onSubmit={handleSubmit(onSubmit)}>
         <ContactForm formReturn={formReturn} isCertificate />
-        
-        <Certificates header={2} className={cl.certificate}/>
+
+        <Certificates header={1} className={cl.certificate} />
 
         <Controller
           name="certificateType"
@@ -195,7 +200,10 @@ export default function Page() {
         )}
 
         <ContentCard className={cl.important}>
-          <Typography variant="body2" style={{ fontWeight: 700 }}>
+          <Typography
+            variant="body2"
+            style={{ fontWeight: 700 }}
+          >
             Декілька важливих пам’яток стосовно промокоду для активації курсу:
           </Typography>
           <ul className={cl.list}>
@@ -224,11 +232,12 @@ export default function Page() {
             alt="Laptop"
             width={996}
             height={500}
-            style={{width: "100%", height: "auto"}}
+            style={{ width: "100%", height: "auto" }}
           />
           <Typography
             variant="body2"
             style={{ fontSize: "18px", fontWeight: 600 }}
+            className={cl.p}
           >
             Активувати курс за допомогою подарункового промокоду дуже
             легко!Спеціально для цього ми записали короткий відеогайд по
