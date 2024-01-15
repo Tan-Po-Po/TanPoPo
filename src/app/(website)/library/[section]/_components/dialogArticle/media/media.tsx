@@ -1,12 +1,14 @@
+"use ";
 import cl from "../dialogArticle.module.scss";
 import { ContentCard, Carousel, CarouselItem } from "@/components";
 import { getEmbedYouTubeLink, getValidClassNames } from "@/helpers";
 import { ILibraryItem } from "@/models/LibraryItem";
 import Image from "next/image";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import { useSearchParams } from "next/navigation";
 import { IMAGE_BASE_URL } from "@/config/config";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 interface Props {
   item: ILibraryItem;
@@ -17,15 +19,13 @@ export const Media: React.FC<Props> = ({ item }) => {
 
   const searchParams = useSearchParams();
 
+  const { isMobile } = useAppSelector(selectWindowMatchMedia);
+
   if (item.media.length === 1) {
     return item.media[0].type === "video" ? (
-      <ContentCard
-        width="fit-content"
-        style={{ padding: 0, overflow: "hidden" }}
-      >
+      <ContentCard width="fit-content" className={cl.iFrameWrapper}>
         <iframe
-          width="666"
-          height="376"
+          className={cl.iFrame}
           src={getEmbedYouTubeLink(
             item.media[0].video!,
             searchParams.get("autoplay") as "0" | "1" | null
@@ -65,10 +65,11 @@ export const Media: React.FC<Props> = ({ item }) => {
     return (
       <Carousel
         dots={false}
-        slidesToShow={2}
-        centerMode={false}
+        slidesToShow={isMobile ? 1 : 2}
+        centerMode={isMobile}
         focusOnSelect={false}
         className={cl.carousel}
+        infinite={false}
       >
         {item.media.map((media) => (
           <CarouselItem

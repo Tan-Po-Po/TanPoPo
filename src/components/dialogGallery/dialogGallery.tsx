@@ -38,6 +38,7 @@ export const DialogGallery = () => {
           height={1080}
           style={{
             width: "100%",
+            minWidth: "300px",
             height: "auto",
           }}
         />

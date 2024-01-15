@@ -6,6 +6,12 @@ $padding-card: 55px 30px 18px 30px;
   max-width: fit-content;
 }
 
+.label {
+  > * {
+    white-space: pre-wrap;
+  }
+}
+
 .article,
 .articleSmall,
 .reels,
@@ -19,11 +25,14 @@ $padding-card: 55px 30px 18px 30px;
 .article,
 .podcast {
   height: 566px;
-  width: 626px;
+  height: fit-content;
+  max-width: 626px;
+  width: 100%;
 }
 
 .articleSmall {
-  width: 384px;
+  max-width: 384px;
+  width: 100%;
 }
 
 .articleSmall,
@@ -62,7 +71,7 @@ $padding-card: 55px 30px 18px 30px;
     }
 
     :global(.slick-next) {
-      right: -7%;
+      right: -3%;
     }
   }
 
@@ -125,32 +134,6 @@ $padding-card: 55px 30px 18px 30px;
   }
 }
 
-.footer {
-  @include flex-row;
-  width: 100%;
-  justify-content: space-between;
-
-  .hashtags {
-    @include flex-row;
-    gap: 12px;
-
-    .hashtag {
-      padding: 2px 4px;
-    }
-  }
-
-  .copyIcon {
-    &:hover {
-      transform: scale(115%);
-      transition: $transition;
-
-      path:nth-child(3) {
-        fill: $color-yellow;
-      }
-    }
-  }
-}
-
 .imageContainer {
   position: relative;
   padding: 0;
@@ -181,8 +164,6 @@ $padding-card: 55px 30px 18px 30px;
 }
 
 .podcast {
-  padding: $padding-card;
-
   gap: 0;
   justify-content: space-between;
 
@@ -192,9 +173,60 @@ $padding-card: 55px 30px 18px 30px;
 }
 
 .reels {
-  width: 384px;
+  max-width: 384px;
+  width: 100%;
   .imageContainer {
     width: 272px;
     height: 470px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .reels,
+  .music {
+    max-width: 342px;
+  }
+
+  .playButton {
+    svg {
+      fill: $color-yellow;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  $padding-card: 55px 19px 19px 19px;
+
+  .article,
+  .articleSmall,
+  .reels,
+  .music,
+  .podcast {
+    padding: $padding-card;
+  }
+
+  .podcast {
+    gap: 28px;
+    .content {
+      @include flex-column;
+      gap: 28px;
+    }
+  }
+
+  .article,
+  .articleSmall,
+  .podcast {
+    max-width: calc(100vw - 9px) !important;
+  }
+
+  .article,
+  .articleSmall {
+    :global(.slick-prev) {
+      left: 5% !important;
+    }
+
+    :global(.slick-next) {
+      right: 0 !important;
+    }
   }
 }

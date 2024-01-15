@@ -1,0 +1,35 @@
+$transition: all ease 0.2s;
+
+.footer {
+  @include flex-row;
+  width: 100%;
+  justify-content: space-between;
+
+  .hashtags {
+    @include flex-row;
+    gap: 12px;
+
+    .hashtag {
+      padding: 2px 4px;
+    }
+  }
+
+  .copyIcon {
+    &:hover {
+      transform: scale(115%);
+      transition: $transition;
+
+      path:nth-child(3) {
+        fill: $color-yellow;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    .hashtags {
+      flex-wrap: wrap;
+    }
+  }
+}

@@ -120,9 +120,7 @@ const Content: React.FC<Props> = async ({ params, searchParams }) => {
               />
             ))}
 
-        {data && searchParams.id && (
-          <DialogArticle page={page} items={data!.items} />
-        )}
+        {searchParams.id && <DialogArticle page={page} />}
         <DialogGallery />
       </div>
       {data && data.lastPage > 1 && <Pagination pages={data.lastPage} />}

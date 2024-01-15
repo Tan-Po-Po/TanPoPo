@@ -10,5 +10,14 @@
     gap: 100px;
     justify-content: center;
     align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1023px) {
+  .contentMain {
+    .cards {
+      gap: 50px;
+    }
   }
 }

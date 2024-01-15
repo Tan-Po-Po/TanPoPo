@@ -72,12 +72,17 @@
     justify-content: center;
     width: 50px;
     margin: 15px auto;
+    color: $color-gray-59;
   }
   :global(.slick-prev) {
     position: absolute;
     top: calc(100% - 10px);
     left: calc(50% - 50px);
     transform: translate(-50%, -120%) rotate(180deg);
+
+    svg {
+      stroke: $color-gray-59;
+    }
   }
 
   :global(.slick-next) {
@@ -85,5 +90,9 @@
     top: calc(100% - 10px);
     left: calc(50% + 50px);
     transform: translate(-50%, -120%);
+
+    svg {
+      stroke: $color-gray-59;
+    }
   }
 }
