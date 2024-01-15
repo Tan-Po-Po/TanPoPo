@@ -7,7 +7,12 @@ import { Footer } from "../footer/footer";
 export const MusicCard: React.FC<Props> = (props) => {
   const { label, labelColor, content, type } = props;
   return (
-    <ContentCard className={cl.music} label={label} labelBgColor={labelColor}>
+    <ContentCard
+      className={cl.music}
+      labelClassName={cl.label}
+      label={label}
+      labelBgColor={labelColor}
+    >
       <LibraryItemContent item={props} />
       <Footer item={props} />
     </ContentCard>

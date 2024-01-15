@@ -9,12 +9,14 @@ import { Media } from "./media/media";
 import { NewLabel } from "../libraryItemCard/newLabel/newLabel";
 import { useEffect, useState } from "react";
 import { SERVER_URL } from "@/config/config";
+import { useAppSelector } from "@/redux/hooks";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { getColor } from "@/helpers/getLibraryItemColors";
 
 interface Props {
   page: string;
-  items: ILibraryItem[];
 }
-const DialogArticle: React.FC<Props> = ({ page, items }) => {
+const DialogArticle: React.FC<Props> = ({ page }) => {
   const router = useRouter();
   const path = usePathname();
   const searchParams = useSearchParams();
@@ -29,6 +31,8 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
     router.push(`${path}?page=${page}`, { scroll: false });
   };
 
+  const { isMobile } = useAppSelector(selectWindowMatchMedia);
+
   useEffect(() => {
     const getLibraryItem = async (id: string) => {
       try {
@@ -39,8 +43,10 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
           throw new Error("Couldn't find the library item");
         }
 
-        const itemDb = await response.json();
+        const itemDb = (await response.json()) as ILibraryItem;
         console.log("library item db", itemDb);
+
+        itemDb.labelColor = getColor(itemDb.labelColor);
 
         setItem(JSON.parse(JSON.stringify(itemDb)));
         setLoading(false);
@@ -74,13 +80,14 @@ const DialogArticle: React.FC<Props> = ({ page, items }) => {
         </Typography>
       ) : (
         <>
-          {isNew && <NewLabel />}
+          {isNew && !isMobile && <NewLabel />}
           <ContentCard
             cardBgColor={item?.labelColor}
             className={cl.label}
-            width="fit-content"
+            width="70%"
           >
             <Typography variant="body1">{item!.label}</Typography>
+            {isMobile && <NewLabel className={cl.newLabelMiddle} />}
           </ContentCard>
 
           <div className={cl.gallery}>

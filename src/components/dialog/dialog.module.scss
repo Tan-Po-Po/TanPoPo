@@ -4,6 +4,7 @@
     transform: rotate(45deg);
     top: -36px;
     right: -36px;
+    z-index: 4;
 
     cursor: pointer;
 
@@ -22,28 +23,6 @@
     overflow: visible;
     max-width: fit-content;
     gap: 77px;
-    // animation: dialogShow 0.3s;
-
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #888;
-      height: 10%;
-      min-height: 20px;
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
   }
 
   .title {
@@ -58,12 +37,43 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .dialog {
+    :global(.MuiDialog-paper) {
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        height: 10%;
+        min-height: 20px;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    }
+  }
+}
+
 @media (max-width: 1023px) {
   .dialog {
     .close {
-      top: 0;
+      top: 6px;
       right: 6px;
       width: 25px;
+
+      path {
+        fill: $color-gray-59;
+      }
     }
   }
 }

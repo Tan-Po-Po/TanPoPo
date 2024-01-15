@@ -6,4 +6,10 @@
   max-width: 1266px;
   width: 100%;
   gap: 25px;
+
+  :global(.slick-slide) {
+    > div {
+      margin: 16px !important;
+    }
+  }
 }

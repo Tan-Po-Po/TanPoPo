@@ -20,7 +20,9 @@ const LibrarySectionLayout: React.FC<Props> = async ({
   const accessGranted = await getLibraryAccess(params.section);
   return (
     <div className={cl.layout}>
-      <Typography variant="h3">БІБЛІОТЕКА TANPOPO</Typography>
+      <Typography variant="h3" align="center">
+        БІБЛІОТЕКА TANPOPO
+      </Typography>
       <LibraryNav />
       {accessGranted ? content : password}
     </div>
