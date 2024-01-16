@@ -1,7 +1,6 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
 import {
-  Button,
   ContentCard,
   IconLink,
   Typography,
@@ -15,10 +14,8 @@ import { textContent } from "./textContent";
 import Image from "next/image";
 import { TeamBlock } from "./_components/blocks/teamBlock/teamBlock";
 import Partner, { IPartner } from "@/models/Partner";
-import { Line } from "./_components/line/line";
 import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
 import { IMAGE_BASE_URL } from "@/config/config";
-import Link from "next/link";
 import { BioBlock } from "./_components/blocks/bioBlock/bioBlock";
 import { ReviewsBlock } from "./_components/blocks/reviewsBlock/reviewsBlock";
 import { InfoCardsBlock } from "./_components/blocks/infoCardsBlock/infoCardsBlock";

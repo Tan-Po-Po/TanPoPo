@@ -1,11 +1,15 @@
 .background {
-  background: linear-gradient(180deg, #ffea29 0%, #fffdea 100%);
-  border-radius: $border-radius;
   position: absolute;
-  top: 18px;
-  right: 28px;
-  z-index: 5;
-
+  top: calc(100% + 28px);
+  right: 0;
+  width: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 3px;
+  border-radius: $border-radius;
+  background: linear-gradient(180deg, #ffea29 0%, #fffdea 100%);
+  z-index: 10;
+  
   .cartButton {
     @include flex-row;
     width: fit-content;
@@ -16,7 +20,6 @@
     cursor: pointer;
     border: 0;
     outline: black solid 2px;
-
     &:hover {
       background: $color-yellow;
       outline: black solid 3px;
@@ -49,10 +52,22 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 768px) {
   .background {
-    position: fixed;
-    top: calc($header-height + 18px);
+    .cartButton {
+      &:hover {
+        .amount {
+          transform: none;
+        }
+
+        .text {
+          animation: none;
+        }
+        .cartIcon {
+          animation: none;
+        }
+      }
+    }
   }
 }
 

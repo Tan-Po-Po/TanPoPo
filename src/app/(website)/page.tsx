@@ -292,9 +292,11 @@ export default function Home() {
 
       <section className={cl.personalCabinet}>
         <div style={{ textAlign: "center" }}>
-          <Typography variant="h2">Заходь у свій Особистий Кабінет!</Typography>
-          <Typography variant="h5">
-            Усе навчання на єдиній інтерактивній платформі.
+          <Typography variant="h2" style={{ fontSize: "38px" }}>
+            Заходь у свій Особистий Кабінет!
+          </Typography>
+          <Typography variant="body1" style={{ marginTop: "34px" }}>
+            Навчайся з будь-якого девайсу на єдиній інтерактивній платформі.
           </Typography>
         </div>
 

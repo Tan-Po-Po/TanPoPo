@@ -1,8 +1,5 @@
 .headerNarrow {
-  @include flex-row;
-  justify-content: space-between;
   max-width: 100vw;
-  height: $header-height;
   position: fixed;
   background-color: $color-yellow;
   z-index: 20;
@@ -10,8 +7,15 @@
   top: 0;
   right: 0;
   left: 0;
-  overflow: hidden;
-  align-items: center;
+
+  .wrapper {
+    @include flex-row;
+    justify-content: space-between;
+    position: relative;
+    height: $header-height;
+    overflow: hidden;
+    align-items: center;
+  }
 
   .logo {
     position: absolute;
@@ -32,11 +36,11 @@
     position: absolute;
     width: fit-content;
     right: 0;
+    cursor: pointer;
 
     .background {
       top: 0;
       right: -50px;
-
       .icon {
         position: absolute;
         top: 43px;

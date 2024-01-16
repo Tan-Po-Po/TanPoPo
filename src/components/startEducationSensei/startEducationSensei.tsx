@@ -22,6 +22,15 @@ const StartEducationSensei: React.FC = () => {
           <Typography variant="h2">в школі TanPoPo дуже легко!</Typography>
         </div>
 
+        <Typography
+          variant="h6"
+          align="center"
+          style={{ maxWidth: "745px", marginTop: "42px" }}
+        >
+          За допомогою нашого сайту Ви можете записатись на заняття абсолютно
+          самостійно прямо зараз:
+        </Typography>
+        
         <div className={cl.startCards}>
           <Carousel
             renderCarousel={renderCarousel}
@@ -116,7 +125,7 @@ const StartEducationSensei: React.FC = () => {
         <Typography variant="h3">Лише найкращі сенсеї</Typography>
         <Typography variant="h5">для найкращих результатів!</Typography>
       </div>
-      
+
       <ContentCard
         width="511px"
         className={cl.sensei}

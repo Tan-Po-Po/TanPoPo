@@ -11,7 +11,6 @@ import Image from "next/image";
 import { textContent } from "./textContent";
 import {
   DialogCart,
-  CartButton,
   MiniProductCards,
   LargeProductCards,
   ShopPartnersBlock,
@@ -22,7 +21,6 @@ export default async function Shop() {
   const shopProducts = await getShopItems();
   return (
     <main className={cl.storeMain} id="storeMain">
-      {/* <CartButton /> */}
       <Typography variant="h3">КРАМНИЦЯ</Typography>
       <section className={cl.introBlock}>
         <MiniProductCards shopProducts={shopProducts} />
@@ -66,6 +64,11 @@ export default async function Shop() {
         firstRow="МАГАЗИНИ ПАРТНЕРІВ"
         bgColor="linear-gradient(180deg, #FFE39A 0%, #C1A4FF 100%)"
       />
+      <Typography variant="body1" align="center" style={{ maxWidth: "765px", marginBottom: "42px" }}>
+        Розпочинайте навчання в школі TanPoPo та знаходьте промокоди на знижки у
+        своєму Особистому Кабінеті на весь асортимент товарів наших партнерів
+        ексклюзивно для учнів нашої школи!
+      </Typography>
 
       <section className={cl.shopPartnersBlock}>
         <Suspense fallback={<Loading />}>

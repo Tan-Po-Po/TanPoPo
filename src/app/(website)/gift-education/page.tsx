@@ -47,14 +47,22 @@ export default function Home() {
       <div className={cl.start}>
         <div className={cl.startHeader}>
           <Typography variant="h4">
-            Подарувати навчання японської мови
+            Подарувати навчання японської мови як ніколи просто:
           </Typography>
-          <Typography variant="h4">як ніколи просто:</Typography>
+
+          <Typography
+            variant="h6"
+            align="center"
+            style={{ maxWidth: "775px", marginTop: "42px" }}
+          >
+            На нашому сайті Ви можете оформити подарунковий сертифікат для
+            будь-якого курсу прямо зараз:
+          </Typography>
         </div>
         <Cards />
       </div>
 
-      <Certificates header={2}/>
+      <Certificates header={2} />
 
       <Divider firstRow="НАШІ КУРСИ:" className={cl.divider} />
 

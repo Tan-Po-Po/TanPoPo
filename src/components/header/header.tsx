@@ -3,11 +3,12 @@ import React from "react";
 import cl from "./header.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { Dropdown, Button, IconLink } from "@/components";
+import { Dropdown, Button, IconLink, CartButton } from "@/components";
 import { getValidClassNames } from "@/helpers";
 import { HeaderNarrow } from "./headerNarrow/headerNarrow";
 import { aboutLinks, coursesLinks } from "./links";
 import { useWindowSize } from "@uidotdev/usehooks";
+
 
 const Header = () => {
   const { width } = useWindowSize();
@@ -19,6 +20,8 @@ const Header = () => {
   return (
     <header className={cl.header}>
       <div className={getValidClassNames(cl.wrapper, "wrapper")}>
+        <CartButton />
+        
         <div className={cl.logo}>
           <Link href={"/"}>
             <Image

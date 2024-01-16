@@ -6,6 +6,7 @@
   }
 }
 .start {
+  @include flex-column;
   width: 100%;
   .startHeader {
     display: flex;
@@ -25,6 +26,7 @@
   .startCards {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-top: 70px;
 
     .triangleBtn {

@@ -99,6 +99,16 @@ export default function Contacts() {
                 {textContent.contactsBlock.card3.section4.tittle}
               </Link>
             </Typography>
+            <Typography variant="body1">
+              <Link
+                href={
+                  textContent.contactsBlock.card3.section5.href ||
+                  "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
+                }
+              >
+                {textContent.contactsBlock.card3.section5.tittle}
+              </Link>
+            </Typography>
           </ContentCard>
         </div>
       </div>

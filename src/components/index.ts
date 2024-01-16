@@ -2,6 +2,7 @@ export { AddressForm } from "./orderForm/addressFrom";
 export { Advantages } from "./advantages/advantages";
 export { Button } from "./button/button";
 export { Carousel } from "./carousel/carousel";
+export {CartButton} from "./cartButton/cartButton"
 export { CarouselItem } from "./carousel/carouselItem/carouselItem";
 export { Checkbox } from "./checkbox/checkbox";
 export { Certificates } from "./certificates/certificates";

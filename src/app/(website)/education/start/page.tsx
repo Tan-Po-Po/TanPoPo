@@ -33,7 +33,7 @@ export default function Page() {
         </Typography>
       </div>
 
-      <Typography variant="body1" align="center" className={cl.headerParagraph}>
+      <Typography variant="h6" align="center" className={cl.headerParagraph}>
         За допомогою нашого сайту Ви можете обрати власний розклад та записатись
         на заняття абсолютно самостійно прямо зараз:
       </Typography>
