@@ -128,7 +128,7 @@ export const NarrowFooter = () => {
             />
             <Link href={"/contacts/oferta"}>Публічна Оферта</Link>
             <span> & </span>
-            <Link href={"/"}>Cookies</Link>
+            <Link href={"/contacts/confidentialityPolicy#7"}>Cookies</Link>
           </div>
         </ContentCard>
         <ContentCard className={cl.info} cardBgColor="transparent">

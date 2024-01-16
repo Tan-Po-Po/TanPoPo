@@ -1,9 +1,7 @@
 "use client";
-import dbConnect from "@/config/dbConnect";
+
 import { IPolicy } from "@/models/Policies/interface";
 import { PageName } from "../layout";
-import Oferta from "@/models/Policies/Oferta";
-import ConfidentialityPolicy from "@/models/Policies/ConfidentialityPolicy";
 import { usePathname } from "next/navigation";
 import cl from "../layout.module.scss";
 import { useEffect, useState } from "react";
@@ -32,7 +30,7 @@ export const Policies = () => {
 
   return (
     <>
-      {policies.content.map((policy) => {
+      {policies.content.map((policy, i) => {
         if (!policy.title) {
           return (
             <div key={policy.id} className={cl.para}>
@@ -42,7 +40,7 @@ export const Policies = () => {
         }
 
         return (
-          <div key={policy.id} className={cl.policy}>
+          <div key={policy.id} className={cl.policy} id={i.toString()}>
             <div className={cl.title}>{policy.title}</div>
             <div className={cl.para}>{policy.text}</div>
           </div>
