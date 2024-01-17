@@ -9,7 +9,6 @@ import { HeaderNarrow } from "./headerNarrow/headerNarrow";
 import { aboutLinks, coursesLinks } from "./links";
 import { useWindowSize } from "@uidotdev/usehooks";
 
-
 const Header = () => {
   const { width } = useWindowSize();
 
@@ -21,7 +20,7 @@ const Header = () => {
     <header className={cl.header}>
       <div className={getValidClassNames(cl.wrapper, "wrapper")}>
         <CartButton />
-        
+
         <div className={cl.logo}>
           <Link href={"/"}>
             <Image

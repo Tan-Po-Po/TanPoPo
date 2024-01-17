@@ -1,6 +1,7 @@
 import { Footer, Header } from "@/components";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { DialogCart } from "./shop/_components/components";
 
 export default function RootLayout({
   children,
@@ -14,7 +15,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
-
+        <DialogCart />
         <ToastContainer
           position="bottom-center"
           autoClose={3000}

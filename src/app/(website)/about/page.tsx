@@ -47,7 +47,11 @@ export default async function About() {
       <div className={cl.ideaBlock}>
         <Typography
           variant="h4"
-          style={{ fontWeight: 400, textAlign: "center" }}
+          style={{
+            fontWeight: 400,
+            textAlign: "center",
+            scrollMarginTop: "100px",
+          }}
           id="history"
           className={cl.title}
         >
@@ -100,7 +104,11 @@ export default async function About() {
       <InfoCardsBlock />
 
       {partners && (
-        <div className={cl.partnersBlock} id="partners">
+        <div
+          className={cl.partnersBlock}
+          id="partners"
+          style={{ scrollMarginTop: "100px" }}
+        >
           <Typography variant="h3">
             {textContent.partnersBlock.header}
           </Typography>
@@ -129,7 +137,30 @@ export default async function About() {
         </div>
       )}
 
-      <div className={cl.authorContentBlock} id="content">
+      <div
+        className={cl.studio}
+        id="studio"
+        style={{ scrollMarginTop: "140px" }}
+      >
+        <ContentCard className={cl.labelTop}>TanPoPo Studio</ContentCard>
+        <Image
+          src="/photos/studio.png"
+          alt="TanPoPo Studio"
+          width={1350}
+          height={760}
+          style={{ maxWidth: "100%", height: "auto", width: "100%" }}
+        />
+        <ContentCard className={cl.labelBottom}>
+          Створюємо навчальні матеріали для курсів в найзатишнішій студії, щоб
+          Ви могли навчатись та отримувати візуальне задоволення від перегляду💛
+        </ContentCard>
+      </div>
+
+      <div
+        className={cl.authorContentBlock}
+        id="content"
+        style={{ scrollMarginTop: "100px" }}
+      >
         <Typography variant="h3">
           {textContent.authorContentBlock.header}
         </Typography>

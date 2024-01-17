@@ -24,10 +24,16 @@ export const aboutLinks = [
     bgColor: "#E1C2FF",
   },
   {
+    href: "/about#studio",
+    body: "TanPoPo Studio",
+    icon: "сlapperboard",
+    bgColor: "#FFFDEE",
+  },
+  {
     href: "/about#content",
     body: "Авторський контент",
     icon: "diamond",
-    bgColor: "#FFFDEE",
+    bgColor: "#AFF1FF",
   },
 ];
 

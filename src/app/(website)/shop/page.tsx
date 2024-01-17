@@ -10,7 +10,6 @@ import {
 import Image from "next/image";
 import { textContent } from "./textContent";
 import {
-  DialogCart,
   MiniProductCards,
   LargeProductCards,
   ShopPartnersBlock,
@@ -110,7 +109,6 @@ export default async function Shop() {
       </section>
 
       <DialogGallery />
-      <DialogCart />
     </main>
   );
 }
