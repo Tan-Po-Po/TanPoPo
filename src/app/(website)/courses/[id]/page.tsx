@@ -1,4 +1,4 @@
-import { CourseCardDescription, Typography } from "@/components";
+import { CourseCardDescription, Typography, DialogGallery } from "@/components";
 import cl from "./page.module.scss";
 import Course, { ICourse } from "@/models/Course";
 import dbConnect from "@/config/dbConnect";
@@ -26,6 +26,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <main className={cl.main}>
+      <DialogGallery />
       <Typography
         variant="h3"
         className={cl.header}

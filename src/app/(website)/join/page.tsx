@@ -6,7 +6,6 @@ import {
   ContentCard,
   Button,
   Checkbox,
-  Dialog,
   DialogGallery,
 } from "@/components";
 import Image from "next/image";
@@ -38,12 +37,15 @@ export default function Join() {
       <DialogGallery />
 
       <section className={cl.benefits}>
-        <Typography variant="h6" className={cl.header} align="center">
-          Реєструючись на платформі нашої школи
-        </Typography>
-        <Typography variant="h3" align="center">
-          Ви автоматично отримуєте:
-        </Typography>
+        <div className={cl.header}>
+          <Typography variant="h6" className={cl.header} align="center">
+            Реєструючись на платформі нашої школи
+          </Typography>
+          <Typography variant="h3" align="center">
+            {" "}Ви автоматично отримуєте:
+          </Typography>
+        </div>
+
         <div className={cl.cards}>
           <div className={cl.cardWrapper}>
             <ContentCard width="465px" className={cl.card}>
@@ -66,6 +68,7 @@ export default function Join() {
 
             <div className={cl.video}>
               <div
+                style={{ backgroundImage: "url('/images/selfEducation.jpg')" }}
                 className={cl.videoWrapper}
                 onClick={() =>
                   dispatch(
@@ -76,13 +79,6 @@ export default function Join() {
                   )
                 }
               >
-                <Image
-                  src="/images/selfEducation.jpg"
-                  alt="Japanese courses"
-                  width={1920}
-                  height={1080}
-                  style={{ maxWidth: "100%", width: "392px", height: "auto" }}
-                />
                 <PlayButtonIcon className={cl.playBtn} />
               </div>
             </div>
@@ -108,25 +104,19 @@ export default function Join() {
               </Typography>
             </ContentCard>
 
-            <div
-              className={cl.video}
-              onClick={() =>
-                dispatch(
-                  openGalleryDialog({
-                    type: "video",
-                    src: "https://www.youtube.com/watch?v=fNFzfwLM72c",
-                  })
-                )
-              }
-            >
-              <div className={cl.videoWrapper}>
-                <Image
-                  src="/images/selfEducation.jpg"
-                  alt="Japanese courses"
-                  width={1920}
-                  height={1080}
-                  style={{ maxWidth: "100%", width: "392px", height: "auto" }}
-                />
+            <div className={cl.video}>
+              <div
+                className={cl.videoWrapper}
+                style={{ backgroundImage: "url('/photos/university.jpg')" }}
+                onClick={() =>
+                  dispatch(
+                    openGalleryDialog({
+                      type: "video",
+                      src: "https://www.youtube.com/watch?v=fNFzfwLM72c",
+                    })
+                  )
+                }
+              >
                 <PlayButtonIcon className={cl.playBtn} />
               </div>
             </div>

@@ -236,7 +236,9 @@
   .image {
     border: $border;
     border-radius: $border-radius;
-    max-width: 100%;;    height: auto;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
   }
 
   .labels {
