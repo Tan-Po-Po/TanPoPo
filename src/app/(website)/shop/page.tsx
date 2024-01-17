@@ -106,7 +106,6 @@ export default async function Shop() {
       </section>
 
       <DialogGallery />
-      {/* <DialogCart /> */}
     </main>
   );
 }

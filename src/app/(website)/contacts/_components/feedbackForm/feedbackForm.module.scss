@@ -7,13 +7,18 @@
 
     .left {
       @include flex-column;
+      width: 100%;
 
       gap: 52px;
     }
+
     .right {
       @include flex-column;
-
       width: 100%;
+
+      .textArea {
+        max-width: 100%;
+      }
     }
   }
   .footer {

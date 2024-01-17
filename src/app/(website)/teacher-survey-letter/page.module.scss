@@ -1,0 +1,54 @@
+.main {
+  padding: $padding-page;
+  gap: 70px;
+
+  .titleCard {
+    padding: 33px 28px;
+  }
+
+  .form {
+    @include flex-column;
+    gap: 70px;
+    max-width: 817px;
+    width: 100%;
+
+    .title {
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-decoration: underline;
+    }
+
+    .formBlock {
+      gap: 60px;
+      padding: 38px 55px;
+
+      .questionBlock {
+        @include flex-column;
+        gap: 37px;
+        width: 100%;
+
+        .question {
+          font-size: 21px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          text-decoration: underline;
+        }
+      }
+      .inputs {
+        @include flex-row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 37px;
+        width: 100%;
+
+        .textArea {
+          max-width: 100%;
+          //   min-width: 100%;
+        }
+      }
+    }
+  }
+}

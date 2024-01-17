@@ -122,9 +122,7 @@ export const FeedbackForm: React.FC = () => {
                 message: "Введіть коректний email",
               },
             }}
-            render={({ field }) => (
-              <Input label="Email" {...field} />
-            )}
+            render={({ field }) => <Input label="Email" {...field} />}
           />
         </div>
         <div className={cl.right}>
@@ -144,6 +142,7 @@ export const FeedbackForm: React.FC = () => {
                 multiline
                 rows={9}
                 style={{ width: "100%" }}
+                className={cl.textArea}
                 {...field}
               />
             )}
