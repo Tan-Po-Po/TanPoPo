@@ -1,0 +1,99 @@
+.layout {
+  @include flex-column;
+  padding: $padding-page;
+  gap: 80px;
+  max-width: 1390px;
+  width: 100%;
+  align-self: center;
+
+  .block1 {
+    @include flex-column;
+    gap: 36px;
+    width: 100%;
+
+    .links {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      flex-direction: row;
+      gap: 50px;
+      justify-content: space-around;
+      position: relative;
+
+      .link {
+        display: flex;
+        align-self: stretch;
+      }
+
+      .linkCard {
+        h3 {
+          font-size: 32px;
+        }
+      }
+
+      .active {
+        background: linear-gradient(180deg, #fff, #fffbd8 100%);
+      }
+    }
+  }
+
+  .text {
+    @include flex-column;
+    align-items: flex-start;
+    gap: 80px;
+
+    .para,
+    .title {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26.25px;
+      white-space: pre-line;
+      text-align: start;
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    .policy {
+      @include flex-column;
+      align-items: flex-start;
+      gap: 25px;
+    }
+  }
+}
+.button {
+  background-color: white;
+  white-space: pre;
+}
+
+@media (max-width: 767px) {
+  .layout {
+    .block1 {
+      .links {
+        flex-direction: column;
+
+        .link {
+          align-self: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .layout {
+    .block1 {
+      .links {
+        .linkCard {
+          padding: 16px;
+          h3 {
+            font-size: 26px;
+          }
+        }
+      }
+    }
+  }
+}

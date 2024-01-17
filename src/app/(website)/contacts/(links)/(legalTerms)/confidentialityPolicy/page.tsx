@@ -1,6 +1,6 @@
 import React from "react";
-import { CustomLayout } from "../_customLayout/customLayout";
+import { Policies } from "../_components/policies";
 
-export default function ConfidentialityPolicy() {
-  return <CustomLayout />;
+export default async function ConfidentialityPolicy() {
+  return <Policies />;
 }
