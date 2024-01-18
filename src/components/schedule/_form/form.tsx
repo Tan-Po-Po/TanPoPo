@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { Checkbox, Input, ContentCard, Typography } from "@/components";
 import { Controller, UseFormReturn } from "react-hook-form";
-import { toast } from "react-toastify";
 import ArrowIcon from "public/icons/arrowDown.svg";
 import { FormData } from "./type";
 import cl from "./form.module.scss";
+import { getValidClassNames } from "@/helpers";
 
 type Properties = {
   formReturn: UseFormReturn<FormData>;
@@ -13,11 +13,11 @@ type Properties = {
 };
 
 const Form: React.FC<Properties> = ({ formReturn, className }) => {
-  const { control, setValue, getValues, watch } = formReturn;
+  const { control, getValues, watch } = formReturn;
   const isContactChecked = watch("contact");
 
   return (
-    <ContentCard width="820px" className={className}>
+    <ContentCard className={getValidClassNames(cl.form, className)}>
       <Typography variant="h6">Контактні дані майбутнього учня:</Typography>
         <div className={cl.container}>
           <Controller

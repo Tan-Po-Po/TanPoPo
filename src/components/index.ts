@@ -2,10 +2,13 @@ export { AddressForm } from "./orderForm/addressFrom";
 export { Advantages } from "./advantages/advantages";
 export { Button } from "./button/button";
 export { Carousel } from "./carousel/carousel";
+export {CartButton} from "./cartButton/cartButton"
 export { CarouselItem } from "./carousel/carouselItem/carouselItem";
 export { Checkbox } from "./checkbox/checkbox";
+export { Certificates } from "./certificates/certificates";
 export { ContentCard } from "./contentCard/contentCard";
 export { CourseCard } from "./courseCard/courseCard";
+export { CourseFormats } from "./courseFormats/courseFormats";
 export { CourseCardDescription } from "./courseCardDescription/courseCardDescription";
 export { CourseCardMini } from "./courseCardMini/courseCardMini";
 export { ContactForm } from "./orderForm/contactForm";

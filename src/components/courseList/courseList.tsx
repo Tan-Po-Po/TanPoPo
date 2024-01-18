@@ -17,9 +17,18 @@ interface Props {
 
 export const CourseList: React.FC<Props> = ({ courses }) => {
   const teacherCourses = getCoursesByType("teacher", courses);
-  const videoCourses = getCoursesByType("video", courses);
-  const bookCourses = getCoursesByType("book", courses);
-  const audioCourses = getCoursesByType("audio", courses);
+  const videoCourses = [
+    ...getCoursesByType("video", courses),
+    ...getCoursesByType("video", courses),
+  ];
+  const bookCourses = [
+    ...getCoursesByType("book", courses),
+    ...getCoursesByType("book", courses),
+  ];
+  const audioCourses = [
+    ...getCoursesByType("audio", courses),
+    ...getCoursesByType("audio", courses),
+  ];
 
   const windowMatchMedia = useAppSelector(selectWindowMatchMedia);
   const { isMobile } = windowMatchMedia;
@@ -42,6 +51,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
             dots={false}
             slidesToShow={1}
             infinite={false}
+            className={cl.carousel}
           >
             {teacherCourses.map((course) => (
               <CarouselItem key={course._id}>
@@ -75,6 +85,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
             dots={false}
             slidesToShow={1}
             infinite={false}
+            className={cl.carousel}
           >
             {videoCourses.map((course) => (
               <CarouselItem key={course._id}>
@@ -108,6 +119,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
             dots={false}
             slidesToShow={1}
             infinite={false}
+            className={cl.carousel}
           >
             {audioCourses.map((course) => (
               <CarouselItem key={course._id}>
@@ -141,6 +153,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
             dots={false}
             slidesToShow={1}
             infinite={false}
+            className={cl.carousel}
           >
             {bookCourses.map((course) => (
               <CarouselItem key={course._id}>

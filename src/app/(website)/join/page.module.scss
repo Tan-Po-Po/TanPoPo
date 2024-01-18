@@ -1,7 +1,14 @@
+.main {
+  padding: 0 10px;
+}
+
 .benefits {
+  width: 100%;
   .header {
-    margin-top: 70px;
-    font-size: 25px;
+    h6 {
+      margin-top: 70px;
+      font-size: 25px;
+    }
     h3 {
       font-size: 35px;
     }
@@ -10,11 +17,21 @@
     margin-top: 95px;
     display: flex;
     flex-direction: row;
-    column-gap: 130px;
+    justify-content: space-between;
+    column-gap: 30px;
+    max-width: 1060px;
+    width: 100%;
+  }
+
+  .cardWrapper {
+    @include flex-column;
+    align-self: stretch;
   }
 
   .card {
     padding: 20px;
+    height: 385px;
+
     h6 {
       font-size: 26px;
       line-height: 29px;
@@ -27,9 +44,59 @@
       text-align: center;
     }
   }
+
+  .video {
+    width: 100%;
+    @include flex-column;
+    &::before {
+      margin: 0 auto;
+      content: "";
+      width: 2px;
+      height: 100px;
+      box-shadow: $box-shadow;
+      background: black;
+    }
+  }
+
+  .videoWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    max-height: 222px;
+    min-height: 222px;
+    width: 392px;
+    max-width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: $border-radius;
+    border: $border;
+    overflow: hidden;
+
+    &:hover {
+      .playBtn {
+        fill: $color-yellow;
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  .playBtn {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    width: 54px;
+    height: auto;
+    fill: white;
+    inset: 0 0 0 0;
+    margin: auto;
+  }
 }
 
 .register {
+  max-width: 100%;
   margin-top: 100px;
   h2 {
     font-size: 39px;
@@ -42,6 +109,15 @@
   .img {
     margin: 25px 0 50px;
   }
+}
+
+.buttonWrapper {
+  position: relative;
+}
+.arrow {
+  position: absolute;
+  left: calc(100% + 20px);
+  bottom: calc(100% - 20px);
 }
 .button {
   padding: 10px 20px !important;
@@ -59,5 +135,48 @@
     line-height: 17.84px;
     font-weight: 500;
     font-size: 16px;
+  }
+}
+
+@media (max-width: 960px) {
+  .benefits {
+    .cards {
+      justify-content: center;
+      flex-wrap: wrap;
+      row-gap: 42px;
+      .cardWrapper {
+        width: 100%;
+      }
+      .card {
+        height: auto;
+      }
+    }
+  }
+  .videoWrapper {
+    max-height: auto;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .benefits {
+    .header {
+      margin-top: 60px;
+      text-align: center;
+      h3 {
+        text-transform: lowercase;
+      }
+      h6,
+      h3 {
+        display: contents;
+        font-size: 24px;
+        line-height: 26px;
+      }
+    }
+    .cards {
+      justify-content: center;
+      flex-wrap: wrap;
+      row-gap: 42px;
+    }
   }
 }

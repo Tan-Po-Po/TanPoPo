@@ -8,12 +8,14 @@
   .inputs {
     display: flex;
     flex-wrap: wrap;
-    // max-width: 700px;
     gap: 40px;
     margin: 35px 0;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
+    .input {
+      width: 330px;
+    }
   }
 
   .checkboxes {
@@ -39,11 +41,17 @@
     display: flex;
     gap: 50px;
     margin: 40px 0;
+    justify-content: center;
+    width: 100%;
+    .input {
+      width: 330px;
+    }
   }
 
   .selects {
     margin-top: 40px;
     display: flex;
+    justify-content: center;
     gap: 50px;
     width: 100%;
     > div {
@@ -74,7 +82,7 @@
 
     .input,
     .select {
-      width: 300px;
+      width: 330px;
     }
   }
 
@@ -101,7 +109,8 @@
 
 .comment {
   height: 130px;
-  width: 666px;
+  width: 100%;
+  max-width: 666px;
   margin-top: 40px !important;
 }
 
@@ -118,15 +127,15 @@
     }
 
     .checkboxes {
-      justify-content: space-between;
-      gap: 0;
+      gap: 10px;
+      justify-content: center;
       width: 100%;
       margin-left: 20px;
     }
   }
 
-  .nameCertificate {
-    max-width: 90vw;
+  .addressForm {
+    max-width: 100%;
 
     .personal {
       justify-content: center;
@@ -139,25 +148,26 @@
       align-items: center;
       flex-wrap: wrap;
     }
-
-    .shipment {
-      display: flex;
-      flex-direction: column;
+    .payment {
+      .checkboxes {
+        justify-content: center;
+        align-items: center;
+      }
+      .checkbox {
+        margin: 0;
+        align-self: stretch;
+      }
     }
-  }
-
-  .comment {
-    min-width: 300px;
-    width: 90%;
   }
 }
 
 @media (max-width: 767px) {
   .contactForm {
-    .checkboxes,
     .inputs {
-      display: flex;
-      flex-direction: column;
+      .input {
+        width: 100%;
+        max-width: 300px;
+      }
     }
   }
 
@@ -168,6 +178,7 @@
     .shipment {
       display: flex;
       flex-direction: column;
+      align-items: center;
     }
 
     .shipment {
@@ -190,6 +201,81 @@
           white-space: pre-wrap;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .contactForm {
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      .input {
+        max-width: 330px;
+      }
+    }
+    .checkboxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .addressForm {
+    padding: 26px 10px;
+    h6 {
+      white-space: inherit !important;
+    }
+    .personal {
+      gap: 10px;
+      row-gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .contactForm {
+    .checkboxes {
+      margin-left: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    .inputs {
+      .input {
+        max-width: 280px;
+      }
+    }
+  }
+
+  .addressForm {
+    .shipment {
+      .checkbox {
+        margin: 0;
+        text-wrap: nowrap;
+        span:first-child {
+          padding: 9px 3px 9px 0;
+        }
+      }
+    }
+
+    .personal {
+      .input {
+        max-width: 280px;
+      }
+    }
+
+    .selects {
+      > div,
+      .select {
+        max-width: 280px;
+      }
+    }
+
+    .comment {
+      max-width: 280px;
     }
   }
 }

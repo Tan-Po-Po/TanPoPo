@@ -22,6 +22,15 @@ const StartSelfEducation: React.FC = () => {
           <Typography variant="h2">в школі TanPoPo дуже легко!</Typography>
         </div>
 
+        <Typography
+          variant="h6"
+          align="center"
+          style={{ maxWidth: "775px", marginTop: "42px" }}
+        >
+          За допомогою нашого сайту Ви можете розпочати навчання по будь-якому
+          самостійному курсу прямо зараз:
+        </Typography>
+
         <div className={cl.startCards}>
           <Carousel
             renderCarousel={renderCarousel}

@@ -1,14 +1,15 @@
 .infoCardsBlock {
   display: flex;
-  //   gap: $gap-block-vertical;
+
   gap: 16px;
   justify-content: space-between;
   width: 100%;
 
   .infoCard {
-    // @include flex-column;
+    display: flex !important;
     justify-content: space-between;
     align-items: center;
+    
     img {
       margin: 0 auto;
     }
@@ -16,6 +17,12 @@
     .title {
       line-height: normal;
     }
+  }
+}
+
+@media (max-width: "1024px") and (min-width: "768px") {
+  .infoCard {
+    height: 500px;
   }
 }
 

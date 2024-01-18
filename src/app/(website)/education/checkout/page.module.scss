@@ -1,5 +1,6 @@
 .main {
   flex-grow: 1;
+  padding: 0 10px;
 }
 
 .content {
@@ -35,5 +36,25 @@
   margin-bottom: 125px;
   h6 {
     font-size: 24px;
+  }
+}
+
+@media (max-width: 550px) {
+  .info {
+    margin-top: 42px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .card {
+    padding: 26px 10px;
+    h6 {
+      font-size: 19px !important;
+      white-space: normal !important;
+      text-align: center;
+    }
+    p {
+      font-size: 16px !important;
+    }
   }
 }

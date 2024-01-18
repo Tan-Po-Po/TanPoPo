@@ -1,3 +1,7 @@
+.main {
+  padding: 0 10px;
+}
+
 .header {
   margin-top: 70px;
 }
@@ -6,12 +10,12 @@
   @include flex-column;
   margin-top: 70px;
   margin-bottom: 115px;
-  
+
   .card {
     padding: 20px;
   }
-  
-  ul  {
+
+  ul {
     margin: 0;
     padding: 0;
     margin-left: 25px;
@@ -35,5 +39,22 @@
   }
   .explanation {
     max-width: 355px;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    .card {
+      padding: 20px 10px;
+
+      h5,
+      h6 {
+        font-size: 24px !important;
+        display: contents;
+      }
+    }
+  }
+  .formulaCard {
+    padding: 26px 10px;
   }
 }

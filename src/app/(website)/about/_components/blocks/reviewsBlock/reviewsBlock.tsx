@@ -10,7 +10,11 @@ export const ReviewsBlock = () => {
   const { isPc, isMobile, isTablet } = useAppSelector(selectWindowMatchMedia);
 
   return (
-    <div className={cl.reviewsBlock} id="feedbacks">
+    <div
+      className={cl.reviewsBlock}
+      id="feedbacks"
+      style={{ scrollMarginTop: "100px" }}
+    >
       <Typography
         variant="h3"
         style={{ textAlign: "center" }}

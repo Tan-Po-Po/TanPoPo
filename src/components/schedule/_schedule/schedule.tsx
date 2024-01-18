@@ -46,7 +46,7 @@ const Schedule: React.FC<Properties> = ({ setCounter, setSchedule, format }) => 
         </Typography>
       </ContentCard>
       <div className={cl.line}></div>
-      <ContentCard width="1350px" height="550px">
+      <ContentCard width="1350px" className={cl.scheduleCard}>
         <div className={cl.container}>
           {days.map((day, dayIndex) => {
             return (

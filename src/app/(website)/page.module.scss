@@ -133,7 +133,16 @@
     gap: 65px;
   }
   .card {
-    padding: 15px;
+    & > div:first-child {
+      padding: 5px;
+      text-transform: uppercase;
+      span {
+        font-size: 13px !important;
+        line-height: 14px;
+      }
+    }
+
+    padding: 32px 10px 20px;
     a {
       font-weight: 700;
       font-size: 18px;

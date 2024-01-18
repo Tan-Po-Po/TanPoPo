@@ -3,7 +3,7 @@ import React from "react";
 import cl from "./header.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { Dropdown, Button, IconLink } from "@/components";
+import { Dropdown, Button, IconLink, CartButton } from "@/components";
 import { getValidClassNames } from "@/helpers";
 import { HeaderNarrow } from "./headerNarrow/headerNarrow";
 import { aboutLinks, coursesLinks } from "./links";
@@ -11,14 +11,16 @@ import { useWindowSize } from "@uidotdev/usehooks";
 
 const Header = () => {
   const { width } = useWindowSize();
- 
-  if (width && width < 1110) {
+
+  if (width && width < 1120) {
     return <HeaderNarrow />;
   }
 
   return (
     <header className={cl.header}>
       <div className={getValidClassNames(cl.wrapper, "wrapper")}>
+        <CartButton />
+
         <div className={cl.logo}>
           <Link href={"/"}>
             <Image
@@ -69,6 +71,22 @@ const Header = () => {
               Долучитись
             </Button>
           </Link>
+        </div>
+
+        <div className={getValidClassNames(cl.caption)}>
+          Онлайн-школа японської мови
+        </div>
+
+        <div className={cl.burger}>
+          <div className={cl.background}>
+            <div className={cl.icon}>
+              <div className={getValidClassNames(cl.burgerIcon)}>
+                <div className={cl.first}></div>
+                <div className={cl.second}></div>
+                <div className={cl.third}></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>

@@ -18,14 +18,23 @@
   }
 
   .inappropriateBtn {
+    &:hover {
+      background: #e1edff;
+    }
     background: #e1edff;
   }
 
   .maybeBtn {
+    &:hover {
+      background: #fff48d;
+    }
     background: #fff48d;
   }
 
   .perfectBtn {
+    &:hover {
+      background: #caffbd;
+    }
     background: #caffbd;
   }
 }
@@ -34,6 +43,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 
   .dayColumn {
     display: flex;
@@ -43,6 +53,9 @@
 
   .timeBtn {
     width: 130px;
+    // &:hover {
+    //   background-color: inherit;
+    // }
   }
 
   .day {
@@ -53,3 +66,65 @@
   }
 }
 
+@media (max-width: 1110px) {
+  .schedule {
+  .line {
+    display: none;
+  }}
+
+  .scheduleCard {
+    margin-top: 42px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    & > p {
+      border: $border;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+      padding: 20px 10px;
+    }
+  }
+  .container {
+    width: 90vw;
+    overflow: auto;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+
+
+    &::-webkit-scrollbar {
+      height: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+  .scheduleCard {
+    max-width: fit-content;
+  }
+}
+
+@media (max-width: 600px) {
+  .schedule {
+    .buttons {
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+  .scheduleCard {
+    padding: 26px 10px;
+  }
+}

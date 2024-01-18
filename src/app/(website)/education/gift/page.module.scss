@@ -1,8 +1,17 @@
+.main {
+  padding: 0px 10px;
+}
+
 .header {
   margin-top: 70px;
-  text-transform: uppercase;
+  text-align: center;
+  h4 {
+    font-size: 35px;
+  }
   h6 {
-    font-size: 22px;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 60px;
   }
 }
 
@@ -26,41 +35,6 @@
   }
 }
 
-.certificateType {
-  margin-top: 95px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  .certificateHeader {
-    gap: 0;
-    position: relative;
-
-    .line {
-      position: absolute;
-      border: $border;
-      border-bottom: none;
-      border-radius: $border-radius;
-      width: 550px;
-      height: 110px;
-      top: 50%;
-      z-index: -1;
-    }
-  }
-
-  .container {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .or {
-      margin: 0 50px;
-    }
-  }
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -68,7 +42,29 @@
   align-items: center;
 
   .selectType {
-    margin-top: 70px;
+    position: relative;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("/icons/arrowLong.svg");
+      width: 65px;
+      height: 55px;
+      background-size: 73px;
+      background-repeat: no-repeat;
+    }
+
+    &::after {
+      bottom: calc(100%);
+      left: calc(100% + 50px);
+    }
+
+    &::before {
+      transform: scaleX(-1);
+      bottom: calc(100%);
+      right: calc(100% + 50px);
+    }
   }
 
   .agreement {
@@ -136,6 +132,30 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .certificate {
+    margin-bottom: 0px;
+  }
+  .steps {
+    padding-left: 20px;
+  }
+  .form {
+    .selectType {
+      margin-top: 70px;
+
+      &::after {
+        bottom: calc(100% - 20px);
+        left: calc(100% + 50px);
+      }
+
+      &::before {
+        bottom: calc(100% - 20px);
+        right: calc(100% + 50px);
+      }
+    }
+  }
+}
+
 @media (max-width: 850px) {
   .header {
     h4,
@@ -167,24 +187,8 @@
     }
   }
 
-  .certificateType {
-    .line {
-      display: none;
-    }
-    .container {
-      margin-top: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      .or {
-        margin: 50px 0;
-      }
-    }
-  }
-
   .form {
+    width: 100%;
     .nameCertificate {
       max-width: 90vw;
 
@@ -220,7 +224,9 @@
 
   .important {
     max-width: 90vw;
-
+    & p:first-child {
+      text-wrap: pretty;
+    }
     .image {
       width: 100%;
       height: auto;
@@ -231,5 +237,62 @@
     .line {
       width: 90vw;
     }
+  }
+}
+
+@media (max-width: 660px) {
+  .form {
+    .selectType {
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    h4 {
+      font-size: 21px;
+      text-transform: uppercase;
+    }
+    h6 {
+      font-size: 20px;
+      margin-top: 21px;
+    }
+  }
+
+  .steps {
+    padding-left: 0;
+    .step {
+      & > div:first-child {
+        left: 21px;
+      }
+      h6 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 16px;
+      }
+      height: fit-content;
+      max-height: fit-content !important;
+      padding: 25px 10px;
+    }
+  }
+
+  .important {
+    padding: 26px 10px;
+
+    .list {
+      padding-left: 20px;
+    }
+    .p {
+      font-size: 15px !important;
+    }
+  }
+
+  .agreement  span {
+    margin-left: 0 !important;
   }
 }

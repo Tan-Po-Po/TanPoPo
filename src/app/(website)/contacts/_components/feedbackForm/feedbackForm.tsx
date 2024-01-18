@@ -1,5 +1,5 @@
 "use client";
-import { Button, Checkbox, Input, Typography } from "@/components";
+import { Button, Checkbox, Input, Typography, Loading } from "@/components";
 import Link from "next/link";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -33,6 +33,7 @@ export const FeedbackForm: React.FC = () => {
   });
 
   const [showErrors, setShowErrors] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (showErrors && errors) {
@@ -53,6 +54,7 @@ export const FeedbackForm: React.FC = () => {
   };
 
   const onSubmit: SubmitHandler<IFeedbackFormInput> = async (data) => {
+    setLoading(true);
     fetch("/api/question", {
       method: "POST",
       body: JSON.stringify(data),
@@ -60,15 +62,22 @@ export const FeedbackForm: React.FC = () => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-    }).then(async (res) => {
-      if (!res.ok) {
-        return toast("Сталася помилка, спробуйте ще раз пізніше");
-      }
-      reset();
-      toast("Питання успішно відправлено.");
-    });
+    })
+      .then(async (res) => {
+        setLoading(false);
+
+        if (!res.ok) {
+          return toast("Сталася помилка, спробуйте ще раз пізніше");
+        }
+        reset();
+        toast("Питання успішно відправлено.");
+      })
+      .catch(() => toast("Сталася помилка, спробуйте ще раз пізніше"));
   };
 
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
       <div className={cl.inputs}>
@@ -86,7 +95,9 @@ export const FeedbackForm: React.FC = () => {
                 notEmpty: (val) => !!val.trim() || "Будь ласка, вкажіть Ім'я",
               },
             }}
-            render={({ field }) => <Input label="Ім'я" {...field} />}
+            render={({ field }) => (
+              <Input label="Ім'я" {...field} className={cl.input} />
+            )}
           />
 
           <Controller
@@ -104,7 +115,12 @@ export const FeedbackForm: React.FC = () => {
               },
             }}
             render={({ field }) => (
-              <Input type="phone" label="Телефон" {...field} />
+              <Input
+                type="phone"
+                label="Телефон"
+                {...field}
+                className={cl.input}
+              />
             )}
           />
 
@@ -122,7 +138,9 @@ export const FeedbackForm: React.FC = () => {
                 message: "Введіть коректний email",
               },
             }}
-            render={({ field }) => <Input label="Email" {...field} />}
+            render={({ field }) => (
+              <Input label="Email" {...field} className={cl.input} />
+            )}
           />
         </div>
         <div className={cl.right}>

@@ -49,6 +49,7 @@ export const DialogGallery = () => {
           src={getEmbedYouTubeLink(galleryDialog.src)}
           title="YouTube video player"
           frameBorder="0"
+          // referrerPolicy="no-referrer-when-downgrade"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>

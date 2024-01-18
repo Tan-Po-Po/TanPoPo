@@ -1,4 +1,10 @@
-import { CourseCard, Typography, Divider, Faq, FaqBlock } from "@/components";
+import {
+  Typography,
+  Divider,
+  Faq,
+  FaqBlock,
+  DialogGallery,
+} from "@/components";
 import { CoursesBlock } from "./_coursesBlock/coursesBlock";
 import cl from "./page.module.scss";
 import Course, { ICourse } from "@/models/Course";
@@ -36,6 +42,8 @@ export default async function Home() {
 
   return (
     <main className={cl.main}>
+      <DialogGallery />
+      
       <Typography variant="h3" className={cl.header}>
         Вартість навчання
       </Typography>

@@ -19,7 +19,7 @@ export const galleryDialogSlice = createSlice({
   initialState,
   reducers: {
     openGalleryDialog: (
-      state,
+      _state,
       action: PayloadAction<Omit<IGalleryDialog, "isOpen">>
     ) => {
       return { isOpen: true, ...action.payload };
