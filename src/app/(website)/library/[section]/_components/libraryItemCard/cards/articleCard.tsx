@@ -13,7 +13,7 @@ import Image from "next/image";
 import PlayButtonIcon from "/public/icons/playButton.svg";
 import { useState } from "react";
 import { Props } from "../props";
-import { Footer } from "../footer/footer";
+import { CardFooter } from "../cardFooter/cardFooter";
 
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { IMAGE_BASE_URL } from "@/config/config";
@@ -127,7 +127,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
           </div>
         </div>
 
-        <Footer item={props} />
+        <CardFooter item={props} />
       </ContentCard>
     </div>
   );

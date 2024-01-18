@@ -33,7 +33,9 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
 
   return (
     <div onClick={handelClick} id={props._id} className={cl.libraryItemCard}>
-      {props.isNew && <NewLabel />}
+      {/* {props.isNew && <NewLabel />} */}
+      <NewLabel />
+
       {card}
     </div>
   );

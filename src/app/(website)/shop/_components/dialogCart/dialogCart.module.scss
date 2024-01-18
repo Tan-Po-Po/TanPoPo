@@ -1,4 +1,9 @@
 .dialog {
+  .title {
+    font-size: 34px;
+    font-weight: 700;
+    align-items: center;
+  }
   :global(.MuiDialog-paper) {
     padding: 0;
     padding-top: 13px;
@@ -34,9 +39,8 @@
 @media (max-width: 767px) {
   .dialog {
     .title {
-      h3 {
-        font-size: 30px;
-      }
+      font-size: 30px;
+
       img {
         width: 37px !important;
       }

@@ -4,7 +4,7 @@ import cl from "./dialogArticle.module.scss";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ILibraryItem } from "@/models/LibraryItem";
 import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
-import { Footer } from "../libraryItemCard/footer/footer";
+import { CardFooter } from "../libraryItemCard/cardFooter/cardFooter";
 import { Media } from "./media/media";
 import { NewLabel } from "../libraryItemCard/newLabel/newLabel";
 import { useEffect, useState } from "react";
@@ -95,7 +95,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
           </div>
 
           <LibraryItemContent item={item} isDialog={true} />
-          <Footer item={item} />
+          <CardFooter item={item} />
         </>
       )}
     </Dialog>

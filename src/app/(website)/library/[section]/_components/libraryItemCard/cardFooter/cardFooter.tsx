@@ -1,6 +1,6 @@
 "use client";
 import { ContentCard, Typography } from "@/components";
-import cl from "./footer.module.scss";
+import cl from "./cardFooter.module.scss";
 import { ILibraryItem } from "@/models/LibraryItem";
 import CopyIcon from "/public/icons/copy.svg";
 import { usePathname } from "next/navigation";
@@ -11,22 +11,29 @@ interface Props {
   item: ILibraryItem;
 }
 
-export const Footer: React.FC<Props> = ({ item }) => {
+export const CardFooter: React.FC<Props> = ({ item }) => {
   const { _id, hashtags, type, media } = item;
 
   const path = usePathname();
 
-  const handleCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleCopyClick = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    if (
-      type === "reels" ||
-      (type === "music" && !media![0].video?.includes("youtube"))
-    ) {
-      navigator.clipboard.writeText(media[0].video!);
-    } else {
-      navigator.clipboard.writeText(`${SERVER_URL}${path}?id=${_id}`);
+    try {
+      if (
+        type === "reels" ||
+        (type === "music" && !media![0].video?.includes("youtube"))
+      ) {
+        console.log(navigator.clipboard);
+
+        await navigator.clipboard.writeText(media[0].video!);
+      } else {
+        await navigator.clipboard.writeText(`${SERVER_URL}${path}?id=${_id}`);
+      }
+      toast("Посилання скопійовано💾");
+    } catch (err) {
+      console.log(err);
+      toast("Не вдалося отримати посиллання");
     }
-    toast("Посилання скопійовано💾");
   };
   return (
     <div className={cl.footer}>
