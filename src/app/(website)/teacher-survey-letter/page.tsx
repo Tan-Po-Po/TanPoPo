@@ -1,6 +1,13 @@
 "use client";
 
-import { Button, Checkbox, ContentCard, Input, Typography } from "@/components";
+import {
+  Button,
+  Checkbox,
+  ContentCard,
+  Input,
+  Loading,
+  Typography,
+} from "@/components";
 import cl from "./page.module.scss";
 import inputCl from "@/components/input/input.module.scss";
 import Image from "next/image";
@@ -13,7 +20,6 @@ import Link from "next/link";
 import { DatePicker } from "@mui/x-date-pickers";
 import { submitTeacherSurveyForm } from "./actions/actions";
 import { useRouter } from "next/navigation";
-import Loading from "../contacts/loading";
 
 const Page = () => {
   const {
