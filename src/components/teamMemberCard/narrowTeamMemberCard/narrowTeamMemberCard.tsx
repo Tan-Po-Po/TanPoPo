@@ -43,9 +43,11 @@ export const NarrowTeamMemberCard: React.FC<Props> = ({
 
     case "education":
       content = <Education education={education} />;
+      break;
 
     case "about":
       content = <About about={about} />;
+      break;
 
     default:
       break;

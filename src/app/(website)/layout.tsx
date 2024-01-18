@@ -15,13 +15,14 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
-        <DialogCart />
+        
         <ToastContainer
           position="bottom-center"
           autoClose={3000}
           hideProgressBar={true}
           theme="dark"
         />
+        <DialogCart />
       </body>
     </html>
   );

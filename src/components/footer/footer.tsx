@@ -130,7 +130,7 @@ const Footer: React.FC = () => {
           <div className={cl.linkWrapper}>
             <Link href={"/contacts/oferta"}>Публічна Оферта</Link>
             <span> & </span>
-            <Link href={"/"}>Cookies</Link>
+            <Link href={"/contacts/confidentialityPolicy#7"}>Cookies</Link>
           </div>
           <div className={cl.text}>
             <div className={cl.line}>Онлайн-школа японської мови.</div>
