@@ -7,6 +7,7 @@ import {
   Button,
   Checkbox,
   DialogGallery,
+  Loading,
 } from "@/components";
 import Image from "next/image";
 import cl from "./page.module.scss";
@@ -14,11 +15,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
+import { toast } from "react-toastify";
 
 export default function Join() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [isChecked, setIsChecked] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const handleCheckboxClick = () => {
     setIsChecked((prev) => !prev);
@@ -26,11 +29,19 @@ export default function Join() {
 
   const handleButtonClick = () => {
     isChecked
-      ? router.push("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-      : alert(
+      ? (setLoading(true),
+        setTimeout(
+          () => router.push("https://www.youtube.com/watch?v=dQw4w9WgXcQ"),
+          3000
+        ))
+      : toast(
           "Для продовження ви маєте прийняти умови публічної оферти та політики конфіденційності"
         );
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <main className={cl.main}>
@@ -42,7 +53,8 @@ export default function Join() {
             Реєструючись на платформі нашої школи
           </Typography>
           <Typography variant="h3" align="center">
-            {" "}Ви автоматично отримуєте:
+            {" "}
+            Ви автоматично отримуєте:
           </Typography>
         </div>
 
@@ -60,7 +72,7 @@ export default function Join() {
               />
               <Typography variant="body1">
                 Бажаєте подивитись “зсередини” на навчальну платформу?
-                Зазирність нанаш безкоштовний мінікурс у вигляді відеоуроків з
+                Зазирність на наш безкоштовний мінікурс у вигляді відеоуроків з
                 сенсеєм, інтерактивними завданнями, тестами для самоперевірки та
                 самі переконайтесь в якості поданих навчальних матеріалів!
               </Typography>

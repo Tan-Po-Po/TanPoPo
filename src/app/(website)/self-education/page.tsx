@@ -6,7 +6,7 @@ import { getIconArtSrc } from "@/helpers";
 export default function Home() {
   return (
     <main className={cl.main}>
-      <Typography variant="h4" className={cl.header}>
+      <Typography variant="h4" className={cl.header} align="center">
         Самостійне Навчання
       </Typography>
 
@@ -14,10 +14,10 @@ export default function Home() {
         <ContentCard width="850px" className={cl.card}>
           <div>
             <Typography variant="h5" style={{ fontSize: "27px" }}>
-              Про Навчальний Період
+              Про навчальний період
             </Typography>
             <Typography variant="h6" style={{ fontSize: "23px" }}>
-              для відеокурсів / аудіокурсів:
+              {" "}для відеокурсів / аудіокурсів:
             </Typography>
           </div>
 
@@ -64,6 +64,7 @@ export default function Home() {
               Навчальний Період
             </Typography>
           }
+          className={cl.formulaCard}
         >
           <Typography variant="subtitle1">
             Дуже легко визначається за формулою:
