@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import cl from "./page.module.scss";
-import { Button, ContentCard, Typography } from "@/components";
+import { Button, ContentCard, Typography, Loading } from "@/components";
 import { textContent } from "./textContent";
 
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -24,6 +24,7 @@ type InputForm = {
 };
 
 export default function Test() {
+  const [loading, setLoading] = useState(true);
   const [levelIndex, setLevelIndex] = useState(0);
   const [testIndex, setTestIndex] = useState(0);
   const [testResult, setTestResult] = useState<null | string>(null);
@@ -44,6 +45,10 @@ export default function Test() {
       subquestion1: "",
     },
   });
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1500);
+  }, []);
 
   useEffect(() => {
     setProgress(progressEvaluation);
@@ -96,7 +101,9 @@ export default function Test() {
     setTestIndex((prevIndex) => prevIndex + 1);
   };
 
-  console.log("testRes", testResult);
+  if (loading) {
+    return <Loading />;
+  }
 
   if (testResult) {
     return (

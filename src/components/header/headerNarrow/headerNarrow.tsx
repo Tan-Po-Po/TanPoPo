@@ -1,5 +1,5 @@
 "use client";
-import { Button, ContentCard, Dialog, Typography } from "@/components";
+import { Button, ContentCard, Dialog, CartButton } from "@/components";
 import cl from "./headerNarrow.module.scss";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
@@ -32,97 +32,105 @@ export const HeaderNarrow = () => {
 
   return (
     <header className={cl.headerNarrow}>
-      <div className={cl.logo}>
-        <Link href="/">
+      {!isOpen && <CartButton />}
+      <div className={cl.wrapper}>
+        <div className={cl.logo}>
+          <Link href="/">
+            <div className={cl.background}>
+              <div className={cl.icon}>
+                <TanPoPoIcon />
+              </div>
+            </div>
+          </Link>
+        </div>
+        <div
+          className={getValidClassNames(
+            cl.caption,
+            isMobile && cl.mobile,
+            isTablet && cl.tablet
+          )}
+        >
+          {isMobile ? (
+            <>
+              Онлайн-школа <br /> японської мови
+            </>
+          ) : (
+            "Онлайн-школа японської мови"
+          )}
+        </div>
+        <div className={cl.burger} onClick={isOpen ? handleClose : handleOpen}>
           <div className={cl.background}>
             <div className={cl.icon}>
-              <TanPoPoIcon />
+              <Burger isOpen={isOpen} />
             </div>
           </div>
-        </Link>
-      </div>
-      <div
-        className={getValidClassNames(
-          cl.caption,
-          isMobile && cl.mobile,
-          isTablet && cl.tablet
-        )}
-      >
-        {isMobile ? (
-          <>
-            Онлайн-школа <br /> японської мови
-          </>
-        ) : (
-          "Онлайн-школа японської мови"
-        )}
-      </div>
-      <div className={cl.burger} onClick={isOpen ? handleClose : handleOpen}>
-        <div className={cl.background}>
-          <div className={cl.icon}>
-            <Burger isOpen={isOpen} />
-          </div>
         </div>
-      </div>
-      <Dialog
-        open={isOpen}
-        onClose={handleClose}
-        closeIcon={false}
-        className={cl.dialog}
-        TransitionComponent={Slide}
-        contentClassName={cl.dialogContent}
-      >
-        <div className={cl.menu}>
-          <Dropdown
-            body="ПРО ШКОЛУ"
-            links={aboutLinks}
-            icon="building"
-            onClick={handleClose}
-          />
-          <Dropdown
-            body="КУРСИ"
-            links={coursesLinks}
-            icon="bookPlay"
-            onClick={handleClose}
-          />
+        <Dialog
+          open={isOpen}
+          onClose={handleClose}
+          closeIcon={false}
+          className={cl.dialog}
+          TransitionComponent={Slide}
+          contentClassName={cl.dialogContent}
+        >
+          <div className={cl.menu}>
+            <Dropdown
+              body="ПРО ШКОЛУ"
+              links={aboutLinks}
+              icon="building"
+              onClick={handleClose}
+            />
+            <Dropdown
+              body="КУРСИ"
+              links={coursesLinks}
+              icon="bookPlay"
+              onClick={handleClose}
+            />
 
-          <Link href="/shop" className={cl.link}>
-            <Image alt="" src={getIconSrc("shop")} width={20} height={20} />
-            КРАМНИЦЯ
-          </Link>
-
-          <Link href="/test-intro" className={cl.link}>
-            <Image alt="" src={getIconSrc("pc")} width={20} height={20} />
-            ОНЛАЙН-ТЕСТ
-          </Link>
-
-          <Link href="/library" className={cl.link}>
-            <Image alt="" src={getIconSrc("bank")} width={20} height={20} />
-            БІБЛІОТЕКА
-          </Link>
-
-          <Link href="/contacts" className={cl.link}>
-            <Image alt="" src={getIconSrc("contact")} width={20} height={20} />
-            КОНТАКТИ
-          </Link>
-        </div>
-        <ContentCard width="305px" className={cl.card}>
-          <div className={cl.buttons}>
-            <Link href="/join">
-              <Button className={cl.button}>Долучитись</Button>
+            <Link href="/shop" className={cl.link}>
+              <Image alt="" src={getIconSrc("shop")} width={20} height={20} />
+              КРАМНИЦЯ
             </Link>
 
-            <Link href="/join">
-              <Button className={cl.button}>Вхід</Button>
+            <Link href="/test-intro" className={cl.link}>
+              <Image alt="" src={getIconSrc("pc")} width={20} height={20} />
+              ОНЛАЙН-ТЕСТ
+            </Link>
+
+            <Link href="/library" className={cl.link}>
+              <Image alt="" src={getIconSrc("bank")} width={20} height={20} />
+              БІБЛІОТЕКА
+            </Link>
+
+            <Link href="/contacts" className={cl.link}>
+              <Image
+                alt=""
+                src={getIconSrc("contact")}
+                width={20}
+                height={20}
+              />
+              КОНТАКТИ
             </Link>
           </div>
-          <div className={cl.caption}>
-            <>
-              Найбільший освітній портал <br /> японської мови в Україні.
-            </>
-          </div>
-          <div className={cl.icons}>{getSocialIconsLinks("35px")}</div>
-        </ContentCard>
-      </Dialog>
+          <ContentCard width="305px" className={cl.card}>
+            <div className={cl.buttons}>
+              <Link href="/join">
+                <Button className={cl.button}>Долучитись</Button>
+              </Link>
+
+              <Link href="/join">
+                <Button className={cl.button}>Вхід</Button>
+              </Link>
+            </div>
+            <div className={cl.caption}>
+              <>
+                Найбільший освітній портал <br /> японської мови в Україні.
+              </>
+            </div>
+            <div className={cl.icons}>{getSocialIconsLinks("35px")}</div>
+          </ContentCard>
+        </Dialog>
+      </div>
     </header>
   );
 };

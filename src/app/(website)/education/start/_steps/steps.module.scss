@@ -1,0 +1,54 @@
+.steps {
+  margin: 70px 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    padding: 26px 22px;
+  }
+
+  .triangleBtn {
+    width: 36px;
+    height: 37px;
+    margin: 0 40px;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      scale: 1.1;
+      fill: $color-yellow;
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .card {
+    display: flex !important;
+    .triangleBtn {
+      position: absolute;
+      top: 43%;
+      right: -33%;
+      z-index: 2;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .steps {
+    .card {
+      max-height: fit-content !important;
+      padding: 26px 10px;
+    }
+  }
+
+  .card > div:first-child {
+    left: 26px;
+  }
+  .steps {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .triangleBtn {
+    rotate: 90deg;
+  }
+}

@@ -7,13 +7,17 @@
 
     .left {
       @include flex-column;
-
       gap: 52px;
+      .input {
+        width: 320px;
+      }
     }
     .right {
       @include flex-column;
-
       width: 100%;
+      .input {
+        max-width: 100%;
+      }
     }
   }
   .footer {

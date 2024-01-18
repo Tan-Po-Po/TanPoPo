@@ -152,7 +152,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                     }
                   : {}
               }
-              render={({ field }) => <Input label="Ім'я" {...field} />}
+              render={({ field }) => <Input className={cl.input} label="Ім'я" {...field} />}
             />
 
             <Controller
@@ -169,7 +169,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                     }
                   : {}
               }
-              render={({ field }) => <Input label="Прізвище" {...field} />}
+              render={({ field }) => <Input className={cl.input} label="Прізвище" {...field} />}
             />
           </div>
         </>

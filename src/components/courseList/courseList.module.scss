@@ -23,4 +23,12 @@
       column-gap: 15px;
     }
   }
+  .carousel {
+    & > div:first-child {
+      margin: 0 -10px;
+    }
+    :global(.slick-slide) > div {
+      margin: 48px 10px !important;
+    }
+  }
 }

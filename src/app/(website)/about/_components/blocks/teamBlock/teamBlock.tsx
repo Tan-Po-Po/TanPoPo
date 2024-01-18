@@ -35,7 +35,11 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
   };
 
   return (
-    <div className={cl.teamBlock} id="team">
+    <div
+      className={cl.teamBlock}
+      id="team"
+      style={{ scrollMarginTop: "100px" }}
+    >
       <Typography variant="h3" style={{ marginBottom: "62px" }} align="center">
         КОМАНДА TANPOPO
       </Typography>

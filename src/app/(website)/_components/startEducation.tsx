@@ -179,7 +179,16 @@ export function StartEducation({
   }
   return (
     <ContentCard className={cl.start} width="1166px">
-      <Typography variant="h4">Розпочати навчання - дуже просто!</Typography>
+      <Typography variant="h4" align="center" style={{ fontSize: "32px" }}>
+        Розпочати навчання прямо зараз - дуже просто!
+      </Typography>
+      <Typography
+        variant="body1"
+        align="center"
+        style={{ fontSize: "24px", marginTop: "42px", maxWidth: "650px" }}
+      >
+        Записатись на будь-який курс можна абсолютно самостійно на нашому сайті:
+      </Typography>
       {cards}
     </ContentCard>
   );

@@ -35,6 +35,7 @@ $transition-duration: all 0.3s ease-in;
         font-weight: 700;
 
         .value {
+          text-align: center;
           transition: $transition-duration;
         }
 
@@ -48,7 +49,7 @@ $transition-duration: all 0.3s ease-in;
       .arrow {
         stroke: black;
         position: absolute;
-        top: 18px;
+        top: calc(50% - 7px);
         right: 18px;
         transition: $transition-duration;
         pointer-events: none;

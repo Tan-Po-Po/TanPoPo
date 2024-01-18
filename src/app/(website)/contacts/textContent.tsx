@@ -27,20 +27,25 @@ export const textContent = {
     },
     card3: {
       section1: {
+        tittle: "Реквізити Школи",
+        href: "/contacts/requisites",
+      },
+      section2: {
         tittle: "Публічна Оферта",
         href: "/contacts/oferta",
       },
-      section2: {
-        tittle: "Політика Конфідеційності",
-        href: "/contacts/confidentialityPolicy",
-      },
+
       section3: {
         tittle: "Сторінка Розробників",
         href: "/contacts/developers",
       },
       section4: {
-        tittle: "Реквізити Школи",
-        href: "/contacts/requisites",
+        tittle: "Політика Конфідеційності",
+        href: "/contacts/confidentialityPolicy",
+      },
+      section5: {
+        tittle: "Долучитись до Команди",
+        href: "/teacher-survey-letter",
       },
     },
   },

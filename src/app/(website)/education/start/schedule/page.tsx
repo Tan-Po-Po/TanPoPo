@@ -47,6 +47,8 @@ export default function Page() {
     handleSubmit,
     trigger,
     formState: { errors },
+    setValue,
+    watch
   } = formReturn;
 
   const scheduleArray: ISchedule = Array.from({ length: 7 }, () =>
@@ -56,14 +58,17 @@ export default function Page() {
   const [showErrors, setShowErrors] = React.useState(false);
   const [schedule, setSchedule] = React.useState<ISchedule>(scheduleArray);
   const [comment, setComment] = React.useState("");
-  const [lessonsPerWeek, setLessonsPerWeek] = React.useState(0);
+  const lessonsPerWeek = watch("lessonsPerWeek")
   const course = useAppSelector((state) => selectCourse(state));
 
   const submitForm = (formData: any) => {
-    if (course.format === "Міні-група" && counter < 12) {
-      return toast(
-        `Просимо Вас обрати хоча б 12 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑`
-      );
+    if (course.format === "Міні-група") {
+      setValue("lessonsPerWeek", 2);
+      if (counter < 12) {
+        return toast(
+          `Просимо Вас обрати хоча б 12 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑`
+        );
+      }
     } else {
       if (!lessonsPerWeek) {
         return toast("Оберіть бажану к-сть занять на тиждень!☑");
@@ -82,8 +87,6 @@ export default function Page() {
       comment,
       schedule,
     };
-    console.log(data);
-    console.log(schedule);
 
     fetch("/api/education", {
       method: "POST",
@@ -158,23 +161,18 @@ export default function Page() {
             />
 
             <Select
-              menuItems={[
-                "1 заняття",
-                "2 заняття",
-                "3 заняття",
-                "4 занять",
-                "5 занять",
-              ]}
+              menuItems={["1 заняття", "2 заняття", "3 заняття"]}
               handleSelect={(value) => {
-                setLessonsPerWeek(parseInt(value[0]));
-                dispatch(setCourse({ lessonsPerWeek: parseInt(value[0]) }));
+                const lessons = parseInt(value[0]);
+                dispatch(setCourse({ lessonsPerWeek: lessons }));
+                setValue("lessonsPerWeek", lessons);
               }}
               placeHolder="К-сть занять"
               className={cl.select}
             />
           </ContentCard>
         )}
-        <Typography variant="h3" style={{ marginTop: "100px" }}>
+        <Typography variant="h3" align="center" style={{ marginTop: "100px" }}>
           Зручне формування розкладу навчання:
         </Typography>
         <Schedule
@@ -184,7 +182,7 @@ export default function Page() {
         />
 
         <div className={cl.comment}>
-          <Typography variant="h6">
+          <Typography variant="h6" align="center">
             {
               "Якщо Ви бажаєте надати додаткові коментарі\n стосовно розкладу, Ви можете написати їх сюди:"
             }

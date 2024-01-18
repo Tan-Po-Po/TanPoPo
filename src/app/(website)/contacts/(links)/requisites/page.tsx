@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Requisites() {
   return (
     <div className={cl.requisites}>
-      <Typography variant="h3">{textContent.header}</Typography>
+      <Typography variant="h3" align="center">{textContent.header}</Typography>
 
       <ContentCard
         className={cl.requisitesCard}
@@ -40,7 +40,7 @@ export default function Requisites() {
 
       <div className={cl.text}>
         <Typography variant="body1">АБО</Typography>
-        <Typography variant="subtitle1">
+        <Typography variant="subtitle1" align="center">
           Швидка оплата за QR-кодом нашої школи!
         </Typography>
       </div>

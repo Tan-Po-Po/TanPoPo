@@ -119,6 +119,14 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
             {label}
           </Typography>
         ))}
+        <Typography
+          variant="body2"
+          className={cl.label}
+          style={{ background: courseInfo.labelColor }}
+        >
+          Міні-група: 2 р./тиждень <br />
+          Індивідуально: 1-3 р./тиждень
+        </Typography>
       </section>
 
       <Select

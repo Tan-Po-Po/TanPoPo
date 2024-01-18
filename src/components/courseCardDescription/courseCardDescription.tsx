@@ -19,6 +19,8 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { IMAGE_BASE_URL } from "@/config/config";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { useAppDispatch } from "@/redux/hooks";
+import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 
 type Properties = {
   course: ICourse;
@@ -39,6 +41,7 @@ const placeholders = {
 const CourseCardDescription: React.FC<Properties> = ({ course }) => {
   const { width } = useWindowSize();
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const courseInfo = course.large;
   const [isGift, setIsGift] = useState(false);
   const [lessons, setLessons] = useState<null | string>(null);
@@ -91,25 +94,40 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       ))}
 
       {course.type === "video" && (
-        <Link href={course.href}>
-          <div className={cl.imageWrapper}>
-            <Image
-              src={`${IMAGE_BASE_URL}/${course.images[0].image.filename}`}
-              alt="Course image"
-              width={500}
-              height={280}
-              style={{ maxWidth: "100%", height: "auto" }}
-            />
-            <PlayBtn className={cl.playBtn} />
-          </div>
-        </Link>
+        <div
+          className={cl.imageWrapper}
+          onClick={() =>
+            dispatch(
+              openGalleryDialog({
+                type: "video",
+                src: course.href,
+              })
+            )
+          }
+        >
+          <Image
+            src={`${IMAGE_BASE_URL}/${course.images[0].image.filename}`}
+            alt="Course image"
+            width={500}
+            height={280}
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+          <PlayBtn className={cl.playBtn} />
+        </div>
       )}
 
       {course.type === "audio" && (
         <AudioButton
           isPodcast={width! > 500}
           color={courseInfo.labelColor}
-          href={course.href || ""}
+          onClick={() =>
+            dispatch(
+              openGalleryDialog({
+                type: "video",
+                src: course.href,
+              })
+            )
+          }
         />
       )}
 
@@ -129,6 +147,14 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
                 width={215}
                 height={215}
                 style={{ maxWidth: "100%", height: "auto", width: "auto" }}
+                onClick={() =>
+                  dispatch(
+                    openGalleryDialog({
+                      type: "image",
+                      src: `${IMAGE_BASE_URL}/${item.image.filename}`,
+                    })
+                  )
+                }
               />
             </CarouselItem>
           ))}

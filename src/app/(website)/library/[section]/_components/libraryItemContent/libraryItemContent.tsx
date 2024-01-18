@@ -124,7 +124,6 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
             <AudioButton
               key={item.id || item._id}
               isPodcast={isPodcast}
-              href={item.value!}
               color={labelColor}
               className={cl.audioButton}
               onClick={handlePodcastClick}

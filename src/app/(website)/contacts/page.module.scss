@@ -74,9 +74,6 @@
           max-width: 100%;
           padding: 26px 14px;
         }
-        .card:nth-child(3) {
-          display: none;
-        }
         .socials {
           gap: 10px;
         }
@@ -91,11 +88,6 @@
       h6 {
         font-size: 17px;
       }
-    }
-
-    .faqDivider,
-    .faqBlock {
-      display: none;
     }
   }
 }

@@ -1,14 +1,11 @@
 import { ContentCard } from "@/components";
 import cl from "./audioButton.module.scss";
 import TriangleIcon from "/public/icons/triangleButton.svg";
-
-import Link from "next/link";
 import Image from "next/image";
 import { getValidClassNames } from "@/helpers";
 
 interface Props {
   isPodcast: boolean;
-  href: string;
   color: string;
   className?: string;
   onClick?: (event: React.MouseEvent) => void;
@@ -16,7 +13,6 @@ interface Props {
 
 export const AudioButton: React.FC<Props> = ({
   isPodcast,
-  href,
   color,
   className,
   onClick,
@@ -28,11 +24,10 @@ export const AudioButton: React.FC<Props> = ({
       className={getValidClassNames(cl.audioButton, className && className)}
       onClick={onClick}
     >
-      <Link href={href} className={cl.link}>
-        <div className={cl.triangleBtn}>
-          <TriangleIcon />
-        </div>
-      </Link>
+
+      <div className={cl.triangleBtn}>
+        <TriangleIcon />
+      </div>
 
       <div className={cl.audioImgWrapper}>
         <Image

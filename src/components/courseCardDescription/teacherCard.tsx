@@ -96,7 +96,10 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
       labelPosition="top"
       width={"1065px"}
     >
-      <Typography variant="h3" className={cl.h3}> Твої скіли після засвоєння курсу:</Typography>
+      <Typography variant="h3" className={cl.h3}>
+        {" "}
+        Твої скіли після засвоєння курсу:
+      </Typography>
       <div className={cl.description}>
         {courseInfo.description.map((item, index) => {
           const { icon, text } = item as { icon: string; text: string };
@@ -110,6 +113,12 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
       </div>
 
       <div className={cl.labels}>
+        <div className={cl.label} style={{ background: courseInfo.labelColor }}>
+          Міні-група: 2 р./тиждень
+        </div>
+        <div className={cl.label} style={{ background: courseInfo.labelColor }}>
+          Індивідуально: 1-3 р./тиждень
+        </div>
         {course.labels.concat(courseInfo.labels).map((item, index) => (
           <div
             className={cl.label}

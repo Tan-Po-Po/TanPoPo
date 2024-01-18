@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
               style={{ width, height: "auto" }}
               alt=""
             />
-            <Link href={"/courses/educationAsGift"}>Навчання у подарунок</Link>
+            <Link href={"/gift-education"}>Навчання у подарунок</Link>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
               style={{ width, height: "auto" }}
               alt=""
             />
-            <Link href={"/courses/price"}>Вартість курсів</Link>
+            <Link href={"/prices"}>Вартість курсів</Link>
           </div>
           <div className={cl.linkWrapper}>
             <Image
@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
               style={{ width, height: "auto" }}
               alt=""
             />
-            <Link href={"/courses/educationProgram"}>Освітня програма</Link>
+            <Link href={"/education"}>Освітня програма</Link>
           </div>
           <div className={cl.linkWrapper}>
             <Image
@@ -120,7 +120,7 @@ const Footer: React.FC = () => {
               style={{ width, height: "auto" }}
               alt=""
             />
-            <Link href={"/bonusBenefits"}>Додаткові переваги</Link>
+            <Link href={"/bonus-benefits"}>Додаткові переваги</Link>
           </div>
           <div className={cl.linkWrapper}>
             <Link href={"/contacts/confidentialityPolicy"}>
