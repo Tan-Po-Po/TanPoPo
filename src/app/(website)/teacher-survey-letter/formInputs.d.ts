@@ -2,7 +2,7 @@ export interface IFormInputs {
   name: string;
   surname: string;
   patronymic: string;
-  birthDate: Date;
+  birthDate: Date | string;
   email: string;
   phone: string;
   telegram: boolean;
@@ -25,10 +25,10 @@ export interface IFormInputs {
   teachingExp: string;
   workExp: string;
   notebookInternetIsAvailable: string;
-  "3-4": boolean;
-  "4-5": boolean;
-  "5-6": boolean;
-  "6-7": boolean;
+  d34: boolean;
+  d45: boolean;
+  d56: boolean;
+  d67: boolean;
   weekDaysAvailableYesAlmostAnytime: boolean;
   weekDaysAvailableNoNotAnyDay: boolean;
   weekDaysAvailableYseAnyDayNotAnyHour: boolean;
@@ -68,10 +68,10 @@ export const defaultValues: IFormInputs = {
   teachingExp: "",
   workExp: "",
   notebookInternetIsAvailable: "",
-  "3-4": false,
-  "4-5": false,
-  "5-6": false,
-  "6-7": false,
+  d34: false,
+  d45: false,
+  d56: false,
+  d67: false,
   weekDaysAvailableYesAlmostAnytime: false,
   weekDaysAvailableNoNotAnyDay: false,
   weekDaysAvailableYseAnyDayNotAnyHour: false,

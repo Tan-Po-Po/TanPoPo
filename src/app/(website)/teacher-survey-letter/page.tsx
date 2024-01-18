@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Button,
-  Checkbox,
-  ContactForm,
-  ContentCard,
-  Input,
-  Typography,
-} from "@/components";
+import { Button, Checkbox, ContentCard, Input, Typography } from "@/components";
 import cl from "./page.module.scss";
 import inputCl from "@/components/input/input.module.scss";
 import Image from "next/image";
@@ -18,24 +11,28 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import { DatePicker } from "@mui/x-date-pickers";
-import dayjs from "dayjs";
+import { submitTeacherSurveyForm } from "./actions/actions";
+import { useRouter } from "next/navigation";
+import Loading from "../contacts/loading";
 
 const Page = () => {
   const {
     control,
     setValue,
     getValues,
-    watch,
     handleSubmit,
     trigger,
     formState: { errors },
-    clearErrors,
   } = useForm<IFormInputs>({
     defaultValues,
     reValidateMode: "onSubmit",
   });
 
   const [showErrors, setShowErrors] = useState(true);
+
+  const router = useRouter();
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (showErrors) {
@@ -56,7 +53,33 @@ const Page = () => {
     setShowErrors(true);
   };
 
-  const onSubmit = (data: IFormInputs) => {};
+  const onSubmit = async (data: IFormInputs) => {
+    setIsLoading(true);
+    const isSuccess = await submitTeacherSurveyForm(
+      JSON.parse(JSON.stringify(data))
+    );
+
+    if (!isSuccess) {
+      setIsLoading(false);
+      return toast(
+        "Трапилась помилка про обробці форми. Відправте ще раз або спробуйте пізніше."
+      );
+    }
+
+    toast(
+      "Ми бачимо і цінуємо ваше бажанняпрацювати в команді TanPoPo⭐ Невдовзі ми розглянемо вашу заявку іобов’язково сконтактуємось з Вами!",
+      { autoClose: 5000 }
+    );
+    router.push("/");
+  };
+
+  if (isLoading) {
+    return (
+      <main className={cl.main}>
+        <Loading />
+      </main>
+    );
+  }
 
   return (
     <main className={cl.main}>
@@ -88,7 +111,11 @@ const Page = () => {
         в крутій команді, залишайте заявку нижче:
       </Typography>
 
-      <form className={cl.form} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className={cl.form}
+        id="surveyForm"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <ContentCard
           width="100%"
           className={getValidClassNames(cl.formBlock, cl.contacts)}
@@ -478,6 +505,10 @@ const Page = () => {
                     }
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("visitedJpAsTourist", false);
+                      setValue("visitedJpOther", false);
+                      setValue("didNotVisitJp", false);
+
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -509,6 +540,9 @@ const Page = () => {
                     }
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("visitedJpAsStudent", false);
+                      setValue("visitedJpOther", false);
+                      setValue("didNotVisitJp", false);
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -539,6 +573,9 @@ const Page = () => {
                     }
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("visitedJpAsStudent", false);
+                      setValue("visitedJpAsTourist", false);
+                      setValue("didNotVisitJp", false);
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -572,6 +609,10 @@ const Page = () => {
                     }
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("visitedJpAsStudent", false);
+                      setValue("visitedJpAsTourist", false);
+                      setValue("visitedJpOther", false);
+
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -621,6 +662,7 @@ const Page = () => {
                     label={<Typography variant="subtitle1">Так</Typography>}
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("speakingExpNo", false);
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -652,6 +694,7 @@ const Page = () => {
                     }
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("speakingExpYes", false);
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -759,15 +802,15 @@ const Page = () => {
             </div>
             <div className={cl.inputs}>
               <Controller
-                name="3-4"
+                name="d34"
                 control={control}
                 rules={{
                   validate: (value) => {
                     if (
-                      !getValues("3-4") &&
-                      !getValues("4-5") &&
-                      !getValues("5-6") &&
-                      !getValues("6-7")
+                      !getValues("d34") &&
+                      !getValues("d45") &&
+                      !getValues("d56") &&
+                      !getValues("d67")
                     ) {
                       return "Вкажіть кількість можливих робочих днів";
                     }
@@ -781,6 +824,10 @@ const Page = () => {
                     label={<Typography variant="subtitle1">3-4</Typography>}
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("d45", false);
+                      setValue("d56", false);
+                      setValue("d67", false);
+
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -788,15 +835,15 @@ const Page = () => {
               />
 
               <Controller
-                name="4-5"
+                name="d45"
                 control={control}
                 rules={{
                   validate: (value) => {
                     if (
-                      !getValues("3-4") &&
-                      !getValues("4-5") &&
-                      !getValues("5-6") &&
-                      !getValues("6-7")
+                      !getValues("d34") &&
+                      !getValues("d45") &&
+                      !getValues("d56") &&
+                      !getValues("d67")
                     ) {
                       return "Вкажіть кількість можливих робочих днів";
                     }
@@ -810,6 +857,9 @@ const Page = () => {
                     label={<Typography variant="subtitle1">4-5</Typography>}
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("d34", false);
+                      setValue("d56", false);
+                      setValue("d67", false);
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -817,15 +867,15 @@ const Page = () => {
               />
 
               <Controller
-                name="5-6"
+                name="d56"
                 control={control}
                 rules={{
                   validate: (value) => {
                     if (
-                      !getValues("3-4") &&
-                      !getValues("4-5") &&
-                      !getValues("5-6") &&
-                      !getValues("6-7")
+                      !getValues("d34") &&
+                      !getValues("d45") &&
+                      !getValues("d56") &&
+                      !getValues("d67")
                     ) {
                       return "Вкажіть кількість можливих робочих днів";
                     }
@@ -839,6 +889,9 @@ const Page = () => {
                     label={<Typography variant="subtitle1">5-6</Typography>}
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("d34", false);
+                      setValue("d45", false);
+                      setValue("d67", false);
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -846,15 +899,15 @@ const Page = () => {
               />
 
               <Controller
-                name="6-7"
+                name="d67"
                 control={control}
                 rules={{
                   validate: (value) => {
                     if (
-                      !getValues("3-4") &&
-                      !getValues("4-5") &&
-                      !getValues("5-6") &&
-                      !getValues("6-7")
+                      !getValues("d34") &&
+                      !getValues("d45") &&
+                      !getValues("d56") &&
+                      !getValues("d67")
                     ) {
                       return "Вкажіть кількість можливих робочих днів";
                     }
@@ -868,6 +921,9 @@ const Page = () => {
                     label={<Typography variant="subtitle1">6-7</Typography>}
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("d34", false);
+                      setValue("d45", false);
+                      setValue("d56", false);
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -908,6 +964,8 @@ const Page = () => {
                     }
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("weekDaysAvailableNoNotAnyDay", false);
+                      setValue("weekDaysAvailableYseAnyDayNotAnyHour", false);
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -939,6 +997,8 @@ const Page = () => {
                     }
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("weekDaysAvailableYesAlmostAnytime", false);
+                      setValue("weekDaysAvailableYseAnyDayNotAnyHour", false);
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -970,6 +1030,9 @@ const Page = () => {
                     }
                     isChecked={field.value}
                     onChange={(e) => {
+                      setValue("weekDaysAvailableYesAlmostAnytime", false);
+                      setValue("weekDaysAvailableNoNotAnyDay", false);
+
                       field.onChange(e.target.checked);
                     }}
                   />
@@ -1140,28 +1203,31 @@ const Page = () => {
           />
 
           <Typography variant="subtitle1">
-            Продовжуючи, Я приймаю умови  
-            <Link target="_blank" href="/contacts/oferta">
-              <u>Публічної {"\n"}Оферти</u>
-            </Link>{" "}
-            та{" "}
-            <Link target="_blank" href="/contacts/confidentialityPolicy">
-              <u>Політики Конфідеційності</u>.
-            </Link>
+            <>
+              Даю згоду на{" "}
+              <Link
+                href={"/contacts/confidentialityPolicy"}
+                style={{ textDecoration: "underline" }}
+                target="_blank"
+              >
+                обробку персональних даних.
+              </Link>
+            </>
           </Typography>
         </div>
-
-        <div className={cl.buttonWrapepr}>
-          <Button
-            className={cl.button}
-            variant="outlined"
-            type="submit"
-            onClick={handleClick}
-          >
-            Надіслати
-          </Button>
-        </div>
       </form>
+      <div className={cl.buttonWrapper}>
+        <div className={cl.line}></div>
+        <Button
+          className={cl.button}
+          variant="outlined"
+          type="submit"
+          onClick={handleClick}
+          form="surveyForm"
+        >
+          <Typography variant="h6">Надіслати</Typography>
+        </Button>
+      </div>
     </main>
   );
 };

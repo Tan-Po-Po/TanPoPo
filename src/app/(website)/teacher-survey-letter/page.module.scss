@@ -1,7 +1,8 @@
 .main {
   padding: $padding-page;
   gap: 70px;
-
+  // min-height: 100%;
+  flex: 1;
   .titleCard {
     padding: 33px 28px;
   }
@@ -37,6 +38,7 @@
           text-decoration: underline;
         }
       }
+
       .inputs {
         @include flex-row;
         justify-content: center;
@@ -46,7 +48,38 @@
 
         .textArea {
           max-width: 100%;
-          //   min-width: 100%;
+        }
+      }
+    }
+  }
+  .buttonWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1102px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .line {
+      position: absolute;
+      height: 2px;
+      background-color: black;
+      width: 100%;
+      box-shadow: $box-shadow;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    padding-left: 4px;
+    padding-right: 4px;
+    .form {
+      .formBlock {
+        padding: 16px 8px;
+
+        .inputs {
+          justify-content: flex-start;
         }
       }
     }

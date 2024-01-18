@@ -5,13 +5,10 @@
   height: 60px;
   height: auto;
 
-  &,
-  label {
-    font-size: 21px;
-  }
   input {
     padding: 18.5px 14px;
   }
+
   fieldset {
     border-radius: $border-radius;
     border: 2px solid $color-black;
@@ -46,10 +43,6 @@
   :global(.MuiFormLabel-filled),
   &:hover :global(.MuiFormLabel-root) {
     color: $color-black;
-  }
-  :global(.Mui-focused) legend,
-  :global(.MuiFormLabel-filled) + :global(.MuiInputBase-root) legend {
-    padding: 0 5px;
   }
 }
 
