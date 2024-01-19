@@ -25,7 +25,6 @@ export const LibraryTable: React.FC = () => {
       rows={2}
       variableWidth={false}
       infinite={false}
-      variableWidth={false}
     >
       {librarySections.map((section, i) => (
         <CarouselItem key={i} className={cl.slide}>
