@@ -7,7 +7,7 @@ export default function Layout({
   children: React.ReactNode;
 }) {
   return (
-    <main className={cl.checkoutMainResult}>
+    <div className={cl.checkoutMainResult}>
       <Divider firstRow="Замовлення успішно прийнято!" className={cl.divider} />
 
       <Typography
@@ -23,6 +23,6 @@ export default function Layout({
       </section>
 
       <Typography variant="h6">Дякуємо, що обрали TanPoPo💛</Typography>
-    </main>
+    </div>
   );
 }

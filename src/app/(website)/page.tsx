@@ -18,15 +18,6 @@ import { Ahead } from "./_components/ahead";
 import { StartEducation } from "./_components/startEducation";
 import { MoreLinks } from "./_components/moreLinks";
 
-export const carouselSettings = {
-  dots: true,
-  slidesToShow: 1,
-  initialSlide: 1,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  arrows: false,
-};
-
 export default function Home() {
   const searchParams = useSearchParams();
   const isRedirected = searchParams.get("redirected");
@@ -43,7 +34,6 @@ export default function Home() {
         <Dialog
           open={open}
           onClose={() => {
-            console.log(Date.now() - renderedTime);
             const currentTime = Date.now();
             if (currentTime - renderedTime > 5000) {
               setOpen(false);

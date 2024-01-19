@@ -13,7 +13,11 @@ type Properties = {
   format?: "Міні-група" | "Індивідуально" | null;
 };
 
-const Schedule: React.FC<Properties> = ({ setCounter, setSchedule, format }) => {
+const Schedule: React.FC<Properties> = ({
+  setCounter,
+  setSchedule,
+  format,
+}) => {
   return (
     <div className={cl.schedule}>
       <ContentCard width="775px">
@@ -58,7 +62,7 @@ const Schedule: React.FC<Properties> = ({ setCounter, setSchedule, format }) => 
                       setSchedule={setSchedule}
                       setCounter={setCounter}
                       variant="outlined"
-                      key={index}
+                      key={`${dayIndex}-${index}`}
                       className={cl.timeBtn}
                       dayIndex={dayIndex}
                       lessonIndex={index}
@@ -72,11 +76,12 @@ const Schedule: React.FC<Properties> = ({ setCounter, setSchedule, format }) => 
           })}
         </div>
         <Typography variant="body2">
-          Просимо Вас обрати хоча б <u>{
-          format === "Міні-група" || !format ? 12 : 10
-        } часових проміжків </u>категорій: “
-          <u>Може бути</u>” або “<u>Ідеально</u>”, щоб ми мали можливість швидше
-          сформувати зручний для всіх графік занять!
+          Просимо Вас обрати хоча б{" "}
+          <u>
+            {format === "Міні-група" || !format ? 12 : 10} часових проміжків{" "}
+          </u>
+          категорій: “<u>Може бути</u>” або “<u>Ідеально</u>”, щоб ми мали
+          можливість швидше сформувати зручний для всіх графік занять!
         </Typography>
       </ContentCard>
     </div>

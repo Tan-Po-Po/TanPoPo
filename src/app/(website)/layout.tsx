@@ -9,21 +9,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <link rel="icon" href="/logo/logo.svg" />
-      <body style={{ paddingTop: "70px", maxWidth: "1400px" }}>
-        <Header />
-        {children}
-        <Footer />
-        
-        <ToastContainer
-          position="bottom-center"
-          autoClose={3000}
-          hideProgressBar={true}
-          theme="dark"
-        />
-        <DialogCart />
-      </body>
-    </html>
+    <>
+      <Header />
+      {children}
+      <Footer />
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        theme="dark"
+      />
+      <DialogCart />
+    </>
   );
 }

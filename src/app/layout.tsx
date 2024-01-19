@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link rel="icon" href="/logo/logo.svg" />
+      <link rel="icon" href="/logo/favicon.png" />
       <body className={font.className} style={{ paddingTop: "70px" }}>
         <Providers>
           <ThemeProvider theme={theme}>

@@ -34,7 +34,7 @@ export const DialogCart = () => {
       title={
         (
           <>
-            <Typography variant="h3">Кошик</Typography>
+            Кошик
             <Image
               alt=""
               src={getIconArtSrc("shopCart")}

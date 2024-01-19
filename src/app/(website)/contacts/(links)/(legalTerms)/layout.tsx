@@ -1,9 +1,8 @@
 "use client";
 
-import { Button, ContentCard, Typography } from "@/components";
+import { ContentCard, Typography } from "@/components";
 import cl from "./layout.module.scss";
 import Link from "next/link";
-// import { textContent } from "textContent";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { getIconArtSrc, getValidClassNames } from "@/helpers";
@@ -18,7 +17,6 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const pathName = usePathname();
-  console.log("pathName", pathName);
 
   const pageName = getPageName(pathName) as PageName;
 

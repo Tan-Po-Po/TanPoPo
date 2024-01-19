@@ -31,7 +31,7 @@ export default function Page() {
   const cart = useAppSelector(selectShopCart);
 
   const [showErrors, setShowErrors] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const formReturn = useForm<FormData>({
     defaultValues: {
@@ -125,9 +125,12 @@ export default function Page() {
     setShowErrors(true);
   };
 
-  if (!cart.items.length) {
-    return router.push("/shop");
-  }
+  useEffect(() => {
+    if (!cart.items.length) {
+      return router.push("/shop");
+    }
+    setLoading(false);
+  }, [cart.items.length, router]);
 
   if (loading) {
     return <Loading />;
@@ -140,7 +143,7 @@ export default function Page() {
       </Typography>
 
       <ContentCard width="804px" className={cl.cart}>
-        <Cart />
+        <Cart/>
       </ContentCard>
 
       <form className={cl.form} onSubmit={handleSubmit(onSubmit)}>
