@@ -8,7 +8,7 @@ import {
   Button,
 } from "@/components";
 import Image from "next/image";
-import { carouselSettings } from "../page";
+import { carouselSettings } from "./carouselSettings";
 import { getIconArtSrc } from "@/helpers";
 
 export function MoreLinks({

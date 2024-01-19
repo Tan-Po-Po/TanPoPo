@@ -95,8 +95,6 @@ export default function Page() {
       comment,
       schedule,
     };
-    console.log(data);
-    console.log(schedule);
 
     setLoading(true);
     fetch("/api/education", {
@@ -191,6 +189,7 @@ export default function Page() {
         <Typography variant="h3" align="center" style={{ marginTop: "100px" }}>
           Зручне формування розкладу навчання:
         </Typography>
+        
         <Schedule
           setSchedule={setSchedule}
           setCounter={setCounter}
