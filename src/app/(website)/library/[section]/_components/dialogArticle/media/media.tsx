@@ -9,6 +9,7 @@ import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSli
 import { useSearchParams } from "next/navigation";
 import { IMAGE_BASE_URL } from "@/config/config";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { Suspense } from "react";
 
 interface Props {
   item: ILibraryItem;
@@ -24,17 +25,19 @@ export const Media: React.FC<Props> = ({ item }) => {
   if (item.media.length === 1) {
     return item.media[0].type === "video" ? (
       <ContentCard width="fit-content" className={cl.iFrameWrapper}>
-        <iframe
-          className={cl.iFrame}
-          src={getEmbedYouTubeLink(
-            item.media[0].video!,
-            searchParams.get("autoplay") as "0" | "1" | null
-          )}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
+        <Suspense fallback={<></>}>
+          <iframe
+            className={cl.iFrame}
+            src={getEmbedYouTubeLink(
+              item.media[0].video!,
+              searchParams.get("autoplay") as "0" | "1" | null
+            )}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </Suspense>
       </ContentCard>
     ) : (
       <ContentCard

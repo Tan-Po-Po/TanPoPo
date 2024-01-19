@@ -7,7 +7,7 @@ import { LibraryItemContent } from "@/app/(website)/library/[section]/_component
 import { Footer } from "../libraryItemCard/footer/footer";
 import { Media } from "./media/media";
 import { NewLabel } from "../libraryItemCard/newLabel/newLabel";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { SERVER_URL } from "@/config/config";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
@@ -20,9 +20,6 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
   const router = useRouter();
   const path = usePathname();
   const searchParams = useSearchParams();
-
-  const id = searchParams.get("id");
-  const isNew = searchParams.get("new");
 
   const [item, setItem] = useState<ILibraryItem | undefined | null>(null);
   const [loading, setLoading] = useState(true);
@@ -44,7 +41,6 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
         }
 
         const itemDb = (await response.json()) as ILibraryItem;
-        console.log("library item db", itemDb);
 
         itemDb.labelColor = getColor(itemDb.labelColor);
 
@@ -54,9 +50,9 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
         console.log(err);
       }
     };
-
+    const id = searchParams.get("id");
     getLibraryItem(id as string);
-  }, [id]);
+  }, [searchParams]);
 
   return (
     <Dialog
@@ -80,7 +76,9 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
         </Typography>
       ) : (
         <>
-          {isNew && !isMobile && <NewLabel />}
+          <Suspense fallback={<></>}>
+            {searchParams.get("new") && !isMobile && <NewLabel />}
+          </Suspense>
           <ContentCard
             cardBgColor={item?.labelColor}
             className={cl.label}

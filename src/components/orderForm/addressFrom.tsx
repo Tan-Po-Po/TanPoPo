@@ -33,7 +33,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
   const fetchCities = useMemo(
     () =>
       debounce(async (FindByString: string, selectedRegion: string) => {
-        console.log(selectedRegion);
+
         if (selectedRegion) {
           const AreaRef = regions.find(
             (reg) => reg.Description === selectedRegion
@@ -109,7 +109,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
         }),
       });
       const regions = await response.json();
-      console.log(regions.data);
+
       setRegions(regions.data);
     };
 

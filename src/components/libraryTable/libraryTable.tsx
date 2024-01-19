@@ -23,6 +23,7 @@ export const LibraryTable: React.FC = () => {
       slidesToShow={1}
       className={cl.carousel}
       rows={2}
+      variableWidth={false}
       infinite={false}
     >
       {librarySections.map((section, i) => (

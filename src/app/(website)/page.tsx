@@ -20,7 +20,6 @@ import { MoreLinks } from "./_components/moreLinks";
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const isRedirected = searchParams.get("redirected");
   const renderedTime = Date.now();
   const [open, setOpen] = useState(true);
 
@@ -31,7 +30,7 @@ export default function Home() {
   return (
     <main className={cl.main}>
       <Suspense fallback={<></>}>
-        {isRedirected && (
+        {searchParams.get("redirected") && (
           <Dialog
             open={open}
             onClose={() => {

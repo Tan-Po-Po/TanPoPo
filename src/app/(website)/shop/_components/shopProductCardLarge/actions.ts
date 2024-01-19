@@ -25,7 +25,6 @@ export const toggleLikeToShopProduct = async (
 
     await product.save();
 
-    console.log("like product", product);
   } catch (err) {
     console.log(err);
   }
