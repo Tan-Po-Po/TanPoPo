@@ -69,7 +69,7 @@ export const Cart: React.FC<Props> = ({ className }) => {
       </div>
     );
   }
-  console.log(cart.items);
+
   return (
     <div className={getValidClassNames(cl.cartMain, className)}>
       {!isMobile && (

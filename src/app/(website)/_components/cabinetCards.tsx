@@ -2,7 +2,7 @@ import cl from "../page.module.scss";
 import { IWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { ContentCard, Carousel, CarouselItem } from "@/components";
 import Image from "next/image";
-import { carouselSettings } from "../page";
+import { carouselSettings } from "./carouselSettings";
 import { getIconArtSrc } from "@/helpers";
 
 export function CabinetCards({

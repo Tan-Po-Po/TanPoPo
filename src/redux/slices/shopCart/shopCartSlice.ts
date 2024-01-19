@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import { IPromoCode } from "@/models/PromoCode";
-import { actionAsyncStorage } from "next/dist/client/components/action-async-storage.external";
 
 export type ICartItem = {
   _id: string;

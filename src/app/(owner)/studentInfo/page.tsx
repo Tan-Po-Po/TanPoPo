@@ -2,27 +2,27 @@
 
 import { time } from "@/components/schedule/common";
 import { useSearchParams } from "next/navigation";
-import { Typography } from "@/components";
+import { Loading, Typography } from "@/components";
 import { getValidClassNames } from "@/helpers";
-import { useEffect, useState } from "react";
+import { useWindowSize } from "@uidotdev/usehooks";
 import cl from "./page.module.scss";
+
 
 const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
 
 export default function Page() {
   const searchParams = useSearchParams();
-  const [windowWidth, setWindowWidth] = useState(window?.innerWidth);
+  const { width } = useWindowSize();
 
   const format = searchParams.get("format");
   const comment = searchParams.get("comment");
   const schedule = searchParams.get("schedule");
   const scheduleArray = schedule?.split("/").map((day) => day.split("-"));
 
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, []);
+
+  if (!schedule) {
+    return <Loading />;
+  }
 
   return (
     <main className={cl.main}>
@@ -38,7 +38,7 @@ export default function Page() {
         <div className={cl.card} style={{ maxHeight: "65px" }}>
           <Typography variant="h6">{searchParams.get("courseName")}</Typography>
         </div>
-        {format?.toLowerCase() === "міні-група" ? (
+        {format && format.toLowerCase() === "міні-група" ? (
           <div className={cl.card} style={{ maxHeight: "65px" }}>
             <Typography variant="h6">{format}</Typography>
           </div>
@@ -53,60 +53,62 @@ export default function Page() {
       </div>
 
       <div className={cl.schedule}>
-        {scheduleArray?.map((day: string[], dayIndex: number) => {
-          return (
-            <div className={cl.day} key={dayIndex}>
-              <Typography variant="h6">{days[dayIndex]}</Typography>
-              {day.map((variant, index) => {
-                switch (variant) {
-                  case "inappropriate":
-                    return (
-                      <div
-                        key={index}
-                        className={getValidClassNames(
-                          cl.time,
-                          cl.inappropriate
-                        )}
-                      >
-                        <p>
-                          {windowWidth > 800
-                            ? time[index]
-                            : time[index].replace("\n-\n", "\n")}
-                        </p>
-                      </div>
-                    );
+        {scheduleArray &&
+          scheduleArray.map((day: string[], dayIndex: number) => {
+            return (
+              <div className={cl.day} key={dayIndex}>
+                <Typography variant="h6">{days[dayIndex]}</Typography>
+                {day &&
+                  day.map((variant, index) => {
+                    switch (variant) {
+                      case "inappropriate":
+                        return (
+                          <div
+                            key={index}
+                            className={getValidClassNames(
+                              cl.time,
+                              cl.inappropriate
+                            )}
+                          >
+                            <p>
+                              {width! > 800
+                                ? time[index]
+                                : time[index].replace("\n-\n", "\n")}
+                            </p>
+                          </div>
+                        );
 
-                  case "maybe":
-                    return (
-                      <div
-                        key={index}
-                        className={getValidClassNames(cl.time, cl.maybe)}
-                      >
-                        <p>
-                          {windowWidth > 800
-                            ? time[index]
-                            : time[index].replace("\n-\n", "\n")}
-                        </p>
-                      </div>
-                    );
-                  case "perfect":
-                    return (
-                      <div
-                        key={index}
-                        className={getValidClassNames(cl.time, cl.perfect)}
-                      >
-                        <p>
-                          {windowWidth > 800
-                            ? time[index]
-                            : time[index].replace("\n-\n", "\n")}
-                        </p>
-                      </div>
-                    );
-                }
-              })}
-            </div>
-          );
-        })}
+                      case "maybe":
+                        return (
+                          <div
+                            key={index}
+                            className={getValidClassNames(cl.time, cl.maybe)}
+                          >
+                            <p>
+                              {width! > 800
+                                ? time[index]
+                                : time[index].replace("\n-\n", "\n")}
+                            </p>
+                          </div>
+                        );
+                      case "perfect":
+                        return (
+                          <div
+                            key={index}
+                            className={getValidClassNames(cl.time, cl.perfect)}
+                          >
+                            <p>
+                              {width! > 800
+                                ? time[index]
+                                : time[index].replace("\n-\n", "\n")}
+                            </p>
+                          </div>
+                        );
+                    }
+                  })}
+              </div>
+            );
+          })}
       </div>
 
       <div className={cl.flexRow}>
