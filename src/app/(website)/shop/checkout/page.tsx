@@ -143,7 +143,7 @@ export default function Page() {
       </Typography>
 
       <ContentCard width="804px" className={cl.cart}>
-        <Cart/>
+        <Cart />
       </ContentCard>
 
       <form className={cl.form} onSubmit={handleSubmit(onSubmit)}>

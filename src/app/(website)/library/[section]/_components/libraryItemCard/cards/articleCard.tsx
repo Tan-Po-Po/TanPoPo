@@ -13,7 +13,7 @@ import Image from "next/image";
 import PlayButtonIcon from "/public/icons/playButton.svg";
 import { useState } from "react";
 import { Props } from "../props";
-import { Footer } from "../footer/footer";
+import { CardFooter } from "../cardFooter/cardFooter";
 
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { IMAGE_BASE_URL } from "@/config/config";
@@ -54,13 +54,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
 
   return (
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <ContentCard
-        className={getValidClassNames(cl[type])}
-        labelClassName={cl.label}
-        label={<Typography variant="body1">{label}</Typography>}
-        labelBgColor={labelColor}
-        width={cardWidth}
-      >
+      <ContentCard className={getValidClassNames(cl[type])} width={cardWidth}>
         {media!.length === 1 ? (
           <ContentCard
             width="fit-content"
@@ -127,7 +121,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
           </div>
         </div>
 
-        <Footer item={props} />
+        <CardFooter item={props} />
       </ContentCard>
     </div>
   );

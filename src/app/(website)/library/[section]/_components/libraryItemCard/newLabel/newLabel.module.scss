@@ -8,3 +8,10 @@
   right: 14px;
   transform: translate(-14%, -50%);
 }
+
+.center {
+  top: unset;
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%, 50%);
+}

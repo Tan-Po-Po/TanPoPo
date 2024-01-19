@@ -1,7 +1,8 @@
 .dialog {
   .title {
-    font-size: 34px !important;
+    font-size: 34px;
     font-weight: 700;
+    align-items: center;
   }
   :global(.MuiDialog-paper) {
     padding: 0;

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import { IPromoCode } from "@/models/PromoCode";
+import { getShopItemFromDb } from "./ations";
 
 export type ICartItem = {
   _id: string;
@@ -37,8 +38,7 @@ export const getShopItemFromDbAndAddToCart = createAsyncThunk(
   "shopItem/fetchByIdAndValue",
 
   async ({ id, value }: { id: string; value: string }, thunkAPI) => {
-    const response = await fetch(`/api/shopItem?id=${id}&value=${value}`);
-    return response.json();
+    return await getShopItemFromDb(id, value);
   }
 );
 

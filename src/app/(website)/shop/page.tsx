@@ -63,7 +63,11 @@ export default async function Shop() {
         firstRow="МАГАЗИНИ ПАРТНЕРІВ"
         bgColor="linear-gradient(180deg, #FFE39A 0%, #C1A4FF 100%)"
       />
-      <Typography variant="body1" align="center" style={{ maxWidth: "765px", marginBottom: "42px" }}>
+      <Typography
+        variant="body1"
+        align="center"
+        style={{ maxWidth: "765px", marginBottom: "42px" }}
+      >
         Розпочинайте навчання в школі TanPoPo та знаходьте промокоди на знижки у
         своєму Особистому Кабінеті на весь асортимент товарів наших партнерів
         ексклюзивно для учнів нашої школи!

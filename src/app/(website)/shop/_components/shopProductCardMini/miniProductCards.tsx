@@ -1,30 +1,21 @@
 "use client";
 import cl from "./shopProductCardMini.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ShopProductCardMini } from "./shopProductCardMini";
-import { getShopItems } from "@/helpers";
+
 import { IShopProduct } from "@/models/ShopProduct";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
-import { Carousel, CarouselItem, Loading } from "@/components";
+import { Carousel, Loading } from "@/components";
 
 const MiniProductCards = ({
   shopProducts,
 }: {
   shopProducts: IShopProduct[];
 }) => {
-  // const shopItems = await getShopItems();
   const [shopItems, setShopItems] = useState<IShopProduct[]>(shopProducts);
 
   const { isMobile } = useAppSelector(selectWindowMatchMedia);
-
-  // useEffect(() => {
-  //   const getItems = async () => {
-  //     const items = await getShopItems();
-  //     setShopItems(items);
-  //   };
-  //   getItems();
-  // }, []);
 
   if (!shopItems) {
     return <Loading />;
