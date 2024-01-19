@@ -160,7 +160,7 @@ export const FeedbackForm: React.FC = () => {
                 multiline
                 rows={9}
                 style={{ width: "100%" }}
-                className={cl.input}
+                className={cl.textArea}
                 {...field}
               />
             )}
