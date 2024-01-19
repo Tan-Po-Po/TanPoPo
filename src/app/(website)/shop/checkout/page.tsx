@@ -132,10 +132,6 @@ export default function Page() {
     setLoading(false);
   }, [cart.items.length, router]);
 
-  // if (!cart.items.length) {
-  //   return router.push("/shop");
-  // }
-
   if (loading) {
     return <Loading />;
   }
