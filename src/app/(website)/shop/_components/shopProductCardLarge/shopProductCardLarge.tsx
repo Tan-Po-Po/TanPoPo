@@ -29,7 +29,6 @@ import { Counter } from "../counter/counter";
 import { toggleLikeToShopProduct } from "./actions";
 import { IMAGE_BASE_URL } from "@/config/config";
 import { useWindowSize } from "@uidotdev/usehooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 type Props = Omit<IShopProduct, "small">;
 
@@ -38,7 +37,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
 
   const [selectValue, setSelectValue] = useState(variants[0].value);
   const item = variants.find((item) => item.value === selectValue)!;
-  const { _id: itemId, price, sale, value } = item;
+  const { id: itemId, price, sale, value } = item;
 
   const isCertificates = price < 0;
 
@@ -54,8 +53,6 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   const isOnSale = validateDate(sale?.until);
 
   const { width } = useWindowSize();
-
-  const { isMobile } = useAppSelector(selectWindowMatchMedia);
 
   useEffect(() => {
     setCartItem(shopCart.items.find((item) => item._id == itemId));

@@ -15,7 +15,7 @@ export interface IShopProduct {
     available: boolean;
     inDevelopment: boolean;
     gallery: {
-      _id?: string;
+      id?: string;
       value?: string;
       type: "image" | "video";
       image: { filename: string };
@@ -25,7 +25,7 @@ export interface IShopProduct {
     hashtags: string[];
     likes: number;
     variants: {
-      _id?: string;
+      id?: string;
       value: string;
       label: string;
       price: number;
