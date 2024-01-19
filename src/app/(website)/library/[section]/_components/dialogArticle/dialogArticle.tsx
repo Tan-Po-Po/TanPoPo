@@ -22,7 +22,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
   const searchParams = useSearchParams();
 
   const id = searchParams.get("id");
-  const isNew = searchParams.get("new");
+  const isNew = searchParams.get("new") === "true";
 
   const [item, setItem] = useState<ILibraryItem | undefined | null>(null);
   const [loading, setLoading] = useState(true);
@@ -87,7 +87,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
             width="70%"
           >
             <Typography variant="body1">{item!.label}</Typography>
-            {isMobile && <NewLabel className={cl.newLabelMiddle} />}
+            {isNew && isMobile && <NewLabel position="center" />}
           </ContentCard>
 
           <div className={cl.gallery}>

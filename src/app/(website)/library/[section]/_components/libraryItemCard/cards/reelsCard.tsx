@@ -11,13 +11,7 @@ export const ReelsCard: React.FC<Props> = (props) => {
   const { label, labelColor, media } = props;
 
   return (
-    <ContentCard
-      className={cl.reels}
-      labelClassName={cl.label}
-      label={<>{label}</>}
-      labelBgColor={labelColor}
-      width="384px"
-    >
+    <ContentCard className={cl.reels} width="384px">
       <ContentCard className={getValidClassNames(cl.imageContainer, cl.video)}>
         <Image
           alt=""

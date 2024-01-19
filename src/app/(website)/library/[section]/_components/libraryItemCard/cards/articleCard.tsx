@@ -54,13 +54,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
 
   return (
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <ContentCard
-        className={getValidClassNames(cl[type])}
-        labelClassName={cl.label}
-        label={<Typography variant="body1">{label}</Typography>}
-        labelBgColor={labelColor}
-        width={cardWidth}
-      >
+      <ContentCard className={getValidClassNames(cl[type])} width={cardWidth}>
         {media!.length === 1 ? (
           <ContentCard
             width="fit-content"

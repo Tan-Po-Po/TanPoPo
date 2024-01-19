@@ -7,13 +7,7 @@ import { CardFooter } from "../cardFooter/cardFooter";
 export const PodcastCard: React.FC<Props> = (props) => {
   const { labelColor, label } = props;
   return (
-    <ContentCard
-      width="626px"
-      label={<Typography variant="body1">{label}</Typography>}
-      labelBgColor={labelColor}
-      className={cl.podcast}
-      labelClassName={cl.label}
-    >
+    <ContentCard width="626px" className={cl.podcast}>
       <div className={cl.content}>
         <LibraryItemContent item={props} />
       </div>
