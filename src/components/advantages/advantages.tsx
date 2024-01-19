@@ -23,12 +23,17 @@ const Advantages: React.FC<Properties> = ({ className }) => {
         </div>
       </div>
 
-      <ContentCard width="fit-content" cardBgColor={gradient} className={cl.textBlock}>
+      <ContentCard
+        width="fit-content"
+        cardBgColor={gradient}
+        className={cl.textBlock}
+      >
         <Typography variant="body1">{textContent.title}</Typography>
       </ContentCard>
 
       <div className={cl.cards}>
         <Carousel
+          className={cl.carousel}
           renderCarousel={width! < 900}
           useNumbers
           slideAmount={textContent.cards.length}

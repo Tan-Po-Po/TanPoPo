@@ -1,9 +1,8 @@
 "use client";
 
 import cl from "./largeProductCards.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ShopProductCardLarge } from "./shopProductCardLarge";
-import { getShopItems } from "@/helpers";
 import { IShopProduct } from "@/models/ShopProduct";
 import { Carousel, Loading } from "@/components";
 import { useWindowSize } from "@uidotdev/usehooks";
@@ -16,15 +15,6 @@ const LargeProductCards = ({
   const [shopItems, setShopItems] = useState<IShopProduct[]>(shopProducts);
 
   const { width } = useWindowSize();
-
-  // useEffect(() => {
-  //   const getItems = async () => {
-  //     const items = await getShopItems();
-  //     setShopItems(items);
-  //   };
-
-  //   getItems();
-  // }, []);
 
   if (!shopItems) {
     return <Loading />;

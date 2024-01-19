@@ -1,6 +1,7 @@
 .password {
   @include flex-column;
   gap: 60px;
+  width: 100%;
   .formBlock {
     @include flex-row;
     gap: 81px;
@@ -36,6 +37,14 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .password {
+    .formBlock {
+      flex-direction: column;
     }
   }
 }
