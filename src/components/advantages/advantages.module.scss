@@ -31,6 +31,12 @@
     }
   }
 
+  .carousel {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

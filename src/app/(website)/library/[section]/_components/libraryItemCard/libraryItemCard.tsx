@@ -8,6 +8,9 @@ import { MusicCard } from "./cards/musicCard";
 
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { NewLabel } from "./newLabel/newLabel";
+import { ContentCard } from "@/components";
+import { useAppSelector } from "@/redux/hooks";
+import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 export const LibraryItemCard: React.FC<Props> = (props) => {
   let card: React.ReactNode;
@@ -16,6 +19,8 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
     item: props,
     isNew: props.isNew,
   });
+
+  const { isMobile } = useAppSelector(selectWindowMatchMedia);
 
   const handelClick = () => {
     openLibraryItem();
@@ -32,9 +37,21 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
   }
 
   return (
-    <div onClick={handelClick} id={props._id} className={cl.libraryItemCard}>
-      {props.isNew && <NewLabel />}
+    <ContentCard
+      onClick={handelClick}
+      id={props._id}
+      className={cl.libraryItemCard}
+      label={
+        <>
+          {props.label}
+          {props.isNew && isMobile && <NewLabel position="center" />}
+        </>
+      }
+      labelBgColor={props.labelColor}
+      labelClassName={cl.label}
+    >
+      {props.isNew && !isMobile && <NewLabel />}
       {card}
-    </div>
+    </ContentCard>
   );
 };

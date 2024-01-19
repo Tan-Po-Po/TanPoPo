@@ -2,12 +2,26 @@ import { ContentCard } from "@/components";
 import cl from "./newLabel.module.scss";
 import { getValidClassNames } from "@/helpers";
 
-export const NewLabel = ({ className }: { className?: string }) => {
+interface Props {
+  className?: string;
+  position?: "right" | "center";
+}
+
+export const NewLabel: React.FC<Props> = ({
+  className,
+  position = "right",
+}) => {
+  console.log("label pos", position);
+
   return (
     <ContentCard
       width="fit-content"
       cardBgColor="linear-gradient(180deg, #B4FF99 0%, #FDFF8E 100%)"
-      className={getValidClassNames(cl.newLabel, className)}
+      className={getValidClassNames(
+        cl.newLabel,
+        position === "center" && cl.center,
+        className
+      )}
     >
       new!
     </ContentCard>

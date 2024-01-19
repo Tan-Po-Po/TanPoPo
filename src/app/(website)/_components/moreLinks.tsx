@@ -27,6 +27,7 @@ export function MoreLinks({
         initialSlide={0}
         className={cl.carousel}
         rows={2}
+        variableWidth={false}
       >
         <CarouselItem className={cl.carouselItem}>
           <ContentCard className={cl.link} width="375px" height="345px">

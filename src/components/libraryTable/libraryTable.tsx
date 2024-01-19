@@ -7,7 +7,7 @@ import { useWindowSize } from "@uidotdev/usehooks";
 
 export const LibraryTable: React.FC = () => {
   const { width } = useWindowSize();
-  
+
   return width! > 550 ? (
     <section className={cl.libraryTable}>
       {librarySections.map((section, i) => (
@@ -24,6 +24,7 @@ export const LibraryTable: React.FC = () => {
       className={cl.carousel}
       rows={2}
       infinite={false}
+      variableWidth={false}
     >
       {librarySections.map((section, i) => (
         <CarouselItem key={i} className={cl.slide}>

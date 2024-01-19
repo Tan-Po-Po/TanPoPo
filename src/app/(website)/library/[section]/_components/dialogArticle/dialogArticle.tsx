@@ -4,7 +4,7 @@ import cl from "./dialogArticle.module.scss";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ILibraryItem } from "@/models/LibraryItem";
 import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
-import { Footer } from "../libraryItemCard/footer/footer";
+import { CardFooter } from "../libraryItemCard/cardFooter/cardFooter";
 import { Media } from "./media/media";
 import { NewLabel } from "../libraryItemCard/newLabel/newLabel";
 import { useEffect, useState } from "react";
@@ -22,7 +22,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
   const searchParams = useSearchParams();
 
   const id = searchParams.get("id");
-  const isNew = searchParams.get("new");
+  const isNew = searchParams.get("new") === "true";
 
   const [item, setItem] = useState<ILibraryItem | undefined | null>(null);
   const [loading, setLoading] = useState(true);
@@ -87,7 +87,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
             width="70%"
           >
             <Typography variant="body1">{item!.label}</Typography>
-            {isMobile && <NewLabel className={cl.newLabelMiddle} />}
+            {isNew && isMobile && <NewLabel position="center" />}
           </ContentCard>
 
           <div className={cl.gallery}>
@@ -95,7 +95,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
           </div>
 
           <LibraryItemContent item={item} isDialog={true} />
-          <Footer item={item} />
+          <CardFooter item={item} />
         </>
       )}
     </Dialog>
