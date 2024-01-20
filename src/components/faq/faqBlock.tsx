@@ -1,10 +1,13 @@
 import React from "react";
-import { getQuestions, getValidClassNames } from "@/helpers";
+import { getValidClassNames } from "@/helpers";
 import { Faq } from "./faq";
 import cl from "./faq.module.scss";
+import { getQuestions } from "./actions";
+
+export type location = "courses" | "prices" | "contacts";
 
 type Properties = {
-  location: "courses" | "prices" | "contacts";
+  location: location;
 };
 
 const FaqBlock: React.FC<Properties> = async ({ location }) => {
@@ -12,9 +15,10 @@ const FaqBlock: React.FC<Properties> = async ({ location }) => {
 
   return (
     <div className={getValidClassNames(cl.faqBlock)}>
-      {questions.questionBlock.map((element, idx) => (
-        <Faq key={idx} question={element.question} answer={element.answer} />
-      ))}
+      {questions &&
+        questions.questionBlock.map((element, idx) => (
+          <Faq key={idx} question={element.question} answer={element.answer} />
+        ))}
     </div>
   );
 };

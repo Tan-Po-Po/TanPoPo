@@ -1,5 +1,5 @@
 import cl from "./page.module.scss";
-import { getIconArtSrc, getShopItems } from "@/helpers";
+import { getIconArtSrc } from "@/helpers";
 import {
   ContentCard,
   Divider,
@@ -9,15 +9,39 @@ import {
 } from "@/components";
 import Image from "next/image";
 import { textContent } from "./textContent";
-import {
-  MiniProductCards,
-  LargeProductCards,
-  ShopPartnersBlock,
-} from "./_components/components";
+import { MiniProductCards, LargeProductCards } from "./_components/components";
 import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
+import dbConnect from "@/config/dbConnect";
+import { IShopProduct } from "@/models/ShopProduct";
+import ShopProduct from "@/models/ShopProduct";
+
+const getShopItems = async () => {
+  try {
+    await dbConnect();
+    const shopProductsDb = (await ShopProduct.find()
+      .populate({
+        path: "large",
+        populate: { path: "gallery.image" },
+      })
+      .lean()) as IShopProduct[];
+
+    return shopProductsDb.map((item) =>
+      JSON.parse(JSON.stringify(item))
+    ) as IShopProduct[];
+  } catch (err: any) {
+    console.log(err);
+  }
+};
+
+const DynamicShopPartnersBlock = dynamic(
+  () => import("./_components/shopPartnerCard/shopPartnersBlock"),
+  { loading: () => <Loading /> }
+);
 
 export default async function Shop() {
   const shopProducts = await getShopItems();
+
   return (
     <main className={cl.storeMain} id="storeMain">
       <Typography variant="h3">КРАМНИЦЯ</Typography>
@@ -74,9 +98,7 @@ export default async function Shop() {
       </Typography>
 
       <section className={cl.shopPartnersBlock}>
-        <Suspense fallback={<Loading />}>
-          <ShopPartnersBlock />
-        </Suspense>
+        <DynamicShopPartnersBlock />
       </section>
 
       <Divider

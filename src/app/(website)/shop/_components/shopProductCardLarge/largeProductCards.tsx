@@ -10,13 +10,13 @@ import { useWindowSize } from "@uidotdev/usehooks";
 const LargeProductCards = ({
   shopProducts,
 }: {
-  shopProducts: IShopProduct[];
+  shopProducts: IShopProduct[] | undefined;
 }) => {
-  const [shopItems, setShopItems] = useState<IShopProduct[]>(shopProducts);
+  const [products] = useState<IShopProduct[] | undefined>(shopProducts);
 
   const { width } = useWindowSize();
 
-  if (!shopItems) {
+  if (!products) {
     return <Loading />;
   }
 
@@ -27,13 +27,12 @@ const LargeProductCards = ({
       centerPadding="0px"
       dots={false}
       useNumbers
-      slideAmount={shopItems.length}
+      slideAmount={products.length}
       infinite={false}
       renderCarousel={width! < 1420}
       focusOnSelect={false}
-      // adaptiveHeight={true}
     >
-      {shopItems.map((item, i) =>
+      {products.map((item, i) =>
         item.large.inDevelopment ? (
           ""
         ) : (
