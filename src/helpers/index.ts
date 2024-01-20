@@ -9,7 +9,4 @@ export { getEmbedYouTubeLink } from "./getEmbedYouTubeLink";
 export { getTextForSaleLabel } from "./getTextForSaleLabel";
 export { validateDate } from "./validateDate";
 export { getTotalPrice } from "./getTotalPrice";
-export { getQuestions } from "./getQuestions";
-export { getShopItems } from "./getShopItems";
-export { getShopPartners } from "./getShopPartners";
-export {parseCoursePrices} from "./parseCoursePrices"
+export { parseCoursePrices } from "./parseCoursePrices";

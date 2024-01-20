@@ -11,13 +11,13 @@ import { Carousel, Loading } from "@/components";
 const MiniProductCards = ({
   shopProducts,
 }: {
-  shopProducts: IShopProduct[];
+  shopProducts: IShopProduct[] | undefined;
 }) => {
-  const [shopItems, setShopItems] = useState<IShopProduct[]>(shopProducts);
+  const [products] = useState<IShopProduct[] | undefined>(shopProducts);
 
   const { isMobile } = useAppSelector(selectWindowMatchMedia);
 
-  if (!shopItems) {
+  if (!products) {
     return <Loading />;
   }
 
@@ -28,13 +28,13 @@ const MiniProductCards = ({
         slidesToShow={1}
         rows={2}
         useNumbers={true}
-        slideAmount={shopItems.length / 2}
+        slideAmount={products.length / 2}
         infinite={false}
         dots={false}
         variableWidth={false}
         centerPadding="0px"
       >
-        {shopItems.map((item, i) => (
+        {products.map((item, i) => (
           <ShopProductCardMini key={i} {...item} />
         ))}
       </Carousel>
@@ -43,7 +43,7 @@ const MiniProductCards = ({
 
   return (
     <>
-      {shopItems.map((item, i) => (
+      {products.map((item, i) => (
         <ShopProductCardMini key={i} {...item} />
       ))}
     </>

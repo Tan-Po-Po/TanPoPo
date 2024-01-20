@@ -16,7 +16,7 @@ export interface IShopPartner {
   name: string;
   caption: string[];
   items: {
-    _id?: string;
+    id?: string;
     image: { filename: string };
     href: string;
   }[];

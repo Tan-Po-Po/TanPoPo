@@ -58,7 +58,7 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
 
       <div className={cl.items}>
         {items.map((item) => (
-          <Link key={item._id} href={item.href}>
+          <Link key={item.id} href={item.href}>
             <ContentCard className={cl.itemImage}>
               <Image
                 alt=""
