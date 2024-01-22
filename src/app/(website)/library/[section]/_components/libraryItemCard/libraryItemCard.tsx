@@ -11,6 +11,8 @@ import { NewLabel } from "./newLabel/newLabel";
 import { ContentCard } from "@/components";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
+import { getValidClassNames } from "@/helpers";
 
 export const LibraryItemCard: React.FC<Props> = (props) => {
   let card: React.ReactNode;
@@ -20,7 +22,7 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
     isNew: props.isNew,
   });
 
-  const { isMobile } = useAppSelector(selectWindowMatchMedia);
+  const isMobile = useWindowSize().width! < 767;
 
   const handelClick = () => {
     openLibraryItem();
@@ -48,7 +50,10 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
         </>
       }
       labelBgColor={props.labelColor}
-      labelClassName={cl.label}
+      labelClassName={getValidClassNames(
+        cl.label,
+        props.isNew && isMobile && cl.new
+      )}
     >
       {props.isNew && !isMobile && <NewLabel />}
       {card}

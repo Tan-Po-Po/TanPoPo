@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import ShopMedia from "./ShopMedia";
 export interface IShopProduct {
-  _id?: string;
+  _id: string;
   name: string;
   small: {
     label?: {

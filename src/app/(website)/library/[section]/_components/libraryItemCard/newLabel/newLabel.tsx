@@ -1,3 +1,4 @@
+"use client";
 import { ContentCard } from "@/components";
 import cl from "./newLabel.module.scss";
 import { getValidClassNames } from "@/helpers";
