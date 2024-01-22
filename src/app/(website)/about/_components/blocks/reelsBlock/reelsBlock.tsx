@@ -30,7 +30,7 @@ export const ReelsBlock = () => {
             {textContent.reelsBlock.caption}
           </Typography>
         )}
-        <Carousel autoplay={true}>
+        <Carousel autoplay={true} initialSlide={3}>
           {textContent.reelsBlock.images.map((image, i) => (
             <Link
               key={i}

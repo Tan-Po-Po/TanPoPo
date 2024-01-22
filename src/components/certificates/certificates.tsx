@@ -103,7 +103,7 @@ const Certificates: React.FC<Properties> = ({ header, className }) => {
 
           <Image
             alt="certificate"
-            src="/certificates/name.png"
+            src="/certificates/physical.png"
             width={274}
             height={190}
           />

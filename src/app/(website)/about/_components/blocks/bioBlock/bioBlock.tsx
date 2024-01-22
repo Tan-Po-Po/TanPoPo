@@ -9,7 +9,7 @@ import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 export const BioBlock = () => {
-  const { isPc, isTablet, isMobile } = useAppSelector(selectWindowMatchMedia);
+  const { isPc, isMobile } = useAppSelector(selectWindowMatchMedia);
 
   let bioContent;
 
@@ -63,7 +63,7 @@ export const BioBlock = () => {
           >
             <Image
               alt=""
-              src={"/photos/table.jpg"}
+              src={"/photos/table.png"}
               sizes="100vw"
               width={1920}
               height={1080}
@@ -75,7 +75,7 @@ export const BioBlock = () => {
           >
             <Image
               alt=""
-              src={"/photos/tv.jpg"}
+              src={"/photos/tv.png"}
               sizes="100vw"
               fill
               style={{ objectFit: "cover" }}
@@ -293,7 +293,7 @@ export const BioBlock = () => {
       >
         <Image
           alt=""
-          src={"/photos/kids.jpg"}
+          src={"/photos/kids.png"}
           fill
           sizes="100vw"
           style={{ objectFit: "cover" }}
