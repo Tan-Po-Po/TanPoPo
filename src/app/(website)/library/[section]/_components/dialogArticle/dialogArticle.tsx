@@ -35,7 +35,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
   useEffect(() => {
     const getLibraryItem = async (id: string) => {
       try {
-        const response = await fetch(`${SERVER_URL}/api/libraryItem?id=${id}`);
+        const response = await fetch(`/api/libraryItem?id=${id}`);
 
         if (!response.ok) {
           setLoading(false);

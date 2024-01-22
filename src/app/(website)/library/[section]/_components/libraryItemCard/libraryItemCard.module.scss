@@ -13,11 +13,6 @@ $padding-card: 55px 30px 18px 30px;
   font-size: 21px;
   font-weight: 700;
   max-width: 95%;
-  white-space: pre-wrap;
-
-  > * {
-    white-space: pre-wrap;
-  }
 }
 
 .article,
@@ -47,6 +42,12 @@ $padding-card: 55px 30px 18px 30px;
 .articleSmall,
 .reels {
   height: 603px;
+}
+
+.articleSmall,
+.reels,
+.music {
+  width: 384px;
 }
 
 .article,
@@ -184,9 +185,6 @@ $padding-card: 55px 30px 18px 30px;
 }
 
 .reels {
-  max-width: 384px;
-  min-width: 100%;
-
   .imageContainer {
     width: fit-content;
   }
@@ -194,9 +192,11 @@ $padding-card: 55px 30px 18px 30px;
 
 @media (max-width: 1023px) {
   .reels,
-  .music {
-    max-width: 342px !important;
-    width: 100%;
+  .music,
+  .articleSmall {
+    // max-width: 342px !important;
+    // width: 100%;
+    width: 342px;
   }
 
   .reels {
@@ -214,9 +214,15 @@ $padding-card: 55px 30px 18px 30px;
   $padding-card: 55px 19px 19px 19px;
 
   .label {
-    padding-bottom: 16px;
     font-size: 18px;
-    white-space: pre;
+    white-space: pre-line;
+
+    > * {
+      white-space: pre-line;
+    }
+  }
+  .new {
+    padding-bottom: 16px;
   }
 
   .article,
