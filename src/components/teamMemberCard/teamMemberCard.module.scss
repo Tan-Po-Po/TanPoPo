@@ -21,6 +21,16 @@ $memberCardGap: 56px;
       position: relative;
       cursor: pointer;
 
+      &:hover {
+        .btnWrapper {
+          scale: 110%;
+        }
+      }
+      .btnWrapper {
+        button {
+          padding: 8px 10px;
+        }
+      }
       .buttonWrapper {
         position: absolute;
         bottom: 0;
@@ -88,6 +98,9 @@ $memberCardGap: 56px;
   z-index: 3;
   font-size: 22px;
   padding: 6px 8px;
+  text-align: center;
+  white-space: pre-line;
+  text-wrap: nowrap;
 }
 
 .imageWrapper {

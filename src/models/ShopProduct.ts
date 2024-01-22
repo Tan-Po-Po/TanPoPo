@@ -8,7 +8,7 @@ export interface IShopProduct {
       text: string;
       bgColor: string;
     };
-    image: string;
+    image: { filename: string };
     caption: string;
   };
   large: {
@@ -45,7 +45,11 @@ const ShopProductSchema = new mongoose.Schema<IShopProduct>(
         text: { type: String },
         bgColor: { type: String },
       },
-      image: { type: String },
+      image: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: ShopMedia && "ShopMedia",
+        required: true,
+      },
       caption: { type: String },
     },
     large: {

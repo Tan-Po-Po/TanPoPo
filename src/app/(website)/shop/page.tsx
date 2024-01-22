@@ -20,10 +20,8 @@ const getShopItems = async () => {
   try {
     await dbConnect();
     const shopProductsDb = (await ShopProduct.find()
-      .populate({
-        path: "large",
-        populate: { path: "gallery.image" },
-      })
+      .populate("large.gallery.image")
+      .populate("small.image")
       .lean()) as IShopProduct[];
 
     return shopProductsDb.map((item) =>

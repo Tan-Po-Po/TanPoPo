@@ -10,6 +10,7 @@ import { Experience } from "./content/experience";
 import { Education } from "./content/education";
 import { About } from "./content/about";
 import { SectionButton } from "@/app/(website)/about/_components/sectionButton/sectionButton";
+import { IMAGE_BASE_URL } from "@/config/config";
 
 interface Props {
   teamMember: ITeamMember;
@@ -69,7 +70,7 @@ export const NarrowTeamMemberCard: React.FC<Props> = ({
         >
           <Image
             alt=""
-            src={`/media/${image.filename}`}
+            src={`${IMAGE_BASE_URL}/${image.filename}`}
             width={500}
             height={300}
             style={{ width: "100%", height: "auto" }}
