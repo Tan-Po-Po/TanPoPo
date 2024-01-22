@@ -67,7 +67,7 @@ const Certificates: React.FC<Properties> = ({ header, className }) => {
 
           <Image
             alt="certificate"
-            src="/certificates/electronic.png"
+            src="/certificatesImages/electronic.png"
             width={274}
             height={190}
           />
@@ -103,7 +103,7 @@ const Certificates: React.FC<Properties> = ({ header, className }) => {
 
           <Image
             alt="certificate"
-            src="/certificates/physical.png"
+            src="/certificatesImages/physical.png"
             width={274}
             height={190}
           />
