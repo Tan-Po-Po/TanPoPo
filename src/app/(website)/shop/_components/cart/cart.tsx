@@ -9,7 +9,6 @@ import { ContentCard, Typography } from "@/components";
 import { CartItem } from "./cartItem/cartItem";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-
 import { toast } from "react-toastify";
 import { getTotalPrice, getValidClassNames } from "@/helpers";
 import { getPromoCode } from "@/helpers/actions/getPromoCode";

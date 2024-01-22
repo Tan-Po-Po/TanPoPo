@@ -9,11 +9,14 @@
   input {
     padding-right: 56px;
   }
+
   .buttonWrapper {
     position: absolute;
-    top: 54%;
+    top: 50%;
     right: 0;
     transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 3;
     button {
       padding: 0;
       min-width: fit-content;

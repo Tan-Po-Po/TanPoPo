@@ -16,6 +16,8 @@ import dbConnect from "@/config/dbConnect";
 import { IShopProduct } from "@/models/ShopProduct";
 import ShopProduct from "@/models/ShopProduct";
 
+export const revalidate = 0;
+
 const getShopItems = async () => {
   try {
     await dbConnect();
@@ -33,7 +35,6 @@ const getShopItems = async () => {
     console.log(err);
   }
 };
-export const revalidate = 0;
 
 const DynamicShopPartnersBlock = dynamic(
   () => import("./_components/shopPartnerCard/shopPartnersBlock"),
