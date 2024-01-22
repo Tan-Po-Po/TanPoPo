@@ -1,3 +1,4 @@
+import { FormData } from "./../../../components/schedule/_form/type.d";
 import { NextResponse } from "next/server";
 import { transporter, mailOptions } from "@/config/nodemailer";
 import { Data } from "./type";
@@ -6,12 +7,12 @@ import { generateHtmlForOwner } from "./generateHtmlForOwner";
 import { parseData } from "./parseData";
 import { GOOGLE_SCRIPT_URL } from "@/config/config";
 import path from "path";
-import { parseImages } from "./parseImages";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
 
-  formData.items.forEach(item => console.log(item.images))
+  console.log(formData.payAfter);
+  console.log(formData.payNow);
 
   const googleData = {
     sheetName: "orders",
@@ -31,6 +32,14 @@ export async function POST(req: Request) {
   const htmlContent = generateHtml(formData, orderId);
   const htmlContentOwner = generateHtmlForOwner(formData, orderId);
 
+  const clientAttachment = [];
+  if (formData.payNow) {
+    clientAttachment.push({
+      filename: "arrowLong.png",
+      path: path.join(process.cwd(), "public", "icons", "arrowLong.png"),
+      cid: "arrow",
+    });
+  }
 
   try {
     await Promise.all([
@@ -40,6 +49,7 @@ export async function POST(req: Request) {
         subject: `Ваше замовлення: ${orderId}`,
         html: htmlContent,
         attachments: [
+          ...clientAttachment,
           {
             filename: "store.png",
             path: path.join(
@@ -61,11 +71,6 @@ export async function POST(req: Request) {
               "girl.png"
             ),
             cid: "girl",
-          },
-          {
-            filename: "arrowLong.png",
-            path: path.join(process.cwd(), "public", "icons", "arrowLong.png"),
-            cid: "arrow",
           },
           {
             filename: "instagram.png",

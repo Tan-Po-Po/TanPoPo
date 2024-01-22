@@ -27,7 +27,6 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
   const selectedRegion = watch("region");
   const selectedCity = watch("city");
   const isAddressDelivery = watch("isAddressDelivery");
-  const isDepartmentDelivery = watch("isDepartmentDelivery");
   const certificateType = watch("certificateType");
 
   const fetchCities = useMemo(
@@ -110,7 +109,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
       });
       const regions = await response.json();
 
-      setRegions(regions.data);
+      setRegions(regions.data.slice(1));
     };
 
     getRegions();
