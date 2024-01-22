@@ -39,7 +39,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   const item = variants.find((item) => item.value === selectValue)!;
   const { id: itemId, price, sale, value } = item;
 
-  const isCertificates = price < 0;
+  const isCertificates = price <= 0;
 
   const [likedProducts, setLikedProducts] = useState<Set<string>>(new Set([]));
   const [cartItem, setCartItem] = useState<ICartItem>();

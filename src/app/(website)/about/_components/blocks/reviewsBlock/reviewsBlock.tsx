@@ -38,6 +38,7 @@ export const ReviewsBlock = () => {
           arrows={isPc}
           className={cl.carousel}
           autoplay={!isPc}
+          initialSlide={4}
           responsive={[
             {
               breakpoint: 767,
@@ -51,10 +52,10 @@ export const ReviewsBlock = () => {
             <CarouselItem
               key={i}
               isOutlined={true}
-              type={i === 0 ? "video" : "image"}
+              type={i === 4 ? "video" : "image"}
               className={cl.carouselItem}
               onClick={() => {
-                if (i != 0) {
+                if (i != 4) {
                   return;
                 }
                 window.open(
@@ -70,6 +71,7 @@ export const ReviewsBlock = () => {
                 height={300}
                 style={{
                   minWidth: "100%",
+                  maxWidth: "272px",
                   width: "100%",
                   height: "100%",
                 }}
@@ -98,7 +100,7 @@ export const ReviewsBlock = () => {
 function getReviewImagesSrc() {
   const reviews = [];
 
-  for (let i = 1; i < 11; i++) {
+  for (let i = 1; i < 10; i++) {
     reviews.push(`/reviews/${i}.png`);
   }
   return reviews;

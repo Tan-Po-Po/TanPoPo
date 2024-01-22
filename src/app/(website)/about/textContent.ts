@@ -133,24 +133,32 @@ export const textContent = {
     header: "НАВЧАЛЬНІ REELS",
     images: [
       {
-        href: "https://www.instagram.com/reel/Csc5T2jMx0Z/",
-        image: "/reels/buildings.png",
+        href: "https://www.instagram.com/reel/C1Y1TzdtAlb/",
+        image: "/reels/Reels1.png",
       },
       {
         href: "https://www.instagram.com/reel/CpwiZqsrjP3/",
-        image: "/reels/drinks.png",
+        image: "/reels/Reels2.png",
       },
       {
-        href: "https://www.instagram.com/reel/CpZm7ShAgOC/",
-        image: "/reels/similarWords.png",
+        href: "https://www.instagram.com/reel/Csc5T2jMx0Z/",
+        image: "/reels/Reels3.png",
       },
       {
         href: "https://www.instagram.com/reel/Cr7bwWdvRA8/",
-        image: "/reels/sounds.png",
+        image: "/reels/Reels4.png",
       },
       {
         href: "https://www.instagram.com/reel/CulqihrtOfN/",
-        image: "/reels/thanks.png",
+        image: "/reels/Reels5.png",
+      },
+      {
+        href: "https://www.instagram.com/reel/CqcU5WuJUyW/",
+        image: "/reels/Reels6.png",
+      },
+      {
+        href: "https://www.instagram.com/reel/CpZm7ShAgOC/",
+        image: "/reels/Reels7.png",
       },
     ],
     caption:
