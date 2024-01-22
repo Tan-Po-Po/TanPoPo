@@ -52,13 +52,17 @@
   gap: 15px;
 }
 
-.register {
-  padding: 3px 10px !important;
+.registerWrapper {
   background-color: $color-yellow;
 
-  &:hover {
-    background: #fff !important;
-    font-weight: 800;
+  .register {
+    padding: 3px 10px !important;
+    // background-color: $color-yellow;
+
+    &:hover {
+      background: #fff !important;
+      font-weight: 800;
+    }
   }
 }
 

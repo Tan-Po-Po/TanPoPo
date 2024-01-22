@@ -85,7 +85,7 @@
 .dialog {
   height: calc(100dvh - 70px) !important;
   top: unset !important;
-  z-index: 19;
+  z-index: 19 !important;
 
   :global(.MuiBackdrop-root) {
     height: calc(100% - 70px);

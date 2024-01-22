@@ -67,7 +67,11 @@ const Header = () => {
             <Button icon="hat">Вхід</Button>
           </Link>
           <Link href={"/join"}>
-            <Button className={cl.register} variant="outlined">
+            <Button
+              className={cl.register}
+              wrapperClass={cl.registerWrapper}
+              variant="outlined"
+            >
               Долучитись
             </Button>
           </Link>
