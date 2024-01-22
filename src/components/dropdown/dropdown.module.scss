@@ -1,3 +1,5 @@
+$transition: 0.2s;
+
 .dropdown {
   cursor: pointer;
   position: relative;
@@ -49,6 +51,7 @@
   max-height: 60px;
   padding: 20px;
   background-color: $color-yellow;
+  transition: $transition;
 
   img {
     margin-right: 20px;
@@ -58,6 +61,7 @@
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.95) inset;
     .linkWrapper {
       scale: 1.05;
+      font-weight: 700;
     }
   }
 }
@@ -65,7 +69,8 @@
 .linkWrapper {
   display: flex;
   align-items: center;
-  background-color: inherit;
+  background-color: transparent;
+  transition: $transition;
 }
 
 .link + .link {
