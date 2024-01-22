@@ -130,13 +130,13 @@ export const generateHtmlForOwner = (orderData: Data, orderId: string) => {
       <div style="margin-right: 30px;">
         <p>Обрані товари</p>
         ${orderData.items
-          .map((item, index) => {
+          .map((item) => {
             return `
         <div
           class="card"
           style="display: flex; padding: 0; overflow: hidden; margin-top: 30px; max-width: 350px; height: 72px"
         >
-          <img class="img" src='cid:item${index}' width="auto" height="72px" style="margin: 0"/>
+          <img class="img" src='${item.images[0]}' width="auto" height="72px" style="margin: 0"/>
           <div style="height: fit-content; margin: auto; padding: 10px 20px">
             <p style="font-size: 18px">
               <b>${item.name.replace("\n", " ")}</b>

@@ -2,8 +2,8 @@
   position: relative;
 
   .input {
-    max-width: 330px;
-    width: 100%;
+    max-width: 100%;
+    width: 330px;
   }
 
   input {
@@ -44,8 +44,8 @@
 
 @media (max-width: 767px) {
   .promoCodeForm {
-    :global(.MuiFormLabel-root) {
-      transform: translate(14px, 22px) scale(1);
+    .input {
+      width: 100%;
     }
   }
 }

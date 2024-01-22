@@ -31,6 +31,7 @@ export async function POST(req: Request) {
     await Promise.all([
       transporter.sendMail({
         ...mailOptions,
+        to: formData.email,
         subject: `Навчання у Подарунок!  (№ Замовлення: ${orderId})`,
         html: htmlContent,
         attachments: [

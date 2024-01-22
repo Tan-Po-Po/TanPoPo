@@ -39,6 +39,13 @@
       height: 100%;
 
       .linkWrapper {
+        a {
+          transition: all .15s ease-in;
+        }
+        a:hover {
+          font-size: 17px;
+        }
+
         img {
           margin-right: 8px;
         }

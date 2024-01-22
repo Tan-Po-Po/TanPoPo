@@ -11,6 +11,8 @@ import { parseImages } from "./parseImages";
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
 
+  formData.items.forEach(item => console.log(item.images))
+
   const googleData = {
     sheetName: "orders",
     formData: parseData(formData),
@@ -29,16 +31,15 @@ export async function POST(req: Request) {
   const htmlContent = generateHtml(formData, orderId);
   const htmlContentOwner = generateHtmlForOwner(formData, orderId);
 
-  const productImages = parseImages(formData.items);
 
   try {
     await Promise.all([
       transporter.sendMail({
         ...mailOptions,
+        to: formData.email,
         subject: `Ваше замовлення: ${orderId}`,
         html: htmlContent,
         attachments: [
-          ...productImages,
           {
             filename: "store.png",
             path: path.join(
@@ -128,7 +129,6 @@ export async function POST(req: Request) {
         subject: `Нове замовлення у крамниці! (№ Замовлення: ${orderId})`,
         html: htmlContentOwner,
         attachments: [
-          ...productImages,
           {
             filename: "store.png",
             path: path.join(

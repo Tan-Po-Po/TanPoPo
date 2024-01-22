@@ -5,6 +5,11 @@
   .name {
     text-transform: uppercase;
   }
+
+  .nameJpn {
+    font-family: var(--font-heisei);
+  }
+  
   .description {
     margin-top: 30px;
   }

@@ -34,7 +34,6 @@
         border-radius: $border-radius;
         top: 0;
         left: 0;
-        // background: #ffed72;
         box-shadow: $box-shadow;
         filter: blur(3px);
         z-index: 0;
@@ -51,6 +50,9 @@
   }
 
   form {
+    .question {
+      font-family: var(--font-heisei);
+    }
     .testForm {
       width: 1210px;
       gap: 34px;
@@ -152,7 +154,7 @@
     form {
       .testForm {
         padding: 26px 10px;
-        
+
         & > h4 {
           margin: 10px 0;
         }

@@ -45,6 +45,14 @@
   &:hover :global(.MuiFormLabel-root) {
     color: $color-black;
   }
+
+  :global(.MuiInputLabel-root) {
+    transform: translate(14px, 18px) scale(1);
+  }
+
+  :global(.MuiInputLabel-shrink) {
+    transform: translate(14px, -9px) scale(0.75);
+  }
 }
 
 .small {

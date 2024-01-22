@@ -68,9 +68,11 @@ export const shopCartSlice = createSlice({
       localStorage.setItem("shopCart", JSON.stringify(state));
       return state;
     },
-    clearShopCart: () => {
+    clearShopCart: (state) => {
       localStorage.removeItem("shopCart");
-      return initialState;
+      state.items = [];
+      state.promoCode = null;
+      return state;
     },
   },
   extraReducers: (builder) => {
