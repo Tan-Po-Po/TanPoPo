@@ -17,18 +17,9 @@ interface Props {
 
 export const CourseList: React.FC<Props> = ({ courses }) => {
   const teacherCourses = getCoursesByType("teacher", courses);
-  const videoCourses = [
-    ...getCoursesByType("video", courses),
-    ...getCoursesByType("video", courses),
-  ];
-  const bookCourses = [
-    ...getCoursesByType("book", courses),
-    ...getCoursesByType("book", courses),
-  ];
-  const audioCourses = [
-    ...getCoursesByType("audio", courses),
-    ...getCoursesByType("audio", courses),
-  ];
+  const videoCourses = getCoursesByType("video", courses);
+  const bookCourses = getCoursesByType("book", courses);
+  const audioCourses = getCoursesByType("audio", courses);
 
   const windowMatchMedia = useAppSelector(selectWindowMatchMedia);
   const { isMobile } = windowMatchMedia;

@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import { textContent } from "./textContent";
 import { MiniProductCards, LargeProductCards } from "./_components/components";
-import React, { Suspense } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 import dbConnect from "@/config/dbConnect";
 import { IShopProduct } from "@/models/ShopProduct";
@@ -33,6 +33,7 @@ const getShopItems = async () => {
     console.log(err);
   }
 };
+export const revalidate = 0;
 
 const DynamicShopPartnersBlock = dynamic(
   () => import("./_components/shopPartnerCard/shopPartnersBlock"),
