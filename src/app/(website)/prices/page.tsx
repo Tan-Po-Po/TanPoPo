@@ -23,6 +23,7 @@ async function getCourses(): Promise<ICourse[]> {
 
   return courses.map((course) => JSON.parse(JSON.stringify(course)));
 }
+export const revalidate = 86400;
 
 export default async function Home() {
   const coursesDB = await getCourses();
@@ -43,7 +44,7 @@ export default async function Home() {
   return (
     <main className={cl.main}>
       <DialogGallery />
-      
+
       <Typography variant="h3" className={cl.header}>
         Вартість навчання
       </Typography>
