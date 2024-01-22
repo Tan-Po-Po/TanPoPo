@@ -79,7 +79,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
       ) : (
         <>
           <Suspense fallback={<></>}>
-            {searchParams.get("new") && !isMobile && <NewLabel />}
+            {isNew && !isMobile && <NewLabel />}
           </Suspense>
           <ContentCard
             cardBgColor={item?.labelColor}

@@ -39,7 +39,7 @@ export const InfoCardsBlock = () => {
             {card.text}
           </Typography>
           {i === 2 && (
-            <Link href="">
+            <Link href="/teacher-survey-letter">
               <Button
                 variant="outlined"
                 style={{ maxWidth: "210px", margin: "0 auto 0" }}
