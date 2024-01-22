@@ -30,6 +30,7 @@ export const LinkCardsBlock = () => {
               variant="outlined"
               icon={card.button.icon}
               className={cl.button}
+              wrapperClass={cl.btnWrapper}
             >
               <Link href={card.button.href} style={{ textDecoration: "none" }}>
                 <Typography variant="h6">{card.button.text}</Typography>
@@ -56,6 +57,7 @@ export const LinkCardsBlock = () => {
               variant="outlined"
               icon={card.button.icon}
               className={cl.button}
+              wrapperClass={cl.btnWrapper}
             >
               <Link href={card.button.href} style={{ textDecoration: "none" }}>
                 <Typography variant="h6">{card.button.text}</Typography>

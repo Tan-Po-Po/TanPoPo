@@ -1,12 +1,14 @@
 .reelsBlock {
   min-width: 100%;
 
-  //   :global(.slick-slide) {
-  //     > div {
-  //       margin: 0 24px;
-  //     }
-  //   }
-
+  .btnWrapper {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 237, 232, 0.1) 0%,
+      #fffbd8 100%
+    );
+  }
+  
   .carouselItem {
     img {
       border-radius: 7px !important;

@@ -4,6 +4,23 @@
   padding: 22px 16px;
   cursor: pointer;
   justify-content: space-between;
+
+  .btnWrapper {
+    &:hover {
+      transform: none !important;
+      scale: none !important;
+    }
+  }
+  
+  button {
+    transition: all 0.1s ease-in-out;
+  }
+
+  &:hover {
+    button {
+      scale: 110% !important;
+    }
+  }
 }
 
 @media (max-width: "767px") {

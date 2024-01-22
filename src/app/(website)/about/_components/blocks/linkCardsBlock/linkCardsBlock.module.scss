@@ -16,6 +16,17 @@
   }
 }
 
+.btnWrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 237, 232, 0.1) 0%,
+    #fffbd8 100%
+  ) !important;
+  .button {
+    padding: 9px 14px !important;
+  }
+}
+
 @media (max-width: 767px) {
   .linkCardsBlock {
     flex-direction: column;

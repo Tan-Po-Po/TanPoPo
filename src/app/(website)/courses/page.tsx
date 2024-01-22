@@ -20,6 +20,7 @@ async function getCourses(): Promise<ICourse[]> {
 
   return courses.map((course) => JSON.parse(JSON.stringify(course)));
 }
+export const revalidate = 86400;
 
 export default async function Courses() {
   const coursesDB = await getCourses();

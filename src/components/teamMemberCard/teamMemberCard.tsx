@@ -3,8 +3,6 @@ import Image from "next/image";
 import { getIconArtSrc } from "@/helpers";
 import { Button } from "@/components/button/button";
 import { ContentCard } from "@/components/contentCard/contentCard";
-import { Dialog } from "@/components/dialog/dialog";
-import { Typography } from "@/components/typography/typography";
 import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
 import { IMAGE_BASE_URL } from "@/config/config";
@@ -20,20 +18,9 @@ interface Props {
 
 const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
   const { label, name, image, certificates, education, about } = teamMember;
-
-  const [isHovered, setIsHovered] = useState(false);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
   const { isPc } = useAppSelector(selectWindowMatchMedia);
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    return;
-  };
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    return;
-  };
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleDialogOpen = () => {
     setIsDialogOpen(true);
@@ -79,11 +66,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
             ></Image>
           </ContentCard>
 
-          <div
-            className={cl.certificatesWrapper}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
+          <div className={cl.certificatesWrapper}>
             <ContentCard className={cl.certificates} onClick={handleDialogOpen}>
               <div className={cl.imageWrapper}>
                 <Image
@@ -104,9 +87,9 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
             <div className={cl.buttonWrapper}>
               <Button
                 onClick={handleDialogOpen}
-                isParentHovered={isHovered}
                 variant="outlined"
                 icon="checkbox"
+                wrapperClass={cl.btnWrapper}
                 style={{
                   background:
                     "linear-gradient(180deg, #fff9f8 0%, #fffbd8 100%)",

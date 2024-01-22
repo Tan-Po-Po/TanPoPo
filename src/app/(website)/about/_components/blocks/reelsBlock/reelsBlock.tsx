@@ -59,7 +59,7 @@ export const ReelsBlock = () => {
             {textContent.reelsBlock.caption}
           </Typography>
         )}
-        <Button variant="outlined" icon="bank" className={cl.button}>
+        <Button variant="outlined" icon="bank" className={cl.button} wrapperClass={cl.btnWrapper}>
           <Typography variant="h6">{textContent.reelsBlock.button}</Typography>
         </Button>
       </ContentCard>
