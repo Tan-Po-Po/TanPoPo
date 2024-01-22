@@ -26,6 +26,7 @@
   overflow: hidden;
   height: 100%;
   .logoIcon {
+    transition: 0.2s;
     &:hover {
       scale: 1.1;
     }

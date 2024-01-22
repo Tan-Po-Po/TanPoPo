@@ -24,7 +24,7 @@ const Header = () => {
         <div className={cl.logo}>
           <Link href={"/"}>
             <Image
-              src={"/logo/logoHeader.svg"}
+              src={"/logo/logoHeader.png"}
               className={cl.logoIcon}
               width={110}
               height={100}
