@@ -188,7 +188,7 @@ export default async function About() {
               {textContent.authorContentBlock.youtube.title}
             </Typography>
             <IconLink
-              icon="youtube"
+              icon="youTube"
               href={textContent.authorContentBlock.youtube.iconLink}
               height="64px"
             />
