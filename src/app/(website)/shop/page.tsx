@@ -90,7 +90,7 @@ export default async function Shop() {
       <Typography
         variant="body1"
         align="center"
-        style={{ maxWidth: "765px", marginBottom: "42px" }}
+        style={{ maxWidth: "765px", margin: "-62px 0 -30px 0" }}
       >
         Розпочинайте навчання в школі TanPoPo та знаходьте промокоди на знижки у
         своєму Особистому Кабінеті на весь асортимент товарів наших партнерів
@@ -120,7 +120,7 @@ export default async function Shop() {
             height={500}
             style={{ width: "69px", height: "auto" }}
           />
-          <Typography variant="body2">
+          <Typography variant="body2" style={{ maxWidth: "796px" }}>
             Побувавши по всій Японії та побачишвши японську культуру, ми дуже
             хочемо поділитись з вами незабутніми враженнями, краєвидами та
             внутрішнім спокоєм, яким наділена Японія. Тому в кожний наш продукт

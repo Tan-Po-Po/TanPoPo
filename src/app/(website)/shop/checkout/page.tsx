@@ -169,9 +169,9 @@ export default function Page() {
           />
 
           <Typography variant="subtitle1">
-            Продовжуючи, Я приймаю умови  
+            Оформлюючи замовлення, Я ознайомився та приймаю умови
             <Link target="_blank" href="/contacts/oferta">
-              <u>Публічної {"\n"}Оферти</u>
+              <u> Публічної {"\n"}Оферти</u>
             </Link>{" "}
             та{" "}
             <Link target="_blank" href="/contacts/confidentialityPolicy">

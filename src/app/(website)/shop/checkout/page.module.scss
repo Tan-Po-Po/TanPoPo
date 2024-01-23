@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    
+
     .selectType {
       margin-top: 70px;
     }
@@ -29,10 +29,11 @@
       align-items: center;
 
       span {
-        white-space: pre-line;
+        // white-space: pre-line;
         font-weight: 500;
         line-height: 16px;
         margin-left: 10px;
+        max-width: 494px;
       }
     }
 
@@ -42,7 +43,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 100px;
 
       .line {
         position: absolute;
