@@ -24,6 +24,10 @@
       justify-content: flex-start;
       text-align: start;
       white-space: nowrap;
+
+      a {
+        white-space: nowrap;
+      }
     }
   }
 
@@ -89,7 +93,7 @@
           width: min-content;
         }
         span {
-          margin: 0 15px;
+          margin: 0 6px;
           text-decoration: none !important;
         }
       }

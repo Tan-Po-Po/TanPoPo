@@ -2,11 +2,11 @@
   width: 100%;
 
   :global(.slick-prev) {
-    top: calc(100% + 3px);
+    top: calc(100% + 4px) !important;
   }
 
   :global(.slick-next) {
-    top: calc(100% + 3px);
+    top: calc(100% + 4px) !important;
   }
 
   :global(.slick-track) {

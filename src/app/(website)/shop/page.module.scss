@@ -1,7 +1,7 @@
 .storeMain {
   @include flex-column;
   padding: $padding-page;
-  gap: 60px;
+  gap: 120px;
   position: relative !important;
 
   .cartButton {
@@ -50,6 +50,11 @@
         align-self: stretch;
         gap: 0;
         justify-content: space-between;
+        justify-content: flex-start;
+
+        p {
+          width: 413px;
+        }
       }
     }
   }
@@ -60,7 +65,10 @@
     justify-content: space-between;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 100px;
+    gap: 70px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 384px);
   }
 
   .shopProductsBlock {
@@ -68,6 +76,11 @@
     grid-template-columns: 1fr 1fr;
     align-items: stretch;
     gap: 100px;
+  }
+
+  .message {
+    width: 100%;
+    margin: 0;
   }
 }
 
@@ -92,6 +105,16 @@
         grid-row-end: 3;
       }
     }
+
+    .dealBlock {
+      .cardsWrapper {
+        .card {
+          p {
+            width: auto;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -99,6 +122,7 @@
   .storeMain {
     padding-left: 14px;
     padding-right: 14px;
+    gap: 100px;
     h3 {
       font-size: 32px;
     }
@@ -115,6 +139,7 @@
     }
 
     .shopPartnersBlock {
+      display: flex;
       flex-direction: column;
     }
   }
@@ -126,6 +151,7 @@
     padding-right: 9px;
     padding-left: 9px;
     overflow: hidden;
+    gap: 80px;
 
     h3 {
       font-size: 30px;
