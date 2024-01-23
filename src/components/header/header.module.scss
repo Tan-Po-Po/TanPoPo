@@ -41,6 +41,9 @@
   .dropdown {
     margin-right: 35px;
   }
+  a {
+    text-wrap: nowrap;
+  }
 }
 
 .socials {
@@ -58,7 +61,6 @@
 
   .register {
     padding: 3px 10px !important;
-    // background-color: $color-yellow;
 
     &:hover {
       background: #fff !important;

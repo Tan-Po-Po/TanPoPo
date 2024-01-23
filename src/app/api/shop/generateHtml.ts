@@ -82,7 +82,7 @@ export const generateHtml = (
         border: 2px solid #000;
         justify-content: center;
         align-items: center;
-        padding: 33px;
+        padding: 33px 10px;
         gap: 29px;
       }
       .container {

@@ -176,6 +176,7 @@ export function MoreLinks({
             variant="outlined"
             icon="bookPlay"
             style={{ background: "linear-gradient(#CCE0FF1A, #CCE0FF)" }}
+            wrapperClass={cl.wrapper}
           >
             <Typography variant="h6">Курси</Typography>
           </Button>
@@ -197,6 +198,7 @@ export function MoreLinks({
             variant="outlined"
             icon="coinsStack"
             style={{ background: "linear-gradient(#DFFFD81A, #DFFFD8)" }}
+            wrapperClass={cl.wrapper}
           >
             <Typography variant="h6"> Вартість</Typography>
           </Button>
@@ -218,6 +220,7 @@ export function MoreLinks({
             variant="outlined"
             icon="contact"
             style={{ background: "linear-gradient(#FFF4CC1A, #FFF4CC)" }}
+            wrapperClass={cl.wrapper}
           >
             <Typography variant="h6"> Контакти</Typography>
           </Button>

@@ -26,6 +26,10 @@
   text-transform: uppercase;
 }
 
+.nameJapanese {
+  font-family: var(--font-heisei);
+}
+
 .teacher {
   width: 200px;
   height: 275px;
@@ -44,7 +48,6 @@
     max-width: 170px;
   }
   .nameJapanese {
-    font-family: var(--font-heisei);
     margin-top: 20px;
     font-size: 19px;
     font-weight: 400;

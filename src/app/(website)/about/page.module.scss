@@ -8,6 +8,13 @@
   .ideaBlock {
     @include flex-column;
     gap: 86px;
+    h4 {
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+      font-size: 32px;
+      b {
+        font-size: 34px;
+      }
+    }
     .logoWrapper {
       @include flex-row;
       max-width: 100%;

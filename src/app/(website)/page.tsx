@@ -94,7 +94,7 @@ export default function Home() {
       {isPc && (
         <section className={cl.links}>
           <ContentCard className={cl.link}>
-            <Typography variant="body2">
+            <Typography variant="body1">
               Унікальні матеріали для ще цікавішого та ефекти-внішого вивчення
               мови:
             </Typography>
@@ -107,14 +107,22 @@ export default function Home() {
             />
 
             <Link href="/about#content">
-              <Button className={cl.button} variant="outlined" icon="video">
-                <Typography variant="h6"> Авторський Контент</Typography>
+              <Button
+                className={cl.button}
+                variant="outlined"
+                icon="video"
+                wrapperClass={cl.buttonWrapper}
+              >
+                <Typography variant="body1" style={{ fontSize: "20px" }}>
+                  {" "}
+                  Авторський Контент
+                </Typography>
               </Button>
             </Link>
           </ContentCard>
 
           <ContentCard className={cl.link}>
-            <Typography variant="body2">
+            <Typography variant="body1">
               Наша команда з якою ми разом формуємо якісний процес навчання:
             </Typography>
 
@@ -126,14 +134,22 @@ export default function Home() {
             />
 
             <Link href="/about#team">
-              <Button className={cl.button} variant="outlined" icon="person">
-                <Typography variant="h6"> Команда TanPoPo</Typography>
+              <Button
+                className={cl.button}
+                variant="outlined"
+                icon="person"
+                wrapperClass={cl.buttonWrapper}
+              >
+                <Typography variant="body1" style={{ fontSize: "23px" }}>
+                  {" "}
+                  Команда TanPoPo
+                </Typography>
               </Button>
             </Link>
           </ContentCard>
 
           <ContentCard className={cl.link}>
-            <Typography variant="body2">
+            <Typography variant="body1" style={{ fontSize: "22px" }}>
               Дізнайтеся, що кажуть наші учні про їхній досвід у школі TanPoPo:
             </Typography>
 
@@ -149,6 +165,7 @@ export default function Home() {
                 className={cl.button}
                 variant="outlined"
                 icon="personSpeak"
+                wrapperClass={cl.buttonWrapper}
               >
                 <Typography variant="h6"> Відгуки про Школу</Typography>
               </Button>
@@ -162,7 +179,7 @@ export default function Home() {
       <Formats windowMatchMedia={windowMatchMedia} />
 
       <section className={cl.courses}>
-        <Typography variant="h4" align="center">
+        <Typography variant="h3" align="center">
           Усі можливі види курсів:
         </Typography>
         <div className={cl.cards}>
@@ -286,7 +303,7 @@ export default function Home() {
           <Typography variant="h2" style={{ fontSize: "38px" }}>
             Заходь у свій Особистий Кабінет!
           </Typography>
-          <Typography variant="body1" style={{ marginTop: "34px" }}>
+          <Typography variant="body1" style={{ marginTop: "24px" }}>
             Навчайся з будь-якого девайсу на єдиній інтерактивній платформі.
           </Typography>
         </div>
@@ -317,13 +334,18 @@ export default function Home() {
           alt="Gift"
           width={144}
           height={138}
+          style={{ margin: "20px 0" }}
         />
-        <Typography variant="body1">
-          Скористайтесь всіма перевагами нашого навчання та спробуйте наш
-          мінікурс просто зараз! Дізнайтесь більше про те, як розпочати навчання
-          на інтерактивній платформі:
+        <Typography
+          variant="body1"
+          style={{ marginBottom: "20px", lineHeight: "26px" }}
+        >
+          Скористайтесь всіма перевагами нашого навчання та
+          <br /> спробуйте наш мінікурс просто зараз! Дізнайтесь більше про{" "}
+          <br />
+          те, як розпочати навчання на інтерактивній платформі:
         </Typography>
-        <Button variant="outlined">
+        <Button variant="outlined" wrapperClass={cl.buttonWrapper}>
           <Typography variant="body1">Дізнатись більше!</Typography>
         </Button>
       </ContentCard>
