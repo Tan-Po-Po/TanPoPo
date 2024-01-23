@@ -205,6 +205,9 @@
     }
 
     .message {
+      > div {
+        padding: 26px 15px;
+      }
       p {
         font-size: 15px;
       }

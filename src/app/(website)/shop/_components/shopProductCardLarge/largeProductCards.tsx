@@ -31,6 +31,7 @@ const LargeProductCards = ({
       infinite={false}
       renderCarousel={width! < 1420}
       focusOnSelect={false}
+      numbersClass={cl.numbers}
     >
       {products.map((item, i) =>
         item.large.inDevelopment ? (
