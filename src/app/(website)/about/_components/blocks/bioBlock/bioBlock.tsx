@@ -194,7 +194,7 @@ export const BioBlock = () => {
           >
             <Image
               alt=""
-              src={"/photos/table.jpg"}
+              src={"/photos/table.png"}
               sizes="100vw"
               width={1920}
               height={1080}
@@ -216,7 +216,7 @@ export const BioBlock = () => {
           >
             <Image
               alt=""
-              src={"/photos/tv.jpg"}
+              src={"/photos/tv.png"}
               sizes="100vw"
               fill
               style={{ objectFit: "cover" }}
