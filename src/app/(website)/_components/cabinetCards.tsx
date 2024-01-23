@@ -80,7 +80,7 @@ export function CabinetCards({
 
   return (
     <section className={cl.cabinetCards}>
-      <ContentCard width="376px" height="343px">
+      <ContentCard className={cl.card} width="376px" height="343px">
         <Image
           src={getIconArtSrc("house")}
           alt="House"
@@ -98,7 +98,7 @@ export function CabinetCards({
 
       <Image src="/icons/plus.svg" alt="Plus" width={30} height={30} />
 
-      <ContentCard width="376px" height="343px">
+      <ContentCard className={cl.card} width="376px" height="343px">
         <Image
           src={getIconArtSrc("calendar2")}
           alt="Calendar"
@@ -116,7 +116,7 @@ export function CabinetCards({
 
       <Image src="/icons/plus.svg" alt="Plus" width={30} height={30} />
 
-      <ContentCard width="376px" height="343px">
+      <ContentCard className={cl.card} width="376px" height="343px">
         <Image
           src={getIconArtSrc("book1")}
           alt="Book"

@@ -8,6 +8,7 @@ import { getValidClassNames } from "@/helpers";
 import { HeaderNarrow } from "./headerNarrow/headerNarrow";
 import { aboutLinks, coursesLinks } from "./links";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { Typography } from "@mui/material";
 
 const Header = () => {
   const { width } = useWindowSize();
@@ -46,16 +47,24 @@ const Header = () => {
             href="/courses"
           />
           <Link href={"/shop"}>
-            <Button icon="shop">Крамниця</Button>
+            <Button icon="shop">
+              <Typography variant="subtitle1">Крамниця</Typography>
+            </Button>
           </Link>
           <Link href={"/test-intro"}>
-            <Button icon="pc">Онлайн-тест</Button>
+            <Button icon="pc">
+              <Typography variant="subtitle1">Онлайн-тест</Typography>
+            </Button>
           </Link>
           <Link href={"/library"}>
-            <Button icon="bank">Бібліотека</Button>
+            <Button icon="bank">
+              <Typography variant="subtitle1">Бібліотека</Typography>
+            </Button>
           </Link>
           <Link href={"/contacts"}>
-            <Button icon="contact">Контакти</Button>
+            <Button icon="contact">
+              <Typography variant="subtitle1">Контакти</Typography>
+            </Button>
           </Link>
         </nav>
         <div className={cl.socials}>

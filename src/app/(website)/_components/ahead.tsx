@@ -51,8 +51,11 @@ export function Ahead({
         height={310}
       />
       <div className={cl.text}>
-        <Typography variant="h4">Завжди попереду!</Typography>
-        <Typography variant="body1">
+        <Typography variant="h2">Завжди попереду!</Typography>
+        <Typography
+          variant="body1"
+          style={{ fontSize: "19px", lineHeight: "21px" }}
+        >
           Наша команда TanPoPo невпинно працює над удосконаленням програми,
           враховуючи останні тенденції та досягнення в галузі швидкіскного
           вивчення мови. Саме тому ми впроваджуємо інноваційні методики,

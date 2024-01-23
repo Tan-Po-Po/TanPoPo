@@ -1,7 +1,8 @@
 import { Footer, Header } from "@/components";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { CartButton, DialogCart } from "./shop/_components/components";
+import { DialogCart } from "./shop/_components/components";
+import { StyledEngineProvider } from "@mui/material/styles";
 import { LocalizationProvider } from "@/components/localizationProvider/localizationProvider";
 
 export default function RootLayout({
@@ -10,8 +11,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <LocalizationProvider>
+    <LocalizationProvider>
+      <StyledEngineProvider injectFirst>
         <Header />
         {children}
         <Footer />
@@ -23,7 +24,7 @@ export default function RootLayout({
           theme="dark"
         />
         <DialogCart />
-      </LocalizationProvider>
-    </>
+      </StyledEngineProvider>
+    </LocalizationProvider>
   );
 }

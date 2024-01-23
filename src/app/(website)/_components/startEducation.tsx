@@ -185,9 +185,15 @@ export function StartEducation({
       <Typography
         variant="body1"
         align="center"
-        style={{ fontSize: "24px", marginTop: "42px", maxWidth: "650px" }}
+        style={{
+          fontSize: "24px",
+          marginTop: "22px",
+          lineHeight: " 26px",
+          fontWeight: 700,
+        }}
       >
-        Записатись на будь-який курс можна абсолютно самостійно на нашому сайті:
+        Записатись на будь-який курс можна <br /> абсолютно самостійно на нашому
+        сайті:
       </Typography>
       {cards}
     </ContentCard>

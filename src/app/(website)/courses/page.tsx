@@ -37,7 +37,7 @@ export default async function Courses() {
           width={1200}
           height={585}
         />
-        <Typography variant="body1">
+        <Typography variant="body1" align="center">
           Кожен наш курс створений так, щоб ви отримали максимум знань та
           навичок для впевненого та вільного володіння японською мовою! Ми
           використовуємо найновітніші методики, інтерактивні завдання та лише

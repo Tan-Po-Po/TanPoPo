@@ -102,7 +102,8 @@ export function Opportunities({
           <div>
             <Typography variant="h3">20+</Typography>
             <Typography variant="body2">
-              навчальних курсів на вибір для усіх рівнів та форматів навчання!
+              навчальних курсів на <br />
+              вибір для усіх рівнів та форматів навчання!
             </Typography>
           </div>
         </ContentCard>
@@ -118,12 +119,10 @@ export function Opportunities({
             width={137}
             height={106}
           />
-          <Typography variant="h3">
-            480+
-            <Typography variant="body2">
-              унікальних уроків на нашій інтерактивній платформі для
-              бездоганного вивчення японської мови!
-            </Typography>
+          <Typography variant="h3">480+</Typography>
+          <Typography variant="body2">
+            унікальних уроків на нашій інтерактивній платформі для бездоганного
+            вивчення японської мови!
           </Typography>
         </ContentCard>
 
@@ -138,11 +137,9 @@ export function Opportunities({
             width={107}
             height={76}
           />
-          <Typography variant="h3">
-            160+
-            <Typography variant="body2">
-              додаткових корисних матеріалів в нашій Бібліотеці TanPoPo!
-            </Typography>
+          <Typography variant="h3">160+</Typography>
+          <Typography variant="body2">
+            додаткових корисних матеріалів в нашій Бібліотеці TanPoPo!
           </Typography>
         </ContentCard>
       </div>
@@ -152,7 +149,7 @@ export function Opportunities({
   return (
     <ContentCard width="1132px" className={cl.opportunities}>
       <Typography variant="h5">Безмежні можливості разом з TanPoPo!</Typography>
-      <Typography variant="body2">
+      <Typography variant="body2" style={{marginBottom: "20px"}}>
         Лише відбірні та ефективні матеріали для вивчення японської мови:
       </Typography>
       {cards}
