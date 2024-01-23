@@ -97,7 +97,7 @@ export const textContent = {
   reviewsBlock: {
     header: "ВІДГУКИ ПРО ШКОЛУ",
     caption:
-      "Дізнайтеся від наших учнів як проходить навчання в школі TanPoPo!",
+      "Дізнайтеся від наших учнів як \n проходить навчання в школі TanPoPo!",
   },
   partnersBlock: {
     header: "НАШІ ПАРТНЕРИ",

@@ -16,7 +16,7 @@ import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMa
 import mcl from "../../../page.module.scss";
 
 export const ReelsBlock = () => {
-  const { isMobile } = useAppSelector(selectWindowMatchMedia);
+  const { isMobile, isPc } = useAppSelector(selectWindowMatchMedia);
 
   return (
     <div className={cl.reelsBlock}>
@@ -30,7 +30,19 @@ export const ReelsBlock = () => {
             {textContent.reelsBlock.caption}
           </Typography>
         )}
-        <Carousel autoplay={true} initialSlide={3}>
+        <Carousel
+          autoplay={true}
+          initialSlide={3}
+          arrows={isPc}
+          responsive={[
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 1,
+              },
+            },
+          ]}
+        >
           {textContent.reelsBlock.images.map((image, i) => (
             <Link
               key={i}
@@ -59,7 +71,12 @@ export const ReelsBlock = () => {
             {textContent.reelsBlock.caption}
           </Typography>
         )}
-        <Button variant="outlined" icon="bank" className={cl.button} wrapperClass={cl.btnWrapper}>
+        <Button
+          variant="outlined"
+          icon="bank"
+          className={cl.button}
+          wrapperClass={cl.btnWrapper}
+        >
           <Typography variant="h6">{textContent.reelsBlock.button}</Typography>
         </Button>
       </ContentCard>

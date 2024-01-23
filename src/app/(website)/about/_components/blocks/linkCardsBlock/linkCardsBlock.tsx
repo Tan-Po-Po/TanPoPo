@@ -9,7 +9,7 @@ import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 export const LinkCardsBlock = () => {
-  const { isTablet } = useAppSelector(selectWindowMatchMedia);
+  const { isPc, isTablet } = useAppSelector(selectWindowMatchMedia);
 
   let cards;
 
@@ -69,5 +69,10 @@ export const LinkCardsBlock = () => {
     );
   }
 
-  return <div className={cl.linkCardsBlock}>{cards}</div>;
+  return (
+    <div className={cl.linkCardsBlock}>
+      <div className={cl.header}>Наші розділи, які цікаво відвідати:</div>
+      <div className={cl.linkCards}>{cards}</div>
+    </div>
+  );
 };

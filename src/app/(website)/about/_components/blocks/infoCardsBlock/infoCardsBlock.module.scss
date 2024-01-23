@@ -9,7 +9,7 @@
     display: flex !important;
     justify-content: space-between;
     align-items: center;
-    
+
     img {
       margin: 0 auto;
     }
@@ -21,8 +21,11 @@
 }
 
 @media (max-width: "1024px") and (min-width: "768px") {
-  .infoCard {
-    height: 500px;
+  .infoCardsBlock {
+    margin-top: -50px;
+    .infoCard {
+      height: 500px;
+    }
   }
 }
 
