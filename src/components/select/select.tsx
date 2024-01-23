@@ -27,6 +27,7 @@ type SelectProps = {
   isDisabled?: boolean;
   setValue?: UseFormSetValue<any>;
   name?: string;
+  onClick?: () => void;
 };
 
 const Select: React.FC<SelectProps> = ({
@@ -41,6 +42,7 @@ const Select: React.FC<SelectProps> = ({
   isDisabled,
   setValue,
   name,
+  onClick,
 }) => {
   const [option, setOption] = useState<{ value: string; label: string }>(
     (placeHolder && {
@@ -77,7 +79,10 @@ const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <div className={getValidClassNames(cl.mainContainer, className)}>
+    <div
+      className={getValidClassNames(cl.mainContainer, className)}
+      onClick={onClick}
+    >
       <div
         className={getValidClassNames(
           cl.selectContainer,

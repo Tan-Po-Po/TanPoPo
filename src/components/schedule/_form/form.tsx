@@ -37,7 +37,7 @@ const Form: React.FC<Properties> = ({ formReturn, className }) => {
             name="surname"
             control={control}
             rules={{
-              required: "Будь ласка, вкажіть Прізвище",
+              required: "Будь-ласка, вкажіть Прізвище",
               minLength: {
                 value: 3,
                 message: "Будь-ласка, вкажіть коректне прізвище",
@@ -50,7 +50,7 @@ const Form: React.FC<Properties> = ({ formReturn, className }) => {
             name="phone"
             control={control}
             rules={{
-              required: "Будь ласка, вкажіть номер телефону",
+              required: "Будь-ласка, вкажіть номер телефону",
               minLength: {
                 value: 10,
                 message: "Телефон має бути мінімум 10 символів завдовшки",
@@ -66,7 +66,7 @@ const Form: React.FC<Properties> = ({ formReturn, className }) => {
             name="email"
             control={control}
             rules={{
-              required: "Будь ласка, вкажіть Email",
+              required: "Будь-ласка, вкажіть Email",
               minLength: {
                 value: 5,
                 message: "Email має бути мінімум 5 символів завдовшки",
@@ -83,7 +83,7 @@ const Form: React.FC<Properties> = ({ formReturn, className }) => {
             name="age"
             control={control}
             rules={{
-              required: "Будь ласка, вкажіть вік",
+              required: "Будь-ласка, вкажіть вік",
               validate: {
                 validNumber: (value) => {
                   const parsedValue = Number(value);
@@ -178,7 +178,7 @@ const Form: React.FC<Properties> = ({ formReturn, className }) => {
                 rules={
                   getValues("contact")
                     ? {
-                        required: "Будь ласка, вкажіть номер\nтелефону контактної особи",
+                        required: "Будь-ласка, вкажіть номер\nтелефону контактної особи",
                         minLength: {
                           value: 10,
                           message:
@@ -201,7 +201,7 @@ const Form: React.FC<Properties> = ({ formReturn, className }) => {
                 rules={
                   getValues("contact")
                     ? {
-                        required: "Будь ласка, вкажіть\nEmail контактної особи",
+                        required: "Будь-ласка, вкажіть\nEmail контактної особи",
                         minLength: {
                           value: 5,
                           message:
@@ -236,7 +236,7 @@ const Form: React.FC<Properties> = ({ formReturn, className }) => {
                 <Input
                   {...field}
                   className={cl.roleInput}
-                  placeholder="Будь ласка, вкажіть хто Ви є для учня?"
+                  placeholder="Будь-ласка, вкажіть хто Ви є для учня?"
                 />
               )}
             />

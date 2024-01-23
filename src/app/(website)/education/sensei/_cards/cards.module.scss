@@ -14,11 +14,18 @@
 }
 
 .slide {
+  padding: 26px 16px;
   img {
     margin: auto;
   }
+  ul {
+    margin: 0;
+    padding-left: 25px;
+  }
   li {
     text-align: start;
+    margin-top: 5px;
+    font-size: 17px;
   }
 }
 

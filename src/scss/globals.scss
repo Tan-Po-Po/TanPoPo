@@ -53,7 +53,7 @@ main {
   white-space: pre-line;
   color: #fff;
   text-align: center;
-  font-family: var(--font-comfortaa);
+  font-family: var(--font-comfortaa) !important;
   font-size: 22px;
   font-weight: 700;
 }
@@ -72,9 +72,6 @@ main {
   &:hover {
     background: $color-yellow !important;
   }
-  // &:not(:first-child) {
-  //   border-top: 1px solid #555;
-  // }
 }
 
 .MuiAutocomplete-root,

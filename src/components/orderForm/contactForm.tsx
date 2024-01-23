@@ -41,7 +41,7 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           name="surname"
           control={control}
           rules={{
-            required: "Будь ласка, вкажіть Прізвище",
+            required: "Будь-ласка, вкажіть Прізвище",
             minLength: {
               value: 3,
               message: "Будь-ласка, вкажіть коректне прізвище",
@@ -56,7 +56,7 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           name="email"
           control={control}
           rules={{
-            required: "Будь ласка, вкажіть Email",
+            required: "Будь-ласка, вкажіть Email",
             minLength: {
               value: 5,
               message: "Email має бути мінімум 5 символів завдовшки",
@@ -75,7 +75,7 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           name="phone"
           control={control}
           rules={{
-            required: "Будь ласка, вкажіть номер телефону",
+            required: "Будь-ласка, вкажіть номер телефону",
             minLength: {
               value: 10,
               message: "Телефон має бути мінімум 10 символів завдовшки",

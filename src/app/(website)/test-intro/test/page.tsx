@@ -138,7 +138,9 @@ export default function Test() {
           cardBgColor={colors[testIndex]}
           className={cl.testForm}
         >
-          <Typography variant="h4" className={cl.question}>{test.question}</Typography>
+          <Typography variant="h4" className={cl.question}>
+            {test.question}
+          </Typography>
           <div className={cl.subContainer}>
             {test.subquestions.map((sub, subIndex) => (
               <ContentCard

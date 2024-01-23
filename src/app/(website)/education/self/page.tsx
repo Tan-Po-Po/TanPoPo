@@ -1,18 +1,34 @@
-import { ContentCard, Typography, StartSelfEducation } from "@/components";
+"use client";
+import { ContentCard, Typography, StartSelfEducation, DialogGallery } from "@/components";
 import { getIconArtSrc } from "@/helpers";
+import { useAppDispatch } from "@/redux/hooks";
+import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
 
-export default async function Page() {
+export default function Page() {
+  const dispatch = useAppDispatch();
   return (
     <main className={cl.main}>
+       <DialogGallery />
+       
       <div className={cl.header}>
         <Typography variant="h3">Освітня програма</Typography>
         <Typography variant="h6">для самостійного навчання</Typography>
       </div>
 
-      <div className={cl.video}>
+      <div
+        className={cl.video}
+        onClick={() =>
+          dispatch(
+            openGalleryDialog({
+              type: "video",
+              src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            })
+          )
+        }
+      >
         <Image
           src="/images/selfEducation.jpg"
           alt="Japanese courses"
@@ -40,7 +56,7 @@ export default async function Page() {
             <Typography variant="body2">
               Можливість розвивати гарні навички слухача японської мови в
               будь-якому улюбленому для Вас місці стане легко та комфортно!
-              Вивчати мову просто слухаючи -як ніколи актуально!
+              Вивчати мову просто слухаючи - як ніколи актуально!
             </Typography>
           </ContentCard>
 

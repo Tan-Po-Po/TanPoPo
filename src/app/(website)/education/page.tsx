@@ -10,7 +10,7 @@ export default async function Page() {
         Освітня програма
       </Typography>
       <Typography variant="h5" className={cl.headerFormat}>
-        Будь ласка, оберіть формат навчання:
+        Будь-ласка, оберіть формат навчання:
       </Typography>
 
       <CourseFormats />

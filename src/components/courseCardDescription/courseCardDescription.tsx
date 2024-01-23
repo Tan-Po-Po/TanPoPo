@@ -199,17 +199,19 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       )}
 
       {course.type !== "book" && (
-        <Checkbox
-          className={cl.checkbox}
-          label={
+        <div className={cl.checkboxWrapper}>
+          <Checkbox
+            className={cl.checkbox}
+            onClick={toggleAcceptation}
+            isChecked={isAccepted}
+          />
+          <Link href="/">
             <Typography variant="body2">
-              Я ознайомлений з <Link href="/">Навчальним Періодом</Link> для
-              самостійних курсів!
+              Я ознайомлений з <u>Навчальним Періодом</u> для самостійних
+              курсів!
             </Typography>
-          }
-          onClick={toggleAcceptation}
-          isChecked={isAccepted}
-        />
+          </Link>
+        </div>
       )}
 
       <ContentCard

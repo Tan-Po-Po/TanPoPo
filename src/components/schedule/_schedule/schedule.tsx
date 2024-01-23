@@ -22,7 +22,7 @@ const Schedule: React.FC<Properties> = ({
     <div className={cl.schedule}>
       <ContentCard width="775px">
         <Typography variant="h6">
-          Будь ласка, визначте ваш навчальний графік за 3 категоріями:
+          Будь-ласка, визначте ваш навчальний графік за 3 категоріями:
         </Typography>
         <div className={cl.buttons}>
           <Button

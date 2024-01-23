@@ -1,9 +1,11 @@
 .test {
   @include flex-column;
+  justify-content: center;
   align-items: center;
   padding: $padding-page;
   gap: 70px;
   width: 100%;
+  flex-grow: 1;
 
   .progressBar {
     @include flex-row;

@@ -1,19 +1,41 @@
-import { ContentCard, StartEducationSensei, Typography } from "@/components";
+"use client"
+import {
+  ContentCard,
+  StartEducationSensei,
+  Typography,
+  DialogGallery,
+} from "@/components";
 import { Cards } from "./_cards/cards";
 import { getIconArtSrc, getValidClassNames } from "@/helpers";
+import { useAppDispatch } from "@/redux/hooks";
+import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
 
-export default async function Page() {
+export default function Page() {
+  const dispatch = useAppDispatch();
+  
   return (
     <main className={cl.main}>
+      <DialogGallery />
+
       <div className={cl.header}>
         <Typography variant="h3">Освітня програма</Typography>
         <Typography variant="h6">для онлайн-курсів з сенсеєм</Typography>
       </div>
 
-      <div className={cl.video}>
+      <div
+        className={cl.video}
+        onClick={() =>
+          dispatch(
+            openGalleryDialog({
+              type: "video",
+              src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            })
+          )
+        }
+      >
         <Image
           src="/photos/university.jpg"
           alt="Japanese modern building"
@@ -149,7 +171,7 @@ export default async function Page() {
           width={110}
           height={80}
         />
-        <Typography variant="body2">
+        <Typography variant="body2" align="center">
           Наприкінці курсу проходьте фінальний тест, щоб підвердити ваші здобуті
           знання та навички та отримуйте сертифікат від TanPoPo про успішне
           проходження обраного курсу! А за допомогою унікального QR-коду, що

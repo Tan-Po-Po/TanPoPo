@@ -158,16 +158,21 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
                 return parseCoursePrices(price, idx);
               })
         }
-        handleSelect={(value: string, link?: string) =>
+        handleSelect={(value: string, link?: string) => {
           setCardState((prev) => {
             return { ...prev, lessons: value, link: link as string };
-          })
-        }
+          });
+        }}
         checkbox
         checkboxLabel="Подарунковий Сертифікат🎁"
         setGift={toggleGift}
         gift={isGift}
         isDisabled={cardState.learningFormat === null}
+        onClick={() =>
+          cardState.learningFormat === null
+            ? toast("Оберіть формат навчання")
+            : null
+        }
       />
 
       {isGift ? (

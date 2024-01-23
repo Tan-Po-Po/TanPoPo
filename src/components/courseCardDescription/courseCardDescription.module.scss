@@ -12,6 +12,9 @@
   
   .description {
     margin-top: 30px;
+    .descItem {
+      margin-top: 7px;
+    }
   }
 
   .labels {
@@ -128,6 +131,16 @@
     .text {
       text-transform: uppercase;
       padding: 0px 8px;
+    }
+  }
+
+  .checkboxWrapper {
+    display: flex;
+    p {
+      margin-left: 10px;
+      text-align: left;
+      max-width: 290px;
+      font-size: 15px;
     }
   }
 }

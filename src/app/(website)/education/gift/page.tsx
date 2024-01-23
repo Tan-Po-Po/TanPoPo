@@ -181,7 +181,7 @@ export default function Page() {
           name="certificateType"
           control={control}
           rules={{
-            required: "Будь ласка, оберіть вид сертифікату",
+            required: "Будь-ласка, оберіть вид сертифікату",
           }}
           render={({ field }) => (
             <Select

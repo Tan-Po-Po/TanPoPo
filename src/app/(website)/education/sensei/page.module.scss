@@ -11,7 +11,7 @@
   position: relative;
   margin-top: 75px;
   transition: all 0.3s ease-in-out;
-
+  cursor: pointer;
   img {
     border-radius: $border-radius;
     border: $border;
@@ -119,6 +119,7 @@
     text-align: start;
     font-size: 18px;
     font-weight: 600;
+    line-height: 22px;
   }
 }
 
@@ -132,6 +133,9 @@
 
   img {
     margin: 15px 0;
+  }
+  p {
+    max-width: 584px;
   }
 }
 
