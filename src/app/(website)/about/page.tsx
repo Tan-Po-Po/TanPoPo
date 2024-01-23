@@ -21,6 +21,7 @@ import { ReviewsBlock } from "./_components/blocks/reviewsBlock/reviewsBlock";
 import { InfoCardsBlock } from "./_components/blocks/infoCardsBlock/infoCardsBlock";
 import { ReelsBlock } from "./_components/blocks/reelsBlock/reelsBlock";
 import { LinkCardsBlock } from "./_components/blocks/linkCardsBlock/linkCardsBlock";
+import { PartnersBlock } from "./_components/blocks/partnersBlock/partnersBlock";
 
 async function getTeamMembers() {
   await dbConnect();
@@ -103,39 +104,7 @@ export default async function About() {
 
       <InfoCardsBlock />
 
-      {partners && (
-        <div
-          className={cl.partnersBlock}
-          id="partners"
-          style={{ scrollMarginTop: "100px" }}
-        >
-          <Typography variant="h3">
-            {textContent.partnersBlock.header}
-          </Typography>
-          <Typography variant="h6">
-            {textContent.partnersBlock.title}
-          </Typography>
-          <ContentCard width="1238px" className={cl.carouselCard}>
-            <Carousel autoplay={true}>
-              {partners.map((partner) => (
-                <CarouselItem key={partner._id}>
-                  <Image
-                    alt=""
-                    src={`${IMAGE_BASE_URL}/${partner.image.filename}`}
-                    width={500}
-                    height={300}
-                    style={{ width: "100%", height: "auto" }}
-                  />
-                </CarouselItem>
-              ))}
-            </Carousel>
-
-            <Typography variant="body1">
-              {textContent.partnersBlock.caption}
-            </Typography>
-          </ContentCard>
-        </div>
-      )}
+      {partners && <PartnersBlock partners={partners} />}
 
       <div
         className={cl.studio}

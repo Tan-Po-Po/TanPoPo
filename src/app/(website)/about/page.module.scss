@@ -17,20 +17,24 @@
     }
     .logoWrapper {
       @include flex-row;
+      justify-content: center;
       max-width: 100%;
-      overflow: hidden;
+      // overflow: hidden;
+      position: relative;
+      // transform: translate(-50px, 0);
 
       .logo {
-        position: relative;
+        width: 533px;
 
-        .video {
-          min-width: 251px;
-        }
+        // .video {
+        //   min-width: 251px;
+        // }
       }
 
       .confetti {
         z-index: -1;
         width: 100%;
+        max-width: 454px;
       }
 
       .confettiLeft {
@@ -41,10 +45,10 @@
         animation: confettiAppearRight 5s ease, breathing 5s ease infinite;
       }
     }
-  }
 
-  .partnersBlock {
-    @extend %block;
+    .caption {
+      max-width: 1110px;
+    }
   }
 
   .authorContentBlock {
@@ -105,12 +109,18 @@
 }
 
 @media (max-width: 1250px) {
-  .ideaBlock {
-    .logo {
-      width: 250px;
-    }
-    .confetti {
-      max-width: 344px;
+  .main {
+    overflow: hidden;
+    .ideaBlock {
+      .logoWrapper {
+        .logo {
+          width: 350px;
+        }
+        .confetti {
+          max-width: 344px;
+          height: auto;
+        }
+      }
     }
   }
 }
@@ -135,38 +145,26 @@
           font-size: 30px;
         }
       }
-      .logo {
-        width: 493px;
-      }
-      .confetti {
-        display: none;
+
+      .logoWrapper {
+        .logo {
+          // width: 250px; //in case confetti is needed
+          width: 493;
+        }
+        .confetti {
+          // max-width: 244px; //in case confetti is needed
+          display: none;
+        }
       }
 
       .caption {
         font-size: 18px;
-        padding: 0 56px;
-      }
-    }
-
-    .partnersBlock {
-      gap: 35px;
-
-      h3,
-      h6,
-      p {
-        max-width: 90vw;
-      }
-
-      h3 {
-        font-size: 30px;
-      }
-      h6,
-      p {
-        font-size: 18px;
+        max-width: 661px;
       }
     }
 
     .authorContentBlock {
+      margin-top: 20px;
       .wrapper {
         justify-content: space-around;
         gap: 0;
@@ -236,8 +234,14 @@
       font-size: 25px;
     }
     .ideaBlock {
-      .logo {
-        width: 251px;
+      .logoWrapper {
+        .logo {
+          width: 251px;
+        }
+
+        .confetti {
+          display: none;
+        }
       }
       .title,
       b {
@@ -247,24 +251,6 @@
         font-size: 16px;
         text-align: justify !important;
         padding: 0 15px;
-      }
-    }
-
-    .partnersBlock {
-      .carouselCard {
-        padding: 28px;
-      }
-
-      :global(.slick-slide) {
-        > div {
-          margin: 38px;
-        }
-      }
-
-      :global(.slick-list),
-      :global(.slick-track) {
-        max-height: 200px;
-        height: fit-content !important;
       }
     }
 
