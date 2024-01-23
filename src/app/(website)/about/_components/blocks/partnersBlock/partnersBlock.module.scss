@@ -1,0 +1,67 @@
+.partnersBlock {
+  @extend %block;
+  padding: 0 14px;
+  p {
+    max-width: 1053px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .partnersBlock {
+    gap: 35px;
+
+    h3,
+    h6,
+    p {
+      max-width: 90vw;
+    }
+
+    h6 {
+      max-width: 740px;
+    }
+    p {
+      max-width: 659px;
+    }
+
+    h3 {
+      font-size: 30px;
+    }
+    h6,
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .partnersBlock {
+    width: 100%;
+    h3 {
+      font-size: 25px;
+    }
+    h6 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: normal;
+    }
+
+    .carouselCard {
+      padding: 28px;
+    }
+
+    :global(.slick-slide) {
+      > div {
+        margin: 38px;
+      }
+    }
+
+    :global(.slick-list),
+    :global(.slick-track) {
+      max-height: 200px;
+      height: fit-content !important;
+    }
+  }
+}

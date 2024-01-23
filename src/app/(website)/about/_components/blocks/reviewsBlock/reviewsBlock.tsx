@@ -83,10 +83,11 @@ export const ReviewsBlock = () => {
         {!isMobile && (
           <Typography
             variant="h6"
+            className={cl.caption}
             style={{
               textAlign: "center",
               whiteSpace: "pre-wrap",
-              maxWidth: `${isTablet ? "70vw" : "auto"}`,
+              maxWidth: `${isTablet ? "599px" : "auto"}`,
             }}
           >
             {textContent.reviewsBlock.caption}
