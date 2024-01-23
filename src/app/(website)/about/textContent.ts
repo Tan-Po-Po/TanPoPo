@@ -116,7 +116,7 @@ export const textContent = {
         socialLinks.instagram,
         socialLinks.instagram,
       ],
-      images: ["/instagram/1.jpg", "/instagram/2.jpg", "/instagram/3.jpg"],
+      images: ["/instagram/1.png", "/instagram/2.png", "/instagram/3.png"],
       caption:
         "Сторіз з повсякденними публікаціями з життя в Японії та України; цікаві пости на вивчення фраз та слів з японсько-українським перекладом; розбір значення канджі на радикали; круті навчальні рілси для простого та швидкого вивчення слів та багато-багато іншого!",
     },
