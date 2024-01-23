@@ -149,7 +149,7 @@ export default function Page() {
         ) : (
           <ContentCard width="650px" className={cl.lessonsCount}>
             <Typography variant="body1">
-              Будь ласка, вкажіть скільки разів на тиждень Ви бажаєте займатись
+              Будь-ласка, вкажіть скільки разів на тиждень Ви бажаєте займатись
               індивідульно з сенсеєм:
             </Typography>
 

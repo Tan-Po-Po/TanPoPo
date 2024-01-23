@@ -54,16 +54,18 @@
   margin: 100px 0;
   position: relative;
   width: 100%;
+  
+  &:hover {
+    .label {
+      transform: scale(1.1);
+    }
+  }
 
   .label {
     transform: none;
     top: -15%;
     left: auto;
     transition: all 0.2s ease-in-out;
-
-    &:hover {
-      transform: scale(1.1);
-    }
   }
 
   .link {

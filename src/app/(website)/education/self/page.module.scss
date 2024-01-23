@@ -94,12 +94,14 @@
       width: 380px;
       height: 320px;
       max-width: 380px;
+
       p {
         font-weight: 700;
       }
     }
 
     .typeList {
+      align-items: flex-start;
       span {
         text-align: start;
         display: block;
@@ -161,15 +163,15 @@
   }
 
   .text {
-    text-align: start;
+    text-align: justify;
     font-size: 19px;
     font-weight: 600;
     line-height: 120%;
+    max-width: 810px;
   }
 }
 
 .certificate {
-
   padding: 35px;
   margin-top: 112px;
 
@@ -179,6 +181,9 @@
 
   img {
     margin: 15px 0;
+  }
+  p {
+    max-width: 584px;
   }
 }
 

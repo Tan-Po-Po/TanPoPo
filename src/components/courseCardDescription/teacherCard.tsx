@@ -106,7 +106,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
           return (
             <div key={index} className={cl.descItem}>
               <Image src={getIconSrc(icon)} alt={icon} width={26} height={26} />
-              <Typography variant="body2">{text}</Typography>
+              <Typography variant="body1">{text}</Typography>
             </div>
           );
         })}
@@ -170,6 +170,11 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
           setGift={toggleGift}
           gift={isGift}
           isDisabled={cardState.learningFormat === null}
+          onClick={() =>
+            cardState.learningFormat === null
+              ? toast("Оберіть формат навчання")
+              : null
+          }
         />
       </div>
 

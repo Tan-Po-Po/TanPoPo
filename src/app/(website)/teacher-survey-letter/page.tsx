@@ -148,7 +148,7 @@ const Page = () => {
               name="surname"
               control={control}
               rules={{
-                required: "Будь ласка, вкажіть Прізвище",
+                required: "Будь-ласка, вкажіть Прізвище",
                 minLength: {
                   value: 3,
                   message: "Будь-ласка, вкажіть коректне прізвище",
@@ -163,7 +163,7 @@ const Page = () => {
               name="patronymic"
               control={control}
               rules={{
-                required: "Будь ласка, вкажіть По-батькові",
+                required: "Будь-ласка, вкажіть По-батькові",
                 minLength: {
                   value: 3,
                   message: "Будь-ласка, вкажіть коректне По-батькові",
@@ -178,7 +178,7 @@ const Page = () => {
               name="birthDate"
               control={control}
               rules={{
-                required: "Будь ласка, вкажіть Дату Народження",
+                required: "Будь-ласка, вкажіть Дату Народження",
               }}
               render={({ field }) => (
                 <DatePicker
@@ -194,7 +194,7 @@ const Page = () => {
               name="email"
               control={control}
               rules={{
-                required: "Будь ласка, вкажіть Email",
+                required: "Будь-ласка, вкажіть Email",
                 minLength: {
                   value: 5,
                   message: "Email має бути мінімум 5 символів завдовшки",
@@ -213,7 +213,7 @@ const Page = () => {
               name="phone"
               control={control}
               rules={{
-                required: "Будь ласка, вкажіть номер телефону",
+                required: "Будь-ласка, вкажіть номер телефону",
                 minLength: {
                   value: 10,
                   message: "Телефон має бути мінімум 10 символів завдовшки",
@@ -446,7 +446,7 @@ const Page = () => {
                 }}
                 render={({ field }) => (
                   <Input
-                    label="Будь ласка, напишіть дату складання іспиту."
+                    label="Будь-ласка, напишіть дату складання іспиту."
                     multiline
                     rows={4}
                     style={{ width: "100%" }}
@@ -739,7 +739,7 @@ const Page = () => {
                 }}
                 render={({ field }) => (
                   <Input
-                    label="Будь ласка, надайте розгорнуту відповідь"
+                    label="Будь-ласка, надайте розгорнуту відповідь"
                     multiline
                     rows={7}
                     className={cl.textArea}

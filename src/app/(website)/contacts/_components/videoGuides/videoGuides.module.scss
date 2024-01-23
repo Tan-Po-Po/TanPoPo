@@ -4,10 +4,6 @@
   justify-content: center;
   gap: 100px;
 
-  b {
-    text-decoration: underline !important;
-  }
-
   .videoCard {
     justify-content: space-evenly;
     transition: 0.15s;
@@ -62,6 +58,6 @@
 
 @media (max-width: 600px) {
   .videoCard {
-    width: 280px;
+    width: 340px;
   }
 }

@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 450px;
 
     a {
       width: 100%;
@@ -22,6 +23,8 @@
     margin: 0 auto;
     p {
       white-space: pre;
+      text-transform: uppercase;
+      font-size: 19px;
     }
 
     &,

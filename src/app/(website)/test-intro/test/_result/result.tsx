@@ -36,7 +36,11 @@ export const Result: React.FC<Props> = ({ result }) => {
   }, [result]);
 
   if (loading) {
-    return <Loading />;
+    return (
+      <main className={cl.resultMain}>
+        <Loading />
+      </main>
+    );
   }
 
   const teacherCourses = getCoursesByType("teacher", courses!);

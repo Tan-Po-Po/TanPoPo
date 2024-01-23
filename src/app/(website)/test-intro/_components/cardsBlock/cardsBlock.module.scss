@@ -2,6 +2,23 @@
   @include flex-row;
   justify-content: space-around;
   width: 100%;
+
+  .carouselItem:first-child {
+    p {
+      max-width: 300px;
+    }
+  }
+
+  .carouselItem:nth-child(2),
+  .carouselItem:nth-child(3) {
+    .card {
+      padding: 26px 22px;
+    }
+  }
+}
+
+.card {
+  transition: 0.2s ease-in-out;
 }
 
 @media (max-width: 500px) {

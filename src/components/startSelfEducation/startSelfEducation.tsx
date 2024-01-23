@@ -129,89 +129,94 @@ const StartSelfEducation: React.FC = () => {
         </div>
       </div>
       <div className={cl.courses}>
-        <ContentCard
-          width="511px"
-          height="210px"
-          className={cl.course}
-          label={
-            <Link href="/courses#video" className={cl.link}>
-              <Typography variant="body1">Відеокурси</Typography>
-              <Typography variant="subtitle2">
-                для самостійного вивчення
-              </Typography>
-            </Link>
-          }
-          labelClassName={cl.label}
-          labelPosition="top"
-          labelBgColor="linear-gradient(180deg, #FFFA8B 0.01%, #FF6F6F 100%)"
-        >
-          <Image
-            className={cl.icon}
-            src={getIconArtSrc("camera")}
-            alt="Camera art"
-            width={86}
-            height={65}
-          />
-          <Typography variant="body1">
-            Навчайся у власному темпі за допомогою ефективних відеокурсів!
-          </Typography>
-        </ContentCard>
-
-        <ContentCard
-          width="511px"
-          height="210px"
-          className={cl.course}
-          label={
-            <Link href="/courses#audio" className={cl.link}>
-              <Typography variant="body1">Аудіокурси</Typography>
-              <Typography variant="subtitle2">
-                для самостійного вивчення
-              </Typography>
-            </Link>
-          }
-          labelClassName={cl.label}
-          labelPosition="top"
-          labelBgColor="linear-gradient(180deg, #FDFF87 0%, #6CFAA5 100%)"
-        >
-          <Image
-            className={cl.icon}
-            src={getIconArtSrc("headphones")}
-            alt="Headphones art"
-            width={68}
-            height={70}
-          />
-          <Typography variant="body1">
-            Чудовий спосіб вчити японську просто слухаючи!
-          </Typography>
-        </ContentCard>
-
-        <ContentCard
-          width="511px"
-          height="210px"
-          className={cl.course}
-          label={
-            <Link href="/courses#book" className={cl.link}>
-              <Typography variant="body1">Книжкові мінікурси</Typography>
-              <Typography variant="subtitle2">
-                для самостійного вивчення
-              </Typography>
-            </Link>
-          }
-          labelClassName={cl.label}
-          labelPosition="top"
-          labelBgColor="linear-gradient(180deg, #FFDDA9 0%, #E8B8FF 100%)"
-        >
-          <Image
-            className={cl.icon}
-            src={getIconArtSrc("book1")}
-            alt="Teacher art"
-            width={82}
-            height={60}
-          />
-          <Typography variant="body1">
-            Захоплюючі історії, інтерактивні завдання та тести на перевірку!
-          </Typography>
-        </ContentCard>
+        <Link href="/courses#video">
+          <ContentCard
+            width="511px"
+            height="210px"
+            className={cl.course}
+            label={
+              <div className={cl.link}>
+                <Typography variant="body1">Відеокурси</Typography>
+                <Typography variant="subtitle2">
+                  для самостійного вивчення
+                </Typography>
+              </div>
+            }
+            labelClassName={cl.label}
+            labelPosition="top"
+            labelBgColor="linear-gradient(180deg, #FFFA8B 0.01%, #FF6F6F 100%)"
+          >
+            <Image
+              className={cl.icon}
+              src={getIconArtSrc("camera")}
+              alt="Camera art"
+              width={86}
+              height={65}
+            />
+            <Typography variant="body1">
+              Навчайся у власному темпі за допомогою ефективних відеокурсів!
+            </Typography>
+          </ContentCard>
+        </Link>
+        <Link href="/courses#audio">
+          <ContentCard
+            width="511px"
+            height="210px"
+            className={cl.course}
+            label={
+              <div className={cl.link}>
+                <Typography variant="body1">Аудіокурси</Typography>
+                <Typography variant="subtitle2">
+                  для самостійного вивчення
+                </Typography>
+              </div>
+            }
+            labelClassName={cl.label}
+            labelPosition="top"
+            labelBgColor="linear-gradient(180deg, #FDFF87 0%, #6CFAA5 100%)"
+          >
+            <Image
+              className={cl.icon}
+              src={getIconArtSrc("headphones")}
+              alt="Headphones art"
+              width={68}
+              height={70}
+            />
+            <Typography variant="body1">
+              Чудовий спосіб вчити японську просто слухаючи!
+            </Typography>
+          </ContentCard>
+        </Link>
+        
+        <Link href="/courses#book">
+          <ContentCard
+            width="511px"
+            height="210px"
+            className={cl.course}
+            label={
+              <div className={cl.link}>
+                <Typography variant="body1">Книжкові мінікурси</Typography>
+                <Typography variant="subtitle2">
+                  для самостійного вивчення
+                </Typography>
+              </div>
+            }
+            labelClassName={cl.label}
+            labelPosition="top"
+            labelBgColor="linear-gradient(180deg, #FFDDA9 0%, #E8B8FF 100%)"
+          >
+            <Image
+              className={cl.icon}
+              src={getIconArtSrc("book1")}
+              alt="Teacher art"
+              width={82}
+              height={60}
+            />
+            <Typography variant="body1">
+              Захоплюючі історії, інтерактивні завдання та тести на перевірку!
+            </Typography>
+          </ContentCard>
+        </Link>
       </div>
     </>
   );
