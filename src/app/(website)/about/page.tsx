@@ -217,5 +217,5 @@ async function getPartnerImagesSrc() {
     .lean()
     .populate("image")) as IPartner[];
 
-  return partners;
+  return partners.map((partner) => JSON.parse(JSON.stringify(partner)));
 }
