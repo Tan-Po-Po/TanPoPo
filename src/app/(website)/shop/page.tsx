@@ -42,6 +42,10 @@ const DynamicShopPartnersBlock = dynamic(
 export default async function Shop() {
   const shopProducts = await getShopItems();
 
+  if (!shopProducts?.length) {
+    return;
+  }
+
   return (
     <main className={cl.storeMain} id="storeMain">
       <Typography variant="h3">КРАМНИЦЯ</Typography>

@@ -28,13 +28,10 @@ $transition: all ease 0.2s;
     gap: 1rem;
     width: 100%;
 
-    span {
-      margin-right: 6px;
-    }
-
     a {
       text-decoration: underline;
       font-weight: 700;
+      margin: 0 6px;
     }
   }
 

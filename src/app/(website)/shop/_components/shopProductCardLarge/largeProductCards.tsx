@@ -34,11 +34,7 @@ const LargeProductCards = ({
       numbersClass={cl.numbers}
     >
       {products.map((item, i) =>
-        item.large.inDevelopment ? (
-          ""
-        ) : (
-          <ShopProductCardLarge key={i} {...item} />
-        )
+        !item.large.available ? "" : <ShopProductCardLarge key={i} {...item} />
       )}
     </Carousel>
   );
