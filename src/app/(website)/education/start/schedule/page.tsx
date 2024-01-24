@@ -10,6 +10,7 @@ import {
   NewStudentForm,
   Schedule,
   AboutSchedule,
+  Loading,
 } from "@/components";
 import type { FormData } from "@/components/schedule/_form/type";
 import { getIconArtSrc, getValidClassNames } from "@/helpers";
@@ -48,17 +49,18 @@ export default function Page() {
     trigger,
     formState: { errors },
     setValue,
-    watch
+    watch,
   } = formReturn;
 
   const scheduleArray: ISchedule = Array.from({ length: 7 }, () =>
     Array.from({ length: 5 }, () => "inappropriate")
   );
+  const [loading, setLoading] = React.useState(false);
   const [counter, setCounter] = React.useState(0);
   const [showErrors, setShowErrors] = React.useState(false);
   const [schedule, setSchedule] = React.useState<ISchedule>(scheduleArray);
   const [comment, setComment] = React.useState("");
-  const lessonsPerWeek = watch("lessonsPerWeek")
+  const lessonsPerWeek = watch("lessonsPerWeek");
   const course = useAppSelector((state) => selectCourse(state));
 
   const submitForm = (formData: any) => {
@@ -88,6 +90,7 @@ export default function Page() {
       schedule,
     };
 
+    setLoading(true)
     fetch("/api/education", {
       method: "POST",
       body: JSON.stringify(data),
@@ -95,14 +98,23 @@ export default function Page() {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-    }).then(async (res) => {
-      if (!res.ok) {
-        return toast(
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          setLoading(false)
+          return toast(
+            "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
+          );
+        }
+        router.push("/education/payment");
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false)
+        toast(
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
         );
-      }
-      router.push("/education/payment");
-    });
+      });
   };
 
   useEffect(() => {
@@ -117,6 +129,10 @@ export default function Page() {
     }
   }, [showErrors, errors, setShowErrors]);
 
+  if (loading) {
+    return <Loading />;
+  }
+  
   return (
     <main className={cl.main}>
       <form onSubmit={handleSubmit(submitForm)} className={cl.formWrapper}>

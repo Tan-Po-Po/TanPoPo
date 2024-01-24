@@ -11,6 +11,7 @@ import {
   Typography,
   Select,
   Certificates,
+  Loading,
 } from "@/components";
 import { getIconArtSrc } from "@/helpers";
 import { Controller, useForm } from "react-hook-form";
@@ -59,6 +60,7 @@ export default function Page() {
   const router = useRouter();
   const course = useAppSelector(selectCourse);
 
+  const [loading, setLoading] = useState(false);
   const [showErrors, setShowErrors] = useState(true);
   const certificateType = watch("certificateType");
 
@@ -85,6 +87,7 @@ export default function Page() {
 
     const data = { ...course, ...formData, courseName: course.name };
 
+    setLoading(true);
     fetch("/api/gift", {
       method: "POST",
       body: JSON.stringify(data),
@@ -92,19 +95,32 @@ export default function Page() {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-    }).then(async (res) => {
-      if (!res.ok) {
-        return toast("Сталася помилка, спробуйте ще раз пізніше");
-      }
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          setLoading(false);
+          return toast("Сталася помилка, спробуйте ще раз пізніше");
+        }
 
-      router.push("/education/payment");
-    });
+        router.push("/education/payment");
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+        toast(
+          "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
+        );
+      });
   };
 
   const handleClick = async () => {
     await trigger();
     setShowErrors(true);
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <main className={cl.main}>
@@ -200,10 +216,7 @@ export default function Page() {
         )}
 
         <ContentCard className={cl.important}>
-          <Typography
-            variant="body2"
-            style={{ fontWeight: 700 }}
-          >
+          <Typography variant="body2" style={{ fontWeight: 700 }}>
             Декілька важливих пам’яток стосовно промокоду для активації курсу:
           </Typography>
           <ul className={cl.list}>
