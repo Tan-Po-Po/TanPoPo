@@ -33,7 +33,15 @@ import { useWindowSize } from "@uidotdev/usehooks";
 type Props = Omit<IShopProduct, "small">;
 
 export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
-  const { available, gallery, variants, caption, hashtags, likes } = large;
+  const {
+    available,
+    gallery,
+    variants,
+    caption,
+    hashtags,
+    likes,
+    inDevelopment,
+  } = large;
 
   const [selectValue, setSelectValue] = useState(variants[0].value);
   const item = variants.find((item) => item.value === selectValue)!;
@@ -50,7 +58,11 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
 
   const productIsLiked = likedProducts.has(_id!);
 
-  const isOnSale = validateDate(sale?.until);
+  let isOnSale;
+
+  if (sale) {
+    isOnSale = new Date() < new Date(sale.until);
+  }
 
   const { width } = useWindowSize();
 
@@ -89,7 +101,18 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
       </Button>
     );
   } else if (available) {
-    if (!cartItem) {
+    if (inDevelopment) {
+      {
+        button = (
+          <ContentCard width="fit-content" className={cl.soonOnMarket}>
+            <Typography variant="subtitle1" style={{ fontWeight: "700" }}>
+              Скоро у <br />
+              продажу ☑️
+            </Typography>
+          </ContentCard>
+        );
+      }
+    } else if (!cartItem) {
       button = (
         <Button
           variant="outlined"
@@ -100,18 +123,9 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
           <Typography variant="body1">До Кошика</Typography>
         </Button>
       );
-    } else {
+    } else if (cartItem) {
       button = <Counter _id={itemId!} amount={cartItem.amount} />;
     }
-  } else {
-    button = (
-      <ContentCard width="fit-content">
-        <Typography variant="subtitle1" style={{ fontWeight: "700" }}>
-          Скоро у <br />
-          продажу ☑️
-        </Typography>
-      </ContentCard>
-    );
   }
 
   return (
@@ -182,7 +196,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
           {isOnSale && (
             <ContentCard width="fit-content" className={cl.date}>
               <Typography variant="subtitle2" style={{ fontWeight: "700" }}>
-                {getTextForSaleLabel(sale!.until)}
+                {getTextForSaleLabel(new Date(sale!.until))}
               </Typography>
             </ContentCard>
           )}

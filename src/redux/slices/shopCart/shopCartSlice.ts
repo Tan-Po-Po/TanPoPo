@@ -60,7 +60,7 @@ export const shopCartSlice = createSlice({
       const items = state.items.filter(
         (item) => item._id !== action.payload._id
       );
-      localStorage.setItem("shopCart", JSON.stringify(state));
+      localStorage.setItem("shopCart", JSON.stringify({ ...state, items }));
       return { ...state, items };
     },
     addPromoCode: (state, action: PayloadAction<IPromoCode>) => {
