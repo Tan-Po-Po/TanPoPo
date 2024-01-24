@@ -12,6 +12,7 @@
   font-weight: 500;
   margin: 0 auto;
   margin-bottom: 15px;
+  overflow: hidden;
   a {
     text-decoration: underline;
   }
@@ -39,15 +40,19 @@
       height: 100%;
 
       .linkWrapper {
+        display: flex;
+        gap: 8px;
+        align-items: flex-end;
+
         a {
-          transition: all .15s ease-in;
+          transition: all 0.15s ease-in;
         }
         a:hover {
           font-size: 17px;
         }
 
         img {
-          margin-right: 8px;
+          margin-bottom: 2px;
         }
       }
 
@@ -57,6 +62,7 @@
     }
 
     .navigationRight {
+      align-items: flex-end;
       text-align: end;
     }
   }
@@ -74,8 +80,10 @@
 
       .logoIcon {
         transition: 0.15s;
+        image-rendering: crisp-edges;
+
         &:hover {
-          scale: 115%;
+          scale: 116%;
         }
       }
       .text {

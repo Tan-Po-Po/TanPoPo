@@ -1,15 +1,21 @@
 .shopProductCardLargeMain {
-  padding: 33px;
-  gap: 24px;
+  padding: 38px 30px 30px 30px;
+  height: 818px;
+  gap: 12px;
   background: linear-gradient(
     180deg,
     rgba(255, 237, 232, 0.1) 0%,
     #fffbd8 100%
   );
-  justify-content: space-between;
+  // justify-content: space-evenly;
+  justify-content: flex-start;
   scroll-margin-top: 100px;
 
   .carousel {
+    margin-bottom: -12px;
+    display: flex;
+    align-items: flex-start;
+
     .carouselItem {
       width: 215px;
       height: 215px;
@@ -33,9 +39,13 @@
   }
 
   .priceBlock {
+    height: 52px;
     .price {
       @include flex-row;
       gap: 8px;
+      > * {
+        line-height: normal;
+      }
     }
     .date {
       padding: 2px 6px;
@@ -47,6 +57,10 @@
     text-align: start;
     text-indent: 2rem;
     align-items: flex-start;
+    margin: auto 0;
+    span {
+      line-height: normal;
+    }
   }
 
   .hashtagsBlock {
@@ -73,6 +87,14 @@
       padding-right: 27px;
       padding-left: 27px;
       height: 56px;
+    }
+
+    .soonOnMarket {
+      padding: 12px;
+      height: 56px;
+      span {
+        line-height: normal;
+      }
     }
     .likes {
       @include flex-column;
@@ -148,6 +170,7 @@
 @media (max-width: 666px) {
   .shopProductCardLargeMain {
     width: 342px;
+    height: auto;
     padding-left: 15px;
     padding-right: 15px;
 

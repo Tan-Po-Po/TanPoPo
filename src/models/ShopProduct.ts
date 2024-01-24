@@ -77,7 +77,7 @@ const ShopProductSchema = new mongoose.Schema<IShopProduct>(
           price: { type: Number, required: true },
           sale: {
             price: { type: Number },
-            until: { type: String },
+            until: { type: Date },
           },
         },
       ],

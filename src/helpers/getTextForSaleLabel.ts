@@ -15,8 +15,6 @@ const months = [
   "грудня",
 ];
 
-export const getTextForSaleLabel = (date: string) => {
-  const newDate = convertToDate(date);
-
-  return `до ${newDate.getDate()} ${months[newDate.getMonth()]}!`;
+export const getTextForSaleLabel = (date: Date) => {
+  return `до ${date.getDate()} ${months[date.getMonth()]}!`;
 };

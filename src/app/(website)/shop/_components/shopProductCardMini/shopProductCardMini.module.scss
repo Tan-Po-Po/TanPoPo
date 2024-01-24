@@ -11,9 +11,12 @@
       scale: none !important;
     }
   }
-  
+
   button {
     transition: all 0.1s ease-in-out;
+    p {
+      white-space: pre-wrap;
+    }
   }
 
   &:hover {

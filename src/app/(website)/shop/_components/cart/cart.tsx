@@ -116,12 +116,12 @@ export const Cart: React.FC<Props> = ({ className }) => {
                   variant="subtitle1"
                   style={{ fontWeight: "700", textDecoration: "line-through" }}
                 >
-                  {total.original}
+                  {total.original} грн
                 </Typography>
-                <Typography variant="h6">{total.final}</Typography>
+                <Typography variant="h6">{total.final} грн</Typography>
               </>
             ) : (
-              <Typography variant="h6">{total.original}</Typography>
+              <Typography variant="h6">{total.original} грн</Typography>
             )}
           </ContentCard>
         </div>
