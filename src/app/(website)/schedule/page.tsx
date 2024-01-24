@@ -111,7 +111,7 @@ export default function Page() {
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
         );
       }
-      // router.push("/?redirected=true");
+      router.push("/?redirected=true");
     });
   };
 

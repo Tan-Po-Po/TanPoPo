@@ -11,13 +11,11 @@
 
 .linkCards {
   display: flex;
-  // flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: $gap-block-horizontal;
   width: 100%;
   margin-bottom: 100px;
-  // gap: 45px;
 }
 
 .carousel {

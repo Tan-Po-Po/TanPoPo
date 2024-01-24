@@ -23,7 +23,6 @@ $padding-card: 55px 30px 18px 30px;
   cursor: pointer;
   padding: $padding-card;
   position: relative;
-  // justify-content: space-between;
 }
 
 .article,
@@ -194,8 +193,6 @@ $padding-card: 55px 30px 18px 30px;
   .reels,
   .music,
   .articleSmall {
-    // max-width: 342px !important;
-    // width: 100%;
     width: 342px;
   }
 

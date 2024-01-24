@@ -9,11 +9,6 @@ import { ICartItem } from "./shopCartSlice";
 export const getShopItemFromDb = async (id: string, value: string) => {
   await dbConnect();
 
-  // const { searchParams } = new URL(req.url);
-
-  // const id = searchParams.get("id");
-  // const value = searchParams.get("value");
-
   const productDB = (await ShopItem.findById(id)
     .select("name large.variants large.gallery ")
     .populate("large.gallery.image")) as mongoose.Document<

@@ -34,9 +34,9 @@ export const parseData = (
   return {
     date,
     payment: orderData.payAfter ? "післяоплата" : "реквізити",
-    goods, // назва х к-сть, назва х к-сть
-    price: `${totalPrice.original}\n${totalPrice.final}`, // 2000 1900
-    promoCode: promoCode ? `${promoCode?.code}(-${promoCode?.perCent}%)` : "", //abc123(-10%)
+    goods, 
+    price: `${totalPrice.original}\n${totalPrice.final}`, 
+    promoCode: promoCode ? `${promoCode?.code}(-${promoCode?.perCent}%)` : "",
 
     name,
     surname,

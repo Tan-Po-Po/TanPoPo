@@ -101,7 +101,7 @@ export default function Page() {
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
         );
       }
-      // router.push("/education/payment");
+      router.push("/education/payment");
     });
   };
 

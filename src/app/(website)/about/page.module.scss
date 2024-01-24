@@ -19,16 +19,10 @@
       @include flex-row;
       justify-content: center;
       max-width: 100%;
-      // overflow: hidden;
       position: relative;
-      // transform: translate(-50px, 0);
 
       .logo {
         width: 533px;
-
-        // .video {
-        //   min-width: 251px;
-        // }
       }
 
       .confetti {

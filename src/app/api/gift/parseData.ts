@@ -22,7 +22,6 @@ export const parseData = (data: Data) => {
   const whereToSend = `${data.telegram ? "Телеграм, " : ""}${
     data.viber ? "Вайбер, " : ""
   }${data.onlyEmail ? "Email" : "Email"}`;
-  // const deliveryType = data.isDepartmentDelivery ? "На відділення" : "Адресна";
 
   const date = new Date();
   const dateFinish = new Date(date);
