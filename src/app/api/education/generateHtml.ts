@@ -64,6 +64,7 @@ export const generateHtml = (formData: Data) => {
         width: 100%;
         margin: 0;
         font-size: 16px;
+        white-space: nowrap;
       }
       .inappropriate {
         background: #e1edff;

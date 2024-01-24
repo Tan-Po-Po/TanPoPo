@@ -48,33 +48,6 @@ export const generateHtmlForOwner = (formData: Data) => {
       u {
         color: #454545;
       }
-      .day {
-        margin: auto;
-      }
-      .time {
-        box-sizing: border-box;
-        width: 110px;
-        height: 40px;
-        padding: 5px;
-        text-align: center;
-        margin: 5px;
-        border: 2px solid black;
-        border-radius: 10px;
-      }
-      .time p {
-        width: 100%;
-        margin: 0;
-        font-size: 16px;
-      }
-      .inappropriate {
-        background: #e1edff;
-      }
-      .maybe {
-        background: #fff48d;
-      }
-      .perfect {
-        background: #caffbd;
-      }
       .card {
         max-width: 950px;
         margin: 50px auto 0;
