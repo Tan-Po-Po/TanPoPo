@@ -27,9 +27,11 @@ const Header = () => {
             <Image
               src={"/logo/logoHeader.png"}
               className={cl.logoIcon}
-              width={110}
-              height={100}
-              alt=""
+              width={115}
+              height={70}
+              alt="TanPoPo logo"
+              quality={100}
+              unoptimized
             />
           </Link>
         </div>

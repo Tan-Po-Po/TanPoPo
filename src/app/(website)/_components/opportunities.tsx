@@ -69,7 +69,7 @@ export function Opportunities({
             className={cl.opportunityCard}
           >
             <Image
-              src={getIconArtSrc("book1")}
+              src={getIconArtSrc("books4")}
               alt="Temple icon"
               width={107}
               height={76}
@@ -132,7 +132,7 @@ export function Opportunities({
           className={cl.opportunityCard}
         >
           <Image
-            src={getIconArtSrc("book1")}
+            src={getIconArtSrc("books4")}
             alt="Temple icon"
             width={107}
             height={76}

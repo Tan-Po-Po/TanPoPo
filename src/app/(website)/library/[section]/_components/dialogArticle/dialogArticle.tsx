@@ -66,7 +66,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
     >
       {loading ? (
         <div className={cl.loader}>
-          <Loading />
+          <Loading heightAuto/>
         </div>
       ) : !item ? (
         <Typography

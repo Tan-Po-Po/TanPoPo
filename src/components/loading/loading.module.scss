@@ -3,6 +3,11 @@
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+  min-height: 100vh;
+}
+
+.heightAuto {
+  min-height: fit-content;
 }
 
 .logo {
