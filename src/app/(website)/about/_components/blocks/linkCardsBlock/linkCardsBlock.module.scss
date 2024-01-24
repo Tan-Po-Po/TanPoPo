@@ -12,10 +12,10 @@
 .linkCards {
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: stretch;
   gap: $gap-block-horizontal;
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 .carousel {

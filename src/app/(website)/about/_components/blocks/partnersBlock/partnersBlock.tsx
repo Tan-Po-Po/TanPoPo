@@ -17,7 +17,9 @@ export const PartnersBlock = ({ partners }: { partners: IPartner[] }) => {
       style={{ scrollMarginTop: "100px" }}
     >
       <Typography variant="h3">{textContent.partnersBlock.header}</Typography>
-      <Typography variant="h6">{textContent.partnersBlock.title}</Typography>
+      <Typography variant="h6" className={cl.title}>
+        {textContent.partnersBlock.title}
+      </Typography>
       <ContentCard width="1238px" className={cl.carouselCard}>
         <Carousel autoplay={true} arrows={isPc}>
           {partners.map((partner) => (

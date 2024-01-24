@@ -106,7 +106,7 @@ export default async function About() {
 
       {partners && <PartnersBlock partners={partners} />}
 
-      <div
+      <ContentCard
         className={cl.studio}
         id="studio"
         style={{ scrollMarginTop: "140px" }}
@@ -117,13 +117,18 @@ export default async function About() {
           alt="TanPoPo Studio"
           width={1350}
           height={760}
-          style={{ maxWidth: "100%", height: "auto", width: "100%" }}
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+            width: "100%",
+            borderRadius: "7px",
+          }}
         />
         <ContentCard className={cl.labelBottom}>
           Створюємо навчальні матеріали для курсів в найзатишнішій студії, щоб
           Ви могли навчатись та отримувати візуальне задоволення від перегляду💛
         </ContentCard>
-      </div>
+      </ContentCard>
 
       <div
         className={cl.authorContentBlock}

@@ -53,19 +53,13 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
               onClick={handleLeftArrowClick}
               style={{
                 transform: "rotate(180deg)",
-                marginRight: "10px",
-                cursor: "pointer",
               }}
             />
-            <Typography variant="h4" style={{ color: "#595959" }}>
+            <Typography variant="h4">
               {index + 1} / {teamSize}
             </Typography>
 
-            <ArrowButton
-              direction="right"
-              onClick={handleRightArrowClick}
-              style={{ marginLeft: "10px", cursor: "pointer" }}
-            />
+            <ArrowButton direction="right" onClick={handleRightArrowClick} />
           </div>
         </>
       ) : (

@@ -2,8 +2,15 @@
   @extend %block;
   width: 100%;
 
+  .carousel {
+    :global(.slick-dots) {
+      margin-top: 50px;
+    }
+  }
+
   .carouselCard {
-    padding: 26px 0;
+    padding: 51px 0;
+    gap: 43px;
 
     :global(.slick-next) {
       right: 50px;

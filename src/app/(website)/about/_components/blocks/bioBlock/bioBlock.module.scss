@@ -1,11 +1,22 @@
 .bioBlock {
-  margin-top: -20px;
+  margin: -20px;
+
   .imageContent {
     padding: 0 !important;
     height: 812px;
+    margin: 0 auto;
     img {
       border-radius: $border-radius;
     }
+  }
+
+  .label {
+    padding: 15px 21px;
+  }
+
+  .labelLine1 {
+    font-size: 34px;
+    margin-bottom: 12px;
   }
 
   .bioContent {
@@ -75,9 +86,14 @@
   .bioBlock {
     @include flex-column;
 
+    .label {
+      padding: 12px 15px;
+    }
+
     .labelLine1 {
       font-size: 22px;
       font-style: normal;
+      margin: 0;
     }
     .labelLine2 {
       font-size: 16px;

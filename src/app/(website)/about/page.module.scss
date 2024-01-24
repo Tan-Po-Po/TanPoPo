@@ -52,7 +52,7 @@
     .wrapper {
       display: flex;
 
-      justify-content: space-around;
+      justify-content: space-between;
       width: 100%;
 
       .socialCard {
@@ -193,6 +193,7 @@
   position: relative;
   width: 100%;
   max-width: 1350px;
+  padding: 0;
 
   .labelTop {
     position: absolute;
