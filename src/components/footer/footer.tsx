@@ -81,6 +81,7 @@ const Footer: React.FC = () => {
               className={cl.logoIcon}
               width={110}
               height={110}
+              style={{ width: "110px", height: "auto" }}
               alt=""
             />
           </Link>
