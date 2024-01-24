@@ -16,7 +16,7 @@ export const BioBlock = () => {
   if (isPc) {
     bioContent = (
       <>
-        <Line />
+        <Line height="144px" />
 
         <ContentCard className={cl.bioContent} width="100%">
           <ContentCard className={cl.imageContent} width="433px">
@@ -275,7 +275,8 @@ export const BioBlock = () => {
     <div className={cl.bioBlock}>
       <ContentCard
         className={cl.imageContent}
-        width="97%"
+        labelClassName={cl.label}
+        width="100%"
         labelPosition="bottom"
         labelBgColor="linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)"
         label={

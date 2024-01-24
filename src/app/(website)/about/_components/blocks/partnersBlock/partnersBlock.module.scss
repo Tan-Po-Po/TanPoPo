@@ -4,6 +4,16 @@
   p {
     max-width: 1053px;
   }
+
+  h6 {
+    max-width: 980px;
+    line-height: normal;
+  }
+
+  .carouselCard {
+    gap: 50px;
+    padding-bottom: 50px;
+  }
 }
 
 @media (max-width: 1023px) {

@@ -7,6 +7,16 @@
   .navigation {
     margin-top: 27px;
     display: flex;
+    gap: 32px;
+
+    h4 {
+      color: $color-gray-59;
+    }
+
+    svg {
+      stroke: $color-gray-59;
+      cursor: pointer;
+    }
   }
 
   .carousel {

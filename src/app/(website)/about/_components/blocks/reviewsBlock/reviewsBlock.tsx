@@ -86,8 +86,7 @@ export const ReviewsBlock = () => {
             className={cl.caption}
             style={{
               textAlign: "center",
-              whiteSpace: "pre-wrap",
-              maxWidth: `${isTablet ? "599px" : "auto"}`,
+              maxWidth: `${isTablet ? "500px" : "auto"}`,
             }}
           >
             {textContent.reviewsBlock.caption}
