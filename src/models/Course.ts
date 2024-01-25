@@ -7,6 +7,8 @@ export interface ICourse {
   inDevelopment: boolean;
   name: string;
   nameJapanese: string;
+  secondName: string;
+  secondNameJapanese: string;
   level: string[];
   images: [{ image: { filename: string } }];
   href: string;
@@ -47,9 +49,11 @@ export interface ICourse {
 
 const CoursesSchema = new mongoose.Schema<ICourse>(
   {
-    name: { type: String, required: true },
     inDevelopment: { type: Boolean, required: true },
+    name: { type: String, required: true },
     nameJapanese: { type: String, required: true },
+    secondName: { type: String },
+    secondNameJapanese: { type: String},
     level: [{ type: String, required: true }],
     images: [
       {

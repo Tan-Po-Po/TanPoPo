@@ -32,7 +32,7 @@ export const librarySections = [
   {
     href: "/library/jlpt-resources?page=1",
     icon: "bookTriangle",
-    body: "JLPT Ресурси",
+    body: "JLPT \nРесурси",
     bgColor:
       "linear-gradient(rgba(255, 184, 244, 0.6), rgba(255, 235, 183, 0.8))",
     hoverBgColor:

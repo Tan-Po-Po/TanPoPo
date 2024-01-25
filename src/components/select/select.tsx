@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import cl from "./select.module.scss";
 import { SelectItem } from "./selectItem/selectItem";
 import { Checkbox } from "../checkbox/checkbox";
@@ -27,6 +27,7 @@ type SelectProps = {
   isDisabled?: boolean;
   setValue?: UseFormSetValue<any>;
   name?: string;
+  showValue?: boolean;
   onClick?: () => void;
 };
 
@@ -43,6 +44,7 @@ const Select: React.FC<SelectProps> = ({
   setValue,
   name,
   onClick,
+  showValue,
 }) => {
   const [option, setOption] = useState<{ value: string; label: string }>(
     (placeHolder && {
@@ -77,7 +79,19 @@ const Select: React.FC<SelectProps> = ({
     setOption({ value, label });
     setIsOpen(false);
   };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    };
 
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  });
   return (
     <div
       className={getValidClassNames(cl.mainContainer, className)}
@@ -98,7 +112,9 @@ const Select: React.FC<SelectProps> = ({
           )}
         >
           <div className={cl.select} onClick={handleSelectClick}>
-            <div className={cl.value}>{option.label}</div>
+            <div className={cl.value}>
+              {showValue && option.value ? option.value : option.label}
+            </div>
           </div>
           <ArrowIcon width={15} height={15} alt="" className={cl.arrow} />
         </div>

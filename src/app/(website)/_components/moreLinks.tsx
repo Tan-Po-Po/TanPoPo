@@ -69,7 +69,7 @@ export function MoreLinks({
             <Button
               className={cl.button}
               variant="outlined"
-              icon="coinStack"
+              icon="coinsStack"
               style={{ background: "linear-gradient(#DFFFD81A, #DFFFD8)" }}
             >
               <Typography variant="h6"> Вартість</Typography>

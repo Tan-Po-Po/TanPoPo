@@ -27,13 +27,14 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
   return (
     <main className={cl.courseListMain}>
       <Divider
+        className={cl.divider}
         style={{ scrollMarginTop: "100px" }}
         id="teacher"
         firstRow="онлайн-курси"
         secondRow="з сенсеєм"
         bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
       />
-      <section className={cl.courses}>
+      <section className={cl.courses} style={{ maxWidth: "1100px" }}>
         {isMobile && teacherCourses.length > 1 ? (
           <Carousel
             initialSlide={0}
@@ -61,6 +62,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       </section>
 
       <Divider
+        className={cl.divider}
         style={{ scrollMarginTop: "100px" }}
         id="video"
         firstRow="Відеокурси"
@@ -85,7 +87,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
             ))}
           </Carousel>
         ) : (
-          videoCourses.map((course) => (
+          [...videoCourses, ...videoCourses].map((course) => (
             <CourseCardMini course={course} key={course._id} />
           ))
         )}
@@ -95,6 +97,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       </section>
 
       <Divider
+        className={cl.divider}
         style={{ scrollMarginTop: "100px" }}
         id="audio"
         firstRow="Аудіокурси"
@@ -129,6 +132,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       </section>
 
       <Divider
+        className={cl.divider}
         style={{ scrollMarginTop: "100px" }}
         id="book"
         firstRow="Книжкові мінікурси"

@@ -1,6 +1,7 @@
 .formats {
   display: flex;
   width: 100%;
+  max-width: 1150px;
   justify-content: space-around;
   margin: 120px 0px;
 
@@ -47,9 +48,8 @@
   }
 
   .bottomCard {
-    p {
-      font-weight: 700;
-    }
+    font-weight: 700;
+    max-width: 300px;
   }
 
   .line {

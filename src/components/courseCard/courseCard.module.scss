@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  padding: 50px 22px;
+  padding: 45px 20px 35px;
 
   .name {
     text-transform: uppercase;
@@ -10,15 +10,15 @@
   }
 
   .header {
-    transform: none;
-
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
     transform-origin: bottom left;
     transition: all 0.2s ease-in-out;
     &:hover {
-      scale: 1.1;
+      transform: scale(110%) translate(-50%, -45%);
+      box-shadow: 0px 0px 3px 0px #000 inset,
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
   }
 
@@ -34,7 +34,7 @@
       box-shadow: $box-shadow;
       border: $border;
       border-radius: $border-radius;
-      padding: 9px;
+      padding: 6px 9px;
       line-height: 15px;
     }
   }
@@ -56,15 +56,17 @@
     cursor: pointer;
     position: absolute;
     max-width: 80%;
-    height: 55px;
+    width: fit-content;
+    padding: 0 15px;
+    height: 45px;
     bottom: -28px;
     transition: transform 0.2s ease-in-out;
-    padding: 0px;
 
     &:hover {
       transform: scale(1.05);
     }
   }
+
   .checkbox {
     :global(.MuiTypography-root) {
       font-size: 15px;
@@ -73,6 +75,7 @@
       margin-left: 10px;
     }
   }
+
   .divider {
     display: flex;
     align-items: center;
@@ -126,14 +129,54 @@
 }
 
 .teacher {
+  .megaHeader {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+
+    .headerPlus {
+      margin: 0 10px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .headerWrapper {
+      max-width: 150px;
+      padding: 5px;
+      gap: 0;
+      cursor: pointer;
+      transform-origin: center center;
+      transition: all 0.2s ease-in-out;
+      
+      &:hover {
+        transform: scale(110%);
+        box-shadow: 0px 0px 3px 0px #000 inset,
+          0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
+
+      p {
+        margin: 0;
+      }
+
+      & > p:first-child {
+        font-size: 15px;
+        font-weight: 700;
+      }
+      & > p:last-child {
+        font-size: 14px;
+        font-weight: 400;
+        font-family: var(--font-heisei);
+      }
+    }
+  }
+
   .description {
     padding-inline-start: 20px;
-    margin: 0;
+    margin-right: -10px;
     text-align: start;
-    line-height: 22.3px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 5px;
+    margin: auto;
     li {
       p {
         -webkit-padding-start: 0px;
@@ -161,6 +204,12 @@
 
 .video {
   width: 625px;
+
+  .description {
+    font-size: 20px;
+    margin: 10px -10px auto;
+    text-wrap: balance;
+  }
 
   .imageWrapper {
     display: flex;
@@ -199,6 +248,15 @@
 }
 
 .audio {
+  .description {
+    font-size: 19px;
+    margin: 10px -10px auto;
+    text-wrap: balance;
+  }
+
+  .labels {
+    margin-top: 10px 0 5px;
+  }
   .podcast {
     display: flex;
     flex-direction: row;
@@ -235,6 +293,12 @@
 
 .book {
   max-width: 400px;
+
+  .description {
+    font-size: 18px;
+    margin: auto -10px;
+    text-wrap: balance;
+  }
 
   .image {
     border: $border;

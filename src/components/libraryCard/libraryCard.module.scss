@@ -3,12 +3,12 @@
   &:hover {
     transform: scale(1.05);
   }
-  margin: 10px;
 }
 
 .card {
   width: 260px;
   height: 160px;
+  border: 2px solid $color-black;
 }
 
 .body {
@@ -16,6 +16,7 @@
   line-height: 25.3px;
   font-weight: 600;
   font-size: 23px;
+  max-width: 180px;
 }
 
 .privateIcon {
@@ -31,5 +32,8 @@
 @media (max-width: 500px) {
   .card {
     width: 230px;
+  }
+  .link {
+    margin: 10px;
   }
 }

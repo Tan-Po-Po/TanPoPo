@@ -116,7 +116,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
 
       {course.type === "audio" && (
         <AudioButton
-          color="red"
+          color={courseInfo.labelColor}
           isPodcast={width! > 500}
           onClick={() =>
             dispatch(
@@ -192,7 +192,10 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
             onClick={toggleAcceptation}
             isChecked={isAccepted}
           />
-          <Typography variant="body2">
+          <Typography
+            variant="body2"
+            style={{ fontSize: "15px", textAlign: "start", maxWidth: "285px" }}
+          >
             Я ознайомлений з <Link href="/">Навчальним Періодом</Link> для
             самостійних курсів!
           </Typography>

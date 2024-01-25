@@ -46,6 +46,7 @@ const Button: React.FC<Properties> = ({
               width={14}
               height={14}
               className={cl.image}
+              style={{ height: "auto" }}
             />
           )}
         </div>

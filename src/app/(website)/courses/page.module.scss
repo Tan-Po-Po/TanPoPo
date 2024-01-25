@@ -11,7 +11,10 @@
 
 .questions {
   gap: 45px;
+  margin-bottom: 70px;
+  margin-top: 14px;
 }
+
 
 .intro {
   h3 {
@@ -19,6 +22,7 @@
   }
   p {
     text-wrap: balance;
+    line-height: 24px;
   }
   img {
     margin: 45px 0;

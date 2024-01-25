@@ -27,7 +27,13 @@ const CustomLink: React.FC<Properties> = ({ body, href, bgColor, icon }) => {
       style={{ backgroundColor: isHover ? bgColor : defaultColor }}
     >
       <div className={cl.linkWrapper}>
-        <Image src={getIconSrc(icon)} alt={icon} width={20} height={20} />
+        <Image
+          src={getIconSrc(icon)}
+          alt={icon}
+          width={20}
+          height={20}
+          style={{ height: "auto" }}
+        />
         <p>{body}</p>
       </div>
     </NextLink>
