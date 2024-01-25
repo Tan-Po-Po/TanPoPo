@@ -20,6 +20,7 @@ interface Props {
   onSubmit: SubmitHandler<IPromoCodeInput>;
   label: string;
   formReturn: UseFormReturn<IPromoCodeInput>;
+  inputClassName?: string;
 }
 
 export const FormCode: React.FC<Props> = ({
@@ -27,6 +28,7 @@ export const FormCode: React.FC<Props> = ({
   onSubmit,
   label,
   formReturn,
+  inputClassName,
 }) => {
   const { control, handleSubmit, reset } = formReturn;
 
@@ -37,7 +39,12 @@ export const FormCode: React.FC<Props> = ({
         control={control}
         disabled={disabled}
         render={({ field }) => (
-          <Input type="text" className={cl.input} label={label} {...field} />
+          <Input
+            type="text"
+            className={getValidClassNames(cl.input, inputClassName)}
+            label={label}
+            {...field}
+          />
         )}
       />
       <Button

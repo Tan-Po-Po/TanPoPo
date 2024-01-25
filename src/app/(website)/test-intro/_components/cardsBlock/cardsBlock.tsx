@@ -18,7 +18,11 @@ const CardsBlock = () => {
         renderCarousel={width! < 1200}
       >
         {textContent.cardsBlock.map((card, i) => (
-          <CarouselItem key={i} className={cl.carouselItem}>
+          <CarouselItem
+            key={i}
+            className={cl.carouselItem}
+            isHoverEventActive={false}
+          >
             <ContentCard width="376px" className={cl.card}>
               <Typography variant="h6">{card.title}</Typography>
               <Image

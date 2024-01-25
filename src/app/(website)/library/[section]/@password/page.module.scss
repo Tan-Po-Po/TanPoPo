@@ -2,6 +2,7 @@
   @include flex-column;
   gap: 60px;
   width: 100%;
+
   .formBlock {
     @include flex-row;
     gap: 81px;
@@ -16,7 +17,7 @@
 
       .input {
         label {
-          margin-left: 40px;
+          margin-left: 15px;
         }
 
         &:focus-within {
@@ -27,14 +28,6 @@
 
         :global(.MuiInputBase-root) {
           background: linear-gradient(180deg, #fffaf9 0%, #fffbd8 100%);
-
-          &:focus-within {
-            background: linear-gradient(
-              180deg,
-              #fff 0%,
-              #ffe600 100%
-            ) !important;
-          }
         }
       }
     }
