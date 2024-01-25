@@ -2,7 +2,7 @@ import { ContentCard, Divider, Faq, Typography, FaqBlock } from "@/components";
 import { textContent } from "./textContent";
 import { FeedbackForm } from "./_components/feedbackForm/feedbackForm";
 import { VideoGuides } from "./_components/videoGuides/videoGuides";
-import { getSocialIconsLinks } from "@/helpers";
+import { getSocialIconsLinks, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -14,7 +14,9 @@ export default function Contacts() {
   return (
     <main className={cl.main}>
       <div className={cl.contactsBlock}>
-        <Typography variant="h3" style={{textAlign: "center"}}>{textContent.contactsBlock.header}</Typography>
+        <Typography variant="h3" style={{ textAlign: "center" }}>
+          {textContent.contactsBlock.header}
+        </Typography>
         <Image
           alt=""
           src={textContent.contactsBlock.image}
@@ -23,22 +25,26 @@ export default function Contacts() {
           style={{ maxWidth: "921px", width: "100%", height: "auto" }}
         />
         <div className={cl.cards}>
-          <ContentCard width="376px" className={cl.card}>
-            <Typography variant="h5">
-              {textContent.contactsBlock.card1.section1.tittle}
-            </Typography>
-            <Typography variant="body2">
-              {textContent.contactsBlock.card1.section1.caption1}
-            </Typography>
-            <Typography variant="body2">
-              {textContent.contactsBlock.card1.section1.caption2}
-            </Typography>
-            <Typography variant="h5">
-              {textContent.contactsBlock.card1.section2.tittle}
-            </Typography>
-            <Typography variant="body2">
-              {textContent.contactsBlock.card1.section2.caption1}
-            </Typography>
+          <ContentCard width="376px" className={getValidClassNames(cl.card, cl.card1)}>
+            <div className={cl.block}>
+              <Typography variant="h5">
+                {textContent.contactsBlock.card1.section1.tittle}
+              </Typography>
+              <Typography variant="body2">
+                {textContent.contactsBlock.card1.section1.caption1}
+              </Typography>
+              <Typography variant="body2">
+                {textContent.contactsBlock.card1.section1.caption2}
+              </Typography>
+            </div>
+            <div className={cl.block}>
+              <Typography variant="h5">
+                {textContent.contactsBlock.card1.section2.tittle}
+              </Typography>
+              <Typography variant="body2">
+                {textContent.contactsBlock.card1.section2.caption1}
+              </Typography>
+            </div>
           </ContentCard>
 
           <ContentCard width="376px" className={cl.card}>

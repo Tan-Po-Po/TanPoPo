@@ -180,7 +180,7 @@ export const FeedbackForm: React.FC = () => {
               <Checkbox
                 {...field}
                 label={
-                  <>
+                  <div className={cl.label}>
                     Даю згоду на{" "}
                     <Link
                       href={"/contacts/confidentialityPolicy"}
@@ -189,7 +189,7 @@ export const FeedbackForm: React.FC = () => {
                     >
                       обробку персональних даних.
                     </Link>
-                  </>
+                  </div>
                 }
               />
             )}

@@ -8,7 +8,7 @@ import { CardFooter } from "../cardFooter/cardFooter";
 import { IMAGE_BASE_URL } from "@/config/config";
 
 export const ReelsCard: React.FC<Props> = (props) => {
-  const { label, labelColor, media } = props;
+  const { media } = props;
 
   return (
     <ContentCard className={cl.reels} width="384px">
