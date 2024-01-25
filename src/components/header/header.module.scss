@@ -25,12 +25,18 @@
 .logo {
   overflow: hidden;
   height: 100%;
+
+  a {
+    max-height: 100%;
+  }
+
   .logoIcon {
     transition: 0.2s;
+
     &:hover {
-      scale: 1.1;
+      transform: scale(109%);
     }
-    margin-left: 35px;
+    margin-left: 25px;
     margin-right: 40px;
   }
 }
@@ -39,7 +45,7 @@
   display: flex;
   gap: 25px;
   .dropdown {
-    margin-right: 35px;
+    margin-right: 20px;
   }
   a {
     text-wrap: nowrap;
@@ -53,15 +59,18 @@
 
 .auth {
   margin-right: 25px;
-  gap: 15px;
+  gap: 7px;
+  button {
+    font-size: 16px;
+  }
 }
 
 .registerWrapper {
   background-color: $color-yellow;
 
   .register {
-    padding: 3px 10px !important;
-
+    padding: 0px 10px !important;
+    box-shadow: none;
     &:hover {
       background: #fff !important;
       font-weight: 800;

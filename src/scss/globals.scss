@@ -114,6 +114,10 @@ main {
   }
 }
 
+.MuiDialog-container {
+  background: rgba(0, 0, 0, 0.7);
+}
+
 body:has(div.MuiDialog-root) {
   width: 100vw;
 

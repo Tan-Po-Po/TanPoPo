@@ -4,9 +4,8 @@ $transition: all ease 0.2s;
   :global(.MuiPaper-root) {
     padding: 0;
     width: 100%;
-    max-width: 942px;
+    max-width: 942px !important;
     position: relative;
-
     margin-top: 50px;
   }
 

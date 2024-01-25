@@ -183,118 +183,124 @@ export default function Home() {
           Усі можливі види курсів:
         </Typography>
         <div className={cl.cards}>
-          <ContentCard
-            className={cl.card}
-            width="511px"
-            height="fit-content"
-            label={
-              <Link href="/courses#teacher">
-                <Typography variant="h6" className={cl.label1}>
-                  Олайн курси
-                </Typography>
-                <Typography variant="body1" className={cl.label2}>
-                  з сенсеєм
-                </Typography>
-              </Link>
-            }
-            labelPosition="top"
-            labelBgColor="linear-gradient(#A6C4FF, #E8A6FF)"
-          >
-            <Image
-              src={getIconArtSrc("teacher")}
-              alt="Teacher with laptop"
-              width={88}
-              height={71}
-            />
-            <Typography variant="body1">
-              Для тих, хто полюбляє живе спілкування та навчання разом з сенсеєм
-              онлайн!
-            </Typography>
-          </ContentCard>
+          <Link href="/courses#teacher">
+            <ContentCard
+              className={cl.card}
+              width="511px"
+              height="fit-content"
+              label={
+                <>
+                  <Typography variant="h6" className={cl.label1}>
+                    Олайн курси
+                  </Typography>
+                  <Typography variant="body1" className={cl.label2}>
+                    з сенсеєм
+                  </Typography>
+                </>
+              }
+              labelPosition="top"
+              labelBgColor="linear-gradient(#A6C4FF, #E8A6FF)"
+            >
+              <Image
+                src={getIconArtSrc("teacher")}
+                alt="Teacher with laptop"
+                width={88}
+                height={71}
+              />
+              <Typography variant="body1">
+                Для тих, хто полюбляє живе спілкування та навчання разом з
+                сенсеєм онлайн!
+              </Typography>
+            </ContentCard>
+          </Link>
+          <Link href="/courses#video">
+            <ContentCard
+              className={cl.card}
+              width="511px"
+              height="fit-content"
+              label={
+                <>
+                  <Typography variant="h6" className={cl.label1}>
+                    Відеокурси
+                  </Typography>
+                  <Typography variant="body1" className={cl.label2}>
+                    для самостійного вивчення
+                  </Typography>
+                </>
+              }
+              labelPosition="top"
+              labelBgColor="linear-gradient(#FFFA8B, #FF6F6F)"
+            >
+              <Image
+                src={getIconArtSrc("camera")}
+                alt="Camera"
+                width={86}
+                height={65}
+              />
+              <Typography variant="body1">
+                Навчайся у власному темпі за допомогою ефективних відеокурсів!
+              </Typography>
+            </ContentCard>
+          </Link>
+          <Link href="/courses#audio">
+            <ContentCard
+              className={cl.card}
+              width="511px"
+              height="fit-content"
+              label={
+                <>
+                  <Typography variant="h6" className={cl.label1}>
+                    Аудіокурси
+                  </Typography>
+                  <Typography variant="body1" className={cl.label2}>
+                    для самостійного вивчення
+                  </Typography>
+                </>
+              }
+              labelPosition="top"
+              labelBgColor="linear-gradient(#FDFF87, #6CFAA5)"
+            >
+              <Image
+                src={getIconArtSrc("headphones")}
+                alt="Headphones"
+                width={68}
+                height={70}
+              />
+              <Typography variant="body1">
+                Чудовий спосіб вивчати японську мову просто слухаючи!
+              </Typography>
+            </ContentCard>
+          </Link>
 
-          <ContentCard
-            className={cl.card}
-            width="511px"
-            height="fit-content"
-            label={
-              <Link href="/courses#video">
-                <Typography variant="h6" className={cl.label1}>
-                  Відеокурси
-                </Typography>
-                <Typography variant="body1" className={cl.label2}>
-                  для самостійного вивчення
-                </Typography>
-              </Link>
-            }
-            labelPosition="top"
-            labelBgColor="linear-gradient(#FFFA8B, #FF6F6F)"
-          >
-            <Image
-              src={getIconArtSrc("camera")}
-              alt="Camera"
-              width={86}
-              height={65}
-            />
-            <Typography variant="body1">
-              Навчайся у власному темпі за допомогою ефективних відеокурсів!
-            </Typography>
-          </ContentCard>
-
-          <ContentCard
-            className={cl.card}
-            width="511px"
-            height="fit-content"
-            label={
-              <Link href="/courses#audio">
-                <Typography variant="h6" className={cl.label1}>
-                  Аудіокурси
-                </Typography>
-                <Typography variant="body1" className={cl.label2}>
-                  для самостійного вивчення
-                </Typography>
-              </Link>
-            }
-            labelPosition="top"
-            labelBgColor="linear-gradient(#FDFF87, #6CFAA5)"
-          >
-            <Image
-              src={getIconArtSrc("headphones")}
-              alt="Headphones"
-              width={68}
-              height={70}
-            />
-            <Typography variant="body1">
-              Чудовий спосіб вивчати японську мову просто слухаючи!
-            </Typography>
-          </ContentCard>
-
-          <ContentCard
-            className={cl.card}
-            width="511px"
-            height="fit-content"
-            label={
-              <Link href="/courses#book">
-                <Typography variant="h6" className={cl.label1}>
-                  Книжкові мінікурси
-                </Typography>
-                <Typography variant="body1" className={cl.label2}>
-                  для самостійного вивчення
-                </Typography>
-              </Link>
-            }
-            labelPosition="top"
-            labelBgColor="linear-gradient(#FFDDA9, #E8B8FF)"
-          >
-            <Image
-              src={getIconArtSrc("book1")}
-              alt="Books"
-              width={82}
-              height={60}
-            />
-            <Typography variant="body1">
-              Захоплюючі історії, інтерактивні завдання та тести на перевірку!
-            </Typography>
-          </ContentCard>
+          <Link href="/courses#book">
+            <ContentCard
+              className={cl.card}
+              width="511px"
+              height="fit-content"
+              label={
+                <>
+                  <Typography variant="h6" className={cl.label1}>
+                    Книжкові мінікурси
+                  </Typography>
+                  <Typography variant="body1" className={cl.label2}>
+                    для самостійного вивчення
+                  </Typography>
+                </>
+              }
+              labelPosition="top"
+              labelBgColor="linear-gradient(#FFDDA9, #E8B8FF)"
+            >
+              <Image
+                src={getIconArtSrc("book1")}
+                alt="Books"
+                width={82}
+                height={60}
+              />
+              <Typography variant="body1">
+                Захоплюючі історії, інтерактивні завдання та тести на перевірку!
+              </Typography>
+            </ContentCard>
+          </Link>
         </div>
       </section>
 
@@ -334,7 +340,7 @@ export default function Home() {
           alt="Gift"
           width={144}
           height={138}
-          style={{ margin: "20px 0" }}
+          style={{ margin: "10px 0" }}
         />
         <Typography
           variant="body1"

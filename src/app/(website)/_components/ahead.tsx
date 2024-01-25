@@ -55,6 +55,7 @@ export function Ahead({
         <Typography
           variant="body1"
           style={{ fontSize: "19px", lineHeight: "21px" }}
+          align="justify"
         >
           Наша команда TanPoPo невпинно працює над удосконаленням програми,
           враховуючи останні тенденції та досягнення в галузі швидкіскного
