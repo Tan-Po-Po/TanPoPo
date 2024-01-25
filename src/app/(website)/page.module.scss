@@ -24,16 +24,15 @@
 
 .header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   white-space: normal;
 
   h5 {
     white-space: normal;
+    font-size: 33px;
+  }
+  p {
     font-size: 28px;
-
-    span {
-      font-size: 33px;
-    }
   }
 }
 
@@ -47,6 +46,9 @@
 
 .opportunities {
   margin-top: -30px;
+  & > p {
+    font-size: 18px;
+  }
 }
 
 .opportunityCards {
@@ -85,6 +87,22 @@
   .about {
     width: 100%;
     text-align: justify;
+  }
+}
+.author {
+  .text {
+    h5,
+    h4 {
+      font-weight: 500;
+    }
+  }
+  .about {
+    font-weight: 500;
+  }
+  .jpn {
+    font-family: var(--font-heisei);
+    font-weight: 500;
+    -webkit-text-stroke: 0.5px;
   }
 }
 
@@ -177,11 +195,10 @@
   align-items: center;
   gap: 103px;
 
-
   h3 {
     font-size: 40px;
   }
-  
+
   .cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -258,10 +275,19 @@
   }
   li {
     margin-top: 5px;
+    font-size: 17px;
   }
   .card {
-    padding: 30px 25px;
+    padding: 30px 20px;
     gap: 26px;
+  }
+  .plus {
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    color: #5c5c5c;
+    cursor: default;
   }
 }
 

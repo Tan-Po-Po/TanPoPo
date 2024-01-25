@@ -1,6 +1,6 @@
 import cl from "../page.module.scss";
 import { IWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
-import { ContentCard, Carousel, CarouselItem } from "@/components";
+import { ContentCard, Carousel, CarouselItem, Typography } from "@/components";
 import Image from "next/image";
 import { carouselSettings } from "./carouselSettings";
 import { getIconArtSrc } from "@/helpers";
@@ -96,7 +96,7 @@ export function CabinetCards({
         </ul>
       </ContentCard>
 
-      <Image src="/icons/plus.svg" alt="Plus" width={30} height={30} />
+      <Typography variant="body1" className={cl.plus}>+</Typography>
 
       <ContentCard className={cl.card} width="376px" height="343px">
         <Image
@@ -114,7 +114,7 @@ export function CabinetCards({
         </ul>
       </ContentCard>
 
-      <Image src="/icons/plus.svg" alt="Plus" width={30} height={30} />
+      <Typography variant="body1" className={cl.plus}>+</Typography>
 
       <ContentCard className={cl.card} width="376px" height="343px">
         <Image
