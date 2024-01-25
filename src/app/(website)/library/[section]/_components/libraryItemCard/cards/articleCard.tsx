@@ -14,22 +14,17 @@ import PlayButtonIcon from "/public/icons/playButton.svg";
 import { useState } from "react";
 import { Props } from "../props";
 import { CardFooter } from "../cardFooter/cardFooter";
-
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { IMAGE_BASE_URL } from "@/config/config";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { useWindowSize } from "@uidotdev/usehooks";
 
 export const ArticleCard: React.FC<Props> = (props) => {
-  const { type, label, labelColor, media, hashtags, content, isNew } = props;
+  const { type, media, content } = props;
 
   const [isHovered, setIsHovered] = useState(false);
 
   const cardWidth = type === "articleSmall" ? "384px" : "626px";
   const mediaWidth = type === "articleSmall" ? "274px" : "506px";
-
-  const { isPc, isMobile } = useAppSelector(selectWindowMatchMedia);
 
   const { openLibraryItem } = useOpenLibraryItem({
     item: props,

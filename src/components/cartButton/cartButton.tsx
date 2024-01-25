@@ -7,7 +7,10 @@ import { useEffect, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectShopCart } from "@/redux/slices/shopCart/shopCartSlice";
 import { usePathname } from "next/navigation";
-import { openCartDialog } from "@/redux/slices/cartDialog/cartDialogSlice";
+import {
+  openCartDialog,
+  selectCartDialog,
+} from "@/redux/slices/cartDialog/cartDialogSlice";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { useWindowSize } from "@uidotdev/usehooks";
 
@@ -29,6 +32,8 @@ export const CartButton = () => {
 
   const { width } = useWindowSize();
 
+  const isOpen = useAppSelector(selectCartDialog).isOpen;
+
   useEffect(() => {
     setAmount(cartItemsAmount);
   }, [cartItemsAmount]);
@@ -37,7 +42,7 @@ export const CartButton = () => {
     dispatch(openCartDialog());
   };
 
-  if (!amount || pathname.includes("test")) {
+  if (!amount || pathname.includes("test") || isOpen) {
     return;
   }
 

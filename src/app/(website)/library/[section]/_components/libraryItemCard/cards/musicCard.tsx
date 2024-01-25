@@ -5,7 +5,6 @@ import { LibraryItemContent } from "@/app/(website)/library/[section]/_component
 import { CardFooter } from "../cardFooter/cardFooter";
 
 export const MusicCard: React.FC<Props> = (props) => {
-  const { label, labelColor, content, type } = props;
   return (
     <ContentCard className={cl.music}>
       <LibraryItemContent item={props} />

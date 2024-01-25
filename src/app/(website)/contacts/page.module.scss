@@ -14,8 +14,19 @@
 
       .card {
         width: 376px;
+        height: 259px;
+        gap: 26px;
         a {
           text-decoration: underline;
+        }
+      }
+
+      .card1 {
+        // gap: 40px;
+
+        .block {
+          gap: 13px;
+          @include flex-column;
         }
       }
 
