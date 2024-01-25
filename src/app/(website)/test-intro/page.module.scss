@@ -2,6 +2,7 @@
   @include flex-column;
   gap: 125px;
   padding: $padding-page;
+  padding-bottom: 125px;
 
   .bigImageBlock {
     @include flex-column;
@@ -316,11 +317,12 @@
 
       .cardsWrapper {
         .card {
-          max-width: 350px !important;
+          max-width: 342px !important;
           width: auto;
           height: fit-content;
           h6 {
-            text-wrap: wrap;
+            text-wrap: nowrap;
+            font-size: 19px;
           }
         }
       }
@@ -332,6 +334,9 @@
 
     .beginTestBlock {
       .card {
+        padding: 26px 15px;
+        max-width: 342px !important;
+
         h4 {
           border: $border;
           border-radius: $border-radius;
