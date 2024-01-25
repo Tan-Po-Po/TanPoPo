@@ -44,6 +44,7 @@ const Password = () => {
               formReturn={formReturn}
               label="Введіть ключ сюди!"
               onSubmit={onSubmit}
+              inputClassName={cl.input}
             />
             <Typography variant="body2">
               Ти можеш знайти ключ на платформі нашої школи у своєму{" "}

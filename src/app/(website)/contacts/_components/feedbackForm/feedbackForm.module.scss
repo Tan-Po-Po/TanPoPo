@@ -5,13 +5,13 @@
   .inputs {
     display: flex;
     gap: 35px;
-    height: fit-content;
+    align-items: stretch;
 
     .left {
       @include flex-column;
       width: 100%;
       max-width: 275px;
-      gap: 52px;
+      gap: 49px;
 
       .input {
         min-width: 240px;
@@ -19,11 +19,7 @@
     }
 
     .right {
-      @include flex-column;
       width: 100%;
-      gap: 31px;
-      justify-content: stretch;
-      align-items: center;
 
       .textArea {
         max-width: 100%;

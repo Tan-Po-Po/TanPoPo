@@ -115,8 +115,8 @@ main {
   }
 }
 
-.MuiDialog-container {
-  background: rgba(0, 0, 0, 0.7);
+.MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 body:has(div.MuiDialog-root) {
