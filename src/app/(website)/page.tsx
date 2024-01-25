@@ -68,8 +68,10 @@ export default function Home() {
       <div className={cl.intro}>
         <div className={cl.header}>
           <Typography variant="h5" align="center">
-            <span style={{ fontWeight: "700" }}>TanPoPo</span> - найкращий
-            досвід вивчення японської мови!
+            TanPoPo
+          </Typography>
+          <Typography variant="body1" align="center">
+            {" "}- найкращий досвід вивчення японської мови!
           </Typography>
         </div>
         <Image
@@ -149,7 +151,7 @@ export default function Home() {
           </ContentCard>
 
           <ContentCard className={cl.link}>
-            <Typography variant="body1" style={{ fontSize: "22px" }}>
+            <Typography variant="body1" style={{ fontSize: "21px" }}>
               Дізнайтеся, що кажуть наші учні про їхній досвід у школі TanPoPo:
             </Typography>
 
