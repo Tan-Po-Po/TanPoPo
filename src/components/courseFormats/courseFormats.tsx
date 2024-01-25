@@ -55,8 +55,8 @@ const CourseFormats = () => {
           </ContentCard>
         </Link>
         <div className={cl.line}></div>
-        <ContentCard className={cl.bottomCard}>
-          <Typography variant="body2">
+        <ContentCard>
+          <Typography variant="body2" className={cl.bottomCard}>
             Навчайся у власному темпі за допомогою ефективних самостійних
             курсів!
           </Typography>

@@ -17,18 +17,11 @@ type Properties = {
   course: ICourse;
 };
 
-const typeClassMap = {
-  teacher: cl.teacher,
-  mega: cl.teacher,
-  video: cl.video,
-  audio: cl.audio,
-  book: cl.book,
-};
-
 const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const courseInfo = course.medium;
+  const isMegaCourse = course.type === "mega";
   const [isGift, setIsGift] = React.useState(false);
   const [isNewStudent, setIsNewStudent] = React.useState(true);
   const [isActiveStudent, setIsActiveStudent] = React.useState(false);
@@ -81,16 +74,22 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
 
   return (
     <ContentCard
-      className={getValidClassNames(cl.card, typeClassMap[course.type])}
+      className={getValidClassNames(cl.card, cl.teacher)}
       label={
-        <Link href={`courses/${course._id}`}>
-          <Typography variant="h5" className={cl.name}>
-            {course.name}
-          </Typography>
-          <Typography variant="body2" className={cl.nameJpn}>
-            {course.nameJapanese}
-          </Typography>
-        </Link>
+        !isMegaCourse && (
+          <Link href={`courses/${course._id}`}>
+            <Typography
+              variant="h5"
+              className={cl.name}
+              style={{ lineHeight: "normal" }}
+            >
+              {course.name}
+            </Typography>
+            <Typography variant="body2" className={cl.nameJpn}>
+              {course.nameJapanese}
+            </Typography>
+          </Link>
+        )
       }
       labelClassName={cl.header}
       labelBgColor={courseInfo.labelColor}
@@ -99,6 +98,36 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       width="385px"
       style={{ minHeight: 700 }}
     >
+      {isMegaCourse && (
+        <div
+          className={getValidClassNames(cl.megaHeader)}
+          style={{
+            background: `linear-gradient(180deg, #FFF 0%, ${courseInfo.bgColor} 100%)`,
+          }}
+        >
+          <Link href={`courses/${course._id}`}>
+            <ContentCard
+              className={cl.headerWrapper}
+              cardBgColor={courseInfo.labelColor}
+            >
+              <p>{course.name}</p>
+              <p>{course.nameJapanese}</p>
+            </ContentCard>
+          </Link>
+
+          <div className={cl.headerPlus}>+</div>
+
+          <Link href={`courses/${course._id}`}>
+            <ContentCard
+              className={cl.headerWrapper}
+              cardBgColor={courseInfo.labelColor}
+            >
+              <p>{course.secondName}</p>
+              <p>{course.secondNameJapanese}</p>
+            </ContentCard>
+          </Link>
+        </div>
+      )}
       <ul className={cl.description}>
         {courseInfo.description.map((desc, index) => (
           <li key={index}>
@@ -129,55 +158,81 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
         </Typography>
       </section>
 
-      <Select
-        className={cl.select}
-        placeHolder="Формат навчання"
-        menuItems={[
-          { value: "Міні-група", label: "Міні-група (2-5 осіб)" },
-          { value: "Індивідуально", label: "Індивідуально (з сенсеєм)" },
-        ]}
-        handleSelect={(value: string) =>
-          setCardState((prev) => {
-            return {
-              ...prev,
-              learningFormat: value as "Міні-група" | "Індивідуально",
-            };
-          })
-        }
-      />
+      {!isMegaCourse ? (
+        <>
+          <Select
+            showValue
+            className={cl.select}
+            placeHolder="Формат навчання"
+            menuItems={[
+              { value: "Міні-група", label: "Міні-група (2-5 осіб)" },
+              { value: "Індивідуально", label: "Індивідуально (з сенсеєм)" },
+            ]}
+            handleSelect={(value: string) =>
+              setCardState((prev) => {
+                return {
+                  ...prev,
+                  learningFormat: value as "Міні-група" | "Індивідуально",
+                };
+              })
+            }
+          />
 
-      <Select
-        className={cl.select}
-        placeHolder="К-сть Уроків & Ціна"
-        menuItems={
-          cardState.learningFormat === "Індивідуально"
-            ? course.prices.individual.map((price, idx) => {
-                return parseCoursePrices(price, idx);
-              })
-            : course.prices.group.map((price, idx) => {
-                return parseCoursePrices(price, idx);
-              })
-        }
-        handleSelect={(value: string, link?: string) => {
-          setCardState((prev) => {
-            return { ...prev, lessons: value, link: link as string };
-          });
-        }}
-        checkbox
-        checkboxLabel="Подарунковий Сертифікат🎁"
-        setGift={toggleGift}
-        gift={isGift}
-        isDisabled={cardState.learningFormat === null}
-        onClick={() =>
-          cardState.learningFormat === null
-            ? toast("Оберіть формат навчання")
-            : null
-        }
-      />
+          <Select
+            className={cl.select}
+            placeHolder="К-сть Уроків & Ціна"
+            menuItems={
+              cardState.learningFormat === "Індивідуально"
+                ? course.prices.individual.map((price, idx) => {
+                    return parseCoursePrices(price, idx);
+                  })
+                : course.prices.group.map((price, idx) => {
+                    return parseCoursePrices(price, idx);
+                  })
+            }
+            handleSelect={(value: string, link?: string) => {
+              setCardState((prev) => {
+                return { ...prev, lessons: value, link: link as string };
+              });
+            }}
+            checkbox
+            checkboxLabel="Подарунковий Сертифікат🎁"
+            setGift={toggleGift}
+            gift={isGift}
+            isDisabled={cardState.learningFormat === null}
+            onClick={() =>
+              cardState.learningFormat === null
+                ? toast("Оберіть формат навчання")
+                : null
+            }
+          />
+        </>
+      ) : (
+        <Select
+          className={cl.select}
+          placeHolder="Мегакурс & Ціна"
+          menuItems={course.prices.group.map((price, idx) => {
+            return parseCoursePrices(price, idx);
+          })}
+          handleSelect={(value: string, link?: string) => {
+            setCardState((prev) => {
+              return { ...prev, lessons: value, link: link as string };
+            });
+          }}
+          checkbox
+          checkboxLabel="Подарунковий Сертифікат🎁"
+          setGift={toggleGift}
+          gift={isGift}
+        />
+      )}
 
       {isGift ? (
         <Checkbox
-          label="Подарунковий Сертифікат🎁"
+          label={
+            <Typography variant="subtitle1" className={cl.presentCheckbox}>
+              Подарунковий Сертифікат🎁
+            </Typography>
+          }
           onClick={toggleGift}
           isChecked={isGift}
         />

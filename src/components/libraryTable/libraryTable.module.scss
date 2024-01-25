@@ -5,10 +5,10 @@
   column-gap: 65px;
 }
 
-@media (max-width: 1420px) {
+@media (max-width: 1320px) {
   .libraryTable {
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 20px;
+    column-gap: 42px;
   }
 }
 
@@ -23,6 +23,9 @@
       display: flex;
       flex-direction: column;
       > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 0px !important;
         > div {
           margin: 10px !important;

@@ -25,12 +25,12 @@ const StartEducationSensei: React.FC = () => {
         <Typography
           variant="h6"
           align="center"
-          style={{ maxWidth: "745px", marginTop: "42px" }}
+          style={{ maxWidth: "745px", marginTop: "42px", lineHeight: "26px" }}
         >
           За допомогою нашого сайту Ви можете записатись на заняття абсолютно
           самостійно прямо зараз:
         </Typography>
-        
+
         <div className={cl.startCards}>
           <Carousel
             renderCarousel={renderCarousel}
@@ -126,38 +126,40 @@ const StartEducationSensei: React.FC = () => {
         <Typography variant="h5">для найкращих результатів!</Typography>
       </div>
 
-      <ContentCard
-        width="511px"
-        className={cl.sensei}
-        label={
-          <Link href="/courses#teacher" className={cl.link}>
-            <Typography variant="body1">Онлайн-курси</Typography>
-            <Typography variant="subtitle2">з сенсеєм</Typography>
-          </Link>
-        }
-        labelClassName={cl.label}
-        labelPosition="top"
-        labelBgColor="linear-gradient(180deg, #A6C4FF 0%, #E8A6FF 100%)"
-      >
-        <Image
-          className={cl.icon}
-          src={getIconArtSrc("teacher")}
-          alt="Teacher art"
-          width={88}
-          height={71}
-        />
-        <Typography variant="body1">
-          Для тих, хто полюбляє живе спілкування та навчання разом з сенсеєм
-          онлайн!
-        </Typography>
-        <Image
-          className={cl.arrow}
-          src={getIconSrc("arrowLong")}
-          alt="Arrow"
-          width={100}
-          height={80}
-        />
-      </ContentCard>
+      <Link href="/courses#teacher">
+        <ContentCard
+          width="511px"
+          className={cl.sensei}
+          label={
+            <div className={cl.link}>
+              <Typography variant="body1">Онлайн-курси</Typography>
+              <Typography variant="subtitle2">з сенсеєм</Typography>
+            </div>
+          }
+          labelClassName={cl.label}
+          labelPosition="top"
+          labelBgColor="linear-gradient(180deg, #A6C4FF 0%, #E8A6FF 100%)"
+        >
+          <Image
+            className={cl.icon}
+            src={getIconArtSrc("teacher")}
+            alt="Teacher art"
+            width={88}
+            height={71}
+          />
+          <Typography variant="body1">
+            Для тих, хто полюбляє живе спілкування та навчання разом з сенсеєм
+            онлайн!
+          </Typography>
+          <Image
+            className={cl.arrow}
+            src={getIconSrc("arrowLong")}
+            alt="Arrow"
+            width={100}
+            height={80}
+          />
+        </ContentCard>
+      </Link>
     </>
   );
 };
