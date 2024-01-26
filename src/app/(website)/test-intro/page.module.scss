@@ -133,6 +133,10 @@
 .button {
   position: relative;
   background: $gradient-yellow-light;
+
+  img {
+    margin: 5px 0 !important;
+  }
 }
 
 .imageContainer {

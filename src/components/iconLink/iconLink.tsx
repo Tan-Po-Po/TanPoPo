@@ -38,6 +38,7 @@ const IconLink: React.FC<Props> = ({ icon, href, height }) => {
         style={{
           width: "auto",
           height: `${height || "26px"}`,
+          minWidth: "26px",
         }}
         alt=""
         onMouseOver={handleMouseOver}

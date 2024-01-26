@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
               style={{ width, height: "auto" }}
               alt=""
             />
-            <Link href={"/store#mnemonicCards"}>Мнемонічні картки</Link>
+            <Link href={"/shop#products"}>Мнемонічні картки</Link>
           </div>
           <div className={cl.linkWrapper}>
             <Image

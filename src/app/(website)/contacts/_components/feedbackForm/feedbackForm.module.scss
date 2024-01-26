@@ -49,6 +49,9 @@
 
 .button {
   background: white;
+  img {
+    margin: 5px 0;
+  }
 }
 
 @media (max-width: 1023px) {

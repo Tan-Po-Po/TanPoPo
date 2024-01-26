@@ -81,6 +81,7 @@
 @media (min-width: 768px) and (max-width: "1023px") {
   .shopPartnerCard {
     width: 100%;
+    min-width: 740px;
 
     padding-right: 20px;
     padding-left: 20px;
@@ -109,9 +110,10 @@
 
 @media (max-width: 767px) {
   .shopPartnerCard {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
     .name {
+      gap: 12px;
       p {
         font-size: 18px;
       }
@@ -121,6 +123,11 @@
         width: 131px;
         height: 131px;
       }
+    }
+
+    .hashtags {
+      justify-content: flex-start;
+      gap: 8px;
     }
   }
 }
