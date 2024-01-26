@@ -6,8 +6,17 @@
   align-items: center;
 
   .buttons {
+    margin: 10px 0 20px;
     display: flex;
     column-gap: 60px;
+    .timeBtn {
+      border: 2px solid black;
+      padding: 10px 15px;
+      box-shadow: $box-shadow;
+      border-radius: 10px;
+      font-size: 17px !important;
+      cursor: default;
+    }
   }
 
   .line {
@@ -39,6 +48,11 @@
   }
 }
 
+.scheduleCard {
+  max-width: 100%;
+  width: 1350px;
+}
+
 .container {
   width: 100%;
   display: flex;
@@ -49,10 +63,16 @@
     display: flex;
     flex-direction: column;
     row-gap: 25px;
+    h6 {
+      text-transform: uppercase;
+      font-size: 20px;
+    }
   }
 
   .timeBtn {
     width: 130px;
+    font-size: 19px;
+    line-height: 22px;
   }
 
   .day {
@@ -65,9 +85,10 @@
 
 @media (max-width: 1110px) {
   .schedule {
-  .line {
-    display: none;
-  }}
+    .line {
+      display: none;
+    }
+  }
 
   .scheduleCard {
     margin-top: 42px;
@@ -86,7 +107,6 @@
     overflow: auto;
     overflow-y: hidden;
     padding-bottom: 20px;
-
 
     &::-webkit-scrollbar {
       height: 7px;

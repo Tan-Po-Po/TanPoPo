@@ -68,7 +68,24 @@ export default function Page() {
       setValue("lessonsPerWeek", 2);
       if (counter < 12) {
         return toast(
-          `Просимо Вас обрати хоча б 12 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑`
+          () => (
+            <div
+              style={{
+                width: "fit-content",
+                fontSize: "20px",
+                textAlign: "center",
+                margin: "auto",
+              }}
+            >
+              Просимо Вас обрати хоча б <u>12 часових проміжків</u>
+              <br />
+              категорій: <u>“Може бути”</u> або <u>“Ідеально”</u>,
+              <br />
+              щоб ми мали можливість швидше сформувати
+              <br />
+              зручний для всіх графік занять!☑
+            </div>
+          )
         );
       }
     } else {
@@ -90,7 +107,7 @@ export default function Page() {
       schedule,
     };
 
-    setLoading(true)
+    setLoading(true);
     fetch("/api/education", {
       method: "POST",
       body: JSON.stringify(data),
@@ -101,7 +118,7 @@ export default function Page() {
     })
       .then(async (res) => {
         if (!res.ok) {
-          setLoading(false)
+          setLoading(false);
           return toast(
             "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
           );
@@ -110,7 +127,7 @@ export default function Page() {
       })
       .catch((error) => {
         console.log(error);
-        setLoading(false)
+        setLoading(false);
         toast(
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
         );
@@ -132,7 +149,7 @@ export default function Page() {
   if (loading) {
     return <Loading />;
   }
-  
+
   return (
     <main className={cl.main}>
       <form onSubmit={handleSubmit(submitForm)} className={cl.formWrapper}>
@@ -147,8 +164,10 @@ export default function Page() {
 
         {course.format === "Міні-група" ? (
           <ContentCard width="650px" className={cl.lessonsCount}>
-            <Typography variant="body1">К-сть занять:</Typography>
-            <Typography variant="h4">2 уроки / тиждень</Typography>
+            <div>
+              <Typography variant="body1">К-сть занять:</Typography>
+              <Typography variant="h4">2 уроки / тиждень</Typography>
+            </div>
 
             <Image
               src={getIconArtSrc("boyAndGirl")}
@@ -207,8 +226,8 @@ export default function Page() {
           <Input
             label="Ваш коментар"
             multiline
-            rows={9}
-            style={{ width: "100%", maxWidth: "750px" }}
+            rows={7}
+            style={{ width: "750px", maxWidth: "100%" }}
             className={cl.commentTextarea}
             value={comment}
             onChange={(e) => setComment(e.target.value)}

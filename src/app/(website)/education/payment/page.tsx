@@ -83,9 +83,11 @@ export default function Page() {
           >
             <Typography variant="body1">Формат навчання:</Typography>
             <Typography variant="body1">
-              {course?.format === "Міні-група"
-                ? "Онлайн-курс з Сенсеєм (Міні-група 2-5 чол.)"
-                : "Індивідуально"}
+              <b>
+                {course?.format === "Міні-група"
+                  ? "Онлайн-курс з Сенсеєм (Міні-група 2-5 чол.)"
+                  : "Індивідуально"}
+              </b>
             </Typography>
           </ContentCard>
 
@@ -98,20 +100,24 @@ export default function Page() {
             {course?.isGift ? (
               <>
                 <Typography variant="body1">Обрана к-сть уроків:</Typography>
-                <Typography variant="body1">
-                  {`${course?.lessons} онлайн-уроків\n(${
+                <Typography variant="body1" style={{ whiteSpace: "pre-line" }}>
+                  <b>{`${course?.lessons} онлайн-уроків\n(${
                     course?.lessons! / (course?.lessonsPerWeek || 2)
-                  }тижнів навчання)`}
+                  }тижнів навчання)`}</b>
                 </Typography>
               </>
             ) : (
               <>
-                <Typography variant="body1">Занять в тиждень:</Typography>
+                <Typography variant="body1" style={{ fontSize: "19px" }}>
+                  Занять в тиждень:
+                </Typography>
                 <Typography variant="body1">
-                  {course?.format === "Міні-група"
-                    ? 2
-                    : course?.lessonsPerWeek || "Lessons per week"}{" "}
-                  заняття в тиждень
+                  <b>
+                    {course?.format === "Міні-група"
+                      ? 2
+                      : course?.lessonsPerWeek || "Lessons per week"}{" "}
+                    заняття <br />в тиждень
+                  </b>
                 </Typography>
               </>
             )}
@@ -125,7 +131,7 @@ export default function Page() {
           >
             <Typography variant="body1">Тривалість онлайн-уроку:</Typography>
             <Typography variant="body1">
-              70 хвилин / заняття (рівень: JLPT {course?.level})
+              <b>70 хвилин / заняття (рівень: JLPT {course?.level})</b>
             </Typography>
           </ContentCard>
 
@@ -140,20 +146,26 @@ export default function Page() {
                 <Typography variant="body1">Вид сертифікату:</Typography>
                 {course?.certificateType === "Електронний сертифікат" ? (
                   <Typography variant="body1">
-                    {"Електронний\nподарунковий сертифікат"}
+                    <b>{"Електронний\nподарунковий сертифікат"}</b>
                   </Typography>
                 ) : (
                   <Typography variant="body1">
-                    {"Іменний Друкований\n+120грн(друк та доставка)"}
+                    <b>{"Іменний Друкований\n+120грн(друк та доставка)"}</b>
                   </Typography>
                 )}
               </>
             ) : (
               <>
                 <Typography variant="body1">
-                  {course?.lessons} онлайн-уроків (
-                  {course?.lessons! / (course?.lessonsPerWeek || 2)}
-                  тижнів навчання)
+                  Обрана кількість уроків:
+                </Typography>
+
+                <Typography variant="body1">
+                  <b>
+                    {course?.lessons} онлайн-уроків <br />(
+                    {course?.lessons! / (course?.lessonsPerWeek || 2)}
+                    тижнів навчання)
+                  </b>
                 </Typography>
               </>
             )}
@@ -168,7 +180,7 @@ export default function Page() {
             cardBgColor="linear-gradient(91deg, rgba(255, 156, 156, 0.75) 0%, rgba(255, 239, 156, 0.75) 28.13%, rgba(156, 219, 255, 0.75) 71.35%, rgba(255, 156, 233, 0.75) 100%)"
           >
             <Typography variant="h5">
-              {course?.price || "Cpurse price"}
+              {course?.price || "Curse price"}
             </Typography>
           </ContentCard>
           <Typography variant="subtitle1" style={{ lineHeight: "16px" }}>
@@ -228,7 +240,7 @@ export default function Page() {
             вами для його підтвердження!
           </Typography>
 
-          <ContentCard width="475px" className={cl.thanks}>
+          <ContentCard width="600px" className={cl.thanks}>
             <Typography variant="body1">
               Ми бачимо і цінуємо ваше бажання навчатись разом з нами! Після
               оплати та успішного формування/погодження розкладу, Ви відразу
