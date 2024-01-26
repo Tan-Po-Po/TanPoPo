@@ -36,6 +36,11 @@
     :global(.slick-next) {
       right: -18px;
     }
+
+    :global(.slick-prev),
+    :global(.slick-next) {
+      z-index: 3 !important;
+    }
   }
 
   .priceBlock {

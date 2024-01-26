@@ -68,6 +68,8 @@ $transition-duration: all 0.3s ease-in;
       margin: 0 auto;
       z-index: 10;
       top: 100%;
+      box-shadow: $box-shadow;
+      overflow: hidden;
     }
 
     .selectOpen {
@@ -98,7 +100,8 @@ $transition-duration: all 0.3s ease-in;
   .containerOpen {
     background: white;
     border-radius: $border-radius $border-radius 0px 0px;
-    border-bottom: 1px solid inherit;
+    border-bottom: 2px solid transparent;
+    box-shadow: unset;
   }
   .disabled {
     color: $color-disabled;

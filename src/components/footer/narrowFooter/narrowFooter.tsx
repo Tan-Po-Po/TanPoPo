@@ -136,7 +136,7 @@ export const NarrowFooter = () => {
             <div className={cl.logo}>
               <Link href={"/"}>
                 <Image
-                  src={"/logo/logo.svg"}
+                  src={"/logo/logo.png"}
                   className={cl.logoIcon}
                   width={104}
                   height={104}

@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import { textContent } from "./textContent";
 import { MiniProductCards, LargeProductCards } from "./_components/components";
-import React from "react";
+import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import dbConnect from "@/config/dbConnect";
 import { IShopProduct } from "@/models/ShopProduct";
@@ -50,7 +50,9 @@ export default async function Shop() {
     <main className={cl.storeMain} id="storeMain">
       <Typography variant="h3">КРАМНИЦЯ</Typography>
       <section className={cl.introBlock}>
-        <MiniProductCards shopProducts={shopProducts} />
+        <Suspense>
+          <MiniProductCards shopProducts={shopProducts} />
+        </Suspense>
 
         <Image
           alt=""
@@ -111,7 +113,9 @@ export default async function Shop() {
       />
 
       <section className={cl.shopProductsBlock}>
-        <LargeProductCards shopProducts={shopProducts} />
+        <Suspense>
+          <LargeProductCards shopProducts={shopProducts} />
+        </Suspense>
       </section>
 
       <section className={cl.message}>

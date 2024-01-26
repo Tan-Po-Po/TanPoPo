@@ -24,5 +24,13 @@
 
   .numbers {
     transform: translate(0, -14px);
+    position: relative;
+    z-index: -1;
+  }
+
+  :global(.slick-prev),
+  :global(.slick-next) {
+    z-index: -1 !important;
+    position: absolute;
   }
 }

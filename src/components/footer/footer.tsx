@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
         <div className={cl.logoContainer}>
           <Link href={"/"}>
             <Image
-              src={"/logo/logo.svg"}
+              src={"/logo/logo.png"}
               className={cl.logoIcon}
               width={110}
               height={110}
