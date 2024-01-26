@@ -8,14 +8,12 @@
 @media (max-width: 1320px) {
   .libraryTable {
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 42px;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .libraryTable {
     grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
   }
 
   .carousel {

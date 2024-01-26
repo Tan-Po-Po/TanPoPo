@@ -313,6 +313,10 @@
   }
 }
 
+.freeCourseHeader {
+  display: none;
+}
+
 .freeCourse {
   padding: 40px;
   &:hover {
@@ -537,18 +541,25 @@
   .header {
     h5 {
       font-size: 28px;
+      line-height: 26px;
+    }
+    p {
       font-size: 22px;
     }
   }
   .about {
     font-size: 16px;
+    line-height: 20px;
   }
 
   .opportunities {
     padding: 0;
     border: unset;
     box-shadow: unset;
-
+    & > p {
+      font-size: 15px;
+      max-width: 350px;
+    }
     .opportunityCards {
       flex-direction: column;
       padding: 0;
@@ -557,9 +568,18 @@
 
   .author {
     flex-direction: column;
-
-    .about {
-      font-size: 15px;
+    .text {
+      h4 {
+        font-size: 25px !important;
+      }
+      h3 {
+        font-size: 27px !important;
+      }
+      .about {
+        margin-top: 30px !important;
+        font-size: 15px !important;
+        max-width: 350px;
+      }
     }
   }
 
@@ -567,6 +587,12 @@
     .text {
       order: 1;
       gap: 34px;
+      h2 {
+        font-size: 28px;
+      }
+      p {
+        font-size: 15px !important;
+      }
     }
     .photo {
       order: 2;
@@ -576,22 +602,52 @@
   .formats {
     border: unset;
     padding: 0;
+    width: 100%;
     box-shadow: unset;
+    & > p {
+      font-size: 16px !important;
+      br {
+        display: none;
+      }
+    }
     .cards {
       flex-direction: column;
     }
   }
 
+  .courses {
+    h3 {
+      font-size: 28px;
+      max-width: 190px;
+      margin-top: -33px;
+    }
+  }
+
   .personalCabinet {
+    h2 {
+      font-size: 28px !important;
+    }
     .boyLaptop {
       max-height: 240px;
     }
   }
   .cabinetCards {
     flex-direction: column;
+    .card {
+      max-height: fit-content !important;
+    }
   }
 
   .start {
+    h4 {
+      font-size: 26px !important;
+    }
+    & > p {
+      font-size: 18px !important;
+      br {
+        display: none;
+      }
+    }
     .cards {
       flex-direction: column;
 
@@ -600,12 +656,36 @@
       }
     }
   }
-
+  
+  .freeCourseHeader {
+    display: block;
+    margin: -30px auto -75px;
+  }
+  .freeCourse {
+    padding: 20px 10px;
+    h4 {
+      display: none;
+    }
+    p {
+      font-size: 16px;
+      line-height: 20px !important;
+      max-width: 300px;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
   .moreLinks {
     flex-direction: column;
     gap: 50px;
+    h4 {
+      font-size: 27px;
+      width: 305px;
+    }
     .link {
       margin: 0 auto;
+    }
+    #additionalQuestion {
+      order: 10;
     }
   }
 }

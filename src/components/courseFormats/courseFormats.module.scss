@@ -3,6 +3,7 @@
   width: 100%;
   max-width: 1150px;
   justify-content: space-around;
+  align-items: center;
   margin: 120px 0px;
 
   .formatWrapper {
@@ -11,7 +12,7 @@
     justify-content: center;
     align-items: center;
     width: 450px;
-
+    max-width: 100%;
     a {
       width: 100%;
     }
@@ -74,8 +75,10 @@
 
 @media (max-width: 500px) {
   .formats {
-    flex-direction: column;
-    gap: 60px;
     margin: 42px 0;
+
+    .formatCard {
+      max-width: 100% !important;
+    }
   }
 }

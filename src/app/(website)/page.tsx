@@ -333,9 +333,12 @@ export default function Home() {
       </section>
 
       <CabinetCards windowMatchMedia={windowMatchMedia} />
-
+      
+      <Typography variant="h4" align="center" className={cl.freeCourseHeader}>
+          Безкоштовний мінікурс для початківців!
+        </Typography>
       <ContentCard className={cl.freeCourse} width="840px" height="fit-content">
-        <Typography variant="h4">
+        <Typography variant="h4" align="center">
           Безкоштовний мінікурс для початківців!
         </Typography>
         <Image
@@ -348,6 +351,7 @@ export default function Home() {
         <Typography
           variant="body1"
           style={{ marginBottom: "20px", lineHeight: "26px" }}
+          align="center"
         >
           Скористайтесь всіма перевагами нашого навчання та
           <br /> спробуйте наш мінікурс просто зараз! Дізнайтесь більше про{" "}

@@ -51,7 +51,7 @@ export function Ahead({
         height={310}
       />
       <div className={cl.text}>
-        <Typography variant="h2">Завжди попереду!</Typography>
+        <Typography variant="h2" align="center">Завжди попереду!</Typography>
         <Typography
           variant="body1"
           style={{ fontSize: "19px", lineHeight: "21px" }}

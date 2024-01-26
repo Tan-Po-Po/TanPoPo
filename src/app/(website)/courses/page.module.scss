@@ -15,7 +15,6 @@
   margin-top: 14px;
 }
 
-
 .intro {
   h3 {
     text-transform: uppercase;
@@ -34,5 +33,37 @@
 @media (max-width: 800px) {
   .main {
     padding: 50px 8px;
+  }
+
+  .intro {
+    p {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    img {
+      width: 100vw;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .intro {
+    h3 {
+      font-size: 30px;
+      max-width: 320px !important;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 700;
+      text-align: justify !important;
+    }
+    span {
+      margin-top: 30px;
+      display: block;
+    }
+    p, span {
+      text-indent: 25px;
+    }
   }
 }

@@ -34,7 +34,6 @@ export default function Page() {
           alt="Japanese courses"
           width={970}
           height={550}
-          style={{ maxWidth: "100%" }}
         />
         <div className={cl.title}>Курси для самостійного навчання.</div>
         <PlayButton className={cl.playBtn} />

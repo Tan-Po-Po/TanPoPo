@@ -81,3 +81,32 @@
     transform: rotate(-180deg);
   }
 }
+
+@media (max-width: 500px) {
+  .questionBody,
+  .answer p {
+    font-size: 16px;
+  }
+  .questionBody {
+    max-width: 220px;
+  }
+
+  .faq {
+    &:hover {
+      background: transparent;
+      .questionBody {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .faq.opened {
+    background: linear-gradient(rgba(255, 230, 0, 1), rgba(255, 253, 234, 1));
+  
+    .questionBody {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+}
