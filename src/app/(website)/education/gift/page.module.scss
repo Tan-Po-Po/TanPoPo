@@ -43,6 +43,14 @@
 
   .selectType {
     position: relative;
+    width: 100%;
+    max-width: 300px;
+    div {
+      text-align: start !important;
+    }
+    & > div:first-child {
+      background: linear-gradient(180deg, #fffaf9 0%, #fffbd8 100%);
+    }
 
     &::after,
     &::before {
@@ -292,7 +300,7 @@
     }
   }
 
-  .agreement  span {
+  .agreement span {
     margin-left: 0 !important;
   }
 }
