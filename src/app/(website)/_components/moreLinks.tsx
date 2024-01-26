@@ -204,7 +204,12 @@ export function MoreLinks({
           </Button>
         </ContentCard>
 
-        <ContentCard className={cl.link} width="375px" height="345px">
+        <ContentCard
+          className={cl.link}
+          width="375px"
+          height="345px"
+          style={isMobile ? { order: 10 } : {}}
+        >
           <Typography variant="body1">
             Маєте додаткові запитання? Тут, ми зібрали всю корисну інформацію,
             стосовно нашого навчання!
