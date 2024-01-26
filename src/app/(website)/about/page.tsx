@@ -111,7 +111,9 @@ export default async function About() {
         id="studio"
         style={{ scrollMarginTop: "140px" }}
       >
-        <ContentCard className={cl.labelTop}>TanPoPo Studio</ContentCard>
+        <ContentCard className={cl.labelTop} width="fit-content">
+          TanPoPo Studio
+        </ContentCard>
         <Image
           src="/photos/studio.png"
           alt="TanPoPo Studio"

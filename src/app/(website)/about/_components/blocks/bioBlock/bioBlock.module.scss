@@ -153,6 +153,7 @@
 @media (max-width: 767px) {
   .bioBlock {
     @include flex-column;
+    padding: 0 18px;
 
     .label {
       padding: 11px;

@@ -5,6 +5,10 @@
   .carousel {
     :global(.slick-dots) {
       margin-top: 50px;
+
+      li {
+        margin: 0 10px;
+      }
     }
   }
 

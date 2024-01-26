@@ -145,7 +145,7 @@ export default function Join() {
         </Typography>
         <Image
           className={cl.img}
-          src="/images/boyWithLaptop.svg"
+          src="/images/boyWithLaptop.jpg"
           alt="Boy with laptop"
           width={1126}
           height={512}

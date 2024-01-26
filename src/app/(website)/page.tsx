@@ -317,7 +317,7 @@ export default function Home() {
         </div>
 
         <Image
-          src="/images/boyWithLaptop.png"
+          src="/images/boyWithLaptop.jpg"
           alt="Boy with a laptop"
           className={cl.boyLaptop}
           width={966}

@@ -60,6 +60,11 @@
 
     .carouselCard {
       padding: 28px;
+      overflow: hidden;
+
+      .carousel {
+        width: calc(100% + 28px) !important;
+      }
     }
 
     :global(.slick-slide) {

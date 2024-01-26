@@ -296,10 +296,11 @@
 
 @media (max-width: 450px) {
   .studio {
-    padding: 0 10px;
+    height: fit-content;
     margin-bottom: 140px;
     display: flex;
     justify-content: center;
+    width: calc(100% - 10px);
 
     .labelTop {
       width: fit-content;
