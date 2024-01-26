@@ -32,7 +32,6 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
   const fetchCities = useMemo(
     () =>
       debounce(async (FindByString: string, selectedRegion: string) => {
-
         if (selectedRegion) {
           const AreaRef = regions.find(
             (reg) => reg.Description === selectedRegion
@@ -151,7 +150,9 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                     }
                   : {}
               }
-              render={({ field }) => <Input className={cl.input} label="Ім'я" {...field} />}
+              render={({ field }) => (
+                <Input className={cl.input} label="Ім'я" {...field} />
+              )}
             />
 
             <Controller
@@ -168,7 +169,9 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                     }
                   : {}
               }
-              render={({ field }) => <Input className={cl.input} label="Прізвище" {...field} />}
+              render={({ field }) => (
+                <Input className={cl.input} label="Прізвище" {...field} />
+              )}
             />
           </div>
         </>

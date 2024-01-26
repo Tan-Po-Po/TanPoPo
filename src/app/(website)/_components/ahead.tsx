@@ -21,7 +21,7 @@ export function Ahead({
             width={300}
             height={310}
           />
-          <Typography variant="h4">
+          <Typography variant="h4" align="center">
             Завжди,
             <br />
             попереду!

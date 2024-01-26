@@ -126,7 +126,7 @@ export default function Page() {
     <main className={cl.main}>
       <div className={cl.header}>
         <Typography variant="h4">Навчання у подарунок🎁</Typography>
-        <Typography variant="h6">
+        <Typography variant="h6" style={{ maxWidth: "660px" }}>
           {" "}
           Оформіть подарунковий сертифікат для обраного курсу на нашому сайті
           прямо зараз:
@@ -243,9 +243,9 @@ export default function Page() {
             className={cl.image}
             src="/images/laptop.png"
             alt="Laptop"
-            width={996}
-            height={500}
-            style={{ width: "100%", height: "auto" }}
+            width={332}
+            height={172}
+            style={{ width: "332px", maxWidth: "100%", height: "auto" }}
           />
           <Typography
             variant="body2"

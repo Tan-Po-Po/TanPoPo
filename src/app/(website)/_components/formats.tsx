@@ -91,7 +91,7 @@ export function Formats({
     <ContentCard width="1122px" className={cl.formats}>
       <Typography variant="h5">Формати Навчання:</Typography>
       <Typography variant="body2">
-        Наша освітня програма пропонує усі можливі формати вивчення японської
+        Наша освітня програма пропонує усі можливі формати вивчення <br/>японської
         мови, щоб кожний зміг обрати те, що йому імпонує найбільше!
       </Typography>
 
