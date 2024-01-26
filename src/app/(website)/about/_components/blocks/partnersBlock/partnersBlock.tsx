@@ -21,7 +21,7 @@ export const PartnersBlock = ({ partners }: { partners: IPartner[] }) => {
         {textContent.partnersBlock.title}
       </Typography>
       <ContentCard width="1238px" className={cl.carouselCard}>
-        <Carousel autoplay={true} arrows={isPc}>
+        <Carousel autoplay={true} arrows={isPc} className={cl.carousel}>
           {partners.map((partner) => (
             <CarouselItem key={partner._id} isHoverEventActive={isPc}>
               <Image

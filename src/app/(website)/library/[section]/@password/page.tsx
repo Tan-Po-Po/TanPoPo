@@ -7,6 +7,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { FormCode, IPromoCodeInput } from "@/components/formCode/formCode";
 import { toast } from "react-toastify";
 import { setLibraryKeyToCookies, validateKey } from "../actions";
+import Link from "next/link";
 
 const Password = () => {
   const formReturn = useForm({ defaultValues: { code: "" } });
@@ -48,7 +49,11 @@ const Password = () => {
             />
             <Typography variant="body2">
               Ти можеш знайти ключ на платформі нашої школи у своєму{" "}
-              <u> Особистому Кабінеті</u> учня!
+              <Link href={""} style={{ textDecoration: "underline" }}>
+                {" "}
+                Особистому Кабінеті
+              </Link>{" "}
+              учня!
             </Typography>
           </ContentCard>
         </div>

@@ -20,6 +20,14 @@
     cursor: pointer;
     border: 0;
     outline: black solid 2px;
+
+    .text {
+      animation: textAnimationInitial 0.9s ease-out;
+    }
+    .cartIcon {
+      animation: cartAnimationInitial 0.9s ease-out;
+    }
+
     &:hover {
       background: $color-yellow;
       outline: black solid 3px;
@@ -91,6 +99,20 @@
   }
 }
 
+@keyframes textAnimationInitial {
+  0% {
+    transform: translate(-67px);
+  }
+  33% {
+    transform: translate(9px);
+  }
+  66% {
+    transform: translate(-3px);
+  }
+  100% {
+  }
+}
+
 @keyframes textAnimation {
   0% {
   }
@@ -102,6 +124,20 @@
   }
   100% {
     transform: translate(-67px);
+  }
+}
+
+@keyframes cartAnimationInitial {
+  0% {
+    transform: translate(81px);
+  }
+  33% {
+    transform: translate(-8px);
+  }
+  66% {
+    transform: translate(4px);
+  }
+  100% {
   }
 }
 

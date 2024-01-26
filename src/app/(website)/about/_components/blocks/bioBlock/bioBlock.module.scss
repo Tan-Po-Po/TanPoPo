@@ -1,12 +1,10 @@
 .bioBlock {
-  margin: -20px;
-
   .imageContent {
     padding: 0 !important;
     height: 812px;
     margin: 0 auto;
     img {
-      border-radius: $border-radius;
+      border-radius: $border-radius-image;
     }
   }
 
@@ -24,6 +22,7 @@
     text-align: start;
     padding: 52px;
     gap: 38px;
+    margin: 0 auto;
 
     p {
       text-indent: 40px;
@@ -38,10 +37,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-    }
-
-    .imageContent {
-      max-height: 579px;
     }
   }
 
@@ -85,6 +80,7 @@
 @media (max-width: 1023px) {
   .bioBlock {
     @include flex-column;
+    padding: 0 20px;
 
     .label {
       padding: 12px 15px;
@@ -112,14 +108,14 @@
 
     .paragraphs {
       @include flex-column;
-      padding: 0 23px;
+      padding: 0;
       gap: 16px;
       text-align: justify;
       margin: 16px 0;
     }
 
     .bioContent {
-      padding: 0 23px;
+      padding: 0;
       border: unset;
       box-shadow: unset;
       gap: 16px;

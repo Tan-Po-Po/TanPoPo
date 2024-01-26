@@ -14,7 +14,7 @@ const Loading = ({ heightAuto }: { heightAuto?: boolean }) => {
       <Image
         className={cl.logo}
         alt="Logo"
-        src="/logo/logo.svg"
+        src="/logo/logo.png"
         width={165}
         height={165}
       />

@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
               style={{ width, height: "auto" }}
               alt=""
             />
-            <Link href={"/store#mnemonicCards"}>Мнемонічні картки</Link>
+            <Link href={"/shop#products"}>Мнемонічні картки</Link>
           </div>
           <div className={cl.linkWrapper}>
             <Image
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
         <div className={cl.logoContainer}>
           <Link href={"/"}>
             <Image
-              src={"/logo/logo.svg"}
+              src={"/logo/logo.png"}
               className={cl.logoIcon}
               width={110}
               height={110}

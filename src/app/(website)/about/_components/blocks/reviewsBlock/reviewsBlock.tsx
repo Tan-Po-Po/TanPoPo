@@ -12,7 +12,7 @@ export const ReviewsBlock = () => {
   return (
     <div
       className={cl.reviewsBlock}
-      id="feedbacks"
+      id="reviews"
       style={{ scrollMarginTop: "100px" }}
     >
       <Typography
