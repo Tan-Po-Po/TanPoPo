@@ -165,6 +165,7 @@
     justify-content: center;
     align-items: center;
     gap: 65px;
+    max-width: 100%;
   }
   .card {
     & > div:first-child {
@@ -292,6 +293,7 @@
 }
 
 .cabinetCardsCarousel {
+  width: 102vw !important;
   .card {
     position: relative;
     &::after {
@@ -411,12 +413,23 @@
 }
 
 @media (max-width: 1023px) {
+  .main {
+    overflow-x: hidden;
+  }
+  .header {
+    max-width: 520px;
+    h5,
+    p {
+      display: inline;
+    }
+  }
   .about {
     font-size: 18px;
   }
   .opportunities {
     padding-left: 0px;
     padding-right: 0px;
+    width: 102vw;
   }
 
   .author {
@@ -448,6 +461,14 @@
     }
   }
 
+  .formats {
+    padding: 26px 0px;
+    width: 102vw;
+    .card {
+      display: flex !important;
+    }
+  }
+
   .courses {
     .cards {
       grid-template-columns: 1fr !important;
@@ -463,9 +484,11 @@
     padding: 0;
     border: unset;
     box-shadow: unset;
-
+    h4 {
+      max-width: 600px;
+    }
     .carousel {
-      max-width: 707px;
+      width: 100vw !important;
 
       :global(.slick-next) {
         transform: translate(100%, -80%);
@@ -494,6 +517,7 @@
     gap: 0px;
 
     .carousel {
+      width: 100vw !important;
       :global(.slick-slide) {
         > div {
           width: fit-content;
@@ -553,7 +577,6 @@
     border: unset;
     padding: 0;
     box-shadow: unset;
-
     .cards {
       flex-direction: column;
     }

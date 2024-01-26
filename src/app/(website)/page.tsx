@@ -65,13 +65,14 @@ export default function Home() {
           </Dialog>
         )}
       </Suspense>
+
       <div className={cl.intro}>
         <div className={cl.header}>
           <Typography variant="h5" align="center">
             TanPoPo
-          </Typography>
-          <Typography variant="body1" align="center">
-            {" "}- найкращий досвід вивчення японської мови!
+            <Typography variant="body1" align="center">
+              {" "}- найкращий досвід вивчення японської мови!
+            </Typography>
           </Typography>
         </div>
         <Image
