@@ -66,11 +66,16 @@
   }
 
   .shipment {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    justify-content: space-between;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
+
+    .department,
+    .shipmentType {
+      flex-grow: 1;
+      max-width: 330px;
+    }
 
     .shipmentType,
     .shipmentInfo {
@@ -270,6 +275,16 @@
     .selects {
       > div,
       .select {
+        max-width: 280px;
+      }
+    }
+
+    .shipment {
+      .input {
+        max-width: 280px;
+      }
+      .department {
+        margin-top: 20px;
         max-width: 280px;
       }
     }

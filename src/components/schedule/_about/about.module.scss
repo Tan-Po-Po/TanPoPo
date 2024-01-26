@@ -1,7 +1,7 @@
 .important {
   margin-bottom: 90px;
   width: 100%;
-
+  padding: 26px 20px;
   .list {
     text-align: start;
     display: flex;
@@ -9,6 +9,7 @@
     gap: 10px;
     font-size: 18px;
     font-weight: 500;
+    padding-inline-start: 20px;
   }
 }
 

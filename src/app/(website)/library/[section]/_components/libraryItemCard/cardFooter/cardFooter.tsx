@@ -23,7 +23,6 @@ export const CardFooter: React.FC<Props> = ({ item }) => {
         type === "reels" ||
         (type === "music" && !media![0].video?.includes("youtube"))
       ) {
-        console.log(navigator.clipboard);
 
         await navigator.clipboard.writeText(media[0].video!);
       } else {
