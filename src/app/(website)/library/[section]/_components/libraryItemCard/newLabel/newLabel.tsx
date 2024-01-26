@@ -12,7 +12,6 @@ export const NewLabel: React.FC<Props> = ({
   className,
   position = "right",
 }) => {
-  console.log("label pos", position);
 
   return (
     <ContentCard

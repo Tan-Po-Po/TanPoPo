@@ -20,29 +20,20 @@ const Schedule: React.FC<Properties> = ({
 }) => {
   return (
     <div className={cl.schedule}>
-      <ContentCard width="775px">
+      <ContentCard width="910px">
         <Typography variant="h6">
           Будь-ласка, визначте ваш навчальний графік за 3 категоріями:
         </Typography>
         <div className={cl.buttons}>
-          <Button
-            variant="outlined"
-            className={getValidClassNames(cl.inappropriateBtn, cl.timeBtn)}
-          >
+          <div className={getValidClassNames(cl.inappropriateBtn, cl.timeBtn)}>
             НЕ ПІДХОДИТЬ
-          </Button>
-          <Button
-            variant="outlined"
-            className={getValidClassNames(cl.maybeBtn, cl.timeBtn)}
-          >
+          </div>
+          <div className={getValidClassNames(cl.maybeBtn, cl.timeBtn)}>
             МОЖЕ БУТИ
-          </Button>
-          <Button
-            variant="outlined"
-            className={getValidClassNames(cl.perfectBtn, cl.timeBtn)}
-          >
+          </div>
+          <div className={getValidClassNames(cl.perfectBtn, cl.timeBtn)}>
             ІДЕАЛЬНО!
-          </Button>
+          </div>
         </div>
         <Typography variant="body2">
           Натискайте на проміжок часу на розкладі, щоб обрати потрібну Вам
@@ -75,7 +66,10 @@ const Schedule: React.FC<Properties> = ({
             );
           })}
         </div>
-        <Typography variant="body2">
+        <Typography
+          variant="body2"
+          style={{ maxWidth: "875px", fontSize: "18px", marginTop: "14px" }}
+        >
           Просимо Вас обрати хоча б{" "}
           <u>
             {format === "Міні-група" || !format ? 12 : 10} часових проміжків{" "}

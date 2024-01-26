@@ -11,9 +11,6 @@ import path from "path";
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
 
-  console.log(formData.payAfter);
-  console.log(formData.payNow);
-
   const googleData = {
     sheetName: "orders",
     formData: parseData(formData),

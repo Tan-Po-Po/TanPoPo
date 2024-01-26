@@ -46,7 +46,7 @@ main {
 }
 
 .Toastify__toast-container {
-  width: auto;
+  width: fit-content !important;
   max-width: 600px;
 }
 
@@ -56,7 +56,8 @@ main {
   text-align: center;
   font-family: var(--font-comfortaa) !important;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 500;
+  padding: 0;
 }
 
 .Toastify__close-button {

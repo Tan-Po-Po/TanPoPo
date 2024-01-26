@@ -24,7 +24,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  p {
+    font-size: 19px;
+  }
+  b {
+    font-size: 21px;
+  }
   .courseInfo {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -66,7 +71,6 @@
 }
 
 .thanks {
-  cursor: pointer;
   margin: 90px 0;
   transition: all 0.3s ease-in-out;
 

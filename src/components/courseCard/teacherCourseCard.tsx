@@ -51,7 +51,11 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
 
   const handleClick = () => {
     if (!cardState.learningFormat || !cardState.lessons) {
-      return toast("Спочатку оберіть Формат \nНавчання та К-сть уроків!📚");
+      return toast(({ closeToast }) => (
+        <div>
+          Спочатку оберіть <u>Формат Навчання</u> та <u>К-сть уроків!</u>📚
+        </div>
+      ));
     }
 
     if (isActiveStudent && cardState.link) {

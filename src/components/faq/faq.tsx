@@ -15,8 +15,7 @@ type Properties = {
 
 const Faq: React.FC<Properties> = ({ question, answer, style }) => {
   const [isOpened, setIsOpened] = React.useState(false);
-  console.log(question)
-  console.log(answer)
+
   const toggleAnswer = () => {
     setIsOpened((prev) => !prev);
   };
