@@ -52,7 +52,7 @@ export const textContent = [
         question: "シュミットさん　は　ピザ　を　たべます。",
         subquestions: [
           {
-            question: "シュ　читаємо як",
+            question: "シュ читаємо як",
             answers: ["шю", "шя", "джю", "джя"],
             correctAnswer: "шю",
           },

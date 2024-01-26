@@ -54,6 +54,7 @@
   form {
     .question {
       font-family: var(--font-heisei);
+      font-weight: 400;
     }
     .testForm {
       width: 1210px;
@@ -64,8 +65,11 @@
       width: 100%;
       justify-content: space-around;
     }
-    .subQuestion {
+    .subQuestion,
+    .answer {
       align-items: flex-start;
+      font-size: 20px;
+      font-weight: 500;
     }
 
     fieldset,
