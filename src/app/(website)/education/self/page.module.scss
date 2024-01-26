@@ -279,6 +279,7 @@
       .typeCard,
       .typeList {
         width: 340px;
+        max-width: 100% !important;
       }
     }
   }
@@ -366,6 +367,14 @@
         align-items: start;
         padding: 26px 10px 26px 26px;
       }
+    }
+  }
+
+  .certificate {
+    p {
+      font-size: 16px;
+      width: 304px;
+      text-align: justify;
     }
   }
 }
