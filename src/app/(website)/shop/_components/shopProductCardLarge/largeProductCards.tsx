@@ -30,7 +30,7 @@ const LargeProductCards = ({
       slideAmount={products.length}
       infinite={false}
       renderCarousel={width! < 1420}
-      focusOnSelect={false}
+      // focusOnSelect={false}
       numbersClass={cl.numbers}
     >
       {products.map((item, i) =>
