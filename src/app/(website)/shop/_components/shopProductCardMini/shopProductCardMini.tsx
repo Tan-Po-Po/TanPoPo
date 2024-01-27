@@ -13,13 +13,14 @@ export const ShopProductCardMini: React.FC<Props> = ({ _id, name, small }) => {
 
   const handleClick = () => {
     const item = document.getElementById(_id!);
-    item?.scrollIntoView({ behavior: "smooth" });
+    const products = document.getElementById("products");
+
+    products?.scrollIntoView({ behavior: "smooth" });
+    item?.click();
   };
-  
+
   return (
-    <div
-      onClick={handleClick}
-    >
+    <div onClick={handleClick}>
       <ContentCard
         width="271px"
         label={label?.text}
