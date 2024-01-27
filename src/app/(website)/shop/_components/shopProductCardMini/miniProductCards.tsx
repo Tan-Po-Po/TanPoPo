@@ -33,6 +33,7 @@ const MiniProductCards = ({
         dots={false}
         variableWidth={false}
         centerPadding="0px"
+        focusOnSelect={false}
       >
         {products.map((item, i) => (
           <ShopProductCardMini key={i} {...item} />
