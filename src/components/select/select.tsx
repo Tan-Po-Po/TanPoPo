@@ -106,7 +106,7 @@ const Select: React.FC<SelectProps> = ({
       className={getValidClassNames(cl.mainContainer, className)}
       onClick={(e: React.MouseEvent<HTMLElement>) => {
         e.stopPropagation();
-        onClick;
+        onClick && onClick();
       }}
       ref={selectRef}
     >
