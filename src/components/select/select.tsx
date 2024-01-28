@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import cl from "./select.module.scss";
 import { SelectItem } from "./selectItem/selectItem";
 import { Checkbox } from "../checkbox/checkbox";
@@ -60,7 +60,7 @@ const Select: React.FC<SelectProps> = ({
           })
   );
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const handleSelectClick = () => {
     !isDisabled && setIsOpen((prev) => !prev);
   };
@@ -79,11 +79,11 @@ const Select: React.FC<SelectProps> = ({
     setOption({ value, label });
     setIsOpen(false);
   };
-  
+
   // close select on click outside
   const selectRef = useRef(null);
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: globalThis.MouseEvent) => {
       if (
         selectRef.current &&
         !(selectRef.current as unknown as Element).contains(
@@ -104,7 +104,10 @@ const Select: React.FC<SelectProps> = ({
   return (
     <div
       className={getValidClassNames(cl.mainContainer, className)}
-      onClick={onClick}
+      onClick={(e: React.MouseEvent<HTMLElement>) => {
+        e.stopPropagation();
+        onClick;
+      }}
       ref={selectRef}
     >
       <div
