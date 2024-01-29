@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  max-width: 100%;
   .buttons {
     margin: 10px 0 20px;
     display: flex;
@@ -49,7 +49,7 @@
 }
 
 .scheduleCard {
-  max-width: 100%;
+  max-width: 100% !important;
   width: 1350px;
 }
 

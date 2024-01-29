@@ -57,7 +57,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
     if (!lessons) {
       return toast("Спочатку оберіть К-сть уроків!📚");
     }
-    if (!isAccepted) {
+    if (!isAccepted && !(course.type === "book")) {
       return toast("Спочатку ознайомтесь з навчальним періодом!📚");
     }
 

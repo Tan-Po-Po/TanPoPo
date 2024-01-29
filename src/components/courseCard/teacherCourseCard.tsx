@@ -50,8 +50,17 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
   };
 
   const handleClick = () => {
-    if (!cardState.learningFormat || !cardState.lessons) {
-      return toast(({ closeToast }) => (
+    if (isMegaCourse && !cardState.lessons) {
+      return toast(() => (
+        <div>
+          Спочатку оберіть <u>К-сть уроків!</u>📚
+        </div>
+      ));
+    } else if (
+      (!cardState.learningFormat && !isMegaCourse) ||
+      !cardState.lessons
+    ) {
+      return toast(() => (
         <div>
           Спочатку оберіть <u>Формат Навчання</u> та <u>К-сть уроків!</u>📚
         </div>

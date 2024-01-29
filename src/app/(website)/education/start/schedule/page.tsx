@@ -227,7 +227,7 @@ export default function Page() {
             label="Ваш коментар"
             multiline
             rows={7}
-            style={{ width: "750px", maxWidth: "100%" }}
+            style={{ width: "750px", maxWidth: "85vw" }}
             className={cl.commentTextarea}
             value={comment}
             onChange={(e) => setComment(e.target.value)}

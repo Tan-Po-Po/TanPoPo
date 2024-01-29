@@ -3,10 +3,6 @@
   justify-content: space-around;
   width: 100%;
 
-  // .card {
-  //   height: 357px;
-  // }
-
   .carouselItem:first-child {
     p {
       max-width: 300px;
@@ -30,6 +26,12 @@
 
 .card {
   transition: 0.2s ease-in-out;
+}
+
+@media (max-width: 1000px) and (min-width: 500px) {
+  .cardsBlock {
+    width: 100vw;
+  }
 }
 
 @media (max-width: 500px) {

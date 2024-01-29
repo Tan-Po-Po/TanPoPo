@@ -215,6 +215,10 @@
 }
 
 @media (max-width: 400px) {
+  .header h6 {
+    margin: auto;
+    max-width: 260px;
+  }
   .video {
     img {
       max-height: 290px;
