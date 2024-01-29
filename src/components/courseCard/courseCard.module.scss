@@ -89,6 +89,7 @@
       border-radius: $border-radius;
     }
     .text {
+      margin: 10px 0;
       text-transform: uppercase;
       padding: 0px 8px;
     }
@@ -149,7 +150,7 @@
       cursor: pointer;
       transform-origin: center center;
       transition: all 0.2s ease-in-out;
-      
+
       &:hover {
         transform: scale(110%);
         box-shadow: 0px 0px 3px 0px #000 inset,
@@ -316,6 +317,13 @@
 @media (max-width: 600px) {
   .card {
     padding: 50px 12px;
+
+    .bottomBtn {
+      padding: 0 5px;
+      p {
+        font-size: 19px;
+      }
+    }
   }
   .name {
     text-wrap: pretty;
@@ -333,9 +341,10 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .header {
-    width: 90%;
+    max-width: 90%;
+    width: fit-content;
   }
   .video,
   .audio {

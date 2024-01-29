@@ -52,10 +52,10 @@
   }
 }
 
-
 @media (max-width: 900px) {
   .form {
     width: 110%;
+    max-width: 110% !important;
   }
 }
 

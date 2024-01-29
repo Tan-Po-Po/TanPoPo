@@ -1,6 +1,7 @@
 .main {
   padding: 0 10px;
   padding-top: 50px;
+  overflow-x: hidden;
 }
 
 .divider {
@@ -10,6 +11,7 @@
 }
 .formWrapper {
   @include flex-column;
+  max-width: 100%;
 }
 
 .form {

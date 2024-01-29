@@ -89,7 +89,15 @@
       display: none;
     }
   }
-
+  .header {
+    h6 {
+      margin: 0 -15px;
+      font-size: 20px;
+    }
+    p {
+      max-width: 425px;
+    }
+  }
   .scheduleCard {
     margin-top: 42px;
     border: none;

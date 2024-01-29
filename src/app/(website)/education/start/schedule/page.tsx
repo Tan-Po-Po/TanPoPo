@@ -207,9 +207,11 @@ export default function Page() {
             />
           </ContentCard>
         )}
-        <Typography variant="h3" align="center" style={{ marginTop: "100px" }}>
+
+        <Typography variant="h3" align="center" style={{ marginTop: "100px" }} className={cl.scheduleHeader}>
           Зручне формування розкладу навчання:
         </Typography>
+
         <Schedule
           setSchedule={setSchedule}
           setCounter={setCounter}
