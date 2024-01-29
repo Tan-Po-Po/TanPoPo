@@ -69,9 +69,9 @@ export default function Home() {
       <div className={cl.intro}>
         <div className={cl.header}>
           <Typography variant="h5" align="center">
-            TanPoPo
+            TanPoPo{" "}
             <Typography variant="body1" align="center">
-              {" "}- найкращий досвід вивчення японської мови!
+              - найкращий досвід вивчення японської мови!
             </Typography>
           </Typography>
         </div>
@@ -83,10 +83,10 @@ export default function Home() {
           style={{ maxWidth: "940px", width: "100%", height: "auto" }}
         />
         <Typography variant="h6" className={cl.about}>
-          Це місце для всіх, хто хоче вдосконалити свої знання японської мови!
-          Наша навчальна онлайн-платформа забезпечує зручне, інтерактивне
-          середовище для вивчення мови у спосіб, який найкраще підходить для
-          кожної людини.
+          Це місце для всіх, хто хоче вдоско<span>-</span>налити свої знання
+          японської мови! Наша навчальна онлайн-платформа забезпечує зручне,
+          інтерактивне середовище для вивчення мови у спосіб, який найкраще
+          підходить для кожної людини.
         </Typography>
       </div>
 
@@ -333,38 +333,49 @@ export default function Home() {
       </section>
 
       <CabinetCards windowMatchMedia={windowMatchMedia} />
-      
-      <Typography variant="h4" align="center" className={cl.freeCourseHeader}>
-          Безкоштовний мінікурс для початківців!
-        </Typography>
-      <ContentCard className={cl.freeCourse} width="840px" height="fit-content">
-        <Typography variant="h4" align="center">
-          Безкоштовний мінікурс для початківців!
-        </Typography>
-        <Image
-          src={getIconArtSrc("megaPresent")}
-          alt="Gift"
-          width={144}
-          height={138}
-          style={{ margin: "10px 0" }}
-        />
-        <Typography
-          variant="body1"
-          style={{ marginBottom: "20px", lineHeight: "26px" }}
-          align="center"
-        >
-          Скористайтесь всіма перевагами нашого навчання та
-          <br /> спробуйте наш мінікурс просто зараз! Дізнайтесь більше про{" "}
-          <br />
-          те, як розпочати навчання на інтерактивній платформі:
-        </Typography>
-        <Button variant="outlined" wrapperClass={cl.buttonWrapper}>
-          <Typography variant="body1">Дізнатись більше!</Typography>
-        </Button>
-      </ContentCard>
 
-      <StartEducation windowMatchMedia={windowMatchMedia} />
+      <div className={cl.orderWrapper}>
+        <section>
+          <Typography
+            variant="h4"
+            align="center"
+            className={cl.freeCourseHeader}
+          >
+            Безкоштовний мінікурс для початківців!
+          </Typography>
+          <ContentCard
+            className={cl.freeCourse}
+            width="840px"
+            height="fit-content"
+          >
+            <Typography variant="h4" align="center">
+              Безкоштовний мінікурс для початківців!
+            </Typography>
+            <Image
+              src={getIconArtSrc("megaPresent")}
+              alt="Gift"
+              width={144}
+              height={138}
+              style={{ margin: "10px 0" }}
+            />
+            <Typography
+              variant="body1"
+              style={{ marginBottom: "20px", lineHeight: "26px" }}
+              align="center"
+            >
+              Скористайтесь всіма перевагами нашого навчання та
+              <br /> спробуйте наш мінікурс просто зараз! Дізнайтесь більше про{" "}
+              <br />
+              те, як розпочати навчання на інтерактивній платформі:
+            </Typography>
+            <Button variant="outlined" wrapperClass={cl.buttonWrapper}>
+              <Typography variant="body1">Дізнатись більше!</Typography>
+            </Button>
+          </ContentCard>
+        </section>
 
+        <StartEducation windowMatchMedia={windowMatchMedia} />
+      </div>
       <MoreLinks windowMatchMedia={windowMatchMedia} />
     </main>
   );

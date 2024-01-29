@@ -16,24 +16,26 @@ export function Formats({
     <div className={cl.cards}>
       <Carousel {...carouselSettings} renderCarousel={isTablet}>
         <ContentCard
-          label={<Typography variant="subtitle1">ДОВІЛЬНИЙ ГРАФІК!</Typography>}
+          label={
+            <Typography variant="subtitle1">1-3 уроки / ТИЖДЕНЬ</Typography>
+          }
           labelBgColor="linear-gradient(180deg, #FFF383 0%, #FFDE89 100%)"
           className={cl.card}
           width="283px"
           height="235px"
         >
           <Image
-            src={getIconArtSrc("girlStudent")}
-            alt="Girl student"
-            width={91}
-            height={107}
-            style={{ width: "91px", height: "auto" }}
+            src={getIconArtSrc("teacher")}
+            alt="Teacher with laptop"
+            width={130}
+            height={105}
+            style={{ width: "130px", height: "auto" }}
           />
           <Typography variant="body2">
-            Відеокурси та Аудіокурси для всіх прихильників{" "}
             <b>
-              <u style={{ fontSize: "19px" }}>самостійного навчання.</u>
+              <u style={{ fontSize: "19px" }}>Індивідуальні заняття </u>
             </b>
+            <br />в живому онлайн-форматі разом з сенсеєм.
           </Typography>
         </ContentCard>
 
@@ -61,26 +63,24 @@ export function Formats({
         </ContentCard>
 
         <ContentCard
-          label={
-            <Typography variant="subtitle1">1-3 уроки / ТИЖДЕНЬ</Typography>
-          }
+          label={<Typography variant="subtitle1">ДОВІЛЬНИЙ ГРАФІК!</Typography>}
           labelBgColor="linear-gradient(180deg, #FFF383 0%, #FFDE89 100%)"
           className={cl.card}
           width="283px"
           height="235px"
         >
           <Image
-            src={getIconArtSrc("teacher")}
-            alt="Teacher with laptop"
-            width={130}
-            height={105}
-            style={{ width: "130px", height: "auto" }}
+            src={getIconArtSrc("girlStudent")}
+            alt="Girl student"
+            width={91}
+            height={107}
+            style={{ width: "91px", height: "auto" }}
           />
           <Typography variant="body2">
+            Відеокурси та Аудіокурси для всіх прихильників{" "}
             <b>
-              <u style={{ fontSize: "19px" }}>Індивідуальні заняття </u>
+              <u style={{ fontSize: "19px" }}>самостійного навчання.</u>
             </b>
-            <br />в живому онлайн-форматі разом з сенсеєм.
           </Typography>
         </ContentCard>
       </Carousel>
@@ -91,8 +91,8 @@ export function Formats({
     <ContentCard width="1122px" className={cl.formats}>
       <Typography variant="h5">Формати Навчання:</Typography>
       <Typography variant="body2">
-        Наша освітня програма пропонує усі можливі формати вивчення <br/>японської
-        мови, щоб кожний зміг обрати те, що йому імпонує найбільше!
+        Наша освітня програма пропонує усі можливі формати вивчення <br />
+        японської мови, щоб кожний зміг обрати те, що йому імпонує найбільше!
       </Typography>
 
       {cards}
