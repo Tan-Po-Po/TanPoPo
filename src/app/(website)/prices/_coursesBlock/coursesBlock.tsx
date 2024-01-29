@@ -1,7 +1,7 @@
 "use client";
 import { CourseCard } from "@/components/courseCard/courseCard";
 import { ICourse } from "@/models/Course";
-import { Carousel, CarouselItem } from "@/components";
+import { Carousel } from "@/components";
 import { useWindowSize } from "@uidotdev/usehooks";
 import cl from "./courseBlock.module.scss";
 

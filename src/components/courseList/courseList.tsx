@@ -87,7 +87,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
             ))}
           </Carousel>
         ) : (
-          [...videoCourses, ...videoCourses].map((course) => (
+          videoCourses.map((course) => (
             <CourseCardMini course={course} key={course._id} />
           ))
         )}

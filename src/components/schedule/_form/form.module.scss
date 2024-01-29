@@ -52,7 +52,14 @@
   }
 }
 
-@media (max-width: 800px) {
+
+@media (max-width: 900px) {
+  .form {
+    width: 110%;
+  }
+}
+
+@media (max-width: 700px) {
   .container {
     grid-template-columns: 1fr;
   }

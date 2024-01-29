@@ -71,7 +71,9 @@
       font-size: 20px;
       font-weight: 500;
     }
-
+    .subQuestion {
+      padding: 45px 30px 35px 30px;
+    }
     fieldset,
     ol {
       all: unset;
@@ -177,7 +179,7 @@
         white-space: normal;
       }
       .subQuestion {
-        padding: 45px 30px 35px 30px;
+        padding: 55px 30px 35px 30px;
       }
       .variant {
         padding: 14px 7px;
