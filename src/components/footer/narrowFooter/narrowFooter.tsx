@@ -31,7 +31,7 @@ export const NarrowFooter = () => {
             style={{ width, height: "auto" }}
             alt=""
           />
-          <Link href={"/bonusBenefits"}>Додаткові переваги</Link>
+          <Link href={"/bonus-benefits"}>Додаткові переваги</Link>
         </div>
         <div className={cl.linkWrapper}>
           <Image
@@ -41,7 +41,7 @@ export const NarrowFooter = () => {
             style={{ width, height: "auto" }}
             alt=""
           />
-          <Link href={"/store#mnemonicCards"}>Мнемонічні картки</Link>
+          <Link href={"/shop#products"}>Мнемонічні картки</Link>
         </div>
         <div className={cl.linkWrapper}>
           <Image
