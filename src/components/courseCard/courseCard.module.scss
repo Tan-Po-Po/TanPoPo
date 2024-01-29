@@ -108,7 +108,7 @@
 
   .startBtn {
     background: linear-gradient(rgba(224, 255, 216, 1), rgba(184, 255, 187, 1));
-
+    white-space: nowrap;
     &:hover {
       background: linear-gradient(
         rgba(198, 255, 177, 1),
@@ -344,7 +344,11 @@
 @media (max-width: 500px) {
   .header {
     max-width: 90%;
-    width: fit-content;
+
+    h5 {
+      font-size: 21px;
+      text-align: center;
+    }
   }
   .video,
   .audio {

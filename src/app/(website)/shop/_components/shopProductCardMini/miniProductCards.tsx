@@ -32,7 +32,7 @@ const MiniProductCards = ({
         infinite={false}
         dots={false}
         variableWidth={false}
-        centerPadding="0px"
+        centerPadding="30px"
         focusOnSelect={false}
       >
         {products.map((item, i) => (
