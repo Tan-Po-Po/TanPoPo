@@ -28,12 +28,13 @@
 
 @media (max-width: "767px") {
   .carousel {
-    width: 100%;
+    // width: calc(100% + 9px) !important;
+    margin: 0 -9px;
+    min-width: 100vw !important;
 
     :global(.slick-slide) {
       display: flex;
       flex-direction: column;
-
       align-items: center;
 
       > div {

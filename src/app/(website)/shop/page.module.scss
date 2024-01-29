@@ -98,6 +98,7 @@
   .storeMain {
     .introBlock {
       grid-template-columns: repeat(2, 1fr);
+      gap: 75px;
       .image {
         grid-column-start: 1;
         grid-column-end: 3;
