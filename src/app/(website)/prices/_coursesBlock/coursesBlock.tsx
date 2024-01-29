@@ -22,6 +22,7 @@ const CoursesBlock: React.FC<Properties> = ({ courses }) => {
       className={cl.carousel}
       infinite={false}
       centerMode
+      numbersClass={cl.slideNumbers}
     >
       {courses.map((course) => (
         <CourseCard course={course} key={course._id} />

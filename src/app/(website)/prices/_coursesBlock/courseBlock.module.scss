@@ -10,7 +10,27 @@
 
 .carousel {
   width: 100vw !important;
+  
+  .slideNumbers {
+    position: relative;
+    z-index: -1;
+  }
+
+  :global(.slick-list) {
+    overflow: visible;
+  }
+
+  :global(.slick-slider) {
+    overflow: visible;
+  }
+
+  :global(.slick-prev),
+  :global(.slick-next) {
+    z-index: -1 !important;
+    position: absolute;
+  }
 }
+
 @media (min-width: 890px) {
   .courses {
     row-gap: 100px;

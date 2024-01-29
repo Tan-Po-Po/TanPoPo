@@ -89,6 +89,7 @@
       border-radius: $border-radius;
     }
     .text {
+      margin: 10px 0;
       text-transform: uppercase;
       padding: 0px 8px;
     }
@@ -316,6 +317,13 @@
 @media (max-width: 600px) {
   .card {
     padding: 50px 12px;
+
+    .bottomBtn {
+      padding: 0 5px;
+      p {
+        font-size: 19px;
+      }
+    }
   }
   .name {
     text-wrap: pretty;
@@ -333,13 +341,12 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .header {
     max-width: 90%;
 
     h5 {
       font-size: 21px;
-      // white-space: break-spaces;
       text-align: center;
     }
   }

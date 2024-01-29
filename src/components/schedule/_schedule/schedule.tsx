@@ -20,7 +20,7 @@ const Schedule: React.FC<Properties> = ({
 }) => {
   return (
     <div className={cl.schedule}>
-      <ContentCard width="910px">
+      <ContentCard width="910px" className={cl.header}>
         <Typography variant="h6">
           Будь-ласка, визначте ваш навчальний графік за 3 категоріями:
         </Typography>
