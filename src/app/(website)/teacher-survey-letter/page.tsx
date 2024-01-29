@@ -233,7 +233,7 @@ const Page = () => {
             <div className={cl.question}>
               За цим номером телефону є можливість користуватись:
             </div>
-            <div className={cl.inputs}>
+            <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>
               <Controller
                 name="telegram"
                 control={control}
@@ -320,7 +320,7 @@ const Page = () => {
               1. Яким рівнем володієте за кваліфікаційниміспитом з японської
               мови JLPT?
             </div>
-            <div className={cl.inputs}>
+            <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>
               <Controller
                 name="n4"
                 control={control}
@@ -483,7 +483,7 @@ const Page = () => {
           </div>
           <div className={cl.questionBlock}>
             <div className={cl.question}>3. Чи відвідували Ви Японію?</div>
-            <div className={cl.inputs}>
+            <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>
               <Controller
                 name="visitedJpAsStudent"
                 control={control}
@@ -646,7 +646,7 @@ const Page = () => {
             <div className={cl.question}>
               4. Чи був досвід спілкування з японцями?
             </div>
-            <div className={cl.inputs}>
+            <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>
               <Controller
                 name="speakingExpYes"
                 control={control}
@@ -806,7 +806,7 @@ const Page = () => {
               8. Якби робочий день складався б з 5-7 робочих годин,скільки днів
               на тиждень в такому випадку Вибули б готові працювати?
             </div>
-            <div className={cl.inputs}>
+            <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>
               <Controller
                 name="d34"
                 control={control}
@@ -943,7 +943,7 @@ const Page = () => {
               9. Чи маєте зараз можливість працюватив будь-який день тижня за
               різними годинами?
             </div>
-            <div className={cl.inputs}>
+            <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>
               <Controller
                 name="weekDaysAvailableYesAlmostAnytime"
                 control={control}
@@ -1210,7 +1210,7 @@ const Page = () => {
 
           <Typography variant="subtitle1">
             <>
-              Даю згоду на{" "}
+              Надаю згоду на{" "}
               <Link
                 href={"/contacts/confidentialityPolicy"}
                 style={{ textDecoration: "underline" }}

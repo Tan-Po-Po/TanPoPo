@@ -16,8 +16,15 @@
         width: 376px;
         height: 259px;
         gap: 26px;
-        a {
+        a,
+        p {
           text-decoration: underline;
+
+          font-size: 18px;
+        }
+
+        a {
+          white-space: nowrap;
         }
       }
 
@@ -70,10 +77,23 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1023px) {
+  .main {
+    .contactsBlock {
+      h3 {
+        font-size: 32px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
   .main {
     gap: 40px;
     .contactsBlock {
+      h3 {
+        font-size: 30px;
+      }
       .cards {
         flex-wrap: wrap;
         justify-content: space-evenly;

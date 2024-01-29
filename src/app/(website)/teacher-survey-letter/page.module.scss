@@ -78,8 +78,19 @@
         padding: 16px 8px;
 
         .inputs {
-          justify-content: flex-start;
+          text-align: start;
         }
+
+        .checkboxes {
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-direction: column;
+          text-align: start;
+        }
+      }
+
+      .agreement {
+        display: flex;
       }
     }
   }
