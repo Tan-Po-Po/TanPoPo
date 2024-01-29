@@ -180,7 +180,7 @@ export function StartEducation({
   return (
     <ContentCard className={cl.start} width="1166px">
       <Typography variant="h4" align="center" style={{ fontSize: "32px" }}>
-        Розпочати навчання прямо зараз - дуже просто!
+        Розпочати навчання прямо <br style={{display: "none"}}/>зараз - дуже просто!
       </Typography>
       <Typography
         variant="body1"

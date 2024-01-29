@@ -24,61 +24,22 @@ export function MoreLinks({
     cards = (
       <Carousel
         {...carouselSettings}
-        initialSlide={0}
+        initialSlide={2}
+        autoplay={true}
+        infinite={true}
         className={cl.carousel}
+        slidesToShow={1}
         rows={2}
         variableWidth={false}
+        centerPadding="175px"
       >
-        <CarouselItem className={cl.carouselItem}>
-          <ContentCard className={cl.link} width="375px" height="345px">
-            <Typography variant="body1">
-              Бажаєте дізнатись детальніше про наші курси, заняття,
-              відеоматеріали та багато іншого?
-            </Typography>
-            <Image
-              src={getIconArtSrc("temple")}
-              alt="Temple"
-              width={97}
-              height={98}
-              style={{ width: "97px", height: "auto" }}
-            />
-            <Button
-              className={cl.button}
-              variant="outlined"
-              icon="bookPlay"
-              style={{ background: "linear-gradient(#CCE0FF1A, #CCE0FF)" }}
-            >
-              <Typography variant="h6">Курси</Typography>
-            </Button>
-          </ContentCard>
-        </CarouselItem>
-
         <CarouselItem>
-          <ContentCard className={cl.link} width="375px" height="345px">
-            <Typography variant="body1">
-              Цікавить вартість курсів? Ми завжди намагаємось давати лише
-              привабливі цінові пропозиції!
-            </Typography>
-            <Image
-              src={getIconArtSrc("coinsStack")}
-              alt="Stack of coins"
-              width={109}
-              height={84}
-              style={{ width: "109px", height: "auto" }}
-            />
-            <Button
-              className={cl.button}
-              variant="outlined"
-              icon="coinsStack"
-              style={{ background: "linear-gradient(#DFFFD81A, #DFFFD8)" }}
-            >
-              <Typography variant="h6"> Вартість</Typography>
-            </Button>
-          </ContentCard>
-        </CarouselItem>
-
-        <CarouselItem>
-          <ContentCard className={cl.link} width="375px" height="345px">
+          <ContentCard
+            className={cl.link}
+            width="375px"
+            height="345px"
+            style={{ width: "345x", height: "355px" }}
+          >
             <Typography variant="body1">
               Маєте додаткові запитання? Тут, ми зібрали всю корисну інформацію,
               стосовно нашого навчання!
@@ -102,7 +63,10 @@ export function MoreLinks({
         </CarouselItem>
 
         <CarouselItem>
-          <ContentCard className={cl.link}>
+          <ContentCard
+            className={cl.link}
+            style={{ width: "345x", height: "315px" }}
+          >
             <Typography variant="body2">
               Унікальні матеріали для ще цікавішого та ефекти-внішого вивчення
               мови:
@@ -114,32 +78,51 @@ export function MoreLinks({
               height={77}
               style={{ width: "87px", height: "auto" }}
             />
-            <Button className={cl.button} variant="outlined" icon="video">
+            <Button
+              className={cl.button}
+              variant="outlined"
+              icon="video"
+              wrapperClass={cl.buttonWrapper}
+            >
               <Typography variant="h6"> Авторський Контент</Typography>
             </Button>
           </ContentCard>
         </CarouselItem>
 
-        <CarouselItem>
-          <ContentCard className={cl.link}>
-            <Typography variant="body2">
-              Наша команда з якою ми разом формуємо якісний процес навчання:
+        <CarouselItem className={cl.carouselItem}>
+          <ContentCard
+            className={cl.link}
+            width="375px"
+            height="345px"
+            style={{ width: "345x", height: "355px" }}
+          >
+            <Typography variant="body1">
+              Бажаєте дізнатись детальніше про наші курси, заняття,
+              відеоматеріали та багато іншого?
             </Typography>
             <Image
-              src={getIconArtSrc("team")}
-              alt="Team icon"
-              width={113}
-              height={91}
-              style={{ width: "113px", height: "auto" }}
+              src={getIconArtSrc("temple")}
+              alt="Temple"
+              width={97}
+              height={98}
+              style={{ width: "97px", height: "auto" }}
             />
-            <Button className={cl.button} variant="outlined" icon="person">
-              <Typography variant="h6"> Команда TanPoPo</Typography>
+            <Button
+              className={cl.button}
+              variant="outlined"
+              icon="bookPlay"
+              style={{ background: "linear-gradient(#CCE0FF1A, #CCE0FF)" }}
+            >
+              <Typography variant="h6">Курси</Typography>
             </Button>
           </ContentCard>
         </CarouselItem>
 
         <CarouselItem>
-          <ContentCard className={cl.link}>
+          <ContentCard
+            className={cl.link}
+            style={{ width: "345x", height: "315px" }}
+          >
             <Typography variant="body2">
               Дізнайтеся, що кажуть наші учні про їхній досвід у школі TanPoPo:
             </Typography>
@@ -150,8 +133,68 @@ export function MoreLinks({
               height={84}
               style={{ width: "75px", height: "auto" }}
             />
-            <Button className={cl.button} variant="outlined" icon="personSpeak">
-              <Typography variant="h6"> Відгуки про Школу</Typography>
+            <Button
+              className={cl.button}
+              variant="outlined"
+              icon="personSpeak"
+              wrapperClass={cl.buttonWrapper}
+            >
+              <Typography variant="h6">Відгуки про Школу</Typography>
+            </Button>
+          </ContentCard>
+        </CarouselItem>
+
+        <CarouselItem>
+          <ContentCard
+            className={cl.link}
+            width="375px"
+            height="345px"
+            style={{ width: "345x", height: "355px" }}
+          >
+            <Typography variant="body1">
+              Цікавить вартість курсів? Ми завжди намагаємось давати лише
+              привабливі цінові пропозиції!
+            </Typography>
+            <Image
+              src={getIconArtSrc("coinsStack")}
+              alt="Stack of coins"
+              width={109}
+              height={84}
+              style={{ width: "109px", height: "auto" }}
+            />
+            <Button
+              className={cl.button}
+              variant="outlined"
+              icon="coinsStack"
+              style={{ background: "linear-gradient(#DFFFD81A, #DFFFD8)" }}
+            >
+              <Typography variant="h6"> Вартість</Typography>
+            </Button>
+          </ContentCard>
+        </CarouselItem>
+
+        <CarouselItem>
+          <ContentCard
+            className={cl.link}
+            style={{ width: "345x", height: "315px" }}
+          >
+            <Typography variant="body2">
+              Наша команда з якою ми разом формуємо якісний процес навчання:
+            </Typography>
+            <Image
+              src={getIconArtSrc("team")}
+              alt="Team icon"
+              width={113}
+              height={91}
+              style={{ width: "113px", height: "auto" }}
+            />
+            <Button
+              className={cl.button}
+              variant="outlined"
+              icon="person"
+              wrapperClass={cl.buttonWrapper}
+            >
+              <Typography variant="h6"> Команда TanPoPo</Typography>
             </Button>
           </ContentCard>
         </CarouselItem>
@@ -250,7 +293,10 @@ export function MoreLinks({
                 icon="video"
                 wrapperClass={cl.buttonWrapper}
               >
-                <Typography variant="h6"> Авторський Контент</Typography>
+                <Typography variant="h6" style={{ fontSize: "20px" }}>
+                  {" "}
+                  Авторський Контент
+                </Typography>
               </Button>
             </ContentCard>
 
@@ -270,7 +316,10 @@ export function MoreLinks({
                 icon="person"
                 wrapperClass={cl.buttonWrapper}
               >
-                <Typography variant="h6"> Команда TanPoPo</Typography>
+                <Typography variant="h6" style={{ fontSize: "23px" }}>
+                  {" "}
+                  Команда TanPoPo
+                </Typography>
               </Button>
             </ContentCard>
 
@@ -291,7 +340,9 @@ export function MoreLinks({
                 icon="personSpeak"
                 wrapperClass={cl.buttonWrapper}
               >
-                <Typography variant="h6">Відгуки про Школу</Typography>
+                <Typography variant="h6" style={{ fontSize: "22px" }}>
+                  Відгуки про Школу
+                </Typography>
               </Button>
             </ContentCard>
           </>
@@ -304,7 +355,8 @@ export function MoreLinks({
     <section className={cl.moreLinks}>
       {!isPc && (
         <Typography variant="h4" align="center">
-          Наші розділи, які цікаво відвідати:
+          Наші розділи, <br />
+          які цікаво відвідати:
         </Typography>
       )}
       {cards}

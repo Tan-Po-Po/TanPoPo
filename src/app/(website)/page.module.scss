@@ -20,13 +20,21 @@
 .intro {
   @include flex-column;
   gap: 28px;
+  .about {
+    span {
+      display: none;
+    }
+  }
 }
 
 .header {
   display: flex;
   align-items: baseline;
   white-space: normal;
-
+  h5,
+  p {
+    display: inline;
+  }
   h5 {
     white-space: normal;
     font-size: 33px;
@@ -102,12 +110,13 @@
   .jpn {
     font-family: var(--font-heisei);
     font-weight: 500;
-    -webkit-text-stroke: 0.5px;
+    -webkit-text-stroke: 0.4px;
   }
 }
 
 .links {
   width: 100%;
+  max-width: 1250px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -122,6 +131,25 @@
     &:hover {
       .buttonWrapper {
         scale: 110%;
+      }
+    }
+
+    &:nth-child(1) {
+      img {
+        top: -10px;
+        right: -5px;
+      }
+    }
+    &:nth-child(2) {
+      img {
+        top: -12px;
+        right: -12px;
+      }
+    }
+    &:nth-child(3) {
+      img {
+        top: -8px;
+        right: -5px;
       }
     }
   }
@@ -208,6 +236,7 @@
 
   .card {
     padding: 46px 25px 35px 25px;
+    height: 100%;
 
     & > div:first-child {
       transition: all 0.2s ease-in-out;
@@ -313,6 +342,12 @@
   }
 }
 
+.orderWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
 .freeCourseHeader {
   display: none;
 }
@@ -372,7 +407,10 @@
   gap: 16px;
   height: fit-content;
   align-items: center;
-
+  margin-bottom: 60px;
+  br {
+    display: none;
+  }
   .button {
     margin-top: auto;
     min-width: 200px;
@@ -409,6 +447,11 @@
         scale: 110%;
       }
     }
+
+    .button img {
+      top: -7px;
+      right: -14px;
+    }
   }
 
   .buttonWrapper {
@@ -418,6 +461,7 @@
 
 @media (max-width: 1023px) {
   .main {
+    padding-top: 45px;
     overflow-x: hidden;
   }
   .header {
@@ -429,16 +473,23 @@
   }
   .about {
     font-size: 18px;
+    max-width: 690px;
+    line-height: 22px;
   }
   .opportunities {
     padding-left: 0px;
     padding-right: 0px;
     width: 102vw;
+    @media (min-width: 768px) {
+      & > p {
+        margin-bottom: -20px !important;
+      }
+    }
   }
 
   .author {
     @include flex-column;
-
+    gap: 30px;
     .nameImageWrapper {
       @include flex-row;
       justify-content: center;
@@ -446,7 +497,14 @@
       gap: 29px;
 
       .text {
-        gap: 24px;
+        gap: 10px;
+        @media (min-width: 768px) {
+          h4 {
+            font-size: 28px;
+            font-weight: 700;
+            white-space: pre;
+          }
+        }
       }
 
       .photo {
@@ -470,6 +528,9 @@
     width: 102vw;
     .card {
       display: flex !important;
+      & > div:first-child {
+        display: none;
+      }
     }
   }
 
@@ -478,9 +539,28 @@
       grid-template-columns: 1fr !important;
     }
   }
+
   .personalCabinet {
+    @media (min-width: 768px) {
+      margin-bottom: -150px;
+    }
+    h2 {
+      font-size: 35px !important;
+    }
+    p {
+      max-width: 500px;
+      margin: 0 auto;
+    }
     .boyLaptop {
       max-height: 348px;
+    }
+  }
+
+  .freeCourse {
+    max-width: 740px !important;
+    padding: 26px 18px;
+    p {
+      font-size: 19px !important;
     }
   }
 
@@ -489,6 +569,11 @@
     border: unset;
     box-shadow: unset;
     h4 {
+      @media (min-width: 768px) {
+        br {
+          display: block !important;
+        }
+      }
       max-width: 600px;
     }
     .carousel {
@@ -523,10 +608,14 @@
     .carousel {
       width: 100vw !important;
       :global(.slick-slide) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         > div {
-          width: fit-content;
-          margin-left: auto;
-          margin-right: auto;
+          width: 345px !important;
+          margin-left: -130px;
+          margin-right: -130px;
         }
       }
     }
@@ -537,6 +626,8 @@
   .main {
     padding-left: 6px;
     padding-right: 6px;
+    padding-top: 40px;
+    gap: 75px;
   }
   .header {
     h5 {
@@ -547,9 +638,15 @@
       font-size: 22px;
     }
   }
-  .about {
-    font-size: 16px;
-    line-height: 20px;
+  .intro {
+    .about {
+      font-size: 16px;
+      line-height: 20px;
+      max-width: 330px;
+      span {
+        display: inline;
+      }
+    }
   }
 
   .opportunities {
@@ -563,6 +660,7 @@
     .opportunityCards {
       flex-direction: column;
       padding: 0;
+      gap: 50px;
     }
   }
 
@@ -571,9 +669,11 @@
     .text {
       h4 {
         font-size: 25px !important;
+        line-height: 28px !important;
       }
       h3 {
         font-size: 27px !important;
+        line-height: 30px !important;
       }
       .about {
         margin-top: 30px !important;
@@ -584,9 +684,12 @@
   }
 
   .ahead {
+    gap: 33px;
     .text {
       order: 1;
       gap: 34px;
+      padding: 0 10px;
+      max-width: 340px;
       h2 {
         font-size: 28px;
       }
@@ -612,29 +715,57 @@
     }
     .cards {
       flex-direction: column;
+      .card {
+        & > div:first-child {
+          display: none;
+        }
+      }
     }
   }
 
   .courses {
+    margin-top: 42px;
+    gap: 50px;
     h3 {
       font-size: 28px;
       max-width: 190px;
       margin-top: -33px;
     }
+    .cards {
+      gap: 75px;
+    }
   }
 
   .personalCabinet {
+    gap: 40px;
     h2 {
       font-size: 28px !important;
     }
+    p {
+      display: none;
+    }
     .boyLaptop {
       max-height: 240px;
+    }
+    &:after {
+      content: "Навчайся з будь-якого девайсу на єдиній інтерактивній платформі.";
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 21px;
+      text-align: center;
     }
   }
   .cabinetCards {
     flex-direction: column;
     .card {
       max-height: fit-content !important;
+    }
+  }
+
+  .orderWrapper {
+    section {
+      order: 10;
     }
   }
 
@@ -656,33 +787,46 @@
       }
     }
   }
-  
+
   .freeCourseHeader {
     display: block;
-    margin: -30px auto -75px;
+    margin: -30px auto 33px;
   }
   .freeCourse {
     padding: 20px 10px;
+    max-width: 345px !important;
     h4 {
       display: none;
     }
     p {
-      font-size: 16px;
+      font-size: 16px !important;
       line-height: 20px !important;
       max-width: 300px;
       font-weight: 500;
       margin: 0;
     }
   }
+
   .moreLinks {
     flex-direction: column;
     gap: 50px;
+    br {
+      display: block;
+    }
     h4 {
       font-size: 27px;
       width: 305px;
     }
     .link {
       margin: 0 auto;
+      max-width: 345px !important;
+      p {
+        max-width: 320px;
+        line-height: 22px;
+      }
+      .button img {
+        display: none;
+      }
     }
     #additionalQuestion {
       order: 10;

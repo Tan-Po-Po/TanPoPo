@@ -22,11 +22,20 @@ const Header = () => {
       <div className={getValidClassNames(cl.wrapper, "wrapper")}>
         <CartButton />
 
-        <Link href={"/"} className={cl.logoWrapper}>
-          <div className={cl.logoBackground}>
-            <div className={cl.logo}></div>
-          </div>{" "}
-        </Link>
+        <div className={cl.logo}>
+          <Link href={"/"}>
+            <Image
+              src={"/logo/logoHeader.png"}
+              className={cl.logoIcon}
+              width={115}
+              height={70}
+              alt="TanPoPo logo"
+              quality={100}
+              unoptimized
+            />
+          </Link>
+        </div>
+        
         <nav className={cl.navigation}>
           <Dropdown
             className={cl.dropdown}
