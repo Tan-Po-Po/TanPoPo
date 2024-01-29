@@ -39,6 +39,8 @@ export default function Test() {
   const points = useRef(0);
   const testNumber = useRef(1);
 
+  const progressBarRef = useRef<HTMLDivElement | null>(null);
+
   const { register, handleSubmit, reset } = useForm<InputForm>({
     defaultValues: {
       subquestion0: "",
@@ -99,6 +101,7 @@ export default function Test() {
     }
 
     setTestIndex((prevIndex) => prevIndex + 1);
+    progressBarRef.current && progressBarRef.current.scrollIntoView();
   };
 
   if (loading) {
@@ -117,7 +120,7 @@ export default function Test() {
     <div className={cl.test}>
       <Typography variant="h3">ОНЛАЙН-ТЕСТ</Typography>
 
-      <div className={cl.progressBar}>
+      <div className={cl.progressBar} ref={progressBarRef}>
         <div className={cl.line}></div>
         <div className={cl.barWrapper}>
           <div className={cl.progress} style={{ width: `${progress}%` }}></div>

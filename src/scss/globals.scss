@@ -127,3 +127,9 @@ body:has(div.MuiDialog-root) {
     margin-right: 17px;
   }
 }
+
+@media (max-width: 480px) {
+  .Toastify__toast-container {
+    width: 100vw !important;
+  }
+}
