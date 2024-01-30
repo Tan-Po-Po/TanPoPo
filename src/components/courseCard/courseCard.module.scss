@@ -4,6 +4,7 @@
 
   .name {
     text-transform: uppercase;
+    white-space: pre;
   }
   .nameJpn {
     font-family: var(--font-heisei);
@@ -343,7 +344,7 @@
 
 @media (max-width: 500px) {
   .header {
-    max-width: 90%;
+    max-width: 275px;
 
     h5 {
       font-size: 21px;

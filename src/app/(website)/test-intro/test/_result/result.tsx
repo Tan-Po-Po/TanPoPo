@@ -4,7 +4,6 @@ import cl from "./result.module.scss";
 import { ICourse } from "@/models/Course";
 import { getCourses } from "./actions";
 import { useEffect, useState } from "react";
-import { getCoursesByType } from "@/helpers";
 import {
   ContentCard,
   CourseCardMini,
@@ -14,20 +13,21 @@ import {
   CourseList,
   Loading,
 } from "@/components";
+import { LEVELS } from "./levels";
 import Image from "next/image";
 
 interface Props {
   result: string;
 }
 
-export const Result: React.FC<Props> = ({ result }) => {
+export const Result: React.FC<Props> = ({ result }: {result: string}) => {
   const [courses, setCourses] = useState<ICourse[] | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getCoursesFromDb = async () => {
-      const courses = await getCourses(result);
-
+      const courses = await getCourses(result as string);
+      courses.forEach((course) => console.log(course));
       setLoading(false);
       setCourses(courses);
     };
@@ -43,8 +43,8 @@ export const Result: React.FC<Props> = ({ result }) => {
     );
   }
 
-  const teacherCourses = getCoursesByType("teacher", courses!);
-  const isInDevelopment = courses?.length == 1;
+  const isInDevelopment = courses?.length == 0;
+  const levelDescription = LEVELS[result as keyof typeof LEVELS]
 
   return (
     <main className={cl.resultMain}>
@@ -52,10 +52,8 @@ export const Result: React.FC<Props> = ({ result }) => {
         <Typography variant="h6">
           Ваш орієнтовний JLPT рівень: {result}
         </Typography>
-
-        <Typography variant="body2">
-          ({teacherCourses[0].small.description})
-        </Typography>
+        
+        <Typography variant="body2">{levelDescription}</Typography>
       </ContentCard>
 
       <section className={cl.recommendation}>
