@@ -10,6 +10,20 @@
     line-height: normal;
   }
 
+  .carousel {
+    width: calc(100% + 51px) !important;
+
+    .carouselCard {
+      max-width: 271px !important;
+    }
+  }
+
+  :global(.slick-slide) {
+    > div {
+      margin: 61px;
+    }
+  }
+
   .carouselCard {
     gap: 50px;
     padding-bottom: 50px;

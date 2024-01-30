@@ -64,17 +64,24 @@
     gap: 15px;
 
     .hashtag {
-      padding: 1px 4px;
+      padding: 3px 4px;
+      span {
+        line-height: normal;
+      }
     }
   }
 
   .labelBottom {
-    padding: 0px 7px;
+    padding: 2px 5px;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 50%);
     white-space: nowrap;
+
+    span {
+      line-height: normal;
+    }
   }
 }
 

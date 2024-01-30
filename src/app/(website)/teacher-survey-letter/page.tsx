@@ -94,6 +94,7 @@ const Page = () => {
       </Typography>
 
       <Image
+        className={cl.image}
         alt=""
         src={getIconArtSrc("team")}
         width={500}

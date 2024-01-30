@@ -29,7 +29,12 @@ export const PartnersBlock = ({ partners }: { partners: IPartner[] }) => {
                 src={`${IMAGE_BASE_URL}/${partner.image.filename}`}
                 width={500}
                 height={300}
-                style={{ width: "100%", minWidth: "180px", height: "auto" }}
+                style={{
+                  width: "100%",
+                  minWidth: "180px",
+                  maxWidth: " 271px",
+                  height: "auto",
+                }}
               />
             </CarouselItem>
           ))}

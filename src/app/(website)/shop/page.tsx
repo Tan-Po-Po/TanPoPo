@@ -108,6 +108,7 @@ export default async function Shop() {
       </section>
 
       <Divider
+        className={cl.divider}
         firstRow="ПРОДУКЦІЯ TANPOPO"
         bgColor="linear-gradient(180deg, #F0FF93 0%, #FFC683 100%)"
         id="products"

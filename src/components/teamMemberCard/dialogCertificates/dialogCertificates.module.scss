@@ -7,6 +7,14 @@
 
   .dialogContent {
     padding-top: 30px;
+
+    .certificate {
+      justify-content: space-between;
+      padding-top: 42px;
+      .caption {
+        margin: auto;
+      }
+    }
   }
 }
 

@@ -57,6 +57,17 @@
 
       .socialCard {
         gap: 29px;
+        justify-content: flex-start;
+
+        p {
+          max-width: 545px;
+        }
+      }
+
+      .socialCard:nth-child(1) {
+        p {
+          max-width: 515px;
+        }
       }
     }
   }
@@ -194,6 +205,7 @@
   width: 100%;
   max-width: 1350px;
   padding: 0;
+  margin: 60px 0;
 
   .labelTop {
     position: absolute;
