@@ -30,7 +30,7 @@ const CardsBlock = () => {
                 src={card.image}
                 width={500}
                 height={300}
-                style={{ maxWidth: "90px", height: "auto" }}
+                style={{ maxWidth: `${i == 1 ? '120px' : '90px'}`, height: "auto" }}
               />
               <Typography variant="body2">{card.caption}</Typography>
             </ContentCard>

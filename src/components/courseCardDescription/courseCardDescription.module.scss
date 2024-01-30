@@ -29,7 +29,7 @@
       border: $border;
       border-radius: $border-radius;
       box-shadow: $box-shadow;
-      padding: 8px 7px;
+      padding: 6px 9px;
       line-height: 15px;
       white-space: pre;
       text-wrap: wrap;
@@ -147,6 +147,47 @@
 
 .teacher {
   padding: 60px 35px;
+
+  .megaHeader {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+
+    .headerPlus {
+      margin: 0 10px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .headerWrapper {
+      // max-width: 100px;
+      width: fit-content;
+      height: 100%;
+      padding: 5px;
+      gap: 0;
+      transform-origin: center center;
+      transition: all 0.2s ease-in-out;
+
+      p {
+        margin: 0;
+        text-wrap: nowrap;
+      }
+
+      & > p:first-child {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      & > p:last-child {
+        font-size: 14px;
+        font-weight: 400;
+        font-family: var(--font-heisei);
+      }
+    }
+  }
+
   .description {
     margin-top: none;
     display: grid;
@@ -293,6 +334,19 @@
 
 @media (max-width: 675px) {
   .teacher {
+    .megaHeader {
+      .headerWrapper {
+        max-width: 100px;
+
+        p {
+          text-wrap: wrap;
+        }
+
+        & > p:first-child {
+          font-size: 16px;
+        }
+      }
+    }
     .selects {
       flex-direction: column;
       gap: 20px;

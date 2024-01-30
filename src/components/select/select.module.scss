@@ -1,4 +1,4 @@
-$transition-duration: all 0.3s ease-in;
+$transition-duration: all 0.2s ease-in;
 
 .mainContainer {
   overflow: visible;
@@ -27,7 +27,7 @@ $transition-duration: all 0.3s ease-in;
 
       .select {
         font: inherit;
-        padding: 16px 24px;
+        padding: 16px 20px;
         border-radius: $border-radius;
         transition: $transition-duration;
         font-size: 18px;
@@ -35,7 +35,7 @@ $transition-duration: all 0.3s ease-in;
         font-weight: 700;
 
         .value {
-          text-align: center;
+          text-align: start;
           transition: $transition-duration;
         }
 

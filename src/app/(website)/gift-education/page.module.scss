@@ -2,6 +2,33 @@
   padding: 0 10px;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.confetti {
+  position: absolute;
+  z-index: -1;
+  height: 80%;
+  width: auto;
+}
+
+.confettiLeft {
+  left: 0;
+  animation: confettiAppearLeft 5s ease, breathing 5s ease infinite;
+}
+
+.confettiRight {
+  right: 0;
+  animation: confettiAppearRight 5s ease, breathing 5s ease infinite;
+}
+
 .header {
   margin-top: 75px;
   text-align: center;
@@ -11,8 +38,16 @@
   margin-top: 90px;
 }
 
-.confetti {
+.confettiImage {
   margin-top: 65px;
+}
+
+.divider {
+  padding: 11px 15px 9px;
+
+  p {
+    font-size: 22px !important;
+  }
 }
 
 .start {
@@ -34,8 +69,47 @@
   }
 }
 
+.formats {
+  margin-top: 90px !important;
+}
+
+@media (max-width: 800px) {
+  .confetti {
+    display: none;
+  }
+}
+
 @media (max-width: 550px) {
   .card {
     padding: 26px 10px;
+  }
+}
+
+@keyframes confettiAppearLeft {
+  0% {
+    transform: translate(300px, 0) scale(0) rotate(-15deg);
+  }
+  100% {
+    transform: translate(0) scale(1) rotate(0);
+  }
+}
+
+@keyframes confettiAppearRight {
+  0% {
+    transform: translate(-300px, 0) scale(0) rotate(15deg);
+  }
+  100% {
+    transform: translate(0) scale(1) rotate(0);
+  }
+}
+
+@keyframes breathing {
+  0% {
+  }
+  50% {
+    transform: scale(110%);
+  }
+  100% {
+    transform: scale(100%);
   }
 }

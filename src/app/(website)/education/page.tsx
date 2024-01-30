@@ -13,7 +13,7 @@ export default async function Page() {
         Будь-ласка, оберіть формат навчання:
       </Typography>
 
-      <CourseFormats />
+      <CourseFormats className={cl.formats}/>
 
       <ContentCard className={cl.results} width="100%">
         <div>

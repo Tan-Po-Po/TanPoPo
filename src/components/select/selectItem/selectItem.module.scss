@@ -10,7 +10,8 @@ $background-hover: linear-gradient(
   cursor: pointer;
 
   .value {
-    transition: 0.15s;
+    text-align: start;
+    transition: 0.2s;
   }
 
   &:hover {
