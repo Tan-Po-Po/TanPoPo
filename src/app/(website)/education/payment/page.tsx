@@ -172,7 +172,7 @@ export default function Page() {
           </ContentCard>
         </ContentCard>
         <div className={cl.line}></div>
-        <ContentCard width="410px">
+        <ContentCard width="410px" className={cl.priceCard}>
           <Typography variant="h6">Сума до сплати:</Typography>
           <ContentCard
             className={cl.totalSum}

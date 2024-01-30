@@ -2,7 +2,13 @@
   padding: $padding-page;
   gap: 70px;
   flex: 1;
+
+  .image {
+    margin: -25px 0;
+  }
+
   .titleCard {
+    font-size: 18px;
     padding: 33px 28px;
   }
 
@@ -49,6 +55,10 @@
           max-width: 100%;
         }
       }
+    }
+
+    .agreement {
+      margin: -23px 0 -38px 0;
     }
   }
   .buttonWrapper {

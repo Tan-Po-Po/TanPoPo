@@ -98,6 +98,8 @@ export const Cart: React.FC<Props> = ({ className }) => {
             disabled={!!cart.promoCode}
             formReturn={formReturn}
             onSubmit={onSubmit}
+            formClassName={cl.formCode}
+            inputClassName={cl.formInput}
           />
         </div>
 

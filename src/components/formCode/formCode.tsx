@@ -21,6 +21,7 @@ interface Props {
   label: string;
   formReturn: UseFormReturn<IPromoCodeInput>;
   inputClassName?: string;
+  formClassName?: string;
 }
 
 export const FormCode: React.FC<Props> = ({
@@ -29,11 +30,15 @@ export const FormCode: React.FC<Props> = ({
   label,
   formReturn,
   inputClassName,
+  formClassName,
 }) => {
-  const { control, handleSubmit, reset } = formReturn;
+  const { control, handleSubmit } = formReturn;
 
   return (
-    <form className={cl.promoCodeForm} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={getValidClassNames(cl.promoCodeForm, formClassName)}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Controller
         name="code"
         control={control}

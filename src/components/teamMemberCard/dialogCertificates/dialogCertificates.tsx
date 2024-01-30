@@ -49,6 +49,7 @@ export const DialogCertificates: React.FC<Props> = ({
       {certificates.description.map((certificate) => (
         <ContentCard
           key={certificate._id}
+          className={cl.certificate}
           label={
             <Typography variant="body1" style={{ fontWeight: "700" }}>
               {certificate.label}

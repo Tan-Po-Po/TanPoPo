@@ -1,12 +1,6 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
-import {
-  ContentCard,
-  IconLink,
-  Typography,
-  Carousel,
-  CarouselItem,
-} from "@/components";
+import { ContentCard, IconLink, Typography } from "@/components";
 import TeamMember, { ITeamMember } from "@/models/TeamMember";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
@@ -15,7 +9,6 @@ import Image from "next/image";
 import { TeamBlock } from "./_components/blocks/teamBlock/teamBlock";
 import Partner, { IPartner } from "@/models/Partner";
 import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
-import { IMAGE_BASE_URL } from "@/config/config";
 import { BioBlock } from "./_components/blocks/bioBlock/bioBlock";
 import { ReviewsBlock } from "./_components/blocks/reviewsBlock/reviewsBlock";
 import { InfoCardsBlock } from "./_components/blocks/infoCardsBlock/infoCardsBlock";

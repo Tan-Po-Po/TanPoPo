@@ -27,40 +27,27 @@
     .promoCodeContainer {
       @include flex-column;
       gap: 20px;
+      max-width: 294px;
 
-      .promoCodeForm {
-        position: relative;
+      .formCode {
+        .formInput,
+        input,
+        :global(.MuiInputBase-root) {
+          height: 56px;
+        }
 
         input {
-          padding-right: 56px;
-        }
-        .buttonWrapper {
-          position: absolute;
-          top: 54%;
-          right: 0;
-          transform: translate(-50%, -50%);
-          button {
-            padding: 0;
-            min-width: fit-content;
-            min-height: fit-content;
-            width: 28px;
-            height: 28px;
-            font-size: 26px;
-            font-weight: 600;
-
-            &:hover {
-              transform: scale(100%) !important;
-            }
-          }
+          padding-top: 0;
+          padding-bottom: 0;
         }
 
-        .buttonDisabled {
-          pointer-events: none;
+        :global(.MuiInputLabel-root) {
+          transform: translate(14px, 15px) scale(1);
+          font-size: 16px !important;
+        }
 
-          button {
-            border-color: rgba(0, 0, 0, 0.38) !important;
-            color: rgba(0, 0, 0, 0.38);
-          }
+        :global(.MuiInputLabel-shrink) {
+          transform: translate(14px, -9px) scale(0.75);
         }
       }
     }

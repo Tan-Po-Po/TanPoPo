@@ -1,11 +1,21 @@
 .storeMain {
   @include flex-column;
   padding: $padding-page;
+  padding-bottom: 121px;
   gap: 120px;
   position: relative !important;
+  overflow: hidden;
 
   .cartButton {
     position: fixed;
+  }
+
+  .divider {
+    height: 35px;
+    padding: 0 15px;
+    span {
+      line-height: normal;
+    }
   }
 
   .introBlock {
@@ -14,6 +24,7 @@
     row-gap: 76px;
     align-items: center;
     justify-items: center;
+    margin-top: -55px;
 
     .image {
       grid-column-start: 2;
@@ -85,6 +96,10 @@
   .message {
     width: 100%;
     margin: 0;
+
+    .messageCard {
+      gap: 8px;
+    }
   }
 }
 
@@ -176,7 +191,7 @@
       flex-direction: column-reverse;
       max-width: 100%;
       gap: 45px;
-      margin-top: -55px;
+      // margin-top: -55px;
     }
 
     .dealBlock {

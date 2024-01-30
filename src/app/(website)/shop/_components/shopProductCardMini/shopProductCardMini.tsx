@@ -26,6 +26,7 @@ export const ShopProductCardMini: React.FC<Props> = ({ _id, name, small }) => {
         label={label?.text}
         labelBgColor={label?.bgColor}
         className={cl.shopItemMini}
+        labelClassName={cl.label}
       >
         <Typography variant="body1">{caption}</Typography>
         <Image

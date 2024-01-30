@@ -4,6 +4,15 @@
   padding: 22px 16px;
   cursor: pointer;
   justify-content: space-between;
+  gap: 0;
+
+  .label {
+    padding: 5px;
+  }
+
+  img {
+    margin: 0 auto;
+  }
 
   .btnWrapper {
     &:hover {
