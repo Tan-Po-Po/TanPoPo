@@ -7,7 +7,7 @@
   font-size: 16px;
   font-weight: 500;
   border-radius: $border-radius;
-  
+
   .children {
     position: relative;
     .image {
@@ -20,15 +20,15 @@
     }
   }
 
-  &:hover {
-    scale: 110%;
-    .children {
-      .image {
-        visibility: visible;
-        animation: buttonIconRotate 0.3s forwards;
-      }
-    }
-  }
+  // &:hover {
+  //   scale: 110%;
+  //   .children {
+  //     .image {
+  //       visibility: visible;
+  //       animation: buttonIconRotate 0.3s forwards;
+  //     }
+  //   }
+  // }
 
   .button {
     color: $color-text;
@@ -41,19 +41,19 @@
     word-wrap: break-word;
   }
 
-  :global(.MuiButton-root) {
-    &:hover {
-      background-color: transparent;
-    }
-  }
+  // :global(.MuiButton-root) {
+  //   &:hover {
+  //     background-color: transparent;
+  //   }
+  // }
 
   :global(.MuiButton-outlined) {
     border: $border !important;
     box-shadow: $box-shadow;
 
-    &:hover {
-      background: $color-yellow;
-    }
+    // &:hover {
+    //   background: $color-yellow;
+    // }
   }
 }
 
@@ -86,6 +86,32 @@
       .image {
         visibility: hidden;
         animation: none;
+      }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .buttonWrapper {
+    &:hover {
+      scale: 110%;
+      .children {
+        .image {
+          visibility: visible;
+          animation: buttonIconRotate 0.3s forwards;
+        }
+      }
+    }
+
+    :global(.MuiButton-root) {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    :global(.MuiButton-outlined) {
+      &:hover {
+        background: $color-yellow;
       }
     }
   }

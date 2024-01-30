@@ -31,6 +31,10 @@
     .requisites {
       padding: 26px 10px;
 
+      h6 {
+        max-width: 260px;
+      }
+
       .card {
         background: transparent;
         padding: 15px 5px;
