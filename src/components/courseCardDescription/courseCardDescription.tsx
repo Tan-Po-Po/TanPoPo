@@ -135,7 +135,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
         <Carousel
           dots={false}
           slidesToShow={width! > 500 ? 2 : 1}
-          centerMode={false}
+          centerMode={width! < 500}
           className={cl.carousel}
         >
           {course.images.map((item, index) => (
