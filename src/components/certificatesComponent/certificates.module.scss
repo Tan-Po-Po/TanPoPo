@@ -17,7 +17,7 @@
       border: $border;
       border-bottom: none;
       border-radius: $border-radius;
-      width: 550px;
+      width: 570px;
       height: 110px;
       top: 50%;
       z-index: -1;
@@ -31,7 +31,7 @@
     align-items: center;
 
     .or {
-      margin: 0 50px;
+      margin: 0 60px;
     }
   }
   .certificateCard {
@@ -39,6 +39,10 @@
       max-width: 340px;
     }
   }
+}
+
+.headerTwo {
+  padding: 21px 18px 18px;
 }
 
 @media (max-width: 1000px) {

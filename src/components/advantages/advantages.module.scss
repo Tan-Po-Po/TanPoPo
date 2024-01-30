@@ -31,6 +31,11 @@
     }
   }
 
+  .textBlock {
+    margin-top: -25px;
+    margin-bottom: 35px;
+  }
+
   .carousel {
     width: 100%;
     max-width: 100%;
@@ -41,7 +46,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 108px;
-
+    row-gap: 80px;
+    
     .card {
       display: flex !important;
       justify-items: center;

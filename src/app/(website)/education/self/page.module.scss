@@ -29,6 +29,7 @@
   }
 
   .title {
+    text-align: center;
     padding: 15px 20px;
     left: 0;
     right: 0;
@@ -167,11 +168,10 @@
   }
 
   .text {
-    text-align: justify;
+    text-align: start;
     font-size: 19px;
     font-weight: 600;
     line-height: 120%;
-    max-width: 810px;
   }
 }
 

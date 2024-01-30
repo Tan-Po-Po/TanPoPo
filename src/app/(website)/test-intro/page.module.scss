@@ -1,12 +1,13 @@
 .testIntro {
   @include flex-column;
-  gap: 125px;
+  gap: 110px;
   padding: $padding-page;
   padding-bottom: 125px;
 
   .bigImageBlock {
     @include flex-column;
-    gap: 58px;
+    gap: 45px;
+    margin-bottom: -40px;
   }
 
   .levelsBlock {
@@ -107,6 +108,7 @@
     position: relative;
     max-width: 792px;
     width: 100%;
+    margin-top: 15px;
 
     .card {
       padding-top: 34px;

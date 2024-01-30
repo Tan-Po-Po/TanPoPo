@@ -185,7 +185,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
         />
       )}
 
-      {course.type !== "book" && (
+      {(course.type !== "book" && lessons) && (
         <div className={cl.checkboxWrapper}>
           <Checkbox
             className={cl.checkbox}

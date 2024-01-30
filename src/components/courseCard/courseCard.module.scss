@@ -4,10 +4,23 @@
 
   .name {
     text-transform: uppercase;
-    white-space: pre;
+    white-space: nowrap;
   }
   .nameJpn {
     font-family: var(--font-heisei);
+  }
+
+  &:hover {
+    .header {
+      transform: scale(110%) translate(-50%, -45%);
+      box-shadow: 0px 0px 3px 0px #000 inset,
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    .headerWrapper {
+      transform: scale(110%);
+      box-shadow: 0px 0px 3px 0px #000 inset,
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
   }
 
   .header {
@@ -16,11 +29,6 @@
     transform: translate(-50%, -50%);
     transform-origin: bottom left;
     transition: all 0.2s ease-in-out;
-    &:hover {
-      transform: scale(110%) translate(-50%, -45%);
-      box-shadow: 0px 0px 3px 0px #000 inset,
-        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
   }
 
   .labels {
@@ -49,6 +57,15 @@
     row-gap: 5px;
   }
 
+  .selectWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 18px;
+    margin: 5px 0px;
+
+  }
   .select {
     width: 300px;
   }
@@ -152,12 +169,6 @@
       transform-origin: center center;
       transition: all 0.2s ease-in-out;
 
-      &:hover {
-        transform: scale(110%);
-        box-shadow: 0px 0px 3px 0px #000 inset,
-          0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-      }
-
       p {
         margin: 0;
       }
@@ -209,7 +220,7 @@
 
   .description {
     font-size: 20px;
-    margin: 10px -10px auto;
+    margin: 0px -10px auto;
     text-wrap: balance;
   }
 
@@ -252,7 +263,7 @@
 .audio {
   .description {
     font-size: 19px;
-    margin: 10px -10px auto;
+    margin: 0px -10px auto;
     text-wrap: balance;
   }
 
@@ -344,7 +355,7 @@
 
 @media (max-width: 500px) {
   .header {
-    max-width: 275px;
+    max-width: 300px;
 
     h5 {
       font-size: 21px;

@@ -26,7 +26,7 @@ const Certificates: React.FC<Properties> = ({ header, className }) => {
         cardBgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
         width="420px"
         height="85px"
-        className={cl.certificateHeader}
+        className={getValidClassNames(cl.certificateHeader, header === 2 && cl.headerTwo)}
       >
         {header === 1 ? (
           <>

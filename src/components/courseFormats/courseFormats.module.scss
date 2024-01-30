@@ -50,12 +50,13 @@
 
   .bottomCard {
     font-weight: 700;
-    max-width: 300px;
+    max-width: 280px;
   }
 
   .line {
     height: 65px;
-    width: 3px;
+    width: 2px;
+    box-shadow: $box-shadow;
     background: $color-black;
   }
 }

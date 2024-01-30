@@ -52,12 +52,14 @@ export default async function Courses() {
       <CourseList courses={coursesDB} />
 
       <Divider
+        className={cl.divider}
         firstRow="бібліотека tanpopo"
         bgColor="linear-gradient(rgba(196, 169, 255, 1), rgba(255, 165, 165, 1))"
       />
       <LibraryTable />
 
       <Divider
+        className={cl.divider}
         firstRow="актуальні питання"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
       />
