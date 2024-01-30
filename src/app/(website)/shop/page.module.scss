@@ -136,6 +136,12 @@
           font-size: 15px;
         }
       }
+
+      .card:nth-child(1) {
+        p {
+          margin: 0 -13px;
+        }
+      }
     }
 
     .shopPartnersBlock {
@@ -165,6 +171,8 @@
       display: flex;
       flex-direction: column-reverse;
       max-width: 100%;
+      gap: 45px;
+      margin-top: -55px;
     }
 
     .dealBlock {
@@ -205,10 +213,6 @@
           }
         }
       }
-    }
-
-    .shopProductsBlock {
-      margin-top: -104px;
     }
 
     .message {
