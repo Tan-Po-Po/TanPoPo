@@ -33,6 +33,7 @@
 
   :global(.MuiInputBase-root) {
     border-radius: $border-radius;
+    height: fit-content;
     > * {
       border-radius: $border-radius;
     }

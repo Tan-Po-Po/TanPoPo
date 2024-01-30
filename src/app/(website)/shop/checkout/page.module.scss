@@ -71,6 +71,13 @@
   align-items: center;
   gap: 71px;
 
+  .divider {
+    max-width: 100%;
+    p {
+      text-transform: none;
+    }
+  }
+
   .orderNumber {
     gap: 32px;
     .orderValue {

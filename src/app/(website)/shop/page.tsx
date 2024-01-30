@@ -121,7 +121,7 @@ export default async function Shop() {
       </section>
 
       <section className={cl.message}>
-        <ContentCard width="898px">
+        <ContentCard width="898px" className={cl.messageCard}>
           <Typography variant="h5">Слова від авторів</Typography>
           <Image
             alt=""

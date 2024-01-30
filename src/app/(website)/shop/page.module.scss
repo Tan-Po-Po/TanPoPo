@@ -1,6 +1,7 @@
 .storeMain {
   @include flex-column;
   padding: $padding-page;
+  padding-bottom: 121px;
   gap: 120px;
   position: relative !important;
   overflow: hidden;
@@ -91,6 +92,10 @@
   .message {
     width: 100%;
     margin: 0;
+
+    .messageCard {
+      gap: 8px;
+    }
   }
 }
 

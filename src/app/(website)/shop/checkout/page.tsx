@@ -30,6 +30,13 @@ export default function Page() {
   const dispatch = useAppDispatch();
   const cart = useAppSelector(selectShopCart);
 
+  useEffect(() => {
+    if (!cart.items.length) {
+      return router.push("/shop");
+    }
+    setLoading(false);
+  }, [cart.items.length, router]);
+
   const [showErrors, setShowErrors] = useState(true);
   const [loading, setLoading] = useState(true);
 
@@ -124,13 +131,6 @@ export default function Page() {
     await trigger();
     setShowErrors(true);
   };
-
-  useEffect(() => {
-    if (!cart.items.length) {
-      return router.push("/shop");
-    }
-    setLoading(false);
-  }, [cart.items.length, router]);
 
   if (loading) {
     return <Loading />;
