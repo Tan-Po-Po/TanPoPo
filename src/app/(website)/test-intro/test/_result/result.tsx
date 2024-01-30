@@ -20,7 +20,7 @@ interface Props {
   result: string;
 }
 
-export const Result: React.FC<Props> = ({ result }: {result: string}) => {
+export const Result: React.FC<Props> = ({ result }: { result: string }) => {
   const [courses, setCourses] = useState<ICourse[] | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -44,7 +44,7 @@ export const Result: React.FC<Props> = ({ result }: {result: string}) => {
   }
 
   const isInDevelopment = courses?.length == 0;
-  const levelDescription = LEVELS[result as keyof typeof LEVELS]
+  const levelDescription = LEVELS[result as keyof typeof LEVELS];
 
   return (
     <main className={cl.resultMain}>
@@ -52,8 +52,10 @@ export const Result: React.FC<Props> = ({ result }: {result: string}) => {
         <Typography variant="h6">
           Ваш орієнтовний JLPT рівень: {result}
         </Typography>
-        
-        <Typography variant="body2">{levelDescription}</Typography>
+
+        <Typography variant="body2">
+          ({levelDescription.toLowerCase()})
+        </Typography>
       </ContentCard>
 
       <section className={cl.recommendation}>
@@ -76,6 +78,7 @@ export const Result: React.FC<Props> = ({ result }: {result: string}) => {
             firstRow="онлайн-курси"
             secondRow="з сенсеєм"
             bgColor="linear-gradient(180deg, #A6C4FF 0%, #E8A6FF 100%)"
+            wrapperClassName={cl.dividerWrapper}
           />
 
           <CourseCardMini course={courses[0]} />
@@ -103,8 +106,11 @@ export const Result: React.FC<Props> = ({ result }: {result: string}) => {
           <CourseList courses={courses!} />
 
           <Divider
+            className={cl.divider}
+            wrapperClassName={cl.dividerWrapper}
             firstRow="ДОДАТКОВІ ПЕРЕВАГИ НАВЧАННЯ"
             bgColor="linear-gradient(91deg, #FF9C9C 0%, #FFEF9C 28.13%, #9CDBFF 71.35%, #FF9CE9 100%)"
+            style={{marginBottom: "-20px"}}
           />
 
           <Advantages />

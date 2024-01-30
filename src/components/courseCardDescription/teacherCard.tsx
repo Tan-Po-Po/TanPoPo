@@ -26,6 +26,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const courseInfo = course.large;
+  const isMegaCourse = course.type === "mega";
   const [isGift, setIsGift] = React.useState(false);
   const [isNewStudent, setIsNewStudent] = React.useState(true);
   const [isActiveStudent, setIsActiveStudent] = React.useState(false);
@@ -52,8 +53,21 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
   };
 
   const handleClick = () => {
-    if (!cardState.learningFormat || !cardState.lessons) {
-      return toast("Спочатку оберіть Формат \nНавчання та К-сть уроків!📚");
+    if (isMegaCourse && !cardState.lessons) {
+      return toast(() => (
+        <div>
+          Спочатку оберіть <u>К-сть уроків!</u>📚
+        </div>
+      ));
+    } else if (
+      (!cardState.learningFormat && !isMegaCourse) ||
+      !cardState.lessons
+    ) {
+      return toast(() => (
+        <div>
+          Спочатку оберіть <u>Формат Навчання</u> та <u>К-сть уроків!</u>📚
+        </div>
+      ));
     }
 
     if (isActiveStudent && cardState.link) {
@@ -81,14 +95,16 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
         typeClassMap[course.type as "teacher" | "mega"]
       )}
       label={
-        <>
-          <Typography variant="h5" className={cl.name}>
-            {course.name}
-          </Typography>
-          <Typography variant="body2" className={cl.nameJpn}>
-            {course.nameJapanese}
-          </Typography>
-        </>
+        !isMegaCourse && (
+          <>
+            <Typography variant="h5" className={cl.name}>
+              {course.name}
+            </Typography>
+            <Typography variant="body2" className={cl.nameJpn}>
+              {course.nameJapanese}
+            </Typography>
+          </>
+        )
       }
       labelClassName={cl.header}
       labelBgColor={courseInfo.labelColor}
@@ -96,6 +112,37 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
       labelPosition="top"
       width={"1065px"}
     >
+      {isMegaCourse && (
+        <div
+          className={getValidClassNames(cl.megaHeader)}
+          style={{
+            background: `linear-gradient(180deg, #FFF 0%, ${courseInfo.bgColor} 100%)`,
+          }}
+        >
+          <>
+            <ContentCard
+              className={cl.headerWrapper}
+              cardBgColor={courseInfo.labelColor}
+            >
+              <p>{course.name}</p>
+              <p>{course.nameJapanese}</p>
+            </ContentCard>
+          </>
+
+          <div className={cl.headerPlus}>+</div>
+
+          <>
+            <ContentCard
+              className={cl.headerWrapper}
+              cardBgColor={courseInfo.labelColor}
+            >
+              <p>{course.secondName}</p>
+              <p>{course.secondNameJapanese}</p>
+            </ContentCard>
+          </>
+        </div>
+      )}
+      
       <Typography variant="h3" className={cl.h3}>
         {" "}
         Твої скіли після засвоєння курсу:

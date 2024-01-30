@@ -141,6 +141,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
           </Link>
         </div>
       )}
+      
       <ul className={cl.description}>
         {courseInfo.description.map((desc, index) => (
           <li key={index}>
@@ -171,38 +172,63 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
         </Typography>
       </section>
 
-      {!isMegaCourse ? (
-        <>
-          <Select
-            showValue
-            className={cl.select}
-            placeHolder="Формат навчання"
-            menuItems={[
-              { value: "Міні-група", label: "Міні-група (2-5 осіб)" },
-              { value: "Індивідуально", label: "Індивідуально (з сенсеєм)" },
-            ]}
-            handleSelect={(value: string) =>
-              setCardState((prev) => {
-                return {
-                  ...prev,
-                  learningFormat: value as "Міні-група" | "Індивідуально",
-                };
-              })
-            }
-          />
+      <div className={cl.selectWrapper}>
+        {!isMegaCourse ? (
+          <>
+            <Select
+              showValue
+              className={cl.select}
+              placeHolder="Формат навчання"
+              menuItems={[
+                { value: "Міні-група", label: "Міні-група (2-5 осіб)" },
+                { value: "Індивідуально", label: "Індивідуально (з сенсеєм)" },
+              ]}
+              handleSelect={(value: string) =>
+                setCardState((prev) => {
+                  return {
+                    ...prev,
+                    learningFormat: value as "Міні-група" | "Індивідуально",
+                  };
+                })
+              }
+            />
 
+            <Select
+              className={cl.select}
+              placeHolder="К-сть Уроків & Ціна"
+              menuItems={
+                cardState.learningFormat === "Індивідуально"
+                  ? course.prices.individual.map((price, idx) => {
+                      return parseCoursePrices(price, idx);
+                    })
+                  : course.prices.group.map((price, idx) => {
+                      return parseCoursePrices(price, idx);
+                    })
+              }
+              handleSelect={(value: string, link?: string) => {
+                setCardState((prev) => {
+                  return { ...prev, lessons: value, link: link as string };
+                });
+              }}
+              checkbox
+              checkboxLabel="Подарунковий Сертифікат🎁"
+              setGift={toggleGift}
+              gift={isGift}
+              isDisabled={cardState.learningFormat === null}
+              onClick={() =>
+                cardState.learningFormat === null
+                  ? toast("Оберіть формат навчання")
+                  : null
+              }
+            />
+          </>
+        ) : (
           <Select
             className={cl.select}
-            placeHolder="К-сть Уроків & Ціна"
-            menuItems={
-              cardState.learningFormat === "Індивідуально"
-                ? course.prices.individual.map((price, idx) => {
-                    return parseCoursePrices(price, idx);
-                  })
-                : course.prices.group.map((price, idx) => {
-                    return parseCoursePrices(price, idx);
-                  })
-            }
+            placeHolder="Мегакурс & Ціна"
+            menuItems={course.prices.group.map((price, idx) => {
+              return parseCoursePrices(price, idx);
+            })}
             handleSelect={(value: string, link?: string) => {
               setCardState((prev) => {
                 return { ...prev, lessons: value, link: link as string };
@@ -212,32 +238,9 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
             checkboxLabel="Подарунковий Сертифікат🎁"
             setGift={toggleGift}
             gift={isGift}
-            isDisabled={cardState.learningFormat === null}
-            onClick={() =>
-              cardState.learningFormat === null
-                ? toast("Оберіть формат навчання")
-                : null
-            }
           />
-        </>
-      ) : (
-        <Select
-          className={cl.select}
-          placeHolder="Мегакурс & Ціна"
-          menuItems={course.prices.group.map((price, idx) => {
-            return parseCoursePrices(price, idx);
-          })}
-          handleSelect={(value: string, link?: string) => {
-            setCardState((prev) => {
-              return { ...prev, lessons: value, link: link as string };
-            });
-          }}
-          checkbox
-          checkboxLabel="Подарунковий Сертифікат🎁"
-          setGift={toggleGift}
-          gift={isGift}
-        />
-      )}
+        )}
+      </div>
 
       {isGift ? (
         <Checkbox
@@ -283,8 +286,8 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       <ContentCard
         className={getValidClassNames(
           cl.bottomBtn,
+          isNewStudent && !isGift && cl.startBtn,
           isGift && cl.giftBtn,
-          isNewStudent && cl.startBtn,
           !isGift && !isNewStudent && cl.continueBtn
         )}
         onClick={handleClick}

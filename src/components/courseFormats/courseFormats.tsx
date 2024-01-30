@@ -1,14 +1,14 @@
 import React from "react";
 import { ContentCard } from "../contentCard/contentCard";
 import { Typography } from "../typography/typography";
-import { getIconSrc } from "@/helpers";
+import { getIconSrc, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import Link from "next/link";
 import cl from "./courseFormats.module.scss";
 
-const CourseFormats = () => {
+const CourseFormats = ({ className }: { className?: string }) => {
   return (
-    <div className={cl.formats}>
+    <div className={getValidClassNames(cl.formats, className)}>
       <div className={cl.formatWrapper}>
         <Link href="/education/sensei">
           <ContentCard

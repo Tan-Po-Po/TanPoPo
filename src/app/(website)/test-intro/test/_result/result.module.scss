@@ -5,14 +5,37 @@
   width: 100%;
   max-width: 1100px;
   text-align: center;
+  padding-bottom: 50px;
+}
+
+.dividerWrapper > div:first-child {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.divider {
+  text-wrap: nowrap;
+  padding: 7px 15px;
+  width: fit-content !important;
+  max-width: 390px;
+  p {
+    font-size: 19px !important;
+  }
 }
 
 .result {
   background: linear-gradient(180deg, #ffe352 0%, #ffed72 70%);
   gap: 0;
+  padding: 16px 26px;
 }
 
 @media (max-width: 400px) {
+  .divider {
+    padding: 7px 5px;
+    p {
+      font-size: 16px !important;
+    }
+  }
   .recommendation {
     h4 {
       font-size: 23px;

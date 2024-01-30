@@ -27,6 +27,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
   return (
     <main className={cl.courseListMain}>
       <Divider
+        wrapperClassName={cl.dividerWrapper}
         className={cl.divider}
         style={{ scrollMarginTop: "100px" }}
         id="teacher"
@@ -62,6 +63,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       </section>
 
       <Divider
+        wrapperClassName={cl.dividerWrapper}
         className={cl.divider}
         style={{ scrollMarginTop: "100px" }}
         id="video"
@@ -97,6 +99,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       </section>
 
       <Divider
+        wrapperClassName={cl.dividerWrapper}
         className={cl.divider}
         style={{ scrollMarginTop: "100px" }}
         id="audio"
@@ -132,6 +135,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       </section>
 
       <Divider
+        wrapperClassName={cl.dividerWrapper}
         className={cl.divider}
         style={{ scrollMarginTop: "100px" }}
         id="book"
