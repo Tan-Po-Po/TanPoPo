@@ -194,7 +194,7 @@ export default function Home() {
               label={
                 <>
                   <Typography variant="h6" className={cl.label1}>
-                    Олайн курси
+                    Онлайн курси
                   </Typography>
                   <Typography variant="body1" className={cl.label2}>
                     з сенсеєм

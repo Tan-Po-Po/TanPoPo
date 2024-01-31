@@ -34,6 +34,7 @@ export const ReelsBlock = () => {
           autoplay={true}
           initialSlide={3}
           arrows={isPc}
+          centerPadding="40px"
           responsive={[
             {
               breakpoint: 767,
