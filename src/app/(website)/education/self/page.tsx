@@ -6,6 +6,7 @@ import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSli
 import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
+import Link from "next/link";
 
 export default function Page() {
   const dispatch = useAppDispatch();
@@ -229,9 +230,9 @@ export default function Page() {
         <Typography variant="body1" className={cl.text}>
           Усі навчальні матеріали по обраному курсу будуть зберігатися на
           навчальній платформі в Особистому Кабінеті учня протягом всього&nbsp;
-          <span style={{ textDecoration: "underline" }}>
+          <Link href="/self-education">
             Навчального Періоду
-          </span>
+          </Link>
           . Тому ви зможете повторювати весь матеріал та переглядати улюблені
           лекції досхочу!
         </Typography>

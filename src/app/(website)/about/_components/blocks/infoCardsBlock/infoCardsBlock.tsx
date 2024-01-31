@@ -33,7 +33,12 @@ export const InfoCardsBlock = () => {
             src={card.image}
             width={500}
             height={300}
-            style={{ maxWidth: "88px", height: "auto" }}
+            style={{
+              maxWidth: "88px",
+              height: "auto",
+              maxHeight: "110px",
+              width: "auto",
+            }}
           />
           <Typography variant="body2" className={cl.text}>
             {card.text}

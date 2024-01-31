@@ -196,7 +196,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
             variant="body2"
             style={{ fontSize: "15px", textAlign: "start", maxWidth: "285px" }}
           >
-            Я ознайомлений з <Link href="/">Навчальним Періодом</Link> для
+            Я ознайомлений з <Link href="/self-education">Навчальним Періодом</Link> для
             самостійних курсів!
           </Typography>
         </div>
