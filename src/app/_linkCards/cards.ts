@@ -45,7 +45,7 @@ export const cards = [
     image: getIconArtSrc("lamp"),
     button: {
       text: "Відгуки про Школу",
-      href: "/about#feedbacks",
+      href: "/about#reviews",
       icon: "personSpeak",
     },
   },

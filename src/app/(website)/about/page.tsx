@@ -1,6 +1,10 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
-import { ContentCard, IconLink, Typography } from "@/components";
+import {
+  ContentCard,
+  IconLink,
+  Typography,
+} from "@/components";
 import TeamMember, { ITeamMember } from "@/models/TeamMember";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";

@@ -4,8 +4,10 @@
   flex-direction: column;
   gap: 95px;
   align-items: center;
+  overflow-x: hidden;
 
   .ideaBlock {
+    width: 100%;
     @include flex-column;
     gap: 86px;
     h4 {
@@ -18,7 +20,8 @@
     .logoWrapper {
       @include flex-row;
       justify-content: center;
-      max-width: 100%;
+      width: 100%;
+      max-width: 1400px;
       position: relative;
 
       .logo {
@@ -26,16 +29,19 @@
       }
 
       .confetti {
-        z-index: -1;
         width: 100%;
         max-width: 454px;
+        position: absolute;
+        top: calc(0% - 50px);
       }
 
       .confettiLeft {
+        right: 65%;
         animation: confettiAppearLeft 5s ease, breathing 5s ease infinite;
       }
 
       .confettiRight {
+        left: 65%;
         animation: confettiAppearRight 5s ease, breathing 5s ease infinite;
       }
     }
@@ -87,6 +93,10 @@
 @keyframes confettiAppearLeft {
   0% {
     transform: translate(300px, 0) scale(0) rotate(-15deg);
+    z-index: -2;
+  }
+  80% {
+    z-index: 2;
   }
   100% {
     transform: translate(0) scale(1) rotate(0);
@@ -96,6 +106,10 @@
 @keyframes confettiAppearRight {
   0% {
     transform: translate(-300px, 0) scale(0) rotate(15deg);
+    z-index: -2;
+  }
+  80% {
+    z-index: 2;
   }
   100% {
     transform: translate(0) scale(1) rotate(0);
@@ -106,7 +120,7 @@
   0% {
   }
   50% {
-    transform: scale(110%);
+    transform: scale(105%);
   }
   100% {
     transform: scale(100%);

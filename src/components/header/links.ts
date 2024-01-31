@@ -6,7 +6,7 @@ export const aboutLinks = [
     bgColor: "#FFCCF4",
   },
   {
-    href: "/about#feedbacks",
+    href: "/about#reviews",
     body: "Відгуки за школу",
     icon: "personSpeak",
     bgColor: "#B9C4FF",
