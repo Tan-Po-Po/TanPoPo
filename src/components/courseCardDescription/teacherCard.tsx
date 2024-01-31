@@ -45,11 +45,11 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
   };
   const handleNewStudentCheckbox = () => {
     if (isActiveStudent) setIsActiveStudent(false);
-    setIsNewStudent((prev) => !prev);
+    setIsNewStudent(true);
   };
   const handleActiveStudentCheckbox = () => {
     if (isNewStudent) setIsNewStudent(false);
-    setIsActiveStudent((prev) => !prev);
+    setIsActiveStudent(true);
   };
 
   const handleClick = () => {
@@ -142,8 +142,8 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
           </>
         </div>
       )}
-      
-      <Typography variant="h3" className={cl.h3}>
+
+      <Typography variant="h6" className={cl.h6}>
         {" "}
         Твої скіли після засвоєння курсу:
       </Typography>
@@ -225,16 +225,18 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
         />
       </div>
 
-      <div className={cl.checkboxes}>
-        {isGift ? (
+      {isGift ? (
+        <div className={cl.checkboxes}>
           <Checkbox
             label="Подарунковий Сертифікат🎁"
             onClick={toggleGift}
             isChecked={isGift}
           />
-        ) : (
-          cardState.learningFormat !== null &&
-          cardState.lessons !== null && (
+        </div>
+      ) : (
+        cardState.learningFormat !== null &&
+        cardState.lessons !== null && (
+          <div className={cl.checkboxes}>
             <div>
               <Checkbox
                 className={cl.checkbox}
@@ -261,15 +263,15 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
                 onClick={handleActiveStudentCheckbox}
               />
             </div>
-          )
-        )}
-      </div>
+          </div>
+        )
+      )}
 
       <ContentCard
         className={getValidClassNames(
           cl.bottomBtn,
           isGift && cl.giftBtn,
-          isNewStudent && cl.startBtn,
+          isNewStudent && !isGift && cl.startBtn,
           !isGift && !isNewStudent && cl.continueBtn
         )}
         onClick={handleClick}

@@ -72,14 +72,14 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
     <ContentCard
       className={getValidClassNames(cl.card, typeClassMap[course.type])}
       label={
-        <Link href={`courses/${course._id}`}>
+        <>
           <Typography variant="h5" className={cl.name}>
             {course.name}
           </Typography>
           <Typography variant="body2" className={cl.nameJpn}>
             {course.nameJapanese}
           </Typography>
-        </Link>
+        </>
       }
       labelClassName={cl.header}
       labelBgColor={courseInfo.labelColor}
@@ -198,7 +198,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
         />
       )}
 
-      {course.type !== "book" && (
+      {course.type !== "book" && lessons && (
         <div className={cl.checkboxWrapper}>
           <Checkbox
             className={cl.checkbox}
@@ -207,7 +207,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
           />
           <Link href="/">
             <Typography variant="body2">
-              Я ознайомлений з <u>Навчальним Періодом</u> для самостійних
+              Я ознайомлений з <Link href="/self-education">Навчальним Періодом</Link> для самостійних
               курсів!
             </Typography>
           </Link>
@@ -219,8 +219,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
         className={getValidClassNames(
           cl.bottomBtn,
           isGift && cl.giftBtn,
-          !isGift && cl.startBtn,
-          course.type !== "book" && !isAccepted && cl.disabledBtn
+          !isGift && cl.startBtn
         )}
       >
         {isGift && (

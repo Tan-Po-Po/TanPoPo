@@ -1,9 +1,11 @@
 .card {
   position: relative;
   margin: 60px auto 90px;
-
+  gap: 25px;
+  padding: 26px 20px;
   .name {
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .nameJpn {
@@ -35,15 +37,18 @@
       text-wrap: wrap;
     }
   }
-
+  .select {
+    width: 300px;
+  }
   .bottomBtn {
     cursor: pointer;
     position: absolute;
-    max-width: 305px;
-    height: 55px;
-    bottom: -28px;
+    max-width: 290px;
+    height: 45px;
+    bottom: -24px;
     transition: transform 0.2s ease-in-out;
-    padding: 0px;
+    padding: 0px 12px;
+    width: fit-content;
 
     &:hover {
       transform: scale(1.05);
@@ -82,19 +87,6 @@
     }
   }
 
-  .disabledBtn {
-    background: inherit;
-    cursor: default;
-    color: #b1b1b1;
-    color: $color-disabled;
-    border-color: $color-disabled;
-
-    &:hover {
-      transform: none;
-      background: $color-disabled;
-      background: inherit;
-    }
-  }
   .checkbox {
     text-align: start;
     line-height: 16.73px;
@@ -147,6 +139,7 @@
 
 .teacher {
   padding: 60px 35px;
+  gap: 30px;
 
   .megaHeader {
     position: absolute;
@@ -163,7 +156,6 @@
     }
 
     .headerWrapper {
-      // max-width: 100px;
       width: fit-content;
       height: 100%;
       padding: 5px;
@@ -187,9 +179,15 @@
       }
     }
   }
+  
+  .h6 {
+    text-decoration: underline;
+    font-size: 22px;
+    line-height: 25px;
+  }
 
   .description {
-    margin-top: none;
+    margin-top: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
@@ -201,11 +199,16 @@
       align-items: center;
       text-align: start;
       gap: 10px;
+      margin-top: 0;
+      p {
+        max-width: 445px;
+      }
     }
   }
   .selects {
     display: flex;
     gap: 40px;
+
     .select {
       width: 300px;
     }
@@ -382,7 +385,7 @@
 }
 
 @media (max-width: 450px) {
-  .h3 {
+  .h6 {
     margin-top: 42px;
   }
 

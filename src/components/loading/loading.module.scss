@@ -8,12 +8,16 @@
 
 .heightAuto {
   min-height: fit-content;
+  .logo {
+    margin-bottom: 0;
+  }
 }
 
 .logo {
   animation-name: loading;
   animation-duration: 3s;
   animation-iteration-count: infinite;
+  margin-bottom: 100px;
 }
 
 @keyframes loading {

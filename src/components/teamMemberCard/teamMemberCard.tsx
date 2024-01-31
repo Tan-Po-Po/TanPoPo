@@ -146,6 +146,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
                   style={{
                     width: "100%",
                     height: "auto",
+                    maxWidth: "53px",
                   }}
                   width={500}
                   height={300}
