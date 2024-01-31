@@ -4,11 +4,15 @@
   gap: 72px;
 
   .divider {
-    padding: 6px 14px;
+    padding: 6px 14px 5px;
 
     span {
       line-height: normal;
     }
+  }
+
+  .guidesDivider {
+    padding: 6px 14px 3px;
   }
 
   .contactsBlock {

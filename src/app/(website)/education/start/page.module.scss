@@ -77,21 +77,16 @@
   .btn {
     background: #fff !important;
     font-size: 24px;
+    line-height: 35px;
     padding: 10px 19px !important;
 
     img {
-      width: 20px;
-      height: 20px;
+      width: 16px !important;
+      height: 16px !important;
     }
+
     &:hover {
       background: $color-yellow !important;
-    }
-  }
-
-  .disabled {
-    &:hover {
-      transform: none !important;
-      background: #fff !important;
     }
   }
 }

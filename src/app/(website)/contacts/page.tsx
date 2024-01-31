@@ -126,7 +126,7 @@ export default function Contacts() {
         firstRow={textContent.videoGuidesBlock.divider.line1}
         secondRow={textContent.videoGuidesBlock.divider.line2}
         bgColor={dividerBgColor}
-        className={cl.divider}
+        className={cl.guidesDivider}
       />
 
       <VideoGuides />
@@ -135,6 +135,7 @@ export default function Contacts() {
         firstRow={textContent.faqBlock.divider.line1}
         bgColor={dividerBgColor}
         wrapperClassName={cl.faqDivider}
+        className={cl.divider}
       />
 
       <div className={cl.faqBlock}>
@@ -160,6 +161,7 @@ export default function Contacts() {
         firstRow="ЗВОРОТНІЙ ЗВ’ЯЗОК"
         bgColor={dividerBgColor}
         style={{ margin: "38px 0 " }}
+        className={cl.divider}
       />
 
       <ContentCard className={cl.formBlock} width="966px">
