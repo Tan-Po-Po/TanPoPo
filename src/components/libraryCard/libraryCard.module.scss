@@ -1,5 +1,5 @@
 .link {
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   &:hover {
     transform: scale(1.05);
   }
@@ -9,6 +9,8 @@
   width: 260px;
   height: 160px;
   border: 2px solid $color-black;
+  justify-content: space-between;
+  gap: 0;
 }
 
 .body {
@@ -17,6 +19,7 @@
   font-weight: 600;
   font-size: 23px;
   max-width: 180px;
+  white-space: pre-line;
 }
 
 .privateIcon {

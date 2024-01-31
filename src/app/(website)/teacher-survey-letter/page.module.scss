@@ -48,12 +48,16 @@
         @include flex-row;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 40px;
         width: 100%;
 
         .textArea {
           max-width: 100%;
         }
+      }
+
+      .checkboxes {
+        gap: 20px;
       }
     }
 

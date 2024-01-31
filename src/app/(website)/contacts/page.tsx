@@ -65,7 +65,7 @@ export default function Contacts() {
 
           <ContentCard
             width="376px"
-            className={cl.card}
+            className={getValidClassNames(cl.card, cl.cardLinks)}
             style={{ justifyContent: "space-evenly" }}
           >
             <Typography variant="body1">
@@ -166,7 +166,10 @@ export default function Contacts() {
 
       <ContentCard className={cl.formBlock} width="966px">
         <Typography variant="h4">Залишились питання?</Typography>
-        <Typography variant="h6">
+        <Typography
+          variant="body1"
+          style={{ fontWeight: "500", display: "block" }}
+        >
           Напишіть нам і ми обов’язково Вам відповімо!
         </Typography>
         <FeedbackForm />
