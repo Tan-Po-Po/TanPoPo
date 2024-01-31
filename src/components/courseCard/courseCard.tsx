@@ -185,7 +185,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
         />
       )}
 
-      {(course.type !== "book" && lessons) && (
+      {course.type !== "book" && lessons && (
         <div className={cl.checkboxWrapper}>
           <Checkbox
             className={cl.checkbox}
@@ -196,8 +196,14 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
             variant="body2"
             style={{ fontSize: "15px", textAlign: "start", maxWidth: "285px" }}
           >
-            Я ознайомлений з <Link href="/self-education">Навчальним Періодом</Link> для
-            самостійних курсів!
+            Я ознайомлений з{" "}
+            <Link
+              href="/self-education"
+              style={{ textDecoration: "unedrline" }}
+            >
+              Навчальним Періодом
+            </Link>{" "}
+            для самостійних курсів!
           </Typography>
         </div>
       )}

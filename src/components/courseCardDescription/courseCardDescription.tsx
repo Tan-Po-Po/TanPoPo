@@ -197,7 +197,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
           isChecked={isGift}
         />
       )}
-      
+
       <div>
         {course.type !== "book" && lessons && !isGift && (
           <div className={cl.checkboxWrapper}>
@@ -206,13 +206,17 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
               onClick={toggleAcceptation}
               isChecked={isAccepted}
             />
-            <Link href="/">
-              <Typography variant="body2">
-                Я ознайомлений з{" "}
-                <Link href="/self-education">Навчальним Періодом</Link> для
-                самостійних курсів!
-              </Typography>
-            </Link>
+
+            <Typography variant="body2">
+              Я ознайомлений з{" "}
+              <Link
+                href="/self-education"
+                style={{ textDecoration: "unedrline" }}
+              >
+                Навчальним Періодом
+              </Link>{" "}
+              для самостійних курсів!
+            </Typography>
           </div>
         )}
       </div>
