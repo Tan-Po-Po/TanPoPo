@@ -4,7 +4,7 @@
 
   .carousel {
     :global(.slick-dots) {
-      margin-top: 50px;
+      margin-top: 35px;
 
       li {
         margin: 0 10px;
@@ -13,11 +13,16 @@
   }
 
   .carouselCard {
-    padding: 51px 0;
+    padding: 35px 0 40px;
     gap: 43px;
 
     :global(.slick-next) {
       right: 50px;
+      transform: translate(-50%, -150%);
+    }
+    :global(.slick-prev) {
+      right: 50px;
+      transform: translate(-50%, -150%) rotate(180deg);
     }
 
     :global(.slick-slide) {
@@ -78,7 +83,7 @@
 
       :global(.slick-slide) {
         > div {
-          margin: 0 20px;
+          margin: 20px;
         }
       }
 
