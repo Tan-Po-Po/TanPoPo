@@ -46,8 +46,8 @@
 
   .commentTextarea {
     margin-top: 30px;
-    margin-bottom: 100px;
-    height: 300px;
+    margin-bottom: 120px;
+    height: 235px;
   }
 }
 
@@ -70,12 +70,14 @@
   .btn {
     background: #fff !important;
     font-size: 24px;
+    line-height: 35px;
     padding: 10px 19px !important;
 
     img {
-      width: 20px;
-      height: 20px;
+      width: 16px !important;
+      height: 16px !important;
     }
+
     &:hover {
       background: $color-yellow !important;
     }
