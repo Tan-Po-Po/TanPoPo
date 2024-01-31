@@ -210,7 +210,7 @@ export default function Page() {
               height={79}
             />
 
-            <Link href="/education/checkout">
+            <Link href="/education/checkout" target="_blank">
               <div className={cl.btnWrapper}>
                 <Button
                   className={cl.thanksBtn}
