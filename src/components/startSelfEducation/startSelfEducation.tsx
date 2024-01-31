@@ -16,9 +16,7 @@ const StartSelfEducation: React.FC = () => {
     <>
       <div className={cl.start}>
         <div className={cl.startHeader}>
-          <Typography variant="h5">
-            Розпочати онлайн-навчання з сенсеєм
-          </Typography>
+          <Typography variant="h5">Розпочати самостійне навчання</Typography>
           <Typography variant="h2">в школі TanPoPo дуже легко!</Typography>
         </div>
 
@@ -50,7 +48,7 @@ const StartSelfEducation: React.FC = () => {
             >
               <Typography variant="h6">
                 {" "}
-                Оберіть бажаний онлайн-курс з сенсеєм
+                Оберіть бажаний самостійний курс
               </Typography>
               <Image
                 src={getIconArtSrc("temple")}
@@ -76,7 +74,7 @@ const StartSelfEducation: React.FC = () => {
             >
               <Typography variant="h6">
                 {" "}
-                Визначте зручний для Вас розклад занять!
+                Зареєструйтесь та здійсність оплату
               </Typography>
               <Image
                 src={getIconArtSrc("paymentCard")}
@@ -85,9 +83,9 @@ const StartSelfEducation: React.FC = () => {
                 height={71}
               />
               <Typography variant="body2">
-                Оберіть, коли Ви можете приділяти час вивченню японської мови з
-                сенсеєм онлайн, щоб ми змогли сформувати графік, враху-вавши
-                ваші побажання!
+                Проходьте миттєву реєстрацію після чого швидко та безпечно
+                оплачуйте в декілька кліків за допомогою електронної платіжної
+                системи LiqPay.
               </Typography>
               {renderCarousel && <TriangleButton className={cl.triangleBtn} />}
             </ContentCard>
@@ -101,9 +99,10 @@ const StartSelfEducation: React.FC = () => {
               indexBgColor="rgba(201, 255, 200, 1)"
               cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #C9FFC8 100%)"
             >
-              <Typography variant="h6">
+              <Typography variant="h6" style={{ fontSize: "23px" }}>
                 {" "}
-                Оплатіть курс та розпочніть навчання!
+                Розпочніть <br />
+                Навчання!
               </Typography>
               <Image
                 src={getIconArtSrc("girlStudent")}
@@ -112,9 +111,10 @@ const StartSelfEducation: React.FC = () => {
                 height={96}
               />
               <Typography variant="body2">
-                Оплачуйте обраний курс, в той час, як ми почнемо фо-рмувати ваш
-                розклад і після його успішного погодження Ви відразу
-                розпочинаєте вивчення японської мови!
+                Дочекавшись <br />
+                підтвердження оплати, переходьте на платформу <br />в Особистий
+                Кабінет <br />
+                учня та розпочинайте самостійне вивчення мови
               </Typography>
             </ContentCard>
           </Carousel>
@@ -187,7 +187,7 @@ const StartSelfEducation: React.FC = () => {
             </Typography>
           </ContentCard>
         </Link>
-        
+
         <Link href="/courses#book">
           <ContentCard
             width="511px"

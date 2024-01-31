@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ITeamMember } from "@/models/TeamMember";
 import { getIconArtSrc } from "@/helpers";
 import { ContentCard } from "../..";
+import { IMAGE_BASE_URL } from "@/config/config";
 
 interface Props extends Pick<ITeamMember, "certificates"> {
   open: boolean;
@@ -69,7 +70,7 @@ export const DialogCertificates: React.FC<Props> = ({
             }}
           >
             <Image
-              src={`/media/${certificate.image.filename}`}
+              src={`${IMAGE_BASE_URL}/${certificate.image.filename}`}
               alt=""
               width={500}
               height={300}

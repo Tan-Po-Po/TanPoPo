@@ -1,6 +1,7 @@
 .requisites {
   @include flex-column;
   padding: $padding-page;
+  padding-bottom: 110px;
   gap: 70px;
 
   .requisitesCard {
@@ -90,7 +91,7 @@
     }
     .requisitesCard {
       padding: 10px;
-      width: calc(100% + 20px);
+      width: calc(100% + 30px);
       .wrapper {
         flex-wrap: wrap;
         gap: 15px;
@@ -104,7 +105,9 @@
         }
       }
     }
-
+    .text {
+      max-width: 300px;
+    }
     .qrCodesBlock {
       flex-wrap: wrap;
       justify-content: space-around;
