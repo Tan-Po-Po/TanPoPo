@@ -2,7 +2,7 @@ export const librarySections = [
   {
     href: "/library/bonus-start?page=1",
     icon: "rocket",
-    body: "Бонус Старт",
+    body: "Бонус\nСтарт",
     bgColor:
       "linear-gradient(rgba(255, 184, 184, 0.6), rgba(245, 255, 183, 0.8))",
     hoverBgColor:

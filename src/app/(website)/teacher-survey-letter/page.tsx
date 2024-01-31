@@ -805,7 +805,7 @@ const Page = () => {
           <div className={cl.questionBlock}>
             <div className={cl.question}>
               8. Якби робочий день складався б з 5-7 робочих годин, скільки днів
-              на тиждень в такому випадку Вибули б готові працювати?
+              на тиждень в такому випадку Ви були б готові працювати?
             </div>
             <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>
               <Controller
