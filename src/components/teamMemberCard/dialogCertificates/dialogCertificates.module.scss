@@ -3,14 +3,16 @@
     height: fit-content;
     margin: 4px;
     gap: 40px;
+    padding-top: 16px;
   }
 
   .dialogContent {
-    padding-top: 30px;
+    padding: 30px 77px 73px;
+    overflow: visible;
 
     .certificate {
       justify-content: space-between;
-      padding-top: 42px;
+      padding-top: 44px;
       .caption {
         margin: auto;
       }

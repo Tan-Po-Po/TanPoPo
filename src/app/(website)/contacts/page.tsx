@@ -156,7 +156,11 @@ export default function Contacts() {
         </Suspense>
       </div>
 
-      <Divider firstRow="ЗВОРОТНІЙ ЗВ’ЯЗОК" bgColor={dividerBgColor} />
+      <Divider
+        firstRow="ЗВОРОТНІЙ ЗВ’ЯЗОК"
+        bgColor={dividerBgColor}
+        style={{ margin: "38px 0 " }}
+      />
 
       <ContentCard className={cl.formBlock} width="966px">
         <Typography variant="h4">Залишились питання?</Typography>
