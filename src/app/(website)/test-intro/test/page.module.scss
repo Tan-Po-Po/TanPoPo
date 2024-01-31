@@ -119,6 +119,10 @@
 
 .button {
   background-color: white;
+
+  img {
+    top: -5px !important;
+  }
 }
 
 @media (max-width: 1250px) {

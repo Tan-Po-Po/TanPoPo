@@ -30,8 +30,6 @@
         gap: 26px;
         a,
         p {
-          text-decoration: underline;
-
           font-size: 18px;
         }
 
@@ -41,11 +39,15 @@
       }
 
       .card1 {
-        // gap: 40px;
-
         .block {
           gap: 13px;
           @include flex-column;
+        }
+      }
+      .cardLinks {
+        a,
+        p {
+          text-decoration: underline;
         }
       }
 

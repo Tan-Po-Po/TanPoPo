@@ -74,6 +74,7 @@ export const ReviewsBlock = () => {
                   maxWidth: "272px",
                   width: "100%",
                   height: "100%",
+                  maxHeight: "436px",
                 }}
               />
             </CarouselItem>
