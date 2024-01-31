@@ -5,12 +5,9 @@ import { Props } from "./props";
 import { PodcastCard } from "./cards/podcastCard";
 import { ReelsCard } from "./cards/reelsCard";
 import { MusicCard } from "./cards/musicCard";
-
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { NewLabel } from "./newLabel/newLabel";
 import { ContentCard } from "@/components";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { getValidClassNames } from "@/helpers";
 
@@ -22,7 +19,8 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
     isNew: props.isNew,
   });
 
-  const isMobile = useWindowSize().width! < 767;
+  const { width } = useWindowSize();
+  const isMobile = width && width < 767;
 
   const handelClick = () => {
     openLibraryItem();

@@ -67,15 +67,16 @@
     margin: 0;
   }
   .pages {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 256px;
     justify-content: space-between;
-    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     column-gap: 14px;
   }
   .pagination {
     justify-content: space-between;
-    gap: 0;
+    gap: 10px;
     margin: 0 5px;
   }
 }

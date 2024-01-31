@@ -78,8 +78,8 @@ export const ArticleCard: React.FC<Props> = (props) => {
         ) : (
           <Carousel
             dots={false}
-            slidesToShow={width! < 612 ? 1 : 2}
-            centerMode={width! < 612}
+            slidesToShow={width && width < 612 ? 1 : 2}
+            centerMode={width ? width < 612 : false}
             focusOnSelect={false}
             className={cl.carousel}
             infinite={false}

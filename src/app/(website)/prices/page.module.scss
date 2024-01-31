@@ -8,10 +8,11 @@
 }
 
 .divider {
-  &:first-child {
-    padding: 7px 15px 0px !important;
-  }
   padding: 5px 15px !important;
+}
+
+.dividerTwo {
+  padding: 7px 15px 2px !important;
 }
 
 .header {
