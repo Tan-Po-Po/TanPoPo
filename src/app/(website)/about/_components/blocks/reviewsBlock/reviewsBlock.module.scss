@@ -22,7 +22,7 @@
 
     :global(.slick-slide) {
       > div {
-        margin: 2vw 3vw;
+        margin: 2vw calc(3vw + 3px);
       }
     }
   }

@@ -274,7 +274,7 @@ export const BioBlock = () => {
   return (
     <div className={cl.bioBlock}>
       <ContentCard
-        className={cl.imageContent}
+        className={getValidClassNames(cl.imageContent, cl.ceoImage)}
         labelClassName={cl.label}
         width="100%"
         labelPosition="bottom"
@@ -295,9 +295,9 @@ export const BioBlock = () => {
         <Image
           alt=""
           src={"/photos/kids.png"}
-          fill
-          sizes="100vw"
-          style={{ objectFit: "cover" }}
+          width={1920}
+          height={1080}
+          style={{ width: "100%", height: "auto" }}
           className={cl.image}
         />
       </ContentCard>

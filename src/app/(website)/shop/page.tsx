@@ -1,5 +1,5 @@
 import cl from "./page.module.scss";
-import { getIconArtSrc } from "@/helpers";
+import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import {
   ContentCard,
   Divider,
@@ -90,6 +90,7 @@ export default async function Shop() {
 
       <Divider
         className={cl.divider}
+        wrapperClassName={cl.dividerWrapperPartners}
         firstRow="МАГАЗИНИ ПАРТНЕРІВ"
         bgColor="linear-gradient(180deg, #FFE39A 0%, #C1A4FF 100%)"
       />
@@ -109,6 +110,7 @@ export default async function Shop() {
 
       <Divider
         className={cl.divider}
+        wrapperClassName={cl.dividerWrapperProducts}
         firstRow="ПРОДУКЦІЯ TANPOPO"
         bgColor="linear-gradient(180deg, #F0FF93 0%, #FFC683 100%)"
         id="products"

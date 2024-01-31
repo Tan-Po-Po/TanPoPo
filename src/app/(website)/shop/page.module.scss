@@ -12,10 +12,18 @@
 
   .divider {
     height: 35px;
-    padding: 0 15px;
+    padding: 5px 15px;
     span {
       line-height: normal;
     }
+  }
+
+  .dividerWrapperPartners {
+    margin: -33px 0 0;
+  }
+
+  .dividerWrapperProducts {
+    margin: -17px 0 0;
   }
 
   .introBlock {
@@ -32,10 +40,6 @@
       grid-row-start: 2;
       grid-row-end: 4;
     }
-  }
-
-  .divider {
-    padding: 5px 15px;
   }
 
   .dealBlock {

@@ -18,8 +18,32 @@
       display: flex;
       flex-direction: column;
       gap: 40px;
+
       .tile {
         background: transparent;
+        padding: 20px 26px;
+        height: 100px;
+        gap: 0;
+        justify-content: space-between;
+        max-width: 364px;
+
+        h5,
+        p {
+          line-height: normal;
+        }
+
+        h5 {
+          font-size: 25px;
+        }
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .column:nth-child(2) {
+      .tile {
+        min-width: 274px;
       }
     }
   }

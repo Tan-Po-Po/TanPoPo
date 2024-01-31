@@ -40,7 +40,13 @@ export const LinkCardsBlock = () => {
         {textContent.linkCardsBlock.map((card, i) => (
           <ContentCard width="376px" key={i}>
             <Typography variant="body1">{card.title}</Typography>
-            <Image alt="" src={card.image} width={500} height={300} />
+            <Image
+              alt=""
+              src={card.image}
+              width={500}
+              height={300}
+              className={cl.artIcon}
+            />
             <Button
               variant="outlined"
               icon={card.button.icon}
