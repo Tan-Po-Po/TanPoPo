@@ -65,6 +65,12 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
           Спочатку оберіть <u>Формат Навчання</u> та <u>К-сть уроків!</u>📚
         </div>
       ));
+    } else if (!isActiveStudent && !isNewStudent && !isGift) {
+      return toast(() => (
+        <div>
+          Ви бажаєте продовжити чи <br/>розповчати навчання? 📚
+        </div>
+      ));
     }
 
     if (isActiveStudent && cardState.link) {

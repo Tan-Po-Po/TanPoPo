@@ -163,7 +163,7 @@ export default function Home() {
               height={84}
             />
 
-            <Link href="/about#feedbacks">
+            <Link href="/about#reviews">
               <Button
                 className={cl.button}
                 variant="outlined"
