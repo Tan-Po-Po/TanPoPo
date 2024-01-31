@@ -197,22 +197,25 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
           isChecked={isGift}
         />
       )}
-
-      {course.type !== "book" && lessons && (
-        <div className={cl.checkboxWrapper}>
-          <Checkbox
-            className={cl.checkbox}
-            onClick={toggleAcceptation}
-            isChecked={isAccepted}
-          />
-          <Link href="/">
-            <Typography variant="body2">
-              Я ознайомлений з <Link href="/self-education">Навчальним Періодом</Link> для самостійних
-              курсів!
-            </Typography>
-          </Link>
-        </div>
-      )}
+      
+      <div>
+        {course.type !== "book" && lessons && !isGift && (
+          <div className={cl.checkboxWrapper}>
+            <Checkbox
+              className={cl.checkbox}
+              onClick={toggleAcceptation}
+              isChecked={isAccepted}
+            />
+            <Link href="/">
+              <Typography variant="body2">
+                Я ознайомлений з{" "}
+                <Link href="/self-education">Навчальним Періодом</Link> для
+                самостійних курсів!
+              </Typography>
+            </Link>
+          </div>
+        )}
+      </div>
 
       <ContentCard
         onClick={handleClick}
