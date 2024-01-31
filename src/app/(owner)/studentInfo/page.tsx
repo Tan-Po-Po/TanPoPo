@@ -20,7 +20,7 @@ export default function Page() {
 
   return (
     <main className={cl.main}>
-      <Suspense fallback="">
+      <Suspense fallback={<></>}>
         <Typography variant="h3" className={cl.header}>
           {searchParams.get("surname")} {searchParams.get("name")}{" "}
           <span style={{ fontWeight: "300" }}>({searchParams.get("age")})</span>

@@ -54,7 +54,7 @@ export default async function Home() {
 
       <Divider
         style={{ marginBottom: "50px" }}
-        className={cl.divider}
+        className={cl.dividerTwo}
         firstRow="онлайн-курси"
         secondRow="з сенсеєм"
         bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"

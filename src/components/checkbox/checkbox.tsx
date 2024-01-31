@@ -31,7 +31,17 @@ const iconChecked = (
 );
 
 const Checkbox: React.FC<Properties> = forwardRef(
-  ({ label, isChecked, isDisabled, isRequired, className, ...props }, ref) => {
+  (
+    {
+      label,
+      isChecked,
+      isDisabled,
+      isRequired,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     return label ? (
       <FormControlLabel
         control={

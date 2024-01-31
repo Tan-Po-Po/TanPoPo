@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { Typography } from "../typography/typography";
 import { Checkbox } from "../checkbox/checkbox";
 import { ContentCard } from "../contentCard/contentCard";
@@ -41,12 +41,12 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
 
   const handleNewStudentCheckbox = () => {
     if (isActiveStudent) setIsActiveStudent(false);
-    setIsNewStudent((prev) => !prev);
+    !isNewStudent && setIsNewStudent(true);
   };
 
   const handleActiveStudentCheckbox = () => {
     if (isNewStudent) setIsNewStudent(false);
-    setIsActiveStudent((prev) => !prev);
+    !isActiveStudent && setIsActiveStudent(true);
   };
 
   const handleClick = () => {
@@ -63,12 +63,6 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       return toast(() => (
         <div>
           Спочатку оберіть <u>Формат Навчання</u> та <u>К-сть уроків!</u>📚
-        </div>
-      ));
-    } else if (!isActiveStudent && !isNewStudent && !isGift) {
-      return toast(() => (
-        <div>
-          Ви бажаєте продовжити чи <br/>розповчати навчання? 📚
         </div>
       ));
     }
@@ -147,7 +141,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
           </Link>
         </div>
       )}
-      
+
       <ul className={cl.description}>
         {courseInfo.description.map((desc, index) => (
           <li key={index}>

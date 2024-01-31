@@ -5,6 +5,7 @@ import cl from "./pagination.module.scss";
 import { getValidClassNames } from "@/helpers";
 import ArrowButton from "../arrowButton/arrowButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 type Properties = {
   pages: number;
@@ -15,12 +16,13 @@ const PAGES_TO_SHOW = 10;
 const Pagination: React.FC<Properties> = ({ pages }) => {
   const params = useSearchParams();
   const pageParams = Number(params.get("page"));
+  const { width } = useWindowSize();
 
   const [activePage, setActivePage] = useState(pageParams || 1);
   const pagesArray = new Array(pages).fill(0);
   let index = 0;
 
-  if (pages > PAGES_TO_SHOW ?? window.innerWidth > 500) {
+  if (pages > PAGES_TO_SHOW ?? (width && width > 500)) {
     if (
       pages - activePage >= PAGES_TO_SHOW / 2 &&
       activePage > PAGES_TO_SHOW / 2
@@ -43,7 +45,7 @@ const Pagination: React.FC<Properties> = ({ pages }) => {
         <ArrowButton
           direction="left"
           onClick={() => {
-            if (activePage > 0) {
+            if (activePage > 1) {
               setActivePage((prev) => prev - 1);
               newParams.set("page", (activePage - 1).toString());
               router.push(`${pathname}?${newParams.toString()}`);
@@ -57,7 +59,7 @@ const Pagination: React.FC<Properties> = ({ pages }) => {
           className={cl.pages}
           style={{
             transform:
-              window?.innerWidth > 500 ? `translateX(${-60 * index}px)` : "",
+              width && width > 500 ? `translateX(${-60 * index}px)` : "",
           }}
         >
           {pagesArray.map((_, idx) => {
@@ -65,7 +67,7 @@ const Pagination: React.FC<Properties> = ({ pages }) => {
               <button
                 className={getValidClassNames(
                   cl.button,
-                  activePage === (idx + 1) && cl.active
+                  activePage === idx + 1 && cl.active
                 )}
                 key={idx}
                 onClick={() => {
@@ -84,7 +86,7 @@ const Pagination: React.FC<Properties> = ({ pages }) => {
         <ArrowButton
           direction="right"
           onClick={() => {
-            if (activePage < pages - 1) {
+            if (activePage < pages) {
               setActivePage((prev) => prev + 1);
               newParams.set("page", (activePage + 1).toString());
               router.push(`${pathname}?${newParams.toString()}`);
