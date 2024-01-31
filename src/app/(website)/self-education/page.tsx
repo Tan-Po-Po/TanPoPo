@@ -13,11 +13,15 @@ export default function Home() {
       <div className={cl.container}>
         <ContentCard width="850px" className={cl.card}>
           <div>
-            <Typography variant="h5" style={{ fontSize: "27px" }}>
+            <Typography variant="h5" style={{ fontSize: "28px" }}>
               Про навчальний період
             </Typography>
-            <Typography variant="h6" style={{ fontSize: "23px" }}>
-              {" "}для відеокурсів / аудіокурсів:
+            <Typography
+              variant="h6"
+              style={{ fontSize: "23px", lineHeight: "25px" }}
+            >
+              {" "}
+              для відеокурсів / аудіокурсів:
             </Typography>
           </div>
 
@@ -60,10 +64,14 @@ export default function Home() {
         <ContentCard
           width="510px"
           label={
-            <Typography variant="body1" style={{ fontSize: "19px" }}>
+            <Typography
+              variant="body1"
+              style={{ fontSize: "19px", textTransform: "uppercase" }}
+            >
               Навчальний Період
             </Typography>
           }
+          labelBgColor="linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)"
           className={cl.formulaCard}
         >
           <Typography variant="subtitle1">
@@ -74,9 +82,14 @@ export default function Home() {
             К-сть придбаних уроків * 5 днів
           </Typography>
 
-          <Typography variant="subtitle1" className={cl.explanation}>
+          <Typography
+            variant="subtitle1"
+            className={cl.explanation}
+            style={{ lineHeight: "21px" }}
+          >
             Наприклад: якщо Ви придбали 10 уроків, тоді 10 * 5 = 50 днів доступу
-            до курсу та всіх можливостей нашого навчання!
+            до курсу <br />
+            та всіх можливостей нашого навчання!
           </Typography>
         </ContentCard>
       </div>

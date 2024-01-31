@@ -4,6 +4,7 @@
 
 .header {
   margin-top: 70px;
+  text-transform: uppercase
 }
 
 .container {
@@ -35,11 +36,15 @@
   }
 
   .gold {
-    color: rgba(132, 103, 0, 1);
+    color: rgb(173 140 22);
   }
   .explanation {
     max-width: 355px;
   }
+}
+
+.formulaCard {
+  padding-top: 33px;
 }
 
 @media (max-width: 450px) {
@@ -56,5 +61,6 @@
   }
   .formulaCard {
     padding: 26px 10px;
+    padding-top: 33px;
   }
 }
