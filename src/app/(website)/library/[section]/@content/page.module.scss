@@ -1,7 +1,7 @@
 .contentMain {
   @include flex-column;
   width: 100%;
-  gap: 65px;
+  gap: 70px;
   margin-top: 36px;
 
   .cards {
@@ -12,6 +12,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+
+  .pagination {
+    margin-bottom: -60px;
   }
 }
 

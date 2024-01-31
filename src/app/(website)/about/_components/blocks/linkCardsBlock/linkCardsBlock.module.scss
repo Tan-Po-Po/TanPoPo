@@ -2,6 +2,7 @@
   @include flex-column;
   justify-content: space-between;
   gap: 62px;
+  width: 100%;
 
   .artIcon {
     margin: auto 0;
@@ -20,10 +21,8 @@
 .linkCards {
   display: flex;
   justify-content: center;
-  // align-items: stretch;
   gap: $gap-block-horizontal;
   width: 100%;
-  margin-bottom: 60px;
 }
 
 .carousel {

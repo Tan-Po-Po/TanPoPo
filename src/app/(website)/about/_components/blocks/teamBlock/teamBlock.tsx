@@ -2,7 +2,12 @@
 import { ITeamMember } from "@/models/TeamMember";
 import cl from "./teamBlock.module.scss";
 import { useState } from "react";
-import { Carousel, TeamMemberCard, Typography } from "@/components";
+import {
+  Carousel,
+  DialogGallery,
+  TeamMemberCard,
+  Typography,
+} from "@/components";
 import ArrowButton from "@/components/arrowButton/arrowButton";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
@@ -40,6 +45,8 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
       id="team"
       style={{ scrollMarginTop: "100px" }}
     >
+      <DialogGallery />
+
       <Typography variant="h3" style={{ marginBottom: "62px" }} align="center">
         КОМАНДА TANPOPO
       </Typography>

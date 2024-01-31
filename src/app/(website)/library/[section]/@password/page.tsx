@@ -49,7 +49,11 @@ const Password = () => {
             />
             <Typography variant="body2">
               Ти можеш знайти ключ на платформі нашої школи у своєму{" "}
-              <Link href={""} style={{ textDecoration: "underline" }}>
+              <Link
+                href={""}
+                target="_blank"
+                style={{ textDecoration: "underline" }}
+              >
                 {" "}
                 Особистому Кабінеті
               </Link>{" "}
