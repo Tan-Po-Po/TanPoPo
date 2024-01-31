@@ -94,6 +94,7 @@ const Page = () => {
       </Typography>
 
       <Image
+        className={cl.image}
         alt=""
         src={getIconArtSrc("team")}
         width={500}
@@ -317,7 +318,7 @@ const Page = () => {
         >
           <div className={cl.questionBlock}>
             <div className={cl.question}>
-              1. Яким рівнем володієте за кваліфікаційниміспитом з японської
+              1. Яким рівнем володієте за кваліфікаційним іспитом з японської
               мови JLPT?
             </div>
             <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>
@@ -459,7 +460,7 @@ const Page = () => {
           </div>
           <div className={cl.questionBlock}>
             <div className={cl.question}>
-              2. Чи маєте вищу освіту з японської філології абоперекладу? Якщо
+              2. Чи маєте вищу освіту з японської філології або перекладу? Якщо
               так, то який заклад та ступінь?
             </div>
             <div className={cl.inputs}>
@@ -777,8 +778,8 @@ const Page = () => {
 
           <div className={cl.questionBlock}>
             <div className={cl.question}>
-              7. Чи є у Вас ноутбук в робочому стані та чи Ви
-              маєтестабільне/гарне з’єднання до мережі Інтернет?
+              7. Чи є у Вас ноутбук в робочому стані та чи Ви маєте
+              стабільне/гарне з’єднання до мережі Інтернет?
             </div>
             <div className={cl.inputs}>
               <Controller
@@ -803,7 +804,7 @@ const Page = () => {
 
           <div className={cl.questionBlock}>
             <div className={cl.question}>
-              8. Якби робочий день складався б з 5-7 робочих годин,скільки днів
+              8. Якби робочий день складався б з 5-7 робочих годин, скільки днів
               на тиждень в такому випадку Вибули б готові працювати?
             </div>
             <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>
@@ -940,7 +941,7 @@ const Page = () => {
 
           <div className={cl.questionBlock}>
             <div className={cl.question}>
-              9. Чи маєте зараз можливість працюватив будь-який день тижня за
+              9. Чи маєте зараз можливість працювати в будь-який день тижня за
               різними годинами?
             </div>
             <div className={getValidClassNames(cl.inputs, cl.checkboxes)}>

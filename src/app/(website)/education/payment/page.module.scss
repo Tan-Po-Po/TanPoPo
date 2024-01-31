@@ -35,6 +35,8 @@
     grid-template-columns: 1fr 1fr;
     padding: 85px 55px 60px;
     align-items: stretch;
+    gap: 54px;
+
     .card {
       padding: 16px;
     }
@@ -52,6 +54,22 @@
 
   .totalSum {
     padding: 16px 24px;
+  }
+
+  .priceCard {
+    gap: 32px;
+
+    h6 {
+      font-size: 22px;
+    }
+
+    span {
+      color: $color-gray;
+    }
+
+    .totalSum {
+      height: 62px;
+    }
   }
 }
 
@@ -114,7 +132,8 @@
 }
 .thanksHeader {
   max-width: 720px;
-  margin-top: 55px;
+  margin-top: 84px;
+  line-height: normal;
   width: 100%;
   font-size: 22px;
 }

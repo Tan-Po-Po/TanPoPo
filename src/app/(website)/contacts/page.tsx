@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import cl from "./page.module.scss";
 
-const dividerBgColor = "linear-gradient(180deg, #FFF, #FAD26C 100%)";
+const dividerBgColor = "linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)";
 
 export default function Contacts() {
   return (
@@ -25,7 +25,10 @@ export default function Contacts() {
           style={{ maxWidth: "921px", width: "100%", height: "auto" }}
         />
         <div className={cl.cards}>
-          <ContentCard width="376px" className={getValidClassNames(cl.card, cl.card1)}>
+          <ContentCard
+            width="376px"
+            className={getValidClassNames(cl.card, cl.card1)}
+          >
             <div className={cl.block}>
               <Typography variant="h5">
                 {textContent.contactsBlock.card1.section1.tittle}
@@ -123,6 +126,7 @@ export default function Contacts() {
         firstRow={textContent.videoGuidesBlock.divider.line1}
         secondRow={textContent.videoGuidesBlock.divider.line2}
         bgColor={dividerBgColor}
+        className={cl.divider}
       />
 
       <VideoGuides />

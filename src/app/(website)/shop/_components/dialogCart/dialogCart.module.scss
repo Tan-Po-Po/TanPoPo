@@ -13,8 +13,9 @@
 
   .content {
     @include flex-column;
-    padding: 29px 55px;
+    padding: 29px 55px 40px 55px;
     border-radius: $border-radius;
+    gap: 40px;
   }
 
   .buttonWrapper {

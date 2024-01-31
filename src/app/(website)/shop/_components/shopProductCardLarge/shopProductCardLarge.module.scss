@@ -1,15 +1,29 @@
 .shopProductCardLargeMain {
   padding: 38px 30px 30px 30px;
   height: 818px;
-  gap: 12px;
+  gap: 2px;
   background: linear-gradient(
     180deg,
     rgba(255, 237, 232, 0.1) 0%,
     #fffbd8 100%
   );
-  // justify-content: space-evenly;
+
   justify-content: flex-start;
+
+  justify-content: space-between;
   scroll-margin-top: 100px;
+
+  .beforeCaptionBlockWrapper,
+  .afterCaptionBlockWrapper {
+    @include flex-column;
+    gap: 21px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .beforeCaptionBlockWrapper {
+    gap: 8px;
+  }
 
   .carousel {
     margin-bottom: -12px;
@@ -62,7 +76,6 @@
     text-align: start;
     text-indent: 2rem;
     align-items: flex-start;
-    margin: auto 0;
     span {
       line-height: normal;
     }
@@ -92,6 +105,9 @@
       padding-right: 27px;
       padding-left: 27px;
       height: 56px;
+      img {
+        top: -11px;
+      }
     }
 
     .soonOnMarket {

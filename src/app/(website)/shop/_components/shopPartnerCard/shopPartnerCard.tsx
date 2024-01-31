@@ -34,7 +34,7 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
       labelBgColor={labelTop.bgColor}
     >
       <div className={cl.nameCaptionWrapper}>
-        <Link href={href} className={cl.name}>
+        <Link href={href} target="_blank" className={cl.name}>
           <Image
             alt=""
             src={`${IMAGE_BASE_URL}/${logo.filename}`}

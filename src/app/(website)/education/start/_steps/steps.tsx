@@ -26,7 +26,7 @@ const Steps = () => {
           width="330px"
           index="1"
           indexBgColor="#FFCEC8"
-          cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #FFBEBE 100%)"
+          cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 51%, #FFBEBE 100%)"
         >
           <Typography variant="body1">
             {" "}

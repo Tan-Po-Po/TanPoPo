@@ -55,12 +55,14 @@ $memberCardGap: 56px;
     .education {
       flex-direction: row;
       max-width: 100%;
+      min-height: 274px;
 
       .educationItem {
         display: flex;
         flex-direction: column;
         gap: 50px;
         align-self: stretch;
+        flex: 1;
 
         .imageWrapper {
           display: flex;
@@ -97,7 +99,7 @@ $memberCardGap: 56px;
   transform: translate(-50%, -50%);
   z-index: 3;
   font-size: 22px;
-  padding: 6px 8px;
+  padding: 9px 6px 8px 6px;
   text-align: center;
   white-space: pre-line;
   text-wrap: nowrap;

@@ -1,7 +1,15 @@
 .main {
   @include flex-column;
   padding: $padding-page;
-  gap: 110px;
+  gap: 92px;
+
+  .divider {
+    padding: 6px 14px;
+
+    span {
+      line-height: normal;
+    }
+  }
 
   .contactsBlock {
     @include flex-column;
@@ -43,6 +51,7 @@
       }
     }
   }
+
   .faqBlock {
     @include flex-column;
     width: 100%;

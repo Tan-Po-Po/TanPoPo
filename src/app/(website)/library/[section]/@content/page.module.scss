@@ -2,6 +2,7 @@
   @include flex-column;
   width: 100%;
   gap: 100px;
+  margin-top: 36px;
 
   .cards {
     @include flex-row;

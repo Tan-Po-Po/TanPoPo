@@ -13,11 +13,7 @@ import {
 import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
-import {
-  getTextForSaleLabel,
-  validateDate,
-  getValidClassNames,
-} from "@/helpers/";
+import { getTextForSaleLabel, getValidClassNames } from "@/helpers/";
 import { useEffect, useState } from "react";
 import HeartIcon from "/public/icons/heart.svg";
 import {
@@ -139,69 +135,71 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
       className={cl.shopProductCardLargeMain}
       id={_id}
     >
-      <Carousel
-        slidesToShow={width! < 666 ? 1 : 2}
-        centerMode={width! < 666}
-        dots={false}
-        focusOnSelect={false}
-        className={cl.carousel}
-        useNumbers={false}
-      >
-        {gallery.map((item, i) => (
-          <CarouselItem
-            key={i}
-            isOutlined={true}
-            className={cl.carouselItem}
-            type={item.type}
-            onClick={() =>
-              dispatch(
-                openGalleryDialog({
-                  type: item.type,
-                  src:
-                    item.type === "image"
-                      ? `${IMAGE_BASE_URL}/${item.image.filename}`
-                      : item.video!,
-                })
-              )
-            }
-          >
-            <Image
-              alt=""
-              src={`${IMAGE_BASE_URL}/${item.image.filename}`}
-              fill
-              sizes="(max-width: 2400px) 215xp"
-              style={{ objectFit: "contain" }}
-            />
-          </CarouselItem>
-        ))}
-      </Carousel>
+      <div className={cl.beforeCaptionBlockWrapper}>
+        <Carousel
+          slidesToShow={width! < 666 ? 1 : 2}
+          centerMode={width! < 666}
+          dots={false}
+          focusOnSelect={false}
+          className={cl.carousel}
+          useNumbers={false}
+        >
+          {gallery.map((item, i) => (
+            <CarouselItem
+              key={i}
+              isOutlined={true}
+              className={cl.carouselItem}
+              type={item.type}
+              onClick={() =>
+                dispatch(
+                  openGalleryDialog({
+                    type: item.type,
+                    src:
+                      item.type === "image"
+                        ? `${IMAGE_BASE_URL}/${item.image.filename}`
+                        : item.video!,
+                  })
+                )
+              }
+            >
+              <Image
+                alt=""
+                src={`${IMAGE_BASE_URL}/${item.image.filename}`}
+                fill
+                sizes="(max-width: 2400px) 215xp"
+                style={{ objectFit: "contain" }}
+              />
+            </CarouselItem>
+          ))}
+        </Carousel>
 
-      {!isCertificates && (
-        <section className={cl.priceBlock}>
-          <div className={cl.price}>
-            {isOnSale && (
-              <span>
-                <Typography
-                  variant="h5"
-                  style={{ textDecoration: "line-through", color: "#343434" }}
-                >
-                  {price} грн
-                </Typography>
-              </span>
-            )}
-            <Typography variant="h5" style={{ color: "#343434" }}>
-              {sale?.price || price} грн
-            </Typography>
-          </div>
-          {isOnSale && (
-            <ContentCard width="fit-content" className={cl.date}>
-              <Typography variant="subtitle2" style={{ fontWeight: "700" }}>
-                {getTextForSaleLabel(new Date(sale!.until))}
+        {!isCertificates && (
+          <section className={cl.priceBlock}>
+            <div className={cl.price}>
+              {isOnSale && (
+                <span>
+                  <Typography
+                    variant="h5"
+                    style={{ textDecoration: "line-through", color: "#343434" }}
+                  >
+                    {price} грн
+                  </Typography>
+                </span>
+              )}
+              <Typography variant="h5" style={{ color: "#343434" }}>
+                {sale?.price || price} грн
               </Typography>
-            </ContentCard>
-          )}
-        </section>
-      )}
+            </div>
+            {isOnSale && (
+              <ContentCard width="fit-content" className={cl.date}>
+                <Typography variant="subtitle2" style={{ fontWeight: "700" }}>
+                  {getTextForSaleLabel(new Date(sale!.until))}
+                </Typography>
+              </ContentCard>
+            )}
+          </section>
+        )}
+      </div>
 
       <section className={cl.captionBlock}>
         {caption.map((line, i) => (
@@ -211,42 +209,44 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
         ))}
       </section>
 
-      <section className={cl.hashtagsBlock}>
-        {hashtags.map((tag, i) => (
-          <ContentCard key={i} width="fit-content" className={cl.tag}>
-            <Typography
-              variant="subtitle1"
-              style={{ fontWeight: "700", lineHeight: "1.3rem" }}
-            >
-              {tag}
-            </Typography>
-          </ContentCard>
-        ))}
-      </section>
+      <div className={cl.afterCaptionBlockWrapper}>
+        <section className={cl.hashtagsBlock}>
+          {hashtags.map((tag, i) => (
+            <ContentCard key={i} width="fit-content" className={cl.tag}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "700", lineHeight: "1.3rem" }}
+              >
+                {tag}
+              </Typography>
+            </ContentCard>
+          ))}
+        </section>
 
-      <Select
-        menuItems={variants}
-        handleSelect={(value: string) => setSelectValue(value)}
-      />
+        <Select
+          menuItems={variants}
+          handleSelect={(value: string) => setSelectValue(value)}
+        />
 
-      <div className={cl.buttonWrapper}>
-        {button}
-        <div className={cl.likes} onClick={handleLikeClick}>
-          <div
-            className={getValidClassNames(
-              cl.heartIcon,
-              productIsLiked && cl.liked
-            )}
-          >
-            <HeartIcon />
-          </div>
-          <div className={cl.amount}>
-            <Typography
-              variant="subtitle1"
-              style={{ color: "#4d4d4d", fontWeight: "700" }}
+        <div className={cl.buttonWrapper}>
+          {button}
+          <div className={cl.likes} onClick={handleLikeClick}>
+            <div
+              className={getValidClassNames(
+                cl.heartIcon,
+                productIsLiked && cl.liked
+              )}
             >
-              {likesAmount}
-            </Typography>
+              <HeartIcon />
+            </div>
+            <div className={cl.amount}>
+              <Typography
+                variant="subtitle1"
+                style={{ color: "#4d4d4d", fontWeight: "700" }}
+              >
+                {likesAmount}
+              </Typography>
+            </div>
           </div>
         </div>
       </div>
