@@ -8,7 +8,6 @@ import { CardFooter } from "../libraryItemCard/cardFooter/cardFooter";
 import { Media } from "./media/media";
 import { NewLabel } from "../libraryItemCard/newLabel/newLabel";
 import { Suspense, useEffect, useState } from "react";
-import { SERVER_URL } from "@/config/config";
 import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { getColor } from "@/helpers/getLibraryItemColors";
@@ -66,7 +65,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
     >
       {loading ? (
         <div className={cl.loader}>
-          <Loading heightAuto/>
+          <Loading heightAuto />
         </div>
       ) : !item ? (
         <Typography

@@ -8,11 +8,11 @@
 
   .dialogContent {
     padding: 30px 77px 73px;
-    overflow: visible;
 
     .certificate {
       justify-content: space-between;
       padding-top: 44px;
+      cursor: pointer;
       .caption {
         margin: auto;
       }
@@ -22,6 +22,9 @@
 
 @media (max-width: 767px) {
   .dialog {
+    :global(.MuiPaper-root) {
+      gap: 20px;
+    }
     .title {
       h3 {
         font-size: 28px;
@@ -31,6 +34,7 @@
     .dialogContent {
       flex-direction: column;
       height: fit-content;
+      padding: 30px 16px;
     }
   }
 }

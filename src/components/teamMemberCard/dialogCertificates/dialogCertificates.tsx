@@ -7,6 +7,8 @@ import { ITeamMember } from "@/models/TeamMember";
 import { getIconArtSrc } from "@/helpers";
 import { ContentCard } from "../..";
 import { IMAGE_BASE_URL } from "@/config/config";
+import { useAppDispatch } from "@/redux/hooks";
+import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 
 interface Props extends Pick<ITeamMember, "certificates"> {
   open: boolean;
@@ -18,6 +20,12 @@ export const DialogCertificates: React.FC<Props> = ({
   onClose,
   certificates,
 }) => {
+  const dispatch = useAppDispatch();
+
+  const handleOpenCertificateImage = (filename: string) => {
+    const src = `${IMAGE_BASE_URL}/${filename}`;
+    dispatch(openGalleryDialog({ type: "image", src }));
+  };
   return (
     <Dialog
       className={cl.dialog}
@@ -61,6 +69,7 @@ export const DialogCertificates: React.FC<Props> = ({
           labelBgColor="linear-gradient(180deg, #FFF 0%, #FFFBD9 100%)"
           cardBgColor="linear-gradient(180deg, #FFFAF9 0%, #FFFBD8 100%)"
           labelClassName={cl.certificateLabel}
+          onClick={() => handleOpenCertificateImage(certificate.image.filename)}
         >
           <ContentCard
             style={{

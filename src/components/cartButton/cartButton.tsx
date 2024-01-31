@@ -42,7 +42,12 @@ export const CartButton = () => {
     dispatch(openCartDialog());
   };
 
-  if (!amount || pathname.includes("test") || isOpen) {
+  if (
+    !amount ||
+    pathname.includes("test") ||
+    pathname.includes("/shop/checkout") ||
+    isOpen
+  ) {
     return;
   }
 

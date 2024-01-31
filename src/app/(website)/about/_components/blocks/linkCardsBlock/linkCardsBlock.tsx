@@ -13,55 +13,37 @@ export const LinkCardsBlock = () => {
 
   let cards;
 
-  if (isTablet) {
-    cards = (
-      <Carousel className={cl.carousel} slidesToShow={1} arrows={false}>
-        {textContent.linkCardsBlock.map((card, i) => (
-          <ContentCard width="376px" key={i} className={cl.contentCard}>
-            <Typography variant="body1">{card.title}</Typography>
-            <Image alt="" src={card.image} width={500} height={300} />
-            <Button
-              variant="outlined"
-              icon={card.button.icon}
-              className={cl.button}
-              wrapperClass={cl.btnWrapper}
-            >
-              <Link href={card.button.href} style={{ textDecoration: "none" }}>
-                <Typography variant="h6">{card.button.text}</Typography>
-              </Link>
-            </Button>
-          </ContentCard>
-        ))}
-      </Carousel>
-    );
-  } else {
-    cards = (
-      <>
-        {textContent.linkCardsBlock.map((card, i) => (
-          <ContentCard width="376px" key={i}>
-            <Typography variant="body1">{card.title}</Typography>
-            <Image
-              alt=""
-              src={card.image}
-              width={500}
-              height={300}
-              className={cl.artIcon}
-            />
-            <Button
-              variant="outlined"
-              icon={card.button.icon}
-              className={cl.button}
-              wrapperClass={cl.btnWrapper}
-            >
-              <Link href={card.button.href} style={{ textDecoration: "none" }}>
-                <Typography variant="h6">{card.button.text}</Typography>
-              </Link>
-            </Button>
-          </ContentCard>
-        ))}
-      </>
-    );
-  }
+  cards = (
+    <Carousel
+      className={cl.carousel}
+      slidesToShow={1}
+      arrows={false}
+      renderCarousel={isTablet}
+    >
+      {textContent.linkCardsBlock.map((card, i) => (
+        <ContentCard width="376px" key={i} className={cl.contentCard}>
+          <Typography variant="body1">{card.title}</Typography>
+          <Image
+            alt=""
+            src={card.image}
+            width={500}
+            height={300}
+            className={cl.artIcon}
+          />
+          <Button
+            variant="outlined"
+            icon={card.button.icon}
+            className={cl.button}
+            wrapperClass={cl.btnWrapper}
+          >
+            <Link href={card.button.href} style={{ textDecoration: "none" }}>
+              <Typography variant="h6">{card.button.text}</Typography>
+            </Link>
+          </Button>
+        </ContentCard>
+      ))}
+    </Carousel>
+  );
 
   return (
     <div className={cl.linkCardsBlock}>

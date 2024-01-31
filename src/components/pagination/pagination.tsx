@@ -9,11 +9,12 @@ import { useWindowSize } from "@uidotdev/usehooks";
 
 type Properties = {
   pages: number;
+  className?: string;
 };
 
 const PAGES_TO_SHOW = 10;
 
-const Pagination: React.FC<Properties> = ({ pages }) => {
+const Pagination: React.FC<Properties> = ({ pages, className }) => {
   const params = useSearchParams();
   const pageParams = Number(params.get("page"));
   const { width } = useWindowSize();
@@ -40,7 +41,7 @@ const Pagination: React.FC<Properties> = ({ pages }) => {
   const newParams = new URLSearchParams();
 
   return (
-    <div className={cl.pagination}>
+    <div className={getValidClassNames(cl.pagination, className)}>
       <button className={cl.triangleButton}>
         <ArrowButton
           direction="left"
