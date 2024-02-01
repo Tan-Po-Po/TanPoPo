@@ -23,6 +23,7 @@ const CoursesBlock: React.FC<Properties> = ({ courses }) => {
       infinite={false}
       centerMode
       numbersClass={cl.slideNumbers}
+      adaptiveHeight
     >
       {courses.map((course) => (
         <CourseCard course={course} key={course._id} />

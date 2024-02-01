@@ -10,14 +10,18 @@
 
 .carousel {
   width: 100vw !important;
-  
+
   .slideNumbers {
     position: relative;
-    z-index: -1;
   }
 
   :global(.slick-list) {
     overflow: visible;
+    z-index: 5;
+  }
+  
+  :global(.slick-track) {
+    align-items: start;
   }
 
   :global(.slick-slider) {
@@ -26,7 +30,6 @@
 
   :global(.slick-prev),
   :global(.slick-next) {
-    z-index: -1 !important;
     position: absolute;
   }
 }

@@ -92,9 +92,7 @@
     line-height: 16.73px;
     margin-right: 0;
     margin-bottom: 10px;
-    a {
-      text-decoration: underline;
-    }
+
     span {
       font-size: 15px;
       font-weight: 700;
@@ -107,6 +105,7 @@
       margin-left: 10px;
     }
   }
+
   .divider {
     display: flex;
     align-items: center;
@@ -128,11 +127,24 @@
 
   .checkboxWrapper {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     p {
       margin-left: 10px;
       text-align: left;
       max-width: 290px;
       font-size: 15px;
+    }
+  }
+
+  .giftCheckbox {
+    margin: 0;
+    margin-bottom: 10px;
+    span:last-child {
+      max-width: 100%;
+      width: 300px;
+      text-align: start;
+      font-size: 16px !important;
     }
   }
 }
@@ -141,7 +153,13 @@
   padding: 60px 35px;
   gap: 30px;
 
-  .megaHeader {
+  .giftCheckbox {
+    margin: 0;
+    margin-top: 10px;
+    margin-left: -11px;
+  }
+  .me
+  gaHeader {
     position: absolute;
     top: 0;
     left: 50%;
@@ -179,7 +197,7 @@
       }
     }
   }
-  
+
   .h6 {
     text-decoration: underline;
     font-size: 22px;
@@ -291,8 +309,6 @@
 }
 
 .book {
-  padding-bottom: 50px;
-
   .description {
     font-size: 16px;
   }
@@ -373,6 +389,38 @@
 }
 
 @media (max-width: 500px) {
+  .card {
+    width: 340px;
+
+    .checkboxWrapper {
+      span {
+        margin: 0;
+      }
+      p {
+        font-weight: 700;
+        margin-left: 0px;
+        font-size: 13.5px;
+        width: 260px;
+      }
+    }
+
+    .checkbox {
+      span {
+        max-width: 260px;
+      }
+      :global(.MuiTypography-root) {
+        font-size: 14.5px !important;
+        margin-left: 0px;
+      }
+    }
+    .giftCheckbox {
+      margin: 0;
+      span:last-child {
+        width: 260px;
+        font-size: 15px !important;
+      }
+    }
+  }
   .header {
     max-width: 275px;
     .name {
@@ -394,9 +442,6 @@
   }
 
   .book {
-    .select {
-      margin-bottom: 40px;
-    }
     .carousel {
       :global(.slick-prev) {
         left: 3%;

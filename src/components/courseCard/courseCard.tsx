@@ -47,17 +47,11 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
   const [isAccepted, setIsAccepted] = useState(false);
   const [link, setLink] = useState<null | string>(null);
 
-  const toggleGift = () => {
-    setIsGift((prev) => !prev);
-  };
-  const toggleAcceptation = () => {
-    setIsAccepted((prev) => !prev);
-  };
   const handleClick = () => {
     if (!lessons) {
       return toast("Спочатку оберіть К-сть уроків!📚");
     }
-    if (!isAccepted && !(course.type === "book")) {
+    if (!isAccepted && !(course.type === "book") && !isGift) {
       return toast("Спочатку ознайомтесь з навчальним періодом!📚");
     }
 
@@ -171,43 +165,43 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           setLessons(value);
           link && setLink(link);
         }}
-        checkbox
-        checkboxLabel="Подарунковий Сертифікат🎁"
-        setGift={toggleGift}
-        gift={isGift}
       />
 
-      {isGift && (
-        <Checkbox
-          label="Подарунковий Сертифікат🎁"
-          onClick={toggleGift}
-          isChecked={isGift}
-        />
-      )}
-
-      {course.type !== "book" && lessons && (
+      {course.type !== "book" && lessons && !isGift && (
         <div className={cl.checkboxWrapper}>
           <Checkbox
             className={cl.checkbox}
-            onClick={toggleAcceptation}
+            onClick={() => setIsAccepted((prev) => !prev)}
             isChecked={isAccepted}
           />
-          <Typography
-            variant="body2"
-            style={{ fontSize: "15px", textAlign: "start", maxWidth: "285px" }}
-          >
-            Я ознайомлений з{" "}
-            <Link
-              href="/self-education"
-              style={{ textDecoration: "unedrline" }}
+          <Link href="/self-education" target="_blank">
+            <Typography
+              variant="body2"
+              style={{
+                fontSize: "15px",
+                textAlign: "start",
+                maxWidth: "285px",
+              }}
             >
-              Навчальним Періодом
-            </Link>{" "}
-            для самостійних курсів!
-          </Typography>
+              Я ознайомлений з <u>Навчальним Періодом</u> для самостійних
+              курсів!
+            </Typography>
+          </Link>
         </div>
       )}
-
+      <div className={cl.checkboxWrapper}>
+        <Checkbox
+          label={
+            <Typography variant="subtitle1" className={cl.presentCheckbox}>
+              Подарунковий Сертифікат🎁
+            </Typography>
+          }
+          className={cl.giftCheckbox}
+          onClick={() => setIsGift((prev) => !prev)}
+          isChecked={isGift}
+        />
+      </div>
+      
       <ContentCard
         onClick={handleClick}
         className={getValidClassNames(

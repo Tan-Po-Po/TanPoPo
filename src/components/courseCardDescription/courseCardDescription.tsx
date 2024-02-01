@@ -59,7 +59,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
     if (!lessons) {
       return toast("Спочатку оберіть К-сть уроків!📚");
     }
-    if (!isAccepted) {
+    if (!isAccepted && !(course.type === "book") && !isGift) {
       return toast("Спочатку ознайомтесь з навчальним періодом!📚");
     }
 
@@ -184,19 +184,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
           setLessons(value);
           link && setLink(link);
         }}
-        checkbox
-        checkboxLabel="Подарунковий Сертифікат🎁"
-        setGift={toggleGift}
-        gift={isGift}
       />
-
-      {isGift && (
-        <Checkbox
-          label="Подарунковий Сертифікат🎁"
-          onClick={toggleGift}
-          isChecked={isGift}
-        />
-      )}
 
       <div>
         {course.type !== "book" && lessons && !isGift && (
@@ -206,19 +194,22 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
               onClick={toggleAcceptation}
               isChecked={isAccepted}
             />
-
-            <Typography variant="body2">
-              Я ознайомлений з{" "}
-              <Link
-                href="/self-education"
-                style={{ textDecoration: "unedrline" }}
-              >
-                Навчальним Періодом
-              </Link>{" "}
-              для самостійних курсів!
-            </Typography>
+            <Link href="/self-education" target="_blank">
+              <Typography variant="body2">
+                Я ознайомлений з <u>Навчальним Періодом</u> для самостійних
+                курсів!
+              </Typography>
+            </Link>
           </div>
         )}
+        <div className={cl.checkboxWrapper}>
+          <Checkbox
+            label="Подарунковий Сертифікат🎁"
+            onClick={toggleGift}
+            isChecked={isGift}
+            className={getValidClassNames(cl.checkbox, cl.giftCheckbox)}
+          />
+        </div>
       </div>
 
       <ContentCard
