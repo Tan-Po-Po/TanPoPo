@@ -275,6 +275,12 @@
 
 @media (max-width: 760px) {
   .testIntro {
+    padding-bottom: $padding-page-tablet-bottom;
+  }
+}
+
+@media (max-width: 760px) {
+  .testIntro {
     .icon {
       right: 0;
       left: calc(50% + 150px);
@@ -299,6 +305,7 @@
 @media (max-width: 665px) {
   .testIntro {
     padding: 45px 10px;
+    padding-bottom: $padding-page-mobile-bottom;
     gap: 50px;
     .bigImageBlock {
       img {

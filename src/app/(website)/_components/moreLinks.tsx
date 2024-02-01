@@ -53,6 +53,7 @@ export function MoreLinks({
             />
             <Button
               className={cl.button}
+              href="/contacts"
               variant="outlined"
               icon="contact"
               style={{ background: "linear-gradient(#FFF4CC1A, #FFF4CC)" }}
@@ -80,11 +81,12 @@ export function MoreLinks({
             />
             <Button
               className={cl.button}
+              href="/about#content"
               variant="outlined"
               icon="video"
               wrapperClass={cl.buttonWrapper}
             >
-              <Typography variant="h6"> Авторський Контент</Typography>
+              <Typography variant="h6">Авторський Контент</Typography>
             </Button>
           </ContentCard>
         </CarouselItem>
@@ -109,6 +111,7 @@ export function MoreLinks({
             />
             <Button
               className={cl.button}
+              href="/courses"
               variant="outlined"
               icon="bookPlay"
               style={{ background: "linear-gradient(#CCE0FF1A, #CCE0FF)" }}
@@ -135,6 +138,7 @@ export function MoreLinks({
             />
             <Button
               className={cl.button}
+              href="/about#reviews"
               variant="outlined"
               icon="personSpeak"
               wrapperClass={cl.buttonWrapper}
@@ -164,11 +168,12 @@ export function MoreLinks({
             />
             <Button
               className={cl.button}
+              href="/prices"
               variant="outlined"
               icon="coinsStack"
               style={{ background: "linear-gradient(#DFFFD81A, #DFFFD8)" }}
             >
-              <Typography variant="h6"> Вартість</Typography>
+              <Typography variant="h6">Вартість</Typography>
             </Button>
           </ContentCard>
         </CarouselItem>
@@ -190,11 +195,12 @@ export function MoreLinks({
             />
             <Button
               className={cl.button}
+              href="/about#team"
               variant="outlined"
               icon="person"
               wrapperClass={cl.buttonWrapper}
             >
-              <Typography variant="h6"> Команда TanPoPo</Typography>
+              <Typography variant="h6">Команда TanPoPo</Typography>
             </Button>
           </ContentCard>
         </CarouselItem>
@@ -216,6 +222,7 @@ export function MoreLinks({
           />
           <Button
             className={cl.button}
+            href="/courses"
             variant="outlined"
             icon="bookPlay"
             style={{ background: "linear-gradient(#CCE0FF1A, #CCE0FF)" }}
@@ -238,12 +245,13 @@ export function MoreLinks({
           />
           <Button
             className={cl.button}
+            href="/prices"
             variant="outlined"
             icon="coinsStack"
             style={{ background: "linear-gradient(#DFFFD81A, #DFFFD8)" }}
             wrapperClass={cl.wrapper}
           >
-            <Typography variant="h6"> Вартість</Typography>
+            <Typography variant="h6">Вартість</Typography>
           </Button>
         </ContentCard>
 
@@ -265,12 +273,13 @@ export function MoreLinks({
           />
           <Button
             className={cl.button}
+            href="/contacts"
             variant="outlined"
             icon="contact"
             style={{ background: "linear-gradient(#FFF4CC1A, #FFF4CC)" }}
             wrapperClass={cl.wrapper}
           >
-            <Typography variant="h6"> Контакти</Typography>
+            <Typography variant="h6">Контакти</Typography>
           </Button>
         </ContentCard>
 
@@ -289,12 +298,12 @@ export function MoreLinks({
               />
               <Button
                 className={cl.button}
+                href="/about#content"
                 variant="outlined"
                 icon="video"
                 wrapperClass={cl.buttonWrapper}
               >
                 <Typography variant="h6" style={{ fontSize: "20px" }}>
-                  {" "}
                   Авторський Контент
                 </Typography>
               </Button>
@@ -312,12 +321,12 @@ export function MoreLinks({
               />
               <Button
                 className={cl.button}
+                href="/about#team"
                 variant="outlined"
                 icon="person"
                 wrapperClass={cl.buttonWrapper}
               >
                 <Typography variant="h6" style={{ fontSize: "23px" }}>
-                  {" "}
                   Команда TanPoPo
                 </Typography>
               </Button>
@@ -336,6 +345,7 @@ export function MoreLinks({
               />
               <Button
                 className={cl.button}
+                href="/about#reviews"
                 variant="outlined"
                 icon="personSpeak"
                 wrapperClass={cl.buttonWrapper}

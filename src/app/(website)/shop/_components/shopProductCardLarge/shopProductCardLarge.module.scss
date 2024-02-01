@@ -7,9 +7,6 @@
     rgba(255, 237, 232, 0.1) 0%,
     #fffbd8 100%
   );
-
-  justify-content: flex-start;
-
   justify-content: space-between;
   scroll-margin-top: 100px;
 
@@ -43,6 +40,7 @@
         margin: 20px 34px;
       }
     }
+
     :global(.slick-prev) {
       left: 7px;
     }
@@ -58,7 +56,8 @@
   }
 
   .priceBlock {
-    height: 52px;
+    min-height: 52px;
+    justify-content: flex-end;
     .price {
       @include flex-row;
       gap: 8px;

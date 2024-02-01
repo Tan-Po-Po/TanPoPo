@@ -150,6 +150,8 @@
   .main {
     padding-left: 0px;
     padding-right: 0px;
+    padding-bottom: $padding-page-tablet-bottom;
+
     overflow: hidden;
     gap: 70px;
 
@@ -253,6 +255,8 @@
 
 @media (max-width: 767px) {
   .main {
+    padding-bottom: $padding-page-mobile-bottom;
+
     h3 {
       font-size: 25px;
     }

@@ -34,10 +34,13 @@ const PayNowResult: React.FC = () => {
 
       <RequisitesSmall className={cl.requisites} />
 
-      <Typography variant="subtitle1" style={{ textAlign: "center" }}>
-        Після того, як ми побачимо вашу оплату Ми якнайшвидше <br /> розпочнемо
-        пакувати ваше замовлення і надішлимо Вам <br /> повідомлення, коли
-        пакуночок почне прямувати до Вас!{" "}
+      <Typography
+        variant="subtitle1"
+        style={{ textAlign: "center", maxWidth: "579px" }}
+      >
+        Після того, як ми побачимо вашу оплату Ми якнайшвидше розпочнемо
+        пакувати ваше замовлення і надішлимо Вам повідомлення, коли пакуночок
+        почне прямувати до Вас!{" "}
       </Typography>
     </Suspense>
   );

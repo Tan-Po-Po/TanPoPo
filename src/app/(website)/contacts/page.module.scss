@@ -95,6 +95,8 @@
 
 @media (max-width: 1023px) {
   .main {
+    padding-bottom: $padding-page-tablet-bottom;
+
     .contactsBlock {
       h3 {
         font-size: 32px;
@@ -105,6 +107,7 @@
 
 @media (max-width: 767px) {
   .main {
+    padding-bottom: $padding-page-mobile-bottom;
     gap: 40px;
     .contactsBlock {
       h3 {
