@@ -122,6 +122,11 @@
   .checkoutMain {
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: $padding-page-tablet-bottom;
+  }
+
+  .checkoutMainResult {
+    padding-bottom: $padding-page-tablet-bottom;
   }
 }
 

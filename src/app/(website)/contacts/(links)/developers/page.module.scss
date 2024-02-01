@@ -48,6 +48,8 @@
 
 @media (max-width: 1023px) {
   .developers {
+    padding-bottom: $padding-page-tablet-bottom;
+
     .others {
       flex-direction: column;
       align-items: center;

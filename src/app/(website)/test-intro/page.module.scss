@@ -275,6 +275,12 @@
 
 @media (max-width: 760px) {
   .testIntro {
+    padding-bottom: $padding-page-tablet-bottom;
+  }
+}
+
+@media (max-width: 760px) {
+  .testIntro {
     .icon {
       right: 0;
       left: calc(50% + 150px);

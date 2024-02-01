@@ -74,6 +74,12 @@
 }
 
 @media (max-width: 800px) {
+  .formats {
+    margin-bottom: $padding-page-tablet-bottom;
+  }
+}
+
+@media (max-width: 800px) {
   .confetti {
     display: none;
   }

@@ -64,6 +64,12 @@
   }
 }
 
+@media (max-width: 1023px) {
+  .requisites {
+    padding-bottom: $padding-page-tablet-bottom;
+  }
+}
+
 @media (max-width: 800px) {
   .requisites {
     padding: 65px 10px;

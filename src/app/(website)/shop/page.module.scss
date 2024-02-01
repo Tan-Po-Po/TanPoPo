@@ -149,7 +149,9 @@
   .storeMain {
     padding-left: 14px;
     padding-right: 14px;
+    padding-bottom: $padding-page-tablet-bottom;
     gap: 100px;
+
     h3 {
       font-size: 32px;
     }
