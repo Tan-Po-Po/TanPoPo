@@ -18,11 +18,12 @@
 
     :global(.slick-next) {
       right: 50px;
-      transform: translate(-50%, -150%);
+      transform: translate(-50%, -190%) rotate(90deg);
     }
+
     :global(.slick-prev) {
-      right: 50px;
-      transform: translate(-50%, -150%) rotate(180deg);
+      left: 50px;
+      transform: translate(-50%, -150%) rotate(-90deg);
     }
 
     :global(.slick-slide) {

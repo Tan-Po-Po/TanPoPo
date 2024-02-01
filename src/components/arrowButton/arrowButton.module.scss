@@ -23,30 +23,26 @@
       svg {
         fill: $color-yellow;
         transform: scale(120%);
-        // -webkit-transform: scale(120%) rotate(90deg);
       }
     }
   }
 
   .right {
-    transform: rotate(90deg) !important;
-    // -webkit-transform: rotate(90deg);
-    top: 50%;
-    right: 60px;
+    transform: rotate(90deg);
+    // top: 50%;
+    // right: 60px;
   }
 
   .left {
-    top: 50%;
-    left: 60px;
-    transform: rotate(-90deg) !important;
-    // -webkit-transform: rotate(180deg);
+    // top: 50%;
+    // left: 60px;
+    transform: rotate(-90deg);
   }
 
   .disableHover:hover {
     svg {
       fill: transparent;
       transform: scale(1) rotate(90deg);
-      -webkit-transform: scale(1) rotate(90deg);
     }
   }
 }
