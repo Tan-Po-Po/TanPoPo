@@ -132,7 +132,10 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
           {name}
         </Typography>
       }
-      className={cl.shopProductCardLargeMain}
+      className={getValidClassNames(
+        cl.shopProductCardLargeMain,
+        name.includes("сертифікат") && cl.certificate
+      )}
       id={_id}
     >
       <div className={cl.beforeCaptionBlockWrapper}>

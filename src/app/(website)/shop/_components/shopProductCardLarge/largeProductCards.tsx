@@ -22,7 +22,7 @@ const LargeProductCards = ({
 
   return (
     <Carousel
-      className={cl.carousel}
+      className={cl.largeCarousel}
       slidesToShow={1}
       centerPadding="0px"
       dots={false}
@@ -33,24 +33,17 @@ const LargeProductCards = ({
       numbersClass={cl.numbers}
     >
       {products.map((item, i) =>
-        !item.large.available ? "" : <ShopProductCardLarge key={i} {...item} />
+        !item.large.available ? (
+          ""
+        ) : (
+          <ShopProductCardLarge
+            key={i}
+            {...item}
+          />
+        )
       )}
     </Carousel>
   );
 };
-
-// function getProductCards(products: IShopProduct[]) {
-//   let nodes: React.ReactNode[] = [];
-
-//   products.some((item, i) => {
-//     if (!item.large.available) {
-//       return false;
-//     }
-
-//     nodes.push(<ShopProductCardLarge key={i} {...item} />);
-//   });
-
-//   return nodes;
-// }
 
 export { LargeProductCards };

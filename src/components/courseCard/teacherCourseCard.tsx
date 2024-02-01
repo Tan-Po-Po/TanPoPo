@@ -22,9 +22,12 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
   const dispatch = useAppDispatch();
   const courseInfo = course.medium;
   const isMegaCourse = course.type === "mega";
-  const [isGift, setIsGift] = React.useState(false);
-  const [isNewStudent, setIsNewStudent] = React.useState(true);
-  const [isActiveStudent, setIsActiveStudent] = React.useState(false);
+  const [checkbox, setCheckbox] = React.useState<
+    "newStudent" | "activeStudent" | "gift"
+  >("newStudent");
+  const isGift = checkbox === "gift";
+  const isNewStudent = checkbox === "newStudent";
+  const isActiveStudent = checkbox === "activeStudent";
   const [cardState, setCardState] = React.useState<{
     learningFormat: "Міні-група" | "Індивідуально" | null;
     lessons: null | string;
@@ -34,20 +37,6 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
     lessons: null,
     link: null,
   });
-
-  const toggleGift = () => {
-    setIsGift((prev) => !prev);
-  };
-
-  const handleNewStudentCheckbox = () => {
-    if (isActiveStudent) setIsActiveStudent(false);
-    !isNewStudent && setIsNewStudent(true);
-  };
-
-  const handleActiveStudentCheckbox = () => {
-    if (isNewStudent) setIsNewStudent(false);
-    !isActiveStudent && setIsActiveStudent(true);
-  };
 
   const handleClick = () => {
     if (isMegaCourse && !cardState.lessons) {
@@ -62,7 +51,8 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
     ) {
       return toast(() => (
         <div>
-          Спочатку оберіть <u>Формат Навчання</u> та <u>К-сть уроків!</u>📚
+          Спочатку оберіть <u>Формат Навчання</u> <br />
+          та <u>К-сть уроків!</u>📚
         </div>
       ));
     }
@@ -109,7 +99,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       labelPosition="top"
       cardBgColor={courseInfo.bgColor}
       width="385px"
-      style={{ minHeight: 700 }}
+      style={{ minHeight: 725 }}
     >
       {isMegaCourse && (
         <div
@@ -210,10 +200,6 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
                   return { ...prev, lessons: value, link: link as string };
                 });
               }}
-              checkbox
-              checkboxLabel="Подарунковий Сертифікат🎁"
-              setGift={toggleGift}
-              gift={isGift}
               isDisabled={cardState.learningFormat === null}
               onClick={() =>
                 cardState.learningFormat === null
@@ -234,71 +220,68 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
                 return { ...prev, lessons: value, link: link as string };
               });
             }}
-            checkbox
-            checkboxLabel="Подарунковий Сертифікат🎁"
-            setGift={toggleGift}
-            gift={isGift}
           />
         )}
       </div>
 
-      {isGift ? (
-        <Checkbox
-          label={
-            <Typography variant="subtitle1" className={cl.presentCheckbox}>
-              Подарунковий Сертифікат🎁
-            </Typography>
-          }
-          onClick={toggleGift}
-          isChecked={isGift}
-        />
-      ) : (
-        cardState.learningFormat !== null &&
-        cardState.lessons !== null && (
-          <div>
-            <Checkbox
-              className={cl.checkbox}
-              label="Я розпочинаю онлайн-курс з
+      {cardState.learningFormat !== null && cardState.lessons !== null && (
+        <div>
+          <Checkbox
+            className={cl.checkbox}
+            label="Я розпочинаю онлайн-курс з
             сенсеєм школи TanPoPo вперше!"
-              isChecked={isNewStudent}
-              onClick={handleNewStudentCheckbox}
-            />
-            <div
-              className={cl.divider}
-              style={{ background: courseInfo.bgColor }}
-            >
-              <div className={cl.line}></div>
-              <Typography variant="body2" className={cl.text}>
-                Або
-              </Typography>
-              <div className={cl.line}></div>
-            </div>
-            <Checkbox
-              className={cl.checkbox}
-              label="Я вже маю розклад занять та
-            бажаю продовжити навчання!"
-              isChecked={isActiveStudent}
-              onClick={handleActiveStudentCheckbox}
-            />
+            isChecked={isNewStudent}
+            onClick={() => setCheckbox("newStudent")}
+          />
+          <div
+            className={cl.divider}
+            style={{ background: courseInfo.bgColor }}
+          >
+            <div className={cl.line}></div>
+            <Typography variant="body2" className={cl.text}>
+              Або
+            </Typography>
+            <div className={cl.line}></div>
           </div>
-        )
+          <Checkbox
+            className={cl.checkbox}
+            label="Я вже маю розклад занять та
+            бажаю продовжити навчання!"
+            isChecked={isActiveStudent}
+            onClick={() => setCheckbox("activeStudent")}
+          />
+        </div>
       )}
+
+      <Checkbox
+        label={
+          <Typography variant="subtitle1" className={cl.presentCheckbox}>
+            Подарунковий Сертифікат🎁
+          </Typography>
+        }
+        className={cl.giftCheckbox}
+        isChecked={isGift}
+        onClick={() =>
+          isGift ? setCheckbox("newStudent") : setCheckbox("gift")
+        }
+      />
+
       <ContentCard
         className={getValidClassNames(
           cl.bottomBtn,
           isNewStudent && !isGift && cl.startBtn,
-          isGift && cl.giftBtn,
-          !isGift && !isNewStudent && cl.continueBtn
+          isActiveStudent && !isGift && cl.continueBtn,
+          isGift && cl.giftBtn
         )}
         onClick={handleClick}
       >
         {isGift && (
           <Typography variant="body1">Навчання у Подарунок!</Typography>
         )}
-        {!isGift && isNewStudent && (
+        {isNewStudent && (
           <Typography variant="body1">Розпочати навчання!</Typography>
         )}
-        {!isGift && !isNewStudent && (
+        {isActiveStudent && (
           <Typography variant="body1">Продовжити навчання!</Typography>
         )}
       </ContentCard>

@@ -101,7 +101,11 @@
     width: 100%;
     max-width: 385px;
     background-color: $color-yellow;
-
+    padding-top: 40px;
+    @media (max-height: 600px) {
+      max-height: calc(100vh - 50px);
+      padding-top: 85px;
+    }
     scrollbar-width: none !important;
     ::-webkit-scrollbar {
       display: none;
@@ -117,7 +121,6 @@
     justify-content: space-between;
     width: 100%;
     align-items: flex-start;
-    padding: 40px 0;
     transition: all 0.6s ease-out;
 
     .menu {

@@ -64,7 +64,6 @@
     align-items: center;
     row-gap: 18px;
     margin: 5px 0px;
-
   }
   .select {
     width: 300px;
@@ -204,15 +203,26 @@
   justify-content: center;
   align-items: center;
   column-gap: 10px;
-  max-width: 400px;
-  a {
-    text-decoration: underline;
-  }
+  width: 400px;
+  max-width: 100%;
 }
+
 .checkbox {
   margin: 0 !important;
   :global(.MuiTypography-root) {
     max-width: 300px;
+  }
+}
+.giftCheckbox {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  max-width: 100%;
+  width: 345px;
+  .presentCheckbox {
+    font-weight: 700;
+    text-wrap: nowrap;
+    font-size: 15px;
   }
 }
 
@@ -329,7 +339,7 @@
 
 @media (max-width: 600px) {
   .card {
-    padding: 50px 12px;
+    padding: 50px 12px 40px;
 
     .bottomBtn {
       padding: 0 5px;
@@ -363,8 +373,17 @@
       text-align: center;
     }
   }
-  .video,
-  .audio {
-    width: 330px;
+  .card {
+    width: 340px;
+
+    .checkbox {
+      :global(.MuiTypography-root) {
+        margin-left: 0px;
+        font-size: 14.5px;
+      }
+    }
+  }
+  .giftCheckbox {
+    gap: 0;
   }
 }

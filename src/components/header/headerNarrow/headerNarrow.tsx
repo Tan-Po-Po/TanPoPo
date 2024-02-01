@@ -29,7 +29,10 @@ export const HeaderNarrow = () => {
   const handleOpen = () => {
     setIsOpen(true);
   };
-
+  const aboutBlockLinks = [
+    { ...aboutLinks[0], href: "/about" },
+    ...aboutLinks.slice(1),
+  ];
   return (
     <header className={cl.headerNarrow}>
       {!isOpen && <CartButton />}
@@ -78,7 +81,7 @@ export const HeaderNarrow = () => {
           <div className={cl.menu}>
             <Dropdown
               body="ПРО ШКОЛУ"
-              links={aboutLinks}
+              links={aboutBlockLinks}
               icon="building"
               onClick={handleClose}
             />
