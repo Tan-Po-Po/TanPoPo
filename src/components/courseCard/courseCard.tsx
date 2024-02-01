@@ -166,42 +166,47 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           link && setLink(link);
         }}
       />
-
-      {course.type !== "book" && lessons && !isGift && (
+      
+      <div className={cl.checkboxes}>
         <div className={cl.checkboxWrapper}>
           <Checkbox
-            className={cl.checkbox}
-            onClick={() => setIsAccepted((prev) => !prev)}
-            isChecked={isAccepted}
+            label={
+              <Typography variant="subtitle1" className={cl.presentCheckbox}>
+                Подарунковий Сертифікат🎁
+              </Typography>
+            }
+            className={cl.giftCheckbox}
+            onClick={() => setIsGift((prev) => !prev)}
+            isChecked={isGift}
           />
-          <Link href="/self-education" target="_blank">
-            <Typography
-              variant="body2"
-              style={{
-                fontSize: "15px",
-                textAlign: "start",
-                maxWidth: "285px",
-              }}
-            >
-              Я ознайомлений з <u>Навчальним Періодом</u> для самостійних
-              курсів!
-            </Typography>
-          </Link>
         </div>
-      )}
-      <div className={cl.checkboxWrapper}>
-        <Checkbox
-          label={
-            <Typography variant="subtitle1" className={cl.presentCheckbox}>
-              Подарунковий Сертифікат🎁
-            </Typography>
-          }
-          className={cl.giftCheckbox}
-          onClick={() => setIsGift((prev) => !prev)}
-          isChecked={isGift}
-        />
+        {course.type !== "book" && lessons && !isGift && (
+          <>
+            <div className={cl.line}></div>
+            <div className={cl.checkboxWrapper}>
+              <Checkbox
+                className={cl.checkbox}
+                onClick={() => setIsAccepted((prev) => !prev)}
+                isChecked={isAccepted}
+              />
+              <Link href="/self-education" target="_blank">
+                <Typography
+                  variant="body2"
+                  style={{
+                    fontSize: "15px",
+                    textAlign: "start",
+                    maxWidth: "285px",
+                  }}
+                >
+                  Я ознайомлений з <u>Навчальним Періодом</u> для самостійних
+                  курсів!
+                </Typography>
+              </Link>
+            </div>
+          </>
+        )}
       </div>
-      
+
       <ContentCard
         onClick={handleClick}
         className={getValidClassNames(

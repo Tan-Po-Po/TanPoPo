@@ -93,6 +93,21 @@
     }
   }
 
+  .checkboxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 103%;
+  }
+
+  .line {
+    height: 2px;
+    width: 180px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+    background-color: #565656;
+    margin: 5px auto 10px;
+  }
+
   .divider {
     display: flex;
     align-items: center;
@@ -205,6 +220,9 @@
   column-gap: 10px;
   width: 400px;
   max-width: 100%;
+  p {
+    font-weight: 700;
+  }
 }
 
 .checkbox {
@@ -380,6 +398,12 @@
       :global(.MuiTypography-root) {
         margin-left: 0px;
         font-size: 14.5px;
+      }
+    }
+    .checkboxWrapper {
+      gap: 0;
+      p {
+        font-size: 14px;
       }
     }
   }
