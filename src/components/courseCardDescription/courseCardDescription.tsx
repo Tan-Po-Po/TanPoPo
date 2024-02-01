@@ -187,21 +187,6 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       />
 
       <div>
-        {course.type !== "book" && lessons && !isGift && (
-          <div className={cl.checkboxWrapper}>
-            <Checkbox
-              className={cl.checkbox}
-              onClick={toggleAcceptation}
-              isChecked={isAccepted}
-            />
-            <Link href="/self-education" target="_blank">
-              <Typography variant="body2">
-                Я ознайомлений з <u>Навчальним Періодом</u> для самостійних
-                курсів!
-              </Typography>
-            </Link>
-          </div>
-        )}
         <div className={cl.checkboxWrapper}>
           <Checkbox
             label="Подарунковий Сертифікат🎁"
@@ -210,6 +195,25 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
             className={getValidClassNames(cl.checkbox, cl.giftCheckbox)}
           />
         </div>
+
+        {course.type !== "book" && lessons && !isGift && (
+          <>
+            <div className={cl.line}></div>
+            <div className={cl.checkboxWrapper}>
+              <Checkbox
+                className={cl.checkbox}
+                onClick={toggleAcceptation}
+                isChecked={isAccepted}
+              />
+              <Link href="/self-education" target="_blank">
+                <Typography variant="body2">
+                  Я ознайомлений з <u>Навчальним Періодом</u> для самостійних
+                  курсів!
+                </Typography>
+              </Link>
+            </div>
+          </>
+        )}
       </div>
 
       <ContentCard
