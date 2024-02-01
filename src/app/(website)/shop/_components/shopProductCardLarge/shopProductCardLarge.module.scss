@@ -42,11 +42,11 @@
     }
 
     :global(.slick-prev) {
-      left: 7px;
+      left: -9px;
     }
 
     :global(.slick-next) {
-      right: -18px;
+      right: -12px;
     }
 
     :global(.slick-prev),
@@ -177,7 +177,8 @@
 
       :global(.slick-next) {
         left: unset;
-        top: 150px;
+        top: 135px;
+        right: -20px;
       }
 
       :global(.slick-slider) {

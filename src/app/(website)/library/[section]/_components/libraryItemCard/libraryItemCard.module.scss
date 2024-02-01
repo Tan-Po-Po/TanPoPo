@@ -75,11 +75,11 @@ $padding-card: 55px 30px 18px 30px;
       }
     }
     :global(.slick-prev) {
-      left: 2%;
+      left: -2%;
     }
 
     :global(.slick-next) {
-      right: -3%;
+      right: -2%;
     }
   }
 
@@ -231,9 +231,10 @@ $padding-card: 55px 30px 18px 30px;
 
   .podcast {
     gap: 28px;
+    height: auto;
     .content {
       @include flex-column;
-      gap: 28px;
+      gap: 16px;
     }
   }
 
@@ -246,7 +247,7 @@ $padding-card: 55px 30px 18px 30px;
   .article,
   .articleSmall {
     :global(.slick-prev) {
-      left: 5% !important;
+      left: -1% !important;
     }
 
     :global(.slick-next) {
