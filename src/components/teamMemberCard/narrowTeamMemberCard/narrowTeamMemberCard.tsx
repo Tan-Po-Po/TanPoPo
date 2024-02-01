@@ -73,7 +73,12 @@ export const NarrowTeamMemberCard: React.FC<Props> = ({
             src={`${IMAGE_BASE_URL}/${image.filename}`}
             width={500}
             height={300}
-            style={{ width: "100%", height: "auto" }}
+            style={{
+              width: "100%",
+              maxWidth: "298px",
+              height: "auto",
+              maxHeight: " 241px",
+            }}
           />
         </ContentCard>
       </div>

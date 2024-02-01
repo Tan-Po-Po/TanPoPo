@@ -122,6 +122,11 @@
   .checkoutMain {
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: $padding-page-tablet-bottom;
+  }
+
+  .checkoutMainResult {
+    padding-bottom: $padding-page-tablet-bottom;
   }
 }
 
@@ -129,6 +134,7 @@
   .checkoutMain {
     padding-left: 9px;
     padding-right: 9px;
+    padding-bottom: $padding-page-mobile-bottom;
 
     .cart {
       border: unset;
@@ -147,5 +153,8 @@
         }
       }
     }
+  }
+  .checkoutMainResult {
+    padding-bottom: $padding-page-mobile-bottom;
   }
 }

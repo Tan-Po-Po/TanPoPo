@@ -9,17 +9,10 @@
     top: calc(100% - 10px);
   }
 
-  :global(.slick-track) {
-    align-items: flex-start;
-  }
-
-  :global(.slick-list) {
-    min-height: fit-content;
-    overflow: visible;
-  }
-
-  :global(.slick-slider) {
-    overflow: visible;
+  :global(.slick-prev),
+  :global(.slick-next) {
+    z-index: 1;
+    position: absolute;
   }
 
   .numbers {
@@ -28,9 +21,17 @@
     z-index: -1;
   }
 
-  :global(.slick-prev),
-  :global(.slick-next) {
-    z-index: -1 !important;
-    position: absolute;
+  :global(.slick-track) {
+    align-items: flex-start;
+  }
+
+  :global(.slick-list) {
+    min-height: fit-content;
+    overflow: visible;
+    z-index: 3;
+  }
+
+  :global(.slick-slider) {
+    overflow: visible;
   }
 }

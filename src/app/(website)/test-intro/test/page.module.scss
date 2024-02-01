@@ -141,6 +141,7 @@
 @media (max-width: 1023px) {
   .test {
     padding: 65px 10px;
+    padding-bottom: $padding-page-tablet-bottom;
     form {
       .subContainer {
         flex-direction: column;
@@ -152,6 +153,8 @@
 
 @media (max-width: 400px) {
   .test {
+    padding-bottom: $padding-page-mobile-bottom;
+
     > h3 {
       font-size: 30px;
     }

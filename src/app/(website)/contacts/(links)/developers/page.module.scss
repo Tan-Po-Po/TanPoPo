@@ -48,6 +48,8 @@
 
 @media (max-width: 1023px) {
   .developers {
+    padding-bottom: $padding-page-tablet-bottom;
+
     .others {
       flex-direction: column;
       align-items: center;
@@ -57,6 +59,8 @@
 
 @media (max-width: 767px) {
   .developers {
+    padding-bottom: $padding-page-mobile-bottom;
+
     .label {
       padding: 4px;
       h5 {

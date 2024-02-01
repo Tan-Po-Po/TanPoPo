@@ -30,7 +30,6 @@ const LargeProductCards = ({
       slideAmount={products.length}
       infinite={false}
       renderCarousel={width! < 1420}
-      // focusOnSelect={false}
       numbersClass={cl.numbers}
     >
       {products.map((item, i) =>
@@ -39,5 +38,19 @@ const LargeProductCards = ({
     </Carousel>
   );
 };
+
+// function getProductCards(products: IShopProduct[]) {
+//   let nodes: React.ReactNode[] = [];
+
+//   products.some((item, i) => {
+//     if (!item.large.available) {
+//       return false;
+//     }
+
+//     nodes.push(<ShopProductCardLarge key={i} {...item} />);
+//   });
+
+//   return nodes;
+// }
 
 export { LargeProductCards };
