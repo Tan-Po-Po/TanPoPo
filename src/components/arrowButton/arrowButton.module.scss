@@ -22,15 +22,15 @@
     &:hover {
       svg {
         fill: $color-yellow;
-        transform: scale(120%) rotate(90deg);
-        -webkit-transform: scale(120%) rotate(90deg);
+        transform: scale(120%);
+        // -webkit-transform: scale(120%) rotate(90deg);
       }
     }
   }
 
   .right {
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
+    transform: rotate(90deg) !important;
+    // -webkit-transform: rotate(90deg);
     top: 50%;
     right: 60px;
   }
@@ -38,8 +38,8 @@
   .left {
     top: 50%;
     left: 60px;
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
+    transform: rotate(-90deg) !important;
+    // -webkit-transform: rotate(180deg);
   }
 
   .disableHover:hover {
