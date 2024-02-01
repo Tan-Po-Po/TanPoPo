@@ -253,6 +253,8 @@
 
 @media (max-width: 767px) {
   .main {
+    padding-bottom: $padding-page-mobile-bottom;
+
     h3 {
       font-size: 25px;
     }

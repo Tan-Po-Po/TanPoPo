@@ -71,6 +71,8 @@
 
 @media (max-width: 767px) {
   .layout {
+    padding-bottom: $padding-page-mobile-bottom;
+
     .block1 {
       .links {
         flex-direction: column;

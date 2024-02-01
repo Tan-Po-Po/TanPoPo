@@ -28,6 +28,10 @@
       a {
         white-space: nowrap;
       }
+      span {
+        margin: 0 6px;
+        text-decoration: none !important;
+      }
     }
   }
 
@@ -86,15 +90,12 @@
 
 @media (max-width: 400px) {
   .narrowFooter {
+    padding: 25px 15px;
     .right {
       .linkWrapper {
         white-space: normal;
         a {
           width: min-content;
-        }
-        span {
-          margin: 0 6px;
-          text-decoration: none !important;
         }
       }
     }

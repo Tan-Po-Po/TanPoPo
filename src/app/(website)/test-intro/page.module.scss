@@ -299,6 +299,7 @@
 @media (max-width: 665px) {
   .testIntro {
     padding: 45px 10px;
+    padding-bottom: $padding-page-mobile-bottom;
     gap: 50px;
     .bigImageBlock {
       img {

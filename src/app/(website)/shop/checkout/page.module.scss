@@ -129,6 +129,7 @@
   .checkoutMain {
     padding-left: 9px;
     padding-right: 9px;
+    padding-bottom: $padding-page-mobile-bottom;
 
     .cart {
       border: unset;
@@ -147,5 +148,8 @@
         }
       }
     }
+  }
+  .checkoutMainResult {
+    padding-bottom: $padding-page-mobile-bottom;
   }
 }

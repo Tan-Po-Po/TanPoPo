@@ -84,7 +84,7 @@
   max-width: 1100px;
   width: 100%;
   height: fit-content;
-  gap: 70px;
+  gap: 69px;
 
   .text {
     display: flex;
@@ -626,6 +626,7 @@
     padding-left: 6px;
     padding-right: 6px;
     padding-top: 40px;
+    padding-bottom: $padding-page-mobile-bottom;
     gap: 75px;
   }
   .header {

@@ -57,6 +57,8 @@
 
 @media (max-width: 767px) {
   .developers {
+    padding-bottom: $padding-page-mobile-bottom;
+
     .label {
       padding: 4px;
       h5 {

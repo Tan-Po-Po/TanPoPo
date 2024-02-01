@@ -80,6 +80,9 @@
 }
 
 @media (max-width: 550px) {
+  .formats {
+    margin-bottom: $padding-page-mobile-bottom !important;
+  }
   .card {
     padding: 26px 10px;
   }

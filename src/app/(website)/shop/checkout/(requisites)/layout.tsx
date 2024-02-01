@@ -28,7 +28,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <section className={cl.resultBlock}>{children}</section>
 
-      <Typography variant="h6">Дякуємо, що обрали TanPoPo💛</Typography>
+      <Typography variant="h6" align="center">
+        Дякуємо, що обрали TanPoPo💛
+      </Typography>
     </div>
   );
 }

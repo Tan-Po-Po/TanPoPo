@@ -50,13 +50,15 @@ export const HeaderNarrow = () => {
             isTablet && cl.tablet
           )}
         >
-          {isMobile ? (
-            <>
-              Онлайн-школа <br /> японської мови
-            </>
-          ) : (
-            "Онлайн-школа японської мови"
-          )}
+          <Link href="/">
+            {isMobile ? (
+              <>
+                Онлайн-школа <br /> японської мови
+              </>
+            ) : (
+              "Онлайн-школа японської мови"
+            )}
+          </Link>
         </div>
         <div className={cl.burger} onClick={isOpen ? handleClose : handleOpen}>
           <div className={cl.background}>

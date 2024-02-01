@@ -9,6 +9,18 @@
     top: calc(100% - 10px);
   }
 
+  :global(.slick-prev),
+  :global(.slick-next) {
+    z-index: -1 !important;
+    position: absolute;
+  }
+
+  .numbers {
+    transform: translate(0, -14px);
+    position: relative;
+    z-index: -1;
+  }
+
   :global(.slick-track) {
     align-items: flex-start;
   }
@@ -20,17 +32,5 @@
 
   :global(.slick-slider) {
     overflow: visible;
-  }
-
-  .numbers {
-    transform: translate(0, -14px);
-    position: relative;
-    z-index: -1;
-  }
-
-  :global(.slick-prev),
-  :global(.slick-next) {
-    z-index: -1 !important;
-    position: absolute;
   }
 }
