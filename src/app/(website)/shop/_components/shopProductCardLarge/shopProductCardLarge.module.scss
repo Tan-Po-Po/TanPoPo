@@ -190,7 +190,7 @@
 @media (max-width: 666px) {
   .shopProductCardLargeMain {
     width: 342px;
-    height: auto;
+    height: 1050px;
     padding-left: 15px;
     padding-right: 15px;
 
@@ -205,10 +205,7 @@
     }
 
     .captionBlock {
-      span {
-        text-align: justify;
-        font-size: 15px;
-      }
+      margin: auto;
     }
 
     .hashtagsBlock {
@@ -220,6 +217,22 @@
     .labelBottom {
       span {
         font-size: 14px;
+      }
+    }
+  }
+  .certificate {
+    .captionBlock {
+      margin: 10px 0;
+      padding-right: 10px;
+      display: flex;
+      max-height: 385px;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: scroll;
+
+      span {
+        text-align: justify;
+        font-size: 15px;
       }
     }
   }

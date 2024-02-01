@@ -43,7 +43,7 @@ const Certificates: React.FC<Properties> = ({ header, className }) => {
           </>
         ) : (
           <Typography variant="body1" style={{ fontSize: "22px" }}>
-            <span style={{ fontSize: "30px", fontWeight: "700" }}>2</span> види
+            <span style={{ fontSize: "30px", fontWeight: "700" }}>2 </span> види
             сертифікату на вибір!
           </Typography>
         )}

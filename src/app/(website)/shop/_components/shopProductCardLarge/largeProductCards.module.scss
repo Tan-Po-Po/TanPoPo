@@ -1,4 +1,4 @@
-.carousel {
+.largeCarousel {
   width: 100%;
 
   :global(.slick-prev) {
@@ -22,7 +22,7 @@
   }
 
   :global(.slick-track) {
-    align-items: flex-start;
+    align-items: start;
   }
 
   :global(.slick-list) {

@@ -5,7 +5,7 @@ import cl from "./carousel.module.scss";
 import Slider from "react-slick";
 import ArrowButton from "../arrowButton/arrowButton";
 import { getValidClassNames } from "@/helpers";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Typography } from "..";
 
 type Props = {
@@ -108,7 +108,7 @@ const Carousel: React.FC<Props> = ({
     ),
     dotsClass: getValidClassNames("slick-dots", cl.dotsContainer),
     customPaging: () => <div className={cl.dot} id="carouselDot"></div>,
-    afterChange: function (index: number) {
+    afterChange: function (index: number,) {
       setActiveSlide(index);
     },
   };
