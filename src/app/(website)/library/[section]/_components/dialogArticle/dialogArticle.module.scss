@@ -126,11 +126,11 @@ $transition: all ease 0.2s;
     }
   }
   :global(.slick-prev) {
-    left: 2%;
+    left: -3%;
   }
 
   :global(.slick-next) {
-    right: -7%;
+    right: -6%;
   }
 }
 
@@ -145,6 +145,16 @@ $transition: all ease 0.2s;
       margin-left: 3px;
       margin-right: 3px;
       margin-bottom: 0;
+    }
+
+    .carousel {
+      :global(.slick-prev) {
+        left: 0%;
+      }
+
+      :global(.slick-next) {
+        right: -1%;
+      }
     }
   }
 }

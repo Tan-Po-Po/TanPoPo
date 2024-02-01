@@ -24,7 +24,6 @@ export const AudioButton: React.FC<Props> = ({
       className={getValidClassNames(cl.audioButton, className && className)}
       onClick={onClick}
     >
-
       <div className={cl.triangleBtn}>
         <TriangleIcon />
       </div>

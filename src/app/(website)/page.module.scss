@@ -385,6 +385,7 @@
     padding: 16px;
   }
   .arrow {
+    position: relative;
     svg {
       transition: 0.3s ease-in-out;
       &:hover {
@@ -590,7 +591,7 @@
         position: absolute;
         top: 50%;
         right: -50%;
-        transform: translate(-180%, -50%);
+        transform: translate(-225%, -50%);
         z-index: 2;
       }
     }

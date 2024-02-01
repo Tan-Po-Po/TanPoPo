@@ -52,16 +52,13 @@
   }
 
   :global(.slick-prev) {
-    top: 50%;
-    left: 60px;
-    transform: translate(-50%, -75%) rotate(180deg);
+    top: 44%;
+    left: 36px;
   }
 
   :global(.slick-next) {
-    transform: rotate(0);
-    top: 50%;
-    right: 26px;
-    transform: translate(-50%, -80%);
+    top: 40%;
+    right: 36px;
   }
 }
 
@@ -76,9 +73,9 @@
   }
   :global(.slick-prev) {
     position: absolute;
-    top: calc(100% - 10px);
+    top: calc(100% - 3px);
     left: calc(50% - 50px);
-    transform: translate(-50%, -120%) rotate(180deg);
+    transform: translate(-50%, -120%) rotate(-90deg);
 
     svg {
       stroke: $color-gray-59;
@@ -86,10 +83,9 @@
   }
 
   :global(.slick-next) {
-    transform: rotate(0);
-    top: calc(100% - 10px);
+    top: calc(100% - 16px);
     left: calc(50% + 50px);
-    transform: translate(-50%, -120%);
+    transform: translate(-50%, -120%) rotate(90deg);
 
     svg {
       stroke: $color-gray-59;

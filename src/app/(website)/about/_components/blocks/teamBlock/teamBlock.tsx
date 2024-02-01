@@ -55,13 +55,7 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
           <TeamMemberCard teamMember={teamMembers[index]} />
 
           <div className={cl.navigation}>
-            <ArrowButton
-              direction="left"
-              onClick={handleLeftArrowClick}
-              style={{
-                transform: "rotate(180deg)",
-              }}
-            />
+            <ArrowButton direction="left" onClick={handleLeftArrowClick} />
             <Typography variant="h4">
               {index + 1} / {teamSize}
             </Typography>
