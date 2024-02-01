@@ -23,12 +23,14 @@
       svg {
         fill: $color-yellow;
         transform: scale(120%) rotate(90deg);
+        -webkit-transform: scale(120%) rotate(90deg);
       }
     }
   }
 
   .right {
     transform: rotate(0);
+    -webkit-transform: rotate(0);
     top: 50%;
     right: 60px;
   }
@@ -37,12 +39,14 @@
     top: 50%;
     left: 60px;
     transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
   }
 
   .disableHover:hover {
     svg {
       fill: transparent;
       transform: scale(1) rotate(90deg);
+      -webkit-transform: scale(1) rotate(90deg);
     }
   }
 }
