@@ -21,8 +21,11 @@ export const validateKey = async (key: string) => {
 };
 
 export const setLibraryKeyToCookies = (key: string) => {
-  let expirationDate = new Date();
-  expirationDate.setTime(expirationDate.getTime() + 30 * 24 * 60 * 60 * 1000);
+  const expirationDate = new Date();
+  const daysToExpire = 60;
+  expirationDate.setTime(
+    expirationDate.getTime() + daysToExpire * 24 * 60 * 60 * 1000
+  );
 
   cookies().set("libraryKey", key, { expires: expirationDate });
 };
