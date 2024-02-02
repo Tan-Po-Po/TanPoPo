@@ -16,7 +16,7 @@ import dbConnect from "@/config/dbConnect";
 import { IShopProduct } from "@/models/ShopProduct";
 import ShopProduct from "@/models/ShopProduct";
 
-export const revalidate = 3600;
+export const revalidate = 600;
 
 const getShopItems = async () => {
   try {
