@@ -1,5 +1,5 @@
 import cl from "./page.module.scss";
-import { getIconArtSrc, getValidClassNames } from "@/helpers";
+import { getIconArtSrc } from "@/helpers";
 import {
   ContentCard,
   Divider,
@@ -16,7 +16,7 @@ import dbConnect from "@/config/dbConnect";
 import { IShopProduct } from "@/models/ShopProduct";
 import ShopProduct from "@/models/ShopProduct";
 
-export const revalidate = 0;
+export const revalidate = 600;
 
 const getShopItems = async () => {
   try {
