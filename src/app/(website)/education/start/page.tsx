@@ -170,19 +170,23 @@ export default function Page() {
           </Link>
         </Typography>
       </div>
-      
+
       <div className={cl.continue}>
         <div className={cl.line}></div>
         {isAccepted ? (
           <Link href="/education/start/schedule">
-            <Button className={cl.btn} icon="triangleButton" variant="outlined">
+            <Button
+              className={cl.btn}
+              icon="triangleButtonRight"
+              variant="outlined"
+            >
               Продовжити
             </Button>
           </Link>
         ) : (
           <Button
             className={cl.btn}
-            icon="triangleButton"
+            icon="triangleButtonRight"
             variant="outlined"
             onClick={() =>
               toast(

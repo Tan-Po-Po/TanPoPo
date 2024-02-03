@@ -67,26 +67,24 @@ export default function Page() {
     if (course.format === "Міні-група") {
       setValue("lessonsPerWeek", 2);
       if (counter < 12) {
-        return toast(
-          () => (
-            <div
-              style={{
-                width: "fit-content",
-                fontSize: "20px",
-                textAlign: "center",
-                margin: "auto",
-              }}
-            >
-              Просимо Вас обрати хоча б <u>12 часових проміжків</u>
-              <br />
-              категорій: <u>“Може бути”</u> або <u>“Ідеально”</u>,
-              <br />
-              щоб ми мали можливість швидше сформувати
-              <br />
-              зручний для всіх графік занять!☑
-            </div>
-          )
-        );
+        return toast(() => (
+          <div
+            style={{
+              width: "fit-content",
+              fontSize: "20px",
+              textAlign: "center",
+              margin: "auto",
+            }}
+          >
+            Просимо Вас обрати хоча б <u>12 часових проміжків</u>
+            <br />
+            категорій: <u>“Може бути”</u> або <u>“Ідеально”</u>,
+            <br />
+            щоб ми мали можливість швидше сформувати
+            <br />
+            зручний для всіх графік занять!☑
+          </div>
+        ));
       }
     } else {
       if (!lessonsPerWeek) {
@@ -208,7 +206,12 @@ export default function Page() {
           </ContentCard>
         )}
 
-        <Typography variant="h3" align="center" style={{ marginTop: "100px" }} className={cl.scheduleHeader}>
+        <Typography
+          variant="h3"
+          align="center"
+          style={{ marginTop: "100px" }}
+          className={cl.scheduleHeader}
+        >
           Зручне формування розкладу навчання:
         </Typography>
 
@@ -243,7 +246,7 @@ export default function Page() {
 
           <Button
             className={getValidClassNames(cl.btn)}
-            icon="triangleButton"
+            icon="triangleButtonRight"
             variant="outlined"
             type="submit"
             onClick={async () => {
