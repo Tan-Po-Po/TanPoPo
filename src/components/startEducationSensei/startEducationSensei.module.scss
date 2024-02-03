@@ -26,6 +26,7 @@
       width: 36px;
       height: 37px;
       margin: 0 40px;
+      transform: rotate(90deg);
     }
 
     .card {
@@ -156,7 +157,7 @@
         width: 100%;
       }
     }
-    
+
     .startHeader {
       flex-direction: column;
       justify-content: center;
