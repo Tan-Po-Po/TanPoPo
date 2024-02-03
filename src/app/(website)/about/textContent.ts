@@ -172,7 +172,7 @@ export const textContent = {
       image: getIconArtSrc("store"),
       button: {
         text: "Крамниця",
-        href: "/store",
+        href: "/shop",
         icon: "shop",
       },
     },
