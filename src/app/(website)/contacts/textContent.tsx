@@ -69,7 +69,7 @@ export const textContent = {
             }
           </>
         ),
-        href: "/",
+        href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
           " linear-gradient(180deg, #FFEDAD 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -82,7 +82,7 @@ export const textContent = {
             ОПЛАТА, РЕЄСТРАЦІЯ ТА ПОЧАТОК НАВЧАННЯ.
           </>
         ),
-        href: "/",
+        href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
           "linear-gradient(180deg, #FFADB7 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -95,7 +95,7 @@ export const textContent = {
             ОПЛАТА, РЕЄСТРАЦІЯ ТА <br /> ПОЧАТОК НАВЧАННЯ.
           </>
         ),
-        href: "/",
+        href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
           "linear-gradient(180deg, #E5ADFF 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -112,7 +112,7 @@ export const textContent = {
             КУРСІВ <br /> В ОСОБИСТОМУ КАБІНЕТІ
           </>
         ),
-        href: "/",
+        href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
           "linear-gradient(180deg, #DBFFAD 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -125,7 +125,7 @@ export const textContent = {
             </b>
           </>
         ),
-        href: "/",
+        href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
           "linear-gradient(180deg, #F4ADFF 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -138,7 +138,7 @@ export const textContent = {
             <br /> ТА ПЕРЕВІРКА ДОМАШНІХ <br /> ЗАВДАНЬ НА НАШІЙ ПЛАТФОРМІ
           </>
         ),
-        href: "/",
+        href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
           "linear-gradient(180deg, #ADBFFF 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -152,7 +152,7 @@ export const textContent = {
             <br /> НАШИХ ПАРТНЕРІВ?
           </>
         ),
-        href: "/",
+        href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
           "linear-gradient(180deg, #ADF5FF 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -167,7 +167,7 @@ export const textContent = {
             ДЛЯ ПРОДУКЦІЇ TANPOPO?
           </>
         ),
-        href: "/",
+        href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
           "linear-gradient(180deg, #ADFFCE 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
@@ -182,7 +182,7 @@ export const textContent = {
             НА ОБРАНИЙ КУРС?
           </>
         ),
-        href: "/",
+        href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
           "linear-gradient(180deg, #FDFFAD 0%, rgba(255, 255, 255, 0.00) 100%)",
       },

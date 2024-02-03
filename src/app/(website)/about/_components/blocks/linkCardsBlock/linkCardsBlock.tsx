@@ -9,7 +9,7 @@ import { useAppSelector } from "@/redux/hooks";
 import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
 export const LinkCardsBlock = () => {
-  const { isPc, isTablet } = useAppSelector(selectWindowMatchMedia);
+  const { isTablet } = useAppSelector(selectWindowMatchMedia);
 
   let cards;
 

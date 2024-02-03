@@ -86,7 +86,7 @@ export default function Join() {
                   dispatch(
                     openGalleryDialog({
                       type: "video",
-                      src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                      src: "https://www.youtube.com/watch?v=8ypRvNZhocU",
                     })
                   )
                 }
@@ -124,7 +124,7 @@ export default function Join() {
                   dispatch(
                     openGalleryDialog({
                       type: "video",
-                      src: "https://www.youtube.com/watch?v=fNFzfwLM72c",
+                      src: "https://www.youtube.com/watch?v=8ypRvNZhocU",
                     })
                   )
                 }

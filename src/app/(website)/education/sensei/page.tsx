@@ -31,7 +31,7 @@ export default function Page() {
           dispatch(
             openGalleryDialog({
               type: "video",
-              src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+              src: "https://www.youtube.com/watch?v=8ypRvNZhocU",
             })
           )
         }
