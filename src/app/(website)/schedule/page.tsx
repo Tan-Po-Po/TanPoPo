@@ -221,7 +221,7 @@ export default function Page() {
 
           <Button
             className={getValidClassNames(cl.btn)}
-            icon="triangleButton"
+            icon="triangleButtonRight"
             variant="outlined"
             type="submit"
             onClick={async () => {

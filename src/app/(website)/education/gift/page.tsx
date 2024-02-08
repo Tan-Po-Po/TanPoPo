@@ -294,7 +294,7 @@ export default function Page() {
 
           <Button
             className={cl.btn}
-            icon="triangleButton"
+            icon="triangleButtonRight"
             variant="outlined"
             type="submit"
             onClick={handleClick}
