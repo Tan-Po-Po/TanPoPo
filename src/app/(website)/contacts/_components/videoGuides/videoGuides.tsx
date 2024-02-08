@@ -30,7 +30,6 @@ const VideoGuides = () => {
           className={cl.carousel}
           infinite={false}
           centerMode
-          id="videoGuides"
         >
           {textContent.videoGuidesBlock.cards.map((card, i) => (
             <CarouselItem key={i}>
@@ -56,7 +55,7 @@ const VideoGuides = () => {
           ))}
         </Carousel>
       ) : (
-        <div className={cl.videoGuidesBlock} id="videoGuides">
+        <div className={cl.videoGuidesBlock}>
           {textContent.videoGuidesBlock.cards.map((card, i) => (
             <ContentCard
               key={i}

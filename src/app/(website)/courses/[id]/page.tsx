@@ -4,6 +4,11 @@ import Course, { ICourse } from "@/models/Course";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
 import { notFound } from "next/navigation";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Опис курсу | Tanpopo',
+}
 
 async function getCourse(id: string): Promise<ICourse> {
   await dbConnect();

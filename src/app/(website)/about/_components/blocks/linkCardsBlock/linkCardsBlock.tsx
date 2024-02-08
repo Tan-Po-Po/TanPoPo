@@ -5,11 +5,11 @@ import { textContent } from "../../../textContent";
 import cl from "./linkCardsBlock.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export const LinkCardsBlock = () => {
-  const { isTablet } = useAppSelector(selectWindowMatchMedia);
+  const {width} = useWindowSize()
+  const isTablet = Boolean(width && width >= 678 && width < 1024)
 
   let cards;
 

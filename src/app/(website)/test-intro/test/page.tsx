@@ -27,7 +27,10 @@ export default function Test() {
   const [loading, setLoading] = useState(true);
   const [levelIndex, setLevelIndex] = useState(0);
   const [testIndex, setTestIndex] = useState(0);
-  const [testResult, setTestResult] = useState<null | string>(null);
+  const [testResult, setTestResult] = useState({
+    activeLevel: "",
+    nextLevel: "",
+  });
 
   const level = textContent[levelIndex];
   const test = level.tests[testIndex];
@@ -64,7 +67,7 @@ export default function Test() {
     });
 
     let i = 0;
-    for (const [key, value] of Object.entries(answers)) {
+    for (const [_key, value] of Object.entries(answers)) {
       if (i === test.subquestions.length) {
         break;
       }
@@ -74,30 +77,35 @@ export default function Test() {
       }
     }
 
-    if (
-      testIndex === level.tests.length - 1 &&
-      points.current >= pointsToProceed
-    ) {
-      if (levelIndex === textContent.length - 1) {
-        setTestResult(level.level);
-        return;
-      }
+    // for the last question on this level
+    if (testIndex === level.tests.length - 1) {
+      if (points.current >= pointsToProceed) {
+        if (levelIndex === textContent.length - 1) {
+          setTestResult({ activeLevel: level.level, nextLevel: level.level });
+          return;
+        }
 
-      setLevelIndex((prevIndex) => prevIndex + 1);
-      setTestIndex(0);
-      points.current = 0;
-      return;
-    } else if (
-      testIndex === level.tests.length - 1 &&
-      points.current < pointsToProceed
-    ) {
-      if (levelIndex === textContent.length - 1) {
-        setTestResult(textContent[levelIndex - 1].level);
+        setLevelIndex((prevIndex) => prevIndex + 1);
+        setTestIndex(0);
+        points.current = 0;
+        setLoading(true);
+        setTimeout(() => setLoading(false), 2000);
         return;
+      } else if (points.current < pointsToProceed) {
+        if (levelIndex === 0) {
+          setTestResult({
+            activeLevel: "N0",
+            nextLevel: textContent[levelIndex].level,
+          });
+          return;
+        } else {
+          setTestResult({
+            activeLevel: textContent[levelIndex - 1].level,
+            nextLevel: textContent[levelIndex].level,
+          });
+          return;
+        }
       }
-
-      setTestResult(level.level);
-      return;
     }
 
     setTestIndex((prevIndex) => prevIndex + 1);
@@ -108,7 +116,7 @@ export default function Test() {
     return <Loading />;
   }
 
-  if (testResult) {
+  if (testResult.activeLevel) {
     return (
       <div className={cl.test}>
         <Result result={testResult} />

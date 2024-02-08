@@ -1,7 +1,11 @@
 import { Typography } from "@/components";
 import cl from "./page.module.scss";
 import { LibraryTable } from "@/components/libraryTable/libraryTable";
-
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Бібліотека | Tanpopo',
+}
 const Library = () => {
   return (
     <main className={cl.libraryMain}>

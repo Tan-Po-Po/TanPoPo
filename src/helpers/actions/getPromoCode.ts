@@ -19,9 +19,9 @@ export const getPromoCode = async (
     if (codeDB.oneTimeUse || validateDate(codeDB.date)) {
       return JSON.parse(JSON.stringify(codeDB));
     }
+    return null;
   } catch (error: any) {
     error.message ? console.log(error.message) : console.log(error);
-  } finally {
     return null;
   }
 };

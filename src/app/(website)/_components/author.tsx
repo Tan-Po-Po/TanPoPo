@@ -1,5 +1,5 @@
 import cl from "../page.module.scss";
-import { IWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { IWindowMatchMedia } from "./matchMedia";
 import { Typography } from "@/components";
 import Image from "next/image";
 

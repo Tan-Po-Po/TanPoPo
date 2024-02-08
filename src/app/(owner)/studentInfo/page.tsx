@@ -7,6 +7,11 @@ import { getValidClassNames } from "@/helpers";
 import { useWindowSize } from "@uidotdev/usehooks";
 import cl from "./page.module.scss";
 import { Suspense } from "react";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Розклад | Tanpopo',
+}
 
 const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"];
 

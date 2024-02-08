@@ -2,7 +2,11 @@ import cl from "./page.module.scss";
 import { textContent } from "./textContent";
 import { ContentCard, Typography } from "@/components";
 import Image from "next/image";
-
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Реквізити | Tanpopo',
+}
 export default function Requisites() {
   return (
     <div className={cl.requisites}>

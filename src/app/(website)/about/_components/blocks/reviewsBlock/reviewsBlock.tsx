@@ -3,11 +3,13 @@ import { Carousel, CarouselItem, ContentCard, Typography } from "@/components";
 import cl from "./reviewsBlock.module.scss";
 import { textContent } from "../../../textContent";
 import Image from "next/image";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export const ReviewsBlock = () => {
-  const { isPc, isMobile, isTablet } = useAppSelector(selectWindowMatchMedia);
+  const {width} = useWindowSize()
+  const isPc = Boolean(width && width >= 1024)
+  const isMobile = Boolean(width && width < 678)
+  const isTablet = Boolean(width && width >= 678 && width < 1024)
 
   return (
     <div

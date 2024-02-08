@@ -12,6 +12,11 @@ import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSli
 import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Навчання з сенсеєм | Tanpopo',
+}
 
 export default function Page() {
   const dispatch = useAppDispatch();

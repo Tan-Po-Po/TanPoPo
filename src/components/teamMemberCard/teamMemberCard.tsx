@@ -7,10 +7,9 @@ import { useState } from "react";
 import { ITeamMember } from "@/models/TeamMember";
 import { IMAGE_BASE_URL } from "@/config/config";
 import cl from "./teamMemberCard.module.scss";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { DialogCertificates } from "./dialogCertificates/dialogCertificates";
 import { NarrowTeamMemberCard } from "./narrowTeamMemberCard/narrowTeamMemberCard";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 interface Props {
   teamMember: ITeamMember;
@@ -18,7 +17,8 @@ interface Props {
 
 const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
   const { label, name, image, certificates, education, about } = teamMember;
-  const { isPc } = useAppSelector(selectWindowMatchMedia);
+  const { width } = useWindowSize();
+  const isPc = Boolean(width && width >= 1024);
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 

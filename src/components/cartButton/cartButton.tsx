@@ -11,7 +11,6 @@ import {
   openCartDialog,
   selectCartDialog,
 } from "@/redux/slices/cartDialog/cartDialogSlice";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { useWindowSize } from "@uidotdev/usehooks";
 
 export const CartButton = () => {
@@ -28,9 +27,9 @@ export const CartButton = () => {
 
   const dispatch = useAppDispatch();
 
-  const { isMobile } = useAppSelector(selectWindowMatchMedia);
-
   const { width } = useWindowSize();
+  const isMobile = Boolean(width && width < 678)
+
 
   const isOpen = useAppSelector(selectCartDialog).isOpen;
 

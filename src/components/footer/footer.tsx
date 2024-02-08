@@ -4,13 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { getValidClassNames, getIconSrc, getSocialIconsLinks } from "@/helpers";
 import { NarrowFooter } from "./narrowFooter/narrowFooter";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const Footer: React.FC = () => {
-  const width = "16px";
+  const iconWidth = "16px";
 
-  const { isPc } = useAppSelector(selectWindowMatchMedia);
+  const { width } = useWindowSize();
+  const isPc = Boolean(width && width >= 1024);
 
   if (!isPc) {
     return <NarrowFooter />;
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
               src={getIconSrc("person")}
               width={0}
               height={0}
-              style={{ width, height: "auto" }}
+              style={{ width: iconWidth, height: "auto" }}
               alt=""
             />
             <Link href="/about#team">Наша команда</Link>
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
               src={getIconSrc("personSpeak")}
               width={0}
               height={0}
-              style={{ width, height: "auto" }}
+              style={{ width: iconWidth, height: "auto" }}
               alt=""
             />
             <Link href={"/about#reviews"}>Відгуки про школу</Link>
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
               src={getIconSrc("youTube")}
               width={0}
               height={0}
-              style={{ width, height: "auto" }}
+              style={{ width: iconWidth, height: "auto" }}
               alt=""
             />
             <Link href={"/contacts#videoGuides"}>Корисні відеогайди</Link>
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
               src={getIconSrc("card")}
               width={0}
               height={0}
-              style={{ width, height: "auto" }}
+              style={{ width: iconWidth, height: "auto" }}
               alt=""
             />
             <Link href={"/shop#products"}>Мнемонічні картки</Link>
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
               src={getIconSrc("present")}
               width={0}
               height={0}
-              style={{ width, height: "auto" }}
+              style={{ width: iconWidth, height: "auto" }}
               alt=""
             />
             <Link href={"/gift-education"}>Навчання у подарунок</Link>
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
               width={110}
               height={110}
               style={{ width: "110px", height: "auto" }}
-              alt=""
+              alt="Logo icon"
             />
           </Link>
           <div className={cl.text}>
@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
               src={getIconSrc("coinsStack")}
               width={0}
               height={0}
-              style={{ width, height: "auto" }}
+              style={{ width: iconWidth, height: "auto" }}
               alt=""
             />
             <Link href={"/prices"}>Вартість курсів</Link>
@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
               src={getIconSrc("palette")}
               width={0}
               height={0}
-              style={{ width, height: "auto" }}
+              style={{ width: iconWidth, height: "auto" }}
               alt=""
             />
             <Link href={"/education"}>Освітня програма</Link>
@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
               src={getIconSrc("apple")}
               width={0}
               height={0}
-              style={{ width, height: "auto" }}
+              style={{ width: iconWidth, height: "auto" }}
               alt=""
             />
             <Link href={"/bonus-benefits"}>Додаткові переваги</Link>

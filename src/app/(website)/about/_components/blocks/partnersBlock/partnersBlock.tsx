@@ -5,11 +5,12 @@ import { textContent } from "../../../textContent";
 import { IPartner } from "@/models/Partner";
 import Image from "next/image";
 import { IMAGE_BASE_URL } from "@/config/config";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export const PartnersBlock = ({ partners }: { partners: IPartner[] }) => {
-  const { isPc } = useAppSelector(selectWindowMatchMedia);
+  const { width } = useWindowSize();
+  const isPc = Boolean(width && width >= 1024);
+  
   return (
     <div
       className={cl.partnersBlock}

@@ -1,6 +1,6 @@
 import cl from "../page.module.scss";
-import { IWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
-import { Typography, ContentCard, Carousel, CarouselItem } from "@/components";
+import { IWindowMatchMedia } from "./matchMedia";
+import { Typography, ContentCard, Carousel } from "@/components";
 import Image from "next/image";
 import { carouselSettings } from "./carouselSettings";
 import { getIconArtSrc } from "@/helpers";

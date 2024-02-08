@@ -1,6 +1,6 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
-import { ContentCard, IconLink, Typography } from "@/components";
+import { ContentCard, IconLink, Loading, Typography } from "@/components";
 import TeamMember, { ITeamMember } from "@/models/TeamMember";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
@@ -15,21 +15,11 @@ import { InfoCardsBlock } from "./_components/blocks/infoCardsBlock/infoCardsBlo
 import { ReelsBlock } from "./_components/blocks/reelsBlock/reelsBlock";
 import { LinkCardsBlock } from "./_components/blocks/linkCardsBlock/linkCardsBlock";
 import { PartnersBlock } from "./_components/blocks/partnersBlock/partnersBlock";
-
-async function getTeamMembers() {
-  await dbConnect();
-
-  const teamMembersDb = (await TeamMember.find().populate("image").populate({
-    path: "certificates.description.image",
-  })) as mongoose.Document<ITeamMember>[];
-
-  const teamMembers: ITeamMember[] = teamMembersDb.map((member) => {
-    return JSON.parse(JSON.stringify(member));
-  });
-
-  return teamMembers;
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Про школу | Tanpopo',
 }
-
 export default async function About() {
   const [teamMembers, partners] = await Promise.all([
     getTeamMembers(),
@@ -86,7 +76,7 @@ export default async function About() {
             textAlign: "center",
             whiteSpace: "normal",
           }}
-          className={cl.caption} 
+          className={cl.caption}
         >
           {textContent.idea}
         </Typography>
@@ -96,7 +86,7 @@ export default async function About() {
 
       <ReviewsBlock />
 
-      {teamMembers.length > 0 && <TeamBlock teamMembers={teamMembers} />}
+      {teamMembers && <TeamBlock teamMembers={teamMembers} />}
 
       <InfoCardsBlock />
 
@@ -182,12 +172,36 @@ export default async function About() {
   );
 }
 
+async function getTeamMembers() {
+  try {
+    await dbConnect();
+
+    const teamMembersDb = (await TeamMember.find().populate("image").populate({
+      path: "certificates.description.image",
+    })) as mongoose.Document<ITeamMember>[];
+
+    const teamMembers: ITeamMember[] = teamMembersDb.map((member) => {
+      return JSON.parse(JSON.stringify(member));
+    });
+
+    return teamMembers;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
 async function getPartnerImagesSrc() {
-  await dbConnect();
+  try {
+    await dbConnect();
 
-  const partners = (await Partner.find()
-    .lean()
-    .populate("image")) as IPartner[];
+    const partners = (await Partner.find()
+      .lean()
+      .populate("image")) as IPartner[];
 
-  return partners.map((partner) => JSON.parse(JSON.stringify(partner)));
+    return partners.map((partner) => JSON.parse(JSON.stringify(partner)));
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 }

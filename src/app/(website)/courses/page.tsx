@@ -12,7 +12,11 @@ import Course, { ICourse } from "@/models/Course";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
 import { Suspense } from "react";
-
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Курси | Tanpopo',
+}
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
 

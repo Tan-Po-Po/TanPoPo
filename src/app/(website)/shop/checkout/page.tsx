@@ -24,6 +24,11 @@ import { deletePromoCode } from "./actions";
 import { useEffect, useState } from "react";
 import { getTotalPrice } from "@/helpers";
 import { toast } from "react-toastify";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Крамниця | Tanpopo',
+}
 
 export default function Page() {
   const router = useRouter();

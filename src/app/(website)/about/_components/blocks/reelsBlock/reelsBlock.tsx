@@ -11,13 +11,14 @@ import { textContent } from "../../../textContent";
 import { getValidClassNames } from "@/helpers";
 import Link from "next/link";
 import Image from "next/image";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import mcl from "../../../page.module.scss";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export const ReelsBlock = () => {
-  const { isMobile, isPc } = useAppSelector(selectWindowMatchMedia);
-
+  const { width } = useWindowSize();
+  const isPc = Boolean(width && width >= 1024);
+  const isMobile = Boolean(width && width < 767);
+  
   return (
     <div className={cl.reelsBlock}>
       <ContentCard
@@ -72,7 +73,7 @@ export const ReelsBlock = () => {
             {textContent.reelsBlock.caption}
           </Typography>
         )}
-        <Link href="/library" style={{width: "100%", maxWidth: "200px"}}>
+        <Link href="/library" style={{ width: "100%", maxWidth: "200px" }}>
           <Button
             variant="outlined"
             icon="bank"

@@ -20,6 +20,11 @@ import cl from "./page.module.scss";
 import { useRouter, useSearchParams } from "next/navigation";
 import { type ISchedule } from "@/components/schedule/_schedule/type";
 import { useForm } from "react-hook-form";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Розклад | Tanpopo',
+}
 
 export default function Page() {
   const router = useRouter();

@@ -8,8 +8,8 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import { useSearchParams } from "next/navigation";
 import { IMAGE_BASE_URL } from "@/config/config";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { Suspense } from "react";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 interface Props {
   item: ILibraryItem;
@@ -17,10 +17,10 @@ interface Props {
 
 export const Media: React.FC<Props> = ({ item }) => {
   const dispatch = useAppDispatch();
-
   const searchParams = useSearchParams();
 
-  const { isMobile } = useAppSelector(selectWindowMatchMedia);
+  const {width} = useWindowSize()
+  const isMobile = Boolean(width && width < 678)
 
   if (item.media.length === 1) {
     return item.media[0].type === "video" ? (

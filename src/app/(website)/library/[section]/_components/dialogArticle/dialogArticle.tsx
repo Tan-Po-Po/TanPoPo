@@ -8,14 +8,16 @@ import { CardFooter } from "../libraryItemCard/cardFooter/cardFooter";
 import { Media } from "./media/media";
 import { NewLabel } from "../libraryItemCard/newLabel/newLabel";
 import { Suspense, useEffect, useState } from "react";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+
 import { getColor } from "@/helpers/getLibraryItemColors";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 interface Props {
   page: string;
 }
 const DialogArticle: React.FC<Props> = ({ page }) => {
+  const {width} = useWindowSize()
+  const isMobile = Boolean(width && width < 678)
   const router = useRouter();
   const path = usePathname();
   const searchParams = useSearchParams();
@@ -28,8 +30,6 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
   const handleClose = () => {
     router.push(`${path}?page=${page}`, { scroll: false });
   };
-
-  const { isMobile } = useAppSelector(selectWindowMatchMedia);
 
   useEffect(() => {
     const getLibraryItem = async (id: string) => {

@@ -7,7 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import cl from "./page.module.scss";
-
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Контакти | Tanpopo',
+}
 const dividerBgColor = "linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)";
 
 export default function Contacts() {
@@ -127,6 +131,8 @@ export default function Contacts() {
         secondRow={textContent.videoGuidesBlock.divider.line2}
         bgColor={dividerBgColor}
         className={cl.guidesDivider}
+        id="videoGuides"
+        style={{ scrollMarginTop: "120px" }}
       />
 
       <VideoGuides />

@@ -7,8 +7,7 @@ import cl from "./page.module.scss";
 import { getIconArtSrc } from "@/helpers";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 import { Opportunities } from "./_components/opportunities";
 import { Author } from "./_components/author";
@@ -23,10 +22,11 @@ export default function Home() {
   const renderedTime = Date.now();
   const [open, setOpen] = useState(true);
 
-  const windowMatchMedia = useAppSelector(selectWindowMatchMedia);
-
-  const { isPc } = windowMatchMedia;
-
+  const { width } = useWindowSize();
+  const isPc = Boolean(width && width >= 1024);
+  const isTablet = Boolean(width && width < 1024 && width >= 768);
+  const isMobile = Boolean(width && width < 768);
+  const windowMatchMedia = { isPc, isTablet, isMobile };
   return (
     <main className={cl.main}>
       <Suspense fallback={<></>}>

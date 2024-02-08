@@ -9,8 +9,7 @@ import {
   Carousel,
   CarouselItem,
 } from "@/components";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 interface Props {
   courses: ICourse[];
 }
@@ -21,8 +20,8 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
   const bookCourses = getCoursesByType("book", courses);
   const audioCourses = getCoursesByType("audio", courses);
 
-  const windowMatchMedia = useAppSelector(selectWindowMatchMedia);
-  const { isMobile } = windowMatchMedia;
+  const {width} = useWindowSize()
+  const isMobile = Boolean(width && width < 678)
 
   return (
     <main className={cl.courseListMain}>

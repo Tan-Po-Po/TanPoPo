@@ -16,7 +16,11 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import cl from "./page.module.scss";
 import { useAppSelector } from "@/redux/hooks";
-
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Старт навчання | Tanpopo',
+}
 export default function Page() {
   const [isAccepted, setIsAccepted] = React.useState(false);
   const course = useAppSelector((state) => state.course);

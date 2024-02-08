@@ -3,7 +3,6 @@ import courseReducer from "./slices/course/courseSlice";
 import galleryDialogReducer from "./slices/galleryDialog/galleryDialogSlice";
 import shopCartReducer from "./slices/shopCart/shopCartSlice";
 import cartDialogReducer from "./slices/cartDialog/cartDialogSlice";
-import windowMatchMediaReducer from "./slices/windowMatchMedia/windowMatchMedia";
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +10,6 @@ export const store = configureStore({
     galleryDialog: galleryDialogReducer,
     shopCart: shopCartReducer,
     cartDialog: cartDialogReducer,
-    windowMatchMedia: windowMatchMediaReducer,
   },
 });
 

@@ -3,7 +3,11 @@ import { ContentCard, IconLink, Typography } from "@/components";
 import Image from "next/image";
 import { textContent } from "./textContent";
 import { getValidClassNames } from "@/helpers";
-
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Розробники | Tanpopo',
+}
 export default function Developers() {
   const labelColor = "#FFF8BC";
   return (

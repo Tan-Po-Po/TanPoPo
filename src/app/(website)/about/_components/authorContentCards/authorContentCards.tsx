@@ -31,7 +31,7 @@ function Card({ image, className }: { image: string; className?: string }) {
       width="169px"
       className={getValidClassNames(cl.card, className)}
     >
-      <Image alt="" src={image} fill />
+      <Image alt="Author content" src={image} fill />
     </ContentCard>
   );
 }

@@ -81,6 +81,10 @@
   }
 }
 
+.mobileBio,
+.mobileBlock {
+  display: none;
+}
 @media (max-width: 1023px) {
   .bioBlock {
     @include flex-column;
@@ -148,6 +152,12 @@
       }
     }
   }
+  .pcBio {
+    display: none;
+  }
+  .mobileBio {
+    display: block;
+  }
 }
 
 @media (max-width: 767px) {
@@ -177,5 +187,11 @@
     .bioContent {
       flex-direction: column;
     }
+  }
+  .mobileBlock {
+    display: block;
+  }
+  .ceoImage > div:first-child {
+    display: none;
   }
 }

@@ -15,7 +15,11 @@ import dynamic from "next/dynamic";
 import dbConnect from "@/config/dbConnect";
 import { IShopProduct } from "@/models/ShopProduct";
 import ShopProduct from "@/models/ShopProduct";
-
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Крамниця | Tanpopo',
+}
 export const revalidate = 600;
 
 const getShopItems = async () => {

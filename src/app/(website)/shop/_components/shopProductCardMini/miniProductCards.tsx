@@ -4,9 +4,8 @@ import { useState } from "react";
 import { ShopProductCardMini } from "./shopProductCardMini";
 
 import { IShopProduct } from "@/models/ShopProduct";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { Carousel, Loading } from "@/components";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const MiniProductCards = ({
   shopProducts,
@@ -14,8 +13,9 @@ const MiniProductCards = ({
   shopProducts: IShopProduct[] | undefined;
 }) => {
   const [products] = useState<IShopProduct[] | undefined>(shopProducts);
+  const {width} = useWindowSize()
+  const isMobile = Boolean(width && width < 678)
 
-  const { isMobile } = useAppSelector(selectWindowMatchMedia);
 
   if (!products) {
     return <Loading />;

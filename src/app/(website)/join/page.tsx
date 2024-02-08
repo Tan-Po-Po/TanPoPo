@@ -16,6 +16,11 @@ import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import { toast } from "react-toastify";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Приєднатися | Tanpopo',
+}
 
 export default function Join() {
   const router = useRouter();

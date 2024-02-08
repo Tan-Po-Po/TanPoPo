@@ -1,4 +1,9 @@
 import { StartSelfEducation } from "@/components";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Розпочати навчання | Tanpopo',
+}
 
 export default function Page() {
   return (

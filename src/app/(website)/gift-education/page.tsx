@@ -9,7 +9,11 @@ import { Cards } from "./_cards/cards";
 import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import cl from "./page.module.scss";
-
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Навчання в подарунок | Tanpopo',
+}
 export default function Home() {
   return (
     <main className={cl.main}>

@@ -3,13 +3,12 @@ import { Button, Carousel, ContentCard, Typography } from "@/components";
 import { textContent } from "../../../textContent";
 import cl from "./infoCardsBlock.module.scss";
 import Image from "next/image";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 import Link from "next/link";
 
 export const InfoCardsBlock = () => {
-  const { isTablet } = useAppSelector(selectWindowMatchMedia);
-
+  const {width} = useWindowSize()
+  const isTablet = Boolean(width && width >= 768 && width < 1024)
   const cards = (
     <Carousel
       slidesToShow={1}

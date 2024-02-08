@@ -16,7 +16,11 @@ import { CourseState, selectCourse } from "@/redux/slices/course/courseSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Оплата навчання | Tanpopo',
+}
 export default function Page() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);

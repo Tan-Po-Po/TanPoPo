@@ -2,6 +2,11 @@ import { ContentCard, CourseFormats, Typography } from "@/components";
 import { getIconArtSrc } from "@/helpers";;
 import Image from "next/image";
 import cl from "./page.module.scss";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Навчання | Tanpopo',
+}
 
 export default async function Page() {
   return (

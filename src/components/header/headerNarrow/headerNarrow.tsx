@@ -1,8 +1,6 @@
 "use client";
 import { Button, ContentCard, Dialog, CartButton } from "@/components";
 import cl from "./headerNarrow.module.scss";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 import { getIconSrc, getSocialIconsLinks, getValidClassNames } from "@/helpers";
 import TanPoPoIcon from "/public/logo/tanPoPo.svg";
 import { useEffect, useState } from "react";
@@ -12,9 +10,12 @@ import { aboutLinks, coursesLinks } from "../links";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export const HeaderNarrow = () => {
-  const { isTablet, isMobile } = useAppSelector(selectWindowMatchMedia);
+  const {width} = useWindowSize()
+  const isMobile = Boolean(width && width < 678)
+  const isTablet = Boolean(width && width >= 678 && width < 1024)
   const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
 

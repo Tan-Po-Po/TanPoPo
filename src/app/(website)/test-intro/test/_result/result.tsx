@@ -17,23 +17,24 @@ import { LEVELS } from "./levels";
 import Image from "next/image";
 
 interface Props {
-  result: string;
+  result: { activeLevel: string; nextLevel: string };
 }
 
-export const Result: React.FC<Props> = ({ result }: { result: string }) => {
+export const Result: React.FC<Props> = ({ result }) => {
+  const { activeLevel, nextLevel } = result;
   const [courses, setCourses] = useState<ICourse[] | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getCoursesFromDb = async () => {
-      const courses = await getCourses(result as string);
+      const courses = await getCourses(nextLevel);
       courses.forEach((course) => console.log(course));
       setLoading(false);
       setCourses(courses);
     };
 
     getCoursesFromDb();
-  }, [result]);
+  }, [nextLevel]);
 
   if (loading) {
     return (
@@ -44,18 +45,28 @@ export const Result: React.FC<Props> = ({ result }: { result: string }) => {
   }
 
   const isInDevelopment = courses?.length == 0;
-  const levelDescription = LEVELS[result as keyof typeof LEVELS];
+  const levelDescription = LEVELS[activeLevel as keyof typeof LEVELS];
 
   return (
     <main className={cl.resultMain}>
       <ContentCard className={cl.result} width="fit-content">
-        <Typography variant="h6">
-          Ваш орієнтовний JLPT рівень: {result}
-        </Typography>
+        {activeLevel === "N0" ? (
+          <Typography variant="h6" style={{lineHeight: "30px"}}>
+            Ви ентузіаст-початківець😎 <br />
+            Варто розпочинати з базових <br />
+            знань японської мови - рівня N5!
+          </Typography>
+        ) : (
+          <>
+            <Typography variant="h6">
+              Ваш орієнтовний JLPT рівень: {activeLevel}
+            </Typography>
 
-        <Typography variant="body2">
-          ({levelDescription.toLowerCase()})
-        </Typography>
+            <Typography variant="body2">
+              ({levelDescription.toLowerCase()})
+            </Typography>
+          </>
+        )}
       </ContentCard>
 
       <section className={cl.recommendation}>
@@ -110,7 +121,7 @@ export const Result: React.FC<Props> = ({ result }: { result: string }) => {
             wrapperClassName={cl.dividerWrapper}
             firstRow="ДОДАТКОВІ ПЕРЕВАГИ НАВЧАННЯ"
             bgColor="linear-gradient(91deg, #FF9C9C 0%, #FFEF9C 28.13%, #9CDBFF 71.35%, #FF9CE9 100%)"
-            style={{marginBottom: "-20px"}}
+            style={{ marginBottom: "-20px" }}
           />
 
           <Advantages />

@@ -20,6 +20,11 @@ import Link from "next/link";
 import { DatePicker } from "@mui/x-date-pickers";
 import { submitTeacherSurveyForm } from "./actions/actions";
 import { useRouter } from "next/navigation";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: "Кар'єра | Tanpopo",
+}
 
 const Page = () => {
   const {

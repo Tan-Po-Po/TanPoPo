@@ -8,13 +8,16 @@ import {
 } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import Image from "next/image";
 import { getEmbedYouTubeLink } from "@/helpers";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 export const DialogGallery = () => {
   const galleryDialog = useAppSelector(selectGalleryDialog);
   const dispatch = useAppDispatch();
 
-  const { isPc, isTablet, isMobile } = useAppSelector(selectWindowMatchMedia);
+  const {width} = useWindowSize()
+  const isPc = Boolean(width && width >= 1024)
+  const isMobile = Boolean(width && width < 678)
+  const isTablet = Boolean(width && width >= 678 && width < 1024)
 
   const iFrameWidth =
     (isPc && "760") || (isTablet && "560") || (isMobile && "340") || "560";

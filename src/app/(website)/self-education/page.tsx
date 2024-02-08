@@ -2,6 +2,11 @@ import { Typography, ContentCard } from "@/components";
 import Image from "next/image";
 import cl from "./page.module.scss";
 import { getIconArtSrc } from "@/helpers";
+import { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Самостійне навчання | Tanpopo',
+}
 
 export default function Home() {
   return (

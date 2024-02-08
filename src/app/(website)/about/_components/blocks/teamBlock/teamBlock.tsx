@@ -2,16 +2,13 @@
 import { ITeamMember } from "@/models/TeamMember";
 import cl from "./teamBlock.module.scss";
 import { useState } from "react";
-import {
-  Carousel,
-  DialogGallery,
-  TeamMemberCard,
-  Typography,
-} from "@/components";
+import { Carousel } from "@/components/carousel/carousel";
+import { DialogGallery } from "@/components/dialogGallery/dialogGallery";
+import { TeamMemberCard } from "@/components/teamMemberCard/teamMemberCard";
+import { Typography } from "@/components/typography/typography";
 import ArrowButton from "@/components/arrowButton/arrowButton";
-import { useAppSelector } from "@/redux/hooks";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
 
+import { useWindowSize } from "@uidotdev/usehooks";
 interface Props {
   teamMembers: ITeamMember[];
 }
@@ -20,8 +17,9 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
   const teamSize = teamMembers.length;
 
   const [index, setIndex] = useState(0);
+  const { width } = useWindowSize();
+  const isPc = Boolean(width && width >= 1024);
 
-  const { isPc } = useAppSelector(selectWindowMatchMedia);
 
   const handleRightArrowClick = () => {
     if (index === teamSize - 1) {

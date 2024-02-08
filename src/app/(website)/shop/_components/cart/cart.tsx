@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import { getTotalPrice, getValidClassNames } from "@/helpers";
 import { getPromoCode } from "@/helpers/actions/getPromoCode";
 import { FormCode } from "@/components/formCode/formCode";
-import { selectWindowMatchMedia } from "@/redux/slices/windowMatchMedia/windowMatchMedia";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 interface IPromoCodeInput {
   code: string;
@@ -33,7 +33,9 @@ export const Cart: React.FC<Props> = ({ className }) => {
     final: 0,
   });
 
-  const { isMobile } = useAppSelector(selectWindowMatchMedia);
+  const {width} = useWindowSize()
+  const isMobile = Boolean(width && width < 678)
+
 
   const formReturn = useForm({
     defaultValues: {
