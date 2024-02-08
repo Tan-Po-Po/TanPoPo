@@ -23,7 +23,9 @@
       margin: 61px;
     }
   }
-
+  :global(.slick-list) {
+    height: 330px;
+  }
   .carouselCard {
     gap: 50px;
     padding-bottom: 50px;

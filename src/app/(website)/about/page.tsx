@@ -1,10 +1,6 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
-import {
-  ContentCard,
-  IconLink,
-  Typography,
-} from "@/components";
+import { ContentCard, IconLink, Typography } from "@/components";
 import TeamMember, { ITeamMember } from "@/models/TeamMember";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
@@ -48,9 +44,7 @@ export default async function About() {
           style={{
             fontWeight: 400,
             textAlign: "center",
-            scrollMarginTop: "100px",
           }}
-          id="history"
           className={cl.title}
         >
           Найкраща {<b>онлайн-школа</b>} японської мови
@@ -73,6 +67,7 @@ export default async function About() {
               height="auto"
               width="100%"
               muted
+              playsInline
               className={cl.video}
             />
           </div>
@@ -86,8 +81,12 @@ export default async function About() {
         </div>
         <Typography
           variant="body1"
-          style={{ fontWeight: 700, textAlign: "center", whiteSpace: "normal" }}
-          className={cl.caption}
+          style={{
+            fontWeight: 700,
+            textAlign: "center",
+            whiteSpace: "normal",
+          }}
+          className={cl.caption} 
         >
           {textContent.idea}
         </Typography>
@@ -132,7 +131,7 @@ export default async function About() {
       <div
         className={cl.authorContentBlock}
         id="content"
-        style={{ scrollMarginTop: "100px" }}
+        style={{ scrollMarginTop: "120px" }}
       >
         <Typography variant="h3">
           {textContent.authorContentBlock.header}

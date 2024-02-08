@@ -43,7 +43,7 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
     <div
       className={cl.teamBlock}
       id="team"
-      style={{ scrollMarginTop: "100px" }}
+      style={{ scrollMarginTop: "120px" }}
     >
       <DialogGallery />
 

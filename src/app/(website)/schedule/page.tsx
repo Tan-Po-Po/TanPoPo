@@ -189,7 +189,7 @@ export default function Page() {
         <Typography variant="h3" align="center" style={{ marginTop: "100px" }}>
           Зручне формування розкладу навчання:
         </Typography>
-        
+
         <Schedule
           setSchedule={setSchedule}
           setCounter={setCounter}
@@ -207,7 +207,7 @@ export default function Page() {
             label="Ваш коментар"
             multiline
             rows={9}
-            style={{ width: "750px", maxWidth: "85vw"}}
+            style={{ width: "750px", maxWidth: "85vw" }}
             className={cl.commentTextarea}
             value={comment}
             onChange={(e) => setComment(e.target.value)}

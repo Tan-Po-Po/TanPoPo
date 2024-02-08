@@ -40,9 +40,10 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   } = large;
 
   const [selectValue, setSelectValue] = useState(variants[0].value);
+  const [isMounted, setIsMounted] = useState(false);
+
   const item = variants.find((item) => item.value === selectValue)!;
   const { id: itemId, price, sale, value } = item;
-
   const isCertificates = price <= 0;
 
   const [likedProducts, setLikedProducts] = useState<Set<string>>(new Set([]));
@@ -54,11 +55,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
 
   const productIsLiked = likedProducts.has(_id!);
 
-  let isOnSale;
-
-  if (sale) {
-    isOnSale = new Date() < new Date(sale.until);
-  }
+  const isOnSale = sale && new Date() < new Date(sale.until);
 
   const { width } = useWindowSize();
 
@@ -90,7 +87,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
 
   if (isCertificates) {
     button = (
-      <Button variant="outlined" href="/education/gift" className={cl.button}>
+      <Button variant="outlined" href="/gift-education" className={cl.button}>
         <Typography variant="body1">
           Навчання у <br /> Подарунок!
         </Typography>
@@ -227,8 +224,13 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
         </section>
 
         <Select
+          placeHolder={isCertificates ? "Вид сертифікату" : ""}
+          className={getValidClassNames(!isMounted && cl.initialSelectBg)}
           menuItems={variants}
-          handleSelect={(value: string) => setSelectValue(value)}
+          handleSelect={(value: string) => {
+            !isMounted && setIsMounted(true);
+            setSelectValue(value);
+          }}
         />
 
         <div className={cl.buttonWrapper}>

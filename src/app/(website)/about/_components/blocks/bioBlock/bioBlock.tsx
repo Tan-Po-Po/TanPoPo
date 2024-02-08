@@ -272,7 +272,11 @@ export const BioBlock = () => {
     );
   }
   return (
-    <div className={cl.bioBlock}>
+    <div
+      className={cl.bioBlock}
+      id="history"
+      style={{ scrollMarginTop: "110px" }}
+    >
       <ContentCard
         className={getValidClassNames(cl.imageContent, cl.ceoImage)}
         labelClassName={cl.label}

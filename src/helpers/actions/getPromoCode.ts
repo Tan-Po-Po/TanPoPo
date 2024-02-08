@@ -6,18 +6,22 @@ import PromoCode, { IPromoCode, IPromoCodeDocument } from "@/models/PromoCode";
 export const getPromoCode = async (
   code: string
 ): Promise<IPromoCode | null> => {
-  await dbConnect();
+  try {
+    await dbConnect();
 
-  const codeDB = (await PromoCode.findOne({
-    code: code,
-  })) as IPromoCodeDocument | undefined;
+    const codeDB = (await PromoCode.findOne({
+      code: code,
+    })) as IPromoCodeDocument | undefined;
 
-  if (!codeDB) {
+    if (!codeDB) {
+      return null;
+    }
+    if (codeDB.oneTimeUse || validateDate(codeDB.date)) {
+      return JSON.parse(JSON.stringify(codeDB));
+    }
+  } catch (error: any) {
+    error.message ? console.log(error.message) : console.log(error);
+  } finally {
     return null;
   }
-  if (codeDB.oneTimeUse || validateDate(codeDB.date)) {
-    return JSON.parse(JSON.stringify(codeDB));
-  }
-
-  return null;
 };

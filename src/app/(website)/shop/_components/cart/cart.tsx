@@ -56,7 +56,7 @@ export const Cart: React.FC<Props> = ({ className }) => {
       toast("Промокод прийнято!😎");
       dispatch(addPromoCode(code));
     } else {
-      toast("Такого промокоду не існує.🥲");
+      toast("Такого промокоду не існує!");
       formReturn.reset();
     }
   };

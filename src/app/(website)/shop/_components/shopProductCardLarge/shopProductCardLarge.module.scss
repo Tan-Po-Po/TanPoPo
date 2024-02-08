@@ -165,6 +165,10 @@
     transform: translate(-50%, 50%);
     white-space: nowrap;
   }
+
+  .initialSelectBg > div {
+    background-color: #fff !important;
+  }
 }
 
 @media (max-width: "1420px") {

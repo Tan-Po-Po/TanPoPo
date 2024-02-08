@@ -14,7 +14,7 @@ export const PartnersBlock = ({ partners }: { partners: IPartner[] }) => {
     <div
       className={cl.partnersBlock}
       id="partners"
-      style={{ scrollMarginTop: "100px" }}
+      style={{ scrollMarginTop: "120px" }}
     >
       <Typography variant="h3">{textContent.partnersBlock.header}</Typography>
       <Typography variant="h6" className={cl.title}>

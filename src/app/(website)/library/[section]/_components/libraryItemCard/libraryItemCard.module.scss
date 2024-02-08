@@ -7,6 +7,9 @@ $padding-card: 55px 30px 18px 30px;
   border: unset;
   box-shadow: unset;
   padding: unset;
+  & > div:first-child {
+    cursor: pointer;
+  }
 }
 
 .label {

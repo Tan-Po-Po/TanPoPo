@@ -29,7 +29,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       <Divider
         wrapperClassName={cl.dividerWrapper}
         className={cl.divider}
-        style={{ scrollMarginTop: "100px" }}
+        style={{ scrollMarginTop: "120px" }}
         id="teacher"
         firstRow="онлайн-курси"
         secondRow="з сенсеєм"
@@ -65,7 +65,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       <Divider
         wrapperClassName={cl.dividerWrapper}
         className={cl.divider}
-        style={{ scrollMarginTop: "100px" }}
+        style={{ scrollMarginTop: "120px" }}
         id="video"
         firstRow="Відеокурси"
         secondRow="для самостійного вивчення"
@@ -101,7 +101,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       <Divider
         wrapperClassName={cl.dividerWrapper}
         className={cl.divider}
-        style={{ scrollMarginTop: "100px" }}
+        style={{ scrollMarginTop: "120px" }}
         id="audio"
         firstRow="Аудіокурси"
         secondRow="для самостійного вивчення"
@@ -137,7 +137,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
       <Divider
         wrapperClassName={cl.dividerWrapper}
         className={cl.divider}
-        style={{ scrollMarginTop: "100px" }}
+        style={{ scrollMarginTop: "120px" }}
         id="book"
         firstRow="Книжкові мінікурси"
         secondRow="для самостійного вивчення"
