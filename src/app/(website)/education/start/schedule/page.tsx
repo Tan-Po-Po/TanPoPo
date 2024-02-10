@@ -22,11 +22,7 @@ import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { setCourse, selectCourse } from "@/redux/slices/course/courseSlice";
 import { type ISchedule } from "@/components/schedule/_schedule/type";
 import { useForm } from "react-hook-form";
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Розклад | Tanpopo',
-}
+
 
 export default function Page() {
   const router = useRouter();
@@ -136,6 +132,10 @@ export default function Page() {
         );
       });
   };
+
+  useEffect(() => {
+    document.title = "Розклад | Tanpopo";
+  }, []);
 
   useEffect(() => {
     if (showErrors && errors) {

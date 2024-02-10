@@ -7,10 +7,15 @@ import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
 import Link from "next/link";
+import { useEffect } from "react";
+ 
 
 
 export default function Page() {
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    document.title = 'Самостійне навчання | Tanpopo';
+  }, []);
   return (
     <main className={cl.main}>
        <DialogGallery />

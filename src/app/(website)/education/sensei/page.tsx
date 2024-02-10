@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   ContentCard,
   StartEducationSensei,
@@ -12,14 +12,13 @@ import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSli
 import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Навчання з сенсеєм | Tanpopo',
-}
+import { useEffect } from "react";
 
 export default function Page() {
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    document.title = "Навчання з сенсеєм | Tanpopo";
+  }, []);
   
   return (
     <main className={cl.main}>

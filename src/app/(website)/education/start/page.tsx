@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import {
   ContentCard,
   Divider,
@@ -9,22 +9,21 @@ import {
   Button,
 } from "@/components";
 import { Steps } from "./_steps/steps";
-import { getIconArtSrc, getValidClassNames } from "@/helpers";
+import { getIconArtSrc } from "@/helpers";
 import Link from "next/link";
 import Image from "next/image";
 
 import { toast } from "react-toastify";
 import cl from "./page.module.scss";
 import { useAppSelector } from "@/redux/hooks";
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Старт навчання | Tanpopo',
-}
+
 export default function Page() {
   const [isAccepted, setIsAccepted] = React.useState(false);
   const course = useAppSelector((state) => state.course);
-
+  useEffect(() => {
+    document.title = "Старт навчання | Tanpopo";
+  }, []);
+  
   return (
     <main className={cl.main}>
       <div className={cl.pageHeader}>

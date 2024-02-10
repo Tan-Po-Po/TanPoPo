@@ -20,11 +20,7 @@ import Link from "next/link";
 import { DatePicker } from "@mui/x-date-pickers";
 import { submitTeacherSurveyForm } from "./actions/actions";
 import { useRouter } from "next/navigation";
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: "Кар'єра | Tanpopo",
-}
+
 
 const Page = () => {
   const {
@@ -44,6 +40,10 @@ const Page = () => {
   const router = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
+  
+  useEffect(() => {
+    document.title = "Кар'єра  | Tanpopo";
+  }, []);
 
   useEffect(() => {
     if (showErrors) {

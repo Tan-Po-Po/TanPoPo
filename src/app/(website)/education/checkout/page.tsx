@@ -14,6 +14,10 @@ export default function Page() {
   const [course, setCourse] = useState<CourseState>();
 
   const courseRedux = useAppSelector(selectCourse);
+  
+  useEffect(() => {
+    document.title = "Навчання | Tanpopo";
+  }, []);
 
   useEffect(() => {
     if (courseRedux) {

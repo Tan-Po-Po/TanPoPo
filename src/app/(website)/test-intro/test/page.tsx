@@ -52,6 +52,10 @@ export default function Test() {
   });
 
   useEffect(() => {
+    document.title = "Онлайн тест | Tanpopo";
+  }, []);
+  
+  useEffect(() => {
     setTimeout(() => setLoading(false), 1500);
   }, []);
 

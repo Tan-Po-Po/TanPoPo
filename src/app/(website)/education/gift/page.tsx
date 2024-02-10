@@ -24,7 +24,6 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectCourse, setCourse } from "@/redux/slices/course/courseSlice";
 import { type FormData } from "@/components/orderForm/formData";
 
-
 export default function Page() {
   const dispatch = useAppDispatch();
   const formReturn = useForm<FormData>({
@@ -64,6 +63,10 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
   const [showErrors, setShowErrors] = useState(true);
   const certificateType = watch("certificateType");
+
+  useEffect(() => {
+    document.title = "Навчання в подарунок | Tanpopo";
+  }, []);
 
   useEffect(() => {
     if (showErrors) {

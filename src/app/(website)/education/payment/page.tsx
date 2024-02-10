@@ -22,6 +22,10 @@ export default function Page() {
   const [course, setCourse] = useState<CourseState>();
 
   const courseRedux = useAppSelector(selectCourse);
+  
+  useEffect(() => {
+    document.title = "Оплата навчання | Tanpopo";
+  }, []);
 
   useEffect(() => {
     if (courseRedux) {

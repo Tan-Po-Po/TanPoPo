@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import PlayButtonIcon from "/public/icons/playButton.svg";
 import {
   Typography,
@@ -16,17 +16,17 @@ import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import { toast } from "react-toastify";
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Приєднатися | Tanpopo',
-}
+
 
 export default function Join() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [isChecked, setIsChecked] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+
+  useEffect(() => {
+    document.title = "Приєднатися  | Tanpopo";
+  }, []);
 
   const handleCheckboxClick = () => {
     setIsChecked((prev) => !prev);
