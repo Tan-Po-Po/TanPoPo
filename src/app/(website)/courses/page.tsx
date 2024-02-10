@@ -1,22 +1,16 @@
-import {
-  Faq,
-  Divider,
-  Typography,
-  FaqBlock,
-  LibraryTable,
-  CourseList,
-} from "@/components";
+import { Faq, Divider, Typography, FaqBlock, LibraryTable } from "@/components";
+import { CourseBlock } from "./_coursesBlock/courseBlock";
 import Image from "next/image";
 import cl from "./page.module.scss";
 import Course, { ICourse } from "@/models/Course";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
 import { Suspense } from "react";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Курси | Tanpopo',
-}
+  title: "Курси | Tanpopo",
+};
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
 
@@ -53,7 +47,51 @@ export default async function Courses() {
         </Typography>
       </section>
 
-      <CourseList courses={coursesDB} />
+      <div className={cl.courseListMain}>
+        <Divider
+          wrapperClassName={cl.dividerWrapper}
+          className={cl.divider}
+          style={{ scrollMarginTop: "120px" }}
+          id="teacher"
+          firstRow="онлайн-курси"
+          secondRow="з сенсеєм"
+          bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
+        />
+        <CourseBlock courses={coursesDB} courseType="teacher" />
+
+        <Divider
+          wrapperClassName={cl.dividerWrapper}
+          className={cl.divider}
+          style={{ scrollMarginTop: "120px" }}
+          id="video"
+          firstRow="Відеокурси"
+          secondRow="для самостійного вивчення"
+          bgColor="linear-gradient(rgba(255, 250, 139, 1), rgba(255, 111, 111, 1))"
+        />
+        <CourseBlock courses={coursesDB} courseType="video" />
+
+        <Divider
+          wrapperClassName={cl.dividerWrapper}
+          className={cl.divider}
+          style={{ scrollMarginTop: "120px" }}
+          id="audio"
+          firstRow="Аудіокурси"
+          secondRow="для самостійного вивчення"
+          bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(108, 250, 165, 1))"
+        />
+        <CourseBlock courses={coursesDB} courseType="audio" />
+
+        <Divider
+          wrapperClassName={cl.dividerWrapper}
+          className={cl.divider}
+          style={{ scrollMarginTop: "120px" }}
+          id="book"
+          firstRow="Книжкові мінікурси"
+          secondRow="для самостійного вивчення"
+          bgColor="linear-gradient(rgba(255, 221, 169, 1), rgba(232, 184, 255, 1))"
+        />
+        <CourseBlock courses={coursesDB} courseType="book" />
+      </div>
 
       <Divider
         className={cl.divider}

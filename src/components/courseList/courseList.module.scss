@@ -1,6 +1,6 @@
 .courseListMain {
   @include flex-column;
-  gap: 45px;
+  gap: 20px;
   width: 100%;
 
   .courses {
@@ -27,6 +27,8 @@
   .courseListMain {
     .courses {
       column-gap: 60px;
+      min-height: 370px;
+      max-height: 400px;
     }
     .bookCourses {
       column-gap: 15px;
@@ -37,7 +39,7 @@
       margin: 0 -10px;
     }
     :global(.slick-slide) > div {
-      margin: 48px 10px !important;
+      margin: 30px 10px 10px !important;
     }
   }
 }

@@ -24,7 +24,7 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
   const isMobile = Boolean(width && width < 678)
 
   return (
-    <main className={cl.courseListMain}>
+    <div className={cl.courseListMain}>
       <Divider
         wrapperClassName={cl.dividerWrapper}
         className={cl.divider}
@@ -168,6 +168,6 @@ export const CourseList: React.FC<Props> = ({ courses }) => {
           <Typography variant="h4">В розробці</Typography>
         )}
       </section>
-    </main>
+    </div>
   );
 };
