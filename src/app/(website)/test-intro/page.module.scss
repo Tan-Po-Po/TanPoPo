@@ -109,7 +109,7 @@
     max-width: 792px;
     width: 100%;
     margin-top: 15px;
-
+    scroll-margin-top: 150px;
     .card {
       padding-top: 34px;
       padding-bottom: 49px;
@@ -346,6 +346,7 @@
     }
 
     .beginTestBlock {
+      scroll-margin-top: 100px;
       .card {
         padding: 26px 15px;
         max-width: 342px !important;

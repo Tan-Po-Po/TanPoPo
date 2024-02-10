@@ -151,7 +151,12 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                   : {}
               }
               render={({ field }) => (
-                <Input className={cl.input} label="Ім'я" {...field} />
+                <Input
+                  className={cl.input}
+                  label="Ім'я"
+                  {...field}
+                  autoComplete="off"
+                />
               )}
             />
 
@@ -170,7 +175,12 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                   : {}
               }
               render={({ field }) => (
-                <Input className={cl.input} label="Прізвище" {...field} />
+                <Input
+                  className={cl.input}
+                  label="Прізвище"
+                  {...field}
+                  autoComplete="off"
+                />
               )}
             />
           </div>
@@ -216,8 +226,16 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                   </li>
                 );
               }}
+              autoComplete={false}
               renderInput={(params) => (
-                <Input {...params} label="Оберіть область" />
+                <Input
+                  {...params}
+                  label="Оберіть область"
+                  inputProps={{
+                    ...params.inputProps,
+                    autoComplete: "new-password", // or autoComplete: 'off'
+                  }}
+                />
               )}
             />
           )}

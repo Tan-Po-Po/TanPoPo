@@ -3,8 +3,8 @@
   width: 100%;
 
   .carousel {
-    :global(.slick-list) {
-      height: 499px;
+    :global(.slick-slider) {
+      height: 500px;
     }
     :global(.slick-dots) {
       margin-top: 35px;

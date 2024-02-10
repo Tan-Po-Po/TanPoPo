@@ -37,11 +37,6 @@
   }
 }
 
-.courseListMain {
-  @include flex-column;
-  gap: 20px;
-  width: 100%;
-}
 @media (max-width: 800px) {
   .main {
     padding: 50px 8px;

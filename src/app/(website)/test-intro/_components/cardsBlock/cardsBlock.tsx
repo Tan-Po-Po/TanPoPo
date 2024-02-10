@@ -4,6 +4,7 @@ import { ContentCard, Typography, Carousel, CarouselItem } from "@/components";
 import Image from "next/image";
 import { useWindowSize } from "@uidotdev/usehooks";
 import cl from "./cardsBlock.module.scss";
+import Link from "next/link";
 
 const CardsBlock = () => {
   const { width } = useWindowSize();
@@ -23,16 +24,24 @@ const CardsBlock = () => {
             className={cl.carouselItem}
             isHoverEventActive={false}
           >
-            <ContentCard width="376px" className={cl.card}>
-              <Typography variant="h6">{card.title}</Typography>
-              <Image
-                alt=""
-                src={card.image}
-                width={500}
-                height={300}
-                style={{ maxWidth: `${i == 1 ? '120px' : '90px'}`, height: "auto" }}
-              />
-              <Typography variant="body2">{card.caption}</Typography>
+            <ContentCard
+              width="376px"
+              className={cl.card}
+            >
+              <Link href="/test-intro#start">
+                <Typography variant="h6">{card.title}</Typography>
+                <Image
+                  alt=""
+                  src={card.image}
+                  width={500}
+                  height={300}
+                  style={{
+                    maxWidth: `${i == 1 ? "120px" : "90px"}`,
+                    height: "auto",
+                  }}
+                />
+                <Typography variant="body2">{card.caption}</Typography>
+              </Link>
             </ContentCard>
           </CarouselItem>
         ))}
