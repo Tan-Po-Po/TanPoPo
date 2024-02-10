@@ -7,11 +7,7 @@ import Image from "next/image";
 import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
 import Link from "next/link";
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Самостійне навчання | Tanpopo',
-}
+
 
 export default function Page() {
   const dispatch = useAppDispatch();

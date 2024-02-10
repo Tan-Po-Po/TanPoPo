@@ -23,11 +23,7 @@ import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { selectCourse, setCourse } from "@/redux/slices/course/courseSlice";
 import { type FormData } from "@/components/orderForm/formData";
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Навчання в подарунок | Tanpopo',
-}
+
 
 export default function Page() {
   const dispatch = useAppDispatch();

@@ -7,11 +7,7 @@ import cl from "./page.module.scss";
 import { CourseState, selectCourse } from "@/redux/slices/course/courseSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { useRouter } from "next/navigation";
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Навчання | Tanpopo',
-}
+
 export default function Page() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -79,7 +75,8 @@ export default function Page() {
           <Typography variant="body2">
             Активувати подарунковий курс за допомогою отриманого промокоду дуже
             легко! Ви можете переглянути коротку інструкцію по активації курсу
-            на сторінці “Контакти”. <br/>Тепер залишилось лише подарувати навчання!
+            на сторінці “Контакти”. <br />
+            Тепер залишилось лише подарувати навчання!
           </Typography>
         </ContentCard>
 
