@@ -126,7 +126,7 @@ const Carousel: React.FC<Props> = ({
       )}
       id={id}
     >
-      <Slider {...settings} ref={ref} className={cl.slider}>
+      <Slider {...settings} ref={ref} className={cl.slider} >
         {children}
       </Slider>
       {useNumbers && (

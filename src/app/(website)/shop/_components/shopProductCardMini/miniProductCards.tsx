@@ -13,9 +13,8 @@ const MiniProductCards = ({
   shopProducts: IShopProduct[] | undefined;
 }) => {
   const [products] = useState<IShopProduct[] | undefined>(shopProducts);
-  const {width} = useWindowSize()
-  const isMobile = Boolean(width && width < 678)
-
+  const { width } = useWindowSize();
+  const isMobile = Boolean(width && width < 678);
 
   if (!products) {
     return <Loading />;
@@ -28,7 +27,7 @@ const MiniProductCards = ({
         slidesToShow={1}
         rows={2}
         useNumbers={true}
-        slideAmount={products.length / 2}
+        slideAmount={Math.ceil(products.length / 2)}
         infinite={false}
         dots={false}
         variableWidth={false}

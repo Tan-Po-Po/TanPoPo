@@ -7,7 +7,9 @@
     max-width: 100%;
     width: 330px;
   }
-
+  :global(.Mui-disabled):hover {
+    background: none !important;
+  }
   input {
     padding-right: 56px;
   }
@@ -19,6 +21,7 @@
     transform: translate(-50%, -50%);
     background-color: white;
     z-index: 3;
+    cursor: pointer;
     button {
       padding: 0;
       min-width: fit-content;
@@ -35,11 +38,19 @@
   }
 
   .buttonDisabled {
-    pointer-events: none;
+    // pointer-events: none;
 
     button {
       border-color: rgba(0, 0, 0, 0.38) !important;
       color: rgba(0, 0, 0, 0.38);
+      div {
+        @include flex-column;
+      }
+      svg {
+        height: 100%;
+        width: auto;
+        margin: auto;
+      }
     }
   }
 }

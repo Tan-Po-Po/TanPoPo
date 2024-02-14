@@ -12,7 +12,10 @@ const LargeProductCards = ({
 }: {
   shopProducts: IShopProduct[] | undefined;
 }) => {
-  const [products] = useState<IShopProduct[] | undefined>(shopProducts);
+  const availableProducts = shopProducts?.filter((item) => {
+    return item.large.available;
+  });
+  const [products] = useState<IShopProduct[] | undefined>(availableProducts);
 
   const { width } = useWindowSize();
 
@@ -31,17 +34,11 @@ const LargeProductCards = ({
       infinite={false}
       renderCarousel={width! < 1420}
       numbersClass={cl.numbers}
+      focusOnSelect={false}
     >
-      {products.map((item, i) =>
-        !item.large.available ? (
-          ""
-        ) : (
-          <ShopProductCardLarge
-            key={i}
-            {...item}
-          />
-        )
-      )}
+      {products.map((item, i) => (
+        <ShopProductCardLarge key={i} {...item} />
+      ))}
     </Carousel>
   );
 };

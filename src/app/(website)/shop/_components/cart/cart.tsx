@@ -51,7 +51,7 @@ export const Cart: React.FC<Props> = ({ className }) => {
     if (cart.promoCode) {
       return;
     }
-
+    console.log("ADD PROMO")
     const code = await getPromoCode(data.code);
 
     if (code) {

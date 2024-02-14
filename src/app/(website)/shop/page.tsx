@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import { textContent } from "./textContent";
 import { MiniProductCards, LargeProductCards } from "./_components/components";
-import React, { Suspense } from "react";
+import React, { Suspense, cache } from "react";
 import dynamic from "next/dynamic";
 import dbConnect from "@/config/dbConnect";
 import { IShopProduct } from "@/models/ShopProduct";
@@ -20,9 +20,10 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Крамниця | Tanpopo',
 }
-export const revalidate = 600;
+// export const revalidate = 600;
+export const revalidate = 1;
 
-const getShopItems = async () => {
+const getShopItems = cache(async () => {
   try {
     await dbConnect();
     const shopProductsDb = (await ShopProduct.find()
@@ -35,8 +36,9 @@ const getShopItems = async () => {
     ) as IShopProduct[];
   } catch (err: any) {
     console.log(err);
+    throw err
   }
-};
+});
 
 const DynamicShopPartnersBlock = dynamic(
   () => import("./_components/shopPartnerCard/shopPartnersBlock"),
