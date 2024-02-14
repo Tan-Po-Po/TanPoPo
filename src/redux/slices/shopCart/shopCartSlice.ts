@@ -68,6 +68,11 @@ export const shopCartSlice = createSlice({
       localStorage.setItem("shopCart", JSON.stringify(state));
       return state;
     },
+    deletePromoCode: (state) => {
+      state.promoCode = null;
+      localStorage.setItem("shopCart", JSON.stringify(state));
+      return state;
+    },
     clearShopCart: (state) => {
       localStorage.removeItem("shopCart");
       state.items = [];
@@ -96,6 +101,7 @@ export const {
   decreaseItemAmount,
   deleteCartItem,
   addPromoCode,
+  deletePromoCode,
   clearShopCart,
 } = shopCartSlice.actions;
 

@@ -20,9 +20,11 @@ export default function Page() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [course, setCourse] = useState<CourseState>();
-
+  const studyDuration = Math.round(
+    course?.lessons! / (course?.lessonsPerWeek || 2)
+  );
   const courseRedux = useAppSelector(selectCourse);
-  
+
   useEffect(() => {
     document.title = "Оплата навчання | Tanpopo";
   }, []);
@@ -165,9 +167,13 @@ export default function Page() {
 
                 <Typography variant="body1">
                   <b>
-                    {course?.lessons} онлайн-уроків <br />(
-                    {course?.lessons! / (course?.lessonsPerWeek || 2)}
-                    тижнів навчання)
+                    {course?.lessons} онлайн-уроків <br />({studyDuration} 
+                    {studyDuration === 1
+                      ? "тиждень"
+                      : studyDuration < 5
+                      ? "тижня"
+                      : "тижнів"}{" "}
+                    навчання)
                   </b>
                 </Typography>
               </>

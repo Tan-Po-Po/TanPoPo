@@ -4,11 +4,11 @@ import Image from "next/image";
 import { Button, ContentCard, Typography } from "@/components";
 import ArrowLongIcon from "/public/icons/arrowLong.svg";
 import { CardsBlock } from "./_components/cardsBlock/cardsBlock";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Онлайн тест | Tanpopo',
-}
+  title: "Онлайн тест | Tanpopo",
+};
 export default function TestIntro() {
   return (
     <main className={cl.testIntro}>
@@ -112,7 +112,10 @@ export default function TestIntro() {
         </div>
       </section>
 
-      <section className={cl.beginTestBlock}>
+      <section
+        className={cl.beginTestBlock}
+        id="start"
+      >
         <ContentCard width="792px" className={cl.card}>
           <Typography variant="h4">
             {textContent.beginTestBlock.title}

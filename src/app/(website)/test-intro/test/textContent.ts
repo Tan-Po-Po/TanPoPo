@@ -22,7 +22,7 @@ export const textContent = [
         question: "こんばんは！",
         subquestions: [
           {
-            question: "остання літера - це",
+            question: "тут читаємо は як",
             answers: ["ха", "хо", "ва", "на"],
             correctAnswer: "ва",
           },
@@ -251,17 +251,17 @@ export const textContent = [
         ],
       },
       {
-        question: "父は大学のとしょかんで はたらいて います。",
+        question: "自分で旅行を計画するのはたのしいです。",
         subquestions: [
           {
-            question: "читаємо 大学 як",
-            answers: ["がっこう", "がくせい", "おおがく", "だいがく"],
-            correctAnswer: "だいがく",
+            question: "читаємо 旅行 як",
+            answers: ["りゅうこ", "りゅこ", "りょこ", "りょこう"],
+            correctAnswer: "りょこう",
           },
           {
-            question: "はたらいて ієрогліфами",
-            answers: ["動いて", "働いて", "行いて", "通いて"],
-            correctAnswer: "働いて",
+            question: "たのしい ієрогліфами",
+            answers: ["寂しい", "楽しい", "美味しい", "懐かしい"],
+            correctAnswer: "楽しい",
           },
         ],
       },
@@ -302,7 +302,7 @@ export const textContent = [
         ],
       },
       {
-        question: "わたしのうちへも_________あそびにきてください。",
+        question: "わたしのうちへもう_________あそびにきてください。",
         subquestions: [
           {
             question: "вставте  слово",
@@ -409,7 +409,7 @@ export const textContent = [
         question: "何度もしっぱいしても、彼女は「あきらめなかった」。",
         subquestions: [
           {
-            question: "синонімічна фраза - це",
+            question: "фраза в 「….」 означає",
             answers: [
               "気にしなかった",
               "やめようとしなかった",
@@ -424,7 +424,7 @@ export const textContent = [
         question: "実験がうまくいかなかったので、「やりなおした」。",
         subquestions: [
           {
-            question: "синонімічна фраза - це",
+            question: "фраза в 「….」 означає",
             answers: [
               "やり方を調べた",
               "やり方を教わった",

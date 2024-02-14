@@ -54,7 +54,7 @@ export default function Test() {
   useEffect(() => {
     document.title = "Онлайн тест | Tanpopo";
   }, []);
-  
+
   useEffect(() => {
     setTimeout(() => setLoading(false), 1500);
   }, []);
@@ -86,6 +86,7 @@ export default function Test() {
       if (points.current >= pointsToProceed) {
         if (levelIndex === textContent.length - 1) {
           setTestResult({ activeLevel: level.level, nextLevel: level.level });
+          window && window.scrollTo(0, 0)
           return;
         }
 
@@ -93,22 +94,24 @@ export default function Test() {
         setTestIndex(0);
         points.current = 0;
         setLoading(true);
-        setTimeout(() => setLoading(false), 2000);
-        return;
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+        return
       } else if (points.current < pointsToProceed) {
         if (levelIndex === 0) {
           setTestResult({
             activeLevel: "N0",
             nextLevel: textContent[levelIndex].level,
-          });
-          return;
+          });  
         } else {
           setTestResult({
             activeLevel: textContent[levelIndex - 1].level,
             nextLevel: textContent[levelIndex].level,
           });
-          return;
         }
+        window && window.scrollTo(0, 0)
+        return
       }
     }
 
