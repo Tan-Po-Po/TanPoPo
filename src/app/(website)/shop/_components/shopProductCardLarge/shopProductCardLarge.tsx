@@ -135,7 +135,11 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
       )}
       id={_id}
     >
-      <div className={cl.beforeCaptionBlockWrapper}>
+      <div
+        className={cl.beforeCaptionBlockWrapper}
+        onMouseDown={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+      >
         <Carousel
           slidesToShow={width! < 666 ? 1 : 2}
           centerMode={width! < 666}

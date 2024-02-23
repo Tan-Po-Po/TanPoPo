@@ -1,16 +1,102 @@
 .main {
   padding: 0 10px;
 }
+.mobileCaption {
+  display: none;
+  text-align: center;
+  font-size: 31px;
+  line-height: 35px;
+  margin-top: 50px;
+}
+.joinBlock {
+  @include flex-row;
+  gap: 81px;
+  margin-top: 50px;
+  // .right {
+  //   width: 100%;
+  // }
+  .left {
+    @include flex-column;
+    gap: 50px;
+
+    .caption {
+      text-align: center;
+      font-size: 31px;
+      line-height: 35px;
+    }
+
+    .card {
+      h6 {
+        br {
+          display: none;
+        }
+        font-size: 23px;
+        line-height: 26px;
+      }
+    }
+    .btnWrapper {
+      background: linear-gradient(#fffaf9, #fffbd8);
+    }
+    .regButton {
+      padding: 19px 23px 16px;
+      p {
+        font-size: 22px;
+      }
+    }
+
+    .checkboxWrapper {
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      span:last-child {
+        text-align: start;
+        margin-left: 15px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.linksBlock {
+  margin-top: 100px;
+  width: 100%;
+
+  .links {
+    margin-top: 65px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1180px;
+    width: 100%;
+
+    .line {
+      display: none;
+    }
+  }
+
+  .linksCard {
+    align-items: flex-start;
+    text-wrap: nowrap;
+    gap: 25px;
+    p {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      margin-right: 10px;
+    }
+  }
+}
 
 .benefits {
   width: 100%;
   .header {
     h6 {
-      margin-top: 70px;
+      margin-top: 110px;
       font-size: 25px;
     }
     h3 {
-      font-size: 35px;
+      font-size: 35.3px;
     }
   }
   .cards {
@@ -97,14 +183,11 @@
 
 .register {
   max-width: 100%;
+  width: 100%;
   margin-top: 100px;
-  h2 {
-    font-size: 39px;
-    line-height: 30px;
-  }
-  h6 {
-    margin-top: 20px;
-    font-size: 25px;
+  h3 {
+    font-size: 32px;
+    max-width: 850px;
   }
   .img {
     margin: 25px 0 50px;
@@ -117,7 +200,7 @@
 .arrow {
   position: absolute;
   left: calc(100% + 20px);
-  bottom: calc(100% - 20px);
+  bottom: calc(100% - 30px);
 }
 .button {
   padding: 10px 20px !important;
@@ -130,7 +213,7 @@
   display: flex;
   align-items: center;
   .checkText {
-    margin-left: 25px;
+    margin-left: 10px;
     max-width: 400px;
     line-height: 17.84px;
     font-weight: 500;
@@ -138,45 +221,215 @@
   }
 }
 
-@media (max-width: 960px) {
-  .benefits {
-    .cards {
+@media (max-width: 1100px) {
+  .mobileCaption {
+    display: block;
+  }
+  .joinBlock {
+    flex-direction: column;
+    gap: 50px;
+    .left {
+      order: 2;
+      .caption {
+        display: none;
+      }
+    }
+  }
+
+  .linksBlock {
+    .links {
+      flex-direction: column;
       justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 0px;
+
+      .line {
+        display: block;
+        height: 50px;
+        width: 2px;
+        box-shadow: $box-shadow;
+        background-color: $color-black;
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .mobileCaption {
+    line-height: 44px;
+  }
+  .joinBlock {
+    .right {
+      width: 100%;
+    }
+  }
+  .linksBlock {
+    h4 {
+      font-size: 28px;
+    }
+  }
+  .benefits {
+    .header h6 {
+      margin-top: 75px;
+    }
+    .cards {
+      margin-top: 70px;
+      max-width: 100%;
+      justify-content: center;
       row-gap: 42px;
       .cardWrapper {
         width: 100%;
       }
       .card {
-        height: auto;
+        height: 400px;
+        width: 360px;
+        max-width: 100% !important;
+        padding: 20px 4px;
+        p {
+          font-size: 16px;
+          text-wrap: pretty;
+        }
+        br {
+          display: none;
+        }
       }
     }
+    .videoWrapper {
+      max-width: 310px;
+      height: 175px;
+      min-height: initial;
+    }
   }
-  .videoWrapper {
-    max-height: auto;
-    min-height: auto;
+
+  .register {
+    h3 {
+      font-size: 25px;
+      max-width: 650px;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .benefits {
+    .cards {
+      margin-top: 42px;
+      flex-wrap: wrap;
+    }
+  }
+  .register {
+    margin-top: 65px;
   }
 }
 
 @media (max-width: 500px) {
+  .mobileCaption {
+    font-size: 22px;
+    line-height: 25px;
+    max-width: 330px;
+    br {
+      display: none;
+    }
+  }
+
+  .joinBlock {
+    margin-top: 24px;
+    .left {
+      .card {
+        padding: 20px 15px;
+        h6 {
+          max-width: 270px;
+          font-size: 21px;
+          br {
+            display: block;
+          }
+        }
+        .arrow {
+          width: 45px;
+        }
+        .checkboxWrapper {
+          padding: 0;
+          span:last-child {
+            margin-left: 0px;
+          }
+        }
+      }
+    }
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-width: 100% !important;
+        width: 360px !important;
+      }
+    }
+  }
+
+  .linksBlock {
+    margin-top: 70px;
+    h4 {
+      font-size: 22px;
+      max-width: 325px;
+    }
+    .links {
+      margin-top: 40px;
+    }
+
+    .linksCard {
+      max-width: 100% !important;
+      width: 345px;
+      align-items: flex-start;
+      text-wrap: wrap;
+      text-align: start;
+      gap: 25px;
+      padding: 26px 20px;
+      p {
+        display: flex;
+        align-items: center;
+      }
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+
   .benefits {
     .header {
+      @include flex-column;
       margin-top: 60px;
       text-align: center;
-      h3 {
-        text-transform: lowercase;
+
+      h6 {
+        margin-top: 0;
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 500;
+        max-width: 285px;
       }
-      h6,
       h3 {
-        display: contents;
-        font-size: 24px;
-        line-height: 26px;
+        font-size: 23px;
+        line-height: 25px;
       }
     }
     .cards {
       justify-content: center;
       flex-wrap: wrap;
       row-gap: 42px;
+      h6 {
+        font-size: 22px;
+      }
+    }
+  }
+  .register {
+    max-width: 100%;
+    overflow: hidden;
+    h3 {
+      font-size: 22px;
+      max-width: 316px;
+    }
+    .img {
+      height: 240px !important;
+      width: auto !important;
     }
   }
 }

@@ -80,6 +80,8 @@ export default function Home() {
           alt="Home page"
           width={940}
           height={653}
+          blurDataURL="/images/HomeReduced.jpg"
+          placeholder="blur"
           style={{ maxWidth: "940px", width: "100%", height: "auto" }}
         />
         <Typography variant="h6" className={cl.about}>

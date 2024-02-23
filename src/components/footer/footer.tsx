@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
   const iconWidth = "16px";
 
   const { width } = useWindowSize();
-  const isPc = Boolean(width && width >= 1024);
+  const isPc = Boolean(width && width >= 1032);
 
   if (!isPc) {
     return <NarrowFooter />;
