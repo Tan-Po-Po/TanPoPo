@@ -52,7 +52,7 @@ export const FeedbackForm: React.FC = () => {
     await trigger();
     setShowErrors(true);
   };
-
+  
   const onSubmit: SubmitHandler<IFeedbackFormInput> = async (data) => {
     setLoading(true);
     fetch("/api/question", {
@@ -70,7 +70,7 @@ export const FeedbackForm: React.FC = () => {
           return toast("Сталася помилка, спробуйте ще раз пізніше");
         }
         reset();
-        toast("Питання успішно відправлено.");
+        toast("Ваше звернення успішно відправлено⭐️", { autoClose: 5000 });
       })
       .catch(() => toast("Сталася помилка, спробуйте ще раз пізніше"));
   };

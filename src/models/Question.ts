@@ -3,7 +3,17 @@ import mongoose from "mongoose";
 export interface IQuestion {
   _id: string;
   location: "courses" | "prices" | "contacts";
-  questionBlock: [{ question: string; answer: string }];
+  questionBlock: [
+    {
+      question: string;
+      answer: [
+        {
+          text: string;
+          link?: string;
+        }
+      ];
+    }
+  ];
 }
 
 const QuestionIdSchema = new mongoose.Schema<IQuestion>(
@@ -12,7 +22,12 @@ const QuestionIdSchema = new mongoose.Schema<IQuestion>(
     questionBlock: [
       {
         question: { type: String, required: true },
-        answer: { type: String, required: true },
+        answer: [
+          {
+            text: { type: String, required: true },
+            link: { type: String },
+          },
+        ],
       },
     ],
   },

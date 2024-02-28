@@ -8,8 +8,7 @@ export const getQuestions = async (location: location) => {
     await dbConnect();
 
     const questions = await Question.findOne({ location });
-
-    return questions as IQuestion;
+    return JSON.parse(JSON.stringify(questions)) as IQuestion;
   } catch (err: any) {
     console.log(err);
   }

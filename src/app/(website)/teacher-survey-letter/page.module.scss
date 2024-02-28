@@ -48,7 +48,8 @@
         @include flex-row;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 20px;
+        column-gap: 43px;
+        row-gap: 38px;
         width: 100%;
 
         .textArea {

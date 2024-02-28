@@ -28,7 +28,7 @@ export const Result: React.FC<Props> = ({ result }) => {
   useEffect(() => {
     const getCoursesFromDb = async () => {
       const courses = await getCourses(nextLevel);
-      courses.forEach((course) => console.log(course));
+
       setLoading(false);
       setCourses(courses);
     };

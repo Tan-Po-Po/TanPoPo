@@ -23,6 +23,11 @@
       font-weight: 700;
     }
   }
+
+  a {
+    text-decoration: underline !important;
+    font-weight: bolder;
+  }
 }
 
 .question {
@@ -103,7 +108,7 @@
 
   .faq.opened {
     background: linear-gradient(rgba(255, 230, 0, 1), rgba(255, 253, 234, 1));
-  
+
     .questionBody {
       font-size: 18px;
       font-weight: 700;

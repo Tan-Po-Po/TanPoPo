@@ -120,6 +120,7 @@ export default function Page() {
   const handleClick = async () => {
     await trigger();
     setShowErrors(true);
+    scrollTo(0,0)
   };
 
   if (loading) {
@@ -282,7 +283,7 @@ export default function Page() {
           />
 
           <Typography variant="subtitle1">
-            Продовжуючи, Я приймаю умови  
+            Продовжуючи, Я приймаю умови{" "}
             <Link target="_blank" href="/contacts/oferta">
               <u>Публічної {"\n"}Оферти</u>
             </Link>{" "}

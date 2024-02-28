@@ -24,6 +24,7 @@ const CoursesBlock: React.FC<Properties> = ({ courses }) => {
       centerMode
       numbersClass={cl.slideNumbers}
       adaptiveHeight
+      focusOnSelect={false}
     >
       {courses.map((course) => (
         <CourseCard course={course} key={course._id} />

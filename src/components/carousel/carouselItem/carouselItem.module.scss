@@ -4,11 +4,13 @@
   width: fit-content;
   cursor: pointer;
 
-  &:hover {
-    .playButtonIcon {
-      svg {
-        transition: 0.15s;
-        transform: scale(110%);
+  @media (hover: hover) {
+    &:hover {
+      .playButtonIcon {
+        svg {
+          transition: 0.15s;
+          transform: scale(110%);
+        }
       }
     }
   }
@@ -24,14 +26,14 @@
     fill: $color-yellow;
   }
 }
-
-.hovered {
-  animation: hoverAnimation 0.3s forwards;
+@media (hover: hover) {
+  .hovered {
+    animation: hoverAnimation 0.3s forwards;
+  }
+  .clicked {
+    animation: clickAnimation 0.3s forwards;
+  }
 }
-.clicked {
-  animation: clickAnimation 0.3s forwards;
-}
-
 .isOutlined {
   @include border-box;
 }

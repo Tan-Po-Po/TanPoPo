@@ -166,20 +166,15 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           link && setLink(link);
         }}
       />
-      
+
       <div className={cl.checkboxes}>
-        <div className={cl.checkboxWrapper}>
-          <Checkbox
-            label={
-              <Typography variant="subtitle1" className={cl.presentCheckbox}>
-                Подарунковий Сертифікат🎁
-              </Typography>
-            }
-            className={cl.giftCheckbox}
-            onClick={() => setIsGift((prev) => !prev)}
-            isChecked={isGift}
-          />
-        </div>
+        <Checkbox
+          label={"Подарунковий Сертифікат🎁"}
+          className={getValidClassNames(cl.giftCheckbox, cl.checkbox)}
+          onClick={() => setIsGift((prev) => !prev)}
+          isChecked={isGift}
+        />
+
         {course.type !== "book" && lessons && !isGift && (
           <>
             <div className={cl.line}></div>
@@ -195,7 +190,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
                   style={{
                     fontSize: "15px",
                     textAlign: "start",
-                    maxWidth: "285px",
+                    width: "285px",
                   }}
                 >
                   Я ознайомлений з <u>Навчальним Періодом</u> для самостійних

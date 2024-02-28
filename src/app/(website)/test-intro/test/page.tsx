@@ -96,7 +96,7 @@ export default function Test() {
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 2500);
         return
       } else if (points.current < pointsToProceed) {
         if (levelIndex === 0) {

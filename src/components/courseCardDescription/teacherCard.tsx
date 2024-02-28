@@ -212,7 +212,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
         />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ width: "312px", marginLeft: "10px", marginTop: "-10px" }}>
         {cardState.learningFormat !== null && cardState.lessons !== null && (
           <>
             <Checkbox

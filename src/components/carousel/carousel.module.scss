@@ -54,11 +54,13 @@
   :global(.slick-prev) {
     top: 44%;
     left: 36px;
+    z-index: 10;
   }
 
   :global(.slick-next) {
     top: 40%;
     right: 36px;
+    z-index: 10;
   }
 }
 

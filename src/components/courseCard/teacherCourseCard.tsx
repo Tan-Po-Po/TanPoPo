@@ -223,49 +223,46 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
           />
         )}
       </div>
-
-      {cardState.learningFormat !== null && cardState.lessons !== null && (
-        <div>
-          <Checkbox
-            className={cl.checkbox}
-            label="Я розпочинаю онлайн-курс з
+      
+      <div style={{ width: "312px", marginLeft: "10px", marginTop: "-10px" }}>
+        {cardState.learningFormat !== null && cardState.lessons !== null && (
+          <>
+            <Checkbox
+              className={cl.checkbox}
+              label="Я розпочинаю онлайн-курс з 
             сенсеєм школи TanPoPo вперше!"
-            isChecked={isNewStudent}
-            onClick={() => setCheckbox("newStudent")}
-          />
-          <div
-            className={cl.divider}
-            style={{ background: courseInfo.bgColor }}
-          >
-            <div className={cl.line}></div>
-            <Typography variant="body2" className={cl.text}>
-              Або
-            </Typography>
-            <div className={cl.line}></div>
-          </div>
-          <Checkbox
-            className={cl.checkbox}
-            label="Я вже маю розклад занять та
+              isChecked={isNewStudent}
+              onClick={() => setCheckbox("newStudent")}
+            />
+            <div
+              className={cl.divider}
+              style={{ background: courseInfo.bgColor }}
+            >
+              <div className={cl.line}></div>
+              <Typography variant="body2" className={cl.text}>
+                Або
+              </Typography>
+              <div className={cl.line}></div>
+            </div>
+            <Checkbox
+              className={cl.checkbox}
+              label="Я вже маю розклад занять та
             бажаю продовжити навчання!"
-            isChecked={isActiveStudent}
-            onClick={() => setCheckbox("activeStudent")}
-          />
-        </div>
-      )}
+              isChecked={isActiveStudent}
+              onClick={() => setCheckbox("activeStudent")}
+            />
+          </>
+        )}
 
-      <Checkbox
-        label={
-          <Typography variant="subtitle1" className={cl.presentCheckbox}>
-            Подарунковий Сертифікат🎁
-          </Typography>
-        }
-        className={cl.giftCheckbox}
-        isChecked={isGift}
-        onClick={() =>
-          isGift ? setCheckbox("newStudent") : setCheckbox("gift")
-        }
-      />
-
+        <Checkbox
+          label={"Подарунковий Сертифікат🎁"}
+          className={getValidClassNames(cl.giftCheckbox, cl.checkbox)}
+          isChecked={isGift}
+          onClick={() =>
+            isGift ? setCheckbox("newStudent") : setCheckbox("gift")
+          }
+        />
+      </div>
       <ContentCard
         className={getValidClassNames(
           cl.bottomBtn,

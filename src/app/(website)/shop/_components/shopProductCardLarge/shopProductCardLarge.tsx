@@ -138,7 +138,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
       <div
         className={cl.beforeCaptionBlockWrapper}
         onMouseDown={(e) => e.stopPropagation()}
-        onTouchStart={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
       >
         <Carousel
           slidesToShow={width! < 666 ? 1 : 2}
@@ -170,7 +170,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
                 alt=""
                 src={`${IMAGE_BASE_URL}/${item.image.filename}`}
                 fill
-                sizes="(max-width: 2400px) 215xp"
+                sizes="(max-width: 2400px) 215px"
                 style={{ objectFit: "contain" }}
                 placeholder={`data:image/svg+xml;base64,${toBase64(spinner())}`}
               />

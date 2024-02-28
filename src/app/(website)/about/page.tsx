@@ -15,11 +15,11 @@ import { InfoCardsBlock } from "./_components/blocks/infoCardsBlock/infoCardsBlo
 import { ReelsBlock } from "./_components/blocks/reelsBlock/reelsBlock";
 import { LinkCardsBlock } from "./_components/blocks/linkCardsBlock/linkCardsBlock";
 import { PartnersBlock } from "./_components/blocks/partnersBlock/partnersBlock";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Про школу | Tanpopo',
-}
+  title: "Про школу | Tanpopo",
+};
 export default async function About() {
   const [teamMembers, partners] = await Promise.all([
     getTeamMembers(),
@@ -37,8 +37,7 @@ export default async function About() {
           }}
           className={cl.title}
         >
-          Найкраща {<b>онлайн-школа</b>} японської мови
-          <br /> {<b>для українців</b>} по всьому світу!
+          Провідна українська онлайн-школа з вивчення японської мови!
         </Typography>
 
         <div className={cl.logoWrapper}>

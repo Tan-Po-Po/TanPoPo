@@ -112,10 +112,10 @@ export default async function Home() {
         <Suspense
           fallback={
             <>
-              <Faq question="Loading" answer="Loading" />
-              <Faq question="Loading" answer="Loading" />
-              <Faq question="Loading" answer="Loading" />
-              <Faq question="Loading" answer="Loading" />
+              <Faq question="Loading" answer={[{text: "Loading"}]} />
+              <Faq question="Loading" answer={[{text: "Loading"}]} />
+              <Faq question="Loading" answer={[{text: "Loading"}]} />
+              <Faq question="Loading" answer={[{text: "Loading"}]} />
             </>
           }
         >

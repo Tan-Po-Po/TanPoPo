@@ -107,6 +107,7 @@ export default function Page() {
     };
 
     setLoading(true);
+    scrollTo(0,0);
     fetch("/api/education", {
       method: "POST",
       body: JSON.stringify(data),

@@ -6,10 +6,16 @@ import { getValidClassNames } from "@/helpers";
 import ArrowIcon from "public/icons/arrowDown.svg";
 
 import cl from "./faq.module.scss";
+import Link from "next/link";
 
 type Properties = {
   question: string;
-  answer: string;
+  answer: [
+    {
+      text: string;
+      link?: string;
+    }
+  ];
   style?: any;
 };
 
@@ -43,7 +49,18 @@ const Faq: React.FC<Properties> = ({ question, answer, style }) => {
       </div>
       <div className={getValidClassNames(cl.answer)}>
         <div className={cl.line}></div>
-        <Typography variant="body2">{answer}</Typography>
+        <Typography variant="body2">
+          {answer.map((item, idx) => (
+            <span key={idx}>
+              {idx > 0 ? " " : ""}
+              {item.link ? (
+                <Link href={item.link!}>{item.text}</Link>
+              ) : (
+                item.text
+              )}
+            </span>
+          ))}
+        </Typography>
       </div>
     </div>
   );
