@@ -6,7 +6,7 @@ export interface IQuestionId {
   count: number;
 }
 
-const QuestionSchema = new mongoose.Schema<IQuestionId>(
+const QuestionIdSchema = new mongoose.Schema<IQuestionId>(
   {
     value: { type: String, required: true },
     count: { type: Number, required: true },
@@ -15,4 +15,4 @@ const QuestionSchema = new mongoose.Schema<IQuestionId>(
 );
 
 export default mongoose.models.QuestionId ||
-  mongoose.model("QuestionId", QuestionSchema);
+  mongoose.model("QuestionId", QuestionIdSchema);

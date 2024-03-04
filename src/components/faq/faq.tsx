@@ -54,7 +54,9 @@ const Faq: React.FC<Properties> = ({ question, answer, style }) => {
             <span key={idx}>
               {idx > 0 ? " " : ""}
               {item.link ? (
-                <Link href={item.link!}>{item.text}</Link>
+                <Link href={item.link!} onClick={(e) => e.stopPropagation()}>
+                  {item.text}
+                </Link>
               ) : (
                 item.text
               )}

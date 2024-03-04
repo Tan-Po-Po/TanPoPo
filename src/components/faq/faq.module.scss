@@ -16,14 +16,15 @@
   transition: all 0.3s ease-in-out;
   box-shadow: $box-shadow;
 
-  &:hover {
-    background: $color-yellow;
-    .questionBody {
-      font-size: 21px;
-      font-weight: 700;
+  @media (hover: hover) {
+    &:hover {
+      background: $color-yellow;
+      .questionBody {
+        font-size: 21px;
+        font-weight: 700;
+      }
     }
   }
-
   a {
     text-decoration: underline !important;
     font-weight: bolder;
@@ -72,10 +73,10 @@
 .faq.opened {
   background: linear-gradient(rgba(255, 230, 0, 1), rgba(255, 253, 234, 1));
 
-  .questionBody {
-    font-size: 22px;
-    font-weight: 700;
-  }
+  // .questionBody {
+  //   font-size: 22px;
+  //   font-weight: 700;
+  // }
 
   .answer {
     max-height: 300px;
@@ -109,9 +110,9 @@
   .faq.opened {
     background: linear-gradient(rgba(255, 230, 0, 1), rgba(255, 253, 234, 1));
 
-    .questionBody {
-      font-size: 18px;
-      font-weight: 700;
-    }
+    // .questionBody {
+    //   font-size: 18px;
+    //   font-weight: 700;
+    // }
   }
 }

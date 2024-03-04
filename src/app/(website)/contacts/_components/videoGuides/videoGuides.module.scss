@@ -3,18 +3,27 @@
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   gap: 100px;
+}
 
-  .videoCard {
-    justify-content: space-evenly;
-    transition: 0.15s;
-    cursor: pointer;
-    height: 215px;
-    .icon {
-      fill: $color-black;
-      width: 50px;
-      height: 50px;
-    }
+.videoCard {
+  justify-content: space-evenly;
+  transition: 0.15s;
+  cursor: pointer;
+  height: 215px;
+  width: 384px;
+  flex-shrink: 0;
+  .icon {
+    fill: $color-black;
+    width: 50px;
+    height: 50px;
+  }
 
+  p {
+    white-space: pre-line;
+    text-transform: uppercase;
+  }
+
+  @media (hover: hover) {
     &:hover {
       transform: scale(110%);
 
@@ -31,15 +40,13 @@
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1400px) {
   .videoGuidesBlock {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 50px;
-    column-gap: 25px;
     justify-content: space-between;
 
-    .videoCard {
-      &:hover {
+    @media (hover: hover) {
+      .videoCard:hover {
         transform: scale(103%);
 
         svg {
@@ -56,8 +63,27 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+  .videoGuidesBlock {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    gap: 50px;
+
+    .videoCard {
+      padding: 26px 10px;
+      width: 350px;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .carousel {
+    width: calc(100% + 20px) !important;
+  }
+}
+@media (max-width: 450px) {
   .videoCard {
+    padding: 26px 5px;
     width: 340px;
   }
 }

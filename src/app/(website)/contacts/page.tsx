@@ -1,4 +1,4 @@
-import { ContentCard, Divider, Faq, Typography, FaqBlock } from "@/components";
+import { ContentCard, Divider, Faq, Typography, FaqBlock, Loading } from "@/components";
 import { textContent } from "./textContent";
 import { FeedbackForm } from "./_components/feedbackForm/feedbackForm";
 import { VideoGuides } from "./_components/videoGuides/videoGuides";
@@ -7,14 +7,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import cl from "./page.module.scss";
-import { Metadata } from 'next'
- 
-export const metadata: Metadata = {
-  title: 'Контакти | Tanpopo',
-}
-const dividerBgColor = "linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)";
+import { Metadata } from "next";
+import { getGuides } from "./actions";
 
-export default function Contacts() {
+export const metadata: Metadata = {
+  title: "Контакти | Tanpopo",
+};
+const dividerBgColor = "linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)";
+export const revalidate = 1;
+
+export default async function Contacts() {
+  const guides = await getGuides();
+
   return (
     <main className={cl.main}>
       <div className={cl.contactsBlock}>
@@ -135,8 +139,10 @@ export default function Contacts() {
         style={{ scrollMarginTop: "120px" }}
       />
 
-      <VideoGuides />
-
+      <Suspense fallback={<Loading />}>
+        <VideoGuides guides={guides} />
+      </Suspense>
+      
       <Divider
         firstRow={textContent.faqBlock.divider.line1}
         bgColor={dividerBgColor}
@@ -150,12 +156,12 @@ export default function Contacts() {
             <div className={cl.faqBlock}>
               <Faq
                 question="Loading"
-                answer={[{text: "Loading"}]}
+                answer={[{ text: "Loading" }]}
                 style={{ width: "900px", maxWidth: "100%" }}
               />
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
             </div>
           }
         >

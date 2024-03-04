@@ -16,7 +16,7 @@ export interface IQuestion {
   ];
 }
 
-const QuestionIdSchema = new mongoose.Schema<IQuestion>(
+const QuestionSchema = new mongoose.Schema<IQuestion>(
   {
     location: { type: String, required: true },
     questionBlock: [
@@ -35,4 +35,4 @@ const QuestionIdSchema = new mongoose.Schema<IQuestion>(
 );
 
 export default mongoose.models.Question ||
-  mongoose.model("Question", QuestionIdSchema);
+  mongoose.model("Question", QuestionSchema);
