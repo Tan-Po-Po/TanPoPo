@@ -5,6 +5,7 @@
   .carousel {
     :global(.slick-slider) {
       height: 500px;
+      overflow: visible !important;
     }
     :global(.slick-dots) {
       margin-top: 35px;
@@ -31,6 +32,10 @@
       > div {
         margin: 2vw calc(3vw + 3px);
       }
+    }
+
+    .caption {
+      margin-top: 45px;
     }
   }
 

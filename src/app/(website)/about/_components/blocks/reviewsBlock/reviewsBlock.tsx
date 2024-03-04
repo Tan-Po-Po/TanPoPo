@@ -1,11 +1,14 @@
 "use client";
-import { Carousel, CarouselItem, ContentCard, Typography } from "@/components";
+import { Carousel, CarouselItem, ContentCard, DialogGallery, Typography } from "@/components";
 import cl from "./reviewsBlock.module.scss";
 import { textContent } from "../../../textContent";
 import Image from "next/image";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { useAppDispatch } from "@/redux/hooks";
+import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 
 export const ReviewsBlock = () => {
+  const dispatch = useAppDispatch();
   const {width} = useWindowSize()
   const isPc = Boolean(width && width >= 1024)
   const isMobile = Boolean(width && width < 678)
@@ -17,6 +20,7 @@ export const ReviewsBlock = () => {
       id="reviews"
       style={{ scrollMarginTop: "120px" }}
     >
+      <DialogGallery />
       <Typography
         variant="h3"
         style={{ textAlign: "center" }}
@@ -58,6 +62,7 @@ export const ReviewsBlock = () => {
               className={cl.carouselItem}
               onClick={() => {
                 if (i != 4) {
+                  dispatch(openGalleryDialog({ type: "image", src }));
                   return;
                 }
                 window.open(

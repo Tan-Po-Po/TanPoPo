@@ -8,7 +8,7 @@ import { textContent } from "./textContent";
 import Image from "next/image";
 import { TeamBlock } from "./_components/blocks/teamBlock/teamBlock";
 import Partner, { IPartner } from "@/models/Partner";
-import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
+import { AuthorContentCards } from "./_components/blocks/authorContent/authorContentCards/authorContentCards";
 import { BioBlock } from "./_components/blocks/bioBlock/bioBlock";
 import { ReviewsBlock } from "./_components/blocks/reviewsBlock/reviewsBlock";
 import { InfoCardsBlock } from "./_components/blocks/infoCardsBlock/infoCardsBlock";
@@ -16,6 +16,7 @@ import { ReelsBlock } from "./_components/blocks/reelsBlock/reelsBlock";
 import { LinkCardsBlock } from "./_components/blocks/linkCardsBlock/linkCardsBlock";
 import { PartnersBlock } from "./_components/blocks/partnersBlock/partnersBlock";
 import { Metadata } from "next";
+import { AuthorContent } from "./_components/blocks/authorContent/authorContent";
 
 export const metadata: Metadata = {
   title: "Про школу | Tanpopo",
@@ -117,7 +118,8 @@ export default async function About() {
         </ContentCard>
       </ContentCard>
 
-      <div
+      <AuthorContent />
+      {/* <div
         className={cl.authorContentBlock}
         id="content"
         style={{ scrollMarginTop: "120px" }}
@@ -134,6 +136,7 @@ export default async function About() {
               icon="instagram"
               href={textContent.authorContentBlock.instagram.iconLink}
               height="64px"
+              className={cl.iconLink}
             />
             <AuthorContentCards
               links={textContent.authorContentBlock.instagram.links}
@@ -152,6 +155,7 @@ export default async function About() {
               icon="youTube"
               href={textContent.authorContentBlock.youtube.iconLink}
               height="64px"
+              className={cl.iconLink}
             />
             <AuthorContentCards
               links={textContent.authorContentBlock.youtube.links}
@@ -162,7 +166,7 @@ export default async function About() {
             </Typography>
           </ContentCard>
         </div>
-      </div>
+      </div> */}
 
       <ReelsBlock />
 
