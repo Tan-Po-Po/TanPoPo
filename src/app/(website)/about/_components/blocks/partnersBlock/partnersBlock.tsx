@@ -6,11 +6,12 @@ import { IPartner } from "@/models/Partner";
 import Image from "next/image";
 import { IMAGE_BASE_URL } from "@/config/config";
 import { useWindowSize } from "@uidotdev/usehooks";
+import Link from "next/link";
 
 export const PartnersBlock = ({ partners }: { partners: IPartner[] }) => {
   const { width } = useWindowSize();
   const isPc = Boolean(width && width >= 1024);
-  
+
   return (
     <div
       className={cl.partnersBlock}
@@ -25,18 +26,20 @@ export const PartnersBlock = ({ partners }: { partners: IPartner[] }) => {
         <Carousel autoplay={true} arrows={isPc} className={cl.carousel}>
           {partners.map((partner) => (
             <CarouselItem key={partner._id} isHoverEventActive={isPc}>
-              <Image
-                alt=""
-                src={`${IMAGE_BASE_URL}/${partner.image.filename}`}
-                width={500}
-                height={300}
-                style={{
-                  width: "100%",
-                  minWidth: "180px",
-                  maxWidth: " 271px",
-                  height: "auto",
-                }}
-              />
+              <Link href={partner.link} target="_blank">
+                <Image
+                  alt=""
+                  src={`${IMAGE_BASE_URL}/${partner.image.filename}`}
+                  width={500}
+                  height={300}
+                  style={{
+                    width: "100%",
+                    minWidth: "180px",
+                    maxWidth: " 271px",
+                    height: "auto",
+                  }}
+                />
+              </Link>
             </CarouselItem>
           ))}
         </Carousel>
