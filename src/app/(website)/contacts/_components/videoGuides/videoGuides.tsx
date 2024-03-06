@@ -7,7 +7,6 @@ import {
   CarouselItem,
   DialogGallery,
 } from "@/components";
-import { textContent } from "../../textContent";
 import cl from "./videoGuides.module.scss";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useAppDispatch } from "@/redux/hooks";
@@ -60,7 +59,13 @@ const VideoGuides: React.FC<Properties> = ({ guides }) => {
                 </div>
                 <Typography variant="body2">
                   {card.textArray.map((item, idx) =>
-                    item.isUnderlined ? <u key={idx}>{item.text}</u> : item.text
+                    item.isUnderlined ? (
+                      <u key={idx}>
+                        <b>{item.text}</b>
+                      </u>
+                    ) : (
+                      item.text
+                    )
                   )}
                 </Typography>
               </ContentCard>
@@ -89,7 +94,13 @@ const VideoGuides: React.FC<Properties> = ({ guides }) => {
               </div>
               <Typography variant="body2">
                 {card.textArray.map((item, idx) =>
-                  item.isUnderlined ? <u key={idx}>{item.text}</u> : item.text
+                  item.isUnderlined ? (
+                    <u key={idx}>
+                      <b>{item.text}</b>
+                    </u>
+                  ) : (
+                    item.text
+                  )
                 )}
               </Typography>
             </ContentCard>

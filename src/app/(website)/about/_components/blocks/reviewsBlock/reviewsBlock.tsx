@@ -1,18 +1,34 @@
 "use client";
-import { Carousel, CarouselItem, ContentCard, DialogGallery, Typography } from "@/components";
+import {
+  Carousel,
+  CarouselItem,
+  ContentCard,
+  DialogGallery,
+  Typography,
+} from "@/components";
 import cl from "./reviewsBlock.module.scss";
 import { textContent } from "../../../textContent";
 import Image from "next/image";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
+import { IFeedback } from "@/models/Feedbacks";
+import { IMAGE_BASE_URL } from "@/config/config";
 
-export const ReviewsBlock = () => {
+type Properties = {
+  feedbacks: IFeedback[];
+};
+
+export const ReviewsBlock: React.FC<Properties> = ({ feedbacks }) => {
   const dispatch = useAppDispatch();
-  const {width} = useWindowSize()
-  const isPc = Boolean(width && width >= 1024)
-  const isMobile = Boolean(width && width < 678)
-  const isTablet = Boolean(width && width >= 678 && width < 1024)
+  const { width } = useWindowSize();
+  const isPc = Boolean(width && width >= 1024);
+  const isMobile = Boolean(width && width < 678);
+  const isTablet = Boolean(width && width >= 678 && width < 1024);
+
+  if (!feedbacks.length) {
+    return null;
+  }
 
   return (
     <div
@@ -54,26 +70,25 @@ export const ReviewsBlock = () => {
             },
           ]}
         >
-          {getReviewImagesSrc().map((src, i) => (
+          {getFeedbackImagesSrc(feedbacks).map((feedback, i) => (
             <CarouselItem
               key={i}
               isOutlined={true}
               type={i === 4 ? "video" : "image"}
               className={cl.carouselItem}
               onClick={() => {
-                if (i != 4) {
-                  dispatch(openGalleryDialog({ type: "image", src }));
+                if (!feedback.link) {
+                  dispatch(
+                    openGalleryDialog({ type: "image", src: feedback.src })
+                  );
                   return;
                 }
-                window.open(
-                  "https://www.instagram.com/reel/Ct1AOQHOS6P/",
-                  "_blank"
-                );
+                window.open(feedback.link, "_blank");
               }}
             >
               <Image
                 alt=""
-                src={src}
+                src={feedback.src}
                 width={500}
                 height={300}
                 style={{
@@ -105,11 +120,15 @@ export const ReviewsBlock = () => {
   );
 };
 
-function getReviewImagesSrc() {
-  const reviews = [];
+function getFeedbackImagesSrc(feedbacks: IFeedback[]) {
+  const images: { src: string; link?: string }[] = [];
 
-  for (let i = 1; i < 10; i++) {
-    reviews.push(`/reviews/${i}.png`);
-  }
-  return reviews;
+  feedbacks.forEach((feedback) => {
+    images.push({
+      src: `${IMAGE_BASE_URL}/${feedback.image.filename}`,
+      link: feedback.link,
+    });
+  });
+
+  return images;
 }
