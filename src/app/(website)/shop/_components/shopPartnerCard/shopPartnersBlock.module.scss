@@ -1,0 +1,33 @@
+.shopPartnersBlock {
+  @include flex-row;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 70px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 384px);
+}
+
+.divider {
+  height: 35px;
+  padding: 5px 15px;
+  span {
+    line-height: normal;
+  }
+}
+
+.dividerWrapperPartners {
+  margin: -33px 0 0;
+}
+
+.dividerWrapperProducts {
+  margin: -17px 0 0;
+}
+
+@media (max-width: "1023px") {
+  .shopPartnersBlock {
+    display: flex;
+    flex-direction: column;
+  }
+}

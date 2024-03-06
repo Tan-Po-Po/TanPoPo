@@ -12,13 +12,13 @@ interface Props {
 export const AuthorContentCards: React.FC<Props> = ({ links, images }) => {
   return (
     <div className={cl.cards}>
-      <Link href={links[0]}>
+      <Link href={links[0]} target="_blank">
         <Card image={images[0]} className={cl.left} />
       </Link>
-      <Link href={links[1]}>
+      <Link href={links[1]} target="_blank">
         <Card image={images[1]} className={cl.center} />
       </Link>
-      <Link href={links[2]}>
+      <Link href={links[2]} target="_blank">
         <Card image={images[2]} className={cl.right} />
       </Link>
     </div>

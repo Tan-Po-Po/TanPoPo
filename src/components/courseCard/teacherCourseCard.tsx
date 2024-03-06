@@ -140,6 +140,15 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
             </Typography>
           </li>
         ))}
+        <Link href={`courses/${course._id}`}>
+          <li>
+            <Typography className={cl.description} variant="body1">
+              <u style={{ textDecorationThickness: "1px" }}>
+                більше інформації про курс...
+              </u>
+            </Typography>
+          </li>
+        </Link>
       </ul>
       <section className={cl.labels}>
         {course.labels.map((label, index) => (
@@ -223,7 +232,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
           />
         )}
       </div>
-      
+
       <div style={{ width: "312px", marginLeft: "10px", marginTop: "-10px" }}>
         {cardState.learningFormat !== null && cardState.lessons !== null && (
           <>

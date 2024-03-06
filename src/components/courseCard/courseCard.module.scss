@@ -10,16 +10,18 @@
     font-family: var(--font-heisei);
   }
 
-  &:hover {
-    .header {
-      transform: scale(110%) translate(-50%, -45%);
-      box-shadow: 0px 0px 3px 0px #000 inset,
-        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
-    .headerWrapper {
-      transform: scale(110%);
-      box-shadow: 0px 0px 3px 0px #000 inset,
-        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  @media (hover: hover) {
+    &:hover {
+      .header {
+        transform: scale(110%) translate(-50%, -45%);
+        box-shadow: 0px 0px 3px 0px #000 inset,
+          0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
+      .headerWrapper {
+        transform: scale(110%);
+        box-shadow: 0px 0px 3px 0px #000 inset,
+          0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
     }
   }
 
@@ -138,34 +140,39 @@
 
   .giftBtn {
     background: linear-gradient(rgba(255, 239, 153, 1), rgba(255, 171, 231, 1));
-
-    &:hover {
-      background: linear-gradient(
-        rgba(255, 235, 125, 1),
-        rgba(255, 141, 223, 1)
-      );
+    @media (hover: hover) {
+      &:hover {
+        background: linear-gradient(
+          rgba(255, 235, 125, 1),
+          rgba(255, 141, 223, 1)
+        );
+      }
     }
   }
 
   .startBtn {
     background: linear-gradient(rgba(224, 255, 216, 1), rgba(184, 255, 187, 1));
     white-space: nowrap;
-    &:hover {
-      background: linear-gradient(
-        rgba(198, 255, 177, 1),
-        rgba(158, 255, 174, 1)
-      );
+    @media (hover: hover) {
+      &:hover {
+        background: linear-gradient(
+          rgba(198, 255, 177, 1),
+          rgba(158, 255, 174, 1)
+        );
+      }
     }
   }
 
   .continueBtn {
     background: linear-gradient(rgba(205, 237, 255, 1), rgba(237, 200, 255, 1));
 
-    &:hover {
-      background: linear-gradient(
-        rgba(178, 214, 255, 1),
-        rgba(229, 176, 255, 1)
-      );
+    @media (hover: hover) {
+      &:hover {
+        background: linear-gradient(
+          rgba(178, 214, 255, 1),
+          rgba(229, 176, 255, 1)
+        );
+      }
     }
   }
 }
