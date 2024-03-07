@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { getIconArtSrc } from "@/helpers";
+import { getIconArtSrc, getIconSrc, getValidClassNames } from "@/helpers";
 import { Button } from "@/components/button/button";
 import { ContentCard } from "@/components/contentCard/contentCard";
 import { useState } from "react";
@@ -10,14 +10,18 @@ import cl from "./teamMemberCard.module.scss";
 import { DialogCertificates } from "./dialogCertificates/dialogCertificates";
 import { NarrowTeamMemberCard } from "./narrowTeamMemberCard/narrowTeamMemberCard";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { useAppDispatch } from "@/redux/hooks";
+import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 
 interface Props {
   teamMember: ITeamMember;
 }
 
 const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
-  const { label, name, image, certificates, education, about } = teamMember;
+  const { label, name, image, certificates, education, about, video } =
+    teamMember;
   const { width } = useWindowSize();
+  const dispatch = useAppDispatch();
   const isPc = Boolean(width && width >= 1024);
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -47,7 +51,7 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
             {label.value.toUpperCase()}
           </div>
           <ContentCard
-            className={cl.image}
+            className={getValidClassNames(cl.image, video && cl.imageWithVideo)}
             label={name}
             labelPosition="bottom"
             style={{ padding: 0, width: "fit-content", fontSize: "22px" }}
@@ -63,7 +67,26 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
                 width: "340px",
                 height: "274px",
               }}
-            ></Image>
+              onClick={() => {
+                if (video) {
+                  dispatch(
+                    openGalleryDialog({
+                      type: "video",
+                      src: video,
+                    })
+                  );
+                }
+              }}
+            />
+            {video && (
+              <Image
+                src={getIconSrc("youTubeYellow")}
+                alt="Video icon"
+                width={48}
+                height={39}
+                className={cl.videoIcon}
+              />
+            )}
           </ContentCard>
 
           <div className={cl.certificatesWrapper}>

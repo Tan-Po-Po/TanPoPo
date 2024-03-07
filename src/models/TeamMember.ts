@@ -7,6 +7,7 @@ export interface ITeamMember {
   image: {
     filename: string;
   };
+  video?: string;
   certificates: {
     keyPoints: string[];
     description: {
@@ -42,6 +43,7 @@ const TeamMemberSchema = new mongoose.Schema<ITeamMember>(
       ref: Media && "Media",
       required: true,
     },
+    video: { type: String, required: false },
     certificates: {
       keyPoints: { type: [String], required: true },
       description: [

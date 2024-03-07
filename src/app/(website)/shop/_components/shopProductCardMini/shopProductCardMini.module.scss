@@ -24,17 +24,32 @@
     }
   }
 
+  @media (hover: hover) {
+    &:hover {
+      button {
+        background: $color-yellow;
+        scale: 110% !important;
+      }
+    }
+  }
+
   button {
     transition: all 0.1s ease-in-out;
     p {
       white-space: pre-wrap;
     }
   }
+}
 
-  &:hover {
+@media (hover: hover) {
+  .inDevelopment:hover {
+    cursor: initial;
     button {
-      background: $color-yellow;
-      scale: 110% !important;
+      scale: none !important;
+      background: none !important;
+      &:hover {
+        background: none !important;
+      }
     }
   }
 }

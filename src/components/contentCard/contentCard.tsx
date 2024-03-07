@@ -10,13 +10,13 @@ interface Props {
   label?: string | React.ReactNode;
   labelPosition?: "top" | "bottom";
   labelBgColor?: string;
+  labelClassName?: string;
   indexBgColor?: string;
   cardBgColor?: string;
   width?: string;
   height?: string;
   style?: CSSProperties;
   className?: string;
-  labelClassName?: string;
   onClick?: (event: React.MouseEvent) => void;
   onMouseEnter?: (event: React.MouseEvent) => void;
   onMouseLeave?: (event: React.MouseEvent) => void;

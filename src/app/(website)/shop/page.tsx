@@ -20,8 +20,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Крамниця | Tanpopo',
 }
-export const revalidate = 600;
-// export const revalidate = 1;
+export const revalidate = 1;
 
 const getShopItems = cache(async () => {
   try {
