@@ -459,6 +459,28 @@
   }
 }
 
+.errorPage {
+  padding: 60px 10px 80px;
+  gap: 0px;
+
+  .errorCard {
+    margin-top: 75px;
+    height: 390px;
+    justify-content: space-evenly;
+    gap: 0;
+  }
+
+  .errorBtn {
+    padding: 17px 14px !important;
+  }
+
+  .feedback {
+    max-width: 450px;
+    margin-top: 40px;
+    font-size: 15px !important;
+  }
+}
+
 @media (max-width: 1023px) {
   .main {
     padding-top: 45px;
@@ -832,6 +854,18 @@
     }
     #additionalQuestion {
       order: 10;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .errorPage {
+    .errorCard {
+      width: calc(100% + 20px);
+      padding: 26px 10px;
+    }
+    .feedback {
+      max-width: 300px;
     }
   }
 }

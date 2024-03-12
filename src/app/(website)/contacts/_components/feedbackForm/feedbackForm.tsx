@@ -79,7 +79,7 @@ export const FeedbackForm: React.FC = () => {
     return <Loading />;
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
+    <form onSubmit={handleSubmit(onSubmit)} className={cl.form} id="feedback">
       <div className={cl.inputs}>
         <div className={cl.left}>
           <Controller

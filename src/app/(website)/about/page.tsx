@@ -26,7 +26,7 @@ export default async function About() {
     getPartnerImagesSrc(),
     getFeedbacks(),
   ]);
-
+  throw new Error("Test error")
   return (
     <main className={cl.main}>
       <div className={cl.ideaBlock}>

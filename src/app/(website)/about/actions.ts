@@ -10,7 +10,7 @@ export async function getTeamMembers() {
     const teamMembersDb = (await TeamMember.find().populate("image").populate({
       path: "certificates.description.image",
     })) as ITeamMember[];
-
+    
     const teamMembers: ITeamMember[] = teamMembersDb.map((member) => {
       return JSON.parse(JSON.stringify(member));
     });
