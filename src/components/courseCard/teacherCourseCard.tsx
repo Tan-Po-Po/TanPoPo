@@ -68,6 +68,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       lessons: +cardState.lessons.slice(0, 2).trim(),
       price: cardState.lessons.match(/\(([^)]+)\)/)![1],
       level: course.level[0],
+      lessonsPerWeek: cardState.learningFormat === "Міні-група" ? 2 : null,
       isGift,
     };
 

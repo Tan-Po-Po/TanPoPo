@@ -3,7 +3,7 @@
 import cl from "./result.module.scss";
 import { ICourse } from "@/models/Course";
 import { getCourses } from "./actions";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ContentCard,
   CourseCardMini,
@@ -15,12 +15,15 @@ import {
 } from "@/components";
 import { LEVELS } from "./levels";
 import Image from "next/image";
-
+import { useWindowSize } from "@uidotdev/usehooks";
+import ArrowButton from "@/components/arrowButton/arrowButton";
 interface Props {
   result: { activeLevel: string; nextLevel: string };
 }
 
 export const Result: React.FC<Props> = ({ result }) => {
+  const { width } = useWindowSize();
+  const levelsContainer = useRef<HTMLDivElement>(null);
   const { activeLevel, nextLevel } = result;
   const [courses, setCourses] = useState<ICourse[] | null>(null);
   const [loading, setLoading] = useState(true);
@@ -34,7 +37,7 @@ export const Result: React.FC<Props> = ({ result }) => {
     };
 
     getCoursesFromDb();
-  }, [nextLevel]);
+  }, [nextLevel, activeLevel]);
 
   if (loading) {
     return (
@@ -51,7 +54,7 @@ export const Result: React.FC<Props> = ({ result }) => {
     <main className={cl.resultMain}>
       <ContentCard className={cl.result} width="fit-content">
         {activeLevel === "N0" ? (
-          <Typography variant="h6" style={{lineHeight: "30px"}}>
+          <Typography variant="h6" style={{ lineHeight: "30px" }}>
             Ви ентузіаст-початківець😎 <br />
             Варто розпочинати з базових <br />
             знань японської мови - рівня N5!
@@ -68,6 +71,77 @@ export const Result: React.FC<Props> = ({ result }) => {
           </>
         )}
       </ContentCard>
+
+      <div style={{ width: "100%" }}>
+        <div className={cl.levelsWrapper} ref={levelsContainer}>
+          <ContentCard width="1010px" className={cl.ruler}>
+            <div
+              className={cl.background}
+              style={{
+                width:
+                  levels.find((level) => level.level === result.activeLevel)
+                    ?.width || "0%",
+              }}
+            ></div>
+            {levels.map((level, i) => {
+              if (!(i % 2)) {
+                return (
+                  <div key={i} className={cl.mark} id={level.level}>
+                    <Typography variant="h3">{level.level}</Typography>
+                    <div className={cl.line}></div>
+                    <Typography
+                      variant="subtitle2"
+                      style={{ whiteSpace: "pre" }}
+                    >
+                      {level.label}
+                    </Typography>
+                  </div>
+                );
+              } else {
+                return (
+                  <ContentCard
+                    className={cl.pill}
+                    key={i}
+                    cardBgColor={level.background}
+                    width="63px"
+                    style={{ padding: "0" }}
+                    id={level.level}
+                  >
+                    <Typography variant="h6">{level.level}</Typography>
+                  </ContentCard>
+                );
+              }
+            })}
+          </ContentCard>
+        </div>
+        {width! < 1100 && (
+          <div className={cl.levelsSlide}>
+            <button>
+              <ArrowButton
+                direction={"left"}
+                onClick={() =>
+                  levelsContainer.current?.scrollBy({
+                    left: -150,
+                    behavior: "smooth",
+                  })
+                }
+              />
+            </button>
+            <Typography variant="body1">рівні мови</Typography>
+            <button>
+              <ArrowButton
+                direction={"right"}
+                onClick={() =>
+                  levelsContainer.current?.scrollBy({
+                    left: 150,
+                    behavior: "smooth",
+                  })
+                }
+              />
+            </button>
+          </div>
+        )}
+      </div>
 
       <section className={cl.recommendation}>
         {isInDevelopment ? (
@@ -130,5 +204,51 @@ export const Result: React.FC<Props> = ({ result }) => {
     </main>
   );
 };
+
+const levels = [
+  {
+    level: "N5",
+    label: "вступний\nрівень",
+    width: "12%",
+  },
+  {
+    level: "N5+",
+    background: "#FFE796",
+    width: "24%",
+  },
+  {
+    level: "N4",
+    width: "34%",
+  },
+  {
+    level: "N4+",
+    background: "#FFA2D9",
+    width: "45%",
+  },
+  {
+    level: "N3",
+    label: "середній\nрівень",
+    width: "56%",
+  },
+  {
+    level: "N3+",
+    background: "#FF9F9F",
+    width: "67%",
+  },
+  {
+    level: "N2",
+    width: "80%",
+  },
+  {
+    level: "",
+    label: "Placeholder",
+    width: "0%",
+  },
+  {
+    level: "N1",
+    label: "майстер\nрівень",
+    width: "100%",
+  },
+];
 
 export default Result;

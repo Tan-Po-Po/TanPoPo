@@ -208,7 +208,9 @@ export const generateHtml = (formData: Data) => {
         Ми врахуємо ваші побажання стосовно днів та часу \nнавчання та зможемо швидше сформувати графік занять!</p>
     </div>
 
-    <div class="card course">
+   ${
+     formData.courseName
+       ? `<div class="card course">
       <h1 style="color: #454545; font-size: 27px">Обраний курс:</h1>
       <h1 style="font-size: 27px">${formData.courseName}</h1>
       <h1 style="font-size: 27px">(${formData.japanName})</h1>
@@ -226,16 +228,19 @@ export const generateHtml = (formData: Data) => {
         formData.level
       })</p>
       <p><u>Обрана к-сть уроків</u>: ${formData.lessons} онлайн-уроків</p>
-    </div>
+    </div>`
+       : null
+   }
 
-    <div class="card" style="max-width: 650px;">
+    ${
+      formData.price
+        ? `<div class="card" style="max-width: 650px;">
       <h1 style="font-size: 27px; color: #454545">Вартість навчання:</h1>
       <h1 style="font-size: 27px">${formData.price} грн</h1>
-      <p style="white-space: pre-line;">Якщо Ви ще не оплачували ваше навчання,\nце можна зробити за нашими реквізитами або за \nдопомогою швидкої оплати по QR-коду нашої школи!</p>
-      <div style="margin: 30px 0; position: relative;"><a href="google.com" class="btn" style="margin-left: 80px;">Наші реквізити</a>
-      <img src="cid:arrow" width="60px" style="margin-left: 20px;"/></div>
-      <p>Після того, як ми побачимо вашу оплату за обраним курсом,\nми якнайшвидше розпочнемо формувати Ваш графік\nзанять і сконтактуємось разом з вами для його підтвердження!</p>
-    </div>
+      <div style="margin: 30px 0; position: relative;"><a href="tanpopo.com.ua" class="btn" style="margin-left: 80px;">Оплата успішна!</a>
+    </div>`
+        : null
+    }
 
     <div class="card" style="max-width: 450px;">
       <h1>Дякуємо, що обрали \nTanPoPo💛</h1>

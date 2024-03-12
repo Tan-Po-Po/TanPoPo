@@ -20,7 +20,7 @@ export default function Page() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [course, setCourse] = useState<CourseState>();
-  const studyDuration = Math.round(
+  const studyDuration = Math.ceil(
     course?.lessons! / (course?.lessonsPerWeek || 2)
   );
   const courseRedux = useAppSelector(selectCourse);

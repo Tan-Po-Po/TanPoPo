@@ -28,6 +28,92 @@
   padding: 16px 26px;
 }
 
+.levelsWrapper {
+  width: calc(100% + 20px);
+  margin: 0 -10px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.ruler {
+  @include flex-row;
+  position: relative;
+  height: 161px;
+  width: 1010px;
+  justify-content: space-between;
+  overflow: hidden;
+  background: transparent;
+  flex-shrink: 0;
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(#fdff87, #fad26c);
+    z-index: -1;
+  }
+
+  &::before {
+    box-shadow: $box-shadow;
+    position: absolute;
+    content: "";
+    width: 87.4%;
+    height: 2px;
+    background-color: black;
+    top: 50%;
+    left: 50.2%;
+    transform: translate(-50%, -50%);
+  }
+
+  .mark {
+    @include flex-column;
+    justify-content: center;
+    align-self: flex-start;
+    gap: 3px;
+
+    .line {
+      box-shadow: $box-shadow;
+      height: 16px;
+      background-color: black;
+      width: 2px;
+    }
+  }
+
+  > div:nth-last-child(2) {
+    visibility: hidden;
+  }
+}
+
+.levelsSlide {
+  @include flex-row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .levelsWrapper {
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+}
+
 @media (max-width: 400px) {
   .divider {
     padding: 7px 5px;
@@ -35,6 +121,15 @@
       font-size: 16px !important;
     }
   }
+
+  .result {
+    max-width: 275px;
+    padding: 16px;
+    br {
+      display: none;
+    }
+  }
+
   .recommendation {
     h4 {
       font-size: 23px;
