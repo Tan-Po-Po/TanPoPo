@@ -8,10 +8,11 @@ export interface CourseState {
   format: "Міні-група" | "Індивідуально" | null;
   lessons: number | null;
   lessonsPerWeek: number | null;
-  price: string | number | null;
+  price: string | null;
   level: string | null;
   isGift: boolean;
   certificateType: "Електронний сертифікат" | "Друкований сертифікат" | null;
+  backgroundColor: string | null;
 }
 
 const courseLS =
@@ -29,6 +30,7 @@ const initialState: CourseState = courseLS
       level: null,
       isGift: false,
       certificateType: null,
+      backgroundColor: null,
     };
 
 export const courseSlice = createSlice({

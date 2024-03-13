@@ -47,7 +47,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 108px;
     row-gap: 80px;
-    
+
     .card {
       display: flex !important;
       justify-items: center;
@@ -104,7 +104,8 @@
     gap: 42px;
     .header {
       .text {
-        .line1, .line2 {
+        .line1,
+        .line2 {
           font-size: 23px;
           font-weight: 500;
           line-height: 23px;
@@ -113,9 +114,10 @@
     }
 
     .cards {
+      width: calc(100% + 20px);
       .card {
         height: 620px;
-        width: 300px !important;
+        width: 340px !important;
         padding: 26px 10px;
         & div:first-child {
           left: 21px;

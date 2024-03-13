@@ -70,6 +70,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       level: course.level[0],
       lessonsPerWeek: cardState.learningFormat === "Міні-група" ? 2 : null,
       isGift,
+      backgroundColor: course.large.labelColor,
     };
 
     dispatch(setCourse(selectedCourse));
@@ -198,11 +199,11 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
               placeHolder="К-сть Уроків & Ціна"
               menuItems={
                 cardState.learningFormat === "Індивідуально"
-                  ? course.prices.individual.map((price, idx) => {
-                      return parseCoursePrices(price, idx);
+                  ? course.prices.individual.map((price) => {
+                      return parseCoursePrices(price);
                     })
-                  : course.prices.group.map((price, idx) => {
-                      return parseCoursePrices(price, idx);
+                  : course.prices.group.map((price) => {
+                      return parseCoursePrices(price);
                     })
               }
               handleSelect={(value: string, link?: string) => {
@@ -222,8 +223,8 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
           <Select
             className={cl.select}
             placeHolder="Мегакурс & Ціна"
-            menuItems={course.prices.group.map((price, idx) => {
-              return parseCoursePrices(price, idx);
+            menuItems={course.prices.group.map((price) => {
+              return parseCoursePrices(price);
             })}
             handleSelect={(value: string, link?: string) => {
               setCardState((prev) => {

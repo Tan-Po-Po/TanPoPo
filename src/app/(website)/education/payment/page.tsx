@@ -18,12 +18,12 @@ import Link from "next/link";
 
 export default function Page() {
   const router = useRouter();
+  const courseRedux = useAppSelector(selectCourse);
   const [loading, setLoading] = useState(true);
   const [course, setCourse] = useState<CourseState>();
   const studyDuration = Math.ceil(
     course?.lessons! / (course?.lessonsPerWeek || 2)
   );
-  const courseRedux = useAppSelector(selectCourse);
 
   useEffect(() => {
     document.title = "Оплата навчання | Tanpopo";
@@ -78,13 +78,13 @@ export default function Page() {
               </Typography>
             </>
           }
-          labelBgColor="rgba(255, 192, 215, 1)"
+          labelBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
         >
           <ContentCard
             className={cl.card}
             width="345px"
             height="135px"
-            cardBgColor="rgba(255, 192, 215, 1)"
+            cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
           >
             <Typography variant="body1">Формат навчання:</Typography>
             <Typography variant="body1">
@@ -100,7 +100,7 @@ export default function Page() {
             className={cl.card}
             width="345px"
             height="135px"
-            cardBgColor="rgba(255, 192, 215, 1)"
+            cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
           >
             {course?.isGift ? (
               <>
@@ -132,7 +132,7 @@ export default function Page() {
             className={cl.card}
             width="345px"
             height="135px"
-            cardBgColor="rgba(255, 192, 215, 1)"
+            cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
           >
             <Typography variant="body1">Тривалість онлайн-уроку:</Typography>
             <Typography variant="body1">
@@ -144,7 +144,7 @@ export default function Page() {
             className={cl.card}
             width="345px"
             height="135px"
-            cardBgColor="rgba(255, 192, 215, 1)"
+            cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
           >
             {course?.isGift ? (
               <>
@@ -155,7 +155,9 @@ export default function Page() {
                   </Typography>
                 ) : (
                   <Typography variant="body1">
-                    <b>{"Іменний Друкований\n+120грн(друк та доставка)"}</b>
+                    <b style={{ whiteSpace: "pre" }}>
+                      {"Іменний Друкований\n+200грн(друк та доставка)"}
+                    </b>
                   </Typography>
                 )}
               </>
@@ -186,10 +188,10 @@ export default function Page() {
           <ContentCard
             className={cl.totalSum}
             width="175px"
-            cardBgColor="linear-gradient(91deg, rgba(255, 156, 156, 0.75) 0%, rgba(255, 239, 156, 0.75) 28.13%, rgba(156, 219, 255, 0.75) 71.35%, rgba(255, 156, 233, 0.75) 100%)"
+            cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
           >
             <Typography variant="h5">
-              {course?.price || "Curse price"}
+              {course?.price || "Ціна курсу"}
             </Typography>
           </ContentCard>
           <Typography variant="subtitle1" style={{ lineHeight: "16px" }}>

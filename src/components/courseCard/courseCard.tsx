@@ -158,8 +158,8 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       <Select
         className={cl.select}
         placeHolder={placeholders[course.type]}
-        menuItems={course.prices.individual.map((price, idx) => {
-          return parseCoursePrices(price, idx);
+        menuItems={course.prices.individual.map((price) => {
+          return parseCoursePrices(price);
         })}
         handleSelect={(value: string, link?: string) => {
           setLessons(value);
