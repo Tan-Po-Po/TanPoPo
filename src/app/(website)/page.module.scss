@@ -31,16 +31,30 @@
   display: flex;
   align-items: baseline;
   white-space: normal;
+  max-width: 650px;
   h5,
   p {
     display: inline;
   }
   h5 {
     white-space: normal;
-    font-size: 33px;
+    font-size: 35px;
+    line-height: 35px;
   }
-  p {
-    font-size: 28px;
+  .gradient {
+    font-size: 58px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ffb81d 10%, #fad200 30%, #ff6060 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+  span {
+    font-size: 40px;
+    line-height: 40px;
   }
 }
 
@@ -859,6 +873,21 @@
 }
 
 @media (max-width: 400px) {
+  .header {
+    max-width: 345px;
+    h5 {
+      font-size: 18px;
+      line-height: 18px;
+    }
+    .gradient {
+      font-size: 31px;
+    }
+    span {
+      font-size: 21px;
+      line-height: 21px;
+    }
+  }
+
   .errorPage {
     .errorCard {
       width: calc(100% + 20px);
