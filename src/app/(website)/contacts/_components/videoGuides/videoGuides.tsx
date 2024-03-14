@@ -7,23 +7,31 @@ import {
   CarouselItem,
   DialogGallery,
 } from "@/components";
-import { textContent } from "../../textContent";
 import cl from "./videoGuides.module.scss";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
+import { IGuides } from "@/models/Guides";
 
-const VideoGuides = () => {
+type Properties = {
+  guides: IGuides[] | undefined;
+};
+
+const VideoGuides: React.FC<Properties> = ({ guides }) => {
   const { width } = useWindowSize();
   const dispatch = useAppDispatch();
+
+  if (!guides) {
+    return null;
+  }
 
   return (
     <>
       <DialogGallery />
-      {width && width < 600 ? (
+      {width && width < 780 ? (
         <Carousel
           initialSlide={0}
-          slideAmount={textContent.videoGuidesBlock.cards.length}
+          slideAmount={guides.length}
           useNumbers
           dots={false}
           slidesToShow={1}
@@ -31,7 +39,7 @@ const VideoGuides = () => {
           infinite={false}
           centerMode
         >
-          {textContent.videoGuidesBlock.cards.map((card, i) => (
+          {guides.map((card, i) => (
             <CarouselItem key={i}>
               <ContentCard
                 width="384px"
@@ -49,14 +57,24 @@ const VideoGuides = () => {
                 <div className={cl.icon}>
                   <PlayButtonIcon style={{ width: "50px", height: "auto" }} />
                 </div>
-                <Typography variant="body2">{card.caption}</Typography>
+                <Typography variant="body2">
+                  {card.textArray.map((item, idx) =>
+                    item.isUnderlined ? (
+                      <u key={idx}>
+                        <b>{item.text}</b>
+                      </u>
+                    ) : (
+                      item.text
+                    )
+                  )}
+                </Typography>
               </ContentCard>
             </CarouselItem>
           ))}
         </Carousel>
       ) : (
         <div className={cl.videoGuidesBlock}>
-          {textContent.videoGuidesBlock.cards.map((card, i) => (
+          {guides.map((card, i) => (
             <ContentCard
               key={i}
               width="384px"
@@ -72,9 +90,19 @@ const VideoGuides = () => {
               }
             >
               <div className={cl.icon}>
-                <PlayButtonIcon />
+                <PlayButtonIcon style={{ width: "50px", height: "auto" }} />
               </div>
-              <Typography variant="body2">{card.caption}</Typography>
+              <Typography variant="body2">
+                {card.textArray.map((item, idx) =>
+                  item.isUnderlined ? (
+                    <u key={idx}>
+                      <b>{item.text}</b>
+                    </u>
+                  ) : (
+                    item.text
+                  )
+                )}
+              </Typography>
             </ContentCard>
           ))}
         </div>

@@ -1,0 +1,151 @@
+.navLinks {
+  max-width: 1025px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 86px;
+  margin: 50px 0px;
+}
+
+.card {
+  padding: 30px 15px 20px;
+  height: 261px;
+  width: 283px;
+  justify-content: space-between;
+  background: linear-gradient(#ffffff, #fffbf1);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  img {
+    transition: all 0.25s ease-in-out;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      scale: 110%;
+      img {
+        scale: 115%;
+      }
+    }
+  }
+}
+
+.dialog :global(.MuiDialog-paper) {
+  max-width: 700px;
+  padding: 20px 5px;
+  margin: 20px 32px;
+  max-height: calc(100% - 40px);
+  background: linear-gradient(#ffffff, #fffbf1);
+}
+
+.dialog :global(.MuiDialogContent-root) {
+  padding: 0px 30px;
+}
+
+.dialogContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  padding-bottom: 5px;
+}
+
+.scheduleDialog {
+  .scheduleImage {
+    content: url("/images/scheduleLaptop.png");
+    max-width: 612px;
+    width: 100%;
+    max-height: 330px;
+    height: auto;
+  }
+}
+
+.paymentDialog {
+  .dialogCard {
+    br {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    row-gap: 60px;
+    column-gap: 76px;
+  }
+}
+
+@media (max-width: 550px) {
+  .navLinks {
+    row-gap: 40px;
+    column-gap: 40px;
+    margin: 30px 0px;
+  }
+
+  .dialog :global(.MuiDialog-paper) {
+    width: 360px;
+    padding: 30px 10px;
+    margin: 0;
+    svg:first-child {
+      top: 0;
+    }
+  }
+
+  .dialogCard {
+    width: 325px;
+    height: 350px;
+    max-height: 350px !important;
+    padding: 26px 11px;
+    p {
+      font-size: 18px !important;
+    }
+  }
+
+  .scheduleDialog {
+    .dialogCard {
+      img {
+        width: 86px;
+        height: auto;
+      }
+    }
+    .scheduleText {
+      text-align: justify;
+      max-width: 315px;
+      font-size: 15px !important;
+    }
+    .scheduleImage {
+      content: url("/images/scheduleMobile.png");
+      max-width: 290px;
+      width: 100%;
+      max-height: 680px;
+      height: auto;
+    }
+  }
+
+  .designDialog {
+    .dialogCard {
+      height: 360px;
+      max-height: 360px !important;
+      img {
+        width: 48px;
+        height: auto;
+      }
+    }
+  }
+
+  .paymentDialog {
+    .dialogCard {
+      height: 322px;
+      max-height: 322px !important;
+      img {
+        width: 97px;
+        height: auto;
+      }
+      br {
+        display: block;
+      }
+    }
+  }
+}

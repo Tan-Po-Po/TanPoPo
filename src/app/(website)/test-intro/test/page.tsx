@@ -28,8 +28,8 @@ export default function Test() {
   const [levelIndex, setLevelIndex] = useState(0);
   const [testIndex, setTestIndex] = useState(0);
   const [testResult, setTestResult] = useState({
-    activeLevel: "",
-    nextLevel: "",
+    activeLevel: "N2",
+    nextLevel: "N1",
   });
 
   const level = textContent[levelIndex];
@@ -96,7 +96,7 @@ export default function Test() {
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 2500);
         return
       } else if (points.current < pointsToProceed) {
         if (levelIndex === 0) {

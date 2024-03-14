@@ -1,14 +1,6 @@
 .largeCarousel {
   width: 100%;
 
-  :global(.slick-prev) {
-    // top: calc(100% - 10px);
-  }
-
-  :global(.slick-next) {
-    // top: calc(100% - 10px);
-  }
-
   :global(.slick-prev),
   :global(.slick-next) {
     z-index: 1;
@@ -28,7 +20,7 @@
   :global(.slick-list) {
     min-height: fit-content;
     overflow: visible;
-    z-index: 3;
+    z-index: 2;
   }
 
   :global(.slick-slider) {

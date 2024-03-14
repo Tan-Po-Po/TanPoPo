@@ -73,6 +73,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
       price: cardState.lessons.match(/\(([^)]+)\)/)![1],
       level: course.level[0],
       isGift,
+      backgroundColor: course.large.labelColor,
     };
 
     dispatch(setCourse(selectedCourse));
@@ -191,11 +192,11 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
           placeHolder="К-сть Уроків & Ціна"
           menuItems={
             cardState.learningFormat === "Індивідуально"
-              ? course.prices.individual.map((price, idx) => {
-                  return parseCoursePrices(price, idx);
+              ? course.prices.individual.map((price) => {
+                  return parseCoursePrices(price);
                 })
-              : course.prices.group.map((price, idx) => {
-                  return parseCoursePrices(price, idx);
+              : course.prices.group.map((price) => {
+                  return parseCoursePrices(price);
                 })
           }
           handleSelect={(value: string, link?: string) =>
@@ -212,7 +213,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
         />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ width: "312px", marginLeft: "10px", marginTop: "-10px" }}>
         {cardState.learningFormat !== null && cardState.lessons !== null && (
           <>
             <Checkbox

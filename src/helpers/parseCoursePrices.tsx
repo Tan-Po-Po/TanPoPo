@@ -1,23 +1,20 @@
 import { Typography } from "../components/typography/typography";
 
-export const parseCoursePrices = (
-  price: {
-    lessons: number;
-    price: number;
-    link: string;
-  },
-  index: number
-) => {
+export const parseCoursePrices = (price: {
+  lessons: number;
+  price: number;
+  link: string;
+}) => {
   return {
-    labelWhenSelected: `${price.lessons} ${index === 0 ? "уроки" : "уроків"} (${
+    labelWhenSelected: `${price.lessons} ${
+      price.lessons < 5 ? "уроки" : "уроків"
+    } (${price.price}грн)`,
+    value: `${price.lessons} ${price.lessons < 5 ? "уроки" : "уроків"} (${
       price.price
-    }грн)`,
-    value: `${price.lessons} ${index === 0 ? "уроки" : "уроків"} (${
-      price.price
-    }грн)`,
+    } грн)`,
     label: (
       <Typography variant="body2">
-        {price.lessons} {index === 0 ? "уроки" : "уроків"} ({price.price}
+        {price.lessons} {price.lessons < 5 ? "уроки" : "уроків"} ({price.price}
         грн){" "}
         <span
           style={{

@@ -1,6 +1,7 @@
 .main {
   @include flex-column;
   padding: $padding-page;
+  overflow-x: hidden;
   gap: 72px;
 
   .divider {

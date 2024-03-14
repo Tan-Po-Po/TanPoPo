@@ -82,17 +82,6 @@
     }
   }
 
-  .shopPartnersBlock {
-    @include flex-row;
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 70px;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 384px);
-  }
 
   .shopProductsBlock {
     display: grid;
@@ -171,11 +160,6 @@
           margin: 0 -13px;
         }
       }
-    }
-
-    .shopPartnersBlock {
-      display: flex;
-      flex-direction: column;
     }
 
     .shopProductsBlock {

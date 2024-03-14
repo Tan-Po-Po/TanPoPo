@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     flex: 1;
 
     .label {
@@ -29,8 +29,27 @@
       white-space: nowrap;
     }
 
+    .videoIcon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: auto;
+      transition: scale 0.15s ease-in-out;
+    }
+
+    @media (hover: hover) {
+      .imageWithVideo {
+        cursor: pointer;
+        position: relative;
+
+        &:hover .videoIcon {
+          scale: 120%;
+        }
+      }
+    }
+
     .image {
-      margin-top: 50px;
+      // margin-top: 50px;
 
       img {
         border-radius: 7px;

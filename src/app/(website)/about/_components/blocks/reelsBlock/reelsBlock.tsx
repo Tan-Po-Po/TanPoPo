@@ -18,7 +18,7 @@ export const ReelsBlock = () => {
   const { width } = useWindowSize();
   const isPc = Boolean(width && width >= 1024);
   const isMobile = Boolean(width && width < 767);
-  
+
   return (
     <div className={cl.reelsBlock}>
       <ContentCard

@@ -51,7 +51,6 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
             }),
           });
           const cities = await response.json();
-          console.log(cities);
           setCities(cities.data);
         }
       }, 300),

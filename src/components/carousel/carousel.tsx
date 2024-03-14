@@ -108,7 +108,7 @@ const Carousel: React.FC<Props> = ({
     ),
     dotsClass: getValidClassNames("slick-dots", cl.dotsContainer),
     customPaging: () => <div className={cl.dot} id="carouselDot"></div>,
-    afterChange: function (index: number,) {
+    afterChange: function (index: number) {
       setActiveSlide(index);
     },
   };
@@ -126,7 +126,7 @@ const Carousel: React.FC<Props> = ({
       )}
       id={id}
     >
-      <Slider {...settings} ref={ref} className={cl.slider} >
+      <Slider {...settings} ref={ref} className={cl.slider}>
         {children}
       </Slider>
       {useNumbers && (

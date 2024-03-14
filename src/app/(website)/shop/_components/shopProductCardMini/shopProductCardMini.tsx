@@ -5,13 +5,25 @@ import cl from "./shopProductCardMini.module.scss";
 import { Button, ContentCard, Typography } from "@/components";
 import Image from "next/image";
 import { IMAGE_BASE_URL } from "@/config/config";
+import { toast } from "react-toastify";
+import { getValidClassNames } from "@/helpers";
 
 type Props = Exclude<IShopProduct, "large">;
 
-export const ShopProductCardMini: React.FC<Props> = ({ _id, name, small }) => {
+export const ShopProductCardMini: React.FC<Props> = ({
+  _id,
+  name,
+  small,
+  large,
+}) => {
   const { label, caption, image } = small;
+  const { inDevelopment } = large;
 
   const handleClick = () => {
+    console.log(inDevelopment);
+    if (inDevelopment) {
+      return toast("Товар ще в розробці");
+    }
     const item = document.getElementById(_id!);
 
     item?.scrollIntoView({ behavior: "smooth" });
@@ -24,7 +36,10 @@ export const ShopProductCardMini: React.FC<Props> = ({ _id, name, small }) => {
         width="271px"
         label={label?.text}
         labelBgColor={label?.bgColor}
-        className={cl.shopItemMini}
+        className={getValidClassNames(
+          cl.shopItemMini,
+          inDevelopment && cl.inDevelopment
+        )}
         labelClassName={cl.label}
       >
         <Typography variant="body1">{caption}</Typography>

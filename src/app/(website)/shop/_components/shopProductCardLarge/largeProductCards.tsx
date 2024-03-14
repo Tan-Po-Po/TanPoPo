@@ -34,7 +34,6 @@ const LargeProductCards = ({
       infinite={false}
       renderCarousel={width! < 1420}
       numbersClass={cl.numbers}
-      focusOnSelect={false}
     >
       {products.map((item, i) => (
         <ShopProductCardLarge key={i} {...item} />

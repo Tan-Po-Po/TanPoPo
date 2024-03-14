@@ -11,11 +11,9 @@
     @include flex-column;
     gap: 86px;
     h4 {
-      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-      font-size: 32px;
-      b {
-        font-size: 34px;
-      }
+      max-width: 720px;
+      font-size: 36px;
+      font-weight: 700;
     }
     .logoWrapper {
       @include flex-row;
@@ -50,33 +48,6 @@
 
     .caption {
       max-width: 1110px;
-    }
-  }
-
-  .authorContentBlock {
-    @extend %block;
-    width: 100%;
-
-    .wrapper {
-      display: flex;
-
-      justify-content: space-between;
-      width: 100%;
-
-      .socialCard {
-        gap: 29px;
-        justify-content: flex-start;
-
-        p {
-          max-width: 545px;
-        }
-      }
-
-      .socialCard:nth-child(1) {
-        p {
-          max-width: 515px;
-        }
-      }
     }
   }
 }
@@ -163,10 +134,6 @@
       gap: 50px;
       .title {
         font-size: 28px !important;
-
-        b {
-          font-size: 30px;
-        }
       }
 
       .logoWrapper {
@@ -183,36 +150,6 @@
       .caption {
         font-size: 18px;
         max-width: 661px;
-      }
-    }
-
-    .authorContentBlock {
-      margin-top: 20px;
-      .wrapper {
-        justify-content: space-around;
-        gap: 0;
-      }
-
-      h3 {
-        font-size: 30px;
-      }
-
-      h6 {
-        font-size: 22px;
-      }
-
-      p {
-        font-size: 14px;
-      }
-
-      .wrapper {
-        width: 100%;
-        justify-content: space-around;
-        .socialCard {
-          justify-content: space-between;
-          width: 332px;
-          padding: 21px;
-        }
       }
     }
   }
@@ -278,36 +215,6 @@
         font-size: 16px;
         text-align: justify !important;
         padding: 0 15px;
-      }
-    }
-
-    .authorContentBlock {
-      gap: 35px;
-      .wrapper {
-        justify-content: space-around;
-        gap: 0;
-      }
-
-      h3 {
-        font-size: 25px;
-      }
-      h6 {
-        font-size: 22px;
-      }
-      p {
-        font-size: 14px;
-      }
-
-      .wrapper {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-        .socialCard {
-          justify-content: space-between;
-          width: 332px;
-          padding: 21px;
-        }
       }
     }
   }

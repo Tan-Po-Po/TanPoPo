@@ -1,7 +1,4 @@
-import {
-  time,
-  days,
-} from "@/components/schedule/common";
+import { time, days } from "@/components/schedule/common";
 import { Data } from "./type";
 
 export const generateHtmlForOwner = (formData: Data, orderId: string) => {
@@ -136,7 +133,9 @@ export const generateHtmlForOwner = (formData: Data, orderId: string) => {
           <p><u>Email:</u> ${formData.email}</p>
         </div>
       </div>
-      ${ formData.contact ? `
+      ${
+        formData.contact
+          ? `
           <h3>Контактна особа</h3>
           <div style="display: flex; margin-top: 20px">
             <div style="width: 50%">
@@ -149,45 +148,65 @@ export const generateHtmlForOwner = (formData: Data, orderId: string) => {
               <p><u>Email:</u> ${formData.contactEmail}</p>
             </div>
           </div>
-      ` : "" }
-      ${ formData.comment ? `
+      `
+          : ""
+      }
+      ${
+        formData.comment
+          ? `
         <p style="margin-top: 20px;"><u>Коментар:</u> ${formData.comment}</p>
-        ` : `` } 
+        `
+          : ``
+      } 
     </div>
 
     <div class="card" style="min-width: 1020px; padding: 33px 10px">
       <h3>Обраний розклад занять:</h3>
       <div style="display: flex; margin-top: 30px; width: auto; column-gap: 5px">
-        ${formData.schedule.map((day: string[], dayIndex: number) => { return `
+        ${formData.schedule
+          .map((day: string[], dayIndex: number) => {
+            return `
         <div class="day">
           <h6 style="text-align: center">${days[dayIndex]}</h6>
-          ${day.map((variant, index) => { switch (variant) { case
-          "inappropriate": return `
+          ${day
+            .map((variant, index) => {
+              switch (variant) {
+                case "inappropriate":
+                  return `
           <div class="time inappropriate">
             <p style="font-weight: 600;">${time[index]}</p>
           </div>
-          `; case "maybe": return `
+          `;
+                case "maybe":
+                  return `
           <div class="time maybe">
             <p style="font-weight: 600;">${time[index]}</p>
           </div>
-          `; case "perfect": return `
+          `;
+                case "perfect":
+                  return `
           <div class="time perfect">
             <p style="font-weight: 600;">${time[index]}</p>
           </div>
-          `; } }) .join("")}
+          `;
+              }
+            })
+            .join("")}
         </div>
-        `; }) .join("")}
+        `;
+          })
+          .join("")}
       </div>
       <p style="font-size: 18px; font-weight: 700; margin-top: 30px">
         Ми врахуємо ваші побажання стосовно днів та часу \nнавчання та зможемо швидше сформувати графік занять!</p>
     </div>
 
-    <div class="card course">
+    ${
+      formData.contactName
+        ? `<div class="card course">
       <h1 style="color: #454545; font-size: 27px">Обраний курс:</h1>
       <h1 style="font-size: 27px">${formData.courseName}</h1>
-      <h1 style="font-size: 27px">(рівень JLPT ${
-        formData.level
-      })</h1>
+      <h1 style="font-size: 27px">(рівень JLPT ${formData.level})</h1>
       <p style="margin-top: 50px"><u>Формат Навчання</u>: ${
         formData.format === "Міні-група"
           ? "Онлайн курс з сенсеєм(міні-група 2-5 чол.)"
@@ -200,8 +219,10 @@ export const generateHtmlForOwner = (formData: Data, orderId: string) => {
       }
       <p><u>Обрана к-сть уроків</u>: ${formData.lessons} онлайн-уроків</p>
       <p><u>Вартість навчання</u>: ${formData.price} грн</p>
-    </div>
+    </div>`
+        : null
+    }
   </body>
 </html>
-`
+`;
 };

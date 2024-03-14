@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  padding: 45px 20px 35px;
+  padding: 60px 20px 30px;
 
   .name {
     text-transform: uppercase;
@@ -10,16 +10,18 @@
     font-family: var(--font-heisei);
   }
 
-  &:hover {
-    .header {
-      transform: scale(110%) translate(-50%, -45%);
-      box-shadow: 0px 0px 3px 0px #000 inset,
-        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    }
-    .headerWrapper {
-      transform: scale(110%);
-      box-shadow: 0px 0px 3px 0px #000 inset,
-        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  @media (hover: hover) {
+    &:hover {
+      .header {
+        transform: scale(110%) translate(-50%, -45%);
+        box-shadow: 0px 0px 3px 0px #000 inset,
+          0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
+      .headerWrapper {
+        transform: scale(110%);
+        box-shadow: 0px 0px 3px 0px #000 inset,
+          0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
     }
   }
 
@@ -43,8 +45,8 @@
       box-shadow: $box-shadow;
       border: $border;
       border-radius: $border-radius;
-      padding: 6px 9px;
-      line-height: 15px;
+      padding: 5px 9px;
+      line-height: 18px;
     }
   }
 
@@ -76,15 +78,19 @@
     width: fit-content;
     padding: 0 15px;
     height: 45px;
-    bottom: -28px;
-    transition: transform 0.2s ease-in-out;
+    bottom: 0px;
+    transform: translate(0, 50%);
+    transition: scale 0.2s ease-in-out;
 
     &:hover {
-      transform: scale(1.05);
+      scale: 1.05;
     }
   }
 
   .checkbox {
+    span:first-child {
+      padding-left: 0;
+    }
     :global(.MuiTypography-root) {
       font-size: 15px;
       font-weight: 700;
@@ -96,16 +102,18 @@
   .checkboxes {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     max-width: 103%;
+    width: 300px;
+    margin-top: -10px;
   }
 
   .line {
     height: 2px;
-    width: 180px;
+    width: 210px;
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
     background-color: #565656;
-    margin: 5px auto 10px;
+    margin: 0px auto 5px;
   }
 
   .divider {
@@ -116,52 +124,62 @@
     .line {
       height: 2px;
       box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-      background: rgba(86, 86, 86, 1);
+      background: #565656;
       width: 65px;
       border-radius: $border-radius;
+      margin: 0px 5px;
     }
     .text {
       margin: 10px 0;
       text-transform: uppercase;
       padding: 0px 8px;
+      font-size: 14px;
+      color: #565656;
     }
   }
 
   .giftBtn {
     background: linear-gradient(rgba(255, 239, 153, 1), rgba(255, 171, 231, 1));
-
-    &:hover {
-      background: linear-gradient(
-        rgba(255, 235, 125, 1),
-        rgba(255, 141, 223, 1)
-      );
+    @media (hover: hover) {
+      &:hover {
+        background: linear-gradient(
+          rgba(255, 235, 125, 1),
+          rgba(255, 141, 223, 1)
+        );
+      }
     }
   }
 
   .startBtn {
     background: linear-gradient(rgba(224, 255, 216, 1), rgba(184, 255, 187, 1));
     white-space: nowrap;
-    &:hover {
-      background: linear-gradient(
-        rgba(198, 255, 177, 1),
-        rgba(158, 255, 174, 1)
-      );
+    @media (hover: hover) {
+      &:hover {
+        background: linear-gradient(
+          rgba(198, 255, 177, 1),
+          rgba(158, 255, 174, 1)
+        );
+      }
     }
   }
 
   .continueBtn {
     background: linear-gradient(rgba(205, 237, 255, 1), rgba(237, 200, 255, 1));
 
-    &:hover {
-      background: linear-gradient(
-        rgba(178, 214, 255, 1),
-        rgba(229, 176, 255, 1)
-      );
+    @media (hover: hover) {
+      &:hover {
+        background: linear-gradient(
+          rgba(178, 214, 255, 1),
+          rgba(229, 176, 255, 1)
+        );
+      }
     }
   }
 }
 
 .teacher {
+  padding: 45px 20px 27px;
+
   .megaHeader {
     position: absolute;
     top: 0;
@@ -215,33 +233,36 @@
 
 .checkboxWrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 5px;
   width: 400px;
   max-width: 100%;
   p {
     font-weight: 700;
   }
+  span:first-child {
+    padding-left: 0;
+  }
 }
 
 .checkbox {
   margin: 0 !important;
+  max-width: 100%;
   :global(.MuiTypography-root) {
     max-width: 300px;
+    flex-grow: 1;
+    margin-left: 5px !important;
+    white-space: pre-line;
+    text-wrap: stable;
   }
 }
 .giftCheckbox {
   margin: 0;
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
-  width: 345px;
-  .presentCheckbox {
-    font-weight: 700;
-    text-wrap: nowrap;
-    font-size: 15px;
-  }
 }
 
 .video {
@@ -335,7 +356,6 @@
 
 .book {
   max-width: 400px;
-
   .description {
     font-size: 18px;
     margin: auto -10px;

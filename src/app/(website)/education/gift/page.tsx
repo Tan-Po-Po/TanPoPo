@@ -83,13 +83,18 @@ export default function Page() {
   }, [errors, showErrors]);
 
   const onSubmit = (formData: FormData) => {
+    let price = course.price;
+    if (certificateType === "Друкований сертифікат") {
+      price = `${+course?.price?.slice(0, -3)! + 200}грн`;
+    }
     dispatch(
       setCourse({
         certificateType: formData.certificateType,
+        price,
       })
     );
 
-    const data = { ...course, ...formData, courseName: course.name };
+    const data = { ...course, price, ...formData, courseName: course.name };
 
     setLoading(true);
     fetch("/api/gift", {
@@ -108,8 +113,7 @@ export default function Page() {
 
         router.push("/education/payment");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         setLoading(false);
         toast(
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
@@ -120,6 +124,7 @@ export default function Page() {
   const handleClick = async () => {
     await trigger();
     setShowErrors(true);
+    scrollTo(0, 0);
   };
 
   if (loading) {
@@ -282,7 +287,7 @@ export default function Page() {
           />
 
           <Typography variant="subtitle1">
-            Продовжуючи, Я приймаю умови  
+            Продовжуючи, Я приймаю умови{" "}
             <Link target="_blank" href="/contacts/oferta">
               <u>Публічної {"\n"}Оферти</u>
             </Link>{" "}

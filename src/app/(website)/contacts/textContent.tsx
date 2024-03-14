@@ -71,7 +71,7 @@ export const textContent = {
         ),
         href: "https://www.youtube.com/watch?v=8ypRvNZhocU",
         background:
-          " linear-gradient(180deg, #FFEDAD 0%, rgba(255, 255, 255, 0.00) 100%)",
+          "linear-gradient(180deg, #FFEDAD 0%, rgba(255, 255, 255, 0.00) 100%)",
       },
       {
         caption: (
@@ -176,7 +176,7 @@ export const textContent = {
           <>
             ЯК ПРИДБАТИ ТА АКТИВУВАТИ <br />
             <b>
-              <u>ПОДАУРНКОВИЙ СЕРТИФІКА</u>
+              <u>ПОДАУРНКОВИЙ СЕРТИФІКАТ</u>
             </b>
             <br />
             НА ОБРАНИЙ КУРС?

@@ -3,16 +3,31 @@ import mongoose from "mongoose";
 export interface IQuestion {
   _id: string;
   location: "courses" | "prices" | "contacts";
-  questionBlock: [{ question: string; answer: string }];
+  questionBlock: [
+    {
+      question: string;
+      answer: [
+        {
+          text: string;
+          link?: string;
+        }
+      ];
+    }
+  ];
 }
 
-const QuestionIdSchema = new mongoose.Schema<IQuestion>(
+const QuestionSchema = new mongoose.Schema<IQuestion>(
   {
     location: { type: String, required: true },
     questionBlock: [
       {
         question: { type: String, required: true },
-        answer: { type: String, required: true },
+        answer: [
+          {
+            text: { type: String, required: true },
+            link: { type: String },
+          },
+        ],
       },
     ],
   },
@@ -20,4 +35,4 @@ const QuestionIdSchema = new mongoose.Schema<IQuestion>(
 );
 
 export default mongoose.models.Question ||
-  mongoose.model("Question", QuestionIdSchema);
+  mongoose.model("Question", QuestionSchema);

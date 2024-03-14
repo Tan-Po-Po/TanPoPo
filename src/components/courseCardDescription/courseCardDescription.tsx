@@ -134,27 +134,32 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       {course.type === "book" && (
         <Carousel
           dots={false}
-          slidesToShow={width! > 500 ? 2 : 1}
-          centerMode={width! < 500}
+          slidesToShow={width! > 600 ? 2 : 1}
+          centerMode={width! < 600}
           className={cl.carousel}
         >
           {course.images.map((item, index) => (
-            <CarouselItem isOutlined={false} key={index}>
+            <CarouselItem
+            key={index}
+              isOutlined={true}
+              className={cl.carouselItem}
+              onClick={() =>
+                dispatch(
+                  openGalleryDialog({
+                    type: "image",
+                    src: `${IMAGE_BASE_URL}/${item.image.filename}`,
+                  })
+                )
+              }
+            >
               <Image
                 className={cl.image}
-                src={`${IMAGE_BASE_URL}/${item.image.filename}`}
                 alt="Book course image"
-                width={215}
-                height={215}
-                style={{ maxWidth: "100%", height: "auto", width: "auto" }}
-                onClick={() =>
-                  dispatch(
-                    openGalleryDialog({
-                      type: "image",
-                      src: `${IMAGE_BASE_URL}/${item.image.filename}`,
-                    })
-                  )
-                }
+                src={`${IMAGE_BASE_URL}/${item.image.filename}`}
+                sizes="(max-width: 2400px) 215px"
+                fill
+                style={{ objectFit: "contain" }}
+                
               />
             </CarouselItem>
           ))}
@@ -177,8 +182,8 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
       <Select
         className={cl.select}
         placeHolder={placeholders[course.type]}
-        menuItems={course.prices.individual.map((price, idx) => {
-          return parseCoursePrices(price, idx);
+        menuItems={course.prices.individual.map((price) => {
+          return parseCoursePrices(price);
         })}
         handleSelect={(value: string, link?: string) => {
           setLessons(value);
@@ -186,15 +191,13 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
         }}
       />
 
-      <div>
-        <div className={cl.checkboxWrapper}>
-          <Checkbox
-            label="Подарунковий Сертифікат🎁"
-            onClick={toggleGift}
-            isChecked={isGift}
-            className={getValidClassNames(cl.checkbox, cl.giftCheckbox)}
-          />
-        </div>
+      <div className={cl.checkboxes}>
+        <Checkbox
+          label="Подарунковий Сертифікат🎁"
+          onClick={toggleGift}
+          isChecked={isGift}
+          className={getValidClassNames(cl.checkbox, cl.giftCheckbox)}
+        />
 
         {course.type !== "book" && lessons && !isGift && (
           <>

@@ -19,9 +19,11 @@ $transition-duration: all 0.2s ease-in;
       transition: $transition-duration;
       width: 100%;
 
-      &:hover {
-        .arrow {
-          scale: 120%;
+      @media (hover: hover) {
+        &:hover {
+          .arrow {
+            scale: 120%;
+          }
         }
       }
 
@@ -38,11 +40,12 @@ $transition-duration: all 0.2s ease-in;
           text-align: start;
           transition: $transition-duration;
         }
-
-        &:hover {
-          background-color: $color-yellow;
-          .value {
-            scale: 105%;
+        @media (hover: hover) {
+          &:hover {
+            background-color: $color-yellow;
+            .value {
+              scale: 105%;
+            }
           }
         }
       }
@@ -73,16 +76,19 @@ $transition-duration: all 0.2s ease-in;
     }
 
     .selectOpen {
-      &:hover {
-        .arrow {
-          scale: 1;
+      @media (hover: hover) {
+        &:hover {
+          .arrow {
+            scale: 1;
+          }
         }
       }
       .select {
         background: linear-gradient($color-yellow, white);
-
-        &:hover {
-          font-size: 18px;
+        @media (hover: hover) {
+          &:hover {
+            font-size: 18px;
+          }
         }
       }
 
@@ -106,6 +112,7 @@ $transition-duration: all 0.2s ease-in;
   .disabled {
     color: $color-disabled;
     border-color: $color-disabled;
+    background-color: transparent;
     .arrow {
       stroke: $color-disabled !important;
     }
@@ -121,22 +128,6 @@ $transition-duration: all 0.2s ease-in;
           }
         }
       }
-    }
-  }
-
-  .checkbox {
-    margin: 0;
-    padding: 20px 15px;
-    width: 100%;
-    &:hover {
-      background: $color-yellow;
-    }
-    :global(.MuiTypography-root) {
-      font-size: 16px;
-      font-weight: 700;
-    }
-    :global(.MuiCheckbox-root) {
-      display: none;
     }
   }
 }

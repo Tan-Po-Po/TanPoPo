@@ -19,10 +19,12 @@
       width: fit-content;
     }
 
-    &:hover {
-      svg {
-        fill: $color-yellow;
-        transform: scale(120%);
+    @media (hover: hover) {
+      &:hover {
+        svg {
+          fill: $color-yellow;
+          transform: scale(120%);
+        }
       }
     }
   }

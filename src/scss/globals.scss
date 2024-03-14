@@ -120,6 +120,12 @@ main {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.spinner_5nOS {
+  width: 50% !important;
+  height: 50% !important;
+  margin: auto;
+}
+
 body:has(div.MuiDialog-root) {
   width: 100vw;
 

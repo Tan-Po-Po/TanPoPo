@@ -3,7 +3,7 @@ import cl from "./narrowTeamMemberCard.module.scss";
 import mcl from "../teamMemberCard.module.scss";
 import { ContentCard } from "@/components";
 import Image from "next/image";
-import { getValidClassNames } from "@/helpers";
+import { getIconSrc, getValidClassNames } from "@/helpers";
 import { useState } from "react";
 import { Level } from "./content/level";
 import { Experience } from "./content/experience";
@@ -23,7 +23,8 @@ export const NarrowTeamMemberCard: React.FC<Props> = ({
   teamMember,
   handleDialogOpen,
 }) => {
-  const { label, name, image, certificates, education, about } = teamMember;
+  const { label, name, image, certificates, education, about, video } =
+    teamMember;
 
   const [selected, setSelected] = useState<ISection>("level");
 
@@ -63,7 +64,7 @@ export const NarrowTeamMemberCard: React.FC<Props> = ({
         </div>
         <ContentCard
           width="298px"
-          className={cl.image}
+          className={getValidClassNames(cl.image, video && cl.imageWithVideo)}
           label={name}
           labelPosition="bottom"
           style={{ padding: 0, width: "fit-content", fontSize: "18px" }}
@@ -77,9 +78,18 @@ export const NarrowTeamMemberCard: React.FC<Props> = ({
               width: "100%",
               maxWidth: "298px",
               height: "auto",
-              maxHeight: " 241px",
+              maxHeight: "241px",
             }}
           />
+          {video && (
+            <Image
+              src={getIconSrc("youTubeYellow")}
+              alt="Video icon"
+              width={48}
+              height={39}
+              className={cl.videoIcon}
+            />
+          )}
         </ContentCard>
       </div>
 

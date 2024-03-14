@@ -73,12 +73,12 @@ export default async function Courses() {
             <>
               <Faq
                 question="Loading"
-                answer="Loading"
+                answer={[{text: "Loading"}]}
                 style={{ width: "900px", maxWidth: "100%" }}
               />
-              <Faq question="Loading" answer="Loading" />
-              <Faq question="Loading" answer="Loading" />
-              <Faq question="Loading" answer="Loading" />
+              <Faq question="Loading" answer={[{text: "Loading"}]} />
+              <Faq question="Loading" answer={[{text: "Loading"}]} />
+              <Faq question="Loading" answer={[{text: "Loading"}]} />
             </>
           }
         >

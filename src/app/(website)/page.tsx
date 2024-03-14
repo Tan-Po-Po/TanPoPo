@@ -16,6 +16,7 @@ import { CabinetCards } from "./_components/cabinetCards";
 import { Ahead } from "./_components/ahead";
 import { StartEducation } from "./_components/startEducation";
 import { MoreLinks } from "./_components/moreLinks";
+import { NavLinks } from "./_components/navLinks/navLinks";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -69,17 +70,18 @@ export default function Home() {
       <div className={cl.intro}>
         <div className={cl.header}>
           <Typography variant="h5" align="center">
-            TanPoPo{" "}
-            <Typography variant="body1" align="center">
-              - найкращий досвід вивчення японської мови!
-            </Typography>
+            українська <span className={cl.gradient}>Smart</span> платформа{" "}
+            <span>для вивчення японської мови!</span>
           </Typography>
         </div>
+        <NavLinks />
         <Image
           src="/images/homePage.png"
           alt="Home page"
           width={940}
           height={653}
+          blurDataURL="/images/HomeReduced.jpg"
+          placeholder="blur"
           style={{ maxWidth: "940px", width: "100%", height: "auto" }}
         />
         <Typography variant="h6" className={cl.about}>
@@ -181,7 +183,7 @@ export default function Home() {
 
       <Formats windowMatchMedia={windowMatchMedia} />
 
-      <section className={cl.courses}>
+      <section className={cl.courses} id="courseFormats">
         <Typography variant="h3" align="center">
           Усі можливі види курсів:
         </Typography>
@@ -307,7 +309,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={cl.personalCabinet}>
+      <section className={cl.personalCabinet} id="personalCabinet">
         <div style={{ textAlign: "center" }}>
           <Typography variant="h2" style={{ fontSize: "38px" }}>
             Заходь у свій Особистий Кабінет!

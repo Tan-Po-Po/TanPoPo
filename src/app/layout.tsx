@@ -63,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${heisei.variable} ${comfortaa.variable}`}>
+    <html lang="uk" className={`${heisei.variable} ${comfortaa.variable}`}>
       <link rel="icon" href="/logo/favicon.png" />
       <body style={{ paddingTop: "70px" }}>
         <Providers>

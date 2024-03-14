@@ -20,7 +20,6 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Крамниця | Tanpopo',
 }
-// export const revalidate = 600;
 export const revalidate = 1;
 
 const getShopItems = cache(async () => {
@@ -94,26 +93,9 @@ export default async function Shop() {
         </div>
       </section>
 
-      <Divider
-        className={cl.divider}
-        wrapperClassName={cl.dividerWrapperPartners}
-        firstRow="МАГАЗИНИ ПАРТНЕРІВ"
-        bgColor="linear-gradient(180deg, #FFE39A 0%, #C1A4FF 100%)"
-      />
-      <Typography
-        variant="body1"
-        align="center"
-        style={{ maxWidth: "765px", margin: "-62px 0 -30px 0" }}
-      >
-        Розпочинайте навчання в школі TanPoPo та знаходьте промокоди на знижки у
-        своєму Особистому Кабінеті на весь асортимент товарів наших партнерів
-        ексклюзивно для учнів нашої школи!
-      </Typography>
 
-      <section className={cl.shopPartnersBlock}>
-        <DynamicShopPartnersBlock />
-      </section>
-
+      <DynamicShopPartnersBlock />
+      
       <Divider
         className={cl.divider}
         wrapperClassName={cl.dividerWrapperProducts}

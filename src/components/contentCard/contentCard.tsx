@@ -10,14 +10,16 @@ interface Props {
   label?: string | React.ReactNode;
   labelPosition?: "top" | "bottom";
   labelBgColor?: string;
+  labelClassName?: string;
   indexBgColor?: string;
   cardBgColor?: string;
   width?: string;
   height?: string;
   style?: CSSProperties;
   className?: string;
-  labelClassName?: string;
   onClick?: (event: React.MouseEvent) => void;
+  onMouseEnter?: (event: React.MouseEvent) => void;
+  onMouseLeave?: (event: React.MouseEvent) => void;
   id?: string;
 }
 
@@ -35,6 +37,8 @@ const ContentCard: React.FC<Props> = ({
   labelClassName,
   style,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   id,
 }) => {
   return (
@@ -48,6 +52,8 @@ const ContentCard: React.FC<Props> = ({
         background: cardBgColor,
       }}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {index && (
         <div className={cl.index} style={{ backgroundColor: indexBgColor }}>

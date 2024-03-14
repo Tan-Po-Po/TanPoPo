@@ -1,29 +1,30 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./page.module.scss";
-import { ContentCard, IconLink, Loading, Typography } from "@/components";
-import TeamMember, { ITeamMember } from "@/models/TeamMember";
-import dbConnect from "@/config/dbConnect";
-import mongoose from "mongoose";
+import { ContentCard, Typography } from "@/components";
 import { textContent } from "./textContent";
 import Image from "next/image";
 import { TeamBlock } from "./_components/blocks/teamBlock/teamBlock";
-import Partner, { IPartner } from "@/models/Partner";
-import { AuthorContentCards } from "./_components/authorContentCards/authorContentCards";
 import { BioBlock } from "./_components/blocks/bioBlock/bioBlock";
 import { ReviewsBlock } from "./_components/blocks/reviewsBlock/reviewsBlock";
 import { InfoCardsBlock } from "./_components/blocks/infoCardsBlock/infoCardsBlock";
 import { ReelsBlock } from "./_components/blocks/reelsBlock/reelsBlock";
 import { LinkCardsBlock } from "./_components/blocks/linkCardsBlock/linkCardsBlock";
 import { PartnersBlock } from "./_components/blocks/partnersBlock/partnersBlock";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+import { AuthorContent } from "./_components/blocks/authorContent/authorContent";
+import { getFeedbacks, getPartnerImagesSrc, getTeamMembers } from "./actions";
+
 export const metadata: Metadata = {
-  title: 'Про школу | Tanpopo',
-}
+  title: "Про школу | Tanpopo",
+};
+
+export const revalidate = 1;
+
 export default async function About() {
-  const [teamMembers, partners] = await Promise.all([
+  const [teamMembers, partners, feedbacks] = await Promise.all([
     getTeamMembers(),
     getPartnerImagesSrc(),
+    getFeedbacks(),
   ]);
 
   return (
@@ -37,8 +38,7 @@ export default async function About() {
           }}
           className={cl.title}
         >
-          Найкраща {<b>онлайн-школа</b>} японської мови
-          <br /> {<b>для українців</b>} по всьому світу!
+          Провідна українська онлайн-школа з вивчення японської мови!
         </Typography>
 
         <div className={cl.logoWrapper}>
@@ -84,7 +84,7 @@ export default async function About() {
 
       <BioBlock />
 
-      <ReviewsBlock />
+      {feedbacks && <ReviewsBlock feedbacks={feedbacks} />}
 
       {teamMembers && <TeamBlock teamMembers={teamMembers} />}
 
@@ -118,90 +118,11 @@ export default async function About() {
         </ContentCard>
       </ContentCard>
 
-      <div
-        className={cl.authorContentBlock}
-        id="content"
-        style={{ scrollMarginTop: "120px" }}
-      >
-        <Typography variant="h3">
-          {textContent.authorContentBlock.header}
-        </Typography>
-        <div className={cl.wrapper}>
-          <ContentCard width="620px" className={cl.socialCard}>
-            <Typography variant="h6">
-              {textContent.authorContentBlock.instagram.title}
-            </Typography>
-            <IconLink
-              icon="instagram"
-              href={textContent.authorContentBlock.instagram.iconLink}
-              height="64px"
-            />
-            <AuthorContentCards
-              links={textContent.authorContentBlock.instagram.links}
-              images={textContent.authorContentBlock.instagram.images}
-            />
-            <Typography variant="body2">
-              {textContent.authorContentBlock.instagram.caption}
-            </Typography>
-          </ContentCard>
-
-          <ContentCard width="620px" className={cl.socialCard}>
-            <Typography variant="h6">
-              {textContent.authorContentBlock.youtube.title}
-            </Typography>
-            <IconLink
-              icon="youTube"
-              href={textContent.authorContentBlock.youtube.iconLink}
-              height="64px"
-            />
-            <AuthorContentCards
-              links={textContent.authorContentBlock.youtube.links}
-              images={textContent.authorContentBlock.youtube.images}
-            />
-            <Typography variant="body2">
-              {textContent.authorContentBlock.youtube.caption}
-            </Typography>
-          </ContentCard>
-        </div>
-      </div>
+      <AuthorContent />
 
       <ReelsBlock />
 
       <LinkCardsBlock />
     </main>
   );
-}
-
-async function getTeamMembers() {
-  try {
-    await dbConnect();
-
-    const teamMembersDb = (await TeamMember.find().populate("image").populate({
-      path: "certificates.description.image",
-    })) as mongoose.Document<ITeamMember>[];
-
-    const teamMembers: ITeamMember[] = teamMembersDb.map((member) => {
-      return JSON.parse(JSON.stringify(member));
-    });
-
-    return teamMembers;
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
-}
-
-async function getPartnerImagesSrc() {
-  try {
-    await dbConnect();
-
-    const partners = (await Partner.find()
-      .lean()
-      .populate("image")) as IPartner[];
-
-    return partners.map((partner) => JSON.parse(JSON.stringify(partner)));
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
 }

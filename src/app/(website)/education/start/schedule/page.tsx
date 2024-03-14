@@ -23,7 +23,6 @@ import { setCourse, selectCourse } from "@/redux/slices/course/courseSlice";
 import { type ISchedule } from "@/components/schedule/_schedule/type";
 import { useForm } from "react-hook-form";
 
-
 export default function Page() {
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -64,37 +63,22 @@ export default function Page() {
   const lessonsPerWeek = watch("lessonsPerWeek");
   const course = useAppSelector((state) => selectCourse(state));
 
-  const submitForm = (formData: any) => {
+  const submitForm = (formData: FormData) => {
     if (course.format === "Міні-група") {
-      setValue("lessonsPerWeek", 2);
       if (counter < 12) {
-        return toast(() => (
-          <div
-            style={{
-              width: "fit-content",
-              fontSize: "20px",
-              textAlign: "center",
-              margin: "auto",
-            }}
-          >
-            Просимо Вас обрати хоча б <u>12 часових проміжків</u>
-            <br />
-            категорій: <u>“Може бути”</u> або <u>“Ідеально”</u>,
-            <br />
-            щоб ми мали можливість швидше сформувати
-            <br />
-            зручний для всіх графік занять!☑
-          </div>
-        ));
+        return timeToSelectMessage(12);
       }
+      setValue("lessonsPerWeek", 2);
     } else {
       if (!lessonsPerWeek) {
         return toast("Оберіть бажану к-сть занять на тиждень!☑");
       }
-      if (counter < 10) {
-        return toast(
-          `Просимо Вас обрати хоча б 10 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑`
-        );
+      if (lessonsPerWeek === 1 && counter < 7) {
+        return timeToSelectMessage(7);
+      } else if (lessonsPerWeek === 2 && counter < 10) {
+        return timeToSelectMessage(10);
+      } else if (lessonsPerWeek === 3 && counter < 12) {
+        return timeToSelectMessage(12);
       }
     }
 
@@ -107,6 +91,7 @@ export default function Page() {
     };
 
     setLoading(true);
+    scrollTo(0, 0);
     fetch("/api/education", {
       method: "POST",
       body: JSON.stringify(data),
@@ -125,7 +110,6 @@ export default function Page() {
         router.push("/education/payment");
       })
       .catch((error) => {
-        console.log(error);
         setLoading(false);
         toast(
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
@@ -204,6 +188,7 @@ export default function Page() {
                 const lessons = parseInt(value[0]);
                 dispatch(setCourse({ lessonsPerWeek: lessons }));
                 setValue("lessonsPerWeek", lessons);
+                console.log(lessons);
               }}
               placeHolder="К-сть занять"
               className={cl.select}
@@ -224,6 +209,7 @@ export default function Page() {
           setSchedule={setSchedule}
           setCounter={setCounter}
           format={course.format}
+          lessonsPerWeek={lessonsPerWeek}
         />
 
         <div className={cl.comment}>
@@ -266,3 +252,13 @@ export default function Page() {
     </main>
   );
 }
+
+const timeToSelectMessage = (timeToSelect: number) => {
+  return toast(
+    <>
+      Просимо Вас обрати хоча б {timeToSelect} часових проміжків категорій:
+      <u>“Може бути”</u> або <u>“Ідеально”</u>,щоб ми мали можливість швидше
+      сформувати зручний для всіх графік занять!☑
+    </>
+  );
+};

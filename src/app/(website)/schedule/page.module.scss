@@ -9,6 +9,7 @@
     text-transform: none;
   }
 }
+
 .formWrapper {
   @include flex-column;
   max-width: 100%;
@@ -21,7 +22,7 @@
 .lessonsCount {
   margin-top: 100px;
 
-  >img {
+  > img {
     margin: 25px 0;
   }
 }

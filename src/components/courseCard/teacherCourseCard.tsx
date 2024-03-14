@@ -68,7 +68,9 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       lessons: +cardState.lessons.slice(0, 2).trim(),
       price: cardState.lessons.match(/\(([^)]+)\)/)![1],
       level: course.level[0],
+      lessonsPerWeek: cardState.learningFormat === "Міні-група" ? 2 : null,
       isGift,
+      backgroundColor: course.large.labelColor,
     };
 
     dispatch(setCourse(selectedCourse));
@@ -140,6 +142,15 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
             </Typography>
           </li>
         ))}
+        <Link href={`courses/${course._id}`}>
+          <li>
+            <Typography className={cl.description} variant="body1">
+              <u style={{ textDecorationThickness: "1px" }}>
+                більше інформації про курс...
+              </u>
+            </Typography>
+          </li>
+        </Link>
       </ul>
       <section className={cl.labels}>
         {course.labels.map((label, index) => (
@@ -188,11 +199,11 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
               placeHolder="К-сть Уроків & Ціна"
               menuItems={
                 cardState.learningFormat === "Індивідуально"
-                  ? course.prices.individual.map((price, idx) => {
-                      return parseCoursePrices(price, idx);
+                  ? course.prices.individual.map((price) => {
+                      return parseCoursePrices(price);
                     })
-                  : course.prices.group.map((price, idx) => {
-                      return parseCoursePrices(price, idx);
+                  : course.prices.group.map((price) => {
+                      return parseCoursePrices(price);
                     })
               }
               handleSelect={(value: string, link?: string) => {
@@ -212,8 +223,8 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
           <Select
             className={cl.select}
             placeHolder="Мегакурс & Ціна"
-            menuItems={course.prices.group.map((price, idx) => {
-              return parseCoursePrices(price, idx);
+            menuItems={course.prices.group.map((price) => {
+              return parseCoursePrices(price);
             })}
             handleSelect={(value: string, link?: string) => {
               setCardState((prev) => {
@@ -224,48 +235,45 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
         )}
       </div>
 
-      {cardState.learningFormat !== null && cardState.lessons !== null && (
-        <div>
-          <Checkbox
-            className={cl.checkbox}
-            label="Я розпочинаю онлайн-курс з
+      <div style={{ width: "312px", marginLeft: "10px", marginTop: "-10px" }}>
+        {cardState.learningFormat !== null && cardState.lessons !== null && (
+          <>
+            <Checkbox
+              className={cl.checkbox}
+              label="Я розпочинаю онлайн-курс з 
             сенсеєм школи TanPoPo вперше!"
-            isChecked={isNewStudent}
-            onClick={() => setCheckbox("newStudent")}
-          />
-          <div
-            className={cl.divider}
-            style={{ background: courseInfo.bgColor }}
-          >
-            <div className={cl.line}></div>
-            <Typography variant="body2" className={cl.text}>
-              Або
-            </Typography>
-            <div className={cl.line}></div>
-          </div>
-          <Checkbox
-            className={cl.checkbox}
-            label="Я вже маю розклад занять та
+              isChecked={isNewStudent}
+              onClick={() => setCheckbox("newStudent")}
+            />
+            <div
+              className={cl.divider}
+              style={{ background: courseInfo.bgColor }}
+            >
+              <div className={cl.line}></div>
+              <Typography variant="body2" className={cl.text}>
+                Або
+              </Typography>
+              <div className={cl.line}></div>
+            </div>
+            <Checkbox
+              className={cl.checkbox}
+              label="Я вже маю розклад занять та
             бажаю продовжити навчання!"
-            isChecked={isActiveStudent}
-            onClick={() => setCheckbox("activeStudent")}
-          />
-        </div>
-      )}
+              isChecked={isActiveStudent}
+              onClick={() => setCheckbox("activeStudent")}
+            />
+          </>
+        )}
 
-      <Checkbox
-        label={
-          <Typography variant="subtitle1" className={cl.presentCheckbox}>
-            Подарунковий Сертифікат🎁
-          </Typography>
-        }
-        className={cl.giftCheckbox}
-        isChecked={isGift}
-        onClick={() =>
-          isGift ? setCheckbox("newStudent") : setCheckbox("gift")
-        }
-      />
-
+        <Checkbox
+          label={"Подарунковий Сертифікат🎁"}
+          className={getValidClassNames(cl.giftCheckbox, cl.checkbox)}
+          isChecked={isGift}
+          onClick={() =>
+            isGift ? setCheckbox("newStudent") : setCheckbox("gift")
+          }
+        />
+      </div>
       <ContentCard
         className={getValidClassNames(
           cl.bottomBtn,

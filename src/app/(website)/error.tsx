@@ -1,10 +1,11 @@
 "use client";
 
-import { Typography, Button } from "@/components";
+import { Typography, Button, ContentCard } from "@/components";
 import cl from "./page.module.scss";
 import Image from "next/image";
 import { useEffect } from "react";
 import Link from "next/link";
+import { getIconArtSrc, getValidClassNames } from "@/helpers";
 
 export default function Error({
   error,
@@ -18,31 +19,69 @@ export default function Error({
   }, [error]);
 
   return (
-    <main className={cl.main} style={{ gap: "0" }}>
+    <main className={cl.errorPage}>
       <Image
-        src="/images/homePage.png"
-        alt="Home page"
-        width={940}
-        height={653}
-        style={{ maxWidth: "720px", width: "100%", height: "auto" }}
+        src={getIconArtSrc("tower2")}
+        alt="Tower icon"
+        width={122}
+        height={159}
+        style={{ maxWidth: "122px", width: "100%", height: "auto" }}
       />
-      <Typography variant="h6">Схоже щось пішло не так</Typography>
-      <div
+      <Typography variant="h4" align="center" style={{ marginTop: "60px" }}>
+        Не вдалось під’єднатись до серверу.
+      </Typography>
+      <Typography
+        variant="body2"
+        align="center"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "42px",
-          rowGap: "28px",
-          marginTop: "20px",
+          fontWeight: "100",
+          fontSize: "18px",
+          maxWidth: "500px",
+          marginTop: "60px",
         }}
       >
-        <Button variant="outlined" onClick={() => reset()}>
-          Спробувати ще раз
+        Вибачте за тимчасові незручності, ми вже працюємо над вирішенням цієї
+        проблеми!
+      </Typography>
+      <ContentCard
+        label={<Typography variant="body1">Ви можете спробувати:</Typography>}
+        labelBgColor="linear-gradient(#FFFCF3, #FFFAD0)"
+        cardBgColor="linear-gradient(#FFFFFF, #FFFBF1)"
+        className={cl.errorCard}
+        width="470px"
+      >
+        <Typography variant="body1">1. Перезавантажити сторінку:</Typography>
+        <Button
+          onClick={() => reset()}
+          variant="outlined"
+          className={cl.errorBtn}
+        >
+          <Typography variant="body1" style={{ fontSize: "19px" }}>
+            Спробувати ще раз ✅
+          </Typography>
         </Button>
-        <Link href="/">Повернутися на головну</Link>
-      </div>
+
+        <Typography variant="body1" style={{ marginTop: "35px" }}>
+          2. Повернутись на Головну сторінку:
+        </Typography>
+        <Button variant="outlined" className={cl.errorBtn}>
+          <Link href="/">
+            <Typography variant="body1" style={{ fontSize: "19px" }}>
+              Повернутись на Головну 🌐
+            </Typography>
+          </Link>
+        </Button>
+      </ContentCard>
+      <Typography
+        variant="subtitle2"
+        align="center"
+        className={cl.feedback}
+      >
+        У разі повторних/частих помилок, просимо повідомити про це нашій{" "}
+        <Link href="/contacts#feedback">
+          <u>службі Турботи.</u>
+        </Link>
+      </Typography>
     </main>
   );
 }

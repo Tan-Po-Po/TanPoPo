@@ -1,9 +1,9 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { ContentCard } from "@/components/contentCard/contentCard";
 import cl from "./schedule.module.scss";
 import { Typography } from "@/components/typography/typography";
 import { getValidClassNames } from "@/helpers";
-import { Button } from "@/components/button/button";
 import { TimeButton } from "./timeButton";
 import { time, days } from "../common";
 
@@ -11,13 +11,33 @@ type Properties = {
   setCounter: React.Dispatch<React.SetStateAction<number>>;
   setSchedule: React.Dispatch<any>;
   format?: "Міні-група" | "Індивідуально" | null;
+  lessonsPerWeek?: number;
 };
 
 const Schedule: React.FC<Properties> = ({
   setCounter,
   setSchedule,
   format,
+  lessonsPerWeek,
 }) => {
+  const [timeToSelect, setTimeToSelect] = useState(
+    format === "Міні-група" || !format ? 12 : 10
+  );
+  useEffect(() => {
+    if (lessonsPerWeek) {
+      switch (lessonsPerWeek) {
+        case 1:
+          setTimeToSelect(7);
+          break;
+        case 2:
+          setTimeToSelect(10);
+          break;
+        case 3:
+          setTimeToSelect(12);
+          break;
+      }
+    }
+  }, [lessonsPerWeek]);
   return (
     <div className={cl.schedule}>
       <ContentCard width="910px" className={cl.header}>
@@ -70,10 +90,7 @@ const Schedule: React.FC<Properties> = ({
           variant="body2"
           style={{ maxWidth: "875px", fontSize: "18px", marginTop: "14px" }}
         >
-          Просимо Вас обрати хоча б{" "}
-          <u>
-            {format === "Міні-група" || !format ? 12 : 10} часових проміжків{" "}
-          </u>
+          Просимо Вас обрати хоча б <u>{timeToSelect} часових проміжків </u>
           категорій: “<u>Може бути</u>” або “<u>Ідеально</u>”, щоб ми мали
           можливість швидше сформувати зручний для всіх графік занять!
         </Typography>

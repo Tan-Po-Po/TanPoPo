@@ -31,8 +31,8 @@
       border: $border;
       border-radius: $border-radius;
       box-shadow: $box-shadow;
-      padding: 6px 9px;
-      line-height: 15px;
+      padding: 5px 9px;
+      line-height: 18px;
       white-space: pre;
       text-wrap: wrap;
       max-width: 100%;
@@ -46,13 +46,14 @@
     position: absolute;
     max-width: 290px;
     height: 45px;
-    bottom: -24px;
-    transition: transform 0.2s ease-in-out;
+    bottom: 0;
+    transform: translate(0, 50%);
+    transition: scale 0.2s ease-in-out;
     padding: 0px 12px;
     width: fit-content;
 
     &:hover {
-      transform: scale(1.05);
+      scale: 1.05;
     }
   }
   .giftBtn {
@@ -88,6 +89,15 @@
     }
   }
 
+  .checkboxes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 103%;
+    width: 300px;
+    margin-top: -10px;
+  }
+
   .checkbox {
     text-align: start;
     line-height: 16.73px;
@@ -103,16 +113,16 @@
       font-size: 15px;
       font-weight: 700;
       text-align: start;
-      margin-left: 10px;
+      margin-left: 5px;
     }
   }
 
   .line {
     height: 2px;
-    width: 180px;
+    width: 210px;
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
     background-color: #565656;
-    margin: 5px auto 10px;
+    margin: 0px auto 5px;
   }
 
   .divider {
@@ -127,6 +137,7 @@
       background: rgba(86, 86, 86, 1);
       width: 65px;
       border-radius: $border-radius;
+      margin: 0px 5px;
     }
     .text {
       text-transform: uppercase;
@@ -139,9 +150,10 @@
     flex-direction: row;
     align-items: center;
     p {
-      margin-left: 10px;
+      margin-left: 5px;
       text-align: left;
       max-width: 290px;
+      width: 290px;
       font-size: 15px;
     }
   }
@@ -159,7 +171,7 @@
 }
 
 .teacher {
-  padding: 60px 35px;
+  padding: 60px 35px 40px;
   gap: 30px;
 
   .giftCheckbox {
@@ -167,7 +179,7 @@
     margin-top: 10px;
     margin-left: -11px;
   }
-  .me gaHeader {
+  .megaHeader {
     position: absolute;
     top: 0;
     left: 50%;
@@ -328,25 +340,32 @@
   }
 
   .carousel {
-    .image {
-      border: $border;
-      border-radius: $border-radius;
+    min-width: calc(100% + 40px);
+    .carouselItem {
+      width: 215px;
+      height: 215px;
+      background-color: white;
+      object-position: top;
     }
 
     :global(.slick-slide) {
       > div {
         overflow: display;
-        margin: 10px 35px;
+        margin: 10px 47px;
       }
     }
 
     :global(.slick-prev) {
-      left: 2%;
+      top: calc(40% + 14px);
+      left: calc(0% + 20px);
     }
 
     :global(.slick-next) {
-      right: -2%;
+      right: calc(0% + 20px);
     }
+  }
+  .image {
+    border-radius: $border-radius;
   }
 }
 
@@ -396,9 +415,36 @@
   }
 }
 
+@media (max-width: 650px) {
+  .book {
+    .carousel {
+      :global(.slick-slide) {
+        > div {
+          margin: 10px 46px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .book {
+    .carousel {
+      :global(.slick-prev) {
+        left: calc(50% - 160px);
+      }
+
+      :global(.slick-next) {
+        right: calc(50% - 160px);
+      }
+    }
+  }
+}
+
+
 @media (max-width: 500px) {
   .card {
-    width: 340px;
+    width: 100%;
 
     .labels {
       max-width: calc(100% + 10px);
@@ -407,7 +453,7 @@
         white-space: unset;
         text-wrap: wrap;
         text-align: center;
-        padding: 6px 4px;
+        padding: 5px 5px;
       }
     }
 
@@ -434,6 +480,7 @@
     }
     .giftCheckbox {
       margin: 0;
+      margin-left: -11px;
       span:last-child {
         width: 260px;
         font-size: 15px !important;
@@ -449,6 +496,12 @@
       line-height: 25px;
     }
   }
+
+  .book {
+    .carousel {
+      min-width: calc(100% + 20px);
+    }
+  }
 }
 
 @media (max-width: 450px) {
@@ -462,11 +515,27 @@
 
   .book {
     .carousel {
-      :global(.slick-prev) {
-        left: 3%;
+      min-width: calc(100%);
+      :global(.slick-slide) {
+        > div {
+          overflow: display;
+          margin: 10px 33px;
+        }
       }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+
+  .book {
+    .carousel {
+      :global(.slick-prev) {
+        left: calc(50% - 145px);
+      }
+
       :global(.slick-next) {
-        right: -3%;
+        right: calc(50% - 145px);
       }
     }
   }

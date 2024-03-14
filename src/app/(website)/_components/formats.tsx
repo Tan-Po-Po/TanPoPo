@@ -88,7 +88,7 @@ export function Formats({
   );
 
   return (
-    <ContentCard width="1122px" className={cl.formats}>
+    <ContentCard width="1122px" className={cl.formats} id="learningFormats">
       <Typography variant="h5">Формати Навчання:</Typography>
       <Typography variant="body2">
         Наша освітня програма пропонує усі можливі формати вивчення <br />

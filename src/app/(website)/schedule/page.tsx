@@ -21,15 +21,14 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { type ISchedule } from "@/components/schedule/_schedule/type";
 import { useForm } from "react-hook-form";
 
-
 export default function Page() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  
+
   useEffect(() => {
     document.title = "Розклад  | Tanpopo";
   }, []);
-  
+
   const formReturn = useForm<FormData>({
     defaultValues: {
       name: "",
@@ -70,22 +69,22 @@ export default function Page() {
     | "Індивідуально"
     | undefined;
 
-  const submitForm = (formData: any) => {
+  const submitForm = (formData: FormData) => {
     if (educationFormat === "Міні-група" || !educationFormat) {
-      setValue("lessonsPerWeek", 2);
       if (counter < 12) {
-        return toast(
-          `Просимо Вас обрати хоча б 12 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑`
-        );
+        return timeToSelectMessage(12);
       }
+      setValue("lessonsPerWeek", 2);
     } else {
       if (!lessonsPerWeek && educationFormat === "Індивідуально") {
         return toast("Оберіть бажану к-сть занять на тиждень!☑");
       }
-      if (counter < 10) {
-        return toast(
-          `Просимо Вас обрати хоча б 10 часових проміжків категорій: “Може бути” або “Ідеально”,щоб ми мали можливість швидше сформувати зручний для всіх графік занять!☑`
-        );
+      if (lessonsPerWeek === 1 && counter < 7) {
+        return timeToSelectMessage(7);
+      } else if (lessonsPerWeek === 2 && counter < 10) {
+        return timeToSelectMessage(10);
+      } else if (lessonsPerWeek === 3 && counter < 12) {
+        return timeToSelectMessage(12);
       }
     }
 
@@ -109,15 +108,22 @@ export default function Page() {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-    }).then(async (res) => {
-      if (!res.ok) {
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          setLoading(false);
+          return toast(
+            "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
+          );
+        }
+        router.push("/?redirected=true");
+      })
+      .catch((error) => {
         setLoading(false);
-        return toast(
+        toast(
           "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
         );
-      }
-      router.push("/?redirected=true");
-    });
+      });
   };
 
   useEffect(() => {
@@ -141,9 +147,9 @@ export default function Page() {
       <form onSubmit={handleSubmit(submitForm)} className={cl.formWrapper}>
         <Divider
           className={cl.divider}
-          firstRow="2. Заповніть контактні дані та ваш розклад."
+          firstRow="Заповніть контактні дані та оберіть бажаний розклад навчання⭐️"
           bgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
-          width="555px"
+          width="46 0px"
         />
 
         <NewStudentForm formReturn={formReturn} className={cl.form} />
@@ -199,6 +205,7 @@ export default function Page() {
           setSchedule={setSchedule}
           setCounter={setCounter}
           format={educationFormat}
+          lessonsPerWeek={lessonsPerWeek}
         />
 
         <div className={cl.comment}>
@@ -241,3 +248,13 @@ export default function Page() {
     </main>
   );
 }
+
+const timeToSelectMessage = (timeToSelect: number) => {
+  return toast(
+    <>
+      Просимо Вас обрати хоча б {timeToSelect} часових проміжків категорій:
+      <u>“Може бути”</u> або <u>“Ідеально”</u>,щоб ми мали можливість швидше
+      сформувати зручний для всіх графік занять!☑
+    </>
+  );
+};

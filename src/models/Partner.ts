@@ -11,6 +11,7 @@ export interface IPartner {
     width: number;
     height: number;
   };
+  link: string;
 }
 
 const PartnerSchema = new mongoose.Schema<IPartner>({
@@ -19,6 +20,7 @@ const PartnerSchema = new mongoose.Schema<IPartner>({
     ref: Media && "Media",
     required: true,
   },
+  link: { type: String, required: true },
 });
 
 export default mongoose.models.Partner ||
