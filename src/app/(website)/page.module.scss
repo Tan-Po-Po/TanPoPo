@@ -40,6 +40,7 @@
     white-space: normal;
     font-size: 35px;
     line-height: 35px;
+    font-weight: 600;
   }
   .gradient {
     font-size: 58px;
@@ -54,7 +55,7 @@
   }
   span {
     font-size: 40px;
-    line-height: 40px;
+    line-height: 48px;
   }
 }
 
@@ -497,17 +498,10 @@
 
 @media (max-width: 1023px) {
   .main {
-    padding-top: 45px;
     overflow-x: hidden;
     padding-bottom: $padding-page-tablet-bottom;
   }
-  .header {
-    max-width: 520px;
-    h5,
-    p {
-      display: inline;
-    }
-  }
+
   .about {
     font-size: 18px;
     max-width: 690px;
@@ -666,15 +660,6 @@
     padding-top: 40px;
     padding-bottom: $padding-page-mobile-bottom;
     gap: 75px;
-  }
-  .header {
-    h5 {
-      font-size: 28px;
-      line-height: 26px;
-    }
-    p {
-      font-size: 22px;
-    }
   }
   .intro {
     .about {
@@ -871,8 +856,24 @@
     }
   }
 }
+@media (max-width: 655px) {
+  .header {
+    max-width: 450px;
+    h5 {
+      font-size: 24px;
+      line-height: 24px;
+    }
+    .gradient {
+      font-size: 34px;
+    }
+    span {
+      font-size: 26.3px;
+      line-height: 25px;
+    }
+  }
+}
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .header {
     max-width: 345px;
     h5 {
@@ -887,7 +888,6 @@
       line-height: 21px;
     }
   }
-
   .errorPage {
     .errorCard {
       width: calc(100% + 20px);

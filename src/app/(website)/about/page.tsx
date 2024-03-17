@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Про школу | Tanpopo",
 };
 
-export const revalidate = 1;
+export const revalidate = 3600;
 
 export default async function About() {
   const [teamMembers, partners, feedbacks] = await Promise.all([
@@ -33,12 +33,14 @@ export default async function About() {
         <Typography
           variant="h4"
           style={{
-            fontWeight: 400,
+            fontWeight: 700,
             textAlign: "center",
           }}
           className={cl.title}
         >
-          Провідна українська онлайн-школа з вивчення японської мови!
+          Провідна українська <br />
+          онлайн-школа з вивчення <br />
+          японської мови!
         </Typography>
 
         <div className={cl.logoWrapper}>

@@ -27,10 +27,11 @@
   :global(.slick-slider) {
     overflow: visible;
   }
-
+  
   :global(.slick-prev),
   :global(.slick-next) {
     position: absolute;
+    z-index: 2;
   }
 }
 

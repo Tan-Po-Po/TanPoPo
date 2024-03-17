@@ -20,13 +20,12 @@ export const ShopProductCardMini: React.FC<Props> = ({
   const { inDevelopment } = large;
 
   const handleClick = () => {
-    console.log(inDevelopment);
     if (inDevelopment) {
       return toast("Товар ще в розробці");
     }
     const item = document.getElementById(_id!);
-
-    item?.scrollIntoView({ behavior: "smooth" });
+    const largeProductCards = document.getElementById("largeProductCards");
+    largeProductCards?.scrollIntoView({ behavior: "smooth" });
     item?.click();
   };
 

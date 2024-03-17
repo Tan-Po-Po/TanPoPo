@@ -1,6 +1,7 @@
 .card {
   position: relative;
-  padding: 60px 20px 30px;
+  padding: 60px 20px 35px;
+  gap: 24px;
 
   .name {
     text-transform: uppercase;
@@ -108,6 +109,10 @@
     margin-top: -10px;
   }
 
+  .selfCourseCheckbox br {
+    display: none;
+  }
+
   .line {
     height: 2px;
     width: 210px;
@@ -178,7 +183,8 @@
 }
 
 .teacher {
-  padding: 45px 20px 27px;
+  padding: 49px 20px 33px;
+  gap: 19px;
 
   .megaHeader {
     position: absolute;
@@ -366,8 +372,14 @@
     border: $border;
     border-radius: $border-radius;
     max-width: 100%;
-    height: auto;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background: white;
+    @media (hover: hover) {
+      &:hover {
+        scale: 110%;
+      }
+    }
   }
 
   .labels {
@@ -385,6 +397,12 @@
         font-size: 19px;
       }
     }
+    .selfCourseCheckbox {
+      width: auto !important;
+      br {
+        display: block;
+      }
+    }
   }
   .name {
     text-wrap: pretty;
@@ -400,6 +418,9 @@
     width: 400px;
     max-width: 90vw;
   }
+  .teacher {
+    gap: 18px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -414,9 +435,19 @@
   .card {
     width: 340px;
 
+    .labels {
+      max-width: calc(100% + 10px);
+      margin: auto -5px;
+      .label {
+        white-space: unset;
+        text-wrap: wrap;
+        text-align: center;
+        padding: 5px 5px;
+      }
+    }
     .checkbox {
       :global(.MuiTypography-root) {
-        margin-left: 0px;
+        margin-left: 0px !important;
         font-size: 14.5px;
       }
     }

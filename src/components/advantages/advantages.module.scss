@@ -112,10 +112,15 @@
         }
       }
     }
-
+    .carousel {
+      :global(.slick-slide) > div {
+        margin: 20px 48px;
+      }
+    }
     .cards {
       width: calc(100% + 20px);
       .card {
+        justify-content: space-around;
         height: 620px;
         width: 340px !important;
         padding: 26px 10px;

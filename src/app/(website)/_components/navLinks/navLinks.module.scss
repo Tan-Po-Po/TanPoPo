@@ -19,14 +19,16 @@
   cursor: pointer;
 
   img {
-    transition: all 0.25s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
   @media (hover: hover) {
     &:hover {
-      scale: 110%;
+      scale: 105%;
+      border: 3px solid black;
+      background: linear-gradient(#FFFCF3, #FFFAD0);
       img {
-        scale: 115%;
+        scale: 110%;
       }
     }
   }
@@ -81,7 +83,7 @@
   .navLinks {
     row-gap: 40px;
     column-gap: 40px;
-    margin: 30px 0px;
+    margin: 10px 0px 30px;
   }
 
   .dialog :global(.MuiDialog-paper) {

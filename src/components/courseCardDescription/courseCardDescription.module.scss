@@ -109,12 +109,19 @@
       font-weight: 700;
       max-width: 300px;
     }
+    span:first-child {
+      padding-left: 0;
+    }
     :global(.MuiTypography-root) {
       font-size: 15px;
       font-weight: 700;
       text-align: start;
       margin-left: 5px;
     }
+  }
+
+  .selfCourseCheckbox br {
+    display: none;
   }
 
   .line {
@@ -149,6 +156,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    span {
+      // margin: 0;
+      padding-left: 0;
+    }
     p {
       margin-left: 5px;
       text-align: left;
@@ -177,7 +188,7 @@
   .giftCheckbox {
     margin: 0;
     margin-top: 10px;
-    margin-left: -11px;
+    margin-left: -11px !important;
   }
   .megaHeader {
     position: absolute;
@@ -441,7 +452,6 @@
   }
 }
 
-
 @media (max-width: 500px) {
   .card {
     width: 100%;
@@ -460,6 +470,7 @@
     .checkboxWrapper {
       span {
         margin: 0;
+        padding-left: 0;
       }
       p {
         font-weight: 700;
@@ -473,6 +484,7 @@
       span {
         max-width: 260px;
       }
+
       :global(.MuiTypography-root) {
         font-size: 14.5px !important;
         margin-left: 0px;
@@ -480,7 +492,6 @@
     }
     .giftCheckbox {
       margin: 0;
-      margin-left: -11px;
       span:last-child {
         width: 260px;
         font-size: 15px !important;
@@ -527,7 +538,6 @@
 }
 
 @media (max-width: 400px) {
-
   .book {
     .carousel {
       :global(.slick-prev) {

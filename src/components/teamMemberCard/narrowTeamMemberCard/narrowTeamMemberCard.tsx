@@ -1,7 +1,7 @@
 import { ITeamMember } from "@/models/TeamMember";
 import cl from "./narrowTeamMemberCard.module.scss";
 import mcl from "../teamMemberCard.module.scss";
-import { ContentCard } from "@/components";
+import { Checkbox, ContentCard } from "@/components";
 import Image from "next/image";
 import { getIconSrc, getValidClassNames } from "@/helpers";
 import { useState } from "react";
@@ -11,6 +11,8 @@ import { Education } from "./content/education";
 import { About } from "./content/about";
 import { SectionButton } from "@/app/(website)/about/_components/sectionButton/sectionButton";
 import { IMAGE_BASE_URL } from "@/config/config";
+import { useAppDispatch } from "@/redux/hooks";
+import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 
 interface Props {
   teamMember: ITeamMember;
@@ -25,9 +27,8 @@ export const NarrowTeamMemberCard: React.FC<Props> = ({
 }) => {
   const { label, name, image, certificates, education, about, video } =
     teamMember;
-
+  const dispatch = useAppDispatch();
   const [selected, setSelected] = useState<ISection>("level");
-
   let content;
 
   switch (selected) {
@@ -80,6 +81,16 @@ export const NarrowTeamMemberCard: React.FC<Props> = ({
               height: "auto",
               maxHeight: "241px",
             }}
+            onClick={() => {
+              if (video) {
+                dispatch(
+                  openGalleryDialog({
+                    type: "video",
+                    src: video,
+                  })
+                );
+              }
+            }}
           />
           {video && (
             <Image
@@ -88,6 +99,16 @@ export const NarrowTeamMemberCard: React.FC<Props> = ({
               width={48}
               height={39}
               className={cl.videoIcon}
+              onClick={() => {
+                if (video) {
+                  dispatch(
+                    openGalleryDialog({
+                      type: "video",
+                      src: video,
+                    })
+                  );
+                }
+              }}
             />
           )}
         </ContentCard>

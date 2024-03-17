@@ -37,7 +37,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
     lessons: null,
     link: null,
   });
-
+  console.log("render");
   const handleClick = () => {
     if (isMegaCourse && !cardState.lessons) {
       return toast(() => (
@@ -243,7 +243,10 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
               label="Я розпочинаю онлайн-курс з 
             сенсеєм школи TanPoPo вперше!"
               isChecked={isNewStudent}
-              onClick={() => setCheckbox("newStudent")}
+              onClick={(e) => {
+                setCheckbox("newStudent");
+                e.stopPropagation();
+              }}
             />
             <div
               className={cl.divider}
@@ -260,7 +263,10 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
               label="Я вже маю розклад занять та
             бажаю продовжити навчання!"
               isChecked={isActiveStudent}
-              onClick={() => setCheckbox("activeStudent")}
+              onClick={(e) => {
+                setCheckbox("activeStudent");
+                e.stopPropagation();
+              }}
             />
           </>
         )}
@@ -269,9 +275,10 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
           label={"Подарунковий Сертифікат🎁"}
           className={getValidClassNames(cl.giftCheckbox, cl.checkbox)}
           isChecked={isGift}
-          onClick={() =>
-            isGift ? setCheckbox("newStudent") : setCheckbox("gift")
-          }
+          onClick={(e) => {
+            isGift ? setCheckbox("newStudent") : setCheckbox("gift");
+            e.stopPropagation();
+          }}
         />
       </div>
       <ContentCard

@@ -85,6 +85,16 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
                 width={48}
                 height={39}
                 className={cl.videoIcon}
+                onClick={() => {
+                  if (video) {
+                    dispatch(
+                      openGalleryDialog({
+                        type: "video",
+                        src: video,
+                      })
+                    );
+                  }
+                }}
               />
             )}
           </ContentCard>

@@ -104,7 +104,7 @@ export default async function Shop() {
         id="products"
       />
 
-      <section className={cl.shopProductsBlock}>
+      <section className={cl.shopProductsBlock} id="largeProductCards">
         <Suspense>
           <LargeProductCards shopProducts={shopProducts} />
         </Suspense>
