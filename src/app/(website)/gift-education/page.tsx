@@ -12,7 +12,7 @@ import cl from "./page.module.scss";
 import { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: 'Навчання в подарунок | Tanpopo',
+  title: 'Навчання у подарунок | Tanpopo',
 }
 export default function Home() {
   return (

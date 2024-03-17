@@ -171,6 +171,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
 
       <div className={cl.selects}>
         <Select
+          showValue
           className={cl.select}
           placeHolder="Формат навчання"
           menuItems={[

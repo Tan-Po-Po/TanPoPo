@@ -65,7 +65,7 @@ export default function Page() {
   const certificateType = watch("certificateType");
 
   useEffect(() => {
-    document.title = "Навчання в подарунок | Tanpopo";
+    document.title = "Навчання у подарунок | Tanpopo";
   }, []);
 
   useEffect(() => {

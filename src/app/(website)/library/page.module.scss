@@ -10,3 +10,9 @@
     text-align: center;
   }
 }
+
+@media (max-width: 550px) {
+  .libraryMain {
+    padding: 65px 10px 80px;
+  }
+}

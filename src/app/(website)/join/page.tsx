@@ -25,7 +25,7 @@ export default function Join() {
   const [loading, setLoading] = React.useState(false);
 
   useEffect(() => {
-    document.title = "Приєднатися  | Tanpopo";
+    document.title = "Долучитись  | Tanpopo";
   }, []);
 
   const handleCheckboxClick = () => {
@@ -147,7 +147,7 @@ export default function Join() {
         <div className={cl.links}>
           <ContentCard
             width="530px"
-            cardBgColor="linear-gradient(#FFFBF1, #FFFBF1)"
+            cardBgColor="linear-gradient(#FFFFFF, #FFFBF1)"
             className={cl.linksCard}
           >
             <Typography variant="body2">
@@ -208,7 +208,7 @@ export default function Join() {
           <div className={cl.line}></div>
           <ContentCard
             width="530px"
-            cardBgColor="linear-gradient(#FFFBF1, #FFFBF1)"
+            cardBgColor="linear-gradient(#FFFFFF, #FFFBF1)"
             className={cl.linksCard}
           >
             <Typography variant="body2">

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Typography } from "../typography/typography";
 import { Checkbox } from "../checkbox/checkbox";
 import { ContentCard } from "../contentCard/contentCard";
@@ -78,6 +78,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       labelPosition="top"
       cardBgColor={courseInfo.bgColor}
       width={course.type === "book" ? "385px" : "625px"}
+      onClick={() => console.log("click")}
     >
       {courseInfo.description.map((desc, index) => (
         <Typography key={index} className={cl.description} variant="body1">
@@ -130,7 +131,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           alt="Audio"
           width={215}
           height={215}
-          style={{ maxWidth: "100%", height: "auto" }}
+          style={{ objectFit: "contain" }}
           onClick={() =>
             dispatch(
               openGalleryDialog({
@@ -171,7 +172,10 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
         <Checkbox
           label={"Подарунковий Сертифікат🎁"}
           className={getValidClassNames(cl.giftCheckbox, cl.checkbox)}
-          onClick={() => setIsGift((prev) => !prev)}
+          onClick={(e) => {
+            setIsGift((prev) => !prev);
+            e.stopPropagation();
+          }}
           isChecked={isGift}
         />
 
@@ -181,7 +185,10 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
             <div className={cl.checkboxWrapper}>
               <Checkbox
                 className={cl.checkbox}
-                onClick={() => setIsAccepted((prev) => !prev)}
+                onClick={(e) => {
+                  setIsAccepted((prev) => !prev);
+                  e.stopPropagation();
+                }}
                 isChecked={isAccepted}
               />
               <Link href="/self-education" target="_blank">
@@ -192,9 +199,11 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
                     textAlign: "start",
                     width: "285px",
                   }}
+                  className={cl.selfCourseCheckbox}
                 >
-                  Я ознайомлений з <u>Навчальним Періодом</u> для самостійних
-                  курсів!
+                  Я ознайомлений з <br />
+                  <u>Навчальним Періодом</u> <br />
+                  для самостійних курсів!
                 </Typography>
               </Link>
             </div>

@@ -31,7 +31,7 @@ export function NavLinks() {
             />
             <Typography
               variant="body1"
-              style={{ fontSize: "17px", lineHeight: "21px" }}
+              style={{ fontSize: "17px", lineHeight: "21px", width: "255px" }}
               align="center"
             >
               Усі матеріали до курсів розташовані на сучасній
@@ -177,7 +177,7 @@ export function NavLinks() {
           </Typography>
         </ContentCard>
 
-        <Link href="/store">
+        <Link href="/shop">
           <ContentCard className={cl.card} width="283px" height="261px">
             <Image
               src={getIconArtSrc("store")}

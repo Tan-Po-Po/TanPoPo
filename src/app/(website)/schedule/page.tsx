@@ -149,7 +149,7 @@ export default function Page() {
           className={cl.divider}
           firstRow="Заповніть контактні дані та оберіть бажаний розклад навчання⭐️"
           bgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
-          width="46 0px"
+          width="460px"
         />
 
         <NewStudentForm formReturn={formReturn} className={cl.form} />

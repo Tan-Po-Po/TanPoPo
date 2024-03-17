@@ -1,6 +1,7 @@
 .layout {
   @include flex-column;
   padding: $padding-page;
+  padding-top: 47px;
   gap: 80px;
   max-width: 1390px;
   width: 100%;

@@ -19,8 +19,8 @@ $memberCardGap: 56px;
 
     .videoIcon {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 18px;
+      right: 18px;
       width: auto;
       transition: scale 0.15s ease-in-out;
     }
@@ -120,8 +120,7 @@ $memberCardGap: 56px;
   font-size: 22px;
   padding: 9px 6px 8px 6px;
   text-align: center;
-  white-space: pre-line;
-  text-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .imageWrapper {
