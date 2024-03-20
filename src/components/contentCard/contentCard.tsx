@@ -3,9 +3,7 @@
 import { getValidClassNames } from "@/helpers";
 import cl from "./contentCard.module.scss";
 import { CSSProperties } from "@mui/material/styles/createMixins";
-import { Ref } from "react";
-
-type RefProp<T> = Ref<T>;
+import { RefObject } from "react";
 interface Props {
   children: React.ReactNode;
   index?: string | number;
@@ -23,7 +21,7 @@ interface Props {
   onMouseEnter?: (event: React.MouseEvent) => void;
   onMouseLeave?: (event: React.MouseEvent) => void;
   id?: string;
-  ref?: RefProp<HTMLDivElement>;
+  ref?: RefObject<any>;
 }
 
 const ContentCard: React.FC<Props> = ({
@@ -58,7 +56,6 @@ const ContentCard: React.FC<Props> = ({
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      ref={ref}
     >
       {index && (
         <div className={cl.index} style={{ backgroundColor: indexBgColor }}>

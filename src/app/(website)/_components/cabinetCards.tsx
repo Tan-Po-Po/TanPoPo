@@ -1,16 +1,14 @@
+"use client";
 import cl from "../page.module.scss";
-import { IWindowMatchMedia } from "./matchMedia";
 import { ContentCard, Carousel, CarouselItem, Typography } from "@/components";
 import Image from "next/image";
 import { carouselSettings } from "./carouselSettings";
 import { getIconArtSrc } from "@/helpers";
+import { useWindowSize } from "@uidotdev/usehooks";
 
-export function CabinetCards({
-  windowMatchMedia,
-}: {
-  windowMatchMedia: IWindowMatchMedia;
-}) {
-  const { isTablet } = windowMatchMedia;
+export function CabinetCards() {
+  const { width } = useWindowSize();
+  const isTablet = Boolean(width && width < 1100 && width >= 768);
 
   if (isTablet)
     return (
@@ -19,8 +17,13 @@ export function CabinetCards({
         initialSlide={0}
         className={cl.cabinetCardsCarousel}
       >
-        <CarouselItem className={cl.card} isHoverEventActive={false}>
-          <ContentCard width="376px" height="343px">
+        <CarouselItem className={cl.carouselItem} isHoverEventActive={false}>
+          <ContentCard
+            className={cl.card}
+            width="376px"
+            height="344px"
+            style={{ height: "344px" }}
+          >
             <Image
               src={getIconArtSrc("house")}
               alt="House"
@@ -38,8 +41,13 @@ export function CabinetCards({
           </ContentCard>
         </CarouselItem>
 
-        <CarouselItem className={cl.card} isHoverEventActive={false}>
-          <ContentCard width="376px" height="343px">
+        <CarouselItem className={cl.carouselItem} isHoverEventActive={false}>
+          <ContentCard
+            className={cl.card}
+            width="376px"
+            height="344px"
+            style={{ height: "344px" }}
+          >
             <Image
               src={getIconArtSrc("calendar2")}
               alt="Calendar"
@@ -57,8 +65,13 @@ export function CabinetCards({
           </ContentCard>
         </CarouselItem>
 
-        <CarouselItem className={cl.card} isHoverEventActive={false}>
-          <ContentCard width="376px" height="343px">
+        <CarouselItem className={cl.carouselItem} isHoverEventActive={false}>
+          <ContentCard
+            className={cl.card}
+            width="376px"
+            height="344px"
+            style={{ height: "344px" }}
+          >
             <Image
               src={getIconArtSrc("book1")}
               alt="Book"
@@ -80,7 +93,7 @@ export function CabinetCards({
 
   return (
     <section className={cl.cabinetCards}>
-      <ContentCard className={cl.card} width="376px" height="343px">
+      <ContentCard className={cl.card} width="376px" height="100%">
         <Image
           src={getIconArtSrc("house")}
           alt="House"
@@ -96,9 +109,11 @@ export function CabinetCards({
         </ul>
       </ContentCard>
 
-      <Typography variant="body1" className={cl.plus}>+</Typography>
+      <Typography variant="body1" className={cl.plus}>
+        +
+      </Typography>
 
-      <ContentCard className={cl.card} width="376px" height="343px">
+      <ContentCard className={cl.card} width="376px" height="100%">
         <Image
           src={getIconArtSrc("calendar2")}
           alt="Calendar"
@@ -114,9 +129,11 @@ export function CabinetCards({
         </ul>
       </ContentCard>
 
-      <Typography variant="body1" className={cl.plus}>+</Typography>
+      <Typography variant="body1" className={cl.plus}>
+        +
+      </Typography>
 
-      <ContentCard className={cl.card} width="376px" height="343px">
+      <ContentCard className={cl.card} width="376px" height="100%">
         <Image
           src={getIconArtSrc("book1")}
           alt="Book"

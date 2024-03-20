@@ -14,19 +14,16 @@ const CoursesBlock: React.FC<Properties> = ({ courses }) => {
 
   return width! < 890 && courses.length > 1 ? (
     <Carousel
-      // initialSlide={0}
       slideAmount={courses.length}
       useNumbers
       dots={false}
       slidesToShow={1}
       className={cl.carousel}
       infinite={false}
-      // centerMode
       numbersClass={cl.slideNumbers}
       adaptiveHeight
       centerPadding="0"
       variableWidth={true}
-      // focusOnSelect={false}
     >
       {courses.map((course) => (
         <CourseCard course={course} key={course._id} />

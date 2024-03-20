@@ -1,5 +1,5 @@
+"use client"
 import cl from "../page.module.scss";
-import { IWindowMatchMedia } from "./matchMedia";
 import {
   Typography,
   ContentCard,
@@ -10,13 +10,13 @@ import {
 import Image from "next/image";
 import { carouselSettings } from "./carouselSettings";
 import { getIconArtSrc } from "@/helpers";
+import { useWindowSize } from "@uidotdev/usehooks";
 
-export function MoreLinks({
-  windowMatchMedia,
-}: {
-  windowMatchMedia: IWindowMatchMedia;
-}) {
-  const { isTablet, isMobile, isPc } = windowMatchMedia;
+export function MoreLinks() {
+  const { width } = useWindowSize();
+  const isPc = Boolean(width && width >= 1024);
+  const isTablet = Boolean(width && width < 1024 && width >= 768);
+  const isMobile = Boolean(width && width < 768);
 
   let cards;
 

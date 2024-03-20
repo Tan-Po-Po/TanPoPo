@@ -1,6 +1,7 @@
+"use client";
 import cl from "./navLinks.module.scss";
 import { Typography, ContentCard, Dialog } from "@/components";
-import { getIconArtSrc, getIconSrc, getValidClassNames } from "@/helpers";
+import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactElement, useState } from "react";

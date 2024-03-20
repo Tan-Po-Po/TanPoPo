@@ -8,7 +8,7 @@ interface Props {
   direction: "left" | "right";
   className?: string;
   style?: CSSProperties;
-  onClick?: () => void;
+  onClick?: (e?: any) => void;
   handleClickToAnimate?: () => void;
   slideCount?: number;
   currentSlide?: number;

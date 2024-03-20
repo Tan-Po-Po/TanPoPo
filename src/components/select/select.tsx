@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { RefObject, useEffect, useRef, useState } from "react";
 import cl from "./select.module.scss";
 import { SelectItem } from "./selectItem/selectItem";
 import { Checkbox } from "../checkbox/checkbox";
@@ -29,6 +29,8 @@ type SelectProps = {
   name?: string;
   showValue?: boolean;
   onClick?: () => void;
+  stopPropagation?: boolean;
+  parentRef?: RefObject<any>;
 };
 
 const Select: React.FC<SelectProps> = ({
@@ -45,6 +47,8 @@ const Select: React.FC<SelectProps> = ({
   name,
   onClick,
   showValue,
+  stopPropagation,
+  parentRef,
 }) => {
   const [option, setOption] = useState<{ value: string; label: string }>(
     (placeHolder && {
@@ -101,11 +105,28 @@ const Select: React.FC<SelectProps> = ({
     };
   });
 
+  const slickArrowRef = useRef<HTMLCollectionOf<Element> | null>(null);
+
+  useEffect(() => {
+    // make this conditional with props
+    if (typeof window !== "undefined") {
+      if (!slickArrowRef.current) {
+        slickArrowRef.current = document.getElementsByClassName("slick-arrow");
+      }
+      for (let i = 0; i < slickArrowRef.current.length; i++) {
+        const element = slickArrowRef.current![i] as HTMLElement;
+        element.style.zIndex = isOpen ? "0" : "10";
+      }
+    }
+  }, [isOpen]);
+
   return (
     <div
       className={getValidClassNames(cl.mainContainer, className)}
       onClick={(e: React.MouseEvent<HTMLElement>) => {
-        // e.stopPropagation();
+        if (stopPropagation) {
+          e.stopPropagation();
+        }
         onClick && onClick();
       }}
       ref={selectRef}

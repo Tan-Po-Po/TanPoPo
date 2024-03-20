@@ -4,7 +4,8 @@ import { ContentCard } from "@/components";
 
 export const About = ({ about }: Pick<ITeamMember, "about">) => {
   return (
-    <>
+    <div className={cl.block}>
+      <div className={cl.header}>Про себе:</div>
       {about.map((para, i) => (
         <ContentCard
           key={i}
@@ -15,6 +16,6 @@ export const About = ({ about }: Pick<ITeamMember, "about">) => {
           {para.text}
         </ContentCard>
       ))}
-    </>
+    </div>
   );
 };

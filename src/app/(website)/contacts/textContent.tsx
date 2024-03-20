@@ -4,13 +4,26 @@ export const textContent = {
     image: "/images/contacts.png",
     card1: {
       section1: {
-        tittle: "Телефон:",
-        caption1: "+38 (067) 548 09 27",
-        caption2: "+38 (067) 864 62 30",
+        tittle: "Консультація:",
+        caption1: "+38 (068) 798 78 78",
+        caption2: "ПН-СБ: з 8:00 до 19:00",
       },
       section2: {
-        tittle: "Консультації:",
-        caption1: "ПН-ПТ: з 8:00 до 18:00",
+        tittle: "Актуальні Питання",
+        links: [
+          {
+            text: "Курси",
+            link: "/courses#faq",
+          },
+          {
+            text: "Про школу",
+            link: "/contacts#faq",
+          },
+          {
+            text: "Оплата",
+            link: "/prices#faq",
+          },
+        ],
       },
     },
     card2: {
@@ -34,18 +47,17 @@ export const textContent = {
         tittle: "Публічна Оферта",
         href: "/contacts/oferta",
       },
-
       section3: {
         tittle: "Сторінка Розробників",
         href: "/contacts/developers",
       },
       section4: {
-        tittle: "Політика Конфідеційності",
-        href: "/contacts/confidentialityPolicy",
-      },
-      section5: {
         tittle: "Долучитись до Команди",
         href: "/teacher-survey-letter",
+      },
+      section5: {
+        tittle: "Політика Конфідеційності",
+        href: "/contacts/confidentialityPolicy",
       },
     },
   },

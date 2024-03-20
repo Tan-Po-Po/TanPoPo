@@ -307,6 +307,14 @@
   }
 }
 
+.educationLink {
+  text-decoration: underline;
+  color: rgb(173, 140, 22) !important;
+  &:visited {
+    color: rgb(173, 140, 22) !important;
+  }
+}
+
 @media (max-width: 550px) {
   .video {
     img {

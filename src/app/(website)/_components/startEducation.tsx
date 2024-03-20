@@ -1,17 +1,15 @@
+"use client";
 import cl from "../page.module.scss";
-import { IWindowMatchMedia } from "./matchMedia";
 import { Typography, ContentCard, Carousel, CarouselItem } from "@/components";
 import Image from "next/image";
 import { carouselSettings } from "./carouselSettings";
 import { getIconArtSrc } from "@/helpers";
 import ArrowButton from "@/components/arrowButton/arrowButton";
+import { useWindowSize } from "@uidotdev/usehooks";
 
-export function StartEducation({
-  windowMatchMedia,
-}: {
-  windowMatchMedia: IWindowMatchMedia;
-}) {
-  const { isTablet } = windowMatchMedia;
+export function StartEducation() {
+  const { width } = useWindowSize();
+  const isTablet = Boolean(width && width < 1024 && width >= 768);
 
   let cards;
 
@@ -180,7 +178,8 @@ export function StartEducation({
   return (
     <ContentCard className={cl.start} width="1166px">
       <Typography variant="h4" align="center" style={{ fontSize: "32px" }}>
-        Розпочати навчання прямо <br style={{display: "none"}}/>зараз - дуже просто!
+        Розпочати навчання прямо <br style={{ display: "none" }} />
+        зараз - дуже просто!
       </Typography>
       <Typography
         variant="body1"

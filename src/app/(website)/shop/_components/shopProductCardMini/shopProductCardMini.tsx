@@ -24,9 +24,9 @@ export const ShopProductCardMini: React.FC<Props> = ({
       return toast("Товар ще в розробці");
     }
     const item = document.getElementById(_id!);
-    const largeProductCards = document.getElementById("largeProductCards");
-    largeProductCards?.scrollIntoView({ behavior: "smooth" });
+    const largeProductCards = document.getElementById("products");
     item?.click();
+    largeProductCards?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (

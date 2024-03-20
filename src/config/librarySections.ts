@@ -8,6 +8,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(255, 184, 184, 0.9), rgba(245, 255, 183, 1))",
     isPrivate: false,
+    id: "bonus-start",
   },
   {
     href: "/library/reels?page=1",
@@ -18,6 +19,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(255, 184, 197, 0.9), rgba(255, 252, 183, 1))",
     isPrivate: false,
+    id: "reels",
   },
   {
     href: "/library/podcasts?page=1",
@@ -28,6 +30,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(255, 184, 222, 0.9), rgba(255, 243, 183, 1))",
     isPrivate: false,
+    id: "podcasts",
   },
   {
     href: "/library/jlpt-resources?page=1",
@@ -38,6 +41,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(255, 184, 244, 0.9), rgba(255, 235, 183, 1))",
     isPrivate: true,
+    id: "jlpt-resources",
   },
   {
     href: "/library/games-and-apps?page=1",
@@ -48,6 +52,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(254, 184, 255, 0.9), rgba(255, 226, 183, 1))",
     isPrivate: true,
+    id: "games-and-apps",
   },
   {
     href: "/library/books-and-manga?page=1",
@@ -58,6 +63,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(241, 184, 255, 0.9), rgba(255, 218, 183, 1))",
     isPrivate: true,
+    id: "books-and-manga",
   },
   {
     href: "/library/anime-and-dorama?page=1",
@@ -68,6 +74,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(215, 184, 255, 0.9), rgba(255, 213, 183, 1))",
     isPrivate: true,
+    id: "anime-and-dorama",
   },
   {
     href: "/library/article-reviews?page=1",
@@ -78,6 +85,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(194, 184, 255, 0.9), rgba(255, 205, 183, 1))",
     isPrivate: false,
+    id: "article-reviews",
   },
   {
     href: "/library/music?page=1",
@@ -88,6 +96,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(184, 187, 255, 0.9), rgba(255, 196, 183, 1))",
     isPrivate: true,
+    id: "music",
   },
   {
     href: "/library/quiz-and-vocabulary?page=1",
@@ -98,6 +107,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(184, 187, 255, 0.9), rgba(255, 192, 183, 1))",
     isPrivate: true,
+    id: "quiz-and-vocabulary",
   },
   {
     href: "/library/youtube-japan?page=1",
@@ -108,6 +118,7 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(198, 184, 255, 0.6), rgba(255, 183, 183, 1))",
     isPrivate: false,
+    id: "youtube-japan",
   },
   {
     href: "/library/language-in-tables?page=1",
@@ -118,5 +129,6 @@ export const librarySections = [
     hoverBgColor:
       "linear-gradient(rgba(211, 184, 255, 0.8), rgba(255, 170, 165, 1))",
     isPrivate: true,
+    id: "language-in-tables",
   },
 ];

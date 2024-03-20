@@ -1,5 +1,5 @@
 "use client";
-import React, { MouseEventHandler } from "react";
+import React, { MouseEventHandler, useRef } from "react";
 import { Typography } from "../typography/typography";
 import { Checkbox } from "../checkbox/checkbox";
 import { ContentCard } from "../contentCard/contentCard";
@@ -22,6 +22,8 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
   const dispatch = useAppDispatch();
   const courseInfo = course.medium;
   const isMegaCourse = course.type === "mega";
+  const courseCard = useRef<null | HTMLDivElement>(null);
+
   const [checkbox, setCheckbox] = React.useState<
     "newStudent" | "activeStudent" | "gift"
   >("newStudent");
@@ -37,7 +39,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
     lessons: null,
     link: null,
   });
-  console.log("render");
+
   const handleClick = () => {
     if (isMegaCourse && !cardState.lessons) {
       return toast(() => (
@@ -102,6 +104,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       cardBgColor={courseInfo.bgColor}
       width="385px"
       style={{ minHeight: 725 }}
+      ref={courseCard}
     >
       {isMegaCourse && (
         <div
@@ -217,6 +220,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
                   ? toast("Оберіть формат навчання")
                   : null
               }
+              parentRef={courseCard}
             />
           </>
         ) : (

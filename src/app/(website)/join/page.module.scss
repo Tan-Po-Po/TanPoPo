@@ -134,6 +134,7 @@
   .video {
     width: 100%;
     @include flex-column;
+
     &::before {
       margin: 0 auto;
       content: "";
@@ -161,8 +162,10 @@
     border-radius: $border-radius;
     border: $border;
     overflow: hidden;
-
+    transition: all 0.3s ease-in-out;
     &:hover {
+      transform: scale(1.05);
+
       .playBtn {
         fill: $color-yellow;
         transform: scale(1.3);

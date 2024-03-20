@@ -7,7 +7,8 @@ export const Experience = ({
   certificates,
 }: Pick<ITeamMember, "certificates">) => {
   return (
-    <>
+    <div className={cl.block}>
+      <div className={cl.header}>Досвід:</div>
       {certificates.keyPoints.map((item) => (
         <div
           className={getValidClassNames(mcl.keyPoint, cl.keyPoint)}
@@ -16,6 +17,6 @@ export const Experience = ({
           {item}
         </div>
       ))}
-    </>
+    </div>
   );
 };

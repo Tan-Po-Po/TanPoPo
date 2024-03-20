@@ -45,6 +45,29 @@
           @include flex-column;
         }
       }
+      .link {
+        transition: all 0.15s;
+        text-decoration: underline;
+
+        &:hover {
+          transform: scale(103%);
+        }
+      }
+      // .card1,
+      // .cardLinks {
+      //   a,
+      //   p {
+      //     transition: all 0.2s ease-in-out;
+      //     &:hover {
+      //       transform: scale(103%);
+      //     }
+      //   }
+      //   @media (hover: hover) {
+      //     a:hover {
+      //       transform: scale(103%);
+      //     }
+      //   }
+      // }
       .cardLinks {
         a,
         p {
@@ -125,8 +148,17 @@
           max-width: 100%;
           padding: 26px 14px;
         }
+
+        .card:nth-child(2) {
+          width: 324px;
+          .rights {
+            margin: 0 -10px;
+            font-size: 17px;
+          }
+        }
+
         .socials {
-          gap: 10px;
+          gap: 15px;
         }
       }
     }

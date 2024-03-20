@@ -26,7 +26,7 @@ export const aboutLinks = [
   {
     href: "/about#studio",
     body: "TanPoPo Studio",
-    icon: "сlapperboard",
+    icon: "clapperboard",
     bgColor: "#FFFDEE",
   },
   {
@@ -69,6 +69,12 @@ export const coursesLinks = [
     bgColor: "#B9C4FF",
   },
   { href: "/prices", body: "Вартість", icon: "coinsStack", bgColor: "#E1C2FF" },
+  {
+    href: "/courses#faq",
+    body: "Актуальні питання",
+    icon: "bulb",
+    bgColor: "#DDFFC2",
+  },
   {
     href: "/gift-education",
     body: "Навчання у подарунок",
