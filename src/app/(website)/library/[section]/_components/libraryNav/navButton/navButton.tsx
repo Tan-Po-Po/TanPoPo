@@ -6,16 +6,23 @@ import { ContentCard, Typography } from "@/components";
 import Image from "next/image";
 import { getIconSrc, getValidClassNames } from "@/helpers";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 type Props = (typeof librarySections)[0];
 
-export const NavButton: React.FC<Props> = ({ href, icon, body }) => {
+export const NavButton: React.FC<Props> = ({ href, icon, body, id }) => {
   const pathName = usePathname();
 
   const isActive = href.includes(pathName);
 
+  useEffect(() => {
+    if (isActive) {
+      document.title = `${body} | Tanpopo`;
+    }
+  }, [body, isActive]);
+
   return (
-    <Link href={href}>
+    <Link href={href} id={id}>
       <ContentCard
         width="fit-content"
         className={getValidClassNames(cl.navButton, isActive && cl.active)}

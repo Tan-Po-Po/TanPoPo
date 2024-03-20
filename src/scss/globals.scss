@@ -126,6 +126,10 @@ main {
   margin: auto;
 }
 
+.slick-slider {
+  transition: z-index 0;
+}
+
 body:has(div.MuiDialog-root) {
   width: 100vw;
 

@@ -78,7 +78,7 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
       ) : (
         <>
           <Suspense fallback={<></>}>
-            {isNew && !isMobile && <NewLabel />}
+            {isNew && !isMobile && <NewLabel className={cl.newLabel}/>}
           </Suspense>
           <ContentCard
             cardBgColor={item?.labelColor}

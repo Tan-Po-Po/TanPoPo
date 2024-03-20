@@ -32,6 +32,10 @@
       height: 215px;
       background-color: white;
       object-position: top;
+
+      .image {
+        background-size: 50% !important;
+      } 
     }
 
     :global(.slick-slide) {

@@ -15,11 +15,11 @@ import dynamic from "next/dynamic";
 import dbConnect from "@/config/dbConnect";
 import { IShopProduct } from "@/models/ShopProduct";
 import ShopProduct from "@/models/ShopProduct";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Крамниця | Tanpopo',
-}
+  title: "Крамниця | Tanpopo",
+};
 export const revalidate = 1;
 
 const getShopItems = cache(async () => {
@@ -35,7 +35,7 @@ const getShopItems = cache(async () => {
     ) as IShopProduct[];
   } catch (err: any) {
     console.log(err);
-    throw err
+    throw err;
   }
 });
 
@@ -93,18 +93,22 @@ export default async function Shop() {
         </div>
       </section>
 
-
       <DynamicShopPartnersBlock />
-      
+
       <Divider
         className={cl.divider}
         wrapperClassName={cl.dividerWrapperProducts}
         firstRow="ПРОДУКЦІЯ TANPOPO"
         bgColor="linear-gradient(180deg, #F0FF93 0%, #FFC683 100%)"
         id="products"
+        style={{ scrollMarginTop: "100px" }}
       />
 
-      <section className={cl.shopProductsBlock} id="largeProductCards">
+      <section
+        className={cl.shopProductsBlock}
+        id="largeProductCards"
+        style={{ scrollMarginTop: "100px" }}
+      >
         <Suspense>
           <LargeProductCards shopProducts={shopProducts} />
         </Suspense>

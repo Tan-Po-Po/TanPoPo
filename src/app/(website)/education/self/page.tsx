@@ -1,5 +1,10 @@
 "use client";
-import { ContentCard, Typography, StartSelfEducation, DialogGallery } from "@/components";
+import {
+  ContentCard,
+  Typography,
+  StartSelfEducation,
+  DialogGallery,
+} from "@/components";
 import { getIconArtSrc } from "@/helpers";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
@@ -8,18 +13,16 @@ import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
 import Link from "next/link";
 import { useEffect } from "react";
- 
-
 
 export default function Page() {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    document.title = 'Самостійне навчання | Tanpopo';
+    document.title = "Самостійне навчання | Tanpopo";
   }, []);
   return (
     <main className={cl.main}>
-       <DialogGallery />
-       
+      <DialogGallery />
+
       <div className={cl.header}>
         <Typography variant="h3">Освітня програма</Typography>
         <Typography variant="h6">для самостійного навчання</Typography>
@@ -236,7 +239,10 @@ export default function Page() {
         <Typography variant="body1" className={cl.text}>
           Усі навчальні матеріали по обраному курсу будуть зберігатися на
           навчальній платформі в Особистому Кабінеті учня протягом всього&nbsp;
-          <Link href="/self-education">
+          <Link
+            href="/self-education"
+            className={cl.educationLink}
+          >
             Навчального Періоду
           </Link>
           . Тому ви зможете повторювати весь матеріал та переглядати улюблені

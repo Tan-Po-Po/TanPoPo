@@ -67,18 +67,18 @@ export default async function Courses() {
         firstRow="актуальні питання"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
       />
-      <section className={cl.questions}>
+      <section className={cl.questions} id="faq">
         <Suspense
           fallback={
             <>
               <Faq
                 question="Loading"
-                answer={[{text: "Loading"}]}
+                answer={[{ text: "Loading" }]}
                 style={{ width: "900px", maxWidth: "100%" }}
               />
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
             </>
           }
         >

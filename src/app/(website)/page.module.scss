@@ -307,6 +307,7 @@
 .cabinetCards {
   flex-direction: row;
   gap: 40px;
+  align-items: stretch;
 }
 
 .cabinetCards,
@@ -324,7 +325,7 @@
   }
   .card {
     padding: 30px 20px;
-    gap: 26px;
+    min-height: 343px;
   }
   .plus {
     font-size: 50px;
@@ -333,12 +334,13 @@
     line-height: 21px;
     color: #5c5c5c;
     cursor: default;
+    align-self: center;
   }
 }
 
 .cabinetCardsCarousel {
   width: 102vw !important;
-  .card {
+  .carouselItem {
     position: relative;
     &::after {
       content: "+";
@@ -502,6 +504,10 @@
     padding-bottom: $padding-page-tablet-bottom;
   }
 
+  .pcOnly {
+    display: none;
+  }
+
   .about {
     font-size: 18px;
     max-width: 690px;
@@ -573,7 +579,7 @@
 
   .personalCabinet {
     @media (min-width: 768px) {
-      margin-bottom: -150px;
+      margin-bottom: -100px;
     }
     h2 {
       font-size: 35px !important;

@@ -1,14 +1,12 @@
+"use client"
 import cl from "../page.module.scss";
-import { IWindowMatchMedia } from "./matchMedia";
 import { Typography } from "@/components";
 import Image from "next/image";
+import { useWindowSize } from "@uidotdev/usehooks";
 
-export function Ahead({
-  windowMatchMedia,
-}: {
-  windowMatchMedia: IWindowMatchMedia;
-}) {
-  const { isTablet } = windowMatchMedia;
+export function Ahead() {
+  const { width } = useWindowSize();
+  const isTablet = Boolean(width && width < 1024 && width >= 768);
 
   if (isTablet) {
     return (

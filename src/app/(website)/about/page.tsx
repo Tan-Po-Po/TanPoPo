@@ -33,7 +33,7 @@ export default async function About() {
         <Typography
           variant="h4"
           style={{
-            fontWeight: 700,
+            fontWeight: 600,
             textAlign: "center",
           }}
           className={cl.title}

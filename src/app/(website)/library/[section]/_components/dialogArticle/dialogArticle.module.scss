@@ -19,7 +19,9 @@ $transition: all ease 0.2s;
     height: 450px;
     max-height: 50vh;
   }
-
+  .newLabel {
+    right: 35px
+  }
   .content {
     @include flex-column;
     flex-direction: column !important;

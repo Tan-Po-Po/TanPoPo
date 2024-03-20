@@ -11,11 +11,11 @@ import Course, { ICourse } from "@/models/Course";
 import dbConnect from "@/config/dbConnect";
 import mongoose from "mongoose";
 import { Suspense } from "react";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Вартість курсів | Tanpopo',
-}
+  title: "Вартість курсів | Tanpopo",
+};
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
   const courses = (await Course.find().populate({
@@ -108,14 +108,15 @@ export default async function Home() {
         firstRow="Актуальні питання"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
       />
-      <section className={cl.questions}>
+      
+      <section className={cl.questions} id="faq">
         <Suspense
           fallback={
             <>
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
-              <Faq question="Loading" answer={[{text: "Loading"}]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
+              <Faq question="Loading" answer={[{ text: "Loading" }]} />
             </>
           }
         >

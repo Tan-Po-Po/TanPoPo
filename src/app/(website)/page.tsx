@@ -1,13 +1,9 @@
-"use client";
-
-import { Typography, ContentCard, Button, Dialog } from "@/components";
+import { Typography, ContentCard, Button } from "@/components";
 import Image from "next/image";
 import Link from "next/link";
 import cl from "./page.module.scss";
-import { getIconArtSrc } from "@/helpers";
-import { useSearchParams } from "next/navigation";
-import { Suspense, useState } from "react";
-import { useWindowSize } from "@uidotdev/usehooks";
+import { getIconArtSrc, getValidClassNames } from "@/helpers";
+import { Suspense } from "react";
 
 import { Opportunities } from "./_components/opportunities";
 import { Author } from "./_components/author";
@@ -17,54 +13,13 @@ import { Ahead } from "./_components/ahead";
 import { StartEducation } from "./_components/startEducation";
 import { MoreLinks } from "./_components/moreLinks";
 import { NavLinks } from "./_components/navLinks/navLinks";
+import { RedirectDialog } from "./_components/redirectDialog";
 
 export default function Home() {
-  const searchParams = useSearchParams();
-  const renderedTime = Date.now();
-  const [open, setOpen] = useState(true);
-
-  const { width } = useWindowSize();
-  const isPc = Boolean(width && width >= 1024);
-  const isTablet = Boolean(width && width < 1024 && width >= 768);
-  const isMobile = Boolean(width && width < 768);
-  const windowMatchMedia = { isPc, isTablet, isMobile };
   return (
     <main className={cl.main}>
       <Suspense fallback={<></>}>
-        {searchParams.get("redirected") && (
-          <Dialog
-            open={open}
-            onClose={() => {
-              const currentTime = Date.now();
-              if (currentTime - renderedTime > 5000) {
-                setOpen(false);
-              }
-            }}
-            contentClassName={cl.dialog}
-          >
-            <>
-              <Typography variant="h6" style={{ fontSize: "23px" }}>
-                Ваш заповнений розклад занять вже у нас!🎉
-              </Typography>
-              <ContentCard
-                width="590px"
-                cardBgColor="linear-gradient(91deg, rgba(255, 156, 156, 0.75) 0%, rgba(255, 239, 156, 0.75) 28.13%, rgba(156, 219, 255, 0.75) 71.35%, rgba(255, 156, 233, 0.75) 100%)"
-              >
-                <Typography variant="h6" style={{ fontSize: "24px" }}>
-                  Ми бачимо і цінуємо ваше бажання навчатись разом з нами!
-                </Typography>
-                <Typography variant="body1" style={{ fontSize: "18px" }}>
-                  І якнайшвидше почнемо формувати розклад занять для вашого
-                  курсу і обов’язково сконтактуємось разом з Вами, щоб фінально
-                  узгодити всі деталі!
-                </Typography>
-              </ContentCard>
-              <Typography variant="body1" style={{ fontSize: "20px" }}>
-                Дякуємо, що обрали TanPoPo💛
-              </Typography>
-            </>
-          </Dialog>
-        )}
+        <RedirectDialog />
       </Suspense>
 
       <div className={cl.intro}>
@@ -74,7 +29,9 @@ export default function Home() {
             <span>для вивчення японської мови!</span>
           </Typography>
         </div>
+
         <NavLinks />
+        
         <Image
           src="/images/homePage.png"
           alt="Home page"
@@ -92,96 +49,94 @@ export default function Home() {
         </Typography>
       </div>
 
-      <Opportunities windowMatchMedia={windowMatchMedia} />
+      <Opportunities />
 
-      <Author windowMatchMedia={windowMatchMedia} />
+      <Author />
 
-      {isPc && (
-        <section className={cl.links}>
-          <ContentCard className={cl.link}>
-            <Typography variant="body1">
-              Унікальні матеріали для ще цікавішого та ефекти-внішого вивчення
-              мови:
-            </Typography>
+      <section className={getValidClassNames(cl.links, cl.pcOnly)}>
+        <ContentCard className={cl.link}>
+          <Typography variant="body1">
+            Унікальні матеріали для ще цікавішого та ефекти-внішого вивчення
+            мови:
+          </Typography>
 
-            <Image
-              src={getIconArtSrc("diamond")}
-              alt="Diamond icon"
-              width={87}
-              height={77}
-            />
+          <Image
+            src={getIconArtSrc("diamond")}
+            alt="Diamond icon"
+            width={87}
+            height={77}
+          />
 
-            <Link href="/about#content">
-              <Button
-                className={cl.button}
-                variant="outlined"
-                icon="video"
-                wrapperClass={cl.buttonWrapper}
-              >
-                <Typography variant="body1" style={{ fontSize: "20px" }}>
-                  {" "}
-                  Авторський Контент
-                </Typography>
-              </Button>
-            </Link>
-          </ContentCard>
+          <Link href="/about#content">
+            <Button
+              className={cl.button}
+              variant="outlined"
+              icon="video"
+              wrapperClass={cl.buttonWrapper}
+            >
+              <Typography variant="body1" style={{ fontSize: "20px" }}>
+                {" "}
+                Авторський Контент
+              </Typography>
+            </Button>
+          </Link>
+        </ContentCard>
 
-          <ContentCard className={cl.link}>
-            <Typography variant="body1">
-              Наша команда з якою ми разом формуємо якісний процес навчання:
-            </Typography>
+        <ContentCard className={cl.link}>
+          <Typography variant="body1">
+            Наша команда з якою ми разом формуємо якісний процес навчання:
+          </Typography>
 
-            <Image
-              src={getIconArtSrc("team")}
-              alt="Team icon"
-              width={113}
-              height={91}
-            />
+          <Image
+            src={getIconArtSrc("team")}
+            alt="Team icon"
+            width={113}
+            height={91}
+          />
 
-            <Link href="/about#team">
-              <Button
-                className={cl.button}
-                variant="outlined"
-                icon="person"
-                wrapperClass={cl.buttonWrapper}
-              >
-                <Typography variant="body1" style={{ fontSize: "23px" }}>
-                  {" "}
-                  Команда TanPoPo
-                </Typography>
-              </Button>
-            </Link>
-          </ContentCard>
+          <Link href="/about#team">
+            <Button
+              className={cl.button}
+              variant="outlined"
+              icon="person"
+              wrapperClass={cl.buttonWrapper}
+            >
+              <Typography variant="body1" style={{ fontSize: "23px" }}>
+                {" "}
+                Команда TanPoPo
+              </Typography>
+            </Button>
+          </Link>
+        </ContentCard>
 
-          <ContentCard className={cl.link}>
-            <Typography variant="body1" style={{ fontSize: "21px" }}>
-              Дізнайтеся, що кажуть наші учні про їхній досвід у школі TanPoPo:
-            </Typography>
+        <ContentCard className={cl.link}>
+          <Typography variant="body1" style={{ fontSize: "21px" }}>
+            Дізнайтеся, що кажуть наші учні про їхній досвід у школі TanPoPo:
+          </Typography>
 
-            <Image
-              src={getIconArtSrc("lamp")}
-              alt="Lamp icon"
-              width={75}
-              height={84}
-            />
+          <Image
+            src={getIconArtSrc("lamp")}
+            alt="Lamp icon"
+            width={75}
+            height={84}
+          />
 
-            <Link href="/about#reviews">
-              <Button
-                className={cl.button}
-                variant="outlined"
-                icon="personSpeak"
-                wrapperClass={cl.buttonWrapper}
-              >
-                <Typography variant="h6"> Відгуки про Школу</Typography>
-              </Button>
-            </Link>
-          </ContentCard>
-        </section>
-      )}
+          <Link href="/about#reviews">
+            <Button
+              className={cl.button}
+              variant="outlined"
+              icon="personSpeak"
+              wrapperClass={cl.buttonWrapper}
+            >
+              <Typography variant="h6"> Відгуки про Школу</Typography>
+            </Button>
+          </Link>
+        </ContentCard>
+      </section>
 
-      <Ahead windowMatchMedia={windowMatchMedia} />
+      <Ahead />
 
-      <Formats windowMatchMedia={windowMatchMedia} />
+      <Formats />
 
       <section className={cl.courses} id="courseFormats">
         <Typography variant="h3" align="center">
@@ -334,7 +289,7 @@ export default function Home() {
         />
       </section>
 
-      <CabinetCards windowMatchMedia={windowMatchMedia} />
+      <CabinetCards />
 
       <div className={cl.orderWrapper}>
         <section>
@@ -376,9 +331,9 @@ export default function Home() {
           </ContentCard>
         </section>
 
-        <StartEducation windowMatchMedia={windowMatchMedia} />
+        <StartEducation />
       </div>
-      <MoreLinks windowMatchMedia={windowMatchMedia} />
+      <MoreLinks />
     </main>
   );
 }

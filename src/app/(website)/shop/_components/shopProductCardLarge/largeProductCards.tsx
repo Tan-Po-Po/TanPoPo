@@ -26,6 +26,7 @@ const LargeProductCards = ({
   return (
     <Carousel
       className={cl.largeCarousel}
+      sliderClassName="largeCardsCarousel"
       slidesToShow={1}
       centerPadding="0px"
       dots={false}
@@ -34,6 +35,8 @@ const LargeProductCards = ({
       infinite={false}
       renderCarousel={width! < 1420}
       numbersClass={cl.numbers}
+      accessibility={false}
+      // focusOnSelect={false}
     >
       {products.map((item, i) => (
         <ShopProductCardLarge key={i} {...item} />

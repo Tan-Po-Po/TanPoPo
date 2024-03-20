@@ -31,7 +31,7 @@ export default function Page() {
   const cart = useAppSelector(selectShopCart);
   
   useEffect(() => {
-    document.title = "Крамниця  | Tanpopo";
+    document.title = "Моє замовлення | Tanpopo";
   }, []);
 
   useEffect(() => {

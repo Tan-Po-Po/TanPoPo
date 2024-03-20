@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Typography } from "../typography/typography";
 import { Checkbox } from "../checkbox/checkbox";
 import { ContentCard } from "../contentCard/contentCard";
@@ -78,7 +78,6 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
       labelPosition="top"
       cardBgColor={courseInfo.bgColor}
       width={course.type === "book" ? "385px" : "625px"}
-      onClick={() => console.log("click")}
     >
       {courseInfo.description.map((desc, index) => (
         <Typography key={index} className={cl.description} variant="body1">

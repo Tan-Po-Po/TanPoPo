@@ -11,6 +11,7 @@ import { Typography } from "..";
 type Props = {
   children: React.ReactNode;
   id?: string;
+  sliderClassName?: string;
   renderCarousel?: boolean;
   dots?: boolean;
   slidesToShow?: number;
@@ -32,11 +33,13 @@ type Props = {
   useNumbers?: boolean;
   centerPadding?: string;
   numbersClass?: string;
+  accessibility?: boolean;
 };
 
 const Carousel: React.FC<Props> = ({
   children,
   id,
+  sliderClassName,
   className,
   renderCarousel = true,
   dots = true,
@@ -58,6 +61,7 @@ const Carousel: React.FC<Props> = ({
   useNumbers = false,
   centerPadding = "50px",
   numbersClass,
+  accessibility = true,
 }) => {
   const ref = useRef<Slider | null>(null);
   const speed = 300;
@@ -94,16 +98,21 @@ const Carousel: React.FC<Props> = ({
     adaptiveHeight,
     responsive,
     centerPadding,
+    accessibility,
     nextArrow: (
       <ArrowButton
         direction={"right"}
+        className="slick-arrow"
         handleClickToAnimate={() => handleArrowButtonClick("Right")}
+        onClick={(e) => e.stopPropagation()}
       />
     ),
     prevArrow: (
       <ArrowButton
         direction={"left"}
+        className="slick-arrow"
         handleClickToAnimate={() => handleArrowButtonClick("Left")}
+        onClick={(e) => e.stopPropagation()}
       />
     ),
     dotsClass: getValidClassNames("slick-dots", cl.dotsContainer),
@@ -126,7 +135,7 @@ const Carousel: React.FC<Props> = ({
       )}
       id={id}
     >
-      <Slider {...settings} ref={ref} className={cl.slider}>
+      <Slider {...settings} ref={ref} className={cl.slider} swipe>
         {children}
       </Slider>
       {useNumbers && (

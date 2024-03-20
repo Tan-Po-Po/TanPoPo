@@ -24,11 +24,8 @@ const CardsBlock = () => {
             className={cl.carouselItem}
             isHoverEventActive={false}
           >
-            <ContentCard
-              width="376px"
-              className={cl.card}
-            >
-              <Link href="/test-intro#start">
+            <Link href="/test-intro#start">
+              <ContentCard width="376px" className={cl.card}>
                 <Typography variant="h6">{card.title}</Typography>
                 <Image
                   alt=""
@@ -41,8 +38,8 @@ const CardsBlock = () => {
                   }}
                 />
                 <Typography variant="body2">{card.caption}</Typography>
-              </Link>
-            </ContentCard>
+              </ContentCard>{" "}
+            </Link>
           </CarouselItem>
         ))}
       </Carousel>

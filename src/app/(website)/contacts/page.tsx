@@ -1,4 +1,11 @@
-import { ContentCard, Divider, Faq, Typography, FaqBlock, Loading } from "@/components";
+import {
+  ContentCard,
+  Divider,
+  Faq,
+  Typography,
+  FaqBlock,
+  Loading,
+} from "@/components";
 import { textContent } from "./textContent";
 import { FeedbackForm } from "./_components/feedbackForm/feedbackForm";
 import { VideoGuides } from "./_components/videoGuides/videoGuides";
@@ -38,7 +45,7 @@ export default async function Contacts() {
             className={getValidClassNames(cl.card, cl.card1)}
           >
             <div className={cl.block}>
-              <Typography variant="h5">
+              <Typography variant="h5" style={{ fontSize: "25px" }}>
                 {textContent.contactsBlock.card1.section1.tittle}
               </Typography>
               <Typography variant="body2">
@@ -49,24 +56,52 @@ export default async function Contacts() {
               </Typography>
             </div>
             <div className={cl.block}>
-              <Typography variant="h5">
+              <Typography
+                variant="h5"
+                style={{
+                  whiteSpace: "pre",
+                  fontSize: "25px",
+                  marginTop: "10px",
+                }}
+              >
                 {textContent.contactsBlock.card1.section2.tittle}
               </Typography>
-              <Typography variant="body2">
-                {textContent.contactsBlock.card1.section2.caption1}
-              </Typography>
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                {textContent.contactsBlock.card1.section2.links.map(
+                  ({ text, link }, index) => {
+                    return (
+                      <div
+                        key={link}
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                        }}
+                      >
+                        {index !== 0 ? (
+                          <span style={{ whiteSpace: "pre" }}> / </span>
+                        ) : null}
+                        <Link href={link} className={cl.link}>
+                          <Typography variant="body1">{text}</Typography>
+                        </Link>
+                      </div>
+                    );
+                  }
+                )}
+              </div>
             </div>
           </ContentCard>
 
           <ContentCard width="376px" className={cl.card}>
-            <Typography variant="h5">
-              {textContent.contactsBlock.card2.tittle}
-            </Typography>
-            <Typography variant="body2">
-              {textContent.contactsBlock.card2.caption1}
-            </Typography>
+            <div>
+              <Typography variant="h5">
+                {textContent.contactsBlock.card2.tittle}
+              </Typography>
+              <Typography variant="body2" style={{ marginTop: "10px" }}>
+                {textContent.contactsBlock.card2.caption1}
+              </Typography>
+            </div>
             <div className={cl.socials}>{getSocialIconsLinks("42px")}</div>
-            <Typography variant="body2">
+            <Typography variant="body2" className={cl.rights}>
               {textContent.contactsBlock.card2.caption2}
             </Typography>
           </ContentCard>
@@ -76,56 +111,65 @@ export default async function Contacts() {
             className={getValidClassNames(cl.card, cl.cardLinks)}
             style={{ justifyContent: "space-evenly" }}
           >
-            <Typography variant="body1">
-              <Link
-                href={
-                  textContent.contactsBlock.card3.section1.href ||
-                  "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
-                }
-              >
+            <Link
+              className={cl.link}
+              href={
+                textContent.contactsBlock.card3.section1.href ||
+                "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
+              }
+            >
+              <Typography variant="body1">
                 {textContent.contactsBlock.card3.section1.tittle}
-              </Link>
-            </Typography>
-            <Typography variant="body1">
-              <Link
-                href={
-                  textContent.contactsBlock.card3.section2.href ||
-                  "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
-                }
-              >
+              </Typography>
+            </Link>
+
+            <Link
+              className={cl.link}
+              href={
+                textContent.contactsBlock.card3.section2.href ||
+                "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
+              }
+            >
+              <Typography variant="body1">
                 {textContent.contactsBlock.card3.section2.tittle}
-              </Link>
-            </Typography>
-            <Typography variant="body1">
-              <Link
-                href={
-                  textContent.contactsBlock.card3.section3.href ||
-                  "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
-                }
-              >
+              </Typography>
+            </Link>
+
+            <Link
+              className={cl.link}
+              href={
+                textContent.contactsBlock.card3.section3.href ||
+                "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
+              }
+            >
+              <Typography variant="body1">
                 {textContent.contactsBlock.card3.section3.tittle}
-              </Link>
-            </Typography>
-            <Typography variant="body1">
-              <Link
-                href={
-                  textContent.contactsBlock.card3.section4.href ||
-                  "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
-                }
-              >
+              </Typography>
+            </Link>
+
+            <Link
+              className={cl.link}
+              href={
+                textContent.contactsBlock.card3.section4.href ||
+                "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
+              }
+            >
+              <Typography variant="body1">
                 {textContent.contactsBlock.card3.section4.tittle}
-              </Link>
-            </Typography>
-            <Typography variant="body1">
-              <Link
-                href={
-                  textContent.contactsBlock.card3.section5.href ||
-                  "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
-                }
-              >
+              </Typography>
+            </Link>
+
+            <Link
+              className={cl.link}
+              href={
+                textContent.contactsBlock.card3.section5.href ||
+                "https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"
+              }
+            >
+              <Typography variant="body1">
                 {textContent.contactsBlock.card3.section5.tittle}
-              </Link>
-            </Typography>
+              </Typography>
+            </Link>
           </ContentCard>
         </div>
       </div>
@@ -142,7 +186,7 @@ export default async function Contacts() {
       <Suspense fallback={<Loading />}>
         <VideoGuides guides={guides} />
       </Suspense>
-      
+
       <Divider
         firstRow={textContent.faqBlock.divider.line1}
         bgColor={dividerBgColor}
@@ -150,7 +194,7 @@ export default async function Contacts() {
         className={cl.divider}
       />
 
-      <div className={cl.faqBlock}>
+      <div className={cl.faqBlock} id="faq">
         <Suspense
           fallback={
             <div className={cl.faqBlock}>

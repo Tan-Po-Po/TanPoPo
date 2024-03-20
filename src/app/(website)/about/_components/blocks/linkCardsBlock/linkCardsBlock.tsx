@@ -9,7 +9,7 @@ import { useWindowSize } from "@uidotdev/usehooks";
 
 export const LinkCardsBlock = () => {
   const {width} = useWindowSize()
-  const isTablet = Boolean(width && width >= 678 && width < 1024)
+  const isTablet = Boolean(width && width >= 678 && width < 1100)
 
   let cards;
 

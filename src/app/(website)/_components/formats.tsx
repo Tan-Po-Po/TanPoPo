@@ -1,16 +1,14 @@
+"use client"
 import cl from "../page.module.scss";
-import { IWindowMatchMedia } from "./matchMedia";
 import { Typography, ContentCard, Carousel } from "@/components";
 import Image from "next/image";
 import { carouselSettings } from "./carouselSettings";
 import { getIconArtSrc } from "@/helpers";
+import { useWindowSize } from "@uidotdev/usehooks";
 
-export function Formats({
-  windowMatchMedia,
-}: {
-  windowMatchMedia: IWindowMatchMedia;
-}) {
-  const { isTablet } = windowMatchMedia;
+export function Formats() {
+  const { width } = useWindowSize();
+  const isTablet = Boolean(width && width < 1024 && width >= 768);
 
   const cards = (
     <div className={cl.cards}>
