@@ -19,7 +19,7 @@ export const FeedbackForm: React.FC = () => {
     control,
     handleSubmit,
     trigger,
-    formState: { errors },
+    formState: { errors, isDirty },
     reset,
   } = useForm<IFeedbackFormInput>({
     defaultValues: {
@@ -32,11 +32,17 @@ export const FeedbackForm: React.FC = () => {
     reValidateMode: "onSubmit",
   });
 
-  const [showErrors, setShowErrors] = useState(true);
+  const [showErrors, setShowErrors] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (showErrors && errors) {
+      if (!isDirty) {
+        toast("Будь ласка, заповніть ваші контактні дані☑️");
+        setShowErrors(false);
+        return;
+      }
+
       for (const error of Object.values(errors)) {
         if (error.message) {
           toast(error.message);
@@ -46,13 +52,13 @@ export const FeedbackForm: React.FC = () => {
 
       setShowErrors(false);
     }
-  }, [errors, showErrors]);
+  }, [errors, showErrors, isDirty]);
 
   const handleClick = async () => {
     await trigger();
     setShowErrors(true);
   };
-  
+
   const onSubmit: SubmitHandler<IFeedbackFormInput> = async (data) => {
     setLoading(true);
     fetch("/api/question", {

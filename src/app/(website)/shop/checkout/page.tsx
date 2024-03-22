@@ -29,7 +29,7 @@ export default function Page() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const cart = useAppSelector(selectShopCart);
-  
+
   useEffect(() => {
     document.title = "Моє замовлення | Tanpopo";
   }, []);
@@ -41,7 +41,7 @@ export default function Page() {
     setLoading(false);
   }, [cart.items.length, router]);
 
-  const [showErrors, setShowErrors] = useState(true);
+  const [showErrors, setShowErrors] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const formReturn = useForm<FormData>({
@@ -75,11 +75,17 @@ export default function Page() {
     handleSubmit,
     control,
     trigger,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = formReturn;
 
   useEffect(() => {
     if (showErrors && errors) {
+      if (!isDirty) {
+        toast("Будь ласка, заповніть ваші контактні дані☑️");
+        setShowErrors(false);
+        return;
+      }
+
       for (const error of Object.values(errors)) {
         if (error.message) {
           toast(error.message);
@@ -89,7 +95,7 @@ export default function Page() {
 
       setShowErrors(false);
     }
-  }, [errors, showErrors]);
+  }, [errors, showErrors, isDirty]);
 
   const onSubmit = async (formData: FormData) => {
     const dataToSend = {

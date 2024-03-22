@@ -30,7 +30,7 @@ type SelectProps = {
   showValue?: boolean;
   onClick?: () => void;
   stopPropagation?: boolean;
-  parentRef?: RefObject<any>;
+  fixZIndex?: boolean;
 };
 
 const Select: React.FC<SelectProps> = ({
@@ -48,7 +48,7 @@ const Select: React.FC<SelectProps> = ({
   onClick,
   showValue,
   stopPropagation,
-  parentRef,
+  fixZIndex,
 }) => {
   const [option, setOption] = useState<{ value: string; label: string }>(
     (placeHolder && {
@@ -108,8 +108,7 @@ const Select: React.FC<SelectProps> = ({
   const slickArrowRef = useRef<HTMLCollectionOf<Element> | null>(null);
 
   useEffect(() => {
-    // make this conditional with props
-    if (typeof window !== "undefined") {
+    if (fixZIndex && typeof window !== "undefined") {
       if (!slickArrowRef.current) {
         slickArrowRef.current = document.getElementsByClassName("slick-arrow");
       }
@@ -118,7 +117,7 @@ const Select: React.FC<SelectProps> = ({
         element.style.zIndex = isOpen ? "0" : "10";
       }
     }
-  }, [isOpen]);
+  }, [isOpen, fixZIndex]);
 
   return (
     <div

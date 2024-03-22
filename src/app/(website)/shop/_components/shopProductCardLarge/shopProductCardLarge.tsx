@@ -64,7 +64,8 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
     setLikedProducts(getLikedProductsFromLocalStorage());
   }, [itemId, shopCart.items]);
 
-  const handleAddToCartClick = async () => {
+  const handleAddToCartClick = async (e: any) => {
+    e.stopPropagation();
     if (shopCart.loading) {
       return;
     }
@@ -241,6 +242,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
             !isMounted && setIsMounted(true);
             setSelectValue(value);
           }}
+          stopPropagation
         />
 
         <div className={cl.buttonWrapper}>

@@ -47,7 +47,7 @@ export default function Page() {
   const {
     handleSubmit,
     trigger,
-    formState: { errors },
+    formState: { errors, isDirty },
     setValue,
     watch,
   } = formReturn;
@@ -123,6 +123,12 @@ export default function Page() {
 
   useEffect(() => {
     if (showErrors && errors) {
+      if (!isDirty) {
+        toast("Будь ласка, заповніть ваші контактні дані☑️");
+        setShowErrors(false);
+        return;
+      }
+
       for (const error of Object.values(errors)) {
         if (error.message) {
           toast(error.message);
@@ -131,7 +137,7 @@ export default function Page() {
         }
       }
     }
-  }, [showErrors, errors, setShowErrors]);
+  }, [showErrors, errors, setShowErrors, isDirty]);
 
   if (loading) {
     return <Loading />;

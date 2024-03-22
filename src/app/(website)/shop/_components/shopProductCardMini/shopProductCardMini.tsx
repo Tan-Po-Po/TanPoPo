@@ -7,6 +7,7 @@ import Image from "next/image";
 import { IMAGE_BASE_URL } from "@/config/config";
 import { toast } from "react-toastify";
 import { getValidClassNames } from "@/helpers";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 type Props = Exclude<IShopProduct, "large">;
 
@@ -18,6 +19,7 @@ export const ShopProductCardMini: React.FC<Props> = ({
 }) => {
   const { label, caption, image } = small;
   const { inDevelopment } = large;
+  const { width } = useWindowSize();
 
   const handleClick = () => {
     if (inDevelopment) {
@@ -25,8 +27,12 @@ export const ShopProductCardMini: React.FC<Props> = ({
     }
     const item = document.getElementById(_id!);
     const largeProductCards = document.getElementById("products");
-    item?.click();
-    largeProductCards?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (width! < 1420) {
+      item?.click();
+      largeProductCards?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      item?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (

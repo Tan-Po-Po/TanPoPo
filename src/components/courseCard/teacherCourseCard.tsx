@@ -22,7 +22,6 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
   const dispatch = useAppDispatch();
   const courseInfo = course.medium;
   const isMegaCourse = course.type === "mega";
-  const courseCard = useRef<null | HTMLDivElement>(null);
 
   const [checkbox, setCheckbox] = React.useState<
     "newStudent" | "activeStudent" | "gift"
@@ -104,7 +103,6 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       cardBgColor={courseInfo.bgColor}
       width="385px"
       style={{ minHeight: 725 }}
-      ref={courseCard}
     >
       {isMegaCourse && (
         <div
@@ -220,7 +218,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
                   ? toast("Оберіть формат навчання")
                   : null
               }
-              parentRef={courseCard}
+              fixZIndex
             />
           </>
         ) : (
@@ -235,6 +233,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
                 return { ...prev, lessons: value, link: link as string };
               });
             }}
+            fixZIndex
           />
         )}
       </div>

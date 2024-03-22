@@ -66,8 +66,9 @@ export default async function Courses() {
         className={cl.divider}
         firstRow="актуальні питання"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
+        id="faq"
       />
-      <section className={cl.questions} id="faq">
+      <section className={cl.questions}>
         <Suspense
           fallback={
             <>
