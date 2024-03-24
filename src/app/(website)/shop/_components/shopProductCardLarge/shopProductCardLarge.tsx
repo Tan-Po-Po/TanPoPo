@@ -39,7 +39,10 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
     inDevelopment,
   } = large;
 
-  const [selectValue, setSelectValue] = useState(variants[0].value);
+  const availableVariant = variants.find((variant) => variant.isAvailable);
+  const [selectValue, setSelectValue] = useState(availableVariant?.value);
+  console.log(selectValue);
+  console.log(availableVariant);
   const [isMounted, setIsMounted] = useState(false);
 
   const item = variants.find((item) => item.value === selectValue)!;
@@ -235,7 +238,9 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
         </section>
 
         <Select
-          placeHolder={isCertificates ? "Вид сертифікату" : ""}
+          placeHolder={
+            isCertificates ? "Вид сертифікату" : availableVariant?.label
+          }
           className={getValidClassNames(!isMounted && cl.initialSelectBg)}
           menuItems={variants}
           handleSelect={(value: string) => {

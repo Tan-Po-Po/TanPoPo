@@ -18,12 +18,16 @@ export const metadata: Metadata = {
 };
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
-  const courses = (await Course.find().populate({
-    path: "images",
-    populate: {
-      path: "image",
-    },
-  })) as mongoose.Document<ICourse>[];
+  const courses = (await Course.find()
+    .sort({
+      order: -1,
+    })
+    .populate({
+      path: "images",
+      populate: {
+        path: "image",
+      },
+    })) as mongoose.Document<ICourse>[];
 
   return courses.map((course) => JSON.parse(JSON.stringify(course)));
 }
@@ -108,7 +112,7 @@ export default async function Home() {
         firstRow="Актуальні питання"
         bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(250, 210, 108, 1))"
       />
-      
+
       <section className={cl.questions} id="faq">
         <Suspense
           fallback={

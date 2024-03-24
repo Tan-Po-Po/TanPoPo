@@ -26,6 +26,9 @@ const getShopItems = cache(async () => {
   try {
     await dbConnect();
     const shopProductsDb = (await ShopProduct.find()
+      .sort({
+        order: -1,
+      })
       .populate("large.gallery.image")
       .populate("small.image")
       .lean()) as IShopProduct[];

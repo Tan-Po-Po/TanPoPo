@@ -10,6 +10,7 @@ export interface ICourse {
   secondName: string;
   secondNameJapanese: string;
   level: string[];
+  order: number;
   images: [{ image: { filename: string } }];
   href: string;
   prices: {
@@ -53,8 +54,9 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
     name: { type: String, required: true },
     nameJapanese: { type: String, required: true },
     secondName: { type: String },
-    secondNameJapanese: { type: String},
+    secondNameJapanese: { type: String },
     level: [{ type: String, required: true }],
+    order: [{ type: Number, required: true, default: 0 }],
     images: [
       {
         image: {

@@ -20,7 +20,9 @@ export const metadata: Metadata = {
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
 
-  const courses = (await Course.find()) as mongoose.Document<ICourse>[];
+  const courses = (await await Course.find().sort({
+    order: -1,
+  })) as mongoose.Document<ICourse>[];
 
   return courses.map((course) => JSON.parse(JSON.stringify(course)));
 }
