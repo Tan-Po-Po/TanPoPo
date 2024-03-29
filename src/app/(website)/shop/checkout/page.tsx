@@ -117,7 +117,7 @@ export default function Page() {
       } else {
         if (responseData.liqpayLink) {
           // router.push(responseData.liqpayLink);
-          window.open(responseData.liqpayLink, "_ blank");
+          window.open(responseData.liqpayLink, "_self");
           return;
         } else if (responseData.success && responseData.orderId) {
           router.push(
