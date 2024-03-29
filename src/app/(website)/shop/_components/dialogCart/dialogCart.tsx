@@ -7,7 +7,6 @@ import { getIconArtSrc } from "@/helpers";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   closeCartDialog,
-  openCartDialog,
   selectCartDialog,
 } from "@/redux/slices/cartDialog/cartDialogSlice";
 import { Cart } from "../cart/cart";

@@ -165,6 +165,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           setLessons(value);
           link && setLink(link);
         }}
+        fixZIndex
       />
 
       <div className={cl.checkboxes}>

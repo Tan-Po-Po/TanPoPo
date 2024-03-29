@@ -32,5 +32,6 @@ export { Loading } from "./loading/loading";
 export { RequisitesSmall } from "./requisitesSmall/requisitesSmall";
 export { NewStudentForm, Schedule, AboutSchedule } from "./schedule/schedule";
 export { Pagination } from "./pagination/pagination";
+export { PaymentDialog } from "./paymentDialog/paymentDialog";
 export { LibraryTable } from "./libraryTable/libraryTable";
 export { CourseList } from "./courseList/courseList";

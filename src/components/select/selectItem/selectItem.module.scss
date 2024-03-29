@@ -28,3 +28,16 @@ $background-hover: linear-gradient(
   border-left: 7px solid var(--main-logo, #fde543);
   font-weight: 700;
 }
+
+.unavailable {
+  .value {
+    color: #FF6F6F;
+  }
+  
+  &:hover {
+    .value {
+      scale: 100%;
+      font-weight: inherit;
+    }
+  }
+}

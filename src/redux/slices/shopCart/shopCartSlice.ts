@@ -6,6 +6,7 @@ import { getShopItemFromDb } from "./ations";
 
 export type ICartItem = {
   _id: string;
+  variantId?: string;
   name: string;
   label: string;
   amount: number;
@@ -37,7 +38,7 @@ const initialState: IShopCart = shopCartLS
 export const getShopItemFromDbAndAddToCart = createAsyncThunk(
   "shopItem/fetchByIdAndValue",
 
-  async ({ id, value }: { id: string; value: string }, thunkAPI) => {
+  async ({ id, value }: { id: string; value: string }) => {
     return await getShopItemFromDb(id, value);
   }
 );
@@ -47,18 +48,19 @@ export const shopCartSlice = createSlice({
   initialState,
   reducers: {
     increaseItemAmount: (state, action: PayloadAction<Partial<ICartItem>>) => {
-      state.items.find((item) => item._id === action.payload._id)!.amount++;
+      state.items.find((item) => item.variantId === action.payload.variantId)!.amount++;
       localStorage.setItem("shopCart", JSON.stringify(state));
       return state;
     },
     decreaseItemAmount: (state, action: PayloadAction<Partial<ICartItem>>) => {
-      state.items.find((item) => item._id === action.payload._id)!.amount--;
+      state.items.find((item) => item.variantId === action.payload.variantId)!
+        .amount--;
       localStorage.setItem("shopCart", JSON.stringify(state));
       return state;
     },
     deleteCartItem: (state, action: PayloadAction<Partial<ICartItem>>) => {
       const items = state.items.filter(
-        (item) => item._id !== action.payload._id
+        (item) => item.variantId !== action.payload.variantId
       );
       localStorage.setItem("shopCart", JSON.stringify({ ...state, items }));
       return { ...state, items };

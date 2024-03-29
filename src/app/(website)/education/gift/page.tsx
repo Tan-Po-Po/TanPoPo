@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   AddressForm,
   Button,
@@ -55,13 +55,13 @@ export default function Page() {
     control,
     setValue,
     trigger,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = formReturn;
   const router = useRouter();
   const course = useAppSelector(selectCourse);
 
   const [loading, setLoading] = useState(false);
-  const [showErrors, setShowErrors] = useState(true);
+  const [showErrors, setShowErrors] = useState(false);
   const certificateType = watch("certificateType");
 
   useEffect(() => {
@@ -69,18 +69,23 @@ export default function Page() {
   }, []);
 
   useEffect(() => {
-    if (showErrors) {
-      if (errors) {
-        for (const error of Object.values(errors)) {
-          if (error.message) {
-            toast(error.message);
-            break;
-          }
+    if (showErrors && errors) {
+      if (!isDirty) {
+        toast("Будь ласка, заповніть ваші контактні дані☑️");
+        setShowErrors(false);
+        return;
+      }
+
+      for (const error of Object.values(errors)) {
+        if (error.message) {
+          toast(error.message);
+          break;
         }
       }
+
       setShowErrors(false);
     }
-  }, [errors, showErrors]);
+  }, [errors, showErrors, isDirty]);
 
   const onSubmit = (formData: FormData) => {
     let price = course.price;
@@ -124,7 +129,6 @@ export default function Page() {
   const handleClick = async () => {
     await trigger();
     setShowErrors(true);
-    scrollTo(0, 0);
   };
 
   if (loading) {

@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import cl from "./selectItem.module.scss";
 import { getValidClassNames } from "@/helpers";
 
@@ -9,6 +10,7 @@ interface Props {
         value: string;
         labelWhenSelected?: string;
         link?: string;
+        isAvailable?: boolean;
       };
   isSelected: boolean;
   setOption: ({
@@ -23,6 +25,7 @@ interface Props {
 }
 
 const SelectItem: React.FC<Props> = ({ item, setOption, isSelected }) => {
+  const isUnavailable = typeof item === "object" && item.isAvailable === false;
   const handleClick = () => {
     typeof item === "string"
       ? setOption({ value: item, label: item })
@@ -34,7 +37,11 @@ const SelectItem: React.FC<Props> = ({ item, setOption, isSelected }) => {
   };
   return (
     <div
-      className={getValidClassNames(cl.selectItem, isSelected && cl.selected)}
+      className={getValidClassNames(
+        cl.selectItem,
+        isSelected && cl.selected,
+        isUnavailable && cl.unavailable
+      )}
       onClick={handleClick}
     >
       <div className={cl.value}>

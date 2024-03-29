@@ -24,21 +24,26 @@ export const getShopItemFromDb = async (id: string, value: string) => {
   const variant = product.large?.variants.find(
     (variant) => variant.value === value
   );
-
+  console.log("====PRODUCT AND VARIANT===");
+  console.log(product);
+  console.log(variant);
+  console.log("==== END ===");
   let images = getCartItemImages({
     gallery: product.large!.gallery,
     itemValue: variant!.value,
   });
 
+  const isOnSale = variant!.sale && new Date() < new Date(variant!.sale.until);
   const cartItem: ICartItem = {
-    _id: variant!.id!,
+    _id: id,
+    variantId: variant!.id!,
     name: product.name!,
     label: variant!.label,
     amount: 1,
     images,
     price: {
       original: variant!.price!,
-      sale: variant!.sale?.price || 0,
+      sale: isOnSale ? variant!.sale?.price || 0 : 0,
     },
   };
 

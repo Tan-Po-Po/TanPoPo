@@ -1,8 +1,6 @@
-import { Data } from "./type";
+import { Data } from "../type";
 
-export const parseData = (
-  orderData: Data,
-) => {
+export const googleDto = (orderData: Data) => {
   const {
     name,
     surname,
@@ -14,7 +12,7 @@ export const parseData = (
     department,
     address,
     comment,
-    totalPrice
+    totalPrice,
   } = orderData;
   const { label } = orderData.city;
   const date = new Date().toLocaleDateString();
@@ -33,9 +31,9 @@ export const parseData = (
 
   return {
     date,
-    payment: orderData.payAfter ? "післяоплата" : "реквізити",
-    goods, 
-    price: `${totalPrice.original}\n${totalPrice.final}`, 
+    payment: orderData.payAfter ? "післяоплата" : "онлайн",
+    goods,
+    price: `${totalPrice.original}\n${totalPrice.final}`,
     promoCode: promoCode ? `${promoCode?.code}(-${promoCode?.perCent}%)` : "",
 
     name,

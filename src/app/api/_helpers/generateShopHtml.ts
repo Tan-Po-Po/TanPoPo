@@ -1,6 +1,6 @@
-import { Data } from "./type";
+import { Data } from "../shop/type";
 
-export const generateHtmlForOwner = (orderData: Data, orderId: string) => {
+export const generateShopHtml = (orderData: Data, orderId: string) => {
   return `<html lang="en">
   <head>
     <style>
@@ -119,7 +119,7 @@ export const generateHtmlForOwner = (orderData: Data, orderId: string) => {
   </head>
   <body>
     <h1 style="white-space: pre-line">
-      Нове замовлення на продукцію школи TanPoPo⭐
+      Вітаємо! Ваше замовлення успішно створено!
     </h1>
     <img class="img" src="cid:store" width="137px" height="142px" />
     <div class="card" style="width: 390px">
@@ -136,7 +136,9 @@ export const generateHtmlForOwner = (orderData: Data, orderId: string) => {
           class="card"
           style="display: flex; padding: 0; overflow: hidden; margin-top: 30px; max-width: 350px; height: 72px"
         >
-          <img class="img" src='${item.images[0]}' width="auto" height="72px" style="margin: 0"/>
+          <img class="img" src='${
+            item.images[0]
+          }' width="auto" height="72px" style="margin: 0"/>
           <div style="height: fit-content; margin: auto; padding: 10px 20px">
             <p style="font-size: 18px">
               <b>${item.name.replace("\n", " ")}</b>
@@ -212,7 +214,7 @@ export const generateHtmlForOwner = (orderData: Data, orderId: string) => {
     </div>
 
     <div class="card contact">
-      <h1><b>Контактні дані:</b></h1>
+      <h1><b>Ваші контактні дані:</b></h1>
       <div style="display: flex; margin-top: 20px">
         <div style="width: 50%">
           <p><u>Ім'я</u>: ${orderData.name}</p>
@@ -242,16 +244,51 @@ export const generateHtmlForOwner = (orderData: Data, orderId: string) => {
       }
       <p><u>Спосіб оплати</u>: ${
         orderData.payNow
-          ? "Швидка оплата по QR-коду або за реквізитами"
+          ? "Онлайн оплата на сайті"
           : "Післяоплата на Новій Пошті"
       }</p>
       ${orderData.comment ? `<p><u>Коментар</u>: ${orderData.comment}</p>` : ""}
     </div>
 
-
-    <div class="card" style="max-width: 650px">
+    ${
+      orderData.payNow
+        ? `
+    <div class="card" style="max-width: 450px">
       <h1 style="font-size: 27px; color: #454545">Сума замовлення:</h1>
-      <h1 style="font-size: 27px">${orderData.totalPrice.final}</h1>
+      <h1 style="font-size: 27px">${orderData.totalPrice.final} грн</h1>
+
+      <div style="margin: 30px 0;">
+        <span class="btn" style="cursor: inherit"
+          >Оплата успішна!</span
+        >
+      </div>
+    </div>
+    `
+        : ``
+    }
+
+    <div class="card" style="max-width: 450px">
+      <h1>Дякуємо, що обрали \nTanPoPo💛</h1>
+      <img class="img" src="cid:girl" width="170px" height="177px" />
+      <div>
+        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+          ><img src="cid:instagram" width="43px" height="43px"
+        /></a>
+        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+          ><img src="cid:tikTok" width="43px" height="43px"
+        /></a>
+        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+          ><img src="cid:youtube" width="50px"
+        /></a>
+        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+          ><img src="cid:telegram" width="45px"
+        /></a>
+        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+          ><img src="cid:viber" width="42px"
+        /></a>
+      </div>
+      <p style="font-size: 18px">Онлайн-школа японської мови.</p>
+      <p style="font-size: 15px">© 2024 TanPoPo. Всі права захищено.</p>
     </div>
   </body>
 </html>

@@ -11,7 +11,6 @@ import { Typography } from "..";
 type Props = {
   children: React.ReactNode;
   id?: string;
-  sliderClassName?: string;
   renderCarousel?: boolean;
   dots?: boolean;
   slidesToShow?: number;
@@ -39,7 +38,6 @@ type Props = {
 const Carousel: React.FC<Props> = ({
   children,
   id,
-  sliderClassName,
   className,
   renderCarousel = true,
   dots = true,

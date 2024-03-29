@@ -1,0 +1,1 @@
+export type sheetName = "orders" | "certificates" | "courses"

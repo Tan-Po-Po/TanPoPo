@@ -1,8 +1,10 @@
+import { defaultValues } from "./../app/(website)/teacher-survey-letter/formInputs.d";
 import mongoose from "mongoose";
 import ShopMedia from "./ShopMedia";
 export interface IShopProduct {
   _id: string;
   name: string;
+  order: number;
   small: {
     label?: {
       text: string;
@@ -29,6 +31,7 @@ export interface IShopProduct {
       value: string;
       label: string;
       price: number;
+      isAvailable: boolean;
       sale?: {
         price: number;
         until: string;
@@ -40,6 +43,7 @@ export interface IShopProduct {
 const ShopProductSchema = new mongoose.Schema<IShopProduct>(
   {
     name: { type: String, required: true },
+    order: { type: Number, required: true, defaultValues: 0 },
     small: {
       label: {
         text: { type: String },
@@ -75,6 +79,7 @@ const ShopProductSchema = new mongoose.Schema<IShopProduct>(
           value: { type: String, required: true },
           label: { type: String, required: true },
           price: { type: Number, required: true },
+          isAvailable: { type: Boolean, required: true, defaultValues: true },
           sale: {
             price: { type: Number },
             until: { type: Date },
