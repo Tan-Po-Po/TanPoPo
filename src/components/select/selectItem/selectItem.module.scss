@@ -30,9 +30,11 @@ $background-hover: linear-gradient(
 }
 
 .unavailable {
+  .value {
+    color: #FF6F6F;
+  }
+  
   &:hover {
-    background: $color-disabled;
-
     .value {
       scale: 100%;
       font-weight: inherit;

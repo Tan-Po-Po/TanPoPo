@@ -33,15 +33,9 @@ export const FormCode: React.FC<Props> = ({
   const dispatch = useAppDispatch();
 
   const removePromo = (e: any) => {
-    e.preventDefault()
-    if (
-      window.confirm(
-        "Ви точно бажаєте видалити промокод? \n(Одноразові промокоди не можна буде ввести повторно)"
-      )
-    ) {
-      dispatch(deletePromoCode());
-      reset();
-    }
+    e.preventDefault();
+    dispatch(deletePromoCode());
+    reset();
   };
   return (
     <form

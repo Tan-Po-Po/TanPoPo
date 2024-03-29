@@ -35,7 +35,7 @@
 
       .image {
         background-size: 50% !important;
-      } 
+      }
     }
 
     :global(.slick-slide) {
@@ -60,8 +60,8 @@
   }
 
   .priceBlock {
-    min-height: 52px;
-    justify-content: flex-end;
+    min-height: 64px;
+    justify-content: center;
     .price {
       @include flex-row;
       gap: 8px;

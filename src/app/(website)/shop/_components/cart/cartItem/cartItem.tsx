@@ -6,12 +6,11 @@ import cl from "./cartItem.module.scss";
 import { ContentCard, Typography } from "@/components";
 import Image from "next/image";
 import { Counter } from "../../counter/counter";
-import XIcon from "/public/icons/x.svg";
 import TrashCanIcon from "/public/icons/trashCan.svg";
 import { useAppDispatch } from "@/redux/hooks";
 
 export const CartItem: React.FC<ICartItem> = ({
-  _id,
+  variantId,
   name,
   label,
   amount,
@@ -21,7 +20,7 @@ export const CartItem: React.FC<ICartItem> = ({
   const dispatch = useAppDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteCartItem({ _id }));
+    dispatch(deleteCartItem({ variantId }));
   };
   return (
     <ContentCard className={cl.cartItemMain} width="699px">
@@ -55,7 +54,7 @@ export const CartItem: React.FC<ICartItem> = ({
         ))}
       </ContentCard>
 
-      <Counter _id={_id} amount={amount} />
+      <Counter variantId={variantId!} amount={amount} />
 
       <ContentCard width="136px" className={cl.price}>
         {price.sale ? (

@@ -32,7 +32,7 @@ const LargeProductCards = ({
       useNumbers
       slideAmount={products.length}
       infinite={false}
-      renderCarousel={width! < 1420}
+      renderCarousel={width! <= 1420}
       numbersClass={cl.numbers}
       variableWidth={true}
     >

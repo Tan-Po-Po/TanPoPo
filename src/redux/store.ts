@@ -3,6 +3,7 @@ import courseReducer from "./slices/course/courseSlice";
 import galleryDialogReducer from "./slices/galleryDialog/galleryDialogSlice";
 import shopCartReducer from "./slices/shopCart/shopCartSlice";
 import cartDialogReducer from "./slices/cartDialog/cartDialogSlice";
+import deliveryInfoReducer from "./slices/deliveryInfo/deliveryInfoSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     galleryDialog: galleryDialogReducer,
     shopCart: shopCartReducer,
     cartDialog: cartDialogReducer,
+    deliveryInfo: deliveryInfoReducer,
   },
 });
 

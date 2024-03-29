@@ -1,9 +1,6 @@
-import { Data } from "./type";
+import { Data } from "../shop/type";
 
-export const generateHtml = (
-  orderData: Data,
-  orderId: string,
-) => {
+export const generateOwnerShopHtml = (orderData: Data, orderId: string) => {
   return `<html lang="en">
   <head>
     <style>
@@ -122,7 +119,7 @@ export const generateHtml = (
   </head>
   <body>
     <h1 style="white-space: pre-line">
-      Вітаємо! Ваше замовлення успішно створено!
+      Нове замовлення на продукцію школи TanPoPo⭐
     </h1>
     <img class="img" src="cid:store" width="137px" height="142px" />
     <div class="card" style="width: 390px">
@@ -139,7 +136,9 @@ export const generateHtml = (
           class="card"
           style="display: flex; padding: 0; overflow: hidden; margin-top: 30px; max-width: 350px; height: 72px"
         >
-          <img class="img" src='${item.images[0]}' width="auto" height="72px" style="margin: 0"/>
+          <img class="img" src='${
+            item.images[0]
+          }' width="auto" height="72px" style="margin: 0"/>
           <div style="height: fit-content; margin: auto; padding: 10px 20px">
             <p style="font-size: 18px">
               <b>${item.name.replace("\n", " ")}</b>
@@ -185,14 +184,14 @@ export const generateHtml = (
             if (item.price.sale) {
               return `
         <div class="card" style="padding: 10px 20px; height: 52px; margin-top: 30px">
-          <p style="color: grey; font-size: 18px"><s>${item.price.original}</s></p>
-          <p style="font-size: 18px"><b>${item.price.sale}</b></p>
+          <p style="color: grey; font-size: 18px"><s>${item.price.original}грн</s></p>
+          <p style="font-size: 18px"><b>${item.price.sale}грн</b></p>
         </div>
         `;
             } else {
               return `
         <div class="card" style="padding: 20px; height: 32px; margin-top: 30px">
-          <p style="font-size: 18px"><b>${item.price.original}</b></p>
+          <p style="font-size: 18px"><b>${item.price.original}грн</b></p>
         </div>
         `;
             }
@@ -203,19 +202,19 @@ export const generateHtml = (
             orderData.totalPrice.original === orderData.totalPrice.final
               ? `
                <div class="card" style="background-color: #ffec6a; margin-top: 10px; padding: 20px 30px; height: 32px">
-                <p><b>${orderData.totalPrice.final}</b></p>
+                <p><b>${orderData.totalPrice.final}грн</b></p>
               </div>`
               : `
               <div class="card" style="background-color: #ffec6a; margin-top: 10px; padding: 10px 30px; height: 52px">
-                <p style="color: grey; font-size: 18px"><s>${orderData.totalPrice.original}</s></p>
-                <p style="font-size: 18px"><b>${orderData.totalPrice.final}</b></p>
+                <p style="color: grey; font-size: 18px"><s>${orderData.totalPrice.original}грн</s></p>
+                <p style="font-size: 18px"><b>${orderData.totalPrice.final}грн</b></p>
                </div> `
           }
       </div>
     </div>
 
     <div class="card contact">
-      <h1><b>Ваші контактні дані:</b></h1>
+      <h1><b>Контактні дані:</b></h1>
       <div style="display: flex; margin-top: 20px">
         <div style="width: 50%">
           <p><u>Ім'я</u>: ${orderData.name}</p>
@@ -223,9 +222,7 @@ export const generateHtml = (
         </div>
         <div style="width: 50%">
           <p><u>Телефон</u>: ${orderData.phone}</p>
-          <p><u>Email</u>: ${
-            orderData.email
-          }</p>
+          <p><u>Email</u>: ${orderData.email}</p>
         </div>
       </div>
     </div>
@@ -253,55 +250,10 @@ export const generateHtml = (
       ${orderData.comment ? `<p><u>Коментар</u>: ${orderData.comment}</p>` : ""}
     </div>
 
-    ${
-      orderData.payNow
-        ? `
+
     <div class="card" style="max-width: 650px">
       <h1 style="font-size: 27px; color: #454545">Сума замовлення:</h1>
-      <h1 style="font-size: 27px">${orderData.totalPrice.final}</h1>
-      <p>
-        Якщо Ви ще не оплачували ваше замовлення,<br/>це можна зробити за
-        нашими реквізитами або за<br/>допомогою швидкої оплати по QR-коду нашої
-        школи!
-      </p>
-      <div style="margin: 30px 0; position: relative">
-        <a href="google.com" class="btn" style="margin-left: 80px"
-          >Наші реквізити</a
-        >
-        <img src="cid:arrow" width="60px" style="margin-left: 20px" />
-      </div>
-      <p>
-        Після того, як ми побачимо вашу оплату ми якнайшвидше <br/>розпочнемо
-        пакувати ваше замовлення і надішлимо Вам <br/>повідомлення, коли
-        пакуночок почне прямувати до Вас!
-      </p>
-    </div>
-    `
-        : ``
-    }
-
-    <div class="card" style="max-width: 450px">
-      <h1>Дякуємо, що обрали \nTanPoPo💛</h1>
-      <img class="img" src="cid:girl" width="170px" height="177px" />
-      <div>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
-          ><img src="cid:instagram" width="43px" height="43px"
-        /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
-          ><img src="cid:tikTok" width="43px" height="43px"
-        /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
-          ><img src="cid:youtube" width="50px"
-        /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
-          ><img src="cid:telegram" width="45px"
-        /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
-          ><img src="cid:viber" width="42px"
-        /></a>
-      </div>
-      <p style="font-size: 18px">Онлайн-школа японської мови.</p>
-      <p style="font-size: 15px">© 2024 TanPoPo. Всі права захищено.</p>
+      <h1 style="font-size: 27px">${orderData.totalPrice.final} грн</h1>
     </div>
   </body>
 </html>

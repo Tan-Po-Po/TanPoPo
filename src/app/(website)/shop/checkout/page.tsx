@@ -8,6 +8,11 @@ import {
   selectShopCart,
 } from "@/redux/slices/shopCart/shopCartSlice";
 import {
+  setDeliveryInfo,
+  selectDeliveryInfo,
+  IDeliveryInfo,
+} from "@/redux/slices/deliveryInfo/deliveryInfoSlice";
+import {
   AddressForm,
   Button,
   Checkbox,
@@ -15,13 +20,13 @@ import {
   ContentCard,
   Loading,
   Typography,
+  PaymentDialog,
 } from "@/components";
 import { Cart } from "../_components/components";
 import { Controller, useForm } from "react-hook-form";
 import { FormData } from "@/components/orderForm/formData";
 import Link from "next/link";
-import { deletePromoCode } from "./actions";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { getTotalPrice } from "@/helpers";
 import { toast } from "react-toastify";
 
@@ -29,6 +34,7 @@ export default function Page() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const cart = useAppSelector(selectShopCart);
+  const deliveryInfo = useAppSelector(selectDeliveryInfo);
 
   useEffect(() => {
     document.title = "Моє замовлення | Tanpopo";
@@ -46,27 +52,8 @@ export default function Page() {
 
   const formReturn = useForm<FormData>({
     defaultValues: {
-      name: "",
-      surname: "",
-      phone: "",
-      email: "",
-      telegram: false,
-      viber: false,
-      sms: false,
-      onlyEmail: true,
-      certificateType: null,
-      studentName: "",
-      studentSurname: "",
-      region: "",
-      city: { label: "", id: "" },
-      department: "",
-      address: "",
-      comment: "",
-      isDepartmentDelivery: true,
-      isAddressDelivery: false,
+      ...deliveryInfo,
       agreement: false,
-      payNow: false,
-      payAfter: false,
     },
     reValidateMode: "onSubmit",
   });
@@ -98,6 +85,8 @@ export default function Page() {
   }, [errors, showErrors, isDirty]);
 
   const onSubmit = async (formData: FormData) => {
+    dispatch(setDeliveryInfo(formData as Partial<IDeliveryInfo>));
+
     const dataToSend = {
       ...formData,
       ...cart,
@@ -105,6 +94,8 @@ export default function Page() {
     };
 
     setLoading(true);
+    scrollTo(0, 0);
+    console.log(JSON.stringify(dataToSend));
 
     fetch("/api/shop", {
       method: "POST",
@@ -114,17 +105,36 @@ export default function Page() {
         Accept: "application/json",
       },
     }).then(async (res) => {
+      // If price changed or product is not available anymore
+      const responseData = await res.json();
+      if (res.status === 422) {
+        dispatch(clearShopCart);
+        toast(responseData.message);
+      }
       if (!res.ok) {
         setLoading(false);
         toast("Сталася помилка, спробуйте ще раз пізніше");
       } else {
-        if (cart.promoCode?.oneTimeUse) {
-          await deletePromoCode(cart.promoCode._id!);
+        if (responseData.liqpayLink) {
+          // router.push(responseData.liqpayLink);
+          window.open(responseData.liqpayLink, "_ blank");
+          return;
+        } else if (responseData.success && responseData.orderId) {
+          router.push(
+            `/shop/checkout/thanks?id=${responseData.orderId}&payAfter=true`
+          );
+          return;
         }
+        setLoading(false);
+        console.log(res);
+        console.log(responseData);
 
-        dispatch(clearShopCart());
+        return;
 
-        const responseData = await res.json();
+        // if (cart.promoCode?.oneTimeUse) {
+        //   await deletePromoCode(cart.promoCode._id!);
+        // }
+        // dispatch(clearShopCart());
 
         if (formData.payAfter) {
           router.push(`/shop/checkout/thanks?id=${responseData.orderId}`);
@@ -148,6 +158,10 @@ export default function Page() {
 
   return (
     <main className={cl.checkoutMain}>
+      <Suspense fallback={<></>}>
+        <PaymentDialog />
+      </Suspense>
+
       <Typography variant="h3" align="center">
         ОФОРМЛЕННЯ ЗАМОВЛЕННЯ
       </Typography>

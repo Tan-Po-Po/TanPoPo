@@ -38,11 +38,14 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
     likes,
     inDevelopment,
   } = large;
-
+  console.log("====inDevelopment====");
+  console.log(inDevelopment);
   const availableVariant = variants.find((variant) => variant.isAvailable);
-  const [selectValue, setSelectValue] = useState(availableVariant?.value);
-  console.log(selectValue);
   console.log(availableVariant);
+  const [selectValue, setSelectValue] = useState(
+    availableVariant?.value || variants[0].value
+  );
+
   const [isMounted, setIsMounted] = useState(false);
 
   const item = variants.find((item) => item.value === selectValue)!;
@@ -59,11 +62,17 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   const productIsLiked = likedProducts.has(_id!);
 
   const isOnSale = sale && new Date() < new Date(sale.until);
-
+  if (isOnSale) {
+    const now = new Date();
+    const saleUntil = new Date(sale.until);
+    console.log(now);
+    console.log(saleUntil);
+    console.log(now < saleUntil);
+  }
   const { width } = useWindowSize();
 
   useEffect(() => {
-    setCartItem(shopCart.items.find((item) => item._id == itemId));
+    setCartItem(shopCart.items.find((item) => item.variantId == itemId));
     setLikedProducts(getLikedProductsFromLocalStorage());
   }, [itemId, shopCart.items]);
 
@@ -99,7 +108,10 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
       </Button>
     );
   } else if (available) {
-    if (inDevelopment) {
+    const isVariantAvailable = variants.find(
+      (variant) => variant.value === selectValue
+    )?.isAvailable;
+    if (inDevelopment || !isVariantAvailable) {
       {
         button = (
           <ContentCard width="fit-content" className={cl.soonOnMarket}>
@@ -122,7 +134,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
         </Button>
       );
     } else if (cartItem) {
-      button = <Counter _id={itemId!} amount={cartItem.amount} />;
+      button = <Counter variantId={itemId!} amount={cartItem.amount} />;
     }
   }
 
@@ -190,19 +202,28 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
         {!isCertificates && (
           <section className={cl.priceBlock}>
             <div className={cl.price}>
-              {isOnSale && (
-                <span>
-                  <Typography
-                    variant="h5"
-                    style={{ textDecoration: "line-through", color: "#343434" }}
-                  >
-                    {price} грн
+              {isOnSale ? (
+                <>
+                  <span>
+                    <Typography
+                      variant="h5"
+                      style={{
+                        textDecoration: "line-through",
+                        color: "#343434",
+                      }}
+                    >
+                      {price} грн
+                    </Typography>
+                  </span>
+                  <Typography variant="h5" style={{ color: "#343434" }}>
+                    {sale?.price || price} грн
                   </Typography>
-                </span>
+                </>
+              ) : (
+                <Typography variant="h5" style={{ color: "#343434" }}>
+                  {price} грн
+                </Typography>
               )}
-              <Typography variant="h5" style={{ color: "#343434" }}>
-                {sale?.price || price} грн
-              </Typography>
             </div>
             {isOnSale && (
               <ContentCard width="fit-content" className={cl.date}>

@@ -8,11 +8,11 @@ import {
 } from "@/redux/slices/shopCart/shopCartSlice";
 
 interface Props {
-  _id: string;
+  variantId: string;
   amount: number;
 }
 
-export const Counter: React.FC<Props> = ({ _id, amount }) => {
+export const Counter: React.FC<Props> = ({ variantId, amount }) => {
   const dispatch = useAppDispatch();
 
   const handleItemDecrease = () => {
@@ -20,11 +20,11 @@ export const Counter: React.FC<Props> = ({ _id, amount }) => {
       return;
     }
 
-    dispatch(decreaseItemAmount({ _id }));
+    dispatch(decreaseItemAmount({ variantId }));
   };
 
   const handleItemIncrease = () => {
-    dispatch(increaseItemAmount({ _id }));
+    dispatch(increaseItemAmount({ variantId }));
   };
 
   return (

@@ -27,11 +27,6 @@ interface Props {
 const SelectItem: React.FC<Props> = ({ item, setOption, isSelected }) => {
   const isUnavailable = typeof item === "object" && item.isAvailable === false;
   const handleClick = () => {
-    if (isUnavailable) {
-      toast("Товар скоро з'явиться в продажу");
-      return;
-    }
-
     typeof item === "string"
       ? setOption({ value: item, label: item })
       : setOption({

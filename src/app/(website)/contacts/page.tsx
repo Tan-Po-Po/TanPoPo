@@ -216,8 +216,9 @@ export default async function Contacts() {
       <Divider
         firstRow="ЗВОРОТНІЙ ЗВ’ЯЗОК"
         bgColor={dividerBgColor}
-        style={{ margin: "38px 0 " }}
+        style={{ margin: "38px 0 ", scrollMarginTop: "75px" }}
         className={cl.divider}
+        id="feedback"
       />
 
       <ContentCard className={cl.formBlock} width="966px">
