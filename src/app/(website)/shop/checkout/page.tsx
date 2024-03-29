@@ -116,8 +116,8 @@ export default function Page() {
         toast("Сталася помилка, спробуйте ще раз пізніше");
       } else {
         if (responseData.liqpayLink) {
-          // router.push(responseData.liqpayLink);
-          window.open(responseData.liqpayLink, "_ blank");
+          router.push(responseData.liqpayLink);
+          // window.open(responseData.liqpayLink, "_ blank");
           return;
         } else if (responseData.success && responseData.orderId) {
           router.push(
