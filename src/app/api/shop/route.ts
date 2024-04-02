@@ -13,8 +13,6 @@ export async function POST(req: Request) {
   if (!orderCheck.success) {
     return NextResponse.json(orderCheck, { status: 422 });
   }
-  console.log(orderCheck);
-  console.log(formData);
 
   try {
     // Save order data in google sheets
@@ -55,13 +53,11 @@ export async function POST(req: Request) {
         server_url: `${SERVER_URL}/api/paymentStatus?sheetName=orders`,
       };
       const { data, signature } = liqpay.cnb_object(json_string);
-      // console.log(data);
-      // console.log(signature);
       const liqpayLink = generateLiqpayLink(data, signature);
       return NextResponse.json({ success: true, liqpayLink });
     }
   } catch (err: any) {
-    console.log(err);
+    console.error(err);
     return NextResponse.json(
       {
         message: "Помилка при формуванні замовлення, спробуйте ще раз пізніше",

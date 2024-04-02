@@ -116,8 +116,7 @@ export default function Page() {
         toast("Сталася помилка, спробуйте ще раз пізніше");
       } else {
         if (responseData.liqpayLink) {
-          // router.push(responseData.liqpayLink);
-          window.open(responseData.liqpayLink, "_self");
+          router.push(responseData.liqpayLink);
           return;
         } else if (responseData.success && responseData.orderId) {
           router.push(
@@ -126,23 +125,7 @@ export default function Page() {
           return;
         }
         setLoading(false);
-        console.log(res);
-        console.log(responseData);
-
         return;
-
-        // if (cart.promoCode?.oneTimeUse) {
-        //   await deletePromoCode(cart.promoCode._id!);
-        // }
-        // dispatch(clearShopCart());
-
-        if (formData.payAfter) {
-          router.push(`/shop/checkout/thanks?id=${responseData.orderId}`);
-        } else if (formData.payNow) {
-          router.push(
-            `/shop/checkout/requisites?id=${responseData.orderId}&total=${dataToSend.totalPrice.final}`
-          );
-        }
       }
     });
   };
@@ -192,10 +175,10 @@ export default function Page() {
             )}
           />
 
-          <Typography variant="subtitle1">
-            Оформлюючи замовлення, Я ознайомився та приймаю умови
+          <Typography variant="subtitle1" style={{ color: "#3d3d3d" }}>
+            Оформлюючи замовлення, Я ознайомився та приймаю умови{" "}
             <Link target="_blank" href="/contacts/oferta">
-              <u> Публічної {"\n"}Оферти</u>
+              <u>Публічної {"\n"}Оферти</u>
             </Link>{" "}
             та{" "}
             <Link target="_blank" href="/contacts/confidentialityPolicy">
