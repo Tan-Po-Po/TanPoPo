@@ -26,7 +26,8 @@ export async function POST(req: NextRequest) {
   }
 
   const decodedData = JSON.parse(Buffer.from(data!, "base64").toString());
-
+  console.log("+++PAYMENT STATUS+++");
+  console.log(decodedData);
   let paymentStatus = "";
   switch (decodedData.status) {
     case "success":
@@ -42,7 +43,7 @@ export async function POST(req: NextRequest) {
       paymentStatus = "Очікує";
   }
 
-  // Save order in google sheets
+  // Save order status in google sheets
   const googleData = {
     sheetName,
     id: decodedData.order_id,
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
   };
 
   try {
-    await fetch(GOOGLE_SCRIPT_URL as string, {
+    fetch(GOOGLE_SCRIPT_URL as string, {
       method: "POST",
       body: JSON.stringify(googleData),
       headers: {
@@ -61,5 +62,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error(error);
+    return NextResponse.json({ success: false }, { status: 500 });
   }
 }

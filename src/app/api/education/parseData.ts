@@ -44,10 +44,12 @@ export const parseData = (data: Data) => {
   } else {
     dateFinish.setDate(date.getDate() + 14);
   }
-  
+
   return {
-    date: date.toLocaleDateString(),
-    dateFinish: dateFinish.toLocaleDateString(),
+    date: date.toLocaleDateString("uk") + ` (${date.toLocaleTimeString("uk")})`,
+    dateFinish:
+      dateFinish.toLocaleDateString("uk") +
+      ` (${dateFinish.toLocaleTimeString("uk")})`,
     courseName,
     lessons,
     price,

@@ -73,63 +73,134 @@
   }
 }
 
-.qrCodes {
-  margin: 60px 0px;
-  display: flex;
-  column-gap: 80px;
-}
-
-.requisites {
-  margin-top: 55px;
-
-  .card {
-    background: transparent;
-    padding: 15px;
-  }
-}
-
 .thanks {
+  order: 100;
   margin: 90px 0;
   transition: all 0.3s ease-in-out;
+  padding: 26px 20px;
+}
 
-  &:hover {
-    scale: 1.05;
+.thanks:hover + .paymentWrapper > div {
+  scale: 105% !important;
+  .paymentCard {
+    background: linear-gradient(
+      rgba(255, 238, 87, 0.2),
+      rgba(255, 238, 87, 1)
+    ) !important;
+  }
+}
 
-    .thanksBtn {
-      scale: 1.1;
+.paymentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 105px;
+
+  .btnWrapper:hover {
+    scale: 1.05 !important;
+
+    .paymentCard {
+      background: linear-gradient(
+        rgba(255, 238, 87, 0.2),
+        rgba(255, 238, 87, 1)
+      ) !important;
     }
   }
-  .btnWrapper {
+
+  .paymentBtn {
     position: relative;
-    margin: 0 auto;
-  }
-  .arrow {
-    content: "";
-    position: absolute;
-    background-image: url("/icons/arrowLong.svg");
-    width: 65px;
-    height: 55px;
-    background-size: 65px;
-    background-repeat: no-repeat;
-    bottom: calc(100%);
-    left: calc(100% + 25px);
-    rotate: 350deg;
+    border: none;
+    background: none;
+    overflow: hidden;
+    cursor: pointer;
+    div,
+    img {
+      transition: all 0.2s ease-in-out;
+    }
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+
+    .paymentCard {
+      padding: 19px 22px;
+      flex-direction: row;
+      height: 91px;
+      width: 388px;
+    }
+
+    h6 {
+      text-wrap: nowrap;
+    }
   }
 
-  .thanksBtn {
-    background: linear-gradient(180deg, #fffaf9 0%, #fffbd8 100%);
-    white-space: pre-line;
-    font-size: 24px;
-    font-weight: 700;
-    width: 180px;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    padding: 14px;
-    &:hover {
-      background: linear-gradient(180deg, #fffaf9 0%, #fffbd8 100%);
+  .shine {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    /*   gradient   */
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 1%,
+      rgba(255, 255, 255, 0.6) 30%,
+      rgba(255, 255, 255, 0.85) 50%,
+      rgba(255, 255, 255, 0.85) 70%,
+      rgba(255, 255, 255, 0.85) 71%,
+      rgba(255, 255, 255, 0) 100%
+    );
+
+    width: 15%;
+    height: 100%;
+    transform: skew(-10deg, 0deg);
+    -webkit-transform: skew(-10deg, 0deg);
+    -moz-transform: skew(-10deg, 0deg);
+    -ms-transform: skew(-10deg, 0deg);
+    -o-transform: skew(-10deg, 0deg);
+
+    /*  animating it  */
+    animation: move 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
+    -webkit-animation: move 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: 1s;
+    -moz-transform: skew(-10deg, 0deg);
+    -moz-animation: move 2s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-delay: 1s;
+    -ms-transform: skew(-10deg, 0deg);
+    -ms-animation: move 2s;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-delay: 1s;
+    -o-transform: skew(-10deg, 0deg);
+    -o-animation: move 2s;
+    -o-animation-iteration-count: infinite;
+    -o-animation-delay: 1s;
+  }
+
+  /*  */
+  @keyframes move {
+    0% {
+      left: 0;
+      opacity: 0.3;
+    }
+    5% {
+      opacity: 0.4;
+    }
+    48% {
+      opacity: 0.5;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      left: 100%;
     }
   }
 }
+
 .thanksHeader {
   max-width: 720px;
   margin-top: 84px;
@@ -157,10 +228,6 @@
 }
 
 @media (max-width: 600px) {
-  .qrCodes {
-    flex-direction: column;
-    row-gap: 50px;
-  }
   .divider {
     padding: 14px;
     display: flex;
@@ -184,34 +251,14 @@
 }
 
 @media (max-width: 400px) {
-  .requisites {
-    padding: 5px;
-    .card {
-      padding: 5px;
-    }
-  }
-
   .thanksHeader {
     line-height: 22px;
     font-size: 20px;
   }
-
   .thanks {
     width: 95%;
     margin: 50px auto;
     padding: 26px 10px;
-    &:hover {
-      scale: none;
-      .thanksBtn {
-        scale: none;
-      }
-    }
-
-    .arrow {
-      bottom: calc(100%);
-      left: calc(100%);
-      rotate: 335deg;
-    }
 
     p {
       font-size: 16px;

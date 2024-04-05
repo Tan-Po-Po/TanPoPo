@@ -1,7 +1,7 @@
 import { time, days } from "@/components/schedule/common";
-import { Data } from "./type";
+import { Data } from "../education/type";
 
-export const generateHtml = (formData: Data) => {
+export const generateCourseHtml = (formData: Data) => {
   return `<html lang="en">
   <head>
     <style>
@@ -236,8 +236,8 @@ export const generateHtml = (formData: Data) => {
       formData.price
         ? `<div class="card" style="max-width: 650px;">
       <h1 style="font-size: 27px; color: #454545">Вартість навчання:</h1>
-      <h1 style="font-size: 27px">${formData.price} грн</h1>
-      <div style="margin: 30px 0; position: relative;"><a href="tanpopo.com.ua" class="btn" style="margin-left: 80px;">Оплата успішна!</a>
+      <h1 style="font-size: 27px">${formData.price}</h1>
+      <a href="tanpopo.com.ua" class="btn">Оплата успішна!</a>
     </div>`
         : null
     }

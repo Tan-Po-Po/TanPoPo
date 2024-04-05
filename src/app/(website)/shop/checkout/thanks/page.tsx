@@ -1,7 +1,7 @@
 "use client";
 
 import { ContentCard, Divider, Loading, Typography } from "@/components";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   clearShopCart,
@@ -12,10 +12,9 @@ import {
   selectDeliveryInfo,
 } from "@/redux/slices/deliveryInfo/deliveryInfoSlice";
 import { Suspense, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { deletePromoCode, getOrderStatus } from "./actions";
+import { deletePromoCode } from "./actions";
 import { toast } from "react-toastify";
-import { getTotalPrice, getValidClassNames } from "@/helpers";
+import { getTotalPrice, getValidClassNames, getPaymentStatus } from "@/helpers";
 import Image from "next/image";
 import cl from "../page.module.scss";
 
@@ -42,10 +41,7 @@ const PayLaterResult: React.FC = ({}) => {
 
     const checkStatus = async (payAfter: boolean) => {
       if (!payAfter) {
-        const orderStatus = await getOrderStatus(orderId);
-        console.log("===orderStatus===");
-        console.log(orderStatus === "success");
-        console.log("===orderStatus===");
+        const orderStatus = await getPaymentStatus(orderId);
 
         if (!(orderStatus === "success")) {
           router.push("/shop/checkout?failedPayment=true");

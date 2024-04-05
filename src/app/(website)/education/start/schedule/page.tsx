@@ -19,27 +19,28 @@ import Image from "next/image";
 import cl from "./page.module.scss";
 import { useRouter } from "next/navigation";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import { setCourse, selectCourse } from "@/redux/slices/course/courseSlice";
+import {
+  setCourse,
+  selectCourse,
+  clearCourse,
+} from "@/redux/slices/course/courseSlice";
+import {
+  setDeliveryInfo,
+  selectDeliveryInfo,
+  IDeliveryInfo,
+} from "@/redux/slices/deliveryInfo/deliveryInfoSlice";
 import { type ISchedule } from "@/components/schedule/_schedule/type";
 import { useForm } from "react-hook-form";
 
 export default function Page() {
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const deliveryInfo = useAppSelector(selectDeliveryInfo);
+  const courseInfo = useAppSelector(selectCourse);
   const formReturn = useForm<FormData>({
     defaultValues: {
-      name: "",
-      surname: "",
-      phone: "",
-      email: "",
-      age: "",
-      contact: false,
-      contactName: "",
-      contactSurname: "",
-      contactPhone: "",
-      contactEmail: "",
-      contactRole: "",
-      lessonsPerWeek: 0,
+      ...deliveryInfo,
+      lessonsPerWeek: courseInfo.lessonsPerWeek || 0,
     },
     reValidateMode: "onSubmit",
   });
@@ -50,18 +51,20 @@ export default function Page() {
     formState: { errors, isDirty },
     setValue,
     watch,
+    getValues,
   } = formReturn;
 
   const scheduleArray: ISchedule = Array.from({ length: 7 }, () =>
     Array.from({ length: 5 }, () => "inappropriate")
   );
+  const course = useAppSelector((state) => selectCourse(state));
   const [loading, setLoading] = React.useState(false);
   const [counter, setCounter] = React.useState(0);
   const [showErrors, setShowErrors] = React.useState(false);
   const [schedule, setSchedule] = React.useState<ISchedule>(scheduleArray);
+  console.log(schedule);
   const [comment, setComment] = React.useState("");
   const lessonsPerWeek = watch("lessonsPerWeek");
-  const course = useAppSelector((state) => selectCourse(state));
 
   const submitForm = (formData: FormData) => {
     if (course.format === "Міні-група") {
@@ -69,6 +72,7 @@ export default function Page() {
         return timeToSelectMessage(12);
       }
       setValue("lessonsPerWeek", 2);
+      dispatch(setCourse({ lessonsPerWeek: 2, schedule }));
     } else {
       if (!lessonsPerWeek) {
         return toast("Оберіть бажану к-сть занять на тиждень!☑");
@@ -80,14 +84,32 @@ export default function Page() {
       } else if (lessonsPerWeek === 3 && counter < 12) {
         return timeToSelectMessage(12);
       }
+      dispatch(setCourse({ lessonsPerWeek, schedule }));
     }
 
+    dispatch(
+      setDeliveryInfo({
+        name: formData.name,
+        surname: formData.surname,
+        phone: formData.phone,
+        email: formData.email,
+        age: formData.age,
+        contact: formData.contact,
+        contactName: formData.contactName,
+        contactSurname: formData.contactSurname,
+        contactEmail: formData.contactEmail,
+        contactPhone: formData.contactPhone,
+        contactRole: formData.contactRole,
+        comment,
+      } as Partial<IDeliveryInfo>)
+    );
+
     const data = {
-      ...course,
-      courseName: course.name,
-      ...formData,
-      comment,
-      schedule,
+      ...course, // course slice
+      courseName: course.name, // rename from course slice
+      ...formData, // delivery slice (with contact info)
+      comment, // delivery slice
+      schedule, // into course slice
     };
 
     setLoading(true);
@@ -101,12 +123,20 @@ export default function Page() {
       },
     })
       .then(async (res) => {
+        // If price changed or course is not available anymore
+        const responseData = await res.json();
+        if (res.status === 422) {
+          dispatch(clearCourse());
+          toast(responseData.message);
+          return setTimeout(() => router.push("/prices"), 3000);
+        }
+
         if (!res.ok) {
           setLoading(false);
-          return toast(
-            "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
-          );
+          return toast("Сталася помилка, спробуйте ще раз пізніше");
         }
+
+        dispatch(setCourse({ liqpayLink: responseData.liqpayLink }));
         router.push("/education/payment");
       })
       .catch((error) => {
@@ -123,7 +153,7 @@ export default function Page() {
 
   useEffect(() => {
     if (showErrors && errors) {
-      if (!isDirty) {
+      if (!isDirty && !getValues("name")) {
         toast("Будь ласка, заповніть ваші контактні дані☑️");
         setShowErrors(false);
         return;
@@ -191,10 +221,8 @@ export default function Page() {
             <Select
               menuItems={["1 заняття", "2 заняття", "3 заняття"]}
               handleSelect={(value) => {
-                const lessons = parseInt(value[0]);
-                dispatch(setCourse({ lessonsPerWeek: lessons }));
-                setValue("lessonsPerWeek", lessons);
-                console.log(lessons);
+                const lessonsPerWeek = parseInt(value[0]);
+                setValue("lessonsPerWeek", lessonsPerWeek);
               }}
               placeHolder="К-сть занять"
               className={cl.select}

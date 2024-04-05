@@ -62,12 +62,13 @@ export default function Page() {
     handleSubmit,
     control,
     trigger,
+    getValues,
     formState: { errors, isDirty },
   } = formReturn;
 
   useEffect(() => {
     if (showErrors && errors) {
-      if (!isDirty) {
+      if (!isDirty && !getValues("name")) {
         toast("Будь ласка, заповніть ваші контактні дані☑️");
         setShowErrors(false);
         return;
@@ -110,6 +111,7 @@ export default function Page() {
       if (res.status === 422) {
         dispatch(clearShopCart);
         toast(responseData.message);
+        return setTimeout(() => router.push("/shop"), 5000);
       }
       if (!res.ok) {
         setLoading(false);

@@ -1,8 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
+import { ISchedule } from "@/components/schedule/_schedule/type";
 
 export interface CourseState {
+  id: string | null;
+  type: "teacher" | "video" | "audio" | "book" | "mega" | null;
   name: string | null;
   japanName: string | null;
   format: "Міні-група" | "Індивідуально" | null;
@@ -13,6 +16,10 @@ export interface CourseState {
   isGift: boolean;
   certificateType: "Електронний сертифікат" | "Друкований сертифікат" | null;
   backgroundColor: string | null;
+  liqpayLink: string | null;
+  schedule?: ISchedule;
+  accessDuration?: number | null;
+  lessonDuration?: string | null;
 }
 
 const courseLS =
@@ -21,6 +28,8 @@ const courseLS =
 const initialState: CourseState = courseLS
   ? (JSON.parse(courseLS) as CourseState)
   : {
+      id: null,
+      type: null,
       name: null,
       japanName: null,
       format: null,
@@ -31,6 +40,9 @@ const initialState: CourseState = courseLS
       isGift: false,
       certificateType: null,
       backgroundColor: null,
+      liqpayLink: null,
+      accessDuration: null,
+      lessonDuration: null,
     };
 
 export const courseSlice = createSlice({
@@ -44,10 +56,14 @@ export const courseSlice = createSlice({
       );
       return { ...state, ...action.payload };
     },
+    clearCourse: () => {
+      localStorage.removeItem("course");
+      return { ...initialState };
+    },
   },
 });
 
-export const { setCourse } = courseSlice.actions;
+export const { setCourse, clearCourse } = courseSlice.actions;
 
 export const selectCourse = (state: RootState): CourseState => {
   if (state.course.name !== null) {

@@ -21,30 +21,27 @@ import cl from "./page.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { selectCourse, setCourse } from "@/redux/slices/course/courseSlice";
+import {
+  clearCourse,
+  selectCourse,
+  setCourse,
+} from "@/redux/slices/course/courseSlice";
 import { type FormData } from "@/components/orderForm/formData";
+import {
+  selectDeliveryInfo,
+  setDeliveryInfo,
+} from "@/redux/slices/deliveryInfo/deliveryInfoSlice";
 
 export default function Page() {
   const dispatch = useAppDispatch();
+  const router = useRouter();
+  const course = useAppSelector(selectCourse);
+  const deliveryInfo = useAppSelector(selectDeliveryInfo);
+
   const formReturn = useForm<FormData>({
     defaultValues: {
-      name: "",
-      surname: "",
-      phone: "",
-      email: "",
-      telegram: false,
-      viber: false,
-      onlyEmail: true,
-      certificateType: null,
-      studentName: "",
-      studentSurname: "",
-      region: "",
-      city: { label: "", id: "" },
-      department: "",
-      address: "",
-      comment: "",
-      isDepartmentDelivery: true,
-      isAddressDelivery: false,
+      ...deliveryInfo,
+      certificateType: course.certificateType,
       agreement: false,
     },
     reValidateMode: "onSubmit",
@@ -54,11 +51,10 @@ export default function Page() {
     handleSubmit,
     control,
     setValue,
+    getValues,
     trigger,
     formState: { errors, isDirty },
   } = formReturn;
-  const router = useRouter();
-  const course = useAppSelector(selectCourse);
 
   const [loading, setLoading] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
@@ -70,7 +66,7 @@ export default function Page() {
 
   useEffect(() => {
     if (showErrors && errors) {
-      if (!isDirty) {
+      if (!isDirty && !getValues("name")) {
         toast("Будь ласка, заповніть ваші контактні дані☑️");
         setShowErrors(false);
         return;
@@ -85,23 +81,28 @@ export default function Page() {
 
       setShowErrors(false);
     }
-  }, [errors, showErrors, isDirty]);
+  }, [errors, showErrors, isDirty, getValues]);
 
   const onSubmit = (formData: FormData) => {
     let price = course.price;
     if (certificateType === "Друкований сертифікат") {
-      price = `${+course?.price?.slice(0, -3)! + 200}грн`;
+      price = `${+course?.price?.split(" ")[0]! + 200} грн`;
     }
+
     dispatch(
       setCourse({
         certificateType: formData.certificateType,
         price,
       })
     );
-
+    const deliveryInfo: Partial<FormData> = { ...formData };
+    delete deliveryInfo.agreement;
+    dispatch(setDeliveryInfo(deliveryInfo));
     const data = { ...course, price, ...formData, courseName: course.name };
 
     setLoading(true);
+    scrollTo(0, 0);
+    // Just save order in google sheets and generate liqpay link
     fetch("/api/gift", {
       method: "POST",
       body: JSON.stringify(data),
@@ -111,11 +112,19 @@ export default function Page() {
       },
     })
       .then(async (res) => {
+        const responseData = await res.json();
+        if (res.status === 422) {
+          dispatch(clearCourse());
+          toast(responseData.message);
+          return setTimeout(() => router.push("/prices"), 3000);
+        }
+
         if (!res.ok) {
           setLoading(false);
           return toast("Сталася помилка, спробуйте ще раз пізніше");
         }
 
+        dispatch(setCourse({ liqpayLink: responseData.liqpayLink }));
         router.push("/education/payment");
       })
       .catch(() => {
@@ -217,7 +226,9 @@ export default function Page() {
               {...field}
               className={cl.selectType}
               menuItems={["Електронний сертифікат", "Друкований сертифікат"]}
-              placeHolder="Вид сертифікату"
+              placeHolder={
+                certificateType ? certificateType : "Вид сертифікату"
+              }
               setValue={setValue}
               name="certificateType"
             />

@@ -1,32 +1,78 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ContentCard, Typography, Loading } from "@/components";
-import { getIconSrc, getValidClassNames } from "@/helpers";
+import { getIconSrc, getPaymentStatus, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import cl from "./page.module.scss";
-import { CourseState, selectCourse } from "@/redux/slices/course/courseSlice";
-import { useAppSelector } from "@/redux/hooks";
-import { useRouter } from "next/navigation";
+import {
+  CourseState,
+  selectCourse,
+  clearCourse,
+} from "@/redux/slices/course/courseSlice";
+import {
+  clearDeliveryInfo,
+  selectDeliveryInfo,
+} from "@/redux/slices/deliveryInfo/deliveryInfoSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useRouter, useSearchParams } from "next/navigation";
+import { toast } from "react-toastify";
+import { CheckoutCard } from "./_checkoutCard/checkoutCard";
 
 export default function Page() {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const searchParams = useSearchParams();
+  const orderId = searchParams.get("id");
   const [loading, setLoading] = useState(true);
   const [course, setCourse] = useState<CourseState>();
 
   const courseRedux = useAppSelector(selectCourse);
-  
-  useEffect(() => {
-    document.title = "Навчання | Tanpopo";
-  }, []);
+  const studentInfo = useAppSelector(selectDeliveryInfo);
 
   useEffect(() => {
-    if (courseRedux) {
-      setCourse(courseRedux);
-    } else {
-      return router.push("/");
+    document.title = "Навчання | Tanpopo";
+
+    if (!orderId || !courseRedux.id || !studentInfo.name) {
+      router.push("/prices");
+      return;
     }
-    setLoading(false);
-  }, [courseRedux, router]);
+
+    const checkPaymentStatus = async () => {
+      const orderStatus = await getPaymentStatus(orderId);
+
+      if (!(orderStatus === "success")) {
+        router.push("/education/payment?failedPayment=true");
+        return;
+      }
+
+      const dataToSend = {
+        ...courseRedux,
+        courseName: courseRedux.name,
+        ...studentInfo,
+        orderId,
+      };
+      console.log(JSON.stringify(dataToSend));
+      const sheetName = courseRedux.isGift ? "certificates" : "courses";
+      const res = await fetch(`/api/email?sheetName=${sheetName}`, {
+        method: "POST",
+        body: JSON.stringify(dataToSend),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!res.ok) {
+        return toast("Сталася помилка, будь-ласка,оновіть сторінку");
+      }
+      setCourse(courseRedux);
+      dispatch(clearCourse());
+      dispatch(clearDeliveryInfo());
+      setLoading(false);
+    };
+
+    checkPaymentStatus();
+  }, []);
 
   if (loading) {
     return <Loading />;
@@ -49,40 +95,23 @@ export default function Page() {
           height={599}
           className={getValidClassNames(cl.confetti, cl.confettiRight)}
         />
-        <Typography variant="body2" className={cl.info}>
-          {
-            "Всю інформацію стосовно вашого замовлення було\nщойно надіслано на вашу електронну скриньку!"
-          }
+
+        <Typography
+          variant="h6"
+          style={{ fontSize: "26px", marginTop: "80px" }}
+        >
+          Вітаємо, оплата пройшла успішно!
         </Typography>
 
-        <ContentCard
-          className={cl.card}
-          width="680px"
-          cardBgColor="linear-gradient(91deg, rgba(255, 156, 156, 0.75) 0%, rgba(255, 239, 156, 0.75) 28.13%, rgba(156, 219, 255, 0.75) 71.35%, rgba(255, 156, 233, 0.75) 100%)"
-        >
-          <Typography
-            variant="h6"
-            style={{ fontSize: "22px", whiteSpace: "pre-line" }}
-          >
-            {course?.certificateType === "Електронний сертифікат"
-              ? "Протягом дня з моменту успішної оплати \nми надішлимо ваш електронний подарунковий\nсертифікат та промокод для активації курсу!"
-              : "Протягом дня з моменту успішної оплати ми надішлимо копію електронного іменного сертифікату та промокоду для активації курсу!"}
+        {course?.isGift && (
+          <Typography variant="body2" className={cl.info}>
+            {
+              "Всю інформацію стосовно вашого замовлення було\nщойно надіслано на вашу електронну скриньку!"
+            }
           </Typography>
+        )}
 
-          <Image
-            src={getIconSrc("present")}
-            alt="Gift"
-            width={60}
-            height={65}
-          />
-
-          <Typography variant="body2">
-            Активувати подарунковий курс за допомогою отриманого промокоду дуже
-            легко! Ви можете переглянути коротку інструкцію по активації курсу
-            на сторінці “Контакти”. <br />
-            Тепер залишилось лише подарувати навчання!
-          </Typography>
-        </ContentCard>
+        {course && <CheckoutCard course={course} />}
 
         <div className={cl.thanksBlock}>
           <Typography variant="h6">Дякуємо, що обрали</Typography>

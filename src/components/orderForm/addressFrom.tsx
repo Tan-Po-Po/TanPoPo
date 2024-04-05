@@ -35,7 +35,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
         if (selectedRegion) {
           const AreaRef = regions.find(
             (reg) => reg.Description === selectedRegion
-          ).Ref;
+          )?.Ref;
 
           const response = await fetch("https://api.novaposhta.ua/v2.0/json/", {
             method: "POST",

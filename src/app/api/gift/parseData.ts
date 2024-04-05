@@ -32,8 +32,10 @@ export const parseData = (data: Data) => {
   }
 
   return {
-    date: date.toLocaleDateString(),
-    dateFinish: dateFinish.toLocaleDateString(),
+    date: date.toLocaleDateString("uk") + ` (${date.toLocaleTimeString("uk")})`,
+    dateFinish:
+      dateFinish.toLocaleDateString("uk") +
+      ` (${dateFinish.toLocaleTimeString("uk")})`,
     certificateType: certificateType?.split(" ")[0],
     name,
     surname,

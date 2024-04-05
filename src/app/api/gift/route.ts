@@ -1,145 +1,56 @@
 import { NextResponse } from "next/server";
-import { transporter, mailOptions } from "@/config/nodemailer";
-import { generateHtml } from "./generateHtml";
-import { generateHtmlForOwner } from "./generateHtmlForOwner";
 import { parseData } from "./parseData";
-import { GOOGLE_SCRIPT_URL } from "@/config/config";
+import { checkCoursePrice } from "../_helpers";
 import { Data } from "./type";
-import path from "path";
+//@ts-expect-error
+import Liqpay from "liqpayjs-sdk";
+import {
+  LIQPAY_PRIVATE_KEY,
+  LIQPAY_PUBLIC_KEY,
+  GOOGLE_SCRIPT_URL,
+  SERVER_URL,
+} from "@/config/config";
+import { generateLiqpayLink } from "@/helpers";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
+  console.log(formData);
+  const priceCheck = await checkCoursePrice(formData);
+  if (!priceCheck.success) {
+    return NextResponse.json(priceCheck, { status: 422 });
+  }
 
   const googleData = {
     sheetName: "certificates",
     formData: parseData(formData),
   };
 
-  const google = await fetch(GOOGLE_SCRIPT_URL as string, {
-    method: "POST",
-    body: JSON.stringify(googleData),
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  });
-  const orderId = await google.text();
-
-  const htmlContent = generateHtml(formData);
-  const htmlContentOwner = generateHtmlForOwner(formData);
   try {
-    await Promise.all([
-      transporter.sendMail({
-        ...mailOptions,
-        to: formData.email,
-        subject: `Навчання у Подарунок!  (№ Замовлення: ${orderId})`,
-        html: htmlContent,
-        attachments: [
-          {
-            filename: "presentBox1.png",
-            path: path.join(
-              process.cwd(),
-              "public",
-              "icons",
-              "art",
-              "presentBox1.png"
-            ),
-            cid: "present",
-          },
-          {
-            filename: "girl.png",
-            path: path.join(
-              process.cwd(),
-              "public",
-              "icons",
-              "art",
-              "girl.png"
-            ),
-            cid: "girl",
-          },
-          {
-            filename: "arrowLong.png",
-            path: path.join(process.cwd(), "public", "icons", "arrowLong.png"),
-            cid: "arrow",
-          },
-          {
-            filename: "instagram.png",
-            path: path.join(
-              process.cwd(),
-              "public",
-              "icons",
-              "socials",
-              "instagram.png"
-            ),
-            cid: "instagram",
-          },
-          {
-            filename: "tikTok.png",
-            path: path.join(
-              process.cwd(),
-              "public",
-              "icons",
-              "socials",
-              "tikTok.png"
-            ),
-            cid: "tikTok",
-          },
-          {
-            filename: "youTube.png",
-            path: path.join(
-              process.cwd(),
-              "public",
-              "icons",
-              "socials",
-              "youTube.png"
-            ),
-            cid: "youtube",
-          },
-          {
-            filename: "telegram.png",
-            path: path.join(
-              process.cwd(),
-              "public",
-              "icons",
-              "socials",
-              "telegram.png"
-            ),
-            cid: "telegram",
-          },
-          {
-            filename: "viber.png",
-            path: path.join(
-              process.cwd(),
-              "public",
-              "icons",
-              "socials",
-              "viber.png"
-            ),
-            cid: "viber",
-          },
-        ],
-      }),
-      transporter.sendMail({
-        ...mailOptions,
-        subject: `Навчання у Подарунок!  (№ Замовлення: ${orderId})`,
-        html: htmlContentOwner,
-        attachments: [
-          {
-            filename: "presentBox1.png",
-            path: path.join(
-              process.cwd(),
-              "public",
-              "icons",
-              "art",
-              "presentBox1.png"
-            ),
-            cid: "present",
-          },
-        ],
-      }),
-    ]);
-
-    return NextResponse.json({ success: true });
+    const google = await fetch(GOOGLE_SCRIPT_URL as string, {
+      method: "POST",
+      body: JSON.stringify(googleData),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    const orderId = await google.text();
+    // Generate liqpay link
+    const liqpay = new Liqpay(LIQPAY_PUBLIC_KEY, LIQPAY_PRIVATE_KEY);
+    const json_string = {
+      version: "3",
+      action: "pay",
+      amount: priceCheck.price,
+      currency: "UAH",
+      description: `Вивчення мови ${orderId}`,
+      order_id: orderId,
+      language: "uk",
+      result_url: `http://localhost:3000/education/checkout?id=${orderId}`, // change server_url
+      server_url: `${SERVER_URL}/api/paymentStatus?sheetName=certificates`,
+    };
+    const { data, signature } = liqpay.cnb_object(json_string);
+    const liqpayLink = generateLiqpayLink(data, signature);
+    return NextResponse.json({ success: true, liqpayLink });
   } catch (err: any) {
     console.log(err);
     return NextResponse.json({ message: err.message }, { status: 400 });

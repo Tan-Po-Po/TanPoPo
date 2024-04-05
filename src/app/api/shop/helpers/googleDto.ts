@@ -15,7 +15,7 @@ export const googleDto = (orderData: Data) => {
     totalPrice,
   } = orderData;
   const { label } = orderData.city;
-  const date = new Date().toLocaleDateString();
+  const date = new Date();
 
   const howToContact = `${orderData.telegram ? "Телеграм, " : ""}${
     orderData.viber ? "Вайбер, " : ""
@@ -30,7 +30,7 @@ export const googleDto = (orderData: Data) => {
     .join("\n");
 
   return {
-    date,
+    date: date.toLocaleDateString("uk") + ` (${date.toLocaleTimeString("uk")})`,
     payment: orderData.payAfter ? "післяоплата" : "онлайн",
     goods,
     price: `${totalPrice.original}\n${totalPrice.final}`,

@@ -10,6 +10,8 @@ export interface ICourse {
   secondName: string;
   secondNameJapanese: string;
   level: string[];
+  accessDuration: number;
+  lessonDuration: string;
   order: number;
   images: [{ image: { filename: string } }];
   href: string;
@@ -56,6 +58,8 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
     secondName: { type: String },
     secondNameJapanese: { type: String },
     level: [{ type: String, required: true }],
+    accessDuration: { type: Number, required: true, default: 60 },
+    lessonDuration: { type: String, required: true, default: "25-40 хвилин" },
     order: [{ type: Number, required: true, default: 0 }],
     images: [
       {

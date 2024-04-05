@@ -1,7 +1,7 @@
 import { time, days } from "@/components/schedule/common";
-import { Data } from "./type";
+import { Data } from "../education/type";
 
-export const generateHtmlForOwner = (formData: Data, orderId: string) => {
+export const generateOwnerCourseHtml = (formData: Data, orderId: string) => {
   return `<html lang="en">
   <head>
     <style>
