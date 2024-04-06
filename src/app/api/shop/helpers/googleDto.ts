@@ -13,9 +13,10 @@ export const googleDto = (orderData: Data) => {
     address,
     comment,
     totalPrice,
+    isDepartmentDelivery,
   } = orderData;
   const { label } = orderData.city;
-  const date = new Date().toLocaleDateString();
+  const date = new Date();
 
   const howToContact = `${orderData.telegram ? "Телеграм, " : ""}${
     orderData.viber ? "Вайбер, " : ""
@@ -30,10 +31,20 @@ export const googleDto = (orderData: Data) => {
     .join("\n");
 
   return {
-    date,
-    payment: orderData.payAfter ? "післяоплата" : "онлайн",
+    price: totalPrice.final,
+    date:
+      date.toLocaleDateString("uk", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+      }) +
+      ` (${date.toLocaleTimeString("uk", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })})`,
+    status: "Початковий",
     goods,
-    price: `${totalPrice.original}\n${totalPrice.final}`,
+    fullPrice: `${totalPrice.original}\n${totalPrice.final}`,
     promoCode: promoCode ? `${promoCode?.code}(-${promoCode?.perCent}%)` : "",
 
     name,
@@ -43,7 +54,8 @@ export const googleDto = (orderData: Data) => {
     howToContact,
 
     address: label && region ? `${label} / ${region}` : "",
-    delivery: department || address,
+    delivery: isDepartmentDelivery ? department : address,
     comment,
+    payment: orderData.payAfter ? "післяоплата" : "онлайн",
   };
 };

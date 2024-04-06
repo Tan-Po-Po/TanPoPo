@@ -12,9 +12,7 @@ export const getTotalPrice = (cart: IShopCart) => {
   ));
 
   if (cart.promoCode) {
-    console.log(final)
     final -= Math.round(final * (cart.promoCode?.perCent / 100));
-    console.log(final)
   }
 
   return { original, final };

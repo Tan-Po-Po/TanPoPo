@@ -17,6 +17,7 @@ export const parseData = (data: Data) => {
     city: { label },
     department,
     address,
+    isDepartmentDelivery,
   } = data;
 
   const whereToSend = `${data.telegram ? "Телеграм, " : ""}${
@@ -32,8 +33,29 @@ export const parseData = (data: Data) => {
   }
 
   return {
-    date: date.toLocaleDateString(),
-    dateFinish: dateFinish.toLocaleDateString(),
+    price: Number(price?.slice(0, -3)),
+    date:
+      date.toLocaleDateString("uk", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+      }) +
+      ` (${date.toLocaleTimeString("uk", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })})`,
+    dateFinish:
+      dateFinish.toLocaleDateString("uk", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+      }) +
+      ` (${dateFinish.toLocaleTimeString("uk", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })})`,
+    status: "Початковий",
+
     certificateType: certificateType?.split(" ")[0],
     name,
     surname,
@@ -41,13 +63,14 @@ export const parseData = (data: Data) => {
     email,
     courseName: `${data.courseName}(${data.level})`,
     lessons,
+
     format,
-    price,
     whereToSend,
+
     studentName,
     studentSurname,
     address: label && region ? `${label} / ${region} ` : "",
-    delivery: department || address,
+    delivery: isDepartmentDelivery ? department : address,
     comment,
   };
 };

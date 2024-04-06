@@ -1,151 +1,58 @@
-.requisites {
-  @include flex-column;
-  padding: $padding-page;
-  padding-bottom: 110px;
-  gap: 70px;
-
-  .requisitesCard {
-    padding: 44px;
-    padding-bottom: 35px;
-    gap: 35px;
-
-    .wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-    .column {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-
-      .tile {
-        background: transparent;
-        padding: 20px 26px;
-        height: 100px;
-        gap: 0;
-        justify-content: space-between;
-        max-width: 364px;
-
-        h5,
-        p {
-          line-height: normal;
-        }
-
-        h5 {
-          font-size: 25px;
-        }
-        p {
-          font-size: 18px;
-        }
-      }
-    }
-
-    .column:nth-child(2) {
-      .tile {
-        min-width: 274px;
-      }
-    }
-  }
-
-  .text {
-    @include flex-column;
-    gap: 56px;
-
-    p,
-    h6 {
-      font-weight: 700 !important;
-    }
-  }
-
-  .qrCodesBlock {
+.paymentCard {
+  min-height: 500px;
+  flex-grow: 1;
+  margin-top: 100px;
+  form {
     display: flex;
-    gap: 80px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    margin-top: 30px;
   }
 }
 
-@media (max-width: 1023px) {
-  .requisites {
-    padding-bottom: $padding-page-tablet-bottom;
+.label {
+  padding: 12px 10px;
+}
+
+.amount,
+.comment {
+  background: #ffffff;
+}
+
+.amount {
+  margin-top: auto;
+}
+.comment {
+  margin-top: 41px;
+}
+.buttonWrapper {
+  margin-top: 38px;
+
+  .button {
+    height: 60px;
+    width: 245px;
+    font-size: 19px;
   }
 }
 
-@media (max-width: 800px) {
-  .requisites {
-    padding: 65px 10px;
-    .requisitesCard {
-      padding: 26px;
+.checkboxWrapper {
+  margin-top: 33px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
 
-      .wrapper {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .column {
-        justify-content: space-between;
-      }
+  .checkbox {
+    input + span {
+      background: #ffffff;
     }
   }
-}
 
-@media (max-width: 710px) {
-  .requisites {
-    padding-bottom: $padding-page-mobile-bottom;
-
-    .requisitesCard {
-      .wrapper {
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-      .column {
-        width: 100%;
-        align-items: center;
-        gap: 15px;
-        .tile {
-          padding: 10px;
-        }
-      }
-    }
-
-    .qrCodesBlock {
-      flex-wrap: wrap;
-      justify-content: space-around;
-      width: 100%;
-      max-width: 590px;
-      gap: 10px;
-    }
-  }
-}
-
-@media (max-width: 450px) {
-  .requisites {
-    & > h3 {
-      font-size: 32px !important;
-    }
-    .requisitesCard {
-      padding: 10px;
-      width: calc(100% + 30px);
-      .wrapper {
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-      .column {
-        width: 100%;
-        align-items: center;
-        gap: 15px;
-        .tile {
-          padding: 10px;
-        }
-      }
-    }
-    .text {
-      max-width: 300px;
-    }
-    .qrCodesBlock {
-      flex-wrap: wrap;
-      justify-content: space-around;
-      width: 100%;
-      max-width: 590px;
-      gap: 30px;
-    }
+  span:last-child {
+    text-align: start;
+    margin-left: 15px;
+    line-height: 20px;
+    color: #3d3d3d;
   }
 }

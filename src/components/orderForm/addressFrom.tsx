@@ -35,7 +35,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
         if (selectedRegion) {
           const AreaRef = regions.find(
             (reg) => reg.Description === selectedRegion
-          ).Ref;
+          )?.Ref;
 
           const response = await fetch("https://api.novaposhta.ua/v2.0/json/", {
             method: "POST",
@@ -482,14 +482,19 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                   label={
                     <div className={cl.label}>
                       <Typography variant="body1">
-                        <b>Швидка оплата по QR-коду</b>
+                        <b>Миттєва онлайн-оплата</b>
                       </Typography>
                       <Typography
                         variant="subtitle1"
-                        style={{ whiteSpace: "pre-line", lineHeight: "normal" }}
+                        align="left"
+                        style={{
+                          whiteSpace: "pre-line",
+                          lineHeight: "normal",
+                          marginTop: "5px",
+                        }}
                       >
                         {
-                          "(або оплата за реквізитами\nPrivatBank, MonoBank та інші)"
+                          "(Visa, Mastercard, Privat24,\nGooglePay, Monobank та інші)"
                         }
                       </Typography>
                     </div>
@@ -525,10 +530,15 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                       </Typography>
                       <Typography
                         variant="subtitle1"
-                        style={{ whiteSpace: "pre-line", lineHeight: "15px" }}
+                        align="left"
+                        style={{
+                          whiteSpace: "pre-line",
+                          lineHeight: "normal",
+                          marginTop: "5px",
+                        }}
                       >
                         {
-                          "(додатковий тариф Н. П.\nза переказ коштів: 20грн + 2%)"
+                          "(додатковий тариф Нової Пошти\nза переказ коштів: 20грн + 2%)"
                         }
                       </Typography>
                     </div>

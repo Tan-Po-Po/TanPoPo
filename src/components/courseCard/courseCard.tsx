@@ -18,6 +18,7 @@ import { IMAGE_BASE_URL } from "@/config/config";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
+import { CourseState, setCourse } from "@/redux/slices/course/courseSlice";
 
 type Properties = {
   course: ICourse;
@@ -51,11 +52,35 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
     if (!lessons) {
       return toast("Спочатку оберіть К-сть уроків!📚");
     }
-    if (!isAccepted && !(course.type === "book") && !isGift) {
+    if (!isAccepted && !(course.type === "book")) {
       return toast("Спочатку ознайомтесь з навчальним періодом!📚");
     }
 
-    isGift ? router.push("/education/gift") : link && router.push(link);
+    if (isGift) {
+      const courseLevel =
+        course.level.length > 1
+          ? `${course.level[0]}/${course.level.at(-1)}`
+          : course.level[0];
+
+      const selectedCourse: Partial<CourseState> = {
+        id: course._id,
+        type: course.type,
+        name: course.name,
+        japanName: course.nameJapanese,
+        format: "Індивідуально",
+        lessons: Number(lessons.slice(0, 2).trim()),
+        price: lessons.match(/\(([^)]+)\)/)![1],
+        level: courseLevel,
+        isGift,
+        backgroundColor: course.large.labelColor,
+        lessonDuration: course.lessonDuration,
+        accessDuration: course.accessDuration,
+      };
+      dispatch(setCourse(selectedCourse));
+      return router.push("/education/gift");
+    }
+
+    return link && router.push(link);
   };
 
   return course.type === "teacher" || course.type === "mega" ? (
@@ -179,7 +204,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           isChecked={isGift}
         />
 
-        {course.type !== "book" && lessons && !isGift && (
+        {course.type !== "book" && lessons && (
           <>
             <div className={cl.line}></div>
             <div className={cl.checkboxWrapper}>

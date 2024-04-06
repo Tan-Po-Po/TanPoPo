@@ -11,18 +11,24 @@ export interface IDeliveryInfo {
   viber: boolean;
   sms: boolean;
   onlyEmail: boolean;
-  certificateType: null;
-  studentName: "";
-  studentSurname: "";
-  region: "";
-  city: { label: ""; id: "" };
-  department: "";
-  address: "";
-  comment: "";
+  studentName: string;
+  studentSurname: string;
+  region: string;
+  city: { label: string; id: string };
+  department: string;
+  address: string;
+  comment: string;
   isDepartmentDelivery: boolean;
   isAddressDelivery: boolean;
   payNow: boolean;
   payAfter: boolean;
+  age: string; // Info for course flow
+  contact: boolean;
+  contactName: string;
+  contactSurname: string;
+  contactPhone: string;
+  contactEmail: string;
+  contactRole: string;
 }
 
 const deliveryInfoLS =
@@ -43,7 +49,6 @@ const initialState: IDeliveryInfo = deliveryInfoLS
       viber: false,
       sms: false,
       onlyEmail: true,
-      certificateType: null,
       studentName: "",
       studentSurname: "",
       region: "",
@@ -55,6 +60,14 @@ const initialState: IDeliveryInfo = deliveryInfoLS
       isAddressDelivery: false,
       payNow: false,
       payAfter: false,
+      age: "",
+      contact: false,
+      contactName: "",
+      contactSurname: "",
+      contactPhone: "",
+      contactEmail: "",
+      contactRole: "",
+      lessonsPerWeek: 0,
     };
 
 export const deliveryInfoSlice = createSlice({

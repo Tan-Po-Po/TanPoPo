@@ -5,6 +5,10 @@
   -webkit-text-stroke: 0.2px;
 }
 
+::selection {
+  background: #ffff66;
+}
+
 a {
   color: #0d0d0d !important;
   text-decoration: none;

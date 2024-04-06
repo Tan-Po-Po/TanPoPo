@@ -1,0 +1,40 @@
+.courseInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 85px 55px 60px;
+  align-items: stretch;
+  gap: 54px;
+
+  .card {
+    padding: 22px 16px;
+    min-height: 136px;
+    justify-content: space-between;
+    b {
+      margin-top: auto;
+      white-space: pre;
+    }
+  }
+  p,
+  b {
+    white-space: pre-line;
+  }
+}
+
+@media (max-width: 850px) {
+  .courseInfo {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .courseInfo {
+    padding: 65px 10px 40px;
+    .card {
+      max-height: fit-content !important;
+      margin: 0 auto;
+    }
+  }
+}

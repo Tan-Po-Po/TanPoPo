@@ -4,6 +4,7 @@ import { Button } from "@/components/button/button";
 import { getValidClassNames } from "@/helpers";
 
 import cl from "./schedule.module.scss";
+import { ISchedule } from "./type";
 
 type Properties = {
   setCounter: React.Dispatch<React.SetStateAction<number>>;
@@ -27,7 +28,7 @@ const TimeButton: React.FC<Properties> = ({
       return prev;
     });
 
-    setVariant(variant);
+    setVariant(variant as "inappropriate" | "maybe" | "perfect");
   };
 
   const handleClick = () => {

@@ -35,7 +35,7 @@ const Header = () => {
             />
           </Link>
         </div>
-        
+
         <nav className={cl.navigation}>
           <Dropdown
             className={cl.dropdown}

@@ -9,18 +9,18 @@ export const checkOrder = async ({ items, totalPrice, promoCode }: Data) => {
   try {
     await dbConnect();
     for (const item of items) {
-      console.log(item);
       const productDB = await ShopItem.findById(item._id).select(
         "large.available large.inDevelopment large.variants"
       );
-      console.log(productDB);
-      if (!productDB)
+
+      if (!productDB) {
         return {
           success: false,
           message:
             "Список продуктів оновився!\nБудь ласка, заповніть кошик ще раз🛒",
         };
-
+      }
+      
       const product: Partial<IShopProduct> = JSON.parse(
         JSON.stringify(productDB)
       );

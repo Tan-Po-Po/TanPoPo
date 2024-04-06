@@ -1,36 +1,36 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import {
   ContentCard,
   Divider,
   Typography,
   Button,
   Loading,
-  RequisitesSmall,
+  PaymentDialog,
 } from "@/components";
-import { getIconArtSrc } from "@/helpers";
+import { getIconArtSrc, getIconSrc } from "@/helpers";
 import Image from "next/image";
 import cl from "./page.module.scss";
 import { CourseState, selectCourse } from "@/redux/slices/course/courseSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { toast } from "react-toastify";
+import { CourseInfo } from "./_courseInfo/courseInfo";
+import { CertificateBlock } from "./_cerificateBlock/certificateBlock";
 
 export default function Page() {
   const router = useRouter();
   const courseRedux = useAppSelector(selectCourse);
+
   const [loading, setLoading] = useState(true);
   const [course, setCourse] = useState<CourseState>();
-  const studyDuration = Math.ceil(
-    course?.lessons! / (course?.lessonsPerWeek || 2)
-  );
 
   useEffect(() => {
     document.title = "Оплата навчання | Tanpopo";
   }, []);
 
   useEffect(() => {
-    if (courseRedux) {
+    if (courseRedux.id) {
       setCourse(courseRedux);
     } else {
       return router.push("/");
@@ -38,12 +38,27 @@ export default function Page() {
     setLoading(false);
   }, [courseRedux, router]);
 
+  const handleClick = async () => {
+    if (courseRedux.liqpayLink) {
+      return router.push(courseRedux.liqpayLink);
+    } else {
+      toast("Щось пішло не так, спробуйте ще раз пізіше");
+      return setTimeout(() => {
+        router.push("/prices");
+      }, 5000);
+    }
+  };
+
   if (loading) {
     return <Loading />;
   }
 
   return (
     <main className={cl.main}>
+      <Suspense fallback={<></>}>
+        <PaymentDialog />
+      </Suspense>
+
       <Divider
         className={cl.divider}
         firstRow={
@@ -64,126 +79,10 @@ export default function Page() {
       </Typography>
 
       <div className={cl.courseWrapper}>
-        <ContentCard
-          width="855px"
-          className={cl.courseInfo}
-          labelPosition="top"
-          label={
-            <>
-              <Typography variant="h5">
-                {course?.name || "Course name"}
-              </Typography>
-              <Typography variant="body2">
-                {course?.japanName || "Course japanese name"}
-              </Typography>
-            </>
-          }
-          labelBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
-        >
-          <ContentCard
-            className={cl.card}
-            width="345px"
-            height="135px"
-            cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
-          >
-            <Typography variant="body1">Формат навчання:</Typography>
-            <Typography variant="body1">
-              <b>
-                {course?.format === "Міні-група"
-                  ? "Онлайн-курс з Сенсеєм (Міні-група 2-5 чол.)"
-                  : "Індивідуально"}
-              </b>
-            </Typography>
-          </ContentCard>
+        {course && <CourseInfo course={course} />}
 
-          <ContentCard
-            className={cl.card}
-            width="345px"
-            height="135px"
-            cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
-          >
-            {course?.isGift ? (
-              <>
-                <Typography variant="body1">Обрана к-сть уроків:</Typography>
-                <Typography variant="body1" style={{ whiteSpace: "pre-line" }}>
-                  <b>{`${course?.lessons} онлайн-уроків\n(${
-                    course?.lessons! / (course?.lessonsPerWeek || 2)
-                  }тижнів навчання)`}</b>
-                </Typography>
-              </>
-            ) : (
-              <>
-                <Typography variant="body1" style={{ fontSize: "19px" }}>
-                  Занять в тиждень:
-                </Typography>
-                <Typography variant="body1">
-                  <b>
-                    {course?.format === "Міні-група"
-                      ? 2
-                      : course?.lessonsPerWeek || "Lessons per week"}{" "}
-                    заняття <br />в тиждень
-                  </b>
-                </Typography>
-              </>
-            )}
-          </ContentCard>
-
-          <ContentCard
-            className={cl.card}
-            width="345px"
-            height="135px"
-            cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
-          >
-            <Typography variant="body1">Тривалість онлайн-уроку:</Typography>
-            <Typography variant="body1">
-              <b>70 хвилин / заняття (рівень: JLPT {course?.level})</b>
-            </Typography>
-          </ContentCard>
-
-          <ContentCard
-            className={cl.card}
-            width="345px"
-            height="135px"
-            cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
-          >
-            {course?.isGift ? (
-              <>
-                <Typography variant="body1">Вид сертифікату:</Typography>
-                {course?.certificateType === "Електронний сертифікат" ? (
-                  <Typography variant="body1">
-                    <b>{"Електронний\nподарунковий сертифікат"}</b>
-                  </Typography>
-                ) : (
-                  <Typography variant="body1">
-                    <b style={{ whiteSpace: "pre" }}>
-                      {"Іменний Друкований\n+200грн(друк та доставка)"}
-                    </b>
-                  </Typography>
-                )}
-              </>
-            ) : (
-              <>
-                <Typography variant="body1">
-                  Обрана кількість уроків:
-                </Typography>
-
-                <Typography variant="body1">
-                  <b>
-                    {course?.lessons} онлайн-уроків <br />({studyDuration} 
-                    {studyDuration === 1
-                      ? "тиждень"
-                      : studyDuration < 5
-                      ? "тижня"
-                      : "тижнів"}{" "}
-                    навчання)
-                  </b>
-                </Typography>
-              </>
-            )}
-          </ContentCard>
-        </ContentCard>
         <div className={cl.line}></div>
-        <ContentCard width="410px" className={cl.priceCard}>
+        <ContentCard width="300px" className={cl.priceCard}>
           <Typography variant="h6">Сума до сплати:</Typography>
           <ContentCard
             className={cl.totalSum}
@@ -194,88 +93,81 @@ export default function Page() {
               {course?.price || "Ціна курсу"}
             </Typography>
           </ContentCard>
-          <Typography variant="subtitle1" style={{ lineHeight: "16px" }}>
-            {course?.isGift
-              ? "Просимо в призначені платежу\nвказати ваше прізвище та ініціали.\n(якщо Ви оплачуєте не зі своєї картки)"
-              : "Просимо в призначені платежу вказати прізвище та ініціали учня."}
-          </Typography>
         </ContentCard>
       </div>
 
-      <RequisitesSmall />
-
       {course?.isGift ? (
-        <Link href="/education/checkout">
-          <ContentCard width="585px" className={cl.thanks}>
-            <div>
-              <Typography variant="h5">З моменту здійснення оплати</Typography>
-              <Typography variant="body1">
-                отримуйте сертифікат протягом дня
+        <CertificateBlock
+          certificateType={course.certificateType!}
+          className={cl.thanks}
+        />
+      ) : (
+        <ContentCard width="640px" className={cl.thanks}>
+          <Typography
+            variant="body1"
+            style={{ fontSize: "20px", maxWidth: "494px" }}
+          >
+            Ми бачимо і цінуємо ваше бажання навчатись разом з нами! Після
+            оплати вашу заявку на навчання буде сформовано!
+          </Typography>
+          <Image
+            src={getIconArtSrc("clock")}
+            alt="Clock icon"
+            width={151}
+            height={116}
+            style={{ margin: "30px 0 20px" }}
+          />
+
+          <Typography
+            variant="body1"
+            style={{ fontSize: "18px", maxWidth: "575px", fontWeight: 400 }}
+          >
+            З моменту оплати/формування заявки на навчання ми почнемо її
+            опрацьовувати, після чого з вами зв’яжеться наш відділ Турботи, щоб
+            узгодити всі деталі стосовно розкладу до обраного курсу навчання з
+            японської мови!
+          </Typography>
+        </ContentCard>
+      )}
+
+      <div className={cl.paymentWrapper}>
+        <Button
+          className={cl.paymentBtn}
+          onClick={handleClick}
+          wrapperClass={cl.btnWrapper}
+        >
+          <ContentCard
+            className={cl.paymentCard}
+            cardBgColor="linear-gradient(rgba(255, 229, 221, 0.1), rgba(255,248, 181, 1))"
+          >
+            <Image
+              alt="Іконка кредитної картки"
+              src={getIconArtSrc("paymentCard")}
+              width={300}
+              height={200}
+              quality={100}
+              style={{ width: "62px", height: "49px" }}
+            />
+            <div className={cl.paymentText}>
+              <Typography variant="h6" style={{ lineHeight: "24px" }}>
+                Сплатити онлайн
+              </Typography>
+              <Typography variant="body2" style={{ fontSize: "18px" }}>
+                щоб сформувати заявку!
               </Typography>
             </div>
-
-            <Image
-              src={getIconArtSrc("certificate4")}
-              alt="Certificate"
-              width={106}
-              height={79}
-            />
-
-            <Link href="/education/checkout" target="_blank">
-              <div className={cl.btnWrapper}>
-                <Button
-                  className={cl.thanksBtn}
-                  variant="outlined"
-                  style={{ width: "auto" }}
-                >
-                  <Typography variant="body1">
-                    {"Подарунковий\nсертифікат"}
-                  </Typography>
-                </Button>
-                <Image
-                  src="/icons/arrowLong.svg"
-                  alt="arrow"
-                  width={65}
-                  height={55}
-                  className={cl.arrow}
-                />
-              </div>
-            </Link>
           </ContentCard>
-        </Link>
-      ) : (
-        <>
-          <Typography variant="h6" align="center" className={cl.thanksHeader}>
-            Після того, як ми побачимо вашу оплату по обраному курсу, ми
-            якнайшвидше розпочнемо формувати графік занять і сконтактуємось з
-            вами для його підтвердження!
-          </Typography>
+          <span className={cl.shine}></span>
+        </Button>
 
-          <ContentCard width="600px" className={cl.thanks}>
-            <Typography variant="body1">
-              Ми бачимо і цінуємо ваше бажання навчатись разом з нами! Після
-              оплати та успішного формування/погодження розкладу, Ви відразу
-              розпочинаєте вивчення японської мови!
-            </Typography>
-            <Image
-              src={getIconArtSrc("clock")}
-              alt="Clock icon"
-              width={125}
-              height={100}
-            />
-
-            <Typography variant="body1">
-              Всю інформацію стосовно навчального курсу було щойно надіслано на
-              вашу електронну скриньку!
-            </Typography>
-          </ContentCard>
-
-          <div className={cl.thanksBlock}>
-            <Typography variant="h6">Дякуємо, що обрали</Typography>
-            <Typography variant="h1">TanPoPo💛</Typography>
-          </div>
-        </>
-      )}
+        <Image
+          src={getIconSrc("arrowThinDown")}
+          alt="Стрілка"
+          width={51}
+          height={25}
+          style={{ rotate: "180deg", marginTop: "55px" }}
+        />
+      </div>
     </main>
   );
 }

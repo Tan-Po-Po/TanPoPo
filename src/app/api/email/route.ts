@@ -6,8 +6,6 @@ export async function POST(req: Request) {
   const url = new URL(req.url);
   const sheetName = url.searchParams.get("sheetName") as sheetName;
   const formData = await req.json();
-  console.log("=== email route ===");
-  console.log(formData);
 
   try {
     await sendEmail(sheetName, formData, formData.orderId);

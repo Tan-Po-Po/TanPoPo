@@ -74,7 +74,9 @@
   .divider {
     max-width: 100%;
     p {
+      padding: 4px 5px;
       text-transform: none;
+      font-size: 22px;
     }
   }
 
@@ -97,6 +99,23 @@
   .resultBlock {
     gap: 71px;
     align-items: center;
+    overflow: hidden;
+    .confetti {
+      position: absolute;
+      z-index: -1;
+      height: 80%;
+      width: auto;
+    }
+
+    .confettiLeft {
+      left: 100px;
+      animation: confettiAppearLeft 5s ease, breathing 5s ease infinite;
+    }
+
+    .confettiRight {
+      right: 100px;
+      animation: confettiAppearRight 5s ease, breathing 5s ease infinite;
+    }
 
     .info {
       @include flex-column;
@@ -128,6 +147,10 @@
   .checkoutMainResult {
     padding-bottom: $padding-page-tablet-bottom;
   }
+
+  .confetti {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
@@ -156,5 +179,34 @@
   }
   .checkoutMainResult {
     padding-bottom: $padding-page-mobile-bottom;
+  }
+}
+
+@keyframes confettiAppearLeft {
+  0% {
+    transform: translate(0, 0) scale(0) rotate(-15deg);
+  }
+  100% {
+    transform: translate(0) scale(1) rotate(0);
+  }
+}
+
+@keyframes confettiAppearRight {
+  0% {
+    transform: translate(0, 0) scale(0) rotate(15deg);
+  }
+  100% {
+    transform: translate(0) scale(1) rotate(0);
+  }
+}
+
+@keyframes breathing {
+  0% {
+  }
+  50% {
+    transform: scale(110%);
+  }
+  100% {
+    transform: scale(100%);
   }
 }

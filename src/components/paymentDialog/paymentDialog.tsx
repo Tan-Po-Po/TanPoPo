@@ -7,11 +7,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { getIconArtSrc } from "@/helpers";
 
-const PaymentDialog = () => {
+const PaymentDialog = ({ useParams = true }: { useParams?: boolean }) => {
   const searchParams = useSearchParams();
   const renderedTime = Date.now();
   const [open, setOpen] = useState(
-    searchParams.get("failedPayment") ? true : false
+    useParams ? (searchParams.get("failedPayment") ? true : false) : true
   );
 
   return (
@@ -26,10 +26,7 @@ const PaymentDialog = () => {
       contentClassName={cl.dialog}
     >
       <>
-        <Typography
-          variant="h6"
-          align="center"
-        >
+        <Typography variant="h6" align="center">
           Схоже, оплату не вдалось здійснити. Спробуйте ще раз.
         </Typography>
         <Image
@@ -39,10 +36,7 @@ const PaymentDialog = () => {
           height={118}
           style={{ margin: "40px 0 30px 0" }}
         />
-        <Typography
-          variant="subtitle1"
-          align="center"
-        >
+        <Typography variant="subtitle1" align="center">
           У разі повторних складнощів з оплатою: просимо зв’язатись з нашою {""}
           <Link href="/contacts#feedback">
             <u>службою Турботи</u>

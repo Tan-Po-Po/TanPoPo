@@ -100,7 +100,7 @@ export const librarySections = [
   },
   {
     href: "/library/quiz-and-vocabulary?page=1",
-    icon: "clopboard",
+    icon: "clipboard",
     body: "Quiz & Лексика",
     bgColor:
       "linear-gradient(rgba(184, 187, 255, 0.6), rgba(255, 192, 183, 0.8))",

@@ -6,6 +6,7 @@ import { Typography } from "@/components/typography/typography";
 import { getValidClassNames } from "@/helpers";
 import { TimeButton } from "./timeButton";
 import { time, days } from "../common";
+import { ISchedule } from "./type";
 
 type Properties = {
   setCounter: React.Dispatch<React.SetStateAction<number>>;
@@ -23,8 +24,9 @@ const Schedule: React.FC<Properties> = ({
   const [timeToSelect, setTimeToSelect] = useState(
     format === "Міні-група" || !format ? 12 : 10
   );
+
   useEffect(() => {
-    if (lessonsPerWeek) {
+    if (lessonsPerWeek && format !== "Міні-група") {
       switch (lessonsPerWeek) {
         case 1:
           setTimeToSelect(7);
@@ -37,7 +39,7 @@ const Schedule: React.FC<Properties> = ({
           break;
       }
     }
-  }, [lessonsPerWeek]);
+  }, [lessonsPerWeek, format]);
   return (
     <div className={cl.schedule}>
       <ContentCard width="910px" className={cl.header}>

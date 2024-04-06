@@ -61,14 +61,21 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
     if (isActiveStudent && cardState.link) {
       return router.push(cardState.link);
     }
+    
+    const courseLevel =
+      course.level.length > 1
+        ? `${course.level[0]}/${course.level.at(-1)}`
+        : course.level[0];
 
     const selectedCourse: Partial<CourseState> = {
+      id: course._id,
+      type: course.type,
       name: course.name,
       japanName: course.nameJapanese,
       format: cardState.learningFormat,
       lessons: +cardState.lessons.slice(0, 2).trim(),
       price: cardState.lessons.match(/\(([^)]+)\)/)![1],
-      level: course.level[0],
+      level: courseLevel,
       lessonsPerWeek: cardState.learningFormat === "Міні-група" ? 2 : null,
       isGift,
       backgroundColor: course.large.labelColor,

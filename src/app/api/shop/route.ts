@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
 import { Data } from "./type";
-import { checkOrder, googleDto, generateLiqpayLink } from "./helpers";
-import { GOOGLE_SCRIPT_URL, SERVER_URL } from "@/config/config";
+import { checkOrder, googleDto } from "./helpers";
 //@ts-expect-error
 import Liqpay from "liqpayjs-sdk";
-import { LIQPAY_PRIVATE_KEY, LIQPAY_PUBLIC_KEY } from "@/config/config";
+import {
+  LIQPAY_PRIVATE_KEY,
+  LIQPAY_PUBLIC_KEY,
+  GOOGLE_SCRIPT_URL,
+  SERVER_URL,
+} from "@/config/config";
 import { sendEmail } from "../_helpers/sendEmail";
+import { generateLiqpayLink } from "@/helpers";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
@@ -13,8 +18,6 @@ export async function POST(req: Request) {
   if (!orderCheck.success) {
     return NextResponse.json(orderCheck, { status: 422 });
   }
-  console.log(orderCheck);
-  console.log(formData);
 
   try {
     // Save order data in google sheets
@@ -48,20 +51,18 @@ export async function POST(req: Request) {
         action: "pay",
         amount: formData.totalPrice.final,
         currency: "UAH",
-        description: `Оплата замовлення ${orderId}`,
+        description: `Замовлення ${orderId}`,
         order_id: orderId,
         language: "uk",
         result_url: `${SERVER_URL}/shop/checkout/thanks?id=${orderId}`,
         server_url: `${SERVER_URL}/api/paymentStatus?sheetName=orders`,
       };
       const { data, signature } = liqpay.cnb_object(json_string);
-      // console.log(data);
-      // console.log(signature);
       const liqpayLink = generateLiqpayLink(data, signature);
       return NextResponse.json({ success: true, liqpayLink });
     }
   } catch (err: any) {
-    console.log(err);
+    console.error(err);
     return NextResponse.json(
       {
         message: "Помилка при формуванні замовлення, спробуйте ще раз пізніше",

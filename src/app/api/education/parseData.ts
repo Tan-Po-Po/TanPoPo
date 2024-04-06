@@ -44,13 +44,34 @@ export const parseData = (data: Data) => {
   } else {
     dateFinish.setDate(date.getDate() + 14);
   }
-  
+
   return {
-    date: date.toLocaleDateString(),
-    dateFinish: dateFinish.toLocaleDateString(),
+    price: Number(price?.slice(0, -3)),
+    date:
+      date.toLocaleDateString("uk", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+      }) +
+      ` (${date.toLocaleTimeString("uk", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })})`,
+    dateFinish:
+      dateFinish.toLocaleDateString("uk", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+      }) +
+      ` (${dateFinish.toLocaleTimeString("uk", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })})`,
+    status: "Початковий",
+    notes: "",
+
     courseName,
     lessons,
-    price,
     format,
     lessonsPerWeek,
     schedule: generateUrl(dataForUrl as Data),
