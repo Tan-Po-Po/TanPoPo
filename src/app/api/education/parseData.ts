@@ -52,20 +52,24 @@ export const parseData = (data: Data) => {
         day: "2-digit",
         month: "2-digit",
         year: "2-digit",
+        timeZone: 'Europe/Kiev'
       }) +
       ` (${date.toLocaleTimeString("uk", {
         hour: "2-digit",
         minute: "2-digit",
+        timeZone: 'Europe/Kiev'
       })})`,
     dateFinish:
       dateFinish.toLocaleDateString("uk", {
         day: "2-digit",
         month: "2-digit",
         year: "2-digit",
+        timeZone: 'Europe/Kiev'
       }) +
       ` (${dateFinish.toLocaleTimeString("uk", {
         hour: "2-digit",
         minute: "2-digit",
+        timeZone: 'Europe/Kiev'
       })})`,
     status: "Початковий",
     notes: "",
