@@ -6,7 +6,7 @@ export const checkCoursePrice = async (courseData: CourseState) => {
   try {
     await dbConnect();
     const courseDB = await Course.findById(courseData.id).select("prices");
-    console.log(courseDB);
+
     if (!courseDB) {
       return {
         success: false,
@@ -15,7 +15,7 @@ export const checkCoursePrice = async (courseData: CourseState) => {
       };
     }
     const course: Partial<ICourse> = JSON.parse(JSON.stringify(courseDB));
-    console.log(course);
+
     let lessonsPrice = 0;
     if (courseData.format === "Індивідуально") {
       lessonsPrice =
@@ -36,11 +36,10 @@ export const checkCoursePrice = async (courseData: CourseState) => {
     ) {
       lessonsPrice += 200;
     }
-    console.log(lessonsPrice);
-    console.log(Number(courseData.price?.split(" ")[0]));
+
     const isPriceEqual =
       lessonsPrice === Number(courseData.price?.split(" ")[0]);
-    console.log(isPriceEqual);
+      
     if (!isPriceEqual) {
       return {
         success: false,

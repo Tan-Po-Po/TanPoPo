@@ -96,7 +96,6 @@ export default function Page() {
 
     setLoading(true);
     scrollTo(0, 0);
-    console.log(JSON.stringify(dataToSend));
 
     fetch("/api/shop", {
       method: "POST",

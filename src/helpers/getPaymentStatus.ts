@@ -23,8 +23,6 @@ export const getPaymentStatus = async (order_id: string): Promise<status> => {
           language: "uk",
         },
         function (data: any) {
-          console.log("====getPaymentStatus====");
-          console.log(data.status);
           resolve(data.status);
         },
         function (error: any) {

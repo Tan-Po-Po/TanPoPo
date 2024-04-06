@@ -51,7 +51,7 @@ export default function Page() {
         ...studentInfo,
         orderId,
       };
-      console.log(JSON.stringify(dataToSend));
+
       const sheetName = courseRedux.isGift ? "certificates" : "courses";
       const res = await fetch(`/api/email?sheetName=${sheetName}`, {
         method: "POST",

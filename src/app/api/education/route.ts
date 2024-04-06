@@ -46,7 +46,7 @@ export async function POST(req: Request) {
       description: `Вивчення мови ${orderId}`,
       order_id: orderId,
       language: "uk",
-      result_url: `http://localhost:3000/education/checkout?id=${orderId}`, // change server_url
+      result_url: `${SERVER_URL}/education/checkout?id=${orderId}`, 
       server_url: `${SERVER_URL}/api/paymentStatus?sheetName=courses`,
     };
     const { data, signature } = liqpay.cnb_object(json_string);

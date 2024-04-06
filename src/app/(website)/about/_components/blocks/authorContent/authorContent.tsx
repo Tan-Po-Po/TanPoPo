@@ -31,7 +31,6 @@ const InstaCardContainer = () => {
       width="620px"
       className={cl.socialCard}
       onMouseEnter={() => {
-        console.log(instaHover);
         setInstaHover(true);
       }}
       onMouseLeave={() => setInstaHover(false)}

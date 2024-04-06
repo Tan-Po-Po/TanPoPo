@@ -62,7 +62,7 @@ export default function Page() {
   const [counter, setCounter] = React.useState(0);
   const [showErrors, setShowErrors] = React.useState(false);
   const [schedule, setSchedule] = React.useState<ISchedule>(scheduleArray);
-  console.log(schedule);
+
   const [comment, setComment] = React.useState("");
   const lessonsPerWeek = watch("lessonsPerWeek");
 

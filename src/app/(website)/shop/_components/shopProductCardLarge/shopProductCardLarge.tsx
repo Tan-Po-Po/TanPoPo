@@ -38,10 +38,8 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
     likes,
     inDevelopment,
   } = large;
-  console.log("====inDevelopment====");
-  console.log(inDevelopment);
+
   const availableVariant = variants.find((variant) => variant.isAvailable);
-  console.log(availableVariant);
   const [selectValue, setSelectValue] = useState(
     availableVariant?.value || variants[0].value
   );
@@ -65,9 +63,6 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
   if (isOnSale) {
     const now = new Date();
     const saleUntil = new Date(sale.until);
-    console.log(now);
-    console.log(saleUntil);
-    console.log(now < saleUntil);
   }
   const { width } = useWindowSize();
 

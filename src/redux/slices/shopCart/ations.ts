@@ -24,10 +24,7 @@ export const getShopItemFromDb = async (id: string, value: string) => {
   const variant = product.large?.variants.find(
     (variant) => variant.value === value
   );
-  console.log("====PRODUCT AND VARIANT===");
-  console.log(product);
-  console.log(variant);
-  console.log("==== END ===");
+
   let images = getCartItemImages({
     gallery: product.large!.gallery,
     itemValue: variant!.value,

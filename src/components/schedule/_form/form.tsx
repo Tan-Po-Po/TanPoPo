@@ -15,7 +15,7 @@ type Properties = {
 const Form: React.FC<Properties> = ({ formReturn, className }) => {
   const { control, getValues, watch } = formReturn;
   const isContactChecked = watch("contact");
-  console.log(isContactChecked);
+
   return (
     <ContentCard className={getValidClassNames(cl.form, className)}>
       <Typography variant="h6">Контактні дані майбутнього учня:</Typography>

@@ -24,8 +24,7 @@ const Schedule: React.FC<Properties> = ({
   const [timeToSelect, setTimeToSelect] = useState(
     format === "Міні-група" || !format ? 12 : 10
   );
-  console.log(format);
-  console.log(lessonsPerWeek);
+
   useEffect(() => {
     if (lessonsPerWeek && format !== "Міні-група") {
       switch (lessonsPerWeek) {

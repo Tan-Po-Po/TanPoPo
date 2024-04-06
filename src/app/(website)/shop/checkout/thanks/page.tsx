@@ -55,7 +55,7 @@ const PayLaterResult: React.FC = ({}) => {
             totalPrice: getTotalPrice(cart),
             orderId,
           };
-          console.log(JSON.stringify(dataToSend));
+
           const res = await fetch("/api/email?sheetName=orders", {
             method: "POST",
             body: JSON.stringify(dataToSend),

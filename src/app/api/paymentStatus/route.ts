@@ -26,8 +26,7 @@ export async function POST(req: NextRequest) {
   }
 
   const decodedData = JSON.parse(Buffer.from(data!, "base64").toString());
-  console.log("+++PAYMENT STATUS+++");
-  console.log(decodedData);
+
   let paymentStatus = "";
   switch (decodedData.status) {
     case "success":

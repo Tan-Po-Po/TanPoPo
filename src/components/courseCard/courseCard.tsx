@@ -45,7 +45,6 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
   const courseInfo = course.medium;
   const [isGift, setIsGift] = useState(false);
   const [lessons, setLessons] = useState<null | string>(null);
-  console.log(lessons);
   const [isAccepted, setIsAccepted] = useState(false);
   const [link, setLink] = useState<null | string>(null);
 
@@ -189,7 +188,6 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
         })}
         handleSelect={(value: string, link?: string) => {
           setLessons(value);
-          console.log(value);
           link && setLink(link);
         }}
         fixZIndex
