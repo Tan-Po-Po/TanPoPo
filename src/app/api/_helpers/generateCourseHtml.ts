@@ -237,7 +237,7 @@ export const generateCourseHtml = (formData: Data) => {
         ? `<div class="card" style="max-width: 650px;">
       <h1 style="font-size: 27px; color: #454545">Вартість навчання:</h1>
       <h1 style="font-size: 27px">${formData.price}</h1>
-      <a href="tanpopo.com.ua" class="btn">Оплата успішна!</a>
+      <a href="tanpopo.com.ua" class="btn" style="margin-top: 25px;">Оплата успішна!</a>
     </div>`
         : null
     }

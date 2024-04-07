@@ -35,7 +35,7 @@ import { useForm } from "react-hook-form";
 export default function Page() {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const deliveryInfo = useAppSelector(selectDeliveryInfo);
+  const deliveryInfo = useAppSelector(selectDeliveryInfo) as IDeliveryInfo;
   const courseInfo = useAppSelector(selectCourse);
   const formReturn = useForm<FormData>({
     defaultValues: {

@@ -197,12 +197,10 @@ export const generateOwnerCourseHtml = (formData: Data, orderId: string) => {
           })
           .join("")}
       </div>
-      <p style="font-size: 18px; font-weight: 700; margin-top: 30px">
-        Ми врахуємо ваші побажання стосовно днів та часу \nнавчання та зможемо швидше сформувати графік занять!</p>
     </div>
 
     ${
-      formData.contactName
+      formData.courseName
         ? `<div class="card course">
       <h1 style="color: #454545; font-size: 27px">Обраний курс:</h1>
       <h1 style="font-size: 27px">${formData.courseName}</h1>
@@ -218,9 +216,9 @@ export const generateOwnerCourseHtml = (formData: Data, orderId: string) => {
           : ""
       }
       <p><u>Обрана к-сть уроків</u>: ${formData.lessons} онлайн-уроків</p>
-      <p><u>Вартість навчання</u>: ${formData.price} грн</p>
+      <p><u>Вартість навчання</u>: ${formData.price}</p>
     </div>`
-        : null
+        : ""
     }
   </body>
 </html>
