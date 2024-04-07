@@ -80,6 +80,7 @@ export const deliveryInfoSlice = createSlice({
       return state;
     },
     clearDeliveryInfo: (state) => {
+      state = initialState;
       localStorage.removeItem("deliveryInfo");
       return state;
     },
