@@ -3,6 +3,7 @@
 * {
   scroll-margin-top: 100px;
   -webkit-text-stroke: 0.2px;
+  scroll-behavior: smooth !important;
 }
 
 ::selection {

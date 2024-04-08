@@ -63,6 +63,7 @@ export default function Page() {
       });
 
       if (!res.ok) {
+        setLoading(false);
         return toast("Сталася помилка, будь-ласка,оновіть сторінку");
       }
       setCourse(courseRedux);
