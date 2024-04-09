@@ -251,6 +251,16 @@
 }
 
 @media (max-width: 400px) {
+  .paymentWrapper {
+    .paymentBtn {
+      .paymentCard {
+        padding: 10px 22px;
+        flex-direction: row;
+        height: 91px;
+        width: 350px;
+      }
+    }
+  }
   .thanksHeader {
     line-height: 22px;
     font-size: 20px;

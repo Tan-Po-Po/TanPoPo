@@ -97,12 +97,11 @@ const CourseInfo: React.FC<Props> = ({ course }) => {
           cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
         >
           <Typography variant="body1">
-            Тривалість{" "}
             {course.type === "book"
               ? "Додатково"
               : ["teacher", "mega-course"].includes(course.type!)
-              ? "онлайн-уроку"
-              : "уроку"}
+              ? "Тривалість онлайн-уроку"
+              : "Тривалість уроку"}
             :
           </Typography>
           <Typography variant="body1">

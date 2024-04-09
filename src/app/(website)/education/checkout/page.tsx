@@ -43,6 +43,9 @@ export default function Page() {
       if (!(orderStatus === "success")) {
         router.push("/education/payment?failedPayment=true");
         return;
+      } else if (!courseRedux.name) {
+        router.push("/prices");
+        return;
       }
 
       const dataToSend = {

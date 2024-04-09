@@ -1,3 +1,4 @@
+import { socialLinks } from "@/config/config";
 import { Data } from "../shop/type";
 
 export const generateShopHtml = (orderData: Data, orderId: string) => {
@@ -79,7 +80,7 @@ export const generateShopHtml = (orderData: Data, orderId: string) => {
         border: 2px solid #000;
         justify-content: center;
         align-items: center;
-        padding: 33px 10px;
+        padding: 33px;
         gap: 29px;
       }
       .container {
@@ -126,7 +127,7 @@ export const generateShopHtml = (orderData: Data, orderId: string) => {
       <p>Номер замовлення: <b>${orderId}</b></p>
     </div>
 
-    <div class="card" style="display: flex; max-width: 800px">
+    <div class="card" style="display: flex; max-width: 800px; min-width: 800px">
       <div style="margin-right: 30px;">
         <p>Обрані товари</p>
         ${orderData.items
@@ -134,13 +135,13 @@ export const generateShopHtml = (orderData: Data, orderId: string) => {
             return `
         <div
           class="card"
-          style="display: flex; padding: 0; overflow: hidden; margin-top: 30px; max-width: 350px; height: 72px"
+          style="display: flex; padding: 0; overflow: hidden; margin-top: 30px; max-width: 400px; height: 72px"
         >
           <img class="img" src='${
             item.images[0]
           }' width="auto" height="72px" style="margin: 0"/>
           <div style="height: fit-content; margin: auto; padding: 10px 20px">
-            <p style="font-size: 18px">
+            <p style="font-size: 18px; width: 300px;">
               <b>${item.name.replace("\n", " ")}</b>
             </p>
             ${
@@ -165,7 +166,7 @@ export const generateShopHtml = (orderData: Data, orderId: string) => {
       : ""
   }
       </div>
-      <div style="margin: 0 auto;">
+      <div style="margin: 0 50px 0 auto;">
         <p>Кількість</p>
         ${orderData.items
           .map((item) => {
@@ -271,19 +272,19 @@ export const generateShopHtml = (orderData: Data, orderId: string) => {
       <h1>Дякуємо, що обрали \nTanPoPo💛</h1>
       <img class="img" src="cid:girl" width="170px" height="177px" />
       <div>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.instagram}" class="socials"
           ><img src="cid:instagram" width="43px" height="43px"
         /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.tikTok}" class="socials"
           ><img src="cid:tikTok" width="43px" height="43px"
         /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.youTube}" class="socials"
           ><img src="cid:youtube" width="50px"
         /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.telegram}" class="socials"
           ><img src="cid:telegram" width="45px"
         /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.viber}" class="socials"
           ><img src="cid:viber" width="42px"
         /></a>
       </div>

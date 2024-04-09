@@ -6,11 +6,15 @@ import Image from "next/image";
 import Link from "next/link";
 import cl from "./courseFormats.module.scss";
 
-const CourseFormats = ({ className }: { className?: string }) => {
+type Properties = {
+  className?: string;
+  coursesHref?: boolean;
+};
+const CourseFormats = ({ className, coursesHref = false }: Properties) => {
   return (
     <div className={getValidClassNames(cl.formats, className)}>
       <div className={cl.formatWrapper}>
-        <Link href="/education/sensei">
+        <Link href={coursesHref ? "/courses#teacher" : "/education/sensei"}>
           <ContentCard
             cardBgColor="linear-gradient(rgba(173, 240, 255, 1), rgba(235, 191, 255, 1))"
             height="250px"
@@ -37,7 +41,7 @@ const CourseFormats = ({ className }: { className?: string }) => {
       </div>
 
       <div className={cl.formatWrapper}>
-        <Link href="/education/self">
+        <Link href={coursesHref ? "/courses#video" : "/education/self"}>
           <ContentCard
             cardBgColor="linear-gradient(rgba(253, 255, 173, 1), rgba(255, 191, 214, 1))"
             height="250px"

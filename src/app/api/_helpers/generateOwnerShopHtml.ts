@@ -44,33 +44,6 @@ export const generateOwnerShopHtml = (orderData: Data, orderId: string) => {
       u {
         color: #454545;
       }
-      .day {
-        margin: auto;
-      }
-      .time {
-        box-sizing: border-box;
-        width: 110px;
-        height: 40px;
-        padding: 5px;
-        text-align: center;
-        margin: 5px;
-        border: 2px solid black;
-        border-radius: 10px;
-      }
-      .time p {
-        width: 100%;
-        margin: 0;
-        font-size: 16px;
-      }
-      .inappropriate {
-        background: #e1edff;
-      }
-      .maybe {
-        background: #fff48d;
-      }
-      .perfect {
-        background: #caffbd;
-      }
       .card {
         max-width: 950px;
         margin: 50px auto 0;
@@ -79,7 +52,7 @@ export const generateOwnerShopHtml = (orderData: Data, orderId: string) => {
         border: 2px solid #000;
         justify-content: center;
         align-items: center;
-        padding: 33px 10px;
+        padding: 33px;
         gap: 29px;
       }
       .container {
@@ -126,7 +99,7 @@ export const generateOwnerShopHtml = (orderData: Data, orderId: string) => {
       <p>Номер замовлення: <b>${orderId}</b></p>
     </div>
 
-    <div class="card" style="display: flex; max-width: 800px">
+    <div class="card" style="display: flex; max-width: 800px; min-width: 800px">
       <div style="margin-right: 30px;">
         <p>Обрані товари</p>
         ${orderData.items
@@ -134,12 +107,12 @@ export const generateOwnerShopHtml = (orderData: Data, orderId: string) => {
             return `
         <div
           class="card"
-          style="display: flex; padding: 0; overflow: hidden; margin-top: 30px; max-width: 350px; height: 72px"
+          style="display: flex; padding: 0; overflow: hidden; margin-top: 30px; max-width: 400px; height: 72px"
         >
           <img class="img" src='${
             item.images[0]
           }' width="auto" height="72px" style="margin: 0"/>
-          <div style="height: fit-content; margin: auto; padding: 10px 20px">
+          <div style="height: fit-content; margin: auto; padding: 10px 20px; width: 300px;">
             <p style="font-size: 18px">
               <b>${item.name.replace("\n", " ")}</b>
             </p>
@@ -165,7 +138,7 @@ export const generateOwnerShopHtml = (orderData: Data, orderId: string) => {
       : ""
   }
       </div>
-      <div style="margin: 0 auto;">
+      <div style="margin: 0 50px 0 auto;">
         <p>Кількість</p>
         ${orderData.items
           .map((item) => {

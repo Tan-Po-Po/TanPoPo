@@ -1,9 +1,9 @@
 export const socialLinks = {
   instagram: "https://www.instagram.com/tanpopo_nihongo/",
-  tikTok: "https://www.instagram.com/tanpopo_nihongo/",
+  tikTok: "https://www.tiktok.com/@tanpopo_nihongo?_t=8lM5L5jKfGo&_r=1",
   youTube: "http://www.youtube.com/@tanpopo_nihongo",
-  telegram: "https://www.instagram.com/tanpopo_nihongo/",
-  viber: "https://www.instagram.com/tanpopo_nihongo/",
+  telegram: "https://t.me/tanpopo_school/",
+  viber: "viber://chat?number=%2B380687987878/",
 };
 
 export const NODEMAILER_EMAIL = process.env.NODEMAILER_EMAIL;

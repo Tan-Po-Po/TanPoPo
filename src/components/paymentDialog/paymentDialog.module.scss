@@ -9,6 +9,8 @@
   max-width: 535px;
   padding: 35px 40px;
   box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: visible;
 
   h6 {
     font-size: 23px;
@@ -22,12 +24,22 @@
   }
 }
 
+.greyText {
+  position: absolute;
+  top: calc(100% + 30px);
+  color: #ffffff;
+  text-shadow: 0 4px 4px rgba(255, 255, 255, 0.5);
+}
+
 @media (max-width: 500px) {
+  .closeIcon {
+    top: 0 !important;
+  }
   .dialog {
     padding: 25px 10px;
     h6 {
-      font-size: 20px ;
-      line-height: 25px ;
+      font-size: 20px;
+      line-height: 25px;
     }
     span {
       font-size: 16px;

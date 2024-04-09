@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="uk" className={`${heisei.variable} ${comfortaa.variable}`}>
       <link rel="icon" href="/logo/favicon.png" />
-      <body style={{ paddingTop: "70px" }}>
+      <body>
         <Providers>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </Providers>

@@ -5,9 +5,14 @@ import React, { useState } from "react";
 import cl from "./paymentDialog.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { getIconArtSrc } from "@/helpers";
+import { getIconArtSrc, getValidClassNames } from "@/helpers";
+import { socialLinks } from "@/config/config";
 
-const PaymentDialog = ({ useParams = true }: { useParams?: boolean }) => {
+type Params = {
+  useParams?: boolean;
+  variant?: "course" | "gift";
+};
+const PaymentDialog = ({ useParams = true, variant }: Params) => {
   const searchParams = useSearchParams();
   const renderedTime = Date.now();
   const [open, setOpen] = useState(
@@ -23,6 +28,7 @@ const PaymentDialog = ({ useParams = true }: { useParams?: boolean }) => {
           setOpen(false);
         }
       }}
+      closeIconClassName={cl.closeIcon}
       contentClassName={cl.dialog}
     >
       <>
@@ -36,10 +42,37 @@ const PaymentDialog = ({ useParams = true }: { useParams?: boolean }) => {
           height={118}
           style={{ margin: "40px 0 30px 0" }}
         />
-        <Typography variant="subtitle1" align="center">
-          У разі повторних складнощів з оплатою: просимо зв’язатись з нашою {""}
-          <Link href="/contacts#feedback">
-            <u>службою Турботи</u>
+        {Boolean(variant) && (
+          <Typography
+            variant="body1"
+            align="center"
+            style={{ fontSize: "21px", fontWeight: "700" }}
+          >
+            Звертаємо вашу увагу: не зробивши оплати{" "}
+            {variant === "course" ? "по обраному" : "подарункового"} курсу, ваша
+            заявка не буде повністю сформована!
+          </Typography>
+        )}
+        <Typography
+          variant="subtitle1"
+          align="center"
+          className={getValidClassNames(variant && cl.greyText)}
+        >
+          У разі повторних складнощів з оплатою: просимо зв’язатись з нашою
+          службою Турботи:
+          <br />
+          <Link
+            href={socialLinks.telegram}
+            style={{ fontSize: "18px", fontWeight: "800" }}
+          >
+            <u>Telegram</u>
+          </Link>
+          /
+          <Link
+            href={socialLinks.viber}
+            style={{ fontSize: "18px", fontWeight: "800" }}
+          >
+            <u>Viber</u>
           </Link>
           .
         </Typography>

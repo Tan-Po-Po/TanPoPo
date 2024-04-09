@@ -14,17 +14,18 @@ import { generateLiqpayLink } from "@/helpers";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
-
+  console.log(formData)
   const priceCheck = await checkCoursePrice(formData);
   if (!priceCheck.success) {
     return NextResponse.json(priceCheck, { status: 422 });
   }
-  
+  console.log(priceCheck)
   const googleData = {
     sheetName: "courses",
     formData: parseData(formData),
   };
 
+  
   try {
     const google = await fetch(GOOGLE_SCRIPT_URL as string, {
       method: "POST",
@@ -35,7 +36,7 @@ export async function POST(req: Request) {
       },
     });
     const orderId = await google.text();
-
+    console.log(orderId)
     // Generate liqpay link
     const liqpay = new Liqpay(LIQPAY_PUBLIC_KEY, LIQPAY_PRIVATE_KEY);
     const json_string = {

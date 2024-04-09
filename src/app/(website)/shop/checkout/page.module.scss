@@ -70,7 +70,8 @@
   padding: $padding-page;
   align-items: center;
   gap: 71px;
-
+  position: relative;
+  overflow-x: hidden;
   .divider {
     max-width: 100%;
     p {
@@ -108,12 +109,12 @@
     }
 
     .confettiLeft {
-      left: 100px;
+      left: 0;
       animation: confettiAppearLeft 5s ease, breathing 5s ease infinite;
     }
 
     .confettiRight {
-      right: 100px;
+      right: 0;
       animation: confettiAppearRight 5s ease, breathing 5s ease infinite;
     }
 

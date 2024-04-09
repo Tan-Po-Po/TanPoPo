@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
   let paymentStatus = "";
   switch (decodedData.status) {
     case "success":
-      paymentStatus = "Виконано";
+      paymentStatus = "Успішно";
       break;
     case "error":
       paymentStatus = "Відхилено";

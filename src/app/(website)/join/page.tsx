@@ -36,7 +36,7 @@ export default function Join() {
     isChecked
       ? (setLoading(true),
         setTimeout(
-          () => router.push("https://www.youtube.com/watch?v=dQw4w9WgXcQ"),
+          () => router.push("https://school.tanpopo.com.ua/register"),
           3000
         ))
       : toast(

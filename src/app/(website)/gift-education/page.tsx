@@ -91,7 +91,7 @@ export default function Home() {
         bgColor="linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)"
       />
 
-      <CourseFormats className={cl.formats} />
+      <CourseFormats className={cl.formats} coursesHref/>
     </main>
   );
 }

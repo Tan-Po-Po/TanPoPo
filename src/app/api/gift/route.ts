@@ -14,8 +14,9 @@ import { generateLiqpayLink } from "@/helpers";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
-
+  console.log(formData);
   const priceCheck = await checkCoursePrice(formData);
+  console.log(priceCheck);
   if (!priceCheck.success) {
     return NextResponse.json(priceCheck, { status: 422 });
   }
@@ -35,6 +36,7 @@ export async function POST(req: Request) {
       },
     });
     const orderId = await google.text();
+    console.log(orderId);
     // Generate liqpay link
     const liqpay = new Liqpay(LIQPAY_PUBLIC_KEY, LIQPAY_PRIVATE_KEY);
     const json_string = {
@@ -45,7 +47,7 @@ export async function POST(req: Request) {
       description: `Вивчення мови ${orderId}`,
       order_id: orderId,
       language: "uk",
-      result_url: `${SERVER_URL}/education/checkout?id=${orderId}`, 
+      result_url: `${SERVER_URL}/education/checkout?id=${orderId}`,
       server_url: `${SERVER_URL}/api/paymentStatus?sheetName=certificates`,
     };
     const { data, signature } = liqpay.cnb_object(json_string);

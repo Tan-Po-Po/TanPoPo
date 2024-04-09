@@ -11,16 +11,24 @@ import {
 import { getIconArtSrc, getIconSrc } from "@/helpers";
 import Image from "next/image";
 import cl from "./page.module.scss";
-import { CourseState, selectCourse } from "@/redux/slices/course/courseSlice";
-import { useAppSelector } from "@/redux/hooks";
-import { useRouter } from "next/navigation";
+import {
+  CourseState,
+  clearCourse,
+  selectCourse,
+} from "@/redux/slices/course/courseSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { CourseInfo } from "./_courseInfo/courseInfo";
 import { CertificateBlock } from "./_cerificateBlock/certificateBlock";
+import { selectDeliveryInfo } from "@/redux/slices/deliveryInfo/deliveryInfoSlice";
 
 export default function Page() {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const courseRedux = useAppSelector(selectCourse);
+  const deliveryInfoRedux = useAppSelector(selectDeliveryInfo);
+  const searchParams = useSearchParams();
 
   const [loading, setLoading] = useState(true);
   const [course, setCourse] = useState<CourseState>();
@@ -39,7 +47,51 @@ export default function Page() {
   }, [courseRedux, router]);
 
   const handleClick = async () => {
-    if (courseRedux.liqpayLink) {
+    const failedPayment = searchParams.get("failedPayment");
+    if (failedPayment) {
+      const apiEndpoint = courseRedux.isGift ? "gift" : "education";
+
+      const data = {
+        ...courseRedux,
+        ...deliveryInfoRedux,
+        courseName: courseRedux.name,
+      };
+      setLoading(true);
+      scrollTo(0, 0);
+      fetch(`/api/${apiEndpoint}`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      })
+        .then(async (res) => {
+          const responseData = await res.json();
+          console.log(responseData);
+          // If price changed or course is not available anymore
+          if (res.status === 422) {
+            setLoading(false);
+            dispatch(clearCourse());
+            toast(responseData.message);
+            return setTimeout(() => router.push("/prices"), 3000);
+          }
+
+          if (!res.ok) {
+            setLoading(false);
+            return toast("Сталася помилка, спробуйте ще раз пізніше");
+          }
+
+          router.push(responseData.liqpayLink);
+          return;
+        })
+        .catch((error) => {
+          setLoading(false);
+          toast(
+            "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
+          );
+        });
+    } else if (courseRedux.liqpayLink) {
       return router.push(courseRedux.liqpayLink);
     } else {
       toast("Щось пішло не так, спробуйте ще раз пізіше");
@@ -56,7 +108,7 @@ export default function Page() {
   return (
     <main className={cl.main}>
       <Suspense fallback={<></>}>
-        <PaymentDialog />
+        <PaymentDialog variant={courseRedux.isGift ? "gift" : "course"} />
       </Suspense>
 
       <Divider

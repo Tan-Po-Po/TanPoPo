@@ -75,7 +75,7 @@ const Header = () => {
           <IconLink icon="youTube" height="32px" />
         </div>
         <div className={cl.auth}>
-          <Link href={"/join"}>
+          <Link href={"https://school.tanpopo.com.ua/login"}>
             <Button icon="hat">Вхід</Button>
           </Link>
           <Link href={"/join"}>
