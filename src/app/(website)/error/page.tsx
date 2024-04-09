@@ -3,7 +3,13 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Error | Tanpopo",
 };
-export default function Home() {
+const getData = async () => {
+  const data = "Some data";
   throw new Error();
-  return <main>Error page</main>;
+  return data;
+};
+
+export default async function Home() {
+  const result = await getData();
+  return <main>Error page: {result}</main>;
 }
