@@ -147,13 +147,13 @@ export const sendEmail = async (
               cid: "school",
             },
             {
-              filename: "girlStudent.png",
+              filename: "girl.png",
               path: path.join(
                 process.cwd(),
                 "public",
                 "icons",
                 "art",
-                "girlStudent.png"
+                "girl.png"
               ),
               cid: "girl",
             },

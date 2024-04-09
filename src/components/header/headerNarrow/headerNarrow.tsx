@@ -124,7 +124,7 @@ export const HeaderNarrow = () => {
                 <Button className={cl.button}>Долучитись</Button>
               </Link>
 
-              <Link href="/join">
+              <Link href="https://school.tanpopo.com.ua/login">
                 <Button className={cl.button}>Вхід</Button>
               </Link>
             </div>

@@ -1,8 +1,8 @@
 @import "./normalize.scss";
 
 * {
-  scroll-margin-top: 100px;
   -webkit-text-stroke: 0.2px;
+  // scroll-behavior: smooth !important;
 }
 
 ::selection {
@@ -20,6 +20,7 @@ a {
 html {
   font-weight: 500;
   font-family: var(--font-comfortaa);
+  scroll-behavior: smooth !important;
 }
 
 body {
@@ -28,6 +29,9 @@ body {
   width: 100%;
   margin: 0 auto;
   min-height: 100vh;
+  * {
+    scroll-margin-top: 100px;
+  }
 }
 
 section {
@@ -132,6 +136,10 @@ main {
 
 .slick-slider {
   transition: z-index 0;
+}
+
+.smoothScroll {
+  scroll-behavior: smooth;
 }
 
 body:has(div.MuiDialog-root) {

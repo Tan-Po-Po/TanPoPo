@@ -149,6 +149,7 @@ export default function Page() {
 
   useEffect(() => {
     document.title = "Розклад | Tanpopo";
+    scrollTo(0, 0);
   }, []);
 
   useEffect(() => {

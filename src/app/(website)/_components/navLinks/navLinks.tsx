@@ -21,7 +21,7 @@ export function NavLinks() {
         {content}
       </Dialog>
       <section className={cl.navLinks}>
-        <Link href="#personalCabinet">
+        <Link href="#personalCabinet" scroll>
           <ContentCard className={cl.card} width="283px" height="261px">
             <Image
               src={getIconArtSrc("laptop2")}

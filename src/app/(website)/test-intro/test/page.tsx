@@ -83,35 +83,42 @@ export default function Test() {
 
     // for the last question on this level
     if (testIndex === level.tests.length - 1) {
+      setLoading(true);
       if (points.current >= pointsToProceed) {
         if (levelIndex === textContent.length - 1) {
           setTestResult({ activeLevel: level.level, nextLevel: level.level });
-          window && window.scrollTo(0, 0)
+          window && window.scrollTo(0, 0);
           return;
         }
 
         setLevelIndex((prevIndex) => prevIndex + 1);
         setTestIndex(0);
         points.current = 0;
-        setLoading(true);
+
         setTimeout(() => {
           setLoading(false);
         }, 2500);
-        return
+        return;
       } else if (points.current < pointsToProceed) {
         if (levelIndex === 0) {
           setTestResult({
             activeLevel: "N0",
             nextLevel: textContent[levelIndex].level,
-          });  
+          });
+          setTimeout(() => {
+            setLoading(false);
+          }, 2500);
         } else {
           setTestResult({
             activeLevel: textContent[levelIndex - 1].level,
             nextLevel: textContent[levelIndex].level,
           });
+          setTimeout(() => {
+            setLoading(false);
+          }, 2500);
         }
-        window && window.scrollTo(0, 0)
-        return
+        window && window.scrollTo(0, 0);
+        return;
       }
     }
 

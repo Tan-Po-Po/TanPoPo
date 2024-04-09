@@ -106,7 +106,7 @@ export const generateOwnerCertificateHtml = (formData: Data) => {
       </div>
     </div>
 
-    <div class="card" style="width: 100%">
+    <div class="card" style="width: 100%; min-width:850px">
       <div>
         <h3>Обраний подарунковий курс:</h3>
         <h3>Мовний ніндзя</h3>

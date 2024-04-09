@@ -1,4 +1,5 @@
 import { Data } from "../gift/type";
+import { socialLinks } from "@/config/config";
 
 export const generateCertificateHtml = (formData: Data) => {
   return `<html lang="en">
@@ -114,7 +115,7 @@ export const generateCertificateHtml = (formData: Data) => {
       </div>
     </div>
 
-    <div class="card" style="width: 100%">
+    <div class="card" style="width: 100%; min-width:850px">
       <div>
         <h3>Обраний подарунковий курс:</h3>
         <h3>${formData.courseName}</h3>
@@ -178,19 +179,19 @@ export const generateCertificateHtml = (formData: Data) => {
       <h1>Дякуємо, що обрали \nTanPoPo💛</h1>
       <img class="img" src="cid:girl" width="170px" height="177px" />
       <div>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.instagram}" class="socials"
           ><img src="cid:instagram" width="43px" height="43px"
         /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.tikTok}" class="socials"
           ><img src="cid:tikTok" width="43px" height="43px"
         /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.youTube}" class="socials"
           ><img src="cid:youtube" width="50px"
         /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.telegram}" class="socials"
           ><img src="cid:telegram" width="45px"
         /></a>
-        <a href="https://www.instagram.com/tanpopo_nihongo/" class="socials"
+        <a href="${socialLinks.viber}" class="socials"
           ><img src="cid:viber" width="42px"
         /></a>
       </div>

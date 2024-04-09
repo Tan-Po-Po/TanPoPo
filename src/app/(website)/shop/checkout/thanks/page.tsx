@@ -46,6 +46,9 @@ const PayLaterResult: React.FC = ({}) => {
         if (!(orderStatus === "success")) {
           router.push("/shop/checkout?failedPayment=true");
           return;
+        } else if (!cart.items.length) {
+          router.push("/shop");
+          return;
         }
 
         if (cart.items.length) {

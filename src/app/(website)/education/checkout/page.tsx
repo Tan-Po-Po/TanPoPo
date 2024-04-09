@@ -43,6 +43,9 @@ export default function Page() {
       if (!(orderStatus === "success")) {
         router.push("/education/payment?failedPayment=true");
         return;
+      } else if (!courseRedux.name) {
+        router.push("/prices");
+        return;
       }
 
       const dataToSend = {
@@ -63,6 +66,7 @@ export default function Page() {
       });
 
       if (!res.ok) {
+        setLoading(false);
         return toast("Сталася помилка, будь-ласка,оновіть сторінку");
       }
       setCourse(courseRedux);

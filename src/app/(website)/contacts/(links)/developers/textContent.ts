@@ -24,7 +24,7 @@ export const textContent = {
       name: "Таргонський Павло",
       socials: {
         gitHub: "https://github.com/ptarho",
-        linkedIn: "",
+        linkedIn: "https://www.linkedin.com/in/ptarhonskyi/",
         telegram: "https://t.me/ptarho",
         email: "ptarhonskyi@gmail.com",
       },
@@ -38,7 +38,7 @@ export const textContent = {
       name: "Турбовський Антон",
       socials: {
         gitHub: "https://github.com/JonathanDump",
-        linkedIn: "",
+        linkedIn: "https://www.linkedin.com/in/anton-turbovskyi-6b02012b3/",
         telegram: "https://t.me/anton_turb",
         email: "antonturbovsky@gmail.com",
       },
