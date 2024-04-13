@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "Контакти | Tanpopo",
 };
 const dividerBgColor = "linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)";
-export const revalidate = 3600;
+export const revalidate = 1;
 
 export default async function Contacts() {
   const guides = await getGuides();

@@ -110,8 +110,8 @@ const TeamMemberCard: React.FC<Props> = ({ teamMember }) => {
                 ></Image>
                 <div className={cl.text}>Досвід сенсея:</div>
               </div>
-              {certificates.keyPoints.map((item) => (
-                <div className={cl.keyPoint} key={item}>
+              {certificates.keyPoints.map((item, idx) => (
+                <div className={cl.keyPoint} key={idx}>
                   {item}
                 </div>
               ))}

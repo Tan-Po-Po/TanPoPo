@@ -118,3 +118,11 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .header {
+    br {
+      display: none;
+    }
+  }
+}

@@ -115,7 +115,7 @@ export const generateCertificateHtml = (formData: Data) => {
       </div>
     </div>
 
-    <div class="card" style="width: 100%; min-width:850px">
+    <div class="card" style="min-width:850px">
       <div>
         <h3>Обраний подарунковий курс:</h3>
         <h3>${formData.courseName}</h3>
