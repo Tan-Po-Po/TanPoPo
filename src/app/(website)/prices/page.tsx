@@ -16,6 +16,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Вартість курсів | Tanpopo",
 };
+
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
   const courses = (await Course.find()
@@ -31,7 +32,7 @@ async function getCourses(): Promise<ICourse[]> {
 
   return courses.map((course) => JSON.parse(JSON.stringify(course)));
 }
-export const revalidate = 600;
+export const revalidate = 1;
 
 export default async function Home() {
   const coursesDB = await getCourses();

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Про школу | Tanpopo",
 };
 
-export const revalidate = 3600;
+export const revalidate = 1;
 
 export default async function About() {
   const [teamMembers, partners, feedbacks] = await Promise.all([

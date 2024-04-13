@@ -21,7 +21,6 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { submitTeacherSurveyForm } from "./actions/actions";
 import { useRouter } from "next/navigation";
 
-
 const Page = () => {
   const {
     control,
@@ -40,7 +39,7 @@ const Page = () => {
   const router = useRouter();
 
   const [isLoading, setIsLoading] = useState(false);
-  
+
   useEffect(() => {
     document.title = "Кар'єра  | Tanpopo";
   }, []);
@@ -78,8 +77,8 @@ const Page = () => {
     }
 
     toast(
-      "Ми бачимо і цінуємо ваше бажанняпрацювати в команді TanPoPo⭐ Невдовзі ми розглянемо вашу заявку іобов’язково сконтактуємось з Вами!",
-      { autoClose: 5000 }
+      "Ми бачимо і цінуємо ваше бажання працювати в команді TanPoPo⭐ Невдовзі ми розглянемо вашу заявку і обов’язково сконтактуємось з Вами!",
+      { autoClose: 14000 }
     );
     router.push("/");
   };
@@ -94,7 +93,7 @@ const Page = () => {
 
   return (
     <main className={cl.main}>
-      <Typography variant="h4" align="center">
+      <Typography variant="h4" align="center" className={cl.header}>
         Бажаєте долучитись до <br /> нашої команди TanPoPo?
       </Typography>
 
@@ -192,6 +191,7 @@ const Page = () => {
                   {...field}
                   label="Дата народження"
                   views={["day", "month", "year"]}
+                  format="DD-MM-YYYY"
                 />
               )}
             />
