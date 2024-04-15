@@ -23,7 +23,7 @@ const Pagination: React.FC<Properties> = ({ pages, className }) => {
   const pagesArray = new Array(pages).fill(0);
   let index = 0;
 
-  if (pages > PAGES_TO_SHOW ?? (width && width > 500)) {
+  if (pages > PAGES_TO_SHOW ?? (width && width > 767)) {
     if (
       pages - activePage >= PAGES_TO_SHOW / 2 &&
       activePage > PAGES_TO_SHOW / 2
@@ -60,7 +60,7 @@ const Pagination: React.FC<Properties> = ({ pages, className }) => {
           className={cl.pages}
           style={{
             transform:
-              width && width > 500 ? `translateX(${-60 * index}px)` : "",
+              width && width > 767 ? `translateX(${-60 * index}px)` : "",
           }}
         >
           {pagesArray.map((_, idx) => {

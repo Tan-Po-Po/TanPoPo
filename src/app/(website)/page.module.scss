@@ -477,7 +477,7 @@
 }
 
 .errorPage {
-  padding: 60px 10px 80px;
+  padding: 115px 10px 80px;
   gap: 0px;
 
   .errorCard {
@@ -663,7 +663,7 @@
   .main {
     padding-left: 6px;
     padding-right: 6px;
-    padding-top: 40px;
+    padding-top: 110px;
     padding-bottom: $padding-page-mobile-bottom;
     gap: 75px;
   }
@@ -753,6 +753,7 @@
   }
 
   .courses {
+    scroll-margin-top: 140px;
     margin-top: 42px;
     gap: 50px;
     h3 {

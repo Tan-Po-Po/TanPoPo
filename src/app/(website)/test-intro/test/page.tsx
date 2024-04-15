@@ -84,10 +84,11 @@ export default function Test() {
     // for the last question on this level
     if (testIndex === level.tests.length - 1) {
       setLoading(true);
+      window && window.scrollTo(0, 0);
+
       if (points.current >= pointsToProceed) {
         if (levelIndex === textContent.length - 1) {
           setTestResult({ activeLevel: level.level, nextLevel: level.level });
-          window && window.scrollTo(0, 0);
           return;
         }
 
@@ -117,7 +118,6 @@ export default function Test() {
             setLoading(false);
           }, 2500);
         }
-        window && window.scrollTo(0, 0);
         return;
       }
     }

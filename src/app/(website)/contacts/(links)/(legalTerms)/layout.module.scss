@@ -1,7 +1,7 @@
 .layout {
   @include flex-column;
   padding: $padding-page;
-  padding-top: 47px;
+  padding-top: 100px;
   gap: 80px;
   max-width: 1390px;
   width: 100%;
@@ -96,6 +96,7 @@
 
 @media (max-width: 400px) {
   .layout {
+    padding: 100px 10px 70px;
     .block1 {
       .links {
         .linkCard {

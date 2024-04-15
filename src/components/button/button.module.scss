@@ -17,7 +17,7 @@
       z-index: 3;
       transform-origin: bottom right;
       animation: buttonIconRotateToInitial 0.2s forwards;
-      scale: 0;
+      // scale: 0;
     }
   }
 
@@ -135,6 +135,7 @@
 
 @keyframes buttonIconRotateToInitial {
   0% {
+    scale: 1;
   }
   100% {
     scale: 0;

@@ -14,18 +14,18 @@ import { generateLiqpayLink } from "@/helpers";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
-  console.log(formData)
+
   const priceCheck = await checkCoursePrice(formData);
   if (!priceCheck.success) {
     return NextResponse.json(priceCheck, { status: 422 });
   }
-  console.log(priceCheck)
+
   const googleData = {
     sheetName: "courses",
     formData: parseData(formData),
   };
 
-  
+
   try {
     const google = await fetch(GOOGLE_SCRIPT_URL as string, {
       method: "POST",

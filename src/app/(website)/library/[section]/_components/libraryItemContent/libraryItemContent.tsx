@@ -27,7 +27,7 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
     openLibraryItem();
   };
 
-  const getPara = (item: ILibraryItemContent) => {
+  const getParagraph = (item: ILibraryItemContent) => {
     return item.paragraph!.map((item, i) => (
       <Typography
         key={item.id}
@@ -49,8 +49,8 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
     ));
   };
 
-  const getImage = (itemContent: ILibraryItemContent) => {
-    if (isPodcast && isDialog) {
+  const getImage = (itemContent: ILibraryItemContent, index: number) => {
+    if (isPodcast && index === 0) {
       return;
     }
 
@@ -64,9 +64,6 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
         )}
         width="666px"
         onClick={() => {
-          if (isPodcast) {
-            return;
-          }
           dispatch(
             openGalleryDialog({
               type: "image",
@@ -75,32 +72,23 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
           );
         }}
       >
-        {isPodcast ? (
-          <Image
-            alt=""
-            src={`${IMAGE_BASE_URL}/${item.media[0].image?.filename}`}
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        ) : (
-          <Image
-            alt=""
-            src={`${IMAGE_BASE_URL}/${itemContent.image?.filename}`}
-            width={1920}
-            height={1080}
-            style={{ width: "100%", height: "auto" }}
-          />
-        )}
+        <Image
+          alt=""
+          src={`${IMAGE_BASE_URL}/${itemContent.image?.filename}`}
+          width={1920}
+          height={1080}
+          style={{ width: "100%", height: "auto", borderRadius: "10px" }}
+        />
       </ContentCard>
     );
   };
 
-  return content!.map((item) => {
+  return content!.map((item, index) => {
     switch (item.type) {
       case "paragraph":
         return (
           <div key={item.id} className={cl.para}>
-            {getPara(item)}
+            {getParagraph(item)}
           </div>
         );
       case "header":
@@ -116,7 +104,7 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
           </Typography>
         );
       case "image":
-        return getImage(item);
+        return getImage(item, index);
 
       case "audio":
         return (

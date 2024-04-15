@@ -230,7 +230,7 @@ export const generateCourseHtml = (formData: Data) => {
       })</p>
       <p><u>Обрана к-сть уроків</u>: ${formData.lessons} онлайн-уроків</p>
     </div>`
-       : null
+       : ""
    }
 
     ${
@@ -240,7 +240,7 @@ export const generateCourseHtml = (formData: Data) => {
       <h1 style="font-size: 27px">${formData.price}</h1>
       <a href="tanpopo.com.ua" class="btn" style="margin-top: 25px;">Оплата успішна!</a>
     </div>`
-        : null
+        : ""
     }
 
     <div class="card" style="max-width: 450px;">

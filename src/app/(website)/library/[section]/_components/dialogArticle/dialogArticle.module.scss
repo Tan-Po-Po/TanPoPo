@@ -129,10 +129,12 @@ $transition: all ease 0.2s;
   }
   :global(.slick-prev) {
     left: -3%;
+    z-index: 0;
   }
 
   :global(.slick-next) {
     right: -6%;
+    z-index: 0;
   }
 }
 

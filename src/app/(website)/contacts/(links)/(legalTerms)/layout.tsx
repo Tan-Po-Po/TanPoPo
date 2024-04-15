@@ -21,7 +21,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   const pageName = getPageName(pathName) as PageName;
 
   return (
-    <div className={cl.layout}>
+    <main className={cl.layout}>
       <div className={cl.block1}>
         <Image
           alt=""
@@ -70,7 +70,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         </div>
       </div>
       <div className={cl.text}>{children}</div>
-    </div>
+    </main>
   );
 };
 

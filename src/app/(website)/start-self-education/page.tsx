@@ -1,13 +1,14 @@
 import { StartSelfEducation } from "@/components";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+import cl from "./page.module.scss";
+
 export const metadata: Metadata = {
-  title: 'Розпочати навчання | Tanpopo',
-}
+  title: "Розпочати навчання | Tanpopo",
+};
 
 export default function Page() {
   return (
-    <main style={{ padding: "0 10px" }}>
+    <main className={cl.main}>
       <StartSelfEducation />
     </main>
   );

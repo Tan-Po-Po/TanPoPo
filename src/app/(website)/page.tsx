@@ -31,7 +31,7 @@ export default function Home() {
         </div>
 
         <NavLinks />
-        
+
         <Image
           src="/images/homePage.png"
           alt="Home page"
@@ -325,9 +325,11 @@ export default function Home() {
               <br />
               те, як розпочати навчання на інтерактивній платформі:
             </Typography>
-            <Button variant="outlined" wrapperClass={cl.buttonWrapper}>
-              <Typography variant="body1">Дізнатись більше!</Typography>
-            </Button>
+            <Link href="/join">
+              <Button variant="outlined" wrapperClass={cl.buttonWrapper}>
+                <Typography variant="body1">Дізнатись більше!</Typography>
+              </Button>
+            </Link>
           </ContentCard>
         </section>
 

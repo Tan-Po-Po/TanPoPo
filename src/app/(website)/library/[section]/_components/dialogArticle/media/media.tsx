@@ -72,7 +72,7 @@ export const Media: React.FC<Props> = ({ item }) => {
         centerMode={isMobile}
         focusOnSelect={false}
         className={cl.carousel}
-        infinite={false}
+        infinite={true}
       >
         {item.media.map((media) => (
           <CarouselItem

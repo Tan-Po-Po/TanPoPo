@@ -111,7 +111,7 @@ export default function Requisites() {
   return (
     <main className={cl.payment}>
       {failedPayment && <PaymentDialog useParams={false} />}
-      <Typography variant="h3" style={{ marginTop: "70px" }}>
+      <Typography variant="h3" style={{ marginTop: "70px", whiteSpace: "pre" }}>
         ОНЛАЙН ОПЛАТА
       </Typography>
       <ContentCard
@@ -177,7 +177,7 @@ export default function Requisites() {
             className={cl.button}
             wrapperClass={cl.buttonWrapper}
           >
-            3. Онлайн-оплата 🪙
+            3. Онлайн-оплата 🌐
           </Button>
 
           <div className={cl.checkboxWrapper}>
@@ -221,15 +221,19 @@ export default function Requisites() {
           </div>
         </form>
       </ContentCard>
+
       <Typography
         variant="body1"
-        style={{ marginTop: "100px", fontSize: "28px" }}
+        className={cl.dividerParagraph}
+        style={{ fontSize: "28px" }}
       >
         АБО
       </Typography>
+
       <Typography
         variant="h3"
         style={{ marginTop: "70px", textTransform: "uppercase" }}
+        align="center"
       >
         Оплата за реквізитами:
       </Typography>
@@ -237,12 +241,7 @@ export default function Requisites() {
         cardBgColor="linear-gradient( rgb(255, 255, 255), rgb(255, 251, 241))"
         width="470px"
         height="215px"
-        style={{
-          margin: "70px 0 105px",
-          height: "215px",
-          gap: "0",
-          padding: "40px 26px 30px",
-        }}
+        className={cl.requisitesCard}
       >
         <ContentCard
           cardBgColor="linear-gradient( rgb(255, 255, 255), rgb(255, 251, 241))"
