@@ -3,7 +3,7 @@
 }
 
 .header {
-  margin-top: 70px;
+  margin-top: 40px;
   text-transform: uppercase;
   text-align: center;
   h6 {
@@ -217,7 +217,7 @@
 
 @media (max-width: 1000px) {
   .main {
-    padding: 0 10px;
+    padding: 100px 10px 0px;
   }
   .video {
     display: flex;
@@ -316,7 +316,17 @@
 }
 
 @media (max-width: 550px) {
+  .header {
+    margin-top: 10px;
+    h3 {
+      font-size: 28px;
+    }
+    h6 {
+      font-size: 17px;
+    }
+  }
   .video {
+    margin-top: 50px;
     img {
       max-height: 290px;
     }
@@ -329,6 +339,7 @@
   }
 
   .description {
+    margin-top: 70px;
     .text {
       font-size: 16px;
       text-align: justify;
@@ -338,6 +349,7 @@
   .certificate {
     height: auto;
     padding: 26px 13px;
+    margin-top: 70px;
     h6 {
       font-size: 20px;
       line-height: 20px;

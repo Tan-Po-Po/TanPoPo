@@ -118,7 +118,7 @@ export const generateOwnerCourseHtml = (formData: Data, orderId: string) => {
   </head>
   <body>
     <h1 style="white-space: pre-line">Новий учень бажає долучитись до школи TanPoPo🎉</h1>
-    <div class="card" style="max-width: 400px;"><p>Навчальний номер:<b>${orderId}</b></p></div>
+    ${orderId ? `<div class="card" style="max-width: 400px;"><p>Навчальний номер:<b>${orderId}</b></p></div>` : ""}
 
     <div class="card contact">
       <h1><b>Контактні дані учня:</b></h1>

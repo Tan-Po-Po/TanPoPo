@@ -1,3 +1,7 @@
+.payment {
+  padding: 100px 10px 0px;
+}
+
 .paymentCard {
   min-height: 500px;
   flex-grow: 1;
@@ -54,5 +58,41 @@
     margin-left: 15px;
     line-height: 20px;
     color: #3d3d3d;
+  }
+}
+
+.dividerParagraph {
+  margin-top: 100px;
+}
+
+.requisitesCard {
+  margin: 70px 0 105px;
+  height: 215px;
+  gap: 0;
+  padding: 40px 26px 30px;
+}
+
+@media (max-width: 600px) {
+  .payment {
+    padding: 70px 5px 0px;
+  }
+
+  .requisitesCard {
+    padding: 40px 10px 30px;
+  }
+
+  .paymentCard {
+    padding: 26px 15px;
+  }
+  .checkboxWrapper {
+    padding-left: 0px;
+
+    span:last-child {
+      margin-left: 0px;
+    }
+  }
+
+  .dividerParagraph {
+    margin-top: 70px;
   }
 }

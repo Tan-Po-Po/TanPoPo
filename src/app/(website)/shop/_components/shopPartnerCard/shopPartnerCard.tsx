@@ -26,7 +26,10 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
       className={cl.shopPartnerCard}
       width="fit-content"
       label={
-        <Typography variant="body1" style={{ fontWeight: "700" }}>
+        <Typography
+          variant="body1"
+          style={{ fontWeight: "700", whiteSpace: "pre" }}
+        >
           {labelTop.text}
         </Typography>
       }

@@ -81,20 +81,8 @@
     }
   }
 }
-@media (max-width: 615px) {
-  .advantagesMain {
-    .header {
-      .text {
-        .line1,
-        .line2 {
-          width: min-content;
-        }
-      }
-    }
-  }
-}
 
-@media (max-width: 500px) {
+@media (max-width: 615px) {
   .textBlock {
     padding: 26px 10px;
   }
@@ -106,9 +94,11 @@
       .text {
         .line1,
         .line2 {
+          width: min-content;
           font-size: 23px;
           font-weight: 500;
           line-height: 23px;
+          text-align: start;
         }
       }
     }

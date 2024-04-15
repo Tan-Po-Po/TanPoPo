@@ -1,10 +1,10 @@
 .main {
-  padding: 0 10px;
+  padding: 70px 10px 0px;
 }
 
 .header {
   margin-top: 70px;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 .container {
@@ -59,8 +59,14 @@
       }
     }
   }
+
   .formulaCard {
     padding: 26px 10px;
     padding-top: 33px;
+    .explanation {
+      br {
+        display: none;
+      }
+    }
   }
 }

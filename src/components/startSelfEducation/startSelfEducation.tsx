@@ -121,7 +121,7 @@ const StartSelfEducation: React.FC = () => {
         </div>
       </div>
 
-      <div className={cl.senseiHeader}>
+      <div className={cl.coursesHeader}>
         <Typography variant="h1">3</Typography>
         <div>
           <Typography variant="h2">Види курсів</Typography>

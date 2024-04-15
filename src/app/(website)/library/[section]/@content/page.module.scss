@@ -3,6 +3,8 @@
   width: 100%;
   gap: 70px;
   margin-top: 36px;
+  padding: 0;
+  overflow-x: clip;
 
   .cards {
     @include flex-row;

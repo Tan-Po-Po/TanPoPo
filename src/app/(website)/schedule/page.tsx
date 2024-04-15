@@ -99,9 +99,10 @@ export default function Page() {
       comment,
       schedule,
     };
-
+    
+    window && window.scrollTo(0, 0);
     setLoading(true);
-    fetch("/api/education", {
+    fetch("/api/email?sheetName=courses", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

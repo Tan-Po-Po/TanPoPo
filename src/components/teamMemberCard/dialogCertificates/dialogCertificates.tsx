@@ -60,7 +60,10 @@ export const DialogCertificates: React.FC<Props> = ({
           key={certificate._id}
           className={cl.certificate}
           label={
-            <Typography variant="body1" style={{ fontWeight: "700" }}>
+            <Typography
+              variant="body1"
+              style={{ fontWeight: "700", whiteSpace: "pre" }}
+            >
               {certificate.label}
             </Typography>
           }

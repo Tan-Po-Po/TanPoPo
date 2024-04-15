@@ -82,7 +82,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
             centerMode={width ? width < 612 : false}
             focusOnSelect={false}
             className={cl.carousel}
-            infinite={false}
+            infinite={true}
           >
             {media!.map((image) => (
               <CarouselItem

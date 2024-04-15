@@ -73,7 +73,7 @@ $padding-card: 55px 30px 18px 30px;
 
     :global(.slick-slide) {
       > div {
-        overflow: display;
+        overflow: hidden;
         margin: 20px 35px;
       }
     }
@@ -145,6 +145,40 @@ $padding-card: 55px 30px 18px 30px;
   }
 }
 
+.articleSmall {
+  .carousel {
+    .carouselItem {
+      width: 215px;
+      height: 215px;
+      background-color: white;
+      object-position: top;
+
+      img {
+        border-radius: 7px;
+      }
+
+      &:hover {
+        img {
+          transform: unset;
+        }
+      }
+    }
+
+    :global(.slick-slide) {
+      > div {
+        margin: 20px 50px;
+      }
+    }
+    :global(.slick-prev) {
+      left: -2%;
+    }
+
+    :global(.slick-next) {
+      right: -2%;
+    }
+  }
+}
+
 .imageContainer {
   position: relative;
   padding: 0;
@@ -191,6 +225,28 @@ $padding-card: 55px 30px 18px 30px;
   }
 }
 
+.contentImagePodcast {
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  border-radius: $border-radius;
+  overflow: hidden;
+}
+
+.para {
+  text-indent: 1rem;
+}
+
+.audioButton {
+  margin: 10px auto !important;
+}
+
+.image {
+  cursor: pointer;
+}
+
 @media (max-width: 1023px) {
   .reels,
   .music,
@@ -214,12 +270,13 @@ $padding-card: 55px 30px 18px 30px;
 
   .label {
     font-size: 18px;
-    white-space: pre-line;
-
+    white-space: pre;
+    max-width: 300px;
     > * {
-      white-space: pre-line;
+      white-space: pre;
     }
   }
+
   .new {
     padding-bottom: 16px;
   }
@@ -256,5 +313,11 @@ $padding-card: 55px 30px 18px 30px;
     :global(.slick-next) {
       right: 0 !important;
     }
+  }
+
+  .contentImagePodcast {
+    width: 274px;
+    height: 190px;
+    margin: 0 auto;
   }
 }

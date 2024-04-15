@@ -36,14 +36,24 @@
 
 @media (max-width: 900px) {
   .password {
+    padding: 0 17px;
     .formBlock {
       flex-direction: column;
     }
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .password {
-    padding: 0 17px;
+    .formBlock {
+      .left {
+        .input {
+          label {
+            margin-left: 10px;
+            transform: translate(14px, 23px) scale(1);
+          }
+        }
+      }
+    }
   }
 }
