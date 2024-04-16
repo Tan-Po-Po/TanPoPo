@@ -124,7 +124,7 @@ export const textContent = {
       title: "Все про Японію та японців узахопливому відеоформаті в Ютюбі:",
       iconLink: socialLinks.youTube,
       links: [socialLinks.youTube, socialLinks.youTube, socialLinks.youTube],
-      images: ["/youtube/1.jpg", "/youtube/2.jpg", "/youtube/3.jpg"],
+      images: ["/youtube/1.jpeg", "/youtube/2.jpeg", "/youtube/3.jpeg"],
       caption:
         "На нашому каналі Ви побачите, все про життя звичайних японців на їхній рідній землі очима українки! Походите вайбовими вуличками Японії, скуштуєте смачну їжу, зазирнете в японські університети, побачите, як живуть та навчаються японські студенти. Давайте разом подорожувати всією Японію!",
     },

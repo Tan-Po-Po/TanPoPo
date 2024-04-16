@@ -325,7 +325,7 @@ export default function Home() {
               <br />
               те, як розпочати навчання на інтерактивній платформі:
             </Typography>
-            <Link href="/join">
+            <Link href="/join#freeCourse">
               <Button variant="outlined" wrapperClass={cl.buttonWrapper}>
                 <Typography variant="body1">Дізнатись більше!</Typography>
               </Button>

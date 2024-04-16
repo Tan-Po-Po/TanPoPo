@@ -3,11 +3,11 @@ export const textContent = {
   developers: {
     bogdan: {
       label: {
-        text: "АРТ-ДИЗАЙНЕР, ІЛЮСТРАТОР",
+        text: "MANAGING DIRECTOR, ART-DESIGNER",
         color:
-          "linear-gradient(90deg, #FFA6A6 0%, #FFF8B8 14.29%, #CFFFBF 28.65%, #BCF7F0 42.19%, #C1BCFF 57.29%, #F7C0EB 72.4%, #FFB78C 85.71%, #BCFFD7 100%)",
+          "linear-gradient(#FDFF87, #FAD26C)",
       },
-      image: "/developers/bohdan.png",
+      image: "/developers/bogdan.jpg",
       name: "Ходзінський Богдан",
       socials: {
         instagram: "https://www.instagram.com/elon_mars_/",

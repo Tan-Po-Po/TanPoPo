@@ -3,7 +3,8 @@ export const socialLinks = {
   tikTok: "https://www.tiktok.com/@tanpopo_nihongo?_t=8lM5L5jKfGo&_r=1",
   youTube: "http://www.youtube.com/@tanpopo_nihongo",
   telegram: "https://t.me/tanpopo_school/",
-  viber: "viber://chat?number=%2B380687987878/",
+  viber:
+    "https://invite.viber.com/?g2=AQAajr%2BAilStZFK0LgZ57%2BCRAZ38%2B%2BJQYEa5NQ2Mvj1CA%2FLhpcJHrykO9RvQV5jM",
 };
 
 export const NODEMAILER_EMAIL = process.env.NODEMAILER_EMAIL;

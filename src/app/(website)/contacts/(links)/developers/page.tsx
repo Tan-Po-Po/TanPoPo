@@ -3,11 +3,11 @@ import { ContentCard, IconLink, Typography } from "@/components";
 import Image from "next/image";
 import { textContent } from "./textContent";
 import { getValidClassNames } from "@/helpers";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Розробники | Tanpopo',
-}
+  title: "Розробники | Tanpopo",
+};
 export default function Developers() {
   const labelColor = "#FFF8BC";
   return (
@@ -20,7 +20,10 @@ export default function Developers() {
         labelClassName={cl.label}
         width="592px"
         label={
-          <Typography variant="h5">
+          <Typography
+            variant="h6"
+            style={{ lineHeight: "29px", fontSize: "22px" }}
+          >
             {textContent.developers.bogdan.label.text}
           </Typography>
         }
@@ -43,7 +46,7 @@ export default function Developers() {
             src={textContent.developers.bogdan.image}
             width={500}
             height={300}
-            style={{ maxWidth: "442px", width: "100%", maxHeight: "358px" }}
+            style={{ maxWidth: "442px", width: "100%", height: "auto" }}
           />
         </ContentCard>
         <div className={cl.socials}>
@@ -73,7 +76,10 @@ export default function Developers() {
           labelClassName={cl.label}
           width="592px"
           label={
-            <Typography variant="h5">
+            <Typography
+              variant="h6"
+              style={{ lineHeight: "29px", fontSize: "22px" }}
+            >
               {textContent.developers.anton.label.text}
             </Typography>
           }
@@ -96,7 +102,12 @@ export default function Developers() {
               src={textContent.developers.anton.image}
               width={500}
               height={300}
-              style={{ maxWidth: "442px", width: "100%", maxHeight: "358px" }}
+              style={{
+                maxWidth: "442px",
+                width: "100%",
+                maxHeight: "425px",
+                height: "auto",
+              }}
             />
           </ContentCard>
           <div className={cl.socials}>
@@ -125,12 +136,16 @@ export default function Developers() {
             </div>
           </div>
         </ContentCard>
+
         <ContentCard
           className={cl.contentCard}
           labelClassName={cl.label}
           width="592px"
           label={
-            <Typography variant="h5">
+            <Typography
+              variant="h6"
+              style={{ lineHeight: "29px", fontSize: "22px" }}
+            >
               {textContent.developers.pasha.label.text}
             </Typography>
           }
@@ -153,7 +168,12 @@ export default function Developers() {
               src={textContent.developers.pasha.image}
               width={500}
               height={300}
-              style={{ maxWidth: "442px", width: "100%", maxHeight: "358px" }}
+              style={{
+                maxWidth: "442px",
+                width: "100%",
+                maxHeight: "425px",
+                height: "auto",
+              }}
             />
           </ContentCard>
           <div className={cl.socials}>

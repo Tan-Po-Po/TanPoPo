@@ -67,7 +67,9 @@ export default function Join() {
 
           <ContentCard width="535px" className={cl.card}>
             <Typography variant="h6" align="center">
-              Створити свій Особистий Кабінет на навчальній онлайн-<br/>платформі:
+              Створити свій Особистий Кабінет на навчальній онлайн-
+              <br />
+              платформі:
             </Typography>
             <Image
               alt=""
@@ -271,7 +273,12 @@ export default function Join() {
 
       <section className={cl.benefits}>
         <div className={cl.header}>
-          <Typography variant="h6" className={cl.header} align="center">
+          <Typography
+            variant="h6"
+            className={cl.header}
+            align="center"
+            id="freeCourse"
+          >
             Реєструючись на платформі нашої школи
           </Typography>
           <Typography variant="h3" align="center">

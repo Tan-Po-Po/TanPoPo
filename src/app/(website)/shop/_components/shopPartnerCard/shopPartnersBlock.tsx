@@ -16,7 +16,7 @@ const getShopPartners = async () => {
     const partners: IShopPartner[] = shopPartners.map((partner) =>
       JSON.parse(JSON.stringify(partner))
     );
-
+    console.log(partners)
     return partners;
   } catch (err) {
     console.log(err);
