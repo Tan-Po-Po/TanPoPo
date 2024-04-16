@@ -11,12 +11,14 @@ interface Props {
   height?: string;
   className?: string;
   isHovered?: boolean;
+  width?: number;
 }
 
 const IconLink: React.FC<Props> = ({
   icon,
   href,
   height,
+  width,
   className,
   isHovered,
 }) => {
@@ -49,7 +51,7 @@ const IconLink: React.FC<Props> = ({
       <Image
         className={getValidClassNames(cl.icon, className)}
         src={src}
-        width={50}
+        width={width ? width : 50}
         height={50}
         style={{
           width: "auto",
