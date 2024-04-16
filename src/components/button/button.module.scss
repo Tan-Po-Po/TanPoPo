@@ -94,14 +94,14 @@
 }
 
 @media (hover: hover) {
-  .buttonWrapper:not(:hover) {
+  .backwardAnimation:not(:hover) {
     .children {
       .image {
         animation: buttonIconRotateToInitial 0.2s forwards;
       }
     }
   }
-  
+
   .buttonWrapper {
     &:hover {
       scale: 110%;
