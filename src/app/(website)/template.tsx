@@ -20,7 +20,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       }
     };
 
-    setTimeout(() => scrollToDiv(), 500);
+    setTimeout(() => scrollToDiv(), 1500);
   }, []);
   const pathName = usePathname();
   return (

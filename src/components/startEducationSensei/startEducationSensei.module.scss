@@ -152,9 +152,13 @@
   .start {
     .startCards {
       .card {
+        & > div:first-child {
+          left: -21px;
+        }
         padding: 26px 10px;
-        max-width: 330px !important;
+        max-width: 286px !important;
         width: 100%;
+        height: fit-content;
       }
     }
 
@@ -164,9 +168,9 @@
       align-items: center;
       h2,
       h5 {
-        display: inline;
+        display: contents;
         line-height: 28px;
-        font-size: 28px;
+        font-size: 24px;
       }
     }
     & > h6 {

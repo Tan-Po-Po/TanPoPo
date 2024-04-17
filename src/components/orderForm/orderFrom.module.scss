@@ -260,9 +260,18 @@
     .shipment {
       .checkbox {
         margin: 0;
+
         text-wrap: nowrap;
         span:first-child {
           padding: 9px 3px 9px 0;
+        }
+      }
+    }
+
+    .payment {
+      .label {
+        span {
+          white-space: normal !important;
         }
       }
     }

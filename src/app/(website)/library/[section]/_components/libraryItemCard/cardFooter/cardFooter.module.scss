@@ -8,13 +8,15 @@ $transition: all ease 0.2s;
   .hashtags {
     @include flex-row;
     gap: 12px;
-
+    flex-wrap: wrap;
     .hashtag {
       padding: 0 4px;
     }
   }
 
   .copyIcon {
+    align-self: flex-end;
+
     &:hover {
       transform: scale(115%);
       transition: $transition;

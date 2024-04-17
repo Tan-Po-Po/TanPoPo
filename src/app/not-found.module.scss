@@ -1,6 +1,6 @@
 .main {
   @include flex-column;
-  padding: 65px 10px;
+  padding: 70px 10px 90px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -8,6 +8,7 @@
 .header {
   @include flex-column;
   text-align: center;
+  margin-top: 70px;
   h3 {
     font-size: 60px;
   }

@@ -67,7 +67,9 @@ export default function Join() {
 
           <ContentCard width="535px" className={cl.card}>
             <Typography variant="h6" align="center">
-              Створити свій Особистий Кабінет на навчальній онлайн-<br/>платформі:
+              Створити свій Особистий Кабінет на навчальній онлайн-
+              <br />
+              платформі:
             </Typography>
             <Image
               alt=""
@@ -271,7 +273,12 @@ export default function Join() {
 
       <section className={cl.benefits}>
         <div className={cl.header}>
-          <Typography variant="h6" className={cl.header} align="center">
+          <Typography
+            variant="h6"
+            className={cl.header}
+            align="center"
+            id="freeCourse"
+          >
             Реєструючись на платформі нашої школи
           </Typography>
           <Typography variant="h3" align="center">
@@ -282,9 +289,26 @@ export default function Join() {
 
         <div className={cl.cards}>
           <div className={cl.cardWrapper}>
-            <ContentCard width="465px" className={cl.card}>
+            <ContentCard
+              width="465px"
+              className={cl.card}
+              label={
+                <Typography
+                  variant="subtitle2"
+                  style={{
+                    fontSize: "13px",
+                    lineHeight: "14px",
+                    fontWeight: 700,
+                  }}
+                >
+                  НЕЗАБАРОМ!
+                </Typography>
+              }
+              labelClassName={cl.soonLabel}
+              labelBgColor="linear-gradient(#FFF383, #FFDE89)"
+            >
               <Typography variant="h6">
-                Безкоштовний міні-курс для початківців!
+                Безкоштовний міні-курс “Японізація”
               </Typography>
               <Image
                 src="/icons/art/megaPresent.png"
@@ -292,12 +316,10 @@ export default function Join() {
                 width={102}
                 height={98}
               />
-              <Typography variant="body1">
-                Бажаєте подивитись “зсередини” на навчальну платформу?
-                Зазирність на <br />
-                наш безкоштовний мінікурс у вигляді відеоуроків з сенсеєм,
-                інтерактивними завданнями, тестами для самоперевірки та самі
-                переконайтесь в якості поданих навчальних матеріалів!
+              <Typography variant="body1" style={{ whiteSpace: "pre-line" }}>
+                {
+                  " Зазирність на наш безкоштовний \nмовно-культурний міні-курс у вигляді\n пізнавальних відеоуроків, інтерактивних \nзавданнь та тестів на самоперевірку!\nВ незалежності від володіння японської \n мови - курс зацікавить усіх бажаючих!\nЛекторка: Тетяна Селіверстова."
+                }
               </Typography>
             </ContentCard>
 
@@ -305,13 +327,14 @@ export default function Join() {
               <div
                 style={{ backgroundImage: "url('/images/selfEducation.jpg')" }}
                 className={cl.videoWrapper}
-                onClick={() =>
-                  dispatch(
-                    openGalleryDialog({
-                      type: "video",
-                      src: "https://www.youtube.com/watch?v=8ypRvNZhocU",
-                    })
-                  )
+                onClick={
+                  () => toast("Цей курс ще в розробці⭐️")
+                  // dispatch(
+                  //   openGalleryDialog({
+                  //     type: "video",
+                  //     src: "https://www.youtube.com/watch?v=8ypRvNZhocU",
+                  //   })
+                  // )
                 }
               >
                 <PlayButtonIcon className={cl.playBtn} />
@@ -322,7 +345,7 @@ export default function Join() {
           <div className={cl.cardWrapper}>
             <ContentCard width="465px" className={cl.card}>
               <Typography variant="h6">
-                Знижку 5% на ВСІ наші авторські продукти!
+                Знижку 5% на ВСІ товари в нашій Крамниці!
               </Typography>
               <Image
                 src="/icons/art/shopCart.png"

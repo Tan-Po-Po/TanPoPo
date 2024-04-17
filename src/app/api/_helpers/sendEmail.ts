@@ -227,7 +227,7 @@ export const sendEmail = async (
         transporter.sendMail({
           ...mailOptions,
           to: formData.email,
-          subject: `Навчання у Подарунок!  (№ Замовлення: ${orderId})`,
+          subject: `Замовлення Подарункового Сертифікату`,
           html: htmlContent,
           attachments: [
             {
@@ -311,7 +311,7 @@ export const sendEmail = async (
         }),
         transporter.sendMail({
           ...mailOptions,
-          subject: `Навчання у Подарунок!  (№ Замовлення: ${orderId})`,
+          subject: `Замовлення Подарункового Сертифікату`,
           html: htmlContentOwner,
           attachments: [
             {

@@ -16,8 +16,9 @@
       right: -6px;
       z-index: 3;
       transform-origin: bottom right;
-      animation: buttonIconRotateToInitial 0.2s forwards;
-      // scale: 0;
+      scale: 0;
+      // transition: 0.3s;
+      // animation: buttonIconRotateToInitial 0.2s forwards;
     }
   }
 
@@ -93,6 +94,14 @@
 }
 
 @media (hover: hover) {
+  .backwardAnimation:not(:hover) {
+    .children {
+      .image {
+        animation: buttonIconRotateToInitial 0.2s forwards;
+      }
+    }
+  }
+
   .buttonWrapper {
     &:hover {
       scale: 110%;

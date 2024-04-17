@@ -32,6 +32,10 @@ const Button: React.FC<Properties> = ({
         disabled && cl.disabled,
         wrapperClass
       )}
+      onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
+        const div = e.target as HTMLElement
+        div.classList.add(cl.backwardAnimation);
+      }}
     >
       <MuiButton
         className={getValidClassNames(cl.button, className)}

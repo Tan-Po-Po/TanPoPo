@@ -72,7 +72,7 @@ const Header = () => {
         </nav>
         <div className={cl.socials}>
           <IconLink icon="instagram" height="32px" />
-          <IconLink icon="youTube" height="32px" />
+          <IconLink icon="youTube" height="32px" width={42}/>
         </div>
         <div className={cl.auth}>
           <Link href={"https://school.tanpopo.com.ua/login"}>

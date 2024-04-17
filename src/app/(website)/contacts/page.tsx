@@ -78,7 +78,7 @@ export default async function Contacts() {
                         }}
                       >
                         {index !== 0 ? (
-                          <span style={{ whiteSpace: "pre" }}> / </span>
+                          <span style={{ whiteSpace: "pre" }}>  /  </span>
                         ) : null}
                         <Link href={link} className={cl.link}>
                           <Typography variant="body1">{text}</Typography>
@@ -192,9 +192,10 @@ export default async function Contacts() {
         bgColor={dividerBgColor}
         wrapperClassName={cl.faqDivider}
         className={cl.divider}
+        id="faq"
       />
 
-      <div className={cl.faqBlock} id="faq">
+      <div className={cl.faqBlock}>
         <Suspense
           fallback={
             <div className={cl.faqBlock}>

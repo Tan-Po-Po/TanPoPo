@@ -107,6 +107,10 @@
     column-gap: 30px;
     max-width: 1060px;
     width: 100%;
+
+    .soonLabel {
+      padding: 2px 8px;
+    }
   }
 
   .cardWrapper {
@@ -121,7 +125,7 @@
     h6 {
       font-size: 26px;
       line-height: 29px;
-      max-width: 360px;
+      max-width: 365px;
     }
 
     p {
@@ -402,17 +406,18 @@
       margin-top: 60px;
       text-align: center;
 
-      h6 {
+      h6,
+      h3 {
         margin-top: 0;
         font-size: 20px;
         line-height: 22px;
         font-weight: 500;
         max-width: 285px;
       }
-      h3 {
-        font-size: 23px;
-        line-height: 25px;
-      }
+      // h3 {
+      //   font-size: 23px;
+      //   line-height: 25px;
+      // }
     }
     .cards {
       justify-content: center;
@@ -420,6 +425,9 @@
       row-gap: 42px;
       h6 {
         font-size: 22px;
+      }
+      .card p {
+        hyphens: auto;
       }
     }
   }

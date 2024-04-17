@@ -26,7 +26,7 @@ const CourseCardMini: React.FC<Properties> = ({ course }) => {
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (course.inDevelopment) {
       event.preventDefault()
-      return toast("Цей курс ще в розробці");
+      return toast("Цей курс ще в розробці⭐️");
     }
   };
 

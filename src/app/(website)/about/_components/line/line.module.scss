@@ -17,16 +17,16 @@
 
     &[data-flag="ua"] {
       img {
-        top: 30px;
+        top: 35px;
         right: -107px;
-        transform: rotate(-30deg);
+        transform: rotate(-10deg);
       }
     }
     &[data-flag="jp"] {
       img {
-        top: 30px;
+        top: 35px;
         right: 107px;
-        transform: rotate(30deg);
+        transform: rotate(10deg);
       }
     }
   }

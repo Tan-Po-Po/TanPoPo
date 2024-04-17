@@ -233,15 +233,11 @@ export const generateCourseHtml = (formData: Data) => {
        : ""
    }
 
-    ${
-      formData.price
-        ? `<div class="card" style="max-width: 650px;">
+   <div class="card" style="max-width: 650px;">
       <h1 style="font-size: 27px; color: #454545">Вартість навчання:</h1>
       <h1 style="font-size: 27px">${formData.price}</h1>
-      <a href="tanpopo.com.ua" class="btn" style="margin-top: 25px;">Оплата успішна!</a>
-    </div>`
-        : ""
-    }
+      <div class="btn" style="margin: 30px auto";>Оплата успішна!</div>
+    </div>
 
     <div class="card" style="max-width: 450px;">
       <h1>Дякуємо, що обрали \nTanPoPo💛</h1>
@@ -263,7 +259,7 @@ export const generateCourseHtml = (formData: Data) => {
           ><img src="cid:viber" width="42px"
         /></a>
       </div>
-      <p>Онлайн-школа японської мови.</p>
+      <p style="font-size: 18px; margin-top: 20px">Онлайн-школа японської мови.</p>
       <p style="font-size: 15px">© 2024 TanPoPo. Всі права захищено.</p>
     </div>
   </body>

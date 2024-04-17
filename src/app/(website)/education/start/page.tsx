@@ -28,7 +28,7 @@ export default function Page() {
     <main className={cl.main}>
       <div className={cl.pageHeader}>
         <Typography variant="h5" align="center">
-          Розпочати онлайн-навчання з сенсеєм
+          Розпочати онлайн-навчання з сенсеєм{" "}
         </Typography>
         <Typography variant="h3" align="center">
           {" "}

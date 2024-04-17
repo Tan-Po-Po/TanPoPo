@@ -53,3 +53,29 @@
     rotate: 90deg;
   }
 }
+
+@media (max-width: 500px) {
+  .steps {
+    .card {
+      & > div:first-child {
+        left: -21px;
+      }
+      padding: 26px 10px;
+      max-width: 286px !important;
+      width: 100%;
+      height: fit-content;
+      max-height: fit-content !important;
+    }
+  }
+
+  .card > div:first-child {
+    left: 26px;
+  }
+  .steps {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .triangleBtn {
+    rotate: 90deg;
+  }
+}

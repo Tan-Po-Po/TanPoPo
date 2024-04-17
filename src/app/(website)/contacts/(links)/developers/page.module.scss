@@ -4,7 +4,7 @@
   padding-bottom: 125px;
   gap: 90px;
   width: 100%;
-  
+
   .imageWrapper {
     position: relative;
     padding: 0;
@@ -64,9 +64,11 @@
 
     .label {
       padding: 4px;
-      h5 {
+      width: 90%;
+
+      h6 {
         font-size: 20px;
-        white-space: pre-wrap;
+        white-space: normal;
         min-width: 95%;
         width: 100%;
       }

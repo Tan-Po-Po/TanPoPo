@@ -125,4 +125,16 @@
       display: none;
     }
   }
+  .main {
+    .titleCard {
+      text-wrap: balance;
+      hyphens: auto;
+      padding: 26px 10px;
+    }
+    .form {
+      .agreement > span {
+        margin-left: 20px;
+      }
+    }
+  }
 }

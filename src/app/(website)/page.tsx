@@ -298,7 +298,7 @@ export default function Home() {
             align="center"
             className={cl.freeCourseHeader}
           >
-            Безкоштовний мінікурс для початківців!
+            Безкоштовний мінікурс “Японізація”
           </Typography>
           <ContentCard
             className={cl.freeCourse}
@@ -306,7 +306,7 @@ export default function Home() {
             height="fit-content"
           >
             <Typography variant="h4" align="center">
-              Безкоштовний мінікурс для початківців!
+              Безкоштовний мінікурс “Японізація”
             </Typography>
             <Image
               src={getIconArtSrc("megaPresent")}
@@ -325,7 +325,7 @@ export default function Home() {
               <br />
               те, як розпочати навчання на інтерактивній платформі:
             </Typography>
-            <Link href="/join">
+            <Link href="/join#freeCourse">
               <Button variant="outlined" wrapperClass={cl.buttonWrapper}>
                 <Typography variant="body1">Дізнатись більше!</Typography>
               </Button>

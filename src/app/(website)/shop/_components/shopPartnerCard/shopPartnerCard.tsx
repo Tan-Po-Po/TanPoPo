@@ -40,7 +40,7 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
         <Link href={href} target="_blank" className={cl.name}>
           <Image
             alt=""
-            src={`${IMAGE_BASE_URL}/${logo.filename}`}
+            src={`${IMAGE_BASE_URL}/${logo?.filename}`}
             width={500}
             height={500}
             className={cl.logoImage}
@@ -65,7 +65,7 @@ export const ShopPartnerCard: React.FC<Props> = ({ partner }) => {
             <ContentCard className={cl.itemImage}>
               <Image
                 alt=""
-                src={`${IMAGE_BASE_URL}/${item.image.filename}`}
+                src={`${IMAGE_BASE_URL}/${item.image?.filename}`}
                 fill
                 sizes="(max-width: 2400px) 147px"
                 style={{ borderRadius: "7px" }}
