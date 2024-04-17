@@ -33,10 +33,6 @@
         margin: 2vw calc(3vw + 3px);
       }
     }
-
-    .caption {
-      margin-top: 45px;
-    }
   }
 
   .carouselItem {
@@ -50,6 +46,12 @@
   .reviewsBlock {
     width: unset;
     gap: 50px;
+
+    .carousel {
+      :global(.slick-dots) {
+        margin-top: 0px;
+      }
+    }
 
     .header {
       font-size: 30px;
@@ -67,6 +69,7 @@
       }
 
       .caption {
+        margin-top: 45px;
         font-size: 22px;
         line-height: normal;
       }
@@ -97,6 +100,16 @@
       :global(.slick-list) {
         margin-bottom: 16px;
       }
+
+      .caption {
+        margin-top: 0;
+      }
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .caption {
+    padding: 0 10px;
   }
 }

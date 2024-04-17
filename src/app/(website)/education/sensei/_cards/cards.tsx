@@ -1,16 +1,20 @@
 "use client";
 import { ContentCard, Typography, Carousel } from "@/components";
-import { getIconArtSrc } from "@/helpers";
+import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import cl from "./cards.module.scss";
 import { useWindowSize } from "@uidotdev/usehooks";
 
-const Cards = () => {
+type Props = {
+  className?: string;
+};
+
+const Cards: React.FC<Props> = ({ className }) => {
   const { width } = useWindowSize();
   const renderCarousel = width! < 1000;
 
   return (
-    <div className={cl.cards}>
+    <div className={getValidClassNames(cl.cards, className)}>
       <Carousel
         dots={true}
         slidesToShow={1}

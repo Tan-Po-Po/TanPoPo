@@ -201,7 +201,7 @@ export const generateOwnerShopHtml = (orderData: Data, orderId: string) => {
     </div>
 
     <div class="card course">
-      <h1 style="font-size: 27px">Місце доставки сертифікату Новою Поштою:</h1>
+      <h1 style="font-size: 27px">Місце доставки Новою Поштою:</h1>
       <p>
         <u>Область/місто</u>: ${orderData.region} обл., м.
         ${orderData.city.label}.

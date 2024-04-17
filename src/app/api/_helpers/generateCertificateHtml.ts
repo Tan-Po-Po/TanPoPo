@@ -195,7 +195,7 @@ export const generateCertificateHtml = (formData: Data) => {
           ><img src="cid:viber" width="42px"
         /></a>
       </div>
-      <p style="font-size: 18px">Онлайн-школа японської мови.</p>
+      <p style="font-size: 18px; margin-top: 20px">Онлайн-школа японської мови.</p>
       <p style="font-size: 15px">© 2024 TanPoPo. Всі права захищено.</p>
     </div>
   </body>

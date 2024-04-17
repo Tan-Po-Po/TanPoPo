@@ -36,7 +36,7 @@ export default function Page() {
       router.push("/prices");
       return;
     }
-
+ 
     const checkPaymentStatus = async () => {
       const orderStatus = await getPaymentStatus(orderId);
 
@@ -103,6 +103,7 @@ export default function Page() {
         <Typography
           variant="h6"
           style={{ fontSize: "26px", marginTop: "80px" }}
+          align="center"
         >
           Вітаємо, оплата пройшла успішно!
         </Typography>

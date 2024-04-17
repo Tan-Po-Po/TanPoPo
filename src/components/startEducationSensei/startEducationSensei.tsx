@@ -17,7 +17,7 @@ const StartEducationSensei: React.FC = () => {
       <div className={cl.start}>
         <div className={cl.startHeader}>
           <Typography variant="h5">
-            Розпочати онлайн-навчання з сенсеєм
+            Розпочати онлайн-навчання з сенсеєм{" "}
           </Typography>
           <Typography variant="h2">в школі TanPoPo дуже легко!</Typography>
         </div>

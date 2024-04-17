@@ -172,6 +172,18 @@
 }
 
 @media (max-width: 550px) {
+  .header {
+    margin-top: 10px;
+    h3 {
+      font-size: 28px;
+    }
+    h6 {
+      font-size: 17px;
+    }
+  }
+  .cards {
+    margin-top: 40px;
+  }
   .video {
     img {
       max-height: 290px;
@@ -215,10 +227,6 @@
 }
 
 @media (max-width: 400px) {
-  .header h6 {
-    margin: auto;
-    max-width: 260px;
-  }
   .video {
     img {
       max-height: 290px;

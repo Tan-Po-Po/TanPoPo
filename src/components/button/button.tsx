@@ -34,9 +34,7 @@ const Button: React.FC<Properties> = ({
       )}
       onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
         const div = e.target as HTMLElement
-        console.log(e.target);
-        console.log(div.classList.add(cl.backwardAnimation));
-        console.log(div.classList);
+        div.classList.add(cl.backwardAnimation);
       }}
     >
       <MuiButton

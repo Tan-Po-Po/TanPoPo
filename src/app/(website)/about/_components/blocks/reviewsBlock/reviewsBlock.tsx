@@ -109,7 +109,7 @@ export const ReviewsBlock: React.FC<Properties> = ({ feedbacks }) => {
             className={cl.caption}
             style={{
               textAlign: "center",
-              maxWidth: `${isTablet ? "500px" : "auto"}`,
+              maxWidth: `${isTablet ? "500px" : "100%"}`,
             }}
           >
             {textContent.reviewsBlock.caption}

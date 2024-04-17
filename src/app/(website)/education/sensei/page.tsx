@@ -50,7 +50,7 @@ export default function Page() {
         <PlayButton className={cl.playBtn} />
       </div>
 
-      <Cards />
+      <Cards className={cl.cards}/>
 
       <ContentCard className={cl.description} width="970px">
         <div className={cl.header}>

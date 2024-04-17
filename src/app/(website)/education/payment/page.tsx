@@ -68,7 +68,7 @@ export default function Page() {
       })
         .then(async (res) => {
           const responseData = await res.json();
-          console.log(responseData);
+
           // If price changed or course is not available anymore
           if (res.status === 422) {
             setLoading(false);

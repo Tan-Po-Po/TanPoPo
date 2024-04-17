@@ -14,9 +14,9 @@ import { generateLiqpayLink } from "@/helpers";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
-  console.log(formData);
+  // console.log(formData);
   const priceCheck = await checkCoursePrice(formData);
-  console.log(priceCheck);
+  // console.log(priceCheck);
   if (!priceCheck.success) {
     return NextResponse.json(priceCheck, { status: 422 });
   }
