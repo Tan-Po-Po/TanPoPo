@@ -35,7 +35,7 @@ const CourseInfo: React.FC<Props> = ({ course }) => {
     lessonsBlock = `${course.lessons} аудіо${lessons}\n (${course.accessDuration} днів доступу до курсу)`;
     lessonDurationBlock = `Аудіоурок ${course.lessonDuration}\n(+інтерактивні завдання)`;
   } else if (course.type === "book") {
-    formatBlock = "Самостійний\n(Книжковий міні-курс)";
+    formatBlock = "Самостійний\n(Книжковий мінікурс)";
     lessonsBlock = `${course.lessonDuration}\n (рівень JLPT: ${course.level})`;
     lessonDurationBlock = `Завдання на платформі,\nдопоміжні матеріали та ін.`;
   }
@@ -98,11 +98,10 @@ const CourseInfo: React.FC<Props> = ({ course }) => {
         >
           <Typography variant="body1">
             {course.type === "book"
-              ? "Додатково"
+              ? "Додатково:"
               : ["teacher", "mega-course"].includes(course.type!)
-              ? "Тривалість онлайн-уроку"
-              : "Тривалість уроку"}
-            :
+              ? "Тривалість онлайн-уроку:"
+              : "Тривалість уроку:"}
           </Typography>
           <Typography variant="body1">
             <b>{lessonDurationBlock}</b>
@@ -174,7 +173,7 @@ const CourseInfo: React.FC<Props> = ({ course }) => {
         height="135px"
         cardBgColor={course?.backgroundColor || "rgba(255, 192, 215, 1)"}
       >
-        <Typography variant="body1">Тривалість онлайн-уроку</Typography>
+        <Typography variant="body1">Тривалість онлайн-уроку:</Typography>
         <Typography variant="body1">
           <b>{lessonDurationBlock}</b>
         </Typography>

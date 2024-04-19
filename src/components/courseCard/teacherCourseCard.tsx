@@ -41,27 +41,33 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
 
   const handleClick = () => {
     if (isMegaCourse && !cardState.lessons) {
-      return toast(() => (
-        <div>
-          Спочатку оберіть <u>К-сть уроків!</u>📚
-        </div>
-      ));
+      return toast(
+        () => (
+          <div>
+            Спочатку оберіть <u>К-сть уроків!</u>📚
+          </div>
+        ),
+        { toastId: "lessonsAmount" }
+      );
     } else if (
       (!cardState.learningFormat && !isMegaCourse) ||
       !cardState.lessons
     ) {
-      return toast(() => (
-        <div>
-          Спочатку оберіть <u>Формат Навчання</u> <br />
-          та <u>К-сть уроків!</u>📚
-        </div>
-      ));
+      return toast(
+        () => (
+          <div>
+            Спочатку оберіть <u>Формат Навчання</u> <br />
+            та <u>К-сть уроків!</u>📚
+          </div>
+        ),
+        { toastId: "lessonsAmount" }
+      );
     }
 
     if (isActiveStudent && cardState.link) {
       return router.push(cardState.link);
     }
-    
+
     const courseLevel =
       course.level.length > 1
         ? `${course.level[0]}/${course.level.at(-1)}`
@@ -171,14 +177,17 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
             {label}
           </Typography>
         ))}
-        <Typography
-          variant="body2"
-          className={cl.label}
-          style={{ background: courseInfo.labelColor }}
-        >
-          Міні-група: 2 р./тиждень <br />
-          Індивідуально: 1-3 р./тиждень
-        </Typography>
+
+        {!isMegaCourse && (
+          <Typography
+            variant="body2"
+            className={cl.label}
+            style={{ background: courseInfo.labelColor }}
+          >
+            Міні-група: 2 р./тиждень <br />
+            Індивідуально: 1-3 р./тиждень
+          </Typography>
+        )}
       </section>
 
       <div className={cl.selectWrapper}>
@@ -222,7 +231,9 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
               isDisabled={cardState.learningFormat === null}
               onClick={() =>
                 cardState.learningFormat === null
-                  ? toast("Оберіть формат навчання")
+                  ? toast("Спочатку оберіть Формат навчання☑️", {
+                      toastId: "studyFormat",
+                    })
                   : null
               }
               fixZIndex

@@ -64,17 +64,18 @@ const PaymentDialog = ({ useParams = true, variant }: Params) => {
           <Link
             href={socialLinks.telegram}
             style={{ fontSize: "18px", fontWeight: "800" }}
+            target="_blank"
           >
             <u>Telegram</u>
-          </Link>
-          /
+          </Link>{" "}
+          /{" "}
           <Link
             href={socialLinks.viber}
             style={{ fontSize: "18px", fontWeight: "800" }}
+            target="_blank"
           >
             <u>Viber</u>
           </Link>
-          .
         </Typography>
       </>
     </Dialog>

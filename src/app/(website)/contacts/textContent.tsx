@@ -9,7 +9,7 @@ export const textContent = {
         caption2: "ПН-СБ: з 8:00 до 19:00",
       },
       section2: {
-        tittle: "Актуальні Питання",
+        tittle: "Актуальні Питання:",
         links: [
           {
             text: "Курси",
@@ -56,7 +56,7 @@ export const textContent = {
         href: "/teacher-survey-letter",
       },
       section5: {
-        tittle: "Політика Конфідеційності",
+        tittle: "Політика Конфіденційності",
         href: "/contacts/confidentialityPolicy",
       },
     },

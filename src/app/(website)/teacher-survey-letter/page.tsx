@@ -138,10 +138,10 @@ const Page = () => {
               name="name"
               control={control}
               rules={{
-                required: "Будь-ласка, вкажіть Ім'я",
+                required: "Будь ласка, вкажіть Ім'я",
                 minLength: {
                   value: 2,
-                  message: "Будь-ласка, вкажіть коректне ім'я",
+                  message: "Будь ласка, вкажіть коректне ім'я",
                 },
               }}
               render={({ field }) => (
@@ -153,10 +153,10 @@ const Page = () => {
               name="surname"
               control={control}
               rules={{
-                required: "Будь-ласка, вкажіть Прізвище",
+                required: "Будь ласка, вкажіть Прізвище",
                 minLength: {
                   value: 3,
-                  message: "Будь-ласка, вкажіть коректне прізвище",
+                  message: "Будь ласка, вкажіть коректне прізвище",
                 },
               }}
               render={({ field }) => (
@@ -168,10 +168,10 @@ const Page = () => {
               name="patronymic"
               control={control}
               rules={{
-                required: "Будь-ласка, вкажіть По-батькові",
+                required: "Будь ласка, вкажіть По-батькові",
                 minLength: {
                   value: 3,
-                  message: "Будь-ласка, вкажіть коректне По-батькові",
+                  message: "Будь ласка, вкажіть коректне По-батькові",
                 },
               }}
               render={({ field }) => (
@@ -183,7 +183,7 @@ const Page = () => {
               name="birthDate"
               control={control}
               rules={{
-                required: "Будь-ласка, вкажіть Дату Народження",
+                required: "Будь ласка, вкажіть Дату Народження",
               }}
               render={({ field }) => (
                 <DatePicker
@@ -200,7 +200,7 @@ const Page = () => {
               name="email"
               control={control}
               rules={{
-                required: "Будь-ласка, вкажіть Email",
+                required: "Будь ласка, вкажіть Email",
                 minLength: {
                   value: 5,
                   message: "Email має бути мінімум 5 символів завдовшки",
@@ -219,7 +219,7 @@ const Page = () => {
               name="phone"
               control={control}
               rules={{
-                required: "Будь-ласка, вкажіть номер телефону",
+                required: "Будь ласка, вкажіть номер телефону",
                 minLength: {
                   value: 10,
                   message: "Телефон має бути мінімум 10 символів завдовшки",
@@ -452,7 +452,7 @@ const Page = () => {
                 }}
                 render={({ field }) => (
                   <Input
-                    label="Будь-ласка, напишіть дату складання іспиту."
+                    label="Будь ласка, напишіть дату складання іспиту."
                     multiline
                     rows={4}
                     style={{ width: "100%" }}
@@ -745,7 +745,7 @@ const Page = () => {
                 }}
                 render={({ field }) => (
                   <Input
-                    label="Будь-ласка, надайте розгорнуту відповідь"
+                    label="Будь ласка, надайте розгорнуту відповідь"
                     multiline
                     rows={7}
                     className={cl.textArea}
@@ -1202,7 +1202,7 @@ const Page = () => {
             control={control}
             rules={{
               required:
-                "Щоб продовжити, прийміть\nумови Публічної Оферти та \nПолітику Конфідеційності!☑",
+                "Щоб продовжити, прийміть\nумови Публічної Оферти та \nПолітику Конфіденційності!☑",
             }}
             render={({ field }) => (
               <Checkbox

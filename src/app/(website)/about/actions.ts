@@ -7,10 +7,15 @@ export async function getTeamMembers() {
   try {
     await dbConnect();
 
-    const teamMembersDb = (await TeamMember.find().populate("image").populate({
-      path: "certificates.description.image",
-    })) as ITeamMember[];
-    
+    const teamMembersDb = (await TeamMember.find()
+      .sort({
+        order: -1,
+      })
+      .populate("image")
+      .populate({
+        path: "certificates.description.image",
+      })) as ITeamMember[];
+
     const teamMembers: ITeamMember[] = teamMembersDb.map((member) => {
       return JSON.parse(JSON.stringify(member));
     });
@@ -26,17 +31,16 @@ export async function getPartnerImagesSrc() {
   try {
     await dbConnect();
 
-    const partners = (await Partner.find()
-      .lean()
-      .populate("image"));
+    const partners = await Partner.find().lean().populate("image");
 
-    return partners.map((partner) => JSON.parse(JSON.stringify(partner))) as IPartner[];
+    return partners.map((partner) =>
+      JSON.parse(JSON.stringify(partner))
+    ) as IPartner[];
   } catch (error) {
     console.log(error);
     return [];
   }
 }
-
 
 export const getFeedbacks = async () => {
   try {

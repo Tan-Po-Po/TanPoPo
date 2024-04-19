@@ -28,10 +28,10 @@ export const CardFooter: React.FC<Props> = ({ item }) => {
       } else {
         await navigator.clipboard.writeText(`${SERVER_URL}${path}?id=${_id}`);
       }
-      toast("Посилання скопійовано💾");
+      toast("Посилання скопійовано💾", {toastId: "linkCopied"});
     } catch (err) {
       console.log(err);
-      toast("Не вдалося отримати посиллання");
+      toast("Не вдалося отримати посиллання", {toastId: "linkNotCopied"});
     }
   };
   return (

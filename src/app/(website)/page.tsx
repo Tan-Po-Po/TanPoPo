@@ -304,6 +304,20 @@ export default function Home() {
             className={cl.freeCourse}
             width="840px"
             height="fit-content"
+            label={
+              <Typography
+                variant="subtitle2"
+                style={{
+                  fontSize: "13px",
+                  lineHeight: "14px",
+                  fontWeight: 700,
+                }}
+              >
+                НЕЗАБАРОМ!
+              </Typography>
+            }
+            labelClassName={cl.soonLabel}
+            labelBgColor="linear-gradient(#FFF383, #FFDE89)"
           >
             <Typography variant="h4" align="center">
               Безкоштовний мінікурс “Японізація”

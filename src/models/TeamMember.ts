@@ -4,6 +4,7 @@ export interface ITeamMember {
   _id: string;
   label: { value: string; color: string };
   name: string;
+  order: number;
   image: {
     filename: string;
   };
@@ -38,6 +39,7 @@ const TeamMemberSchema = new mongoose.Schema<ITeamMember>(
       color: { type: String, required: true },
     },
     name: { type: String, required: true },
+    order: { type: Number, required: true, defaultValues: 0 },
     image: {
       type: mongoose.Schema.Types.ObjectId,
       ref: Media && "Media",

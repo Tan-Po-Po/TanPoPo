@@ -73,6 +73,7 @@ export const BioBlock = () => {
             src={"/photos/tv.png"}
             width={372}
             height={372}
+            unoptimized
             style={{ objectFit: "cover" }}
           />
         </ContentCard>
@@ -142,6 +143,7 @@ export const BioBlock = () => {
             src={"/photos/crossroads.png"}
             width={255}
             height={340}
+            unoptimized
             style={{ objectFit: "cover" }}
           />
         </ContentCard>
@@ -213,6 +215,7 @@ export const BioBlock = () => {
             src={"/photos/tv.png"}
             width={253}
             height={273}
+            unoptimized
             style={{ objectFit: "cover" }}
           />
         </ContentCard>

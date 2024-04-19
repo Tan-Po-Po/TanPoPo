@@ -75,7 +75,9 @@ export default function Page() {
       dispatch(setCourse({ lessonsPerWeek: 2, schedule }));
     } else {
       if (!lessonsPerWeek) {
-        return toast("Оберіть бажану к-сть занять на тиждень!☑");
+        return toast("Оберіть бажану к-сть занять на тиждень!☑", {
+          toastId: "lessonsAmount",
+        });
       }
       if (lessonsPerWeek === 1 && counter < 7) {
         return timeToSelectMessage(7);
@@ -155,7 +157,9 @@ export default function Page() {
   useEffect(() => {
     if (showErrors && errors) {
       if (!isDirty && !getValues("name")) {
-        toast("Будь ласка, заповніть ваші контактні дані☑️");
+        toast("Будь ласка, заповніть ваші контактні дані☑️", {
+          toastId: "contactInfo",
+        });
         setShowErrors(false);
         return;
       }
@@ -208,7 +212,7 @@ export default function Page() {
         ) : (
           <ContentCard width="650px" className={cl.lessonsCount}>
             <Typography variant="body1">
-              Будь-ласка, вкажіть скільки разів на тиждень Ви бажаєте займатись
+              Будь ласка, вкажіть скільки разів на тиждень Ви бажаєте займатись
               індивідульно з сенсеєм:
             </Typography>
 

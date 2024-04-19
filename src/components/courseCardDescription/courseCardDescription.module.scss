@@ -40,7 +40,6 @@
   }
   .select {
     width: 300px;
-
   }
   .bottomBtn {
     cursor: pointer;
@@ -352,7 +351,9 @@
   }
 
   .carousel {
-    min-width: calc(100% + 40px);
+    width: 500px !important;
+    max-width: 100%;
+
     .carouselItem {
       width: 215px;
       height: 215px;
@@ -363,17 +364,17 @@
     :global(.slick-slide) {
       > div {
         overflow: display;
-        margin: 10px 47px;
+        margin: 20px 17px;
       }
     }
 
     :global(.slick-prev) {
       top: calc(40% + 14px);
-      left: calc(0% + 20px);
+      left: calc(0% - 25px);
     }
 
     :global(.slick-next) {
-      right: calc(0% + 20px);
+      right: calc(0% - 25px);
     }
   }
   .image {
@@ -427,21 +428,17 @@
   }
 }
 
-@media (max-width: 650px) {
-  .book {
-    .carousel {
-      :global(.slick-slide) {
-        > div {
-          margin: 10px 46px;
-        }
-      }
-    }
-  }
-}
-
 @media (max-width: 600px) {
   .book {
     .carousel {
+      max-width: calc(100% + 40px);
+      min-width: calc(100% + 40px);
+
+      :global(.slick-slide) {
+        > div {
+          margin: 20px 35px;
+        }
+      }
       :global(.slick-prev) {
         left: calc(50% - 160px);
       }
@@ -511,6 +508,7 @@
 
   .book {
     .carousel {
+      max-width: calc(100% + 20px);
       min-width: calc(100% + 20px);
     }
   }
@@ -527,6 +525,7 @@
 
   .book {
     .carousel {
+      max-width: calc(100%);
       min-width: calc(100%);
       :global(.slick-slide) {
         > div {

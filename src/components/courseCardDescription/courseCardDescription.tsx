@@ -58,10 +58,10 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
 
   const handleClick = () => {
     if (!lessons) {
-      return toast("Спочатку оберіть К-сть уроків!📚");
+      return toast("Спочатку оберіть К-сть уроків!📚", {toastId: "lessonsAmount"});
     }
     if (!isAccepted && !(course.type === "book")) {
-      return toast("Спочатку ознайомтесь з навчальним періодом!📚");
+      return toast("Спочатку ознайомтесь з навчальним періодом!📚", {toastId: "lessonsPeriod"});
     }
 
     if (isGift) {

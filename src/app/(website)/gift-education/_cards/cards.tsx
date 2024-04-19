@@ -11,7 +11,12 @@ const Cards = () => {
 
   return (
     <div className={cl.startCards}>
-      <Carousel renderCarousel={renderCarousel} arrows={false} slidesToShow={1} infinite={false}>
+      <Carousel
+        renderCarousel={renderCarousel}
+        arrows={false}
+        slidesToShow={1}
+        infinite={false}
+      >
         <ContentCard
           className={cl.card}
           width="365px"
@@ -47,7 +52,7 @@ const Cards = () => {
               Натискайте
             </Typography>
             <Typography variant="body1" style={{ fontWeight: 700 }}>
-              Подарунковий Сертифікат”
+              ”Подарунковий Сертифікат”
             </Typography>
           </div>
           <Image

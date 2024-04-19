@@ -1,4 +1,4 @@
-import { ContentCard, Typography } from "@/components";
+import { Carousel, CarouselItem, ContentCard, Typography } from "@/components";
 import { ILibraryItem, ILibraryItemContent } from "@/models/LibraryItem";
 import cl from "./libraryItemContent.module.scss";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { IMAGE_BASE_URL } from "@/config/config";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 interface Props {
   item: ILibraryItem;
@@ -19,6 +20,8 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
   const { content, labelColor } = item;
   const dispatch = useAppDispatch();
   const isPodcast = item.type === "podcast";
+  const { width } = useWindowSize();
+  const isMobile = Boolean(width && width < 678);
 
   const { openLibraryItem } = useOpenLibraryItem({ item, autoplay: "1" });
 
@@ -53,34 +56,78 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
     if (isPodcast && index === 0) {
       return;
     }
-
-    return (
-      <ContentCard
-        key={itemContent.id || itemContent._id}
-        style={{ padding: "0" }}
-        className={getValidClassNames(
-          cl.image,
-          isPodcast && cl.contentImagePodcast
-        )}
-        width="666px"
-        onClick={() => {
-          dispatch(
-            openGalleryDialog({
-              type: "image",
-              src: `${IMAGE_BASE_URL}/${itemContent.image?.filename}`,
-            })
-          );
-        }}
-      >
-        <Image
-          alt=""
-          src={`${IMAGE_BASE_URL}/${itemContent.image?.filename}`}
-          width={1920}
-          height={1080}
-          style={{ width: "100%", height: "auto", borderRadius: "10px" }}
-        />
-      </ContentCard>
-    );
+    // If in content more than one image return slider
+    if (itemContent.images && itemContent.images.length > 1) {
+      return (
+        <Carousel
+          dots={false}
+          slidesToShow={isMobile ? 1 : 2}
+          centerMode={isMobile}
+          focusOnSelect={false}
+          className={cl.carousel}
+          infinite={true}
+        >
+          {itemContent.images.map((item, index) => {
+            console.log(item);
+            return (
+              <CarouselItem
+                key={index}
+                className={cl.carouselItem}
+                isOutlined={true}
+                onClick={() =>
+                  dispatch(
+                    openGalleryDialog({
+                      type: "image",
+                      src: `${IMAGE_BASE_URL}/${item.image.filename}`,
+                    })
+                  )
+                }
+              >
+                <Image
+                  alt=""
+                  src={`${IMAGE_BASE_URL}/${item.image.filename}`}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </CarouselItem>
+            );
+          })}
+        </Carousel>
+      );
+    } else {
+      return (
+        <ContentCard
+          key={itemContent.id || itemContent._id}
+          style={{ padding: "0", width: "fit-content" }}
+          className={getValidClassNames(
+            cl.image,
+            isPodcast && cl.contentImagePodcast
+          )}
+          width="666px"
+          onClick={() => {
+            dispatch(
+              openGalleryDialog({
+                type: "image",
+                src: `${IMAGE_BASE_URL}/${itemContent.images![0].image.filename}`,
+              })
+            );
+          }}
+        >
+          <Image
+            alt=""
+            src={`${IMAGE_BASE_URL}/${itemContent.images![0].image.filename}`}
+            width={1920}
+            height={1080}
+            style={{
+              maxWidth: "100%",
+              width: itemContent.images![0].image.width,
+              height: "auto",
+              borderRadius: "10px",
+            }}
+          />
+        </ContentCard>
+      );
+    }
   };
 
   return content!.map((item, index) => {
@@ -99,8 +146,17 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
             style={{ fontWeight: "700" }}
             className={cl.contentHeader}
           >
-            {" "}
-            {item.value}
+            {item.href ? (
+              <Link
+                href={item.href}
+                style={{ textDecoration: "underline" }}
+                target="_blank"
+              >
+                {item.value}
+              </Link>
+            ) : (
+              item.value
+            )}
           </Typography>
         );
       case "image":

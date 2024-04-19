@@ -77,7 +77,9 @@ export default function Page() {
       setValue("lessonsPerWeek", 2);
     } else {
       if (!lessonsPerWeek && educationFormat === "Індивідуально") {
-        return toast("Оберіть бажану к-сть занять на тиждень!☑");
+        return toast("Оберіть бажану к-сть занять на тиждень!☑", {
+          toastId: "lessonsAmount",
+        });
       }
       if (lessonsPerWeek === 1 && counter < 7) {
         return timeToSelectMessage(7);
@@ -99,7 +101,7 @@ export default function Page() {
       comment,
       schedule,
     };
-    
+
     window && window.scrollTo(0, 0);
     setLoading(true);
     fetch("/api/email?sheetName=courses", {
@@ -177,7 +179,7 @@ export default function Page() {
         ) : (
           <ContentCard width="650px" className={cl.lessonsCount}>
             <Typography variant="body1">
-              Будь-ласка, вкажіть скільки разів на тиждень Ви бажаєте займатись
+              Будь ласка, вкажіть скільки разів на тиждень Ви бажаєте займатись
               індивідульно з сенсеєм:
             </Typography>
 
