@@ -112,7 +112,7 @@ export default function Requisites() {
     <main className={cl.payment}>
       {failedPayment && <PaymentDialog useParams={false} />}
       <Typography variant="h3" style={{ marginTop: "70px", whiteSpace: "pre" }}>
-        ОНЛАЙН ОПЛАТА
+        ОНЛАЙН ОПЛАТА:
       </Typography>
       <ContentCard
         label={
@@ -132,10 +132,10 @@ export default function Requisites() {
             name="amount"
             control={control}
             rules={{
-              required: "Будь-ласка, вкажіть суму для оплати",
+              required: "Будь ласка, вкажіть суму для оплати",
               validate: (value) => {
                 if (!value || isNaN(value) || value < 1) {
-                  return "Будь-ласка, вкажіть коректну суму для оплати";
+                  return "Будь ласка, вкажіть коректну суму для оплати";
                 }
                 return true;
               },
@@ -153,10 +153,10 @@ export default function Requisites() {
             name="comment"
             control={control}
             rules={{
-              required: "Будь-ласка, вкажіть призначення платежу",
+              required: "Будь ласка, вкажіть призначення платежу",
               minLength: {
                 value: 5,
-                message: "Будь-ласка, вкажіть коректне призначення платежу",
+                message: "Будь ласка, вкажіть коректне призначення платежу",
               },
             }}
             render={({ field }) => (
@@ -186,7 +186,7 @@ export default function Requisites() {
               control={control}
               rules={{
                 required:
-                  "Щоб продовжити, прийміть\nумови Публічної Оферти та \nПолітику Конфідеційності!☑",
+                  "Щоб продовжити, прийміть\nумови Публічної Оферти та \nПолітику Конфіденційності!☑",
               }}
               render={({ field }) => (
                 <Checkbox
@@ -214,7 +214,7 @@ export default function Requisites() {
                 style={{ textDecoration: "underline" }}
               >
                 {" "}
-                Політики Конфідеційності
+                Політики Конфіденційності
               </Link>
               .
             </Typography>

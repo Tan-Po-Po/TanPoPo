@@ -38,7 +38,9 @@ export const FeedbackForm: React.FC = () => {
   useEffect(() => {
     if (showErrors && errors) {
       if (!isDirty) {
-        toast("Будь ласка, заповніть ваші контактні дані☑️");
+        toast("Будь ласка, заповніть ваші контактні дані☑️", {
+          toastId: "contactInfo",
+        });
         setShowErrors(false);
         return;
       }
@@ -92,13 +94,13 @@ export const FeedbackForm: React.FC = () => {
             name="name"
             control={control}
             rules={{
-              required: "Будь-ласка, вкажіть Ім'я",
+              required: "Будь ласка, вкажіть Ім'я",
               minLength: {
                 value: 3,
-                message: "Будь-ласка, вкажіть коректне ім'я",
+                message: "Будь ласка, вкажіть коректне ім'я",
               },
               validate: {
-                notEmpty: (val) => !!val.trim() || "Будь-ласка, вкажіть Ім'я",
+                notEmpty: (val) => !!val.trim() || "Будь ласка, вкажіть Ім'я",
               },
             }}
             render={({ field }) => (
@@ -110,7 +112,7 @@ export const FeedbackForm: React.FC = () => {
             name="phone"
             control={control}
             rules={{
-              required: "Будь-ласка, вкажіть номер телефону",
+              required: "Будь ласка, вкажіть номер телефону",
               minLength: {
                 value: 10,
                 message: "Телефон має бути мінімум 10 символів завдовшки",
@@ -134,7 +136,7 @@ export const FeedbackForm: React.FC = () => {
             name="email"
             control={control}
             rules={{
-              required: "Будь-ласка, вкажіть Email",
+              required: "Будь ласка, вкажіть Email",
               minLength: {
                 value: 5,
                 message: "Email має бути мінімум 5 символів завдовшки",
@@ -154,10 +156,10 @@ export const FeedbackForm: React.FC = () => {
             name="question"
             control={control}
             rules={{
-              required: "Будь-ласка, напишіть Питання",
+              required: "Будь ласка, напишіть Питання",
               minLength: {
                 value: 5,
-                message: "Будь-ласка, опишіть Питання коректно",
+                message: "Будь ласка, опишіть Питання коректно",
               },
             }}
             render={({ field }) => (
@@ -180,7 +182,7 @@ export const FeedbackForm: React.FC = () => {
             control={control}
             rules={{
               required:
-                "Будь-ласка, дайте згоду на обробку персональних данних",
+                "Будь ласка, дайте згоду на обробку персональних данних",
             }}
             render={({ field }) => (
               <Checkbox

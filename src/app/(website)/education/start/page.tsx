@@ -169,7 +169,7 @@ export default function Page() {
           </Link>{" "}
           та{" "}
           <Link target="_blank" href="/contacts/confidentialityPolicy">
-            <u>Політики Конфідеційності</u>.
+            <u>Політики Конфіденційності</u>.
           </Link>
         </Typography>
       </div>
@@ -193,7 +193,7 @@ export default function Page() {
             variant="outlined"
             onClick={() =>
               toast(
-                "Щоб продовжити, прийміть \nумови Публічної Оферти та \nПолітику Конфідеційності!☑"
+                "Щоб продовжити, прийміть \nумови Публічної Оферти та \nПолітику Конфіденційності!☑"
               )
             }
           >

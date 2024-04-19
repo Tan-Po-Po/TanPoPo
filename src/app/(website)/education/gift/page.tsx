@@ -67,7 +67,9 @@ export default function Page() {
   useEffect(() => {
     if (showErrors && errors) {
       if (!isDirty && !getValues("name")) {
-        toast("Будь ласка, заповніть ваші контактні дані☑️");
+        toast("Будь ласка, заповніть ваші контактні дані☑️", {
+          toastId: "contactInfo",
+        });
         setShowErrors(false);
         return;
       }
@@ -219,7 +221,7 @@ export default function Page() {
           name="certificateType"
           control={control}
           rules={{
-            required: "Будь-ласка, оберіть вид сертифікату",
+            required: "Будь ласка, оберіть вид сертифікату",
           }}
           render={({ field }) => (
             <Select
@@ -289,7 +291,7 @@ export default function Page() {
             control={control}
             rules={{
               required:
-                "Щоб продовжити, прийміть\nумови Публічної Оферти та \nПолітику Конфідеційності!☑",
+                "Щоб продовжити, прийміть\nумови Публічної Оферти та \nПолітику Конфіденційності!☑",
             }}
             render={({ field }) => (
               <Checkbox
@@ -308,7 +310,7 @@ export default function Page() {
             </Link>{" "}
             та{" "}
             <Link target="_blank" href="/contacts/confidentialityPolicy">
-              <u>Політики Конфідеційності</u>.
+              <u>Політики Конфіденційності</u>.
             </Link>
           </Typography>
         </div>

@@ -14,9 +14,8 @@ export const LibraryNav = () => {
       activeSectionName
     ) as HTMLAnchorElement;
 
-    activeSection?.focus();
-    activeSection?.blur();
-
+    activeSection?.scrollIntoView({ inline: "center" });
+    // activeSection?.blur();
   }, [pathname]);
   return (
     <div className={cl.nav}>

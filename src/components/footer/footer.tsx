@@ -125,7 +125,7 @@ const Footer: React.FC = () => {
           </div>
           <div className={cl.linkWrapper}>
             <Link href={"/contacts/confidentialityPolicy"}>
-              Політика Конфідеційності
+              Політика Конфіденційності
             </Link>
           </div>
           <div className={cl.linkWrapper}>

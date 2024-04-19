@@ -11,7 +11,7 @@ export async function GET(req: Request) {
 
     const itemDb = (await LibraryItem.findById(id)
       .populate("media.image")
-      .populate("content.image")
+      .populate("content.images.image")
       .lean()) as ILibraryItem | undefined;
 
     return NextResponse.json(itemDb);

@@ -5,9 +5,11 @@
   transition: 0.3s;
   cursor: pointer;
 
-  &:hover {
-    background: linear-gradient(196deg, #fff2c2 10.76%, #f3c4ff 88.53%);
-    transform: scale(110%);
+  @media (hover: hover) {
+    &:hover {
+      background: linear-gradient(196deg, #fff2c2 10.76%, #f3c4ff 88.53%);
+      transform: scale(110%);
+    }
   }
   p {
     line-height: normal;

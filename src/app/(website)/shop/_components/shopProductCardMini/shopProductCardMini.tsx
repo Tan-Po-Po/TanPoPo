@@ -23,7 +23,7 @@ export const ShopProductCardMini: React.FC<Props> = ({
 
   const handleClick = () => {
     if (inDevelopment) {
-      return toast("Товар ще в розробці");
+      return toast("Товар ще в розробці", {toastId: "productInDevelopment"});
     }
     const item = document.getElementById(_id!);
     const largeProductCards = document.getElementById("products");

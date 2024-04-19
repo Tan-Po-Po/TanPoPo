@@ -42,6 +42,14 @@
   }
 }
 
+@media (min-width: 1200px) {
+  .reviewsBlock {
+    .caption {
+      margin-top: 45px;
+    }
+  }
+}
+
 @media (max-width: 1023px) {
   .reviewsBlock {
     width: unset;

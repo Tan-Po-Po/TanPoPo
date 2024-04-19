@@ -45,20 +45,26 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
 
   const handleClick = () => {
     if (isMegaCourse && !cardState.lessons) {
-      return toast(() => (
-        <div>
-          Спочатку оберіть <u>К-сть уроків!</u>📚
-        </div>
-      ));
+      return toast(
+        () => (
+          <div>
+            Спочатку оберіть <u>К-сть уроків!</u>📚
+          </div>
+        ),
+        { toastId: "lessonsAmount" }
+      );
     } else if (
       (!cardState.learningFormat && !isMegaCourse) ||
       !cardState.lessons
     ) {
-      return toast(() => (
-        <div>
-          Спочатку оберіть <u>Формат Навчання</u> та <u>К-сть уроків!</u>📚
-        </div>
-      ));
+      return toast(
+        () => (
+          <div>
+            Спочатку оберіть <u>Формат Навчання</u> та <u>К-сть уроків!</u>📚
+          </div>
+        ),
+        { toastId: "lessonsAmount" }
+      );
     }
 
     if (isActiveStudent && cardState.link) {
@@ -160,12 +166,22 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
       </div>
 
       <div className={cl.labels}>
-        <div className={cl.label} style={{ background: courseInfo.labelColor }}>
-          Міні-група: 2 р./тиждень
-        </div>
-        <div className={cl.label} style={{ background: courseInfo.labelColor }}>
-          Індивідуально: 1-3 р./тиждень
-        </div>
+        {!isMegaCourse && (
+          <>
+            <div
+              className={cl.label}
+              style={{ background: courseInfo.labelColor }}
+            >
+              Міні-група: 2 р./тиждень
+            </div>
+            <div
+              className={cl.label}
+              style={{ background: courseInfo.labelColor }}
+            >
+              Індивідуально: 1-3 р./тиждень
+            </div>
+          </>
+        )}
         {course.labels.concat(courseInfo.labels).map((item, index) => (
           <div
             className={cl.label}
@@ -216,7 +232,9 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
           isDisabled={cardState.learningFormat === null}
           onClick={() =>
             cardState.learningFormat === null
-              ? toast("Оберіть формат навчання")
+              ? toast("Спочатку оберіть Формат навчання☑️", {
+                  toastId: "studyFormat",
+                })
               : null
           }
         />

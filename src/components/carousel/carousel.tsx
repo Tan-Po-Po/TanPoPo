@@ -33,6 +33,7 @@ type Props = {
   centerPadding?: string;
   numbersClass?: string;
   accessibility?: boolean;
+  pauseOnClick?: boolean;
 };
 
 const Carousel: React.FC<Props> = ({
@@ -60,6 +61,7 @@ const Carousel: React.FC<Props> = ({
   centerPadding = "50px",
   numbersClass,
   accessibility = true,
+  pauseOnClick = false,
 }) => {
   const ref = useRef<Slider | null>(null);
   const speed = 300;
@@ -102,7 +104,12 @@ const Carousel: React.FC<Props> = ({
         direction={"right"}
         className="slick-arrow"
         handleClickToAnimate={() => handleArrowButtonClick("Right")}
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          if (pauseOnClick) {
+            ref.current?.slickPause()!;
+          }
+          e.stopPropagation();
+        }}
       />
     ),
     prevArrow: (
@@ -110,7 +117,12 @@ const Carousel: React.FC<Props> = ({
         direction={"left"}
         className="slick-arrow"
         handleClickToAnimate={() => handleArrowButtonClick("Left")}
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          if (pauseOnClick) {
+            ref.current?.slickPause()!;
+          }
+          e.stopPropagation();
+        }}
       />
     ),
     dotsClass: getValidClassNames("slick-dots", cl.dotsContainer),
@@ -131,6 +143,11 @@ const Carousel: React.FC<Props> = ({
         useNumbers && cl.numberSlider,
         className
       )}
+      onClick={() => {
+        if (pauseOnClick) {
+          ref.current?.slickPause()!;
+        }
+      }}
       id={id}
     >
       <Slider {...settings} ref={ref} className={cl.slider} swipe>

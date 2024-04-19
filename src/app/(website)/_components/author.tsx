@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import cl from "../page.module.scss";
 import { Typography } from "@/components";
 import Image from "next/image";
@@ -22,8 +22,13 @@ export function Author() {
             className={cl.photo}
             src="/images/homeAuthor.png"
             alt="Тетяна Селіверстова"
-            width={350}
-            height={280}
+            // width={350}
+            // height={280}
+            width={1750}
+            height={1400}
+            quality={100}
+            priority
+            unoptimized
             style={{ maxWidth: "300px", width: "100%", height: "auto" }}
           />
         </div>
@@ -80,8 +85,11 @@ export function Author() {
         className={cl.photo}
         src="/images/homeAuthor.png"
         alt="Тетяна Селіверстова"
-        width={350}
-        height={280}
+        width={1750}
+        height={1400}
+        quality={100}
+        priority
+        unoptimized
         style={{ maxWidth: "350px", width: "100%", height: "auto" }}
       />
     </section>

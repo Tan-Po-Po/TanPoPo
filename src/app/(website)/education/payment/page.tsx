@@ -148,40 +148,6 @@ export default function Page() {
         </ContentCard>
       </div>
 
-      {course?.isGift ? (
-        <CertificateBlock
-          certificateType={course.certificateType!}
-          className={cl.thanks}
-        />
-      ) : (
-        <ContentCard width="640px" className={cl.thanks}>
-          <Typography
-            variant="body1"
-            style={{ fontSize: "20px", maxWidth: "494px" }}
-          >
-            Ми бачимо і цінуємо ваше бажання навчатись разом з нами! Після
-            оплати вашу заявку на навчання буде сформовано!
-          </Typography>
-          <Image
-            src={getIconArtSrc("clock")}
-            alt="Clock icon"
-            width={151}
-            height={116}
-            style={{ margin: "30px 0 20px" }}
-          />
-
-          <Typography
-            variant="body1"
-            style={{ fontSize: "18px", maxWidth: "575px", fontWeight: 400 }}
-          >
-            З моменту оплати/формування заявки на навчання ми почнемо її
-            опрацьовувати, після чого з вами зв’яжеться наш відділ Турботи, щоб
-            узгодити всі деталі стосовно розкладу до обраного курсу навчання з
-            японської мови!
-          </Typography>
-        </ContentCard>
-      )}
-
       <div className={cl.paymentWrapper}>
         <Button
           className={cl.paymentBtn}
@@ -217,9 +183,43 @@ export default function Page() {
           alt="Стрілка"
           width={51}
           height={25}
-          style={{ rotate: "180deg", marginTop: "55px" }}
+          style={{ rotate: "180deg", marginTop: "50px" }}
         />
       </div>
+
+      {course?.isGift ? (
+        <CertificateBlock
+          certificateType={course.certificateType!}
+          className={cl.thanks}
+        />
+      ) : (
+        <ContentCard width="640px" className={cl.thanks}>
+          <Typography
+            variant="body1"
+            style={{ fontSize: "20px", maxWidth: "494px" }}
+          >
+            Ми бачимо і цінуємо ваше бажання навчатись разом з нами! Після
+            оплати вашу заявку на навчання буде сформовано!
+          </Typography>
+          <Image
+            src={getIconArtSrc("clock")}
+            alt="Clock icon"
+            width={151}
+            height={116}
+            style={{ margin: "30px 0 20px" }}
+          />
+
+          <Typography
+            variant="body1"
+            style={{ fontSize: "18px", maxWidth: "575px", fontWeight: 400 }}
+          >
+            З моменту оплати/формування заявки на навчання ми почнемо її
+            опрацьовувати, після чого з вами зв’яжеться наш відділ Турботи, щоб
+            узгодити всі деталі стосовно розкладу до обраного курсу навчання з
+            японської мови!
+          </Typography>
+        </ContentCard>
+      )}
     </main>
   );
 }

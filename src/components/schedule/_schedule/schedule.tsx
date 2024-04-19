@@ -44,7 +44,7 @@ const Schedule: React.FC<Properties> = ({
     <div className={cl.schedule}>
       <ContentCard width="910px" className={cl.header}>
         <Typography variant="h6">
-          Будь-ласка, визначте ваш навчальний графік за 3 категоріями:
+          Будь ласка, визначте ваш навчальний графік за 3 категоріями:
         </Typography>
         <div className={cl.buttons}>
           <div className={getValidClassNames(cl.inappropriateBtn, cl.timeBtn)}>

@@ -9,3 +9,51 @@
 .image {
   cursor: pointer;
 }
+
+.carousel {
+  max-width: 565px !important;
+  width: 100%;
+  .carouselItem {
+    width: 215px;
+    height: 215px;
+    background-color: white;
+    object-position: top;
+
+    img {
+      border-radius: 7px;
+    }
+  }
+  :global(.slick-slide) {
+    > div {
+      overflow: display;
+      margin: 20px 35px;
+    }
+  }
+  :global(.slick-prev) {
+    left: -3%;
+    z-index: 1;
+  }
+
+  :global(.slick-next) {
+    right: -6%;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .carousel {
+    // max-width: 280px !important;
+    :global(.MuiPaper-root) {
+      margin-left: 3px;
+      margin-right: 3px;
+      margin-bottom: 0;
+    }
+    :global(.slick-prev) {
+      left: 0%;
+    }
+
+    :global(.slick-next) {
+      right: -1%;
+    }
+  }
+}

@@ -236,3 +236,9 @@
     }
   }
 }
+
+@media (max-width: 390px) {
+  .cardsWrapper br {
+    display: none;
+  }
+}

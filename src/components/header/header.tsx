@@ -13,7 +13,7 @@ import { Typography } from "@mui/material";
 const Header = () => {
   const { width } = useWindowSize();
 
-  if (width && width < 1120) {
+  if (width && width < 1180) {
     return <HeaderNarrow />;
   }
 
@@ -72,12 +72,13 @@ const Header = () => {
         </nav>
         <div className={cl.socials}>
           <IconLink icon="instagram" height="32px" />
-          <IconLink icon="youTube" height="32px" width={42}/>
+          <IconLink icon="youTube" height="32px" width={42} />
         </div>
         <div className={cl.auth}>
-          <Link href={"https://school.tanpopo.com.ua/login"}>
+          <a href={"https://school.tanpopo.com.ua/login"}>
             <Button icon="hat">Вхід</Button>
-          </Link>
+          </a>
+
           <Link href={"/join"}>
             <Button
               className={cl.register}

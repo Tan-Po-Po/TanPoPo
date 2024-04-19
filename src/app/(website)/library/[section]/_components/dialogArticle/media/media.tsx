@@ -1,4 +1,4 @@
-"use ";
+"use client";
 import cl from "../dialogArticle.module.scss";
 import { ContentCard, Carousel, CarouselItem } from "@/components";
 import { getEmbedYouTubeLink, getValidClassNames } from "@/helpers";

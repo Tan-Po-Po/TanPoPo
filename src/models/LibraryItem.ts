@@ -6,7 +6,11 @@ export interface ILibraryItemContent {
   _id?: string;
   type: "paragraph" | "header" | "image" | "audio";
   value?: string;
-  image?: { filename: string }
+  href?: string;
+  images?: {
+    id: string;
+    image: { filename: string; width: number; height: number };
+  }[];
   paragraph: { id: string; text: string; href?: string }[];
 }
 
@@ -22,7 +26,7 @@ export interface ILibraryItem {
     id?: string;
     _id?: string;
     type: "image" | "video";
-    image?: { filename: string }
+    image?: { filename: string };
     video?: string;
   }[];
   content?: ILibraryItemContent[];
@@ -37,10 +41,14 @@ const ContentSchema = new Schema<ILibraryItemContent>({
     required: true,
   },
   value: String,
-  image: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: LibraryMedia && "LibraryMedia",
-    required: true,
+  href: String,
+  images: {
+    id: String,
+    image: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: LibraryMedia && "LibraryMedia",
+      required: true,
+    },
   },
   paragraph: [{ text: { type: String, required: true }, href: String }],
 });

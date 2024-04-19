@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     console.log(err);
     return NextResponse.json(
       {
-        message: "Помилка при відправці листа, будь-ласка,оновіть сторінку",
+        message: "Помилка при відправці листа, будь ласка,оновіть сторінку",
       },
       { status: 400 }
     );

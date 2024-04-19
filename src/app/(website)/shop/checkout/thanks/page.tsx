@@ -69,7 +69,7 @@ const PayLaterResult: React.FC = ({}) => {
           });
 
           if (!res.ok) {
-            toast("Сталася помилка, будь-ласка,оновіть сторінку");
+            toast("Сталася помилка, будь ласка,оновіть сторінку");
           }
         }
       }
@@ -132,7 +132,10 @@ const PayLaterResult: React.FC = ({}) => {
           <Typography variant="h6">
             Ми якнайшвидше розпочнемо пакувати ваше замовлення!
           </Typography>
-          <Typography variant="subtitle1">
+          <Typography
+            variant="subtitle1"
+            style={{ fontSize: "20px", fontWeight: 400 }}
+          >
             Та надішлимо Вам повідомлення, коли пакуночок почне прямувати до
             Вас!
           </Typography>

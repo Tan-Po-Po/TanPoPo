@@ -33,9 +33,8 @@ export const Cart: React.FC<Props> = ({ className }) => {
     final: 0,
   });
 
-  const {width} = useWindowSize()
-  const isMobile = Boolean(width && width < 678)
-
+  const { width } = useWindowSize();
+  const isMobile = Boolean(width && width < 678);
 
   const formReturn = useForm({
     defaultValues: {
@@ -54,10 +53,10 @@ export const Cart: React.FC<Props> = ({ className }) => {
     const code = await getPromoCode(data.code);
 
     if (code) {
-      toast("Промокод прийнято!😎");
+      toast("Промокод прийнято!😎", { toastId: "promoConfirm" });
       dispatch(addPromoCode(code));
     } else {
-      toast("Такого промокоду не існує!");
+      toast("Такого промокоду не існує!", { toastId: "promoNotConfirm" });
       formReturn.reset();
     }
   };

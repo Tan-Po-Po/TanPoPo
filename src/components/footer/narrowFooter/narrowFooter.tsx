@@ -115,7 +115,7 @@ export const NarrowFooter = () => {
               alt=""
             />
             <Link href={"/contacts/confidentialityPolicy"}>
-              Політика Конфідеційності
+              Політика Конфіденційності
             </Link>
           </div>
           <div className={cl.linkWrapper}>

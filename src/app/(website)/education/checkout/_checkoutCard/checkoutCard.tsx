@@ -47,7 +47,7 @@ const CheckoutCard: React.FC<Props> = ({ course }) => {
     >
       <Typography
         variant="h6"
-        style={{ fontSize: "22px", whiteSpace: "pre-line" }}
+        style={{ fontSize: "22px", whiteSpace: "pre" }}
       >
         {
           " Заявку на навчання успішно сформовано! Наш відділ\nТурботи невдовзі зв’яжеться з вами, щоб узгодити\nвсі деталі стосовно вашого навчання!"

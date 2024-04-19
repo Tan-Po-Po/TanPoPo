@@ -54,7 +54,7 @@ const heisei = localFont({
 
 export const metadata: Metadata = {
   title: "TanPoPo",
-  description: "Japanese language school",
+  description: "Школа японської мови",
 };
 
 export default function RootLayout({

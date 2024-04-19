@@ -141,10 +141,10 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
               rules={
                 certificateType === "Друкований сертифікат"
                   ? {
-                      required: "Будь-ласка, вкажіть Ім'я",
+                      required: "Будь ласка, вкажіть Ім'я",
                       min: {
                         value: 3,
-                        message: "Будь-ласка, вкажіть коректне ім'я",
+                        message: "Будь ласка, вкажіть коректне ім'я",
                       },
                     }
                   : {}
@@ -165,10 +165,10 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
               rules={
                 certificateType === "Друкований сертифікат"
                   ? {
-                      required: "Будь-ласка, вкажіть Прізвище",
+                      required: "Будь ласка, вкажіть Прізвище",
                       min: {
                         value: 3,
-                        message: "Будь-ласка, вкажіть коректне Прізвище",
+                        message: "Будь ласка, вкажіть коректне Прізвище",
                       },
                     }
                   : {}
@@ -204,7 +204,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           rules={
             certificateType === "Друкований сертифікат" || !isCertificate
               ? {
-                  required: "Будь-ласка, оберіть область для доставки",
+                  required: "Будь ласка, оберіть область для доставки",
                 }
               : {}
           }
@@ -246,10 +246,10 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
           rules={
             certificateType === "Друкований сертифікат" || !isCertificate
               ? {
-                  required: "Будь-ласка, оберіть місто для доставки",
+                  required: "Будь ласка, оберіть місто для доставки",
                   validate: (field) => {
                     if (!field.label.length) {
-                      return "Будь-ласка, оберіть місто для доставки";
+                      return "Будь ласка, оберіть місто для доставки";
                     }
                     return true;
                   },
@@ -384,7 +384,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                     getValues("isAddressDelivery")
                   ) {
                     if (!value.length) {
-                      return "Будь-ласка, вкажіть адресу для доставки";
+                      return "Будь ласка, вкажіть адресу для доставки";
                     }
                     if (value.length < 5) {
                       return "Вкажіть повну адресу";
@@ -412,7 +412,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                   !isCertificate) &&
                 getValues("isDepartmentDelivery")
                   ? {
-                      required: "Будь-ласка, оберіть номер відділення",
+                      required: "Будь ласка, оберіть номер відділення",
                     }
                   : {}
               }
