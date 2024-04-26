@@ -1,17 +1,4 @@
 .customToast {
-  p,
-  a,
-  span {
-    margin: 0;
-    background-clip: text !important;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-color: transparent;
-    -moz-text-fill-color: transparent;
-    white-space: pre;
-    font-weight: 800;
-  }
   max-width: 655px;
   width: fit-content;
   margin: 0px auto 16px;
@@ -19,7 +6,22 @@
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  
+
+  p,
+  span,
+  a,
+  .wrapper {
+    margin: 0;
+    white-space: pre;
+    font-weight: 800;
+    background-clip: text !important;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+
   .underline {
     content: "";
     position: absolute;
@@ -63,6 +65,7 @@
     span,
     a {
       white-space: pre-line;
+      display: inline;
     }
 
     p {
@@ -75,7 +78,7 @@
       span {
         white-space: pre;
       }
-      padding-right: 8px;
+      padding-right: 4px;
       display: block !important;
     }
   }

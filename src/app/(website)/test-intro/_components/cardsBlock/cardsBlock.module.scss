@@ -28,9 +28,10 @@
   transition: 0.2s ease-in-out;
 }
 
-@media (max-width: 1000px) and (min-width: 500px) {
+@media (max-width: 1200px) and (min-width: 500px) {
   .cardsBlock {
     width: 100vw;
+    margin: 0 -10px;
   }
 }
 

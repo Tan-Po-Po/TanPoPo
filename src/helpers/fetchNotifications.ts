@@ -7,8 +7,6 @@ export const fetchNotifications = async () => {
   try {
     await dbConnect();
     const notificationsDB = await Notification.find({ isActive: true });
-    console.log("notificationsDB");
-    notificationsDB.forEach((item) => console.log(item));
 
     return notificationsDB.map((item) =>
       JSON.parse(JSON.stringify(item))
