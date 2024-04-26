@@ -254,6 +254,16 @@ $padding-card: 55px 30px 18px 30px;
     width: 342px;
   }
 
+  .articleSmall {
+    .carousel {
+      :global(.slick-slide) {
+        > div {
+          margin: 20px 30px;
+        }
+      }
+    }
+  }
+
   .reels {
     width: 342px;
   }
@@ -319,5 +329,16 @@ $padding-card: 55px 30px 18px 30px;
     width: 274px;
     height: 190px;
     margin: 0 auto;
+  }
+
+  .articleSmall {
+    .carousel {
+      :global(.slick-slide) {
+        > div {
+          margin: 20px 40px;
+        }
+      }
+      
+    }
   }
 }

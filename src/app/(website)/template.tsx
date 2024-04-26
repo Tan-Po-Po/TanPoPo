@@ -1,28 +1,16 @@
 "use client";
+
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Template({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    const scrollToDiv = () => {
-      const hash = window.location.hash;
-      if (!hash) return;
-      
-      const target = document.querySelector(hash) as HTMLElement;
-
-      if (hash && target) {
-        const offset = target.offsetTop;
-        window.scrollTo({
-          top: offset - 100,
-          behavior: "smooth",
-        });
-      }
-    };
-
-    setTimeout(() => scrollToDiv(), 1500);
-  }, []);
   const pathName = usePathname();
+
+  useEffect(() => {
+    setTimeout(() => scrollToDiv(), 1500);
+  }, [pathName]);
+
   return (
     <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
       <motion.div
@@ -38,3 +26,18 @@ export default function Template({ children }: { children: React.ReactNode }) {
     </AnimatePresence>
   );
 }
+
+const scrollToDiv = () => {
+  const hash = window.location.hash;
+  if (!hash) return;
+
+  const target = document.getElementById(hash.slice(1)) as HTMLElement;
+
+  if (hash && target) {
+    const offset = target.offsetTop;
+    window.scrollTo({
+      top: offset - 100,
+      behavior: "smooth",
+    });
+  }
+};
