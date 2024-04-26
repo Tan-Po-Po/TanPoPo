@@ -2,14 +2,14 @@
 import React from "react";
 import { toast } from "react-toastify";
 import { INotification } from "@/models/Notification";
-import cl from "./customToast.module.scss"
+import cl from "./customToast.module.scss";
 
 const CustomToast = (notification: INotification, onClose?: () => void) => {
   const { closeTime, color, bgColor, _id } = notification;
 
   return toast(
     ({ closeToast }) => (
-      <div>
+      <div className={cl.wrapper} style={{ background: notification.color }}>
         {parseContent(notification)}
         <CloseButtonComponent
           className={cl.closeBtn}
@@ -28,6 +28,7 @@ const CustomToast = (notification: INotification, onClose?: () => void) => {
       style: { background: bgColor, color },
       className: cl.customToast,
       closeOnClick: false,
+      draggable: false,
     }
   );
 };
@@ -35,7 +36,7 @@ const CustomToast = (notification: INotification, onClose?: () => void) => {
 const parseContent = (notification: INotification) => {
   return notification.content.map((contentItem) => {
     return (
-      <p key={contentItem._id} style={{ background: notification.color }}>
+      <p key={contentItem._id} style={{ background: "transparent" }}>
         {contentItem.children.map((childrenItem, index) => {
           if (childrenItem.url) {
             return (
@@ -44,12 +45,12 @@ const parseContent = (notification: INotification) => {
                 key={index}
                 target={`${childrenItem.newTab ? "_blank" : "_self"}`}
                 onClick={(e) => e.stopPropagation()}
-                style={{ textDecoration: "underline" }}
               >
                 <span
                   style={{
                     position: "relative",
                     background: notification.color,
+                    // background: "transparent" ,
                   }}
                 >
                   {childrenItem.children[0].text}
@@ -57,6 +58,7 @@ const parseContent = (notification: INotification) => {
                     className={cl.underline}
                     style={{
                       background: notification.color,
+                      // background: "transparent" ,
                     }}
                   ></span>
                 </span>
