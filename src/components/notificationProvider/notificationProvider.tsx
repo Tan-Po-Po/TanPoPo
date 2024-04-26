@@ -98,13 +98,13 @@ const NotificationProvider = ({ children }: { children: React.ReactNode }) => {
               (page === "/library" && pathName.includes("library")) ||
               (page === "all" && NOTIFICATION_PAGES.includes(pathName)) ||
               page === pathName
-          ); // change logic for "all" pages
+          );
           if (!matchPages) return;
 
           if (
             lastTimeShown !== null &&
             currentTime.getTime() - new Date(lastTimeShown).getTime() <
-              ONE_MINUTE
+              ONE_MINUTE * 5
           ) {
             return;
           }
