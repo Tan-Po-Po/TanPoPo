@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { DialogCart } from "./shop/_components/components";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { LocalizationProvider } from "@/components/localizationProvider/localizationProvider";
+import { NotificationProvider } from "@/components/notificationProvider/notificationProvider";
 
 export default function RootLayout({
   children,
@@ -14,7 +15,7 @@ export default function RootLayout({
     <LocalizationProvider>
       <StyledEngineProvider injectFirst>
         <Header />
-        {children}
+        <NotificationProvider>{children}</NotificationProvider>
         <Footer />
 
         <ToastContainer

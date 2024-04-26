@@ -4,6 +4,7 @@ import galleryDialogReducer from "./slices/galleryDialog/galleryDialogSlice";
 import shopCartReducer from "./slices/shopCart/shopCartSlice";
 import cartDialogReducer from "./slices/cartDialog/cartDialogSlice";
 import deliveryInfoReducer from "./slices/deliveryInfo/deliveryInfoSlice";
+import notificationsReducer from "./slices/notifications/notificationsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     shopCart: shopCartReducer,
     cartDialog: cartDialogReducer,
     deliveryInfo: deliveryInfoReducer,
+    notifications: notificationsReducer,
   },
 });
 

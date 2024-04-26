@@ -308,7 +308,7 @@ export default function Join() {
               labelBgColor="linear-gradient(#FFF383, #FFDE89)"
             >
               <Typography variant="h6">
-                Безкоштовний міні-курс “Японізація”
+                Безкоштовний мінікурс “Японізація”
               </Typography>
               <Image
                 src="/icons/art/megaPresent.png"

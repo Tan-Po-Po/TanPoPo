@@ -53,6 +53,11 @@
       text-align: start;
     }
 
+    .para {
+      word-break: break-word;
+      hyphens: auto;
+    }
+    
     .title {
       font-weight: 700;
       font-size: 24px;
