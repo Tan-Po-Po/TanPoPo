@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="uk" className={`${heisei.variable} ${comfortaa.variable}`}>
       <meta name="mobile-web-app-capable" content="yes" />
-      <link rel="icon" href="/icon.png" sizes="any" />
+      {/* <link rel="icon" href="/icon.png" sizes="any" />
       <link
         rel="icon"
         href="/icon?<generated>"
@@ -77,7 +77,7 @@ export default function RootLayout({
         href="/icon?<generated>"
         type="image/<generated>"
         sizes="<generated>"
-      />  
+      />   */}
       <body>
         <Providers>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
