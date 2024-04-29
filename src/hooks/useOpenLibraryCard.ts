@@ -14,8 +14,9 @@ export const useOpenLibraryItem = ({ autoplay, item, isNew }: Params) => {
 
   const openLibraryItem = () => {
     if (
-      item.type === "reels" ||
-      (item.type === "music" && !item.media![0].video?.includes("youtube"))
+      item.type === "reels" 
+      // ||
+      // (item.type === "music" && !item.media![0].video?.includes("youtube"))
     ) {
       window.open(item.media[0].video, "_ blank");
     } else {

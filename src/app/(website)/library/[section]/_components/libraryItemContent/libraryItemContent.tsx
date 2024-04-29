@@ -145,6 +145,7 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
             variant="body1"
             style={{ fontWeight: "700" }}
             className={cl.contentHeader}
+            align="center"
           >
             {item.href ? (
               <Link

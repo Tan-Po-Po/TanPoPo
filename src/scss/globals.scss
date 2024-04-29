@@ -151,6 +151,12 @@ body:has(div.MuiDialog-root) {
   }
 }
 
+@media (max-width: 1200px) {
+  .Toastify__toast-container {
+    z-index: 999 !important;
+  }
+}
+
 @media (max-width: 500px) {
   .Toastify__toast-container {
     width: 100vw !important;
