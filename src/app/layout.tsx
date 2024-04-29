@@ -64,16 +64,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uk" className={`${heisei.variable} ${comfortaa.variable}`}>
-      <link rel="icon" href="/logo/favicon.png" />
-      <meta name="mobile-web-app-capable" content="yes"></meta>
-      <link rel="shortcut icon" sizes="192x192" href="/logo/favicon.png" />
-      <link rel="shortcut icon" sizes="128x128" href="/logo/favicon.png" />
-      <link rel="apple-touch-icon" sizes="128x128" href="/logo/favicon.png" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <link rel="icon" href="/icon.png" sizes="any" />
       <link
-        rel="apple-touch-icon-precomposed"
-        sizes="128x128"
-        href="/logo/favicon.png"
+        rel="icon"
+        href="/icon?<generated>"
+        type="image/<generated>"
+        sizes="<generated>"
       />
+      <link
+        rel="apple-touch-icon"
+        href="/icon?<generated>"
+        type="image/<generated>"
+        sizes="<generated>"
+      />  
       <body>
         <Providers>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
