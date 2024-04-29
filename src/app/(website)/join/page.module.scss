@@ -228,6 +228,15 @@
   }
 }
 
+.freeCourseText {
+  white-space: pre-line;
+}
+
+@media (max-width: 960px) {
+  .freeCourseText {
+    white-space: normal;
+  }
+}
 @media (max-width: 1100px) {
   .mobileCaption {
     display: block;

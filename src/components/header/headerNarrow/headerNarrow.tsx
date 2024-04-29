@@ -12,10 +12,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useWindowSize } from "@uidotdev/usehooks";
 
-export const HeaderNarrow = () => {
-  const {width} = useWindowSize()
-  const isMobile = Boolean(width && width < 678)
-  const isTablet = Boolean(width && width >= 678 && width < 1024)
+type Props = {
+  className?: string;
+};
+
+export const HeaderNarrow: React.FC<Props> = ({ className }) => {
+  const { width } = useWindowSize();
+  const isMobile = Boolean(width && width < 678);
+  const isTablet = Boolean(width && width >= 678 && width < 1024);
   const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
 
@@ -35,7 +39,7 @@ export const HeaderNarrow = () => {
     ...aboutLinks.slice(1),
   ];
   return (
-    <header className={cl.headerNarrow}>
+    <header className={getValidClassNames(cl.headerNarrow, className)}>
       {!isOpen && <CartButton />}
       <div className={cl.wrapper}>
         <div className={cl.logo}>

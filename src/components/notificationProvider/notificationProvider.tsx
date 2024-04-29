@@ -88,8 +88,14 @@ const NotificationProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const notificationTimeouts = [] as NodeJS.Timeout[];
+
     fetchAndUpdateNotifications({ notifications, updatedAt }).then(
       (actualNotification) => {
+        // Check if user is still on the same page
+        if (pathName !== location.pathname) {
+          return;
+        }
+
         const currentTime = new Date();
 
         actualNotification.forEach(({ notification, lastTimeShown }) => {

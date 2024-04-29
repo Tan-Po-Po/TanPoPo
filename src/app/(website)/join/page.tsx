@@ -316,7 +316,7 @@ export default function Join() {
                 width={102}
                 height={98}
               />
-              <Typography variant="body1" style={{ whiteSpace: "pre-line" }}>
+              <Typography variant="body1" className={cl.freeCourseText} style={{ whiteSpace: "pre-line" }}>
                 {
                   " Зазирність на наш безкоштовний \nмовно-культурний мінікурс у вигляді\n пізнавальних відеоуроків, інтерактивних \nзавданнь та тестів на самоперевірку!\nВ незалежності від володіння японської \n мови - курс зацікавить усіх бажаючих!\nЛекторка: Тетяна Селіверстова."
                 }

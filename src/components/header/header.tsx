@@ -14,7 +14,7 @@ const Header = () => {
   const { width } = useWindowSize();
 
   if (width && width < 1180) {
-    return <HeaderNarrow />;
+    return <HeaderNarrow className={cl.headerNarrow} />;
   }
 
   return (
