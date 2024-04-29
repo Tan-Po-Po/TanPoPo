@@ -4,20 +4,20 @@ import { toast } from "react-toastify";
 import { INotification } from "@/models/Notification";
 import cl from "./customToast.module.scss";
 
-const CustomToast = (notification: INotification, onClose?: () => void) => {
+const CustomToast = (notification: INotification, onClose: () => void) => {
   const { closeTime, color, bgColor, _id } = notification;
 
   return toast(
     ({ closeToast }) => (
       <div className={cl.wrapper} style={{ background: notification.color }}>
-        {parseContent(notification)}
+        {parseContent(notification, onClose)}
         <CloseButtonComponent
           className={cl.closeBtn}
           color={color}
           id={_id}
           onClick={() => {
             closeToast && closeToast();
-            onClose && onClose();
+            onClose();
           }}
         />
       </div>
@@ -33,7 +33,7 @@ const CustomToast = (notification: INotification, onClose?: () => void) => {
   );
 };
 
-const parseContent = (notification: INotification) => {
+const parseContent = (notification: INotification, onLinkClick: () => void) => {
   return notification.content.map((contentItem) => {
     return (
       <p key={contentItem._id} style={{ background: "transparent" }}>
@@ -44,7 +44,10 @@ const parseContent = (notification: INotification) => {
                 href={childrenItem.url}
                 key={index}
                 target={`${childrenItem.newTab ? "_blank" : "_self"}`}
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onLinkClick();
+                }}
               >
                 <span
                   style={{
