@@ -17,7 +17,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { getPaymentStatus } from "@/helpers";
 
 type FormData = {
-  amount: null | number;
+  amount: string | number;
   comment: string;
   agreement: boolean;
 };
@@ -32,7 +32,7 @@ export default function Requisites() {
 
   const formReturn = useForm<FormData>({
     defaultValues: {
-      amount: null,
+      amount: "",
       comment: "",
       agreement: false,
     },
@@ -134,7 +134,11 @@ export default function Requisites() {
             rules={{
               required: "Будь ласка, вкажіть суму для оплати",
               validate: (value) => {
-                if (!value || isNaN(value) || value < 1) {
+                if (
+                  !value ||
+                  (typeof value !== "number" && isNaN(Number(value))) ||
+                  Number(value) < 1
+                ) {
                   return "Будь ласка, вкажіть коректну суму для оплати";
                 }
                 return true;
