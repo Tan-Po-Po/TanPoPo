@@ -65,14 +65,13 @@ export default function RootLayout({
   return (
     <html lang="uk" className={`${heisei.variable} ${comfortaa.variable}`}>
       <meta name="mobile-web-app-capable" content="yes" />
-      {/* <link rel="icon" href="/icon.png" sizes="any" />
       <link
         rel="icon"
-        href="/icon?<generated>"
-        type="image/<generated>"
-        sizes="<generated>"
+        href="/icon.png"
+        type="image/png"
+        sizes="192x192"
       />
-      <link
+      {/* <link
         rel="apple-touch-icon"
         href="/icon?<generated>"
         type="image/<generated>"
