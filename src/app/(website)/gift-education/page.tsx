@@ -9,11 +9,14 @@ import { Cards } from "./_cards/cards";
 import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import cl from "./page.module.scss";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Навчання у подарунок | Tanpopo',
-}
+  title: "Навчання японської у подарунок | Подарунковий сертифікат",
+  description:
+    "Ідеальний подарунок для дітей та дорослих і для всіх, хто бажає вивчати та вдосконалювати японську мову! Подарувати вивчення мови як ніколи просто!",
+};
+
 export default function Home() {
   return (
     <main className={cl.main}>
@@ -91,7 +94,7 @@ export default function Home() {
         bgColor="linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)"
       />
 
-      <CourseFormats className={cl.formats} coursesHref/>
+      <CourseFormats className={cl.formats} coursesHref />
     </main>
   );
 }

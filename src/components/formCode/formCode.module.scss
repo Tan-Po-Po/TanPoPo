@@ -62,3 +62,15 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .input {
+    :global(.MuiInputLabel-root) {
+      margin-left: 10px;
+      transform: translate(14px, 23px) scale(1);
+    }
+    :global(.MuiInputLabel-shrink) {
+      transform: translate(14px, -9px) scale(0.75);
+    }
+  }
+}

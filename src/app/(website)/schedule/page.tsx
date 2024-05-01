@@ -26,7 +26,7 @@ export default function Page() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    document.title = "Розклад  | Tanpopo";
+    document.title = "Розклад  | TanPoPo";
   }, []);
 
   const formReturn = useForm<FormData>({

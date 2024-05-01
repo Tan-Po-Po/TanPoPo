@@ -18,7 +18,9 @@ import { Metadata } from "next";
 import { getGuides } from "./actions";
 
 export const metadata: Metadata = {
-  title: "Контакти | Tanpopo",
+  title: "Контакти школи японської мови | TanPoPo",
+  description:
+    "Маєте додаткові запитання по вивченню японської мови? На цій сторінці Ви знайдете усю необхідну інформацію по користуванню сайтом та навчальною платформою!",
 };
 const dividerBgColor = "linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)";
 export const revalidate = 1;
@@ -29,7 +31,11 @@ export default async function Contacts() {
   return (
     <main className={cl.main}>
       <div className={cl.contactsBlock}>
-        <Typography variant="h3" style={{ textAlign: "center" }}>
+        <Typography
+          variant="h1"
+          align="center"
+          style={{ fontSize: "36px", lineHeight: "1.2" }}
+        >
           {textContent.contactsBlock.header}
         </Typography>
         <Image
@@ -78,7 +84,7 @@ export default async function Contacts() {
                         }}
                       >
                         {index !== 0 ? (
-                          <span style={{ whiteSpace: "pre" }}>  /  </span>
+                          <span style={{ whiteSpace: "pre" }}> / </span>
                         ) : null}
                         <Link href={link} className={cl.link}>
                           <Typography variant="body1">{text}</Typography>
@@ -101,9 +107,9 @@ export default async function Contacts() {
               </Typography>
             </div>
             <div className={cl.socials}>{getSocialIconsLinks("42px")}</div>
-            <Typography variant="body2" className={cl.rights}>
+            <div className={cl.rights}>
               {textContent.contactsBlock.card2.caption2}
-            </Typography>
+            </div>
           </ContentCard>
 
           <ContentCard

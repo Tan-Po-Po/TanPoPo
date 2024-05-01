@@ -30,7 +30,7 @@ export default function Page() {
   const studentInfo = useAppSelector(selectDeliveryInfo);
 
   useEffect(() => {
-    document.title = "Навчання | Tanpopo";
+    document.title = "Навчання | TanPoPo";
 
     if (!orderId || !courseRedux.id || !studentInfo.name) {
       router.push("/prices");

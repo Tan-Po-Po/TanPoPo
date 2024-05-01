@@ -36,6 +36,7 @@ export const CarouselItem: React.FC<Props> = ({
       return;
     }
     ref.current!.classList.add(cl.hovered);
+    ref.current!.classList.remove(cl.unhovered);
   };
 
   const handleMouseLeave = () => {
@@ -44,6 +45,7 @@ export const CarouselItem: React.FC<Props> = ({
     }
     ref.current!.classList.remove(cl.clicked);
     ref.current!.classList.remove(cl.hovered);
+    ref.current!.classList.add(cl.unhovered);
   };
 
   return (

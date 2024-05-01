@@ -19,6 +19,17 @@
       }
     }
   }
+
+  .emptyCertificates {
+    padding: 0;
+    margin-top: -25px;
+    margin-bottom: 40px;
+    max-width: calc(100vw - 40px);
+    width: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 767px) {
@@ -36,6 +47,11 @@
       flex-direction: column;
       height: fit-content;
       padding: 30px 16px;
+    }
+
+    .emptyCertificates {
+      padding: 0;
+      margin-top: 0;
     }
   }
 }

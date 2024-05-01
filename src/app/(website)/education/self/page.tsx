@@ -1,4 +1,3 @@
-"use client";
 import {
   ContentCard,
   Typography,
@@ -6,19 +5,19 @@ import {
   DialogGallery,
 } from "@/components";
 import { getIconArtSrc } from "@/helpers";
-import { useAppDispatch } from "@/redux/hooks";
-import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
 import Image from "next/image";
-import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
 import Link from "next/link";
-import { useEffect } from "react";
+import { VideoBlock } from "./videoBlock";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Відеокурси & Аудіокурси з японської мови | Аніме курс",
+  description:
+    "Вивчай японську у власному темпі! Ми створили всі можливі типи самостійних курсів з японської мови: Відеокурси & Аніме-курси, Аудіокурси, Книжкові курси.",
+};
 
 export default function Page() {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    document.title = "Самостійне навчання | Tanpopo";
-  }, []);
   return (
     <main className={cl.main}>
       <DialogGallery />
@@ -28,26 +27,7 @@ export default function Page() {
         <Typography variant="h6">для самостійного навчання</Typography>
       </div>
 
-      <div
-        className={cl.video}
-        onClick={() =>
-          dispatch(
-            openGalleryDialog({
-              type: "video",
-              src: "https://www.youtube.com/watch?v=8ypRvNZhocU",
-            })
-          )
-        }
-      >
-        <Image
-          src="/images/selfEducation.jpg"
-          alt="Japanese courses"
-          width={970}
-          height={550}
-        />
-        <div className={cl.title}>Курси для самостійного навчання.</div>
-        <PlayButton className={cl.playBtn} />
-      </div>
+      <VideoBlock />
 
       <div className={cl.courseTypes}>
         <div className={cl.type}>
@@ -239,10 +219,7 @@ export default function Page() {
         <Typography variant="body1" className={cl.text}>
           Усі навчальні матеріали по обраному курсу будуть зберігатися на
           навчальній платформі в Особистому Кабінеті учня протягом всього&nbsp;
-          <Link
-            href="/self-education"
-            className={cl.educationLink}
-          >
+          <Link href="/self-education" className={cl.educationLink}>
             Навчального Періоду
           </Link>
           . Тому ви зможете повторювати весь матеріал та переглядати улюблені

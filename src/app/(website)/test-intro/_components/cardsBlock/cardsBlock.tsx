@@ -26,7 +26,12 @@ const CardsBlock = () => {
           >
             <Link href="/test-intro#start">
               <ContentCard width="376px" className={cl.card}>
-                <Typography variant="h6">{card.title}</Typography>
+                <Typography
+                  variant="h3"
+                  style={{ fontSize: "24px", lineHeight: "1.6" }}
+                >
+                  {card.title}
+                </Typography>
                 <Image
                   alt=""
                   src={card.image}

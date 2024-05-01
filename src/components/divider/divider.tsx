@@ -38,14 +38,23 @@ const Divider: React.FC<Properties> = ({
         cardBgColor={bgColor || "#FDE543"}
         width={width}
       >
-        <Typography className={cl.firstRow} variant="body1">
-          {firstRow}
-        </Typography>
-        {secondRow && (
-          <Typography className={cl.secondRow} variant="body2">
-            {secondRow}
+        <h3
+          style={{
+            display: "contents",
+            fontSize: "inherit",
+            lineHeight: "inherit",
+            fontWeight: "inherit",
+          }}
+        >
+          <Typography className={cl.firstRow} variant="body1">
+            {firstRow}
           </Typography>
-        )}
+          {secondRow && (
+            <Typography className={cl.secondRow} variant="body2">
+              {secondRow}
+            </Typography>
+          )}
+        </h3>
       </ContentCard>
     </div>
   );

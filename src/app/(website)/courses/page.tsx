@@ -15,7 +15,9 @@ import { Suspense } from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Курси | Tanpopo",
+  title: "Курси японської мови - усі можливі формати навчання",
+  description:
+    "Усі можливі види курсів та формати навчання японської мови: онлайн-курси з сенсеєм, відеокурси, аудіокурси, книжкові курси, аніме-курси!",
 };
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
@@ -34,7 +36,7 @@ export default async function Courses() {
   return (
     <main className={cl.main}>
       <section className={cl.intro}>
-        <Typography variant="h3" style={{ textAlign: "center" }}>
+        <Typography variant="h1" style={{ textAlign: "center" }}>
           Курси японської мови
         </Typography>
         <Image
@@ -54,9 +56,51 @@ export default async function Courses() {
           </span>
         </Typography>
       </section>
+      <div className={cl.courseListMain}>
+        <Divider
+          wrapperClassName={cl.dividerWrapper}
+          className={cl.divider}
+          id="teacher"
+          firstRow="онлайн-курси"
+          secondRow="з сенсеєм"
+          bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
+        />
+        <CourseList courses={coursesDB} type="teacher" />
 
-      <CourseList courses={coursesDB} />
+        <Divider
+          wrapperClassName={cl.dividerWrapper}
+          className={cl.divider}
+          id="video"
+          firstRow="Відеокурси"
+          secondRow="для самостійного вивчення"
+          bgColor="linear-gradient(rgba(255, 250, 139, 1), rgba(255, 111, 111, 1))"
+        />
+        <CourseList courses={coursesDB} type="video" />
 
+        <Divider
+          wrapperClassName={cl.dividerWrapper}
+          className={cl.divider}
+          id="audio"
+          firstRow="Аудіокурси"
+          secondRow="для самостійного вивчення"
+          bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(108, 250, 165, 1))"
+        />
+        <CourseList
+          courses={coursesDB}
+          type="audio"
+          coursesClassName={cl.courses}
+        />
+
+        <Divider
+          wrapperClassName={cl.dividerWrapper}
+          className={cl.divider}
+          id="book"
+          firstRow="Книжкові мінікурси"
+          secondRow="для самостійного вивчення"
+          bgColor="linear-gradient(rgba(255, 221, 169, 1), rgba(232, 184, 255, 1))"
+        />
+        <CourseList courses={coursesDB} type="book" />
+      </div>
       <Divider
         className={cl.divider}
         firstRow="бібліотека tanpopo"

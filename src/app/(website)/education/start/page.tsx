@@ -20,8 +20,9 @@ import { useAppSelector } from "@/redux/hooks";
 export default function Page() {
   const [isAccepted, setIsAccepted] = React.useState(false);
   const course = useAppSelector((state) => state.course);
+  
   useEffect(() => {
-    document.title = "Старт навчання | Tanpopo";
+    document.title = "Старт навчання | TanPoPo";
   }, []);
   
   return (

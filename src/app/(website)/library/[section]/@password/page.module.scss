@@ -42,18 +42,3 @@
     }
   }
 }
-
-@media (max-width: 500px) {
-  .password {
-    .formBlock {
-      .left {
-        .input {
-          label {
-            margin-left: 10px;
-            transform: translate(14px, 23px) scale(1);
-          }
-        }
-      }
-    }
-  }
-}

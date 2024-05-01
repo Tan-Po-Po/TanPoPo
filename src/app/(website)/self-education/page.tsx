@@ -5,7 +5,7 @@ import { getIconArtSrc } from "@/helpers";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Навчальний Період | Tanpopo",
+  title: "Навчальний Період | TanPoPo",
 };
 
 export default function Home() {

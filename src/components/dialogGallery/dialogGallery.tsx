@@ -36,11 +36,11 @@ export const DialogGallery = () => {
         <Image
           alt=""
           src={galleryDialog.src}
-          sizes="100vw"
+          // sizes="100vw"
           width={1920}
           height={1080}
           style={{
-            width: "100%",
+            maxWidth: "calc(100vw - 20px)",
             minWidth: "300px",
             height: "auto",
           }}

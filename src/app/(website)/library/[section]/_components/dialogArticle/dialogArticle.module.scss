@@ -20,20 +20,22 @@ $transition: all ease 0.2s;
     max-height: 50vh;
   }
   .newLabel {
-    right: 35px
+    right: 35px;
   }
+
   .content {
     @include flex-column;
     flex-direction: column !important;
     padding-top: 60px;
     gap: 1rem;
     width: 100%;
+    overflow: auto;
 
     a {
       text-decoration: underline;
       font-weight: 700;
       margin: 0 6px;
-    }
+    }  
   }
 
   .label {

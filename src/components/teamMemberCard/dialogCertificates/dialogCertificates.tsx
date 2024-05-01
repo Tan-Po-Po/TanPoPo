@@ -4,7 +4,7 @@ import { Dialog } from "../../dialog/dialog";
 import { Typography } from "../../typography/typography";
 import Image from "next/image";
 import { ITeamMember } from "@/models/TeamMember";
-import { getIconArtSrc } from "@/helpers";
+import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import { ContentCard } from "../..";
 import { IMAGE_BASE_URL } from "@/config/config";
 import { useAppDispatch } from "@/redux/hooks";
@@ -32,7 +32,10 @@ export const DialogCertificates: React.FC<Props> = ({
       open={open}
       onClose={onClose}
       scroll="paper"
-      contentClassName={cl.dialogContent}
+      contentClassName={getValidClassNames(
+        cl.dialogContent,
+        certificates.description.length === 0 && cl.emptyCertificates
+      )}
       titleClassName={cl.title}
       closeIconClassName={cl.closeIcon}
       title={
@@ -55,43 +58,55 @@ export const DialogCertificates: React.FC<Props> = ({
         ) as any
       }
     >
-      {certificates.description.map((certificate) => (
-        <ContentCard
-          key={certificate._id}
-          className={cl.certificate}
-          label={
-            <Typography
-              variant="body1"
-              style={{ fontWeight: "700", whiteSpace: "pre" }}
-            >
-              {certificate.label}
-            </Typography>
-          }
-          style={{ gap: "26px" }}
-          labelPosition="top"
-          labelBgColor="linear-gradient(180deg, #FFF 0%, #FFFBD9 100%)"
-          cardBgColor="linear-gradient(180deg, #FFFAF9 0%, #FFFBD8 100%)"
-          labelClassName={cl.certificateLabel}
-          onClick={() => handleOpenCertificateImage(certificate.image.filename)}
+      {certificates.description.length === 0 ? (
+        <Typography
+          variant="body2"
+          align="center"
+          style={{ whiteSpace: "pre" }}
         >
+          {"Незабаром тут з'являться \nсертифікати сенсея!📚"}
+        </Typography>
+      ) : (
+        certificates.description.map((certificate) => (
           <ContentCard
-            style={{
-              width: "215px",
-              height: "215px",
-              padding: "36px 10px",
-            }}
+            key={certificate._id}
+            className={cl.certificate}
+            label={
+              <Typography
+                variant="body1"
+                style={{ fontWeight: "700", whiteSpace: "pre" }}
+              >
+                {certificate.label}
+              </Typography>
+            }
+            style={{ gap: "26px" }}
+            labelPosition="top"
+            labelBgColor="linear-gradient(180deg, #FFF 0%, #FFFBD9 100%)"
+            cardBgColor="linear-gradient(180deg, #FFFAF9 0%, #FFFBD8 100%)"
+            labelClassName={cl.certificateLabel}
+            onClick={() =>
+              handleOpenCertificateImage(certificate.image.filename)
+            }
           >
-            <Image
-              src={`${IMAGE_BASE_URL}/${certificate.image.filename}`}
-              alt=""
-              width={500}
-              height={300}
-              style={{ width: "100%", height: "auto" }}
-            />
+            <ContentCard
+              style={{
+                width: "215px",
+                height: "215px",
+                padding: "36px 10px",
+              }}
+            >
+              <Image
+                src={`${IMAGE_BASE_URL}/${certificate.image.filename}`}
+                alt=""
+                width={500}
+                height={300}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </ContentCard>
+            <div className={cl.caption}>{certificate.caption}</div>
           </ContentCard>
-          <div className={cl.caption}>{certificate.caption}</div>
-        </ContentCard>
-      ))}
+        ))
+      )}
     </Dialog>
   );
 };

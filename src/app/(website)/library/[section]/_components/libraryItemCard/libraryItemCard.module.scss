@@ -247,6 +247,22 @@ $padding-card: 55px 30px 18px 30px;
   cursor: pointer;
 }
 
+.music {
+  .musicParagraph {
+    max-height: 85px;
+    overflow: hidden;
+    position: relative;
+  }
+  .gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), white);
+  }
+}
+
 @media (max-width: 1023px) {
   .reels,
   .music,
@@ -338,7 +354,6 @@ $padding-card: 55px 30px 18px 30px;
           margin: 20px 40px;
         }
       }
-      
     }
   }
 }

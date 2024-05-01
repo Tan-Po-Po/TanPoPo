@@ -15,7 +15,9 @@ import { AuthorContent } from "./_components/blocks/authorContent/authorContent"
 import { getFeedbacks, getPartnerImagesSrc, getTeamMembers } from "./actions";
 
 export const metadata: Metadata = {
-  title: "Про школу | Tanpopo",
+  title: "Українська школа з вивчення японської мови | TanPoPo",
+  description:
+    "Провідна українська школа з вивчення японської мови. Все найкраще, що необхідно для легкого, веселого, швидкісного та якісного вивчення японської мови!",
 };
 
 export const revalidate = 1;
@@ -31,7 +33,7 @@ export default async function About() {
     <main className={cl.main}>
       <div className={cl.ideaBlock}>
         <Typography
-          variant="h4"
+          variant="h1"
           style={{
             fontWeight: 600,
             textAlign: "center",
@@ -39,8 +41,17 @@ export default async function About() {
           className={cl.title}
         >
           Провідна українська <br />
-          онлайн-школа з вивчення <br />
-          японської мови!
+          <strong
+            style={{
+              display: "content",
+              fontSize: "inherit",
+              lineHeight: "inherit",
+              fontWeight: "inherit",
+            }}
+          >
+            онлайн-школа з вивчення <br />
+            японської мови!
+          </strong>
         </Typography>
 
         <div className={cl.logoWrapper}>

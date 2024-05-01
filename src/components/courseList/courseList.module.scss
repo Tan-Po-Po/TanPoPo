@@ -1,45 +1,61 @@
-.courseListMain {
-  @include flex-column;
-  gap: 20px;
+// .courseListMain {
+//   @include flex-column;
+//   gap: 20px;
+//   width: 100%;
+// }
+
+.courses {
   width: 100%;
-
-  .courses {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 60px;
-    column-gap: 70px;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 60px;
+  column-gap: 70px;
 }
 
-.dividerWrapper > div:first-child {
-  max-width: 1100px;
-  width: 100%;
+.carousel {
+  display: none;
 }
 
-.divider {
-  padding: 8px 14px 3px;
-}
+// .dividerWrapper > div:first-child {
+//   max-width: 1100px;
+//   width: 100%;
+// }
+
+// .divider {
+//   padding: 8px 14px 3px;
+// }
 
 @media (max-width: 800px) {
-  .courseListMain {
-    .courses {
-      column-gap: 60px;
-      min-height: 370px;
-      max-height: 400px;
-    }
-    .bookCourses {
-      column-gap: 15px;
-    }
+  .courses {
+    column-gap: 60px;
   }
+
+  .bookCourses {
+    column-gap: 15px;
+  }
+
   .carousel {
     & > div:first-child {
       margin: 0 -10px;
     }
     :global(.slick-slide) > div {
-      margin: 30px 10px 10px !important;
+      margin: 30px 10px 20px !important;
     }
+  }
+}
+
+@media (max-width: 760px) {
+  .courses {
+    min-height: 370px;
+    max-height: 455px;
+  }
+  .carousel {
+    display: initial;
+  }
+
+  .courseListWrapper {
+    display: none;
   }
 }

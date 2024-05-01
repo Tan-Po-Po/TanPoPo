@@ -16,8 +16,8 @@ interface Props {
   page: string;
 }
 const DialogArticle: React.FC<Props> = ({ page }) => {
-  const {width} = useWindowSize()
-  const isMobile = Boolean(width && width < 678)
+  const { width } = useWindowSize();
+  const isMobile = Boolean(width && width < 678);
   const router = useRouter();
   const path = usePathname();
   const searchParams = useSearchParams();
@@ -62,7 +62,18 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
       className={cl.dialog}
       contentClassName={cl.content}
       scroll="paper"
+      label={
+        <ContentCard
+          cardBgColor={item?.labelColor}
+          className={cl.label}
+          width="70%"
+        >
+          <Typography variant="body1">{item?.label}</Typography>
+          {isNew && isMobile && <NewLabel position="center" />}
+        </ContentCard>
+      }
     >
+
       {loading ? (
         <div className={cl.loader}>
           <Loading heightAuto />
@@ -78,17 +89,8 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
       ) : (
         <>
           <Suspense fallback={<></>}>
-            {isNew && !isMobile && <NewLabel className={cl.newLabel}/>}
+            {isNew && !isMobile && <NewLabel className={cl.newLabel} />}
           </Suspense>
-          <ContentCard
-            cardBgColor={item?.labelColor}
-            className={cl.label}
-            width="70%"
-          >
-            <Typography variant="body1">{item!.label}</Typography>
-            {isNew && isMobile && <NewLabel position="center" />}
-          </ContentCard>
-
           <div className={cl.gallery}>
             <Media item={item} />
           </div>
