@@ -39,6 +39,7 @@ export const TeamBlock: React.FC<Props> = ({ teamMembers }) => {
         autoplay
         autoplaySpeed={7000}
         pauseOnClick
+        pauseOnHover={false}
       >
         {teamMembers.map((member) => (
           <TeamMemberCard key={member._id} teamMember={member} />

@@ -31,7 +31,7 @@ export const CourseList: React.FC<Props> = ({
       )}
       style={{ maxWidth: "1100px" }}
     >
-      {coursesArray.length > 1 && (
+      {coursesArray.length > 1 ? (
         <Carousel
           initialSlide={0}
           slideAmount={Math.ceil(coursesArray.length)}
@@ -47,6 +47,10 @@ export const CourseList: React.FC<Props> = ({
             </CarouselItem>
           ))}
         </Carousel>
+      ) : (
+        coursesArray.map((course) => {
+          return <CourseCardMini course={course} key={course._id} />;
+        })
       )}
 
       <div className={getValidClassNames(cl.courses, cl.courseListWrapper)}>
