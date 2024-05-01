@@ -130,7 +130,7 @@ function getPreview(content: ILibraryItemContent[]) {
       return true;
     }
 
-    if (item.type === "image") {
+    if (item.type === "image" || item.type === "audio") {
       return false;
     }
 

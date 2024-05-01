@@ -13,11 +13,11 @@ import { useWindowSize } from "@uidotdev/usehooks";
 export const DialogGallery = () => {
   const galleryDialog = useAppSelector(selectGalleryDialog);
   const dispatch = useAppDispatch();
-
-  const {width} = useWindowSize()
-  const isPc = Boolean(width && width >= 1024)
-  const isMobile = Boolean(width && width < 678)
-  const isTablet = Boolean(width && width >= 678 && width < 1024)
+  console.log(galleryDialog);
+  const { width } = useWindowSize();
+  const isPc = Boolean(width && width >= 1024);
+  const isMobile = Boolean(width && width < 678);
+  const isTablet = Boolean(width && width >= 678 && width < 1024);
 
   const iFrameWidth =
     (isPc && "760") || (isTablet && "560") || (isMobile && "340") || "560";
@@ -31,18 +31,20 @@ export const DialogGallery = () => {
       open={galleryDialog.isOpen}
       className={cl.dialog}
       contentClassName={cl.content}
+      closeIconClassName={cl.closeIcon}
     >
       {galleryDialog.type === "image" ? (
-        <Image
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
           alt=""
           src={galleryDialog.src}
-          // sizes="100vw"
           width={1920}
           height={1080}
           style={{
-            maxWidth: "calc(100vw - 20px)",
-            minWidth: "300px",
+            width: "100%",
+            minWidth: "200px",
             height: "auto",
+            maxHeight: "90vh"
           }}
         />
       ) : (

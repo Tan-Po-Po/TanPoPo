@@ -10,6 +10,7 @@ import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSli
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { IMAGE_BASE_URL } from "@/config/config";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { useRouter } from "next/navigation";
 
 interface Props {
   item: ILibraryItem;
@@ -21,6 +22,7 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
   const dispatch = useAppDispatch();
   const isPodcast = item.type === "podcast";
   const { width } = useWindowSize();
+
   const isMobile = Boolean(width && width < 678);
 
   const { openLibraryItem } = useOpenLibraryItem({ item, autoplay: "1" });
@@ -108,7 +110,9 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
             dispatch(
               openGalleryDialog({
                 type: "image",
-                src: `${IMAGE_BASE_URL}/${itemContent.images![0].image.filename}`,
+                src: `${IMAGE_BASE_URL}/${
+                  itemContent.images![0].image.filename
+                }`,
               })
             );
           }}
@@ -164,8 +168,27 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
         return getImage(item, index);
 
       case "audio":
-        return (
-          !isDialog && (
+        if (isDialog) {
+          if (item.value?.includes("youtube") && index === 0) {
+            console.log("YOUTUBE")
+            return;
+          }
+          return (
+            <AudioButton
+              key={item.id || item._id}
+              isPodcast={!isMobile}
+              color={labelColor}
+              className={cl.audioButton}
+              onClick={() => {
+                console.log(item);
+                if (item.value) {
+                  window.open(item.value, "_blank")?.focus();
+                }
+              }}
+            />
+          );
+        } else {
+          return (
             <AudioButton
               key={item.id || item._id}
               isPodcast={isPodcast}
@@ -173,8 +196,8 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
               className={cl.audioButton}
               onClick={handlePodcastClick}
             />
-          )
-        );
+          );
+        }
     }
   });
 };

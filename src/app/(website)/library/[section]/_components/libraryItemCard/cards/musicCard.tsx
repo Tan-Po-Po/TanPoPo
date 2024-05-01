@@ -1,7 +1,6 @@
 import { ContentCard, Typography } from "@/components";
 import cl from "../libraryItemCard.module.scss";
 import { Props } from "../props";
-import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
 import { CardFooter } from "../cardFooter/cardFooter";
 import { AudioButton } from "@/components/audioButton/audioButton";
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
@@ -16,11 +15,6 @@ export const MusicCard: React.FC<Props> = (props) => {
     autoplay: "1",
   });
 
-  const handlePodcastClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    openLibraryItem();
-  };
-
   const getParagraph = (item: ILibraryItemContent) => {
     return item.paragraph!.map((item, i) => (
       <Typography
@@ -29,7 +23,7 @@ export const MusicCard: React.FC<Props> = (props) => {
         className={getValidClassNames(cl.contentParagraph)}
         style={{
           lineHeight: "normal",
-          whiteSpace: "pre",
+          whiteSpace: "pre-line",
           WebkitTextStrokeWidth: "0.4px"
         }}
       >
@@ -66,7 +60,6 @@ export const MusicCard: React.FC<Props> = (props) => {
                 isPodcast={false}
                 color={labelColor}
                 className={cl.audioButton}
-                onClick={handlePodcastClick}
               />
             );
         }

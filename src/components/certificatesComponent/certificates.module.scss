@@ -45,6 +45,8 @@
 .certificateImage {
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  box-shadow: $box-shadow;
+  border-radius: 6px;
   @media (hover: hover) {
     &:hover {
       scale: 105%;

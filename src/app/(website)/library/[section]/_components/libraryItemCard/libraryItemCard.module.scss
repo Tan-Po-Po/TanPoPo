@@ -249,10 +249,16 @@ $padding-card: 55px 30px 18px 30px;
 
 .music {
   .musicParagraph {
-    max-height: 85px;
+    max-height: 125px;
+    max-width: 100%;
     overflow: hidden;
     position: relative;
   }
+
+  .audioButton {
+    margin: 0 auto !important;
+  }
+
   .gradient {
     position: absolute;
     top: 0;
@@ -318,6 +324,7 @@ $padding-card: 55px 30px 18px 30px;
   .podcast {
     gap: 28px;
     height: auto;
+
     .content {
       @include flex-column;
       gap: 16px;
