@@ -247,6 +247,28 @@ $padding-card: 55px 30px 18px 30px;
   cursor: pointer;
 }
 
+.music {
+  .musicParagraph {
+    max-height: 125px;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .audioButton {
+    margin: 0 auto !important;
+  }
+
+  .gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), white);
+  }
+}
+
 @media (max-width: 1023px) {
   .reels,
   .music,
@@ -302,6 +324,7 @@ $padding-card: 55px 30px 18px 30px;
   .podcast {
     gap: 28px;
     height: auto;
+
     .content {
       @include flex-column;
       gap: 16px;
@@ -338,7 +361,6 @@ $padding-card: 55px 30px 18px 30px;
           margin: 20px 40px;
         }
       }
-      
     }
   }
 }

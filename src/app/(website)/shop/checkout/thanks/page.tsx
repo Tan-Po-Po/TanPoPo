@@ -30,7 +30,7 @@ const PayLaterResult: React.FC = ({}) => {
   const deliveryInfo = useAppSelector(selectDeliveryInfo);
 
   useEffect(() => {
-    document.title = "Моє замовлення | Tanpopo";
+    document.title = "Моє замовлення | TanPoPo";
   }, []);
 
   useEffect(() => {

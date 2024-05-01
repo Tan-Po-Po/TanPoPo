@@ -92,7 +92,7 @@ export default function Requisites() {
   }, [errors, showErrors]);
 
   useEffect(() => {
-    document.title = "Онлайн оплата | Tanpopo";
+    document.title = "Онлайн оплата | TanPoPo";
     if (orderId) {
       getPaymentStatus(orderId).then((status) => {
         if (status === "success") {

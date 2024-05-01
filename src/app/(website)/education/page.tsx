@@ -1,12 +1,14 @@
 import { ContentCard, CourseFormats, Typography } from "@/components";
-import { getIconArtSrc } from "@/helpers";;
+import { getIconArtSrc } from "@/helpers";
 import Image from "next/image";
 import cl from "./page.module.scss";
-import { Metadata } from 'next'
- 
+import { Metadata } from "next";
+
 export const metadata: Metadata = {
-  title: 'Навчання | Tanpopo',
-}
+  title: "Освітня програма з японської мови | TanPoPo",
+  description:
+    "Освітня програма з японської мови для онлайн-курсів з сенсеєм та для самостійних курсів. Лише відбірні навчальні матеріали для найкращих результатів!",
+};
 
 export default async function Page() {
   return (
@@ -18,7 +20,7 @@ export default async function Page() {
         Будь ласка, оберіть формат навчання:
       </Typography>
 
-      <CourseFormats className={cl.formats}/>
+      <CourseFormats className={cl.formats} />
 
       <ContentCard className={cl.results} width="100%">
         <div>

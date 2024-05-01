@@ -9,165 +9,55 @@ import {
   Carousel,
   CarouselItem,
 } from "@/components";
-import { useWindowSize } from "@uidotdev/usehooks";
 interface Props {
   courses: ICourse[];
+  type: "teacher" | "video" | "book" | "audio";
+  coursesClassName?: string;
 }
 
-export const CourseList: React.FC<Props> = ({ courses }) => {
-  const teacherCourses = getCoursesByType("teacher", courses);
-  const videoCourses = getCoursesByType("video", courses);
-  const bookCourses = getCoursesByType("book", courses);
-  const audioCourses = getCoursesByType("audio", courses);
-
-  const {width} = useWindowSize()
-  const isMobile = Boolean(width && width < 678)
+export const CourseList: React.FC<Props> = ({
+  courses,
+  type,
+  coursesClassName,
+}) => {
+  const coursesArray = getCoursesByType(type, courses);
 
   return (
-    <div className={cl.courseListMain}>
-      <Divider
-        wrapperClassName={cl.dividerWrapper}
-        className={cl.divider}
-        // style={{ scrollMarginTop: "120px" }}
-        id="teacher"
-        firstRow="онлайн-курси"
-        secondRow="з сенсеєм"
-        bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
-      />
-      <section className={cl.courses} style={{ maxWidth: "1100px" }}>
-        {isMobile && teacherCourses.length > 1 ? (
-          <Carousel
-            initialSlide={0}
-            slideAmount={Math.ceil(teacherCourses.length)}
-            useNumbers
-            dots={false}
-            slidesToShow={1}
-            infinite={false}
-            className={cl.carousel}
-          >
-            {teacherCourses.map((course) => (
-              <CarouselItem key={course._id}>
-                <CourseCardMini course={course} />
-              </CarouselItem>
-            ))}
-          </Carousel>
-        ) : (
-          teacherCourses.map((course) => (
-            <CourseCardMini course={course} key={course._id} />
-          ))
-        )}
-        {teacherCourses.length === 0 && (
-          <Typography variant="h4">В розробці</Typography>
-        )}
-      </section>
+    <section
+      className={getValidClassNames(
+        cl.courses,
+        coursesClassName,
+        type === "book" && cl.bookCourses
+      )}
+      style={{ maxWidth: "1100px" }}
+    >
+      {coursesArray.length > 1 && (
+        <Carousel
+          initialSlide={0}
+          slideAmount={Math.ceil(coursesArray.length)}
+          useNumbers
+          dots={false}
+          slidesToShow={1}
+          infinite={false}
+          className={cl.carousel}
+        >
+          {coursesArray.map((course) => (
+            <CarouselItem key={course._id}>
+              <CourseCardMini course={course} />
+            </CarouselItem>
+          ))}
+        </Carousel>
+      )}
 
-      <Divider
-        wrapperClassName={cl.dividerWrapper}
-        className={cl.divider}
-        // style={{ scrollMarginTop: "120px" }}
-        id="video"
-        firstRow="Відеокурси"
-        secondRow="для самостійного вивчення"
-        bgColor="linear-gradient(rgba(255, 250, 139, 1), rgba(255, 111, 111, 1))"
-      />
-      <section className={cl.courses}>
-        {isMobile && videoCourses.length > 1 ? (
-          <Carousel
-            initialSlide={0}
-            slideAmount={Math.ceil(videoCourses.length)}
-            useNumbers
-            dots={false}
-            slidesToShow={1}
-            infinite={false}
-            className={cl.carousel}
-          >
-            {videoCourses.map((course) => (
-              <CarouselItem key={course._id}>
-                <CourseCardMini course={course} />
-              </CarouselItem>
-            ))}
-          </Carousel>
-        ) : (
-          videoCourses.map((course) => (
-            <CourseCardMini course={course} key={course._id} />
-          ))
-        )}
-        {videoCourses.length === 0 && (
-          <Typography variant="h4">В розробці</Typography>
-        )}
-      </section>
+      <div className={getValidClassNames(cl.courses, cl.courseListWrapper)}>
+        {coursesArray.map((course) => (
+          <CourseCardMini course={course} key={course._id} />
+        ))}
+      </div>
 
-      <Divider
-        wrapperClassName={cl.dividerWrapper}
-        className={cl.divider}
-        // style={{ scrollMarginTop: "120px" }}
-        id="audio"
-        firstRow="Аудіокурси"
-        secondRow="для самостійного вивчення"
-        bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(108, 250, 165, 1))"
-      />
-      <section className={cl.courses}>
-        {isMobile && audioCourses.length > 1 ? (
-          <Carousel
-            initialSlide={0}
-            slideAmount={Math.ceil(audioCourses.length)}
-            useNumbers
-            dots={false}
-            slidesToShow={1}
-            infinite={false}
-            className={cl.carousel}
-          >
-            {audioCourses.map((course) => (
-              <CarouselItem key={course._id}>
-                <CourseCardMini course={course} />
-              </CarouselItem>
-            ))}
-          </Carousel>
-        ) : (
-          audioCourses.map((course) => (
-            <CourseCardMini course={course} key={course._id} />
-          ))
-        )}
-        {audioCourses.length === 0 && (
-          <Typography variant="h4">В розробці</Typography>
-        )}
-      </section>
-
-      <Divider
-        wrapperClassName={cl.dividerWrapper}
-        className={cl.divider}
-        // style={{ scrollMarginTop: "120px" }}
-        id="book"
-        firstRow="Книжкові мінікурси"
-        secondRow="для самостійного вивчення"
-        bgColor="linear-gradient(rgba(255, 221, 169, 1), rgba(232, 184, 255, 1))"
-      />
-      <section className={getValidClassNames(cl.courses, cl.bookCourses)}>
-        {isMobile && bookCourses.length > 1 ? (
-          <Carousel
-            initialSlide={0}
-            slideAmount={Math.ceil(bookCourses.length)}
-            useNumbers
-            dots={false}
-            slidesToShow={1}
-            infinite={false}
-            className={cl.carousel}
-          >
-            {bookCourses.map((course) => (
-              <CarouselItem key={course._id}>
-                <CourseCardMini course={course} />
-              </CarouselItem>
-            ))}
-          </Carousel>
-        ) : (
-          bookCourses.map((course) => (
-            <CourseCardMini course={course} key={course._id} />
-          ))
-        )}
-        {bookCourses.length === 0 && (
-          <Typography variant="h4">В розробці</Typography>
-        )}
-      </section>
-    </div>
+      {coursesArray.length === 0 && (
+        <Typography variant="h4">В розробці</Typography>
+      )}
+    </section>
   );
 };

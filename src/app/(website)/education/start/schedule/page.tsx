@@ -150,7 +150,7 @@ export default function Page() {
   };
 
   useEffect(() => {
-    document.title = "Розклад | Tanpopo";
+    document.title = "Розклад | TanPoPo";
     scrollTo(0, 0);
   }, []);
 

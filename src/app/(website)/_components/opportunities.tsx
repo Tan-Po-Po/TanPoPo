@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import cl from "../page.module.scss";
 import { Typography, ContentCard, Carousel, CarouselItem } from "@/components";
 import Image from "next/image";
@@ -147,7 +147,10 @@ export function Opportunities() {
   return (
     <ContentCard width="1132px" className={cl.opportunities}>
       <Typography variant="h5">Безмежні можливості разом з TanPoPo!</Typography>
-      <Typography variant="body2" style={{ marginBottom: "20px" }}>
+      <Typography
+        variant="h2"
+        style={{ marginBottom: "20px", lineHeight: "21px" }}
+      >
         Лише відбірні та ефективні матеріали для вивчення японської мови:
       </Typography>
       {cards}

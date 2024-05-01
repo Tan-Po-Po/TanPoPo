@@ -192,7 +192,7 @@
   max-width: 100%;
   width: 100%;
   margin-top: 100px;
-  h3 {
+  h2 {
     font-size: 32px;
     max-width: 850px;
   }
@@ -234,7 +234,7 @@
 
 @media (max-width: 960px) {
   .freeCourseText {
-    white-space: normal;
+    white-space: normal !important;
   }
 }
 @media (max-width: 1100px) {
@@ -318,7 +318,7 @@
   }
 
   .register {
-    h3 {
+    h2 {
       font-size: 25px;
       max-width: 650px;
     }
@@ -335,6 +335,15 @@
   .register {
     margin-top: 65px;
   }
+
+  .mobileCaption {
+    font-size: 28px;
+    line-height: 32px;
+    max-width: 475px;
+    br {
+      display: none;
+    }
+  }
 }
 
 @media (max-width: 500px) {
@@ -342,9 +351,6 @@
     font-size: 22px;
     line-height: 25px;
     max-width: 330px;
-    br {
-      display: none;
-    }
   }
 
   .joinBlock {
@@ -443,7 +449,7 @@
   .register {
     max-width: 100%;
     overflow: hidden;
-    h3 {
+    h2 {
       font-size: 22px;
       max-width: 316px;
     }

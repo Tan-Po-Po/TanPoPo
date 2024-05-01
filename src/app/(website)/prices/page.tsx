@@ -14,7 +14,9 @@ import { Suspense } from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Вартість курсів | Tanpopo",
+  title: "Вартість курсів японської мови | TanPoPo",
+  description:
+    "Максимум знань та навичок для впевненого та вільного володіння японською мовою. Найновітніші методики, інтерактивні завдання та відбірні навчальні матеріали!",
 };
 
 async function getCourses(): Promise<ICourse[]> {

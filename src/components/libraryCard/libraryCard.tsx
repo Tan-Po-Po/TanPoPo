@@ -61,7 +61,7 @@ const LibraryCard: React.FC<Properties> = ({
           width={40}
           height={40}
         />
-        <Typography className={cl.body} variant="h6">
+        <Typography className={cl.body} variant="h2">
           {body}
         </Typography>
       </ContentCard>

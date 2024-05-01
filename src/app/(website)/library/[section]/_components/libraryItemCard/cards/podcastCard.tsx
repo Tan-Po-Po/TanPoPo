@@ -2,7 +2,6 @@ import { ContentCard, Typography } from "@/components";
 import cl from "../libraryItemCard.module.scss";
 import { Props } from "../props";
 import { CardFooter } from "../cardFooter/cardFooter";
-import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { ILibraryItemContent } from "@/models/LibraryItem";
 import { getValidClassNames } from "@/helpers";
 import Link from "next/link";
@@ -12,12 +11,6 @@ import { AudioButton } from "@/components/audioButton/audioButton";
 
 export const PodcastCard: React.FC<Props> = (item) => {
   const { content, labelColor } = item;
-  const { openLibraryItem } = useOpenLibraryItem({ item, autoplay: "1" });
-
-  const handlePodcastClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    openLibraryItem();
-  };
 
   const getParagraph = (item: ILibraryItemContent) => {
     return item.paragraph!.map((item, i) => (
@@ -96,7 +89,6 @@ export const PodcastCard: React.FC<Props> = (item) => {
                   isPodcast={true}
                   color={labelColor}
                   className={cl.audioButton}
-                  onClick={handlePodcastClick}
                 />
               );
           }

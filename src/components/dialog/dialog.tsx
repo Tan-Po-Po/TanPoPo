@@ -21,6 +21,7 @@ type Properties = {
   closeIconClassName?: string;
   closeIcon?: boolean;
   onClose: () => void;
+  label?: React.ReactNode;
 } & DialogProps;
 
 const Dialog: React.FC<Properties> = ({
@@ -33,6 +34,7 @@ const Dialog: React.FC<Properties> = ({
   contentClassName,
   closeIconClassName,
   closeIcon = true,
+  label,
   ...props
 }) => {
   return (
@@ -53,6 +55,7 @@ const Dialog: React.FC<Properties> = ({
           {title}
         </DialogTitle>
       )}
+      {label}
       <DialogContent
         className={getValidClassNames(cl.content, contentClassName)}
       >

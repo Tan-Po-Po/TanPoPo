@@ -137,7 +137,10 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
     <ContentCard
       width="626px"
       label={
-        <Typography variant="body1" style={{ fontWeight: "700" }}>
+        <Typography
+          variant="h2"
+          style={{ fontWeight: "700", fontSize: "20px" }}
+        >
           {name}
         </Typography>
       }

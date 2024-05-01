@@ -10,7 +10,7 @@
     width: 100%;
     @include flex-column;
     gap: 86px;
-    h4 {
+    .title {
       max-width: 720px;
       font-size: 36px;
       font-weight: 700;

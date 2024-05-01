@@ -23,18 +23,37 @@
 }
 
 .intro {
-  h3 {
+  h1 {
+    font-size: 36px;
+    line-height: 40px;
     text-transform: uppercase;
   }
+
   p {
     text-wrap: balance;
     line-height: 24px;
   }
+  
   img {
     margin: 45px 0;
     max-width: 100%;
     height: auto;
   }
+}
+
+.courseListMain {
+  @include flex-column;
+  gap: 20px;
+  width: 100%;
+}
+
+.dividerWrapper > div:first-child {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.divider {
+  padding: 8px 14px 3px;
 }
 
 @media (max-width: 800px) {
@@ -56,7 +75,7 @@
 
 @media (max-width: 450px) {
   .intro {
-    h3 {
+    h1 {
       font-size: 30px;
       max-width: 320px !important;
     }

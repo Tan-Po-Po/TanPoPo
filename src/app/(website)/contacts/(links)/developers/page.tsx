@@ -6,7 +6,7 @@ import { getValidClassNames } from "@/helpers";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Розробники | Tanpopo",
+  title: "Розробники | TanPoPo",
 };
 export default function Developers() {
   const labelColor = "#FFF8BC";

@@ -11,6 +11,22 @@
   .video {
     max-width: 80vw !important;
   }
+
+  .closeIcon {
+    top: initial !important;
+    bottom: calc(100% + 5px);
+    path {
+      fill: #c1c1c1 !important;
+    }
+  }
+}
+
+@media (max-width: 999px) {
+  .dialog {
+    img {
+      max-width: calc(100vw - 20px);
+    }
+  }
 }
 
 @media (max-width: 767px) {

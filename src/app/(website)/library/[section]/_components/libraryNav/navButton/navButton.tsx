@@ -17,7 +17,7 @@ export const NavButton: React.FC<Props> = ({ href, icon, body, id }) => {
 
   useEffect(() => {
     if (isActive) {
-      document.title = `${body} | Tanpopo`;
+      document.title = `${body} | TanPoPo`;
     }
   }, [body, isActive]);
 

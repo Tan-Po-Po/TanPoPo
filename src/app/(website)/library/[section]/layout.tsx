@@ -6,7 +6,7 @@ import { getLibraryAccess } from "@/helpers/getLibraryAccess";
 import { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: 'Бібліотека | Tanpopo',
+  title: 'Бібліотека | TanPoPo',
 }
 interface Props {
   password: React.ReactNode;

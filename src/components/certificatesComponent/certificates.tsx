@@ -1,8 +1,12 @@
+"use client";
 import { ContentCard } from "../contentCard/contentCard";
 import { Typography } from "../typography/typography";
 import Image from "next/image";
 import cl from "./certificates.module.scss";
 import { getValidClassNames } from "@/helpers";
+import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
+import { useAppDispatch } from "@/redux/hooks";
+import { DialogGallery } from "../dialogGallery/dialogGallery";
 
 type Properties = {
   header: 1 | 2;
@@ -10,8 +14,10 @@ type Properties = {
 };
 
 const Certificates: React.FC<Properties> = ({ header, className }) => {
+  const dispatch = useAppDispatch();
   return (
     <div className={getValidClassNames(cl.certificateType, className)}>
+      <DialogGallery />
       <ContentCard
         cardBgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
         width="420px"
@@ -73,6 +79,15 @@ const Certificates: React.FC<Properties> = ({ header, className }) => {
             src="/certificatesImages/electronic.png"
             width={274}
             height={190}
+            className={cl.certificateImage}
+            onClick={() =>
+              dispatch(
+                openGalleryDialog({
+                  type: "image",
+                  src: "/certificatesImages/electronic.png",
+                })
+              )
+            }
           />
 
           <Typography variant="body2" style={{ hyphens: "auto" }}>
@@ -109,6 +124,15 @@ const Certificates: React.FC<Properties> = ({ header, className }) => {
             src="/certificatesImages/physical.png"
             width={274}
             height={190}
+            className={cl.certificateImage}
+            onClick={() =>
+              dispatch(
+                openGalleryDialog({
+                  type: "image",
+                  src: "/certificatesImages/physical.png",
+                })
+              )
+            }
           />
 
           <Typography

@@ -1,11 +1,6 @@
 import { getIconArtSrc, getIconSrc } from "@/helpers";
 
 export const textContent = {
-  bigImageBlock: {
-    header: "ОНЛАЙН-ТЕСТ",
-    title: "Наш онлайн-тест допоможе визначити Ваш рівень японської мови!",
-    image: "/images/laptop.png",
-  },
   cardsBlock: [
     {
       title: "Точність тесту.",

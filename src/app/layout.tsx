@@ -4,6 +4,8 @@ import { theme } from "@/theme/theme";
 import "@/scss/globals.scss";
 import localFont from "next/font/local";
 import { Providers } from "@/redux/providers";
+import { SERVER_URL } from "@/config/config";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const comfortaa = localFont({
   src: [
@@ -55,6 +57,9 @@ const heisei = localFont({
 export const metadata: Metadata = {
   title: "TanPoPo",
   description: "Школа японської мови",
+  metadataBase: SERVER_URL
+    ? new URL(SERVER_URL)
+    : new URL("http://localhost:3000"),
 };
 
 export default function RootLayout({
@@ -64,19 +69,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uk" className={`${heisei.variable} ${comfortaa.variable}`}>
-      <meta name="mobile-web-app-capable" content="yes" />
-      <link
-        rel="icon"
-        href="/icon.png"
-        type="image/png"
-        sizes="192x192"
-      />
+      {/* <meta name="mobile-web-app-capable" content="yes" /> */}
+      {/* <link rel="icon" href="/icon.png" type="image/png" sizes="192x192" /> */}
       {/* <link
         rel="apple-touch-icon"
         href="/icon?<generated>"
         type="image/<generated>"
         sizes="<generated>"
       />   */}
+      <meta name="author" content="Школа Tanpopo" />
+      <GoogleTagManager gtmId="GTM-K6JP2FHH" />
       <body>
         <Providers>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>

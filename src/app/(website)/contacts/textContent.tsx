@@ -31,7 +31,16 @@ export const textContent = {
       caption1: "tanpopo.touch@gmail.com",
       caption2: (
         <>
-          Онлайн-школа японської мови.{" "}
+          <h2
+            style={{
+              fontSize: "inherit",
+              lineHeight: "inherit",
+              fontWeight: "inherit",
+              margin: "5px 0px",
+            }}
+          >
+            Онлайн-школа японської мови.{" "}
+          </h2>
           <span style={{ fontSize: "14px" }}>
             ©2023 TanPoPo. Всі права захищено.
           </span>

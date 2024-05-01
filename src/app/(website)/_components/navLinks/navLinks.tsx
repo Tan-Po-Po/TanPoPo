@@ -50,7 +50,7 @@ export function NavLinks() {
               alt="Boy and girl with laptop icon"
             />
             <Typography
-              variant="body1"
+              variant="h3"
               style={{ fontSize: "17px", lineHeight: "21px" }}
               align="center"
             >
@@ -140,11 +140,12 @@ export function NavLinks() {
               alt="Teacher icon"
             />
             <Typography
-              variant="body1"
+              variant="h1"
               style={{ fontSize: "17px", lineHeight: "21px" }}
               align="center"
             >
-              Навчання японської <u>онлайн з сенсеєм</u>,
+              Навчання японської <u>онлайн з сенсеєм</u>
+              ,
               <br /> в міні-групах(2-5 осіб)
               <br />
               або індивідуально.

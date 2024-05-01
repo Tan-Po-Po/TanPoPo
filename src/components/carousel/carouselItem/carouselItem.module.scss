@@ -30,6 +30,11 @@
   .hovered {
     animation: hoverAnimation 0.3s forwards;
   }
+  
+  .unhovered {
+    animation: reverseHoverAnimation 0.3s forwards;
+  }
+
   .clicked {
     animation: clickAnimation 0.3s forwards;
   }
@@ -46,6 +51,18 @@
   }
   100% {
     transform: scale(108%);
+  }
+}
+
+@keyframes reverseHoverAnimation {
+  0% {
+    transform: scale(108%);
+  }
+  50% {
+    transform: scale(94%);
+  }
+  100% {
+    transform: scale(100%);
   }
 }
 

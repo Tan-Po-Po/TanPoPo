@@ -7,35 +7,62 @@ import { CardsBlock } from "./_components/cardsBlock/cardsBlock";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Онлайн тест | Tanpopo",
+  title: "Онлайн-тест з японської мови - визначити рівень JLPT",
+  description:
+    "Безкоштовний комплексний онлайн-тест, який допоможе визначити ваш поточний рівень володіння мовою. Визначити рівень володіння японської мови JLPT.",
 };
+
 export default function TestIntro() {
   return (
     <main className={cl.testIntro}>
       <section className={cl.bigImageBlock}>
-        <Typography variant="h3" style={{ textAlign: "center" }}>
-          {textContent.bigImageBlock.header}
+        <Typography
+          variant="h1"
+          style={{ textAlign: "center", fontSize: "36px", lineHeight: "1.2" }}
+        >
+          ОНЛАЙН-ТЕСТ
         </Typography>
-        <Typography variant="h6" style={{ textAlign: "center" }}>
-          {textContent.bigImageBlock.title}
-        </Typography>
+
+        <div
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            variant="h2"
+            align="center"
+            style={{
+              // display: "contents",
+              fontSize: "24px",
+              fontWeight: "700",
+              lineHeight: "1.6",
+            }}
+          >
+            {" "}
+            Наш онлайн-тест допоможе визначити Ваш рівень японської мови!
+          </Typography>
+        </div>
+
         <Image
           alt=""
-          src={textContent.bigImageBlock.image}
+          src={"/images/laptop.png"}
           width={1920}
           height={1080}
           style={{ width: "850px", height: "auto", maxWidth: "100%" }}
         />
         <div
           className={cl.imageContainer}
-          style={{ backgroundImage: `url(${textContent.bigImageBlock.image})` }}
+          style={{ backgroundImage: "url(/images/laptop.png)" }}
         ></div>
       </section>
 
       <CardsBlock />
 
       <section className={cl.levelsBlock}>
-        <Typography variant="h5" style={{ whiteSpace: "pre" }}>
+        <Typography
+          variant="h2"
+          style={{ whiteSpace: "pre", lineHeight: "1.334", fontSize: "26px" }}
+        >
           {textContent.levelsBlock.header}
         </Typography>
         <div className={cl.levelsWrapper}>
@@ -112,12 +139,12 @@ export default function TestIntro() {
         </div>
       </section>
 
-      <section
-        className={cl.beginTestBlock}
-        id="start"
-      >
+      <section className={cl.beginTestBlock} id="start">
         <ContentCard width="792px" className={cl.card}>
-          <Typography variant="h4">
+          <Typography
+            variant="h2"
+            style={{ fontSize: "30px", lineHeight: "1.23" }}
+          >
             {textContent.beginTestBlock.title}
           </Typography>
           <Image

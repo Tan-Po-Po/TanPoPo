@@ -34,7 +34,7 @@ export default function Page() {
   const [course, setCourse] = useState<CourseState>();
 
   useEffect(() => {
-    document.title = "Оплата навчання | Tanpopo";
+    document.title = "Оплата навчання | TanPoPo";
   }, []);
 
   useEffect(() => {

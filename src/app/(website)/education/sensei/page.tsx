@@ -1,4 +1,3 @@
-"use client";
 import {
   ContentCard,
   StartEducationSensei,
@@ -8,18 +7,18 @@ import {
 import { Cards } from "./_cards/cards";
 import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import { useAppDispatch } from "@/redux/hooks";
-import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
+import { VideoBlock } from "./videoBlock";
 import Image from "next/image";
-import PlayButton from "public/icons/playButton.svg";
 import cl from "./page.module.scss";
-import { useEffect } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Курси японської мови з сенсеєм | Освітня програма",
+  description:
+    "Всеохоплююче навчання, яке включає різноманітні техніки вивчення японської мови та фокусується на всіх аспектах сприйняття для якісного засвоєння матеріалу.",
+};
 
 export default function Page() {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    document.title = "Навчання з сенсеєм | Tanpopo";
-  }, []);
-  
   return (
     <main className={cl.main}>
       <DialogGallery />
@@ -29,28 +28,9 @@ export default function Page() {
         <Typography variant="h6">для онлайн-курсів з сенсеєм</Typography>
       </div>
 
-      <div
-        className={cl.video}
-        onClick={() =>
-          dispatch(
-            openGalleryDialog({
-              type: "video",
-              src: "https://www.youtube.com/watch?v=8ypRvNZhocU",
-            })
-          )
-        }
-      >
-        <Image
-          src="/photos/university.jpg"
-          alt="Japanese modern building"
-          width={970}
-          height={550}
-        />
-        <div className={cl.title}>Як проходять наші онлайн-заняття?</div>
-        <PlayButton className={cl.playBtn} />
-      </div>
+      <VideoBlock />
 
-      <Cards className={cl.cards}/>
+      <Cards className={cl.cards} />
 
       <ContentCard className={cl.description} width="970px">
         <div className={cl.header}>

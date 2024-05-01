@@ -69,7 +69,7 @@
 
 .opportunities {
   margin-top: -30px;
-  & > p {
+  & > h2 {
     font-size: 18px;
   }
 }
@@ -522,7 +522,7 @@
     padding-right: 0px;
     width: 102vw;
     @media (min-width: 768px) {
-      & > p {
+      & > h2 {
         margin-bottom: -20px !important;
       }
     }
@@ -686,7 +686,7 @@
     padding: 0;
     border: unset;
     box-shadow: unset;
-    & > p {
+    & > h2 {
       font-size: 15px;
       max-width: 350px;
     }

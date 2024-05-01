@@ -14,6 +14,15 @@ import { StartEducation } from "./_components/startEducation";
 import { MoreLinks } from "./_components/moreLinks";
 import { NavLinks } from "./_components/navLinks/navLinks";
 import { RedirectDialog } from "./_components/redirectDialog";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Онлайн-школа японської мови | TanPoPo",
+  description:
+    "Українська Smart платформа для вивчення японської мови. Усі матеріали до курсів розташовані на сучасній навчально-інтерактивній онлайн-платформі!",
+  keywords:
+    "Школа, Курси, Вивчення мови, Японська мова, Танпопо, TanPoPo, Tanpopo, Навчання японської мови, Курси японської мови, Вивчення японської",
+};
 
 export default function Home() {
   return (
