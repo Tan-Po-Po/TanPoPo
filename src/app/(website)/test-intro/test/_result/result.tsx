@@ -25,7 +25,7 @@ export const Result: React.FC<Props> = ({ result }) => {
   const { width } = useWindowSize();
   const levelsContainer = useRef<HTMLDivElement>(null);
   const { activeLevel, nextLevel } = result;
-  const [courses, setCourses] = useState<ICourse[] | null>(null);
+  const [courses, setCourses] = useState<ICourse[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -188,7 +188,51 @@ export const Result: React.FC<Props> = ({ result }) => {
         </>
       ) : (
         <>
-          <CourseList courses={courses!} />
+          <div className={cl.courseListMain}>
+            <Divider
+              wrapperClassName={cl.dividerWrapper}
+              className={cl.divider}
+              id="teacher"
+              firstRow="онлайн-курси"
+              secondRow="з сенсеєм"
+              bgColor="linear-gradient(rgba(166, 196, 255, 1), rgba(232, 166, 255, 1))"
+            />
+            <CourseList courses={courses} type="teacher" />
+
+            <Divider
+              wrapperClassName={cl.dividerWrapper}
+              className={cl.divider}
+              id="video"
+              firstRow="Відеокурси"
+              secondRow="для самостійного вивчення"
+              bgColor="linear-gradient(rgba(255, 250, 139, 1), rgba(255, 111, 111, 1))"
+            />
+            <CourseList courses={courses} type="video" />
+
+            <Divider
+              wrapperClassName={cl.dividerWrapper}
+              className={cl.divider}
+              id="audio"
+              firstRow="Аудіокурси"
+              secondRow="для самостійного вивчення"
+              bgColor="linear-gradient(rgba(253, 255, 135, 1), rgba(108, 250, 165, 1))"
+            />
+            <CourseList
+              courses={courses}
+              type="audio"
+              coursesClassName={cl.courses}
+            />
+
+            <Divider
+              wrapperClassName={cl.dividerWrapper}
+              className={cl.divider}
+              id="book"
+              firstRow="Книжкові мінікурси"
+              secondRow="для самостійного вивчення"
+              bgColor="linear-gradient(rgba(255, 221, 169, 1), rgba(232, 184, 255, 1))"
+            />
+            <CourseList courses={courses} type="book" />
+          </div>
 
           <Divider
             className={cl.divider}

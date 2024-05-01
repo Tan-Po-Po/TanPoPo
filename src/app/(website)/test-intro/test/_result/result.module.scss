@@ -94,6 +94,12 @@
   }
 }
 
+.courseListMain {
+  @include flex-column;
+  gap: 20px;
+  width: 100%;
+}
+
 .levelsSlide {
   @include flex-row;
   justify-content: center;
