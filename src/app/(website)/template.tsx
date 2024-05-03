@@ -14,7 +14,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       setTimeout(
         () =>
           window.scrollTo({
-            top: -1,
+            top: -140,
             left: 0,
             behavior: "smooth",
           }),
