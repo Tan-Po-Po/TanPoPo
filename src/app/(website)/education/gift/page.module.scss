@@ -35,6 +35,10 @@
   }
 }
 
+.dividerFixed p {
+  text-transform: none;
+}
+
 .form {
   display: flex;
   flex-direction: column;

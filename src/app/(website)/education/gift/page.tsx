@@ -13,7 +13,7 @@ import {
   Certificates,
   Loading,
 } from "@/components";
-import { getIconArtSrc } from "@/helpers";
+import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import Image from "next/image";
@@ -207,7 +207,7 @@ export default function Page() {
       </div>
 
       <Divider
-        className={cl.divider}
+        className={getValidClassNames(cl.divider, cl.dividerFixed)}
         firstRow={"1. Заповніть контактні дані \nта оберіть вид сертифікату."}
         bgColor="linear-gradient(180deg, #FFE352 0%, #FFED72 70%)"
       />

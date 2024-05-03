@@ -44,16 +44,16 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
       label={
         <>
           {props.label}
-          {props.isNew && isMobile && <NewLabel position="center" />}
+          {/* {props.isNew && <NewLabel position="center" />} */}
         </>
       }
       labelBgColor={props.labelColor}
       labelClassName={getValidClassNames(
         cl.label,
-        props.isNew && isMobile && cl.new
+        // props.isNew && cl.new
       )}
     >
-      {props.isNew && !isMobile && <NewLabel />}
+      {props.isNew && <NewLabel />}
       {card}
     </ContentCard>
   );
