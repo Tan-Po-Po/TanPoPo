@@ -7,6 +7,7 @@ import cl from "./courseCardMini.module.scss";
 import Link from "next/link";
 import { ICourse } from "@/models/Course";
 import { toast } from "react-toastify";
+import { ANIME_COURSE_ID } from "@/config/config";
 
 type Properties = {
   course: ICourse;
@@ -35,7 +36,11 @@ const CourseCardMini: React.FC<Properties> = ({ course }) => {
   return (
     <Link
       className={cl.link}
-      href={`/courses/${course._id}`}
+      href={
+        course._id === ANIME_COURSE_ID
+          ? "/courses/anime-academy"
+          : `/courses/${course._id}`
+      }
       onClick={handleClick}
     >
       <ContentCard

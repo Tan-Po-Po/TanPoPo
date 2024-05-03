@@ -232,7 +232,7 @@ export default async function Contacts() {
         <Typography variant="h4">Залишились питання?</Typography>
         <Typography
           variant="body1"
-          style={{ fontWeight: "500", display: "block" }}
+          style={{ fontWeight: "500", display: "block", marginBottom: "15px" }}
         >
           Напишіть нам і ми обов’язково Вам відповімо!
         </Typography>

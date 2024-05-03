@@ -51,10 +51,19 @@ export const CourseList: React.FC<Props> = ({
         })
       )}
 
-      <div className={getValidClassNames(cl.courses, cl.courseListWrapper)}>
-        {coursesArray.length > 1 && coursesArray.map((course) => (
-          <CourseCardMini course={course} key={course._id} />
-        ))}
+      <div
+        className={getValidClassNames(
+          cl.courses,
+          coursesClassName,
+          type === "book" && cl.bookCourses,
+          cl.courseListWrapper,
+          coursesArray.length <= 1 && cl.displayNone
+        )}
+      >
+        {coursesArray.length > 1 &&
+          coursesArray.map((course) => (
+            <CourseCardMini course={course} key={course._id} />
+          ))}
       </div>
 
       {coursesArray.length === 0 && (

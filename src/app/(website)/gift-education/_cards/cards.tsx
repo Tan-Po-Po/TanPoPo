@@ -24,7 +24,7 @@ const Cards = () => {
           indexBgColor="rgba(255, 206, 200, 1)"
           cardBgColor="linear-gradient(180deg, rgba(255, 255, 255, 0.00) 35.94%, #FFBEBE 100%)"
         >
-          <Typography variant="h6"> Оберіть навчальний курс.</Typography>
+          <Typography variant="h6"> Оберіть <br/>навчальний курс.</Typography>
           <Image
             src={getIconArtSrc("temple")}
             alt="Temple art"
@@ -77,7 +77,7 @@ const Cards = () => {
         >
           <Typography variant="h6">
             {" "}
-            Оплатіть курс та розпочніть навчання!
+            Оплатіть курс та подаруйте навчання!
           </Typography>
           <Image
             src={getIconArtSrc("book3")}
