@@ -14,7 +14,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { AudioButton } from "../audioButton/audioButton";
-import { IMAGE_BASE_URL } from "@/config/config";
+import { ANIME_COURSE_ID, IMAGE_BASE_URL } from "@/config/config";
 import { useWindowSize } from "@uidotdev/usehooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { openGalleryDialog } from "@/redux/slices/galleryDialog/galleryDialogSlice";
@@ -93,7 +93,14 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
     <ContentCard
       className={getValidClassNames(cl.card, typeClassMap[course.type])}
       label={
-        <Link href={`courses/${course._id}`} className={cl.nameLink}>
+        <Link
+          href={
+            course._id === ANIME_COURSE_ID
+              ? "/courses/anime-academy"
+              : `/courses/${course._id}`
+          }
+          className={cl.nameLink}
+        >
           <Typography variant="h5" className={cl.name}>
             {course.name}
           </Typography>

@@ -6,6 +6,7 @@ export const socialLinks = {
   viber:
     "https://invite.viber.com/?g2=AQAajr%2BAilStZFK0LgZ57%2BCRAZ38%2B%2BJQYEa5NQ2Mvj1CA%2FLhpcJHrykO9RvQV5jM",
 };
+export const ANIME_COURSE_ID = "65d5bd52e803c19f6e998620";
 
 export const NODEMAILER_EMAIL = process.env.NODEMAILER_EMAIL;
 export const NODEMAILER_PASSWORD = process.env.NODEMAILER_PASSWORD;

@@ -102,6 +102,7 @@ export default async function Courses() {
         <CourseList courses={coursesDB} type="book" />
       </div>
       <Divider
+      wrapperClassName={cl.libraryDividerWrapper}
         className={cl.divider}
         firstRow="бібліотека tanpopo"
         bgColor="linear-gradient(rgba(196, 169, 255, 1), rgba(255, 165, 165, 1))"
