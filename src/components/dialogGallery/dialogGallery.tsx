@@ -13,7 +13,6 @@ import { useWindowSize } from "@uidotdev/usehooks";
 export const DialogGallery = () => {
   const galleryDialog = useAppSelector(selectGalleryDialog);
   const dispatch = useAppDispatch();
-  console.log(galleryDialog);
   const { width } = useWindowSize();
   const isPc = Boolean(width && width >= 1024);
   const isMobile = Boolean(width && width < 678);

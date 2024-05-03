@@ -16,7 +16,7 @@ const StartSelfEducation: React.FC = () => {
     <>
       <div className={cl.start}>
         <div className={cl.startHeader}>
-          <Typography variant="h5">Розпочати самостійне навчання</Typography>
+          <Typography variant="h5">Розпочати самостійне навчання{" "}</Typography>
           <Typography variant="h2">в школі TanPoPo дуже легко!</Typography>
         </div>
 

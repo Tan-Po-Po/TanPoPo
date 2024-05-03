@@ -77,6 +77,7 @@ export default function RootLayout({
         type="image/<generated>"
         sizes="<generated>"
       />   */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       <meta name="author" content="Школа Tanpopo" />
       <GoogleTagManager gtmId="GTM-K6JP2FHH" />
       <body>

@@ -26,7 +26,7 @@ const VideoBlock = () => {
         width={970}
         height={550}
       />
-      <div className={cl.title}>Курси для самостійного навчання.</div>
+      <div className={cl.title}>🎌Курси для самостійного навчання🎌</div>
       <PlayButton className={cl.playBtn} />
     </div>
   );

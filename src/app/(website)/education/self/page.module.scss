@@ -30,7 +30,7 @@
 
   .title {
     text-align: center;
-    padding: 15px 20px;
+    padding: 15px 5px;
     left: 0;
     right: 0;
     bottom: 10%;
@@ -358,7 +358,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .video {
     img {
       max-height: 290px;
@@ -386,6 +386,7 @@
       .typeList {
         align-items: start;
         padding: 26px 10px 26px 26px;
+        margin: 0 auto;
       }
     }
   }

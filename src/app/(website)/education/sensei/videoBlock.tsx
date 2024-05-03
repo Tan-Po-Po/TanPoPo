@@ -26,7 +26,7 @@ const VideoBlock = () => {
         width={970}
         height={550}
       />
-      <div className={cl.title}>Як проходять наші онлайн-заняття?</div>
+      <div className={cl.title}>🎌Онлайн-навчання разом з TanPoPo🎌</div>
       <PlayButton className={cl.playBtn} />
     </div>
   );
