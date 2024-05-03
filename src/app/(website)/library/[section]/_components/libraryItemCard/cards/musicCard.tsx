@@ -3,17 +3,12 @@ import cl from "../libraryItemCard.module.scss";
 import { Props } from "../props";
 import { CardFooter } from "../cardFooter/cardFooter";
 import { AudioButton } from "@/components/audioButton/audioButton";
-import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { getValidClassNames } from "@/helpers";
 import { ILibraryItemContent } from "@/models/LibraryItem";
 import Link from "next/link";
 
 export const MusicCard: React.FC<Props> = (props) => {
   const { content, labelColor } = props;
-  const { openLibraryItem } = useOpenLibraryItem({
-    item: props,
-    autoplay: "1",
-  });
 
   const getParagraph = (item: ILibraryItemContent) => {
     return item.paragraph!.map((item, i) => (

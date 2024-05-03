@@ -8,11 +8,33 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
 
   useEffect(() => {
-    setTimeout(() => scrollToDiv(), 1500);
+    const hash = window.location.hash;
+    if (!hash) {
+      console.log("SCROLL TOP");
+      setTimeout(
+        () =>
+          window.scrollTo({
+            top: -1,
+            left: 0,
+            behavior: "smooth",
+          }),
+        100
+      );
+    } else {
+      setTimeout(() => scrollToDiv(hash), 1500);
+    }
   }, [pathName]);
 
   return (
-    <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
+    <AnimatePresence
+      mode="wait"
+      // onExitComplete={() => {
+      //   console.log("On exit complete");
+      //   setTimeout(() => {
+      //     window.scroll({ top: -1, left: 0, behavior: "smooth" });
+      //   }, 500);
+      // }}
+    >
       <motion.div
         key={pathName}
         initial={{ opacity: 0, y: 0 }}
@@ -27,10 +49,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
   );
 }
 
-const scrollToDiv = () => {
-  const hash = window.location.hash;
-  if (!hash) return;
-
+const scrollToDiv = (hash: string) => {
   const target = document.getElementById(hash.slice(1)) as HTMLElement;
 
   if (hash && target) {
