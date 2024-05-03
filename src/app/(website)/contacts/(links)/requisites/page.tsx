@@ -262,7 +262,7 @@ export default function Requisites() {
             variant="body1"
             style={{ fontSize: "18px", fontWeight: "500" }}
           >
-            UA354787040000026548054312944:
+            UA943052990000026002046412750:
           </Typography>
         </ContentCard>
 

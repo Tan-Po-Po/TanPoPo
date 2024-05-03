@@ -6,7 +6,6 @@ import {
   closeGalleryDialog,
   selectGalleryDialog,
 } from "@/redux/slices/galleryDialog/galleryDialogSlice";
-import Image from "next/image";
 import { getEmbedYouTubeLink } from "@/helpers";
 import { useWindowSize } from "@uidotdev/usehooks";
 
@@ -40,8 +39,8 @@ export const DialogGallery = () => {
           width={1920}
           height={1080}
           style={{
-            width: "100%",
-            minWidth: "200px",
+            width: "auto",
+            minWidth: "250px",
             height: "auto",
             maxHeight: "90vh"
           }}
