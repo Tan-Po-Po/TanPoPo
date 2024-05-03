@@ -29,7 +29,7 @@ export const librarySections = [
       "linear-gradient(rgba(255, 184, 222, 0.6), rgba(255, 243, 183, 0.8))",
     hoverBgColor:
       "linear-gradient(rgba(255, 184, 222, 0.9), rgba(255, 243, 183, 1))",
-    isPrivate: false,
+    isPrivate: true,
     id: "podcasts",
   },
   {
@@ -78,8 +78,8 @@ export const librarySections = [
   },
   {
     href: "/library/article-reviews?page=1",
-    icon: "document",
-    body: "Статті Огляди",
+    icon: "japanFood",
+    body: "Смаковий Дзен",
     bgColor:
       "linear-gradient(rgba(194, 184, 255, 0.6), rgba(255, 205, 183, 0.8))",
     hoverBgColor:

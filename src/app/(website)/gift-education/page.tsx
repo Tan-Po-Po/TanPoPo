@@ -70,7 +70,7 @@ export default function Home() {
 
       <div className={cl.start}>
         <div className={cl.startHeader}>
-          <Typography variant="h4">
+          <Typography variant="h2">
             Подарувати навчання японської мови як ніколи просто:
           </Typography>
 

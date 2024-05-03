@@ -26,7 +26,7 @@ const CourseFormats = ({ className, coursesHref = false }: Properties) => {
               width={72}
               height={60}
             />
-            <Typography variant="body1">
+            <Typography variant="h2">
               {"онлайн-курси \n з сенсеєм:"}
             </Typography>
           </ContentCard>
@@ -53,7 +53,7 @@ const CourseFormats = ({ className, coursesHref = false }: Properties) => {
               width={72}
               height={60}
             />
-            <Typography variant="body1">
+            <Typography variant="h2">
               {"курси для \n самостійного вивчення"}
             </Typography>
           </ContentCard>

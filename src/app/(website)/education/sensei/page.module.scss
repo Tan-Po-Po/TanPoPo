@@ -32,7 +32,8 @@
   }
 
   .title {
-    padding: 15px 20px;
+    text-align: center;
+    padding: 15px 10px;
     left: 0;
     right: 0;
     bottom: 10%;
@@ -47,7 +48,7 @@
     );
     border: $border;
     border-radius: $border-radius;
-    width: 455px;
+    width: fit-content;
     transition: transform 0.3s ease-in-out;
   }
 
@@ -226,7 +227,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .video {
     img {
       max-height: 290px;

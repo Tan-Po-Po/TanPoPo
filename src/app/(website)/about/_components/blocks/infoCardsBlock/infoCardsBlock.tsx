@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export const InfoCardsBlock = () => {
   const {width} = useWindowSize()
-  const isTablet = Boolean(width && width >= 768 && width < 1024)
+  const isTablet = Boolean(width && width >= 768 && width <= 1024)
   const cards = (
     <Carousel
       slidesToShow={1}

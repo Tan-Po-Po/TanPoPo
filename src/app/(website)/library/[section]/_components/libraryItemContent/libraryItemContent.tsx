@@ -70,7 +70,6 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
           infinite={true}
         >
           {itemContent.images.map((item, index) => {
-            console.log(item);
             return (
               <CarouselItem
                 key={index}
@@ -170,7 +169,6 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
       case "audio":
         if (isDialog) {
           if (item.value?.includes("youtube") && index === 0) {
-            console.log("YOUTUBE")
             return;
           }
           return (
@@ -180,7 +178,6 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
               color={labelColor}
               className={cl.audioButton}
               onClick={() => {
-                console.log(item);
                 if (item.value) {
                   window.open(item.value, "_blank")?.focus();
                 }

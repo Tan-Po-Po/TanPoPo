@@ -145,21 +145,7 @@
   .triangleBtn {
     rotate: 90deg;
   }
-}
-
-@media (max-width: 450px) {
   .start {
-    .startCards {
-      .card {
-        & > div:first-child {
-          left: -21px;
-        }
-        padding: 26px 10px;
-        max-width: 286px !important;
-        width: 100%;
-      }
-    }
-
     .startHeader {
       flex-direction: column;
       justify-content: center;
@@ -176,6 +162,21 @@
     & > h6 {
       font-size: 19px;
       line-height: 24px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .start {
+    .startCards {
+      .card {
+        & > div:first-child {
+          left: -21px;
+        }
+        padding: 26px 10px;
+        max-width: 286px !important;
+        width: 100%;
+      }
     }
   }
 

@@ -97,22 +97,22 @@ export const HeaderNarrow: React.FC<Props> = ({ className }) => {
               onClick={handleClose}
             />
 
-            <Link href="/shop" className={cl.link}>
+            <Link href="/shop" className={cl.link} onClick={handleClose}>
               <Image alt="" src={getIconSrc("shop")} width={20} height={20} />
               КРАМНИЦЯ
             </Link>
 
-            <Link href="/test-intro" className={cl.link}>
+            <Link href="/test-intro" className={cl.link} onClick={handleClose}>
               <Image alt="" src={getIconSrc("pc")} width={20} height={20} />
               ОНЛАЙН-ТЕСТ
             </Link>
 
-            <Link href="/library" className={cl.link}>
+            <Link href="/library" className={cl.link} onClick={handleClose}>
               <Image alt="" src={getIconSrc("bank")} width={20} height={20} />
               БІБЛІОТЕКА
             </Link>
 
-            <Link href="/contacts" className={cl.link}>
+            <Link href="/contacts" className={cl.link} onClick={handleClose}>
               <Image
                 alt=""
                 src={getIconSrc("contact")}
@@ -124,11 +124,14 @@ export const HeaderNarrow: React.FC<Props> = ({ className }) => {
           </div>
           <ContentCard width="305px" className={cl.card}>
             <div className={cl.buttons}>
-              <Link href="/join">
+              <Link href="/join" onClick={handleClose}>
                 <Button className={cl.button}>Долучитись</Button>
               </Link>
 
-              <Link href="https://school.tanpopo.com.ua/login">
+              <Link
+                href="https://school.tanpopo.com.ua/login"
+                onClick={handleClose}
+              >
                 <Button className={cl.button}>Вхід</Button>
               </Link>
             </div>

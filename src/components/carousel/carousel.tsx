@@ -129,7 +129,10 @@ const Carousel: React.FC<Props> = ({
     customPaging: () => <div className={cl.dot} id="carouselDot"></div>,
     afterChange: function (index: number) {
       setActiveSlide(index);
+    },
+    onSwipe: function () {
       if (pauseOnClick) {
+        console.log("SWIPE FUNCTION");
         ref.current?.slickPause()!;
       }
     },

@@ -42,7 +42,6 @@ export default function Page() {
         >
           <Typography
             variant="body1"
-            style={{ whiteSpace: "pre", lineHeight: "25px" }}
           >
             {
               "На вашу електронну адресу надіслано лист із \nпосиланням на Особистий Кабінет студента."

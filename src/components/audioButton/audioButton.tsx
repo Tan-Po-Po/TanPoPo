@@ -19,7 +19,6 @@ export const AudioButton: React.FC<Props> = ({
 }) => {
   return (
     <ContentCard
-      width="100%"
       cardBgColor={color}
       className={getValidClassNames(cl.audioButton, className && className)}
       onClick={onClick}

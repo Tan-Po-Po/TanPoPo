@@ -4,7 +4,6 @@ import cl from "./courseList.module.scss";
 import { getCoursesByType, getValidClassNames } from "@/helpers";
 import {
   CourseCardMini,
-  Divider,
   Typography,
   Carousel,
   CarouselItem,
@@ -21,7 +20,6 @@ export const CourseList: React.FC<Props> = ({
   coursesClassName,
 }) => {
   const coursesArray = getCoursesByType(type, courses);
-
   return (
     <section
       className={getValidClassNames(
@@ -54,7 +52,7 @@ export const CourseList: React.FC<Props> = ({
       )}
 
       <div className={getValidClassNames(cl.courses, cl.courseListWrapper)}>
-        {coursesArray.map((course) => (
+        {coursesArray.length > 1 && coursesArray.map((course) => (
           <CourseCardMini course={course} key={course._id} />
         ))}
       </div>
