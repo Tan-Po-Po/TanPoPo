@@ -252,7 +252,6 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
             />
             <div
               className={cl.divider}
-              style={{ background: courseInfo.bgColor }}
             >
               <div className={cl.line}></div>
               <Typography variant="body2" className={cl.text}>
