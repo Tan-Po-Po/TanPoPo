@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     "Авторські японські навчальні продукти. Мнемонічні картки для швидкісного вивчення канджі/ієрогліфів. Подарункові сертифікати з японської мови та інше!",
 };
-export const revalidate = 1;
+export const revalidate = 900000;
 
 const getShopItems = cache(async () => {
   try {
@@ -91,7 +91,7 @@ export default async function Shop() {
               variant="h5"
               style={{ fontSize: "26px", lineHeight: "1.33" }}
             >
-              Знижка <b>10%</b> на всі товари <br />в нашій Крамниці!
+              Знижка <b>10%</b> на ВСІ товари <br />в нашій Крамниці!
             </Typography>
             <Image
               alt=""

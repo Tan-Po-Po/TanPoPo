@@ -1,5 +1,6 @@
 .dialog {
   :global(.MuiPaper-root) {
+    max-width: 95vw;
     height: fit-content;
     margin: 4px;
     gap: 40px;
@@ -8,7 +9,8 @@
 
   .dialogContent {
     padding: 30px 77px 73px;
-
+    justify-content: center;
+    flex-wrap: wrap;
     .certificate {
       justify-content: space-between;
       padding-top: 44px;

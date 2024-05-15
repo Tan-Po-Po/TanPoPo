@@ -81,7 +81,7 @@ const ContactForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
               message: "Телефон має бути мінімум 10 символів завдовшки",
             },
             pattern: {
-              value: /^\+?(\d{12}|\d{10})$/,
+              value: /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i,
               message: "Введіть номер телефону у форматі +380 або 0..",
             },
           }}

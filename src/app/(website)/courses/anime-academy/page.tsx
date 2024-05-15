@@ -43,7 +43,7 @@ export default async function Page() {
       <Typography
         variant="h3"
         className={cl.header}
-        style={{ textAlign: "center" }}
+        style={{ textAlign: "center", textTransform: "uppercase" }}
       >
         Детальний опис курсу:
       </Typography>

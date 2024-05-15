@@ -81,7 +81,7 @@ export const Cart: React.FC<Props> = ({ className }) => {
 
       <section className={cl.items}>
         {cart.items.map((item) => (
-          <CartItem key={item._id} {...item} />
+          <CartItem key={item.variantId} {...item} />
         ))}
       </section>
 

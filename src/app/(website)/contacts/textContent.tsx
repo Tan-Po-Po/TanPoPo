@@ -6,7 +6,7 @@ export const textContent = {
       section1: {
         tittle: "Консультація:",
         caption1: "+38 (068) 798 78 78",
-        caption2: "ПН-СБ: з 8:00 до 19:00",
+        caption2: "ПН-СБ: з 8:00 до 18:00",
       },
       section2: {
         tittle: "Актуальні Питання:",

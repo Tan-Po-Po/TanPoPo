@@ -15,13 +15,13 @@ const VideoBlock = () => {
         dispatch(
           openGalleryDialog({
             type: "video",
-            src: "https://www.youtube.com/watch?v=8ypRvNZhocU",
+            src: "https://www.youtube.com/watch?v=OB_F075BvuQ",
           })
         )
       }
     >
       <Image
-        src="/photos/university.jpg"
+        src="/photos/senseiCoursesEducation.png"
         alt="Japanese modern building"
         width={970}
         height={550}

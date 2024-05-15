@@ -20,11 +20,11 @@ import { useAppSelector } from "@/redux/hooks";
 export default function Page() {
   const [isAccepted, setIsAccepted] = React.useState(false);
   const course = useAppSelector((state) => state.course);
-  
+
   useEffect(() => {
     document.title = "Старт навчання | TanPoPo";
   }, []);
-  
+
   return (
     <main className={cl.main}>
       <div className={cl.pageHeader}>
@@ -84,10 +84,9 @@ export default function Page() {
                 вивчення японської мови!
               </li>
               <li>
-                Не хвилюйтеся про вашу відсутність! Навіть якщо Вам не вдалось
-                відвідати заняття, Вам буде наданий повний відеозапис
-                онлайн-уроку з сенсеєм за вашою програмою, усі навчальні
-                матеріали та домашні завдання!
+                Навіть якщо Вам не вдалось відвідати заняття, Вам буде наданий
+                повний відеозапис онлайн-уроку з сенсеєм за вашою програмою, усі
+                навчальні матеріали та домашні завдання!
               </li>
               <li>
                 Усі заняття в будь-якому випадку відбуваються за розкладом та
