@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "Провідна українська школа з вивчення японської мови. Все найкраще, що необхідно для легкого, веселого, швидкісного та якісного вивчення японської мови!",
 };
 
-export const revalidate = 900000;
+export const revalidate = 900;
 
 export default async function About() {
   const [teamMembers, partners, feedbacks] = await Promise.all([

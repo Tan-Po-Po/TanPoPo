@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Маєте додаткові запитання по вивченню японської мови? На цій сторінці Ви знайдете усю необхідну інформацію по користуванню сайтом та навчальною платформою!",
 };
 const dividerBgColor = "linear-gradient(180deg, #FDFF87 0%, #FAD26C 100%)";
-export const revalidate = 900000;
+export const revalidate = 900;
 
 export default async function Contacts() {
   const guides = await getGuides();

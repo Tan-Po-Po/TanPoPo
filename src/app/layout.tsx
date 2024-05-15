@@ -76,14 +76,14 @@ export default function RootLayout({
       <meta name="author" content="Школа Tanpopo" />
       <GoogleTagManager gtmId="GTM-K6JP2FHH" />
       <body>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-K6JP2FHH"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `
+              <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-xxxx"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            `,
+          }}
+        ></noscript>
 
         <Providers>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
