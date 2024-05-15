@@ -40,9 +40,7 @@ export const PodcastCard: React.FC<Props> = (item) => {
       <ContentCard
         key={itemContent.id || itemContent._id}
         style={{ padding: "0" }}
-        className={getValidClassNames(
-          cl.image, cl.contentImagePodcast
-        )}
+        className={getValidClassNames(cl.image, cl.contentImagePodcast)}
         width="666px"
       >
         <Image
@@ -63,7 +61,11 @@ export const PodcastCard: React.FC<Props> = (item) => {
           switch (item.type) {
             case "paragraph":
               return (
-                <div key={item.id} className={cl.para}>
+                <div
+                  key={item.id}
+                  className={cl.para}
+                  style={{ whiteSpace: "pre-line" }}
+                >
                   {getParagraph(item)}
                 </div>
               );

@@ -59,7 +59,7 @@ const NotificationProvider = ({ children }: { children: React.ReactNode }) => {
 
       if (
         !updatedAt ||
-        currentTime.getTime() - new Date(updatedAt).getTime() > ONE_MINUTE
+        currentTime.getTime() - new Date(updatedAt).getTime() > ONE_MINUTE * 15
       ) {
         const newNotifications = await fetchNotifications();
         const newNotificationState = [] as {
@@ -110,7 +110,7 @@ const NotificationProvider = ({ children }: { children: React.ReactNode }) => {
           if (
             lastTimeShown !== null &&
             currentTime.getTime() - new Date(lastTimeShown).getTime() <
-              ONE_MINUTE * 5
+              THREE_HOURS
           ) {
             return;
           }

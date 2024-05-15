@@ -168,9 +168,10 @@ export const LibraryItemContent: React.FC<Props> = ({ item, isDialog }) => {
 
       case "audio":
         if (isDialog) {
-          if (item.value?.includes("youtube") && index === 0) {
+          if (item.value?.includes("youtube") && index === 0 || !item.value) {
             return;
           }
+
           return (
             <AudioButton
               key={item.id || item._id}

@@ -103,11 +103,13 @@ const Carousel: React.FC<Props> = ({
       <ArrowButton
         direction={"right"}
         className="slick-arrow"
-        handleClickToAnimate={() => handleArrowButtonClick("Right")}
-        onClick={(e) => {
+        handleClickToAnimate={() => {
           if (pauseOnClick) {
             ref.current?.slickPause()!;
           }
+          return handleArrowButtonClick("Right");
+        }}
+        onClick={(e) => {
           e.stopPropagation();
         }}
       />
@@ -116,11 +118,13 @@ const Carousel: React.FC<Props> = ({
       <ArrowButton
         direction={"left"}
         className="slick-arrow"
-        handleClickToAnimate={() => handleArrowButtonClick("Left")}
-        onClick={(e) => {
+        handleClickToAnimate={() => {
           if (pauseOnClick) {
             ref.current?.slickPause()!;
           }
+          return handleArrowButtonClick("Left");
+        }}
+        onClick={(e) => {
           e.stopPropagation();
         }}
       />

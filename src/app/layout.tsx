@@ -69,18 +69,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uk" className={`${heisei.variable} ${comfortaa.variable}`}>
-      {/* <meta name="mobile-web-app-capable" content="yes" /> */}
-      {/* <link rel="icon" href="/icon.png" type="image/png" sizes="192x192" /> */}
-      {/* <link
-        rel="apple-touch-icon"
-        href="/icon?<generated>"
-        type="image/<generated>"
-        sizes="<generated>"
-      />   */}
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      ></meta>
       <meta name="author" content="Школа Tanpopo" />
       <GoogleTagManager gtmId="GTM-K6JP2FHH" />
       <body>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-K6JP2FHH"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+
         <Providers>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </Providers>

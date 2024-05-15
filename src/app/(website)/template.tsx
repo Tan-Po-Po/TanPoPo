@@ -28,12 +28,6 @@ export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <AnimatePresence
       mode="wait"
-      // onExitComplete={() => {
-      //   console.log("On exit complete");
-      //   setTimeout(() => {
-      //     window.scroll({ top: -1, left: 0, behavior: "smooth" });
-      //   }, 500);
-      // }}
     >
       <motion.div
         key={pathName}

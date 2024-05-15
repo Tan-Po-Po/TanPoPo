@@ -6,6 +6,8 @@ import { LibraryItemCard } from "../_components/libraryItemCard/libraryItemCard"
 import { getColor } from "@/helpers/getLibraryItemColors";
 import DialogArticle from "../_components/dialogArticle/dialogArticle";
 
+export const revalidate = 900000;
+
 const getLibraryItems = async (
   section: string,
   page: string

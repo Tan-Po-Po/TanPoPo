@@ -27,7 +27,7 @@ export const CourseList: React.FC<Props> = ({
         coursesClassName,
         type === "book" && cl.bookCourses
       )}
-      style={{ maxWidth: "1100px" }}
+      style={{ maxWidth: "1350px" }}
     >
       {coursesArray.length > 1 ? (
         <Carousel

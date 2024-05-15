@@ -50,7 +50,7 @@ const Password = () => {
             <Typography variant="body2">
               Ти можеш знайти ключ на платформі нашої школи у своєму{" "}
               <Link
-                href={""}
+                href={"https://school.tanpopo.com.ua/login"}
                 target="_blank"
                 style={{ textDecoration: "underline" }}
               >

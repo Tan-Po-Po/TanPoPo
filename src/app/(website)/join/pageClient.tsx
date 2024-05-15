@@ -330,7 +330,7 @@ const PageClient = () => {
 
             <div className={cl.video}>
               <div
-                style={{ backgroundImage: "url('/images/selfEducation.jpg')" }}
+                style={{ backgroundImage: "url('/photos/joinJapanCourse.png')" }}
                 className={cl.videoWrapper}
                 onClick={
                   () => toast("Цей курс ще в розробці⭐️")
@@ -373,12 +373,12 @@ const PageClient = () => {
             <div className={cl.video}>
               <div
                 className={cl.videoWrapper}
-                style={{ backgroundImage: "url('/photos/university.jpg')" }}
+                style={{ backgroundImage: "url('/photos/joinStore.jpg')" }}
                 onClick={() =>
                   dispatch(
                     openGalleryDialog({
                       type: "video",
-                      src: "https://www.youtube.com/watch?v=8ypRvNZhocU",
+                      src: "https://www.youtube.com/watch?v=t2wI-4klCXs",
                     })
                   )
                 }
