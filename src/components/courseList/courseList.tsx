@@ -24,10 +24,11 @@ export const CourseList: React.FC<Props> = ({
     <section
       className={getValidClassNames(
         cl.courses,
+        type === "book" && cl.bookCourses,
+        type === "video" && cl.video,
         coursesClassName,
-        type === "book" && cl.bookCourses
       )}
-      style={{ maxWidth: "1350px" }}
+      // style={{ maxWidth: "1350px" }}
     >
       {coursesArray.length > 1 ? (
         <Carousel
@@ -56,6 +57,7 @@ export const CourseList: React.FC<Props> = ({
           cl.courses,
           coursesClassName,
           type === "book" && cl.bookCourses,
+          type === "video" && cl.video,
           cl.courseListWrapper,
           coursesArray.length <= 1 && cl.displayNone
         )}
