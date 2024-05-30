@@ -27,6 +27,7 @@ export { Input } from "./input/input";
 export { IconLink } from "./iconLink/iconLink";
 export { Typography } from "./typography/typography";
 export { TeamMemberCard } from "./teamMemberCard/teamMemberCard";
+export { TeamBlock } from "./teamBlock/teamBlock";
 export { LibraryCard } from "./libraryCard/libraryCard";
 export { Loading } from "./loading/loading";
 export { RequisitesSmall } from "./requisitesSmall/requisitesSmall";

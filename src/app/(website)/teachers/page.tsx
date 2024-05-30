@@ -1,8 +1,7 @@
 import cl from "./page.module.scss";
-import { TeamBlock } from "../about/_components/blocks/teamBlock/teamBlock";
 import { getTeamMembers } from "../about/actions";
 import { Metadata } from "next";
-import { ContentCard, Typography } from "@/components";
+import { ContentCard, Typography, TeamBlock } from "@/components";
 import Image from "next/image";
 import Link from "next/link";
 import { getIconArtSrc, getIconSrc } from "@/helpers";
@@ -22,7 +21,7 @@ export default async function About() {
     <main className={cl.main}>
       {teamMembers && <TeamBlock teamMembers={teamMembers} />}
 
-      <>
+      <div>
         {" "}
         <div className={cl.senseiHeader}>
           <Typography variant="h3">Лише найкращі сенсеї</Typography>
@@ -62,7 +61,7 @@ export default async function About() {
             />
           </ContentCard>
         </Link>
-      </>
+      </div>
     </main>
   );
 }

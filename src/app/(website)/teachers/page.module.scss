@@ -1,9 +1,14 @@
 .main {
-  padding-top: 120px;
+  padding: $padding-page;
+  display: flex;
+  flex-direction: column;
+  gap: 95px;
+  align-items: center;
+  overflow-x: hidden;
 }
 
 .senseiHeader {
-  margin-top: 80px;
+  margin-top: 40px;
   text-align: center;
   h3 {
     font-size: 35px;
@@ -86,7 +91,4 @@
       font-size: 26px;
     }
   }
- 
 }
-
-
