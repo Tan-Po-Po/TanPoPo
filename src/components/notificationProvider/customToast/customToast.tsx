@@ -10,7 +10,10 @@ const CustomToast = (notification: INotification, onClose: () => void) => {
   return toast(
     ({ closeToast }) => (
       <div className={cl.wrapper} style={{ background: notification.color }}>
-        {parseContent(notification, onClose)}
+        {parseContent(notification, () => {
+          closeToast && closeToast();
+          onClose && onClose();
+        })}
         <CloseButtonComponent
           className={cl.closeBtn}
           color={color}
