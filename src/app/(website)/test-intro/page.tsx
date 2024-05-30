@@ -7,7 +7,7 @@ import { CardsBlock } from "./_components/cardsBlock/cardsBlock";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Онлайн-тест з японської мови - визначити рівень JLPT",
+  title: "Тест JLPT з японської мови - визначити рівень онлайн",
   description:
     "Безкоштовний комплексний онлайн-тест, який допоможе визначити ваш поточний рівень володіння мовою. Визначити рівень володіння японської мови JLPT.",
 };

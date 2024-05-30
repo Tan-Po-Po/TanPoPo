@@ -136,7 +136,7 @@ const PayLaterResult: React.FC = ({}) => {
             variant="subtitle1"
             style={{ fontSize: "20px", fontWeight: 400 }}
           >
-            Та надішлимо Вам повідомлення, коли пакуночок почне прямувати до
+            Та надішлемо Вам повідомлення, коли пакуночок почне прямувати до
             Вас!
           </Typography>
         </ContentCard>

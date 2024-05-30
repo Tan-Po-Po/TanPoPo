@@ -1,0 +1,92 @@
+.main {
+  padding-top: 120px;
+}
+
+.senseiHeader {
+  margin-top: 80px;
+  text-align: center;
+  h3 {
+    font-size: 35px;
+  }
+  h5 {
+    font-size: 26.5px;
+  }
+}
+
+.sensei {
+  margin: 100px 0;
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    .label {
+      transform: scale(1.1);
+    }
+  }
+
+  .label {
+    transform: none;
+    top: -15%;
+    left: auto;
+    transition: all 0.2s ease-in-out;
+    padding: 8px 8px 4px;
+  }
+
+  .link {
+    text-transform: uppercase;
+    width: 100%;
+    p,
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .icon {
+    margin-top: 20px;
+  }
+
+  .arrow {
+    position: absolute;
+    right: -30%;
+    top: -25%;
+    transform: rotate(5deg);
+  }
+}
+
+@media (max-width: 850px) {
+  .sensei {
+    .arrow {
+      position: absolute;
+      right: -15%;
+      top: -60%;
+      transform: rotate(320deg);
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .sensei {
+    .arrow {
+      scale: 0.7;
+      right: -5%;
+      top: -50%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .senseiHeader {
+    text-wrap: balance;
+    h3 {
+      margin-right: 8px;
+    }
+    h3,
+    h5 {
+      display: inline;
+      font-size: 26px;
+    }
+  }
+ 
+}
+
+

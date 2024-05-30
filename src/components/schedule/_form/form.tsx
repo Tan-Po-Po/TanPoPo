@@ -112,7 +112,7 @@ const Form: React.FC<Properties> = ({ formReturn, className }) => {
             height={6}
           />
           <Typography variant="subtitle1">
-            Важливо: На вищевказану <u>електронну пошту</u> ми надішлимо доступ
+            Важливо: На вищевказану <u>електронну пошту</u> ми надішлемо доступ
             до курсу!
           </Typography>
         </div>

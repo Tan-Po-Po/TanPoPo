@@ -15,7 +15,7 @@ import { AuthorContent } from "./_components/blocks/authorContent/authorContent"
 import { getFeedbacks, getPartnerImagesSrc, getTeamMembers } from "./actions";
 
 export const metadata: Metadata = {
-  title: "Українська школа з вивчення японської мови | TanPoPo",
+  title: "Школа японської мови | TanPoPo",
   description:
     "Провідна українська школа з вивчення японської мови. Все найкраще, що необхідно для легкого, веселого, швидкісного та якісного вивчення японської мови!",
 };
