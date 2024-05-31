@@ -1,8 +1,9 @@
 .main {
   padding: $padding-page;
+  padding-bottom: 0px;
   display: flex;
   flex-direction: column;
-  gap: 95px;
+  gap: 55px;
   align-items: center;
   overflow-x: hidden;
 }
