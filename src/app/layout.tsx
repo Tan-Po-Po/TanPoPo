@@ -74,7 +74,18 @@ export default function RootLayout({
         content="width=device-width, initial-scale=1.0"
       ></meta>
       <meta name="author" content="Школа Tanpopo" />
-      <link rel="icon" href="/icon.png" type="image/png" sizes="192x192" />
+
+      <link
+        href="/assets/apple-icon.png"
+        rel="apple-touch-icon"
+        sizes="180x180"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="144x144"
+        href="/assets/android-icon-144x144.png"
+      />
       <GoogleTagManager gtmId="GTM-K6JP2FHH" />
       <body>
         <noscript
