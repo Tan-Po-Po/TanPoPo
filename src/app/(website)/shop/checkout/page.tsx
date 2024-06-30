@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   clearShopCart,
   selectShopCart,
+  updateInvoiceId,
 } from "@/redux/slices/shopCart/shopCartSlice";
 import {
   setDeliveryInfo,
@@ -118,8 +119,9 @@ export default function Page() {
         setLoading(false);
         toast("Сталася помилка, спробуйте ще раз пізніше");
       } else {
-        if (responseData.liqpayLink) {
-          router.push(responseData.liqpayLink);
+        if (responseData.monopayLink && responseData.invoiceId) {
+          dispatch(updateInvoiceId(responseData.invoiceId))
+          router.push(responseData.monopayLink);
           return;
         } else if (responseData.success && responseData.orderId) {
           router.push(

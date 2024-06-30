@@ -32,13 +32,18 @@ export default function Page() {
   useEffect(() => {
     document.title = "Навчання | TanPoPo";
 
-    if (!orderId || !courseRedux.id || !studentInfo.name) {
+    if (
+      !orderId ||
+      !courseRedux.id ||
+      !studentInfo.name ||
+      !courseRedux.invoiceId
+    ) {
       router.push("/prices");
       return;
     }
- 
-    const checkPaymentStatus = async () => {
-      const orderStatus = await getPaymentStatus(orderId);
+
+    const checkPaymentStatus = async (invoiceId: string) => {
+      const orderStatus = await getPaymentStatus(invoiceId);
 
       if (!(orderStatus === "success")) {
         router.push("/education/payment?failedPayment=true");
@@ -75,7 +80,7 @@ export default function Page() {
       setLoading(false);
     };
 
-    checkPaymentStatus();
+    checkPaymentStatus(courseRedux.invoiceId);
   }, []);
 
   if (loading) {

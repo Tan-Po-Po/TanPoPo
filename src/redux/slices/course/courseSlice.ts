@@ -16,10 +16,11 @@ export interface CourseState {
   isGift: boolean;
   certificateType: "Електронний сертифікат" | "Друкований сертифікат" | null;
   backgroundColor: string | null;
-  liqpayLink: string | null;
+  monopayLink: string | null;
   schedule?: ISchedule;
   accessDuration?: number | null;
   lessonDuration?: string | null;
+  invoiceId: string | null;
 }
 
 const courseLS =
@@ -40,9 +41,10 @@ const initialState: CourseState = courseLS
       isGift: false,
       certificateType: null,
       backgroundColor: null,
-      liqpayLink: null,
+      monopayLink: null,
       accessDuration: null,
       lessonDuration: null,
+      invoiceId: null,
     };
 
 export const courseSlice = createSlice({

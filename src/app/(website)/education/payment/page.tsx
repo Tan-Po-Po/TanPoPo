@@ -15,6 +15,7 @@ import {
   CourseState,
   clearCourse,
   selectCourse,
+  setCourse as setCourseRedux,
 } from "@/redux/slices/course/courseSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -81,8 +82,8 @@ export default function Page() {
             setLoading(false);
             return toast("Сталася помилка, спробуйте ще раз пізніше");
           }
-
-          router.push(responseData.liqpayLink);
+          dispatch(setCourseRedux({ invoiceId: responseData.invoiceId }));
+          router.push(responseData.monopayLink);
           return;
         })
         .catch((error) => {
@@ -91,8 +92,8 @@ export default function Page() {
             "Сталася помилка при відправці розкладу, спробуйте ще раз пізніше"
           );
         });
-    } else if (courseRedux.liqpayLink) {
-      return router.push(courseRedux.liqpayLink);
+    } else if (courseRedux.monopayLink) {
+      return router.push(courseRedux.monopayLink);
     } else {
       toast("Щось пішло не так, спробуйте ще раз пізіше");
       return setTimeout(() => {

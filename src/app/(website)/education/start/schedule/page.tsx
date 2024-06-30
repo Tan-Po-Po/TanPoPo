@@ -138,7 +138,12 @@ export default function Page() {
           return toast("Сталася помилка, спробуйте ще раз пізніше");
         }
 
-        dispatch(setCourse({ liqpayLink: responseData.liqpayLink }));
+        dispatch(
+          setCourse({
+            monopayLink: responseData.monopayLink,
+            invoiceId: responseData.invoiceId,
+          })
+        );
         router.push("/education/payment");
       })
       .catch((error) => {

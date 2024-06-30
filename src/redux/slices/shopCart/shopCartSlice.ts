@@ -18,6 +18,7 @@ export interface IShopCart {
   items: ICartItem[] | [];
   loading: boolean;
   promoCode: IPromoCode | null;
+  invoiceId: string | null;
 }
 
 const shopCartLS =
@@ -33,6 +34,7 @@ const initialState: IShopCart = shopCartLS
       items: [],
       loading: false,
       promoCode: null,
+      invoiceId: null,
     };
 
 export const getShopItemFromDbAndAddToCart = createAsyncThunk(
@@ -48,7 +50,8 @@ export const shopCartSlice = createSlice({
   initialState,
   reducers: {
     increaseItemAmount: (state, action: PayloadAction<Partial<ICartItem>>) => {
-      state.items.find((item) => item.variantId === action.payload.variantId)!.amount++;
+      state.items.find((item) => item.variantId === action.payload.variantId)!
+        .amount++;
       localStorage.setItem("shopCart", JSON.stringify(state));
       return state;
     },
@@ -81,6 +84,11 @@ export const shopCartSlice = createSlice({
       state.promoCode = null;
       return state;
     },
+    updateInvoiceId: (state, action: PayloadAction<string>) => {
+      state.invoiceId = action.payload;
+      localStorage.setItem("shopCart", JSON.stringify(state));
+      return state;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -105,6 +113,7 @@ export const {
   addPromoCode,
   deletePromoCode,
   clearShopCart,
+  updateInvoiceId
 } = shopCartSlice.actions;
 
 export const selectShopCart = (sate: RootState): IShopCart => {

@@ -8,6 +8,12 @@ export const socialLinks = {
 };
 export const ANIME_COURSE_ID = "65d5bd52e803c19f6e998620";
 
+export const MONOPAY_API_URL = {
+  CREATE_PAYMENT: "https://api.monobank.ua/api/merchant/invoice/create",
+  GET_STATUS: "https://api.monobank.ua/api/merchant/invoice/status?invoiceId=",
+  GET_PUBKEY: "https://api.monobank.ua/api/merchant/pubkey"
+};
+
 export const NODEMAILER_EMAIL = process.env.NODEMAILER_EMAIL;
 export const NODEMAILER_PASSWORD = process.env.NODEMAILER_PASSWORD;
 export const NOVA_POSHTA = process.env.NOVA_POSHTA;
@@ -16,3 +22,5 @@ export const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
 export const IMAGE_BASE_URL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL;
 export const LIQPAY_PRIVATE_KEY = process.env.LIQPAY_PRIVATE_KEY;
 export const LIQPAY_PUBLIC_KEY = process.env.LIQPAY_PUBLIC_KEY;
+export const MONOPAY_PUBLIC_KEY = process.env.MONOPAY_PUBLIC_KEY;
+

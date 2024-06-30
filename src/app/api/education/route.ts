@@ -2,15 +2,12 @@ import { NextResponse } from "next/server";
 import { Data } from "./type";
 import { parseData } from "./parseData";
 import { checkCoursePrice } from "../_helpers";
-//@ts-expect-error
-import Liqpay from "liqpayjs-sdk";
 import {
-  LIQPAY_PRIVATE_KEY,
-  LIQPAY_PUBLIC_KEY,
+  MONOPAY_API_URL,
+  MONOPAY_PUBLIC_KEY,
   GOOGLE_SCRIPT_URL,
   SERVER_URL,
 } from "@/config/config";
-import { generateLiqpayLink } from "@/helpers";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
@@ -25,7 +22,6 @@ export async function POST(req: Request) {
     formData: parseData(formData),
   };
 
-
   try {
     const google = await fetch(GOOGLE_SCRIPT_URL as string, {
       method: "POST",
@@ -36,23 +32,36 @@ export async function POST(req: Request) {
       },
     });
     const orderId = await google.text();
-    console.log(orderId)
-    // Generate liqpay link
-    const liqpay = new Liqpay(LIQPAY_PUBLIC_KEY, LIQPAY_PRIVATE_KEY);
-    const json_string = {
-      version: "3",
+
+    // Generate monopay link
+    const invoiceData = {
+      amount: priceCheck.price! * 100,
+      ccy: 980,
       action: "pay",
-      amount: priceCheck.price,
       currency: "UAH",
-      description: `Вивчення мови ${orderId}`,
-      order_id: orderId,
-      language: "uk",
-      result_url: `${SERVER_URL}/education/checkout?id=${orderId}`, 
-      server_url: `${SERVER_URL}/api/paymentStatus?sheetName=courses`,
+      merchantPaymInfo: {
+        reference: orderId,
+        destination: `Вивчення мови ${orderId}`,
+        comment: `Вивчення мови ${orderId}`,
+      },
+      redirectUrl: `${SERVER_URL}/education/checkout?id=${orderId}`,
+      webHookUrl: `https://5817-46-219-10-12.ngrok-free.app/api/paymentStatus?sheetName=courses`,
     };
-    const { data, signature } = liqpay.cnb_object(json_string);
-    const liqpayLink = generateLiqpayLink(data, signature);
-    return NextResponse.json({ success: true, liqpayLink });
+
+    const monopayResponse = await fetch(MONOPAY_API_URL.CREATE_PAYMENT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Token": MONOPAY_PUBLIC_KEY ? MONOPAY_PUBLIC_KEY : "",
+      },
+      body: JSON.stringify(invoiceData),
+    });
+    const { pageUrl, invoiceId } = await monopayResponse.json();
+    return NextResponse.json({
+      success: true,
+      monopayLink: pageUrl,
+      invoiceId,
+    });
   } catch (err: any) {
     console.log(err);
     return NextResponse.json({ message: err.message }, { status: 400 });
