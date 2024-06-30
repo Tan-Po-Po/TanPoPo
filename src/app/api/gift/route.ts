@@ -45,7 +45,7 @@ export async function POST(req: Request) {
         comment: `Вивчення мови ${orderId}`,
       },
       redirectUrl: `${SERVER_URL}/education/checkout?id=${orderId}`,
-      webHookUrl: `https://5817-46-219-10-12.ngrok-free.app/api/paymentStatus?sheetName=certificates`,
+      webHookUrl: `${SERVER_URL}/api/paymentStatus?sheetName=certificates`,
     };
 
     const monopayResponse = await fetch(MONOPAY_API_URL.CREATE_PAYMENT, {

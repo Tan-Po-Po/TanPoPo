@@ -53,7 +53,7 @@ export async function POST(req: Request) {
           comment: `Замовлення ${orderId}`,
         },
         redirectUrl: `${SERVER_URL}/shop/checkout/thanks?id=${orderId}`,
-        webHookUrl: `https://1bbe-46-219-10-12.ngrok-free.app/api/paymentStatus?sheetName=orders`,
+        webHookUrl: `${SERVER_URL}/api/paymentStatus?sheetName=orders`,
       };
 
       const monopayResponse = await fetch(MONOPAY_API_URL.CREATE_PAYMENT, {
