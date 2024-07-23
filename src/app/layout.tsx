@@ -76,11 +76,6 @@ export default function RootLayout({
       <meta name="author" content="Школа Tanpopo" />
 
       <link
-        href="/assets/apple-icon.png"
-        rel="apple-touch-icon"
-        sizes="180x180"
-      />
-      <link
         rel="icon"
         type="image/png"
         sizes="144x144"
@@ -88,14 +83,14 @@ export default function RootLayout({
       />
       <GoogleTagManager gtmId="GTM-K6JP2FHH" />
       <body>
-        <noscript
+        {/* <noscript
           dangerouslySetInnerHTML={{
             __html: `
               <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-xxxx"
               height="0" width="0" style="display:none;visibility:hidden"></iframe>
             `,
           }}
-        ></noscript>
+        ></noscript> */}
 
         <Providers>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
