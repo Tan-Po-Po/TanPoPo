@@ -494,7 +494,7 @@ const AddressForm: React.FC<Properties> = ({ formReturn, isCertificate }) => {
                         }}
                       >
                         {
-                          "(Visa, Mastercard, Privat24,\nGooglePay, Monobank та інші)"
+                          "(Visa, Mastercard, Monobank,\nGooglePay, Privat24 та інші)"
                         }
                       </Typography>
                     </div>

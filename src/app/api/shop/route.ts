@@ -5,7 +5,7 @@ import {
   GOOGLE_SCRIPT_URL,
   SERVER_URL,
   MONOPAY_API_URL,
-  MONOPAY_PUBLIC_KEY,
+  MONOPAY_KEY,
 } from "@/config/config";
 import { sendEmail } from "../_helpers/sendEmail";
 
@@ -60,7 +60,7 @@ export async function POST(req: Request) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Token": MONOPAY_PUBLIC_KEY ? MONOPAY_PUBLIC_KEY : "",
+          "X-Token": MONOPAY_KEY ? MONOPAY_KEY : "",
         },
         body: JSON.stringify(invoiceData),
       });

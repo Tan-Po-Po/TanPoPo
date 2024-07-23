@@ -33,14 +33,20 @@ const CourseCardMini: React.FC<Properties> = ({ course }) => {
     }
   };
 
+  // Prevent link from opening in a new tab if course in development
+  let href = "/courses"
+  if(course.inDevelopment) {
+    href = "/courses"
+  } else if (course._id === ANIME_COURSE_ID) {
+    href = "/courses/anime-academy"
+  } else {
+    href = `/courses/${course._id}`
+  }
+
   return (
     <Link
       className={cl.link}
-      href={
-        course._id === ANIME_COURSE_ID
-          ? "/courses/anime-academy"
-          : `/courses/${course._id}`
-      }
+      href={href}
       onClick={handleClick}
     >
       <ContentCard

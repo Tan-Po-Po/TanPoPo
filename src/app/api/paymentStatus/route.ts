@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import {
   GOOGLE_SCRIPT_URL,
-  MONOPAY_PUBLIC_KEY,
+  MONOPAY_KEY,
   MONOPAY_API_URL,
 } from "@/config/config";
 import crypto from "crypto";
@@ -67,7 +67,7 @@ const verify = async (xSign: string, invoiceData: string) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "X-Token": MONOPAY_PUBLIC_KEY ? MONOPAY_PUBLIC_KEY : "",
+      "X-Token": MONOPAY_KEY ? MONOPAY_KEY : "",
     },
   });
   const { key: pubKey } = await pubKeyResponse.json();
@@ -82,6 +82,6 @@ const verify = async (xSign: string, invoiceData: string) => {
 
 const getResponse = (success: boolean, status: number = 200) => {
   const response = NextResponse.json({ success }, { status });
-  response.headers.set("X-Sign", MONOPAY_PUBLIC_KEY || "");
+  response.headers.set("X-Sign", MONOPAY_KEY || "");
   return response;
 };

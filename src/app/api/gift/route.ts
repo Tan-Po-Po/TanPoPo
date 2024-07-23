@@ -4,7 +4,7 @@ import { checkCoursePrice } from "../_helpers";
 import { Data } from "./type";
 import {
   MONOPAY_API_URL,
-  MONOPAY_PUBLIC_KEY,
+  MONOPAY_KEY,
   GOOGLE_SCRIPT_URL,
   SERVER_URL,
 } from "@/config/config";
@@ -52,7 +52,7 @@ export async function POST(req: Request) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Token": MONOPAY_PUBLIC_KEY ? MONOPAY_PUBLIC_KEY : "",
+        "X-Token": MONOPAY_KEY ? MONOPAY_KEY : "",
       },
       body: JSON.stringify(invoiceData),
     });

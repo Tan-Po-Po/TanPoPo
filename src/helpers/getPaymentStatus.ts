@@ -1,6 +1,6 @@
 "use server";
 
-import { MONOPAY_API_URL, MONOPAY_PUBLIC_KEY } from "@/config/config";
+import { MONOPAY_API_URL, MONOPAY_KEY } from "@/config/config";
 
 // export type statusOld =
 //   | "success"
@@ -25,7 +25,7 @@ export const getPaymentStatus = async (
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "X-Token": MONOPAY_PUBLIC_KEY ? MONOPAY_PUBLIC_KEY : "",
+        "X-Token": MONOPAY_KEY ? MONOPAY_KEY : "",
       },
     });
     const data = await response.json();

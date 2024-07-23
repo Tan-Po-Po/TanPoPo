@@ -22,5 +22,5 @@ export const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
 export const IMAGE_BASE_URL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL;
 export const LIQPAY_PRIVATE_KEY = process.env.LIQPAY_PRIVATE_KEY;
 export const LIQPAY_PUBLIC_KEY = process.env.LIQPAY_PUBLIC_KEY;
-export const MONOPAY_PUBLIC_KEY = process.env.MONOPAY_PUBLIC_KEY;
+export const MONOPAY_KEY = process.env.MONOPAY_KEY;
 
