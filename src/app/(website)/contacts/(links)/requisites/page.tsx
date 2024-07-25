@@ -15,6 +15,12 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getPaymentStatus } from "@/helpers";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  clearShopCart,
+  selectShopCart,
+  updateInvoiceId,
+} from "@/redux/slices/shopCart/shopCartSlice";
 
 type FormData = {
   amount: string | number;
@@ -24,8 +30,10 @@ type FormData = {
 
 export default function Requisites() {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
   const orderId = searchParams.get("id");
+  const shopCart = useAppSelector(selectShopCart);
   const [showErrors, setShowErrors] = useState(false);
   const [loading, setLoading] = useState(false);
   const [failedPayment, setFailedPayment] = useState(false);
@@ -59,12 +67,15 @@ export default function Requisites() {
       },
     }).then(async (res) => {
       const responseData = await res.json();
+      console.log(responseData);
       if (!res.ok) {
         setLoading(false);
         toast("Сталася помилка, спробуйте ще раз пізніше");
+        return;
       } else {
-        if (responseData.liqpayLink) {
-          router.push(responseData.liqpayLink);
+        if (responseData.monopayLink && responseData.invoiceId) {
+          dispatch(updateInvoiceId(responseData.invoiceId));
+          router.push(responseData.monopayLink);
           return;
         }
         setLoading(false);
@@ -93,10 +104,11 @@ export default function Requisites() {
 
   useEffect(() => {
     document.title = "Онлайн оплата | TanPoPo";
-    if (orderId) {
-      getPaymentStatus(orderId).then((status) => {
+    if (orderId && shopCart.invoiceId) {
+      getPaymentStatus(shopCart.invoiceId).then((status) => {
         if (status === "success") {
           toast("Оплата пройшла успішно!");
+          dispatch(updateInvoiceId(''));
         } else {
           setFailedPayment(true);
         }
@@ -262,7 +274,7 @@ export default function Requisites() {
             variant="body1"
             style={{ fontSize: "18px", fontWeight: "500" }}
           >
-            UA943052990000026002046412750
+            UA153220010000026005340112692
           </Typography>
         </ContentCard>
 

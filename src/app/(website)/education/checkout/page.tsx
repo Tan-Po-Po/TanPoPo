@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { ContentCard, Typography, Loading } from "@/components";
-import { getIconSrc, getPaymentStatus, getValidClassNames } from "@/helpers";
+import { Typography, Loading } from "@/components";
+import { getPaymentStatus, getValidClassNames } from "@/helpers";
 import Image from "next/image";
 import cl from "./page.module.scss";
 import {

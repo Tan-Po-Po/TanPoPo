@@ -10,5 +10,4 @@ export { getTextForSaleLabel } from "./getTextForSaleLabel";
 export { validateDate } from "./validateDate";
 export { getTotalPrice } from "./getTotalPrice";
 export { parseCoursePrices } from "./parseCoursePrices";
-export { generateLiqpayLink } from "./generateLiqpayLink";
 export { getPaymentStatus } from "./getPaymentStatus";

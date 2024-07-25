@@ -1,12 +1,9 @@
 import { NextResponse } from "next/server";
-//@ts-expect-error
-import Liqpay from "liqpayjs-sdk";
 import {
-  LIQPAY_PRIVATE_KEY,
-  LIQPAY_PUBLIC_KEY,
+  MONOPAY_API_URL,
+  MONOPAY_KEY,
   SERVER_URL,
 } from "@/config/config";
-import { generateLiqpayLink } from "@/helpers";
 
 type Data = {
   amount: number;
@@ -17,24 +14,38 @@ export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
 
   try {
-    // Generate liqpay link
-    const liqpay = new Liqpay(LIQPAY_PUBLIC_KEY, LIQPAY_PRIVATE_KEY);
-    const orderId = Date.now();
-
-    const json_string = {
-      version: "3",
+    // Generate monopay link
+    const orderId = Date.now().toString();
+    const invoiceData = {
+      amount: formData.amount * 100,
+      ccy: 980,
       action: "pay",
-      amount: formData.amount,
       currency: "UAH",
-      description: formData.comment,
-      order_id: orderId,
-      language: "uk",
-      result_url: `${SERVER_URL}/contacts/requisites?id=${orderId}`, // Change
+      merchantPaymInfo: {
+        reference: orderId,
+        destination: formData.comment,
+        comment: formData.comment,
+      },
+      redirectUrl: `${SERVER_URL}/contacts/requisites?id=${orderId}`,
     };
-    const { data, signature } = liqpay.cnb_object(json_string);
-    const liqpayLink = generateLiqpayLink(data, signature);
 
-    return NextResponse.json({ success: true, liqpayLink });
+    const monopayResponse = await fetch(MONOPAY_API_URL.CREATE_PAYMENT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Token": MONOPAY_KEY ? MONOPAY_KEY : "",
+      },
+      body: JSON.stringify(invoiceData),
+    });
+    const response = await monopayResponse.json();
+    console.log(response)
+    const { pageUrl, invoiceId } = response;
+
+    return NextResponse.json({
+      success: true,
+      monopayLink: pageUrl,
+      invoiceId,
+    });
   } catch (err: any) {
     console.error(err);
     return NextResponse.json(

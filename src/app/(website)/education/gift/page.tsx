@@ -104,7 +104,7 @@ export default function Page() {
 
     setLoading(true);
     scrollTo(0, 0);
-    // Just save order in google sheets and generate liqpay link
+    // Just save order in google sheets and generate monopay link
     fetch("/api/gift", {
       method: "POST",
       body: JSON.stringify(data),

@@ -85,7 +85,7 @@ const StartSelfEducation: React.FC = () => {
               <Typography variant="body2">
                 Проходьте миттєву реєстрацію після чого швидко та безпечно
                 оплачуйте в декілька кліків за допомогою електронної платіжної
-                системи LiqPay.
+                системи MonoPay.
               </Typography>
               {renderCarousel && <TriangleButton className={cl.triangleBtn} />}
             </ContentCard>

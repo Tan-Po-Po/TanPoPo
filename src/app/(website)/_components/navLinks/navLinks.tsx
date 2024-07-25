@@ -375,7 +375,7 @@ const paymentContent = (
       src={"/images/liqpay.png"}
       width={514}
       height={375}
-      alt="Адаптивний дизайн"
+      alt="Методи оплати"
       style={{
         width: "100%",
         maxWidth: "514px",
