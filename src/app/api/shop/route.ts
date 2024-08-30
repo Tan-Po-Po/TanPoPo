@@ -11,7 +11,7 @@ import { sendEmail } from "../_helpers/sendEmail";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
-  console.log(JSON.stringify(formData));
+
   const orderCheck = await checkOrder(formData);
   if (!orderCheck.success) {
     return NextResponse.json(orderCheck, { status: 422 });

@@ -10,7 +10,6 @@ export default function Template({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const hash = window.location.hash;
     if (!hash) {
-      console.log("SCROLL TOP");
       setTimeout(
         () =>
           window.scrollTo({

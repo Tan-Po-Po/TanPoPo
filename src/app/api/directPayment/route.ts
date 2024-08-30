@@ -38,7 +38,7 @@ export async function POST(req: Request) {
       body: JSON.stringify(invoiceData),
     });
     const response = await monopayResponse.json();
-    console.log(response)
+
     const { pageUrl, invoiceId } = response;
 
     return NextResponse.json({

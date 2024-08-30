@@ -67,7 +67,6 @@ export default function Requisites() {
       },
     }).then(async (res) => {
       const responseData = await res.json();
-      console.log(responseData);
       if (!res.ok) {
         setLoading(false);
         toast("Сталася помилка, спробуйте ще раз пізніше");

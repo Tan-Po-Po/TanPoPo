@@ -22,7 +22,7 @@ export async function getTeamMembers() {
 
     return teamMembers;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return [];
   }
 }
@@ -37,7 +37,7 @@ export async function getPartnerImagesSrc() {
       JSON.parse(JSON.stringify(partner))
     ) as IPartner[];
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return [];
   }
 }
@@ -49,6 +49,6 @@ export const getFeedbacks = async () => {
     const feedbacks = await Feedbacks.find().populate("image");
     return JSON.parse(JSON.stringify(feedbacks)) as IFeedback[];
   } catch (err: any) {
-    console.log(err);
+    console.error(err);
   }
 };

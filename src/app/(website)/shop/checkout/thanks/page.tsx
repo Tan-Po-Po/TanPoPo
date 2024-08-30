@@ -34,13 +34,13 @@ const PayLaterResult: React.FC = ({}) => {
   }, []);
 
   useEffect(() => {
-    if (!cart.invoiceId) {
-      router.push("/shop/checkout");
-      return;
-    }
-
     const checkStatus = async (payAfter: boolean) => {
       if (!payAfter) {
+        if (!cart.invoiceId) {
+          router.push("/shop/checkout");
+          return;
+        }
+
         const orderStatus = await getPaymentStatus(cart.invoiceId!);
 
         if (!(orderStatus === "success")) {

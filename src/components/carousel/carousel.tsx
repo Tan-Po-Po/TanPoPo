@@ -136,7 +136,6 @@ const Carousel: React.FC<Props> = ({
     },
     onSwipe: function () {
       if (pauseOnClick) {
-        console.log("SWIPE FUNCTION");
         ref.current?.slickPause()!;
       }
     },
