@@ -122,12 +122,10 @@ export default function Page() {
         if (responseData.monopayLink && responseData.invoiceId) {
           dispatch(updateInvoiceId(responseData.invoiceId))
           router.push(responseData.monopayLink);
-          return;
         } else if (responseData.success && responseData.orderId) {
           router.push(
             `/shop/checkout/thanks?id=${responseData.orderId}&payAfter=true`
           );
-          return;
         }
         setLoading(false);
         return;
