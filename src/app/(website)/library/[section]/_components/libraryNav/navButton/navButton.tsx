@@ -22,10 +22,11 @@ export const NavButton: React.FC<Props> = ({ href, icon, body, id }) => {
   }, [body, isActive]);
 
   return (
-    <Link href={href} id={id}>
+    <Link href={href} id={id} style={{ scrollMarginTop: "200px" }}>
       <ContentCard
         width="fit-content"
         className={getValidClassNames(cl.navButton, isActive && cl.active)}
+        style={{ scrollMarginTop: "200px" }}
       >
         <Typography variant="body2" style={{ fontWeight: "600" }}>
           {body}

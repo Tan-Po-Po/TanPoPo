@@ -208,7 +208,7 @@ export const generateOwnerCourseHtml = (formData: Data, orderId: string) => {
       <p style="margin-top: 50px"><u>Формат Навчання</u>: ${
         formData.format === "Міні-група"
           ? "Онлайн курс з сенсеєм(міні-група 2-5 чол.)"
-          : "Індивідуально"
+          : `Індивідуально (${formData.lessonsPerWeek} р./тиждень)`
       }</p>
       ${
         formData.format == "Міні-група"

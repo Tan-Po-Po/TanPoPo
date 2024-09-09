@@ -6,7 +6,6 @@
   max-width: 1266px;
   width: 100%;
   gap: 25px;
-
   :global(.slick-slide) {
     > div {
       margin: 16px !important;
@@ -17,11 +16,11 @@
 @media (max-width: 680px) {
   .wrapper {
     min-width: 1266px;
+    overflow: visible;
   }
   .nav {
     width: 100%;
     overflow-x: scroll;
-    overflow-y: hidden;
     padding: 20px;
     margin: 0 -20px;
   }

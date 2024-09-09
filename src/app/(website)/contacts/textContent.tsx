@@ -42,7 +42,7 @@ export const textContent = {
             Онлайн-школа японської мови.{" "}
           </h2>
           <span style={{ fontSize: "14px" }}>
-            ©2023 TanPoPo. Всі права захищено.
+            ©2024 TanPoPo. Всі права захищено.
           </span>
         </>
       ),

@@ -135,7 +135,7 @@ const Footer: React.FC = () => {
           </div>
           <div className={cl.text}>
             <div className={cl.line}>Онлайн-школа японської мови.</div>
-            <div className={cl.line}>© 2023 TanPoPo. Всі права захищено.</div>
+            <div className={cl.line}>© 2024 TanPoPo. Всі права захищено.</div>
           </div>
         </div>
       </div>

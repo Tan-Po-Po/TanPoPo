@@ -299,7 +299,7 @@ export const ShopProductCardLarge: React.FC<Props> = ({ _id, name, large }) => {
         >
           {isCertificates
             ? "Найкращий подарунок - знання!"
-            : "Додатково 10% знижки для наших учнів!"}
+            : "Додатково 20% знижки для наших учнів!"}
         </Typography>
       </ContentCard>
     </ContentCard>

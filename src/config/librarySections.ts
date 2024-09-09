@@ -68,7 +68,7 @@ export const librarySections = [
   {
     href: "/library/anime-and-dorama?page=1",
     icon: "stikerSmile",
-    body: "Аніме & дорама List",
+    body: "Аніме & Дорама List",
     bgColor:
       "linear-gradient(rgba(215, 184, 255, 0.6), rgba(255, 213, 183, 0.8))",
     hoverBgColor:
