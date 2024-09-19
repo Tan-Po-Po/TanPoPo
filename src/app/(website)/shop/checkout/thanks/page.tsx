@@ -42,8 +42,8 @@ const PayLaterResult: React.FC = ({}) => {
         }
 
         const orderStatus = await getPaymentStatus(cart.invoiceId!);
-
-        if (!(orderStatus === "success")) {
+        console.log(orderStatus);
+        if (orderStatus !== "success") {
           router.push("/shop/checkout?failedPayment=true");
           return;
         } else if (!cart.items.length) {
@@ -58,7 +58,7 @@ const PayLaterResult: React.FC = ({}) => {
             totalPrice: getTotalPrice(cart),
             orderId,
           };
-
+          console.log("dataToSend", dataToSend);
           const res = await fetch("/api/email?sheetName=orders", {
             method: "POST",
             body: JSON.stringify(dataToSend),
