@@ -6,15 +6,31 @@ import mongoose from "mongoose";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Опис курсу | TanPoPo",
-};
 
-async function getCourse(id: string): Promise<ICourse> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const url = params.id;
+
+  const courseResponse = (await Course.findOne(
+    { url },
+    { tabTitle: 1, pageDescription: 1 }
+  )) as ICourse;
+  const course = JSON.parse(JSON.stringify(courseResponse));
+
+  return {
+    title: course.tabTitle,
+    description: course.pageDescription,
+  };
+}
+
+async function getCourse(url: string): Promise<ICourse> {
   await dbConnect();
 
   try {
-    const course = (await Course.findById(id).populate({
+    const course = (await Course.findOne({ url }).populate({
       path: "images",
       populate: {
         path: "image",

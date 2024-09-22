@@ -40,7 +40,7 @@ const CourseCardMini: React.FC<Properties> = ({ course }) => {
   } else if (course._id === ANIME_COURSE_ID) {
     href = "/courses/anime-academy"
   } else {
-    href = `/courses/${course._id}`
+    href = `/courses/${course.url}`
   }
 
   return (

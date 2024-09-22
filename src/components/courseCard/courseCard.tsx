@@ -97,7 +97,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           href={
             course._id === ANIME_COURSE_ID
               ? "/courses/anime-academy"
-              : `/courses/${course._id}`
+              : `/courses/${course.url}`
           }
           className={cl.nameLink}
         >

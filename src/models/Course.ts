@@ -15,6 +15,9 @@ export interface ICourse {
   order: number;
   images: [{ image: { filename: string } }];
   href: string;
+  url: string; // course slug
+  tabTitle: string; // metadata
+  pageDescription: string; // metadata
   prices: {
     individual: {
       lessons: number;

@@ -96,7 +96,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
       className={getValidClassNames(cl.card, cl.teacher)}
       label={
         !isMegaCourse && (
-          <Link href={`courses/${course._id}`}>
+          <Link href={`/courses/${course.url}`}>
             <Typography
               variant="h5"
               className={cl.name}
@@ -124,7 +124,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
             background: `linear-gradient(180deg, #FFF 0%, ${courseInfo.bgColor} 100%)`,
           }}
         >
-          <Link href={`courses/${course._id}`}>
+          <Link href={`/courses/${course.url}`}>
             <ContentCard
               className={cl.headerWrapper}
               cardBgColor={courseInfo.labelColor}
@@ -136,7 +136,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
 
           <div className={cl.headerPlus}>+</div>
 
-          <Link href={`courses/${course._id}`}>
+          <Link href={`/courses/${course.url}`}>
             <ContentCard
               className={cl.headerWrapper}
               cardBgColor={courseInfo.labelColor}
@@ -156,7 +156,7 @@ const TeacherCourseCard: React.FC<Properties> = ({ course }) => {
             </Typography>
           </li>
         ))}
-        <Link href={`courses/${course._id}`}>
+        <Link href={`/courses/${course.url}`}>
           <li>
             <Typography className={cl.description} variant="body1">
               <u style={{ textDecorationThickness: "1px" }}>
