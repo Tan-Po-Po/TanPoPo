@@ -75,22 +75,21 @@ export default function RootLayout({
       ></meta>
       <meta name="author" content="Школа Tanpopo" />
 
-      <link
+      {/* <link
         rel="icon"
         type="image/png"
         sizes="144x144"
         href="/assets/android-icon-144x144.png"
+      /> */}
+
+      <link
+        rel="apple-touch-icon"
+        type="image/png"
+        sizes="480x480"
+        href="/assets/apple-icon.png"
       />
       <GoogleTagManager gtmId="GTM-K6JP2FHH" />
       <body>
-        {/* <noscript
-          dangerouslySetInnerHTML={{
-            __html: `
-              <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-xxxx"
-              height="0" width="0" style="display:none;visibility:hidden"></iframe>
-            `,
-          }}
-        ></noscript> */}
 
         <Providers>
           <ThemeProvider theme={theme}>{children}</ThemeProvider>

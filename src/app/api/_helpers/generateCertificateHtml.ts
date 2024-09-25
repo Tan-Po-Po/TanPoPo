@@ -124,7 +124,7 @@ export const generateCertificateHtml = (formData: Data) => {
       <div style="text-align: start; margin-top: 50px;" class="course">
         <p><u>Формат Навчання</u>:  ${
           formData.format === "Міні-група"
-            ? "Онлайн курс з сенсеєм(міні-група 2-5 чол.)"
+            ? "Онлайн курс з сенсеєм(міні-група)"
             : "Індивідуально"
         }</p>
         ${

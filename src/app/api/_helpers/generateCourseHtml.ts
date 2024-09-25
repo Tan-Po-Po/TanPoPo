@@ -217,7 +217,7 @@ export const generateCourseHtml = (formData: Data) => {
       <h1 style="font-size: 27px">(${formData.japanName})</h1>
       <p style="margin-top: 50px"><u>Формат Навчання</u>: ${
         formData.format === "Міні-група"
-          ? "Онлайн курс з сенсеєм(міні-група 2-5 чол.)"
+          ? "Онлайн курс з сенсеєм(міні-група)"
           : `Індивідуально (${formData.lessonsPerWeek} р./тиждень)`
       }</p>
       ${

@@ -199,7 +199,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
           className={cl.select}
           placeHolder="Формат навчання"
           menuItems={[
-            { value: "Міні-група", label: "Міні-група (2-5 осіб)" },
+            { value: "Міні-група", label: "Міні-група (2-4 осіб)" },
             { value: "Індивідуально", label: "Індивідуально (з сенсеєм)" },
           ]}
           handleSelect={(value: string) =>

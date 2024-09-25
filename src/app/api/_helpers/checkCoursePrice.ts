@@ -18,10 +18,10 @@ export const checkCoursePrice = async (courseData: CourseState) => {
 
     let lessonsPrice = 0;
     if (courseData.format === "Індивідуально") {
-      lessonsPrice =
-        course.prices?.individual.find(
-          (variant) => variant.lessons === courseData.lessons
-        )?.price || 0;
+      const coursePrices = course.prices?.individual.find(
+        (variant) => variant.lessons === courseData.lessons
+      );
+      lessonsPrice = coursePrices?.discountPrice || coursePrices?.price || 0;
     } else {
       lessonsPrice =
         course.prices?.group.find(
@@ -37,9 +37,9 @@ export const checkCoursePrice = async (courseData: CourseState) => {
       lessonsPrice += 200;
     }
 
-    const isPriceEqual =
-      lessonsPrice === Number(courseData.price?.split(" ")[0]);
-      
+    const coursePriceFromClient = Number(courseData.price?.split(" ")[0]);
+    const isPriceEqual = lessonsPrice === coursePriceFromClient;
+
     if (!isPriceEqual) {
       return {
         success: false,

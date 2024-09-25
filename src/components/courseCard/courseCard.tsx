@@ -44,17 +44,17 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
   const dispatch = useAppDispatch();
   const courseInfo = course.medium;
   const [isGift, setIsGift] = useState(false);
-  const [lessons, setLessons] = useState<null | string>(null);
+  const [price, setPrice] = useState<null | string>(null);
   const [isAccepted, setIsAccepted] = useState(false);
   const [link, setLink] = useState<null | string>(null);
 
   const handleClick = () => {
-    if (!lessons) {
-      return toast("Спочатку оберіть К-сть уроків!📚", {
+    if (!price) {
+      return toast("Спочатку оберіть курс!📚", {
         toastId: "lessonsAmount",
       });
     }
-    if (!isAccepted && !(course.type === "book")) {
+    if (!isAccepted && course.type !== "book") {
       return toast("Спочатку ознайомтесь з навчальним періодом!📚", {
         toastId: "lessonsAmount",
       });
@@ -65,15 +65,17 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
         course.level.length > 1
           ? `${course.level[0]}/${course.level.at(-1)}`
           : course.level[0];
-
+      const priceData = JSON.parse(price);
       const selectedCourse: Partial<CourseState> = {
         id: course._id,
         type: course.type,
         name: course.name,
         japanName: course.nameJapanese,
         format: "Індивідуально",
-        lessons: Number(lessons.slice(0, 2).trim()),
-        price: lessons.match(/\(([^)]+)\)/)![1],
+        // lessons: Number(lessons.slice(0, 2).trim()),
+        // price: lessons.match(/\(([^)]+)\)/)![1],
+        lessons: priceData.lessons,
+        price: `${priceData.price} грн`,
         level: courseLevel,
         isGift,
         backgroundColor: course.large.labelColor,
@@ -198,7 +200,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           return parseCoursePrices(price, course.type);
         })}
         handleSelect={(value: string, link?: string) => {
-          setLessons(value);
+          setPrice(value);
           link && setLink(link);
         }}
         fixZIndex
@@ -215,7 +217,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           isChecked={isGift}
         />
 
-        {course.type !== "book" && lessons && (
+        {course.type !== "book" && price && (
           <>
             <div className={cl.line}></div>
             <div className={cl.checkboxWrapper}>

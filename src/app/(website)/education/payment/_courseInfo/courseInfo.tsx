@@ -22,7 +22,7 @@ const CourseInfo: React.FC<Props> = ({ course }) => {
     if (course.format === "Індивідуально") {
       formatBlock = "Онлайн-курс з Сенсеєм\n(Індивідуально)";
     } else {
-      formatBlock = "Онлайн-курс з Сенсеєм\n(Міні-група 2-5 чол.)";
+      formatBlock = "Онлайн-курс з Сенсеєм\n(Міні-група 2-4 учня)";
     }
     lessonsBlock = `${course.lessons} онлайн-${lessons}\n (${studyDuration} ${weeks} навчання)`;
     lessonDurationBlock = `70 хвилин / заняття\n(рівень: JLPT ${course.level})`;

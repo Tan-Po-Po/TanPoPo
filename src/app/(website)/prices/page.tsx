@@ -21,7 +21,9 @@ export const metadata: Metadata = {
 
 async function getCourses(): Promise<ICourse[]> {
   await dbConnect();
-  const courses = (await Course.find()
+  const courses = (await Course.find({
+    inDevelopment: false,
+  })
     .sort({
       order: -1,
     })
@@ -40,20 +42,12 @@ export default async function Home() {
   const coursesDB = await getCourses();
 
   const teacherCourses = coursesDB.filter(
-    (course) => course.type === "teacher" && !course.inDevelopment
+    (course) => course.type === "teacher"
   );
-  const videoCourses = coursesDB.filter(
-    (course) => course.type === "video" && !course.inDevelopment
-  );
-  const bookCourses = coursesDB.filter(
-    (course) => course.type === "book" && !course.inDevelopment
-  );
-  const audioCourses = coursesDB.filter(
-    (course) => course.type === "audio" && !course.inDevelopment
-  );
-  const megaCourses = coursesDB.filter(
-    (course) => course.type === "mega" && !course.inDevelopment
-  );
+  const videoCourses = coursesDB.filter((course) => course.type === "video");
+  const bookCourses = coursesDB.filter((course) => course.type === "book");
+  const audioCourses = coursesDB.filter((course) => course.type === "audio");
+  const megaCourses = coursesDB.filter((course) => course.type === "mega");
 
   return (
     <main className={cl.main}>
