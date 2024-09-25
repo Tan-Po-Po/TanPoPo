@@ -15,7 +15,7 @@ type SelectProps = {
     | {
         label: string | React.ReactElement;
         value: string;
-        labelWhenSelected?: string;
+        labelWhenSelected?: string | React.ReactElement;
         link?: string;
       }[];
   checkbox?: boolean;
@@ -50,7 +50,10 @@ const Select: React.FC<SelectProps> = ({
   stopPropagation,
   fixZIndex,
 }) => {
-  const [option, setOption] = useState<{ value: string; label: string }>(
+  const [option, setOption] = useState<{
+    value: string;
+    label: string | React.ReactElement;
+  }>(
     (placeHolder && {
       value: "",
       label: placeHolder,
@@ -75,7 +78,7 @@ const Select: React.FC<SelectProps> = ({
     link,
   }: {
     value: string;
-    label: string;
+    label: string | React.ReactElement;
     link?: string;
   }) => {
     handleSelect && (link ? handleSelect(value, link) : handleSelect(value));

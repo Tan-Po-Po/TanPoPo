@@ -22,11 +22,13 @@ export interface ICourse {
     individual: {
       lessons: number;
       price: number;
+      discountPrice?: number;
       link: string;
     }[];
     group: {
       lessons: number;
       price: number;
+      discountPrice?: number;
       link: string;
     }[];
   };
@@ -79,6 +81,7 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
         {
           lessons: { type: Number, required: true },
           price: { type: Number, required: true },
+          discountPrice: { type: Number, required: false },
           link: { type: String, required: true },
         },
       ],
@@ -86,6 +89,7 @@ const CoursesSchema = new mongoose.Schema<ICourse>(
         {
           lessons: { type: Number, required: true },
           price: { type: Number, required: true },
+          discountPrice: { type: Number, required: false },
           link: { type: String, required: true },
         },
       ],

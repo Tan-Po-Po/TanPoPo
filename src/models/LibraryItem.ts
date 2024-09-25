@@ -22,6 +22,10 @@ export interface ILibraryItem {
   labelColor: string;
   hashtags: { _id?: string; id?: string; value: string; color?: string }[];
 
+  url: string; // post url
+  tabTitle: string; // metadata
+  pageDescription: string; // metadata
+
   media: {
     id?: string;
     _id?: string;

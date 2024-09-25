@@ -8,7 +8,7 @@ interface Props {
     | {
         label: string | React.ReactElement;
         value: string;
-        labelWhenSelected?: string;
+        labelWhenSelected?: string | React.ReactElement;
         link?: string;
         isAvailable?: boolean;
       };
@@ -19,7 +19,7 @@ interface Props {
     link,
   }: {
     value: string;
-    label: string;
+    label: string | React.ReactElement;
     link?: string;
   }) => void;
 }
