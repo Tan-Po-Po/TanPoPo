@@ -8,7 +8,7 @@ import DialogArticle from "../_components/dialogArticle/dialogArticle";
 
 export const revalidate = 900;
 
-const getLibraryItems = async (
+export const getLibraryItems = async (
   section: string,
   page: string
 ): Promise<{ items: ILibraryItem[]; lastPage: number } | null> => {

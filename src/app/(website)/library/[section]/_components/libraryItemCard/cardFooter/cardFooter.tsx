@@ -3,7 +3,6 @@ import { ContentCard, Typography } from "@/components";
 import cl from "./cardFooter.module.scss";
 import { ILibraryItem } from "@/models/LibraryItem";
 import CopyIcon from "/public/icons/copy.svg";
-import { usePathname } from "next/navigation";
 import { toast } from "react-toastify";
 import { SERVER_URL } from "@/config/config";
 
@@ -12,9 +11,7 @@ interface Props {
 }
 
 export const CardFooter: React.FC<Props> = ({ item }) => {
-  const { _id, hashtags, type, media } = item;
-
-  const path = usePathname();
+  const { hashtags, type, media } = item;
 
   const handleCopyClick = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -23,15 +20,16 @@ export const CardFooter: React.FC<Props> = ({ item }) => {
         type === "reels" ||
         (type === "music" && !media![0].video?.includes("youtube"))
       ) {
-
         await navigator.clipboard.writeText(media[0].video!);
       } else {
-        await navigator.clipboard.writeText(`${SERVER_URL}${path}?id=${_id}`);
+        await navigator.clipboard.writeText(
+          `${SERVER_URL}/library/post/${item.url}`
+        );
       }
-      toast("Посилання скопійовано💾", {toastId: "linkCopied"});
+      toast("Посилання скопійовано💾", { toastId: "linkCopied" });
     } catch (err) {
       console.log(err);
-      toast("Не вдалося отримати посиллання", {toastId: "linkNotCopied"});
+      toast("Не вдалося отримати посиллання", { toastId: "linkNotCopied" });
     }
   };
   return (

@@ -18,7 +18,6 @@ export const parseCoursePrices = (
           variant="body2"
           style={{
             whiteSpace: "nowrap",
-            marginLeft: "-10px",
             textAlign: "center",
           }}
         >
@@ -26,7 +25,8 @@ export const parseCoursePrices = (
             style={{
               color: discountPrice ? "#ff1c1c" : "black",
               fontWeight: "800",
-              fontSize: "1.1rem",
+              fontSize: "1.15rem",
+              marginLeft: "15px",
             }}
           >
             {discountPrice ? discountPrice : price.price}грн
@@ -36,8 +36,8 @@ export const parseCoursePrices = (
             <span
               style={{
                 color: "rgb(127 113 113)",
-                marginLeft: "5px",
-                fontSize: "1rem",
+                marginLeft: "8px",
+                fontSize: "1.04rem",
                 textDecoration: "line-through",
                 textDecorationColor: "#938989",
                 textDecorationThickness: "2px",
@@ -54,10 +54,7 @@ export const parseCoursePrices = (
       }),
       // value: { lessons, price: discountPrice || price.price },
       label: (
-        <Typography
-          variant="body2"
-          style={{ whiteSpace: "nowrap", marginLeft: "-10px" }}
-        >
+        <Typography variant="body2" style={{ whiteSpace: "nowrap" }}>
           <span
             style={{
               color: discountPrice ? "#ff1c1c" : "black",

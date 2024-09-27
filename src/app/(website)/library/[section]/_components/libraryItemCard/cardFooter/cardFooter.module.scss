@@ -16,7 +16,7 @@ $transition: all ease 0.2s;
 
   .copyIcon {
     align-self: flex-end;
-
+    cursor: pointer;
     &:hover {
       transform: scale(115%);
       transition: $transition;

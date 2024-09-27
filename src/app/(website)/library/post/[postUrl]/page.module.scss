@@ -1,0 +1,29 @@
+.contentMain {
+  @include flex-column;
+  width: 100%;
+  gap: 70px;
+  margin-top: 36px;
+  padding: 0;
+  overflow-x: clip;
+
+  .cards {
+    @include flex-row;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pagination {
+    margin-bottom: -60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contentMain {
+    padding-right: 9px;
+    padding-left: 9px;
+  }
+}
