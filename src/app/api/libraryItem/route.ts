@@ -7,9 +7,9 @@ export async function GET(req: Request) {
     await dbConnect();
 
     const { searchParams } = new URL(req.url);
-    const id = searchParams.get("id");
+    const articleUrl = searchParams.get("url");
 
-    const itemDb = (await LibraryItem.findById(id)
+    const itemDb = (await LibraryItem.findOne({ url: articleUrl })
       .populate("media.image")
       .populate("content.images.image")
       .lean()) as ILibraryItem | undefined;
