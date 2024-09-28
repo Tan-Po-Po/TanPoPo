@@ -1,6 +1,6 @@
-import { Data } from "../shop/type";
+import { OrderData } from "../shop/type";
 
-export const generateOwnerShopHtml = (orderData: Data, orderId: string) => {
+export const generateOwnerShopHtml = (orderData: OrderData, orderId: string) => {
   return `<html lang="en">
   <head>
     <style>

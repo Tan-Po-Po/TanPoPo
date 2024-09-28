@@ -1,7 +1,7 @@
 import { socialLinks } from "@/config/config";
-import { Data } from "../shop/type";
+import { OrderData } from "../shop/type";
 
-export const generateShopHtml = (orderData: Data, orderId: string) => {
+export const generateShopHtml = (orderData: OrderData, orderId: string) => {
   return `<html lang="en">
   <head>
     <style>
