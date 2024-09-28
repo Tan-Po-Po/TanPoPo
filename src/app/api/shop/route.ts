@@ -63,7 +63,6 @@ export async function POST(req: Request) {
         },
         redirectUrl: `${SERVER_URL}/shop/checkout/thanks?id=${orderId}`,
         webHookUrl: `${SERVER_URL}/api/paymentStatus?sheetName=orders`,
-        // webHookUrl: `https://c253-46-219-10-12.ngrok-free.app/api/paymentStatus?sheetName=orders`,
       };
 
       const monopayResponse = await fetch(MONOPAY_API_URL.CREATE_PAYMENT, {
@@ -74,8 +73,19 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify(invoiceData),
       });
-      const { pageUrl, invoiceId } = await monopayResponse.json();
-
+      const response = await monopayResponse.json();
+      const { pageUrl, invoiceId } = response;
+      console.log(monopayResponse);
+      console.log(response);
+      if (!pageUrl || !invoiceId!) {
+        return NextResponse.json(
+          {
+            message:
+              "Помилка при формуванні замовлення, спробуйте ще раз пізніше",
+          },
+          { status: 400 }
+        );
+      }
       return NextResponse.json({
         success: true,
         monopayLink: pageUrl,
