@@ -1,9 +1,9 @@
-import { Data } from "../type";
+import { OrderData } from "../type";
 import ShopItem, { IShopProduct } from "@/models/ShopProduct";
 import { getPromoCode } from "@/helpers/actions/getPromoCode";
 import dbConnect from "@/config/dbConnect";
 
-export const checkOrder = async ({ items, totalPrice, promoCode }: Data) => {
+export const checkOrder = async ({ items, totalPrice, promoCode }: OrderData) => {
   let localTotalPrice = 0;
   // Check if all items are available and have correct price
   try {

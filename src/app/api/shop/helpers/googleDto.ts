@@ -1,6 +1,6 @@
-import { Data } from "../type";
+import { OrderData } from "../type";
 
-export const googleDto = (orderData: Data) => {
+export const googleDto = (orderData: OrderData) => {
   const {
     name,
     surname,
