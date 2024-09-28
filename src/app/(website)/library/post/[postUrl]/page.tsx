@@ -8,6 +8,7 @@ import { getLibraryItems } from "../../[section]/@content/page";
 import { getLibraryAccess } from "@/helpers/getLibraryAccess";
 import { notFound, redirect } from "next/navigation";
 import { Metadata } from "next";
+import { getColor } from "@/helpers/getLibraryItemColors";
 
 export const revalidate = 900;
 
@@ -15,11 +16,13 @@ const getPostData = async (postUrl: string) => {
   await dbConnect();
   const itemDb = (await LibraryItem.findOne({ url: postUrl })
     .populate("media.image")
+    .populate("content.images.image")
     .lean()) as ILibraryItem;
 
   if (!itemDb) {
     return null;
   }
+  itemDb.labelColor = getColor(itemDb.labelColor);
   const item = JSON.parse(JSON.stringify(itemDb)) as ILibraryItem;
 
   return item;

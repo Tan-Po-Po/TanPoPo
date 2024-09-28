@@ -18,7 +18,7 @@ export const parseCoursePrices = (
           variant="body2"
           style={{
             whiteSpace: "nowrap",
-            textAlign: "center",
+            textAlign: "start",
           }}
         >
           <span
@@ -26,7 +26,7 @@ export const parseCoursePrices = (
               color: discountPrice ? "#ff1c1c" : "black",
               fontWeight: "800",
               fontSize: "1.15rem",
-              marginLeft: "15px",
+              marginLeft: "0px",
             }}
           >
             {discountPrice ? discountPrice : price.price}грн

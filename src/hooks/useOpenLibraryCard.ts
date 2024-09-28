@@ -14,14 +14,14 @@ export const useOpenLibraryItem = ({ autoplay, item, isNew }: Params) => {
 
   const openLibraryItem = () => {
     if (
-      item.type === "reels" 
+      item.type === "reels"
       // ||
       // (item.type === "music" && !item.media![0].video?.includes("youtube"))
     ) {
       window.open(item.media[0].video, "_ blank");
     } else {
       router.push(
-        `${path}?page=${searchParams.get("page")}&id=${item._id}&autoplay=${
+        `${path}?page=${searchParams.get("page")}&url=${item.url}&autoplay=${
           autoplay || "0"
         }&new=${isNew}`,
         {
