@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Data } from "./type";
+import { OrderData } from "./type";
 import { checkOrder, googleDto } from "./helpers";
 import {
   GOOGLE_SCRIPT_URL,
@@ -8,9 +8,11 @@ import {
   MONOPAY_KEY,
 } from "@/config/config";
 import { sendEmail } from "../_helpers/sendEmail";
+import Orders from "@/models/Orders";
+import dbConnect from "@/config/dbConnect";
 
 export async function POST(req: Request) {
-  const formData = (await req.json()) as Data;
+  const formData = (await req.json()) as OrderData;
 
   const orderCheck = await checkOrder(formData);
   if (!orderCheck.success) {
@@ -41,6 +43,13 @@ export async function POST(req: Request) {
 
       return NextResponse.json({ success: true, orderId });
     } else {
+      // Save order in DB to send email after payment request from bank API
+      await dbConnect();
+      await Orders.create({
+        orderId,
+        data: JSON.stringify(formData),
+      });
+
       // Generate monopay link
       const invoiceData = {
         amount: formData.totalPrice.final * 100,
@@ -54,6 +63,7 @@ export async function POST(req: Request) {
         },
         redirectUrl: `${SERVER_URL}/shop/checkout/thanks?id=${orderId}`,
         webHookUrl: `${SERVER_URL}/api/paymentStatus?sheetName=orders`,
+        // webHookUrl: `https://c253-46-219-10-12.ngrok-free.app/api/paymentStatus?sheetName=orders`,
       };
 
       const monopayResponse = await fetch(MONOPAY_API_URL.CREATE_PAYMENT, {

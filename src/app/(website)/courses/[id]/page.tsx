@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
-
+export const revalidate = 0;
 export async function generateMetadata({
   params,
 }: {

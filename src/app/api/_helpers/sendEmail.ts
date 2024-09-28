@@ -15,9 +15,7 @@ export const sendEmail = async (
   formData: any,
   orderId: string
 ) => {
-  console.log(sheetName);
-  console.log(formData);
-  console.log(orderId);
+
   try {
     if (sheetName === "orders") {
       const htmlContent = generateShopHtml(formData, orderId);
@@ -131,7 +129,7 @@ export const sendEmail = async (
     } else if (sheetName === "courses") {
       const htmlContent = generateCourseHtml(formData);
       const htmlContentOwner = generateOwnerCourseHtml(formData, orderId);
-      const result = await Promise.all([
+      await Promise.all([
         transporter.sendMail({
           ...mailOptions,
           to: formData.email,
@@ -223,7 +221,7 @@ export const sendEmail = async (
           html: htmlContentOwner,
         }),
       ]);
-      console.log(result);
+
     } else if (sheetName === "certificates") {
       const htmlContent = generateCertificateHtml(formData);
       const htmlContentOwner = generateOwnerCertificateHtml(formData);

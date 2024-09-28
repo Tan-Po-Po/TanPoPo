@@ -3,10 +3,13 @@ import {
   GOOGLE_SCRIPT_URL,
   MONOPAY_KEY,
   MONOPAY_API_URL,
+  SERVER_URL,
 } from "@/config/config";
 import crypto from "crypto";
 import { sheetName } from "../_helpers/type";
 import { type paymentStatus } from "@/helpers/getPaymentStatus";
+import Orders from "@/models/Orders";
+import dbConnect from "@/config/dbConnect";
 
 export async function POST(req: NextRequest) {
   const url = new URL(req.url);
@@ -47,7 +50,7 @@ export async function POST(req: NextRequest) {
     status: paymentStatus,
   };
   try {
-    fetch(GOOGLE_SCRIPT_URL as string, {
+    await fetch(GOOGLE_SCRIPT_URL as string, {
       method: "POST",
       body: JSON.stringify(googleData),
       headers: {
@@ -55,6 +58,42 @@ export async function POST(req: NextRequest) {
         Accept: "application/json",
       },
     });
+
+    if (sheetName === "orders") {
+      await dbConnect();
+      const orderDataResponse = await Orders.findOne({
+        orderId: jsonData.reference,
+      });
+
+      const orderData = JSON.parse(JSON.stringify(orderDataResponse)) as {
+        orderId: string;
+        data: string;
+      };
+
+      if (orderData.orderId) {
+        const parsedData = {
+          orderId: orderData.orderId,
+          ...JSON.parse(orderData.data),
+        };
+        const mailResponse = await fetch(
+          `${SERVER_URL}/api/email?sheetName=orders`,
+          {
+            method: "POST",
+            body: JSON.stringify(parsedData),
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        );
+
+        if (mailResponse.ok) {
+          await Orders.deleteOne({
+            orderId: jsonData.reference,
+          });
+        }
+      }
+    }
     return getResponse(true);
   } catch (error) {
     console.error(error);

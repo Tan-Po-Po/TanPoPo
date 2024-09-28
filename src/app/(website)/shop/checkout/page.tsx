@@ -115,6 +115,7 @@ export default function Page() {
         toast(responseData.message);
         return setTimeout(() => router.push("/shop"), 5000);
       }
+
       if (!res.ok) {
         setLoading(false);
         toast("Сталася помилка, спробуйте ще раз пізніше");
@@ -174,12 +175,16 @@ export default function Page() {
                 className={cl.checkbox}
                 isChecked={field.value}
                 onChange={(e) => field.onChange(e.target.checked)}
-                style={{marginLeft: 0}}
+                style={{ marginLeft: 0 }}
               />
             )}
           />
 
-          <Typography className={cl.text} variant="subtitle1" style={{ color: "#3d3d3d" }}>
+          <Typography
+            className={cl.text}
+            variant="subtitle1"
+            style={{ color: "#3d3d3d" }}
+          >
             Оформлюючи замовлення, Я ознайомився та приймаю умови{" "}
             <Link target="_blank" href="/contacts/oferta">
               <u>Публічної {"\n"}Оферти</u>

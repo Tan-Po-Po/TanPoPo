@@ -50,27 +50,6 @@ const PayLaterResult: React.FC = ({}) => {
           return;
         }
 
-        if (cart.items.length) {
-          const dataToSend = {
-            ...cart,
-            ...deliveryInfo,
-            totalPrice: getTotalPrice(cart),
-            orderId,
-          };
-
-          const res = await fetch("/api/email?sheetName=orders", {
-            method: "POST",
-            body: JSON.stringify(dataToSend),
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-          });
-
-          if (!res.ok) {
-            toast("Сталася помилка, будь ласка,оновіть сторінку");
-          }
-        }
       }
 
       if (cart.promoCode?.oneTimeUse) {
