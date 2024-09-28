@@ -66,6 +66,7 @@ const CourseCard: React.FC<Properties> = ({ course }) => {
           ? `${course.level[0]}/${course.level.at(-1)}`
           : course.level[0];
       const priceData = JSON.parse(price);
+      
       const selectedCourse: Partial<CourseState> = {
         id: course._id,
         type: course.type,

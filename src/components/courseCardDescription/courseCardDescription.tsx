@@ -45,7 +45,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
   const dispatch = useAppDispatch();
   const courseInfo = course.large;
   const [isGift, setIsGift] = useState(false);
-  const [lessons, setLessons] = useState<null | string>(null);
+  const [price, setPrice] = useState<null | string>(null);
   const [isAccepted, setIsAccepted] = useState(false);
   const [link, setLink] = useState<null | string>(null);
 
@@ -57,11 +57,15 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
   };
 
   const handleClick = () => {
-    if (!lessons) {
-      return toast("Спочатку оберіть К-сть уроків!📚", {toastId: "lessonsAmount"});
+    if (!price) {
+      return toast("Спочатку оберіть К-сть уроків!📚", {
+        toastId: "lessonsAmount",
+      });
     }
     if (!isAccepted && !(course.type === "book")) {
-      return toast("Спочатку ознайомтесь з навчальним періодом!📚", {toastId: "lessonsPeriod"});
+      return toast("Спочатку ознайомтесь з навчальним періодом!📚", {
+        toastId: "lessonsPeriod",
+      });
     }
 
     if (isGift) {
@@ -69,15 +73,18 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
         course.level.length > 1
           ? `${course.level[0]}/${course.level.at(-1)}`
           : course.level[0];
-
+      const priceData = JSON.parse(price);
+      
       const selectedCourse: Partial<CourseState> = {
         id: course._id,
         type: course.type,
         name: course.name,
         japanName: course.nameJapanese,
         format: "Індивідуально",
-        lessons: Number(lessons.slice(0, 2).trim()),
-        price: lessons.match(/\(([^)]+)\)/)![1],
+        // lessons: Number(lessons.slice(0, 2).trim()),
+        // price: lessons.match(/\(([^)]+)\)/)![1],
+        lessons: priceData.lessons,
+        price: `${priceData.price} грн`,
         level: courseLevel,
         isGift,
         backgroundColor: course.large.labelColor,
@@ -210,7 +217,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
           return parseCoursePrices(price, course.type);
         })}
         handleSelect={(value: string, link?: string) => {
-          setLessons(value);
+          setPrice(value);
           link && setLink(link);
         }}
       />
@@ -223,7 +230,7 @@ const CourseCardDescription: React.FC<Properties> = ({ course }) => {
           className={getValidClassNames(cl.checkbox, cl.giftCheckbox)}
         />
 
-        {course.type !== "book" && lessons && (
+        {course.type !== "book" && price && (
           <>
             <div className={cl.line}></div>
             <div className={cl.checkboxWrapper}>
