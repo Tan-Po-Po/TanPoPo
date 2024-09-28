@@ -32,9 +32,9 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
   };
 
   useEffect(() => {
-    const getLibraryItem = async (id: string) => {
+    const getLibraryItem = async (articleUrl: string) => {
       try {
-        const response = await fetch(`/api/libraryItem?id=${id}`);
+        const response = await fetch(`/api/libraryItem?url=${articleUrl}`);
 
         if (!response.ok) {
           setLoading(false);
@@ -51,8 +51,8 @@ const DialogArticle: React.FC<Props> = ({ page }) => {
         console.log(err);
       }
     };
-    const id = searchParams.get("id");
-    getLibraryItem(id as string);
+    const articleUrl = searchParams.get("url");
+    getLibraryItem(articleUrl as string);
   }, [searchParams]);
 
   return (

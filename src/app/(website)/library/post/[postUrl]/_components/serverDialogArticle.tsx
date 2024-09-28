@@ -17,7 +17,7 @@ const DialogArticle: React.FC<Props> = ({ postData }) => {
   const router = useRouter();
 
   const handleClose = () => {
-    router.push(`/library/${postData.section}`, { scroll: false });
+    router.push(`/library/${postData.section}?page=1`, { scroll: false });
   };
 
   return (

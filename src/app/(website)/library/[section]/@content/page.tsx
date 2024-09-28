@@ -26,6 +26,9 @@ export const getLibraryItems = async (
     .skip(pageSize * cursor)
     .limit(pageSize)
     .populate("media.image")
+    .select({
+      content: { $slice: 5 },
+    })
     .lean()) as ILibraryItem[];
 
   if (!itemsDb.length) {
@@ -68,7 +71,7 @@ const Content: React.FC<Props> = async ({ params, searchParams }) => {
               />
             ))}
 
-        {searchParams.id && <DialogArticle page={page} />}
+        {searchParams.url && <DialogArticle page={page} />}
         <DialogGallery />
       </div>
       {data && data.lastPage > 1 && (
