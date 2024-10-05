@@ -59,42 +59,44 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    if (sheetName === "orders") {
-      await dbConnect();
-      const orderDataResponse = await Orders.findOne({
-        orderId: jsonData.reference,
-      });
+    if (paymentStatus === "success") {
+      if (sheetName === "orders") {
+        await dbConnect();
+        const orderDataResponse = await Orders.findOne({
+          orderId: jsonData.reference,
+        });
 
-      const orderData = JSON.parse(JSON.stringify(orderDataResponse)) as {
-        orderId: string;
-        data: string;
-      };
-
-      if (orderData.orderId) {
-        const parsedData = {
-          orderId: orderData.orderId,
-          ...JSON.parse(orderData.data),
+        const orderData = JSON.parse(JSON.stringify(orderDataResponse)) as {
+          orderId: string;
+          data: string;
         };
-        const mailResponse = await fetch(
-          `${SERVER_URL}/api/email?sheetName=orders`,
-          {
-            method: "POST",
-            body: JSON.stringify(parsedData),
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-          }
-        );
 
-        if (mailResponse.ok) {
-          await Orders.deleteOne({
-            orderId: jsonData.reference,
-          });
+        if (orderData.orderId) {
+          const parsedData = {
+            orderId: orderData.orderId,
+            ...JSON.parse(orderData.data),
+          };
+          const mailResponse = await fetch(
+            `${SERVER_URL}/api/email?sheetName=orders`,
+            {
+              method: "POST",
+              body: JSON.stringify(parsedData),
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+            }
+          );
+
+          if (mailResponse.ok) {
+            await Orders.deleteOne({
+              orderId: jsonData.reference,
+            });
+          }
         }
       }
+      return getResponse(true);
     }
-    return getResponse(true);
   } catch (error) {
     console.error(error);
     return getResponse(false, 500);
