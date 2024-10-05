@@ -9,14 +9,11 @@ export const metadata: Metadata = {
   title: "Бібліотека | TanPoPo",
 };
 interface Props {
-  params: {
-    postUrl: string;
-  };
   children: any;
 }
 
-const LibrarySectionLayout: React.FC<Props> = async ({ params, children }) => {
-  // const accessGranted = await getLibraryAccess(params.section);
+const LibrarySectionLayout: React.FC<Props> = async ({ children }) => {
+
   return (
     <div className={cl.layout}>
       <Typography variant="h3" align="center">

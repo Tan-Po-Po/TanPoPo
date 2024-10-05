@@ -9,6 +9,7 @@ import { getLibraryAccess } from "@/helpers/getLibraryAccess";
 import { notFound, redirect } from "next/navigation";
 import { Metadata } from "next";
 import { getColor } from "@/helpers/getLibraryItemColors";
+import { headers } from "next/headers";
 
 export const revalidate = 900;
 
@@ -52,7 +53,11 @@ const Content: React.FC<Props> = async ({ params, searchParams }) => {
     return notFound();
   }
 
-  const accessGranted = await getLibraryAccess(postData.section);
+  const headersList = headers();
+  const userAgent = headersList.get("user-agent") || "";
+  const isGoogleBot = userAgent.toLowerCase().includes("googlebot");
+  const accessGranted =
+    isGoogleBot || (await getLibraryAccess(postData.section));
   if (!accessGranted) {
     redirect(`/library/${postData.section}`);
   }
