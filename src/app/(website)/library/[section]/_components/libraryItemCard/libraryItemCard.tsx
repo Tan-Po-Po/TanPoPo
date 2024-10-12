@@ -8,22 +8,21 @@ import { MusicCard } from "./cards/musicCard";
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { NewLabel } from "./newLabel/newLabel";
 import { ContentCard } from "@/components";
-import { useWindowSize } from "@uidotdev/usehooks";
 import { getValidClassNames } from "@/helpers";
+import { useRouter } from "next/navigation";
 
 export const LibraryItemCard: React.FC<Props> = (props) => {
   let card: React.ReactNode;
-
+  const router = useRouter();
   const { openLibraryItem } = useOpenLibraryItem({
     item: props,
     isNew: props.isNew,
   });
 
-  const { width } = useWindowSize();
-  const isMobile = width && width < 767;
-
   const handelClick = () => {
-    openLibraryItem();
+    props.isPreview
+      ? router.push(`/library/${props.section}`)
+      : openLibraryItem();
   };
 
   if (props.type === "article" || props.type === "articleSmall") {
@@ -41,17 +40,9 @@ export const LibraryItemCard: React.FC<Props> = (props) => {
       onClick={handelClick}
       id={props._id}
       className={cl.libraryItemCard}
-      label={
-        <>
-          {props.label}
-          {/* {props.isNew && <NewLabel position="center" />} */}
-        </>
-      }
+      label={props.label}
       labelBgColor={props.labelColor}
-      labelClassName={getValidClassNames(
-        cl.label,
-        // props.isNew && cl.new
-      )}
+      labelClassName={getValidClassNames(cl.label)}
     >
       {props.isNew && <NewLabel />}
       {card}

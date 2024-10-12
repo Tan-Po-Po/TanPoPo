@@ -17,12 +17,12 @@ import { CardFooter } from "../cardFooter/cardFooter";
 import { useOpenLibraryItem } from "@/hooks/useOpenLibraryCard";
 import { IMAGE_BASE_URL } from "@/config/config";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { useRouter } from "next/navigation";
 
 export const ArticleCard: React.FC<Props> = (props) => {
-  const { type, media, content } = props;
-
+  const { type, media, content, isPreview } = props;
   const [isHovered, setIsHovered] = useState(false);
-
+  const router = useRouter();
   const cardWidth = type === "articleSmall" ? "384px" : "626px";
   const mediaWidth = type === "articleSmall" ? "274px" : "506px";
 
@@ -42,7 +42,7 @@ export const ArticleCard: React.FC<Props> = (props) => {
 
   const handleVideoClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    openLibraryItem();
+    isPreview ? router.push(`/library/${props.section}`) : openLibraryItem();
   };
 
   const { width } = useWindowSize();

@@ -1,13 +1,13 @@
 "use client";
 
 import { ContentCard, Dialog, Typography } from "@/components";
-import cl from "./dialogArticle.module.scss";
+import cl from "./serverDialogArticle.module.scss";
 import { useRouter } from "next/navigation";
 import { ILibraryItem } from "@/models/LibraryItem";
 import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
 
-import { Media } from "../../../[section]/_components/dialogArticle/media/media";
-import { CardFooter } from "../../../[section]/_components/libraryItemCard/cardFooter/cardFooter";
+import { Media } from "../../../../[section]/_components/dialogArticle/media/media";
+import { CardFooter } from "../../../../[section]/_components/libraryItemCard/cardFooter/cardFooter";
 
 interface Props {
   postData: ILibraryItem;

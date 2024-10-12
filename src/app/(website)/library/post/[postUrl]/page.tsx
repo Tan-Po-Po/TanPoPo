@@ -1,15 +1,16 @@
 import cl from "./page.module.scss";
 import LibraryItem, { ILibraryItem } from "@/models/LibraryItem";
 import dbConnect from "@/config/dbConnect";
-import { DialogGallery, Pagination } from "@/components";
+import { DialogGallery } from "@/components";
 import { LibraryItemCard } from "../../[section]/_components/libraryItemCard/libraryItemCard";
-import DialogArticle from "./_components/serverDialogArticle";
+import DialogArticle from "./_components/serverDialogArticle/serverDialogArticle";
 import { getLibraryItems } from "../../[section]/@content/page";
 import { getLibraryAccess } from "@/helpers/getLibraryAccess";
 import { notFound, redirect } from "next/navigation";
 import { Metadata } from "next";
 import { getColor } from "@/helpers/getLibraryItemColors";
 import { headers } from "next/headers";
+import PreviewDialogArticle from "./_components/previewDialog/previewDialog";
 
 export const revalidate = 900;
 
@@ -58,9 +59,9 @@ const Content: React.FC<Props> = async ({ params, searchParams }) => {
   const isGoogleBot = userAgent.toLowerCase().includes("googlebot");
   const accessGranted =
     isGoogleBot || (await getLibraryAccess(postData.section));
-  if (!accessGranted) {
-    redirect(`/library/${postData.section}`);
-  }
+  // if (!accessGranted) {
+  //   redirect(`/library/${postData.section}`);
+  // }
 
   const data = await getLibraryItems(postData.section, "1");
 
@@ -73,12 +74,18 @@ const Content: React.FC<Props> = async ({ params, searchParams }) => {
               <LibraryItemCard key={item._id!} {...item} isNew={i < 2} />
             ))}
 
-        <DialogArticle postData={postData} />
+        {accessGranted ? (
+          <DialogArticle postData={postData} />
+        ) : (
+          <PreviewDialogArticle
+            postData={postData}
+            isNew={data?.items
+              .slice(0, 3)
+              .some((item) => item._id === postData._id) ?? false}
+          />
+        )}
         <DialogGallery />
       </div>
-      {data && data.lastPage > 1 && (
-        <Pagination pages={data.lastPage} className={cl.pagination} />
-      )}
     </main>
   );
 };
