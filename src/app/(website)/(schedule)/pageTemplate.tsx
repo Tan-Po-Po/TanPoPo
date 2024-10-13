@@ -17,13 +17,16 @@ import { getIconArtSrc, getValidClassNames } from "@/helpers";
 import { toast } from "react-toastify";
 import Image from "next/image";
 import cl from "./page.module.scss";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { type ISchedule } from "@/components/schedule/_schedule/type";
 import { useForm } from "react-hook-form";
 
-export default function Page() {
+type Props = {
+  educationFormat?: "Міні-група" | "Індивідуально";
+};
+
+const PageTemplate: React.FC<Props> = ({ educationFormat }) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     document.title = "Розклад  | TanPoPo";
@@ -64,10 +67,6 @@ export default function Page() {
   const [schedule, setSchedule] = React.useState<ISchedule>(scheduleArray);
   const [comment, setComment] = React.useState("");
   const lessonsPerWeek = watch("lessonsPerWeek");
-  const educationFormat = searchParams.get("format") as
-    | "Міні-група"
-    | "Індивідуально"
-    | undefined;
 
   const submitForm = (formData: FormData) => {
     if (educationFormat === "Міні-група" || !educationFormat) {
@@ -104,7 +103,7 @@ export default function Page() {
 
     window && window.scrollTo(0, 0);
     setLoading(true);
-    fetch("/api/email?sheetName=courses", {
+    fetch("/api/email?sheetName=schedule", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -250,7 +249,7 @@ export default function Page() {
       </form>
     </main>
   );
-}
+};
 
 const timeToSelectMessage = (timeToSelect: number) => {
   return toast(
@@ -261,3 +260,5 @@ const timeToSelectMessage = (timeToSelect: number) => {
     </>
   );
 };
+
+export { PageTemplate };

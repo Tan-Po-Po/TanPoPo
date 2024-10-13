@@ -9,13 +9,14 @@ import {
   generateOwnerCertificateHtml,
 } from ".";
 import path from "path";
+import { generateScheduleHtml } from "./generateScheduleHtml";
+import { generateOwnerScheduleHtml } from "./generateOwnerScheduleHtml";
 
 export const sendEmail = async (
   sheetName: sheetName,
   formData: any,
   orderId: string
 ) => {
-
   try {
     if (sheetName === "orders") {
       const htmlContent = generateShopHtml(formData, orderId);
@@ -221,7 +222,6 @@ export const sendEmail = async (
           html: htmlContentOwner,
         }),
       ]);
-
     } else if (sheetName === "certificates") {
       const htmlContent = generateCertificateHtml(formData);
       const htmlContentOwner = generateOwnerCertificateHtml(formData);
@@ -328,6 +328,101 @@ export const sendEmail = async (
               cid: "present",
             },
           ],
+        }),
+      ]);
+    } else if (sheetName === "schedule") {
+      const htmlContent = generateScheduleHtml(formData);
+      const htmlContentOwner = generateOwnerScheduleHtml(formData, orderId);
+      await Promise.all([
+        transporter.sendMail({
+          ...mailOptions,
+          to: formData.email,
+          subject: "Розклад навчання у школі TanPoPo",
+          html: htmlContent,
+          attachments: [
+            {
+              filename: "school.png",
+              path: path.join(
+                process.cwd(),
+                "public",
+                "icons",
+                "art",
+                "school.png"
+              ),
+              cid: "school",
+            },
+            {
+              filename: "girl.png",
+              path: path.join(
+                process.cwd(),
+                "public",
+                "icons",
+                "art",
+                "girl.png"
+              ),
+              cid: "girl",
+            },
+            {
+              filename: "instagram.png",
+              path: path.join(
+                process.cwd(),
+                "public",
+                "icons",
+                "socials",
+                "instagram.png"
+              ),
+              cid: "instagram",
+            },
+            {
+              filename: "tikTok.png",
+              path: path.join(
+                process.cwd(),
+                "public",
+                "icons",
+                "socials",
+                "tikTok.png"
+              ),
+              cid: "tikTok",
+            },
+            {
+              filename: "youTube.png",
+              path: path.join(
+                process.cwd(),
+                "public",
+                "icons",
+                "socials",
+                "youTube.png"
+              ),
+              cid: "youtube",
+            },
+            {
+              filename: "telegram.png",
+              path: path.join(
+                process.cwd(),
+                "public",
+                "icons",
+                "socials",
+                "telegram.png"
+              ),
+              cid: "telegram",
+            },
+            {
+              filename: "viber.png",
+              path: path.join(
+                process.cwd(),
+                "public",
+                "icons",
+                "socials",
+                "viber.png"
+              ),
+              cid: "viber",
+            },
+          ],
+        }),
+        transporter.sendMail({
+          ...mailOptions,
+          subject: "Новий розклад!",
+          html: htmlContentOwner,
         }),
       ]);
     }

@@ -1,1 +1,1 @@
-export type sheetName = "orders" | "certificates" | "courses"
+export type sheetName = "orders" | "certificates" | "courses" | "schedule"
