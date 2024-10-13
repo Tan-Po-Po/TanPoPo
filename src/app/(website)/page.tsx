@@ -15,6 +15,7 @@ import { MoreLinks } from "./_components/moreLinks";
 import { NavLinks } from "./_components/navLinks/navLinks";
 import { RedirectDialog } from "./_components/redirectDialog";
 import { Metadata } from "next";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Онлайн-школа японської мови | TanPoPo",
@@ -27,6 +28,20 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className={cl.main}>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "TanPoPo School",
+              alternateName: "TanPoPo",
+              url: "https://tanpopo.com.ua/",
+            }),
+          }}
+        />
+      </Head>
       <Suspense fallback={<></>}>
         <RedirectDialog />
       </Suspense>

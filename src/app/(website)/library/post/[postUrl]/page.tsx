@@ -59,9 +59,6 @@ const Content: React.FC<Props> = async ({ params, searchParams }) => {
   const isGoogleBot = userAgent.toLowerCase().includes("googlebot");
   const accessGranted =
     isGoogleBot || (await getLibraryAccess(postData.section));
-  // if (!accessGranted) {
-  //   redirect(`/library/${postData.section}`);
-  // }
 
   const data = await getLibraryItems(postData.section, "1");
 
