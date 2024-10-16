@@ -53,27 +53,6 @@ export default function Page() {
         return;
       }
 
-      const dataToSend = {
-        ...courseRedux,
-        courseName: courseRedux.name,
-        ...studentInfo,
-        orderId,
-      };
-
-      const sheetName = courseRedux.isGift ? "certificates" : "courses";
-      const res = await fetch(`/api/email?sheetName=${sheetName}`, {
-        method: "POST",
-        body: JSON.stringify(dataToSend),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-
-      if (!res.ok) {
-        setLoading(false);
-        return toast("Сталася помилка, будь ласка,оновіть сторінку");
-      }
       setCourse(courseRedux);
       dispatch(clearCourse());
       dispatch(clearDeliveryInfo());

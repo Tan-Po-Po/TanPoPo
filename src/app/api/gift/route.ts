@@ -8,6 +8,8 @@ import {
   GOOGLE_SCRIPT_URL,
   SERVER_URL,
 } from "@/config/config";
+import dbConnect from "@/config/dbConnect";
+import Orders from "@/models/Orders";
 
 export async function POST(req: Request) {
   const formData = (await req.json()) as Data;
@@ -32,7 +34,12 @@ export async function POST(req: Request) {
       },
     });
     const orderId = await google.text();
-    console.log(orderId);
+    // Save order in DB to send email after payment request from bank API
+    await dbConnect();
+    await Orders.create({
+      orderId,
+      data: JSON.stringify(formData),
+    });
     // Generate monopay link
     const invoiceData = {
       amount: priceCheck.price! * 100,

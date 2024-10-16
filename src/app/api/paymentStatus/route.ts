@@ -62,17 +62,17 @@ export async function POST(req: NextRequest) {
     if (jsonData.status !== "success") {
       return getResponse(true);
     }
+    await dbConnect();
+    const orderDataResponse = await Orders.findOne({
+      orderId: jsonData.reference,
+    });
+
+    const orderData = JSON.parse(JSON.stringify(orderDataResponse)) as {
+      orderId: string;
+      data: string;
+    };
+
     if (sheetName === "orders") {
-      await dbConnect();
-      const orderDataResponse = await Orders.findOne({
-        orderId: jsonData.reference,
-      });
-
-      const orderData = JSON.parse(JSON.stringify(orderDataResponse)) as {
-        orderId: string;
-        data: string;
-      };
-
       if (orderData.orderId) {
         const parsedData = {
           orderId: orderData.orderId,
@@ -80,6 +80,54 @@ export async function POST(req: NextRequest) {
         };
         const mailResponse = await fetch(
           `${SERVER_URL}/api/email?sheetName=orders`,
+          {
+            method: "POST",
+            body: JSON.stringify(parsedData),
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        );
+
+        if (mailResponse.ok) {
+          await Orders.deleteOne({
+            orderId: jsonData.reference,
+          });
+        }
+      }
+    } else if (sheetName === "courses") {
+      if (orderData.orderId) {
+        const parsedData = {
+          orderId: orderData.orderId,
+          ...JSON.parse(orderData.data),
+        };
+        const mailResponse = await fetch(
+          `${SERVER_URL}/api/email?sheetName=courses`,
+          {
+            method: "POST",
+            body: JSON.stringify(parsedData),
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        );
+
+        if (mailResponse.ok) {
+          await Orders.deleteOne({
+            orderId: jsonData.reference,
+          });
+        }
+      }
+    } else if (sheetName === "certificates") {
+      if (orderData.orderId) {
+        const parsedData = {
+          orderId: orderData.orderId,
+          ...JSON.parse(orderData.data),
+        };
+        const mailResponse = await fetch(
+          `${SERVER_URL}/api/email?sheetName=certificates`,
           {
             method: "POST",
             body: JSON.stringify(parsedData),

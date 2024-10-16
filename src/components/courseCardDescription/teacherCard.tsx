@@ -88,6 +88,8 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
       lessonsPerWeek: cardState.learningFormat === "Міні-група" ? 2 : null,
       isGift,
       backgroundColor: course.large.labelColor,
+      lessonDuration: course.lessonDuration,
+      accessDuration: course.accessDuration,
     };
 
     dispatch(setCourse(selectedCourse));
@@ -250,9 +252,7 @@ const TeacherCard: React.FC<Properties> = ({ course }) => {
               isChecked={isNewStudent}
               onClick={() => setCheckbox("newStudent")}
             />
-            <div
-              className={cl.divider}
-            >
+            <div className={cl.divider}>
               <div className={cl.line}></div>
               <Typography variant="body2" className={cl.text}>
                 Або
