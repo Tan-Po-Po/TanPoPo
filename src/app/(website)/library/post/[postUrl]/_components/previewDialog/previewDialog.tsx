@@ -1,13 +1,9 @@
 "use client";
 
-import { ContentCard, Dialog, Typography } from "@/components";
+import { Dialog } from "@/components";
 import cl from "./previewDialog.module.scss";
 import { useRouter } from "next/navigation";
 import { ILibraryItem } from "@/models/LibraryItem";
-import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
-
-import { Media } from "../../../../[section]/_components/dialogArticle/media/media";
-import { CardFooter } from "../../../../[section]/_components/libraryItemCard/cardFooter/cardFooter";
 import { LibraryItemCard } from "@/app/(website)/library/[section]/_components/libraryItemCard/libraryItemCard";
 
 interface Props {

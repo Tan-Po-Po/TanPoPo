@@ -6,7 +6,7 @@ import { LibraryItemCard } from "../../[section]/_components/libraryItemCard/lib
 import DialogArticle from "./_components/serverDialogArticle/serverDialogArticle";
 import { getLibraryItems } from "../../[section]/@content/page";
 import { getLibraryAccess } from "@/helpers/getLibraryAccess";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { getColor } from "@/helpers/getLibraryItemColors";
 import { headers } from "next/headers";
