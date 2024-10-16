@@ -1,7 +1,7 @@
 "use client";
 
 import { ContentCard, Dialog, Typography } from "@/components";
-import cl from "./serverDialogArticle.module.scss";
+import cl from "./styles.module.scss";
 import { useRouter } from "next/navigation";
 import { ILibraryItem } from "@/models/LibraryItem";
 import { LibraryItemContent } from "@/app/(website)/library/[section]/_components/libraryItemContent/libraryItemContent";
